@@ -20,10 +20,12 @@
 # Constants
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+PACKAGE_NAME="lightdash_client"
 
 # Arguments
-output_dir="${PROJECT_DIR}/lightdash_client"
+output_dir="${PROJECT_DIR}"
 schema_json="${PROJECT_DIR}/dev/schemas/lightdash-api.json"
+skip_validate_spec="0"
 while (($# > 0)); do
   if [[ "$1" == "--output" ]]; then
     output_dir="${2:?}"
@@ -31,15 +33,23 @@ while (($# > 0)); do
   elif [[ "$1" == "--schema-json" ]]; then
     schema_json="${2:?}"
     shift 2
+  elif [[ "$1" == "--skip-validate-spec" ]]; then
+    skip_validate_spec="${2:?}"
+    shift 2
   else
     echo "ERROR: Unrecognized argument ${1}" >&2
     exit 1
   fi
 done
 
+options=()
+if [[ "${skip_validate_spec}" == "1" ]]; then
+  options+=("--skip-validate-spec")
+fi
+
 openapi-generator generate \
   --input-spec "${schema_json}" \
   --generator-name python \
-  --output "${output_dir}" --skip-validate-spec --api-package "lightdash_client"
-#  --config "${PROJECT_DIR}/dev/openapi-generator-config.json" \
-#  --skip-validate-spec
+  --output "${output_dir}" \
+  --package-name "${PACKAGE_NAME}" \
+  "${options[@]}"
