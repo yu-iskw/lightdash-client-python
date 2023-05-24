@@ -1,0 +1,48 @@
+# lightdash_client.model.lightdash_user.LightdashUser
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**firstName** | str,  | str,  |  |
+**isTrackingAnonymized** | bool,  | BoolClass,  |  |
+**lastName** | str,  | str,  |  |
+**organizationUuid** | str,  | str,  |  |
+**role** | str,  | str,  |  |
+**organizationName** | str,  | str,  |  |
+**isMarketingOptedIn** | bool,  | BoolClass,  |  |
+**userUuid** | str,  | str,  |  |
+**isSetupComplete** | bool,  | BoolClass,  |  |
+**email** | str,  | str,  |  | [optional]
+**organizationCreatedAt** | str, datetime,  | str,  |  | [optional] value must conform to RFC-3339 date-time
+**[abilityRules](#abilityRules)** | list, tuple,  | tuple,  |  | [optional]
+
+# abilityRules
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+
+# items
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
