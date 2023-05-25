@@ -10,7 +10,7 @@ name = "lightdash-client-python"
 authors = [{name = "yu-iskw"}]
 readme = "README.md"
 license = {file = "LICENSE"}
-requires-python = ">=3.7.0"
+requires-python = ">=3.8.0,<4"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Information Technology",
@@ -22,29 +22,25 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Typing :: Typed",
 ]
 dynamic = ["version", "description"]
 dependencies = [
-    "certifi >= 14.5.14",
-    "frozendict ~= 2.3.4",
-    "python-dateutil ~= 2.7.0",
-    "setuptools >= 21.0.0",
-    "typing_extensions ~= 4.3.0",
-    "urllib3 ~= 1.26.7",
+    "httpx >= 0.15.0, < 0.25.0",
+    "attrs >= 21.3.0",
+    "python-dateutil >= 2.8.0, < 3"
 ]
 
 [project.urls]
-Home = "https://github.com/yu-iskw/dbt-dependency-graph"
+Home = "https://github.com/yu-iskw/dbt-artifacts-parser"
 
 [project.optional-dependencies]
 test = [
     "pytest >=6.2.4,<7.0.0",
-    "parameterized >=0.7.0, <1.0.0",
     "pylint >=2.12.0",
     "mypy ==0.910",
     "flake8 >=3.8.3,<4.0.0",
