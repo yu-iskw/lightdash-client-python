@@ -6,7 +6,7 @@ on:
       - created
 
 env:
-  PYPI_PACKAGE_NAME: "lightdash-client"
+  PYPI_PACKAGE_NAME: "lightdash-client-python"
 
 jobs:
   publish:
