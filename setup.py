@@ -12,22 +12,6 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
+from setuptools import setup
 
-repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: check-json
-      - id: check-toml
-      - id: check-yaml
-      - id: detect-private-key
-  - repo: https://github.com/rhysd/actionlint
-    rev: v1.6.24
-    hooks:
-      - id: actionlint
-  - repo: https://github.com/asottile/reorder_python_imports
-    rev: v3.9.0
-    hooks:
-      - id: reorder-python-imports
+setup()
