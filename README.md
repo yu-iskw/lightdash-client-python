@@ -73,3 +73,20 @@ Things to know:
 1. All path/query params, and bodies become method arguments.
 1. If your endpoint had any tags on it, the first tag will be used as a module name for the function (my_tag above)
 1. Any endpoint which did not have a tag will be in `lightdash_client.api.default`
+
+
+### Example: Get dashboards in a project
+Here is an example to get all dashboards in a project.
+
+```python
+from lightdash_client import AuthenticatedClient
+from lightdash_client.api.dashboard import get_dashboards
+
+token = "..."
+project_uuid = "..."
+
+client = AuthenticatedClient(base_url="https://app.lightdash.cloud/api/v1", token=token)
+
+dashboards = get_dashboards.sync(client=client, project_uuid=project_uuid)
+print(dashboards)
+```
