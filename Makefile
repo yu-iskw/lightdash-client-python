@@ -35,6 +35,3 @@ publish:
 # Publish to testpypi
 test-publish:
 	bash ./dev/publish.sh "testpypi"
-
-config-schema-json:
-	dbt-dependency-graph config-schema --output ./dev/schemas/graph_config.json

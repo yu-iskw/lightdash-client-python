@@ -36,7 +36,7 @@ dependencies = [
 ]
 
 [project.urls]
-Home = "https://github.com/yu-iskw/dbt-artifacts-parser"
+Home = "https://github.com/yu-iskw/lightdash-client-python"
 
 [project.optional-dependencies]
 test = [
