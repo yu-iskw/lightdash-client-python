@@ -82,10 +82,10 @@ Here is an example to get all dashboards in a project.
 from lightdash_client import AuthenticatedClient
 from lightdash_client.api.dashboard import get_dashboards
 
-token = "..."
+api_key = "..."
 project_uuid = "..."
 
-client = AuthenticatedClient(base_url="https://app.lightdash.cloud/api/v1", token=token)
+client = AuthenticatedClient(base_url="https://app.lightdash.cloud/api/v1", token=api_key)
 
 dashboards = get_dashboards.sync(client=client, project_uuid=project_uuid)
 print(dashboards)
