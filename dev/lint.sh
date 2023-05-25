@@ -1,3 +1,4 @@
+#!/bin/bash
 #  Licensed to the Apache Software Foundation (ASF) under one or more
 #  contributor license agreements.  See the NOTICE file distributed with
 #  this work for additional information regarding copyright ownership.
@@ -12,22 +13,10 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
+set -e
 
-repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: check-json
-      - id: check-toml
-      - id: check-yaml
-      - id: detect-private-key
-  - repo: https://github.com/rhysd/actionlint
-    rev: v1.6.24
-    hooks:
-      - id: actionlint
-  - repo: https://github.com/asottile/reorder_python_imports
-    rev: v3.9.0
-    hooks:
-      - id: reorder-python-imports
+# Constants
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+MODULE_DIR="$(dirname "$SCRIPT_DIR")"
+
+pylint -v "${MODULE_DIR}/lightdash_client" "${MODULE_DIR}/tests"
