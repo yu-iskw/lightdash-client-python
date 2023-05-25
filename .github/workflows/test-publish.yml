@@ -7,6 +7,10 @@ on:
         description: "package version"
         required: true
 
+env:
+  PYPI_PROJECT_NAME: "lightdash-client-python"
+  PYPI_PACKAGE_NAME: "lightdash_client"
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -69,7 +73,7 @@ jobs:
             --index-url https://test.pypi.org/simple/ \
             --force-reinstall \
             --use-feature=2020-resolver \
-            -U lightdash-client=="${{ github.event.inputs.package_version }}"
+            -U lightdash-client-python=="${{ github.event.inputs.package_version }}"
       - name: Test pacakge
         run: |
-          python -c 'import lightdash_client; print(lightdash_client.__version__)'
+          python -c 'import ${{ env.PYPI_PACKAGE_NAME }}'
