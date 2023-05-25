@@ -20,21 +20,24 @@
 # Constants
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-PACKAGE_NAME="lightdash_client"
 
 # Arguments
-output_dir="${PROJECT_DIR}"
 schema_json="${PROJECT_DIR}/dev/schemas/lightdash-api.json"
-skip_validate_spec="0"
+config_yaml="${PROJECT_DIR}/dev/openapi-python-client.yml"
+output_dir="${PROJECT_DIR}"
+meta="setup"
 while (($# > 0)); do
-  if [[ "$1" == "--output" ]]; then
-    output_dir="${2:?}"
-    shift 2
-  elif [[ "$1" == "--schema-json" ]]; then
+  if [[ "$1" == "--schema-json" ]]; then
     schema_json="${2:?}"
     shift 2
-  elif [[ "$1" == "--skip-validate-spec" ]]; then
-    skip_validate_spec="${2:?}"
+  elif [[ "$1" == "--output" ]]; then
+    output_dir="${2:?}"
+    shift 2
+  elif [[ "$1" == "--config" ]]; then
+    config_yaml="${2:?}"
+    shift 2
+  elif [[ "$1" == "--meta" ]]; then
+    meta="${2:?}"
     shift 2
   else
     echo "ERROR: Unrecognized argument ${1}" >&2
@@ -47,9 +50,18 @@ if [[ "${skip_validate_spec}" == "1" ]]; then
   options+=("--skip-validate-spec")
 fi
 
-openapi-generator generate \
-  --input-spec "${schema_json}" \
-  --generator-name python \
-  --output "${output_dir}" \
-  --package-name "${PACKAGE_NAME}" \
-  "${options[@]}"
+# Generate the client in the temporary directory.
+temp_dir="$(mktemp -d -t openapi-python-client-XXXXXXXXXX)"
+cd "${temp_dir:?}" || exit 1
+openapi-python-client generate \
+  --path "${schema_json:?}" \
+  --config "${config_yaml:?}" \
+  --meta "${meta:?}"
+
+ls -la "${temp_dir:?}/lightdash-client-python"
+
+# Copy the files
+cp -apR "${temp_dir:?}/lightdash-client-python/"* "${output_dir:?}"
+
+# Remove the temporary directory
+rm -fr "${temp_dir:?}"

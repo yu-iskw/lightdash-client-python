@@ -1,0 +1,6 @@
+# The project name must be same as the directory name of the project.
+project_name_override: lightdash-client-python
+
+package_name_override: lightdash_client
+
+package_version_override: "0.1.0"
