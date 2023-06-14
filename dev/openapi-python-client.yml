@@ -3,4 +3,6 @@ project_name_override: lightdash-client-python
 
 package_name_override: lightdash_client
 
-package_version_override: "0.1.0"
+package_version_override: "0.2.0"
+
+http_timeout: 30

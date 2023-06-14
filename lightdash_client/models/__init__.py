@@ -1,178 +1,320 @@
 """ Contains all the data models used in inputs/outputs """
-from .chart_config import ChartConfig
-from .chart_config_chart_type import ChartConfigChartType
-from .chart_config_config import ChartConfigConfig
-from .create_dashboard_tile import CreateDashboardTile
-from .create_dashboard_tile_type import CreateDashboardTileType
-from .create_invite_link import CreateInviteLink
-from .create_invite_link_response_201 import CreateInviteLinkResponse201
-from .create_personal_access_token import CreatePersonalAccessToken
-from .create_personal_access_token_response_200 import CreatePersonalAccessTokenResponse200
-from .create_saved_chart import CreateSavedChart
-from .create_saved_chart_metric_query import CreateSavedChartMetricQuery
-from .create_saved_chart_pivot_config import CreateSavedChartPivotConfig
-from .create_saved_chart_table_config import CreateSavedChartTableConfig
-from .create_saved_chart_version import CreateSavedChartVersion
-from .create_saved_chart_version_metric_query import CreateSavedChartVersionMetricQuery
-from .create_saved_chart_version_pivot_config import CreateSavedChartVersionPivotConfig
-from .create_saved_chart_version_response_200 import CreateSavedChartVersionResponse200
-from .create_saved_chart_version_table_config import CreateSavedChartVersionTableConfig
-from .create_user import CreateUser
-from .create_user_response_201 import CreateUserResponse201
-from .dashboard_list_item import DashboardListItem
-from .dashboard_tile import DashboardTile
-from .error import Error
-from .error_error import ErrorError
-from .error_error_data import ErrorErrorData
-from .error_status import ErrorStatus
-from .field import Field
-from .get_available_chart_filters_response_200 import GetAvailableChartFiltersResponse200
-from .get_dashboards_response_200 import GetDashboardsResponse200
-from .get_invite_link_response_200 import GetInviteLinkResponse200
-from .get_job_response_200 import GetJobResponse200
-from .get_organization_projects_json_body import GetOrganizationProjectsJsonBody
-from .get_organization_projects_response_200 import GetOrganizationProjectsResponse200
-from .get_organization_users_response_200 import GetOrganizationUsersResponse200
-from .get_personal_access_tokens_response_200 import GetPersonalAccessTokensResponse200
-from .get_project_catalog_response_200 import GetProjectCatalogResponse200
-from .get_project_tables_configuration_response_200 import GetProjectTablesConfigurationResponse200
-from .get_saved_chart_response_200 import GetSavedChartResponse200
-from .get_user_response_200 import GetUserResponse200
-from .invite_link import InviteLink
-from .job import Job
-from .job_job_results import JobJobResults
-from .job_job_status import JobJobStatus
-from .job_job_type import JobJobType
-from .lightdash_user import LightdashUser
-from .lightdash_user_ability_rules_item import LightdashUserAbilityRulesItem
-from .login import Login
-from .loom_tile_properties import LoomTileProperties
-from .markdown_tile_properties import MarkdownTileProperties
-from .organization_user import OrganizationUser
-from .patch_saved_chart_response_200 import PatchSavedChartResponse200
-from .patch_saved_charts_response_200 import PatchSavedChartsResponse200
-from .personal_access_token import PersonalAccessToken
-from .personal_access_token_with_secret import PersonalAccessTokenWithSecret
-from .post_saved_chart_response_200 import PostSavedChartResponse200
-from .project import Project
-from .project_catalog import ProjectCatalog
-from .project_catalog_database import ProjectCatalogDatabase
-from .project_catalog_database_schema import ProjectCatalogDatabaseSchema
-from .project_catalog_database_schema_table import ProjectCatalogDatabaseSchemaTable
-from .project_tables_configuration import ProjectTablesConfiguration
-from .project_tables_configuration_table_selection import ProjectTablesConfigurationTableSelection
-from .project_tables_configuration_table_selection_type import ProjectTablesConfigurationTableSelectionType
-from .query_result import QueryResult
-from .query_result_column_id import QueryResultColumnId
-from .query_result_column_id_value import QueryResultColumnIdValue
-from .run_query_response_200 import RunQueryResponse200
-from .run_query_response_200_results import RunQueryResponse200Results
-from .run_sql_query_json_body import RunSqlQueryJsonBody
-from .run_sql_query_response_200 import RunSqlQueryResponse200
-from .saved_chart import SavedChart
-from .saved_chart_metric_query import SavedChartMetricQuery
-from .saved_chart_pivot_config import SavedChartPivotConfig
-from .saved_chart_table_config import SavedChartTableConfig
-from .step import Step
-from .step_error import StepError
-from .step_step_status import StepStepStatus
-from .success import Success
-from .success_status import SuccessStatus
-from .tile_properties_chart import TilePropertiesChart
-from .unversioned_fields import UnversionedFields
-from .update_multiple_saved_chart import UpdateMultipleSavedChart
-from .update_organization_member_json_body import UpdateOrganizationMemberJsonBody
-from .update_organization_member_response_200 import UpdateOrganizationMemberResponse200
-from .update_project_tables_configuration_response_201 import UpdateProjectTablesConfigurationResponse201
-from .update_saved_chart import UpdateSavedChart
+from .additional_metric import AdditionalMetric
+from .allowed_email_domains import AllowedEmailDomains
+from .api_chart_summary_list_response import ApiChartSummaryListResponse
+from .api_chart_summary_list_response_status import ApiChartSummaryListResponseStatus
+from .api_csv_url_response import ApiCsvUrlResponse
+from .api_csv_url_response_results import ApiCsvUrlResponseResults
+from .api_csv_url_response_status import ApiCsvUrlResponseStatus
+from .api_dbt_cloud_metrics import ApiDbtCloudMetrics
+from .api_dbt_cloud_metrics_status import ApiDbtCloudMetricsStatus
+from .api_dbt_cloud_settings_delete_success import ApiDbtCloudSettingsDeleteSuccess
+from .api_dbt_cloud_settings_delete_success_status import ApiDbtCloudSettingsDeleteSuccessStatus
+from .api_email_status_response_status import ApiEmailStatusResponseStatus
+from .api_error_payload import ApiErrorPayload
+from .api_error_payload_error import ApiErrorPayloadError
+from .api_error_payload_status import ApiErrorPayloadStatus
+from .api_group_list_response import ApiGroupListResponse
+from .api_group_list_response_status import ApiGroupListResponseStatus
+from .api_group_members_response import ApiGroupMembersResponse
+from .api_group_members_response_status import ApiGroupMembersResponseStatus
+from .api_group_response import ApiGroupResponse
+from .api_group_response_status import ApiGroupResponseStatus
+from .api_job_scheduled_response import ApiJobScheduledResponse
+from .api_job_scheduled_response_results import ApiJobScheduledResponseResults
+from .api_job_scheduled_response_status import ApiJobScheduledResponseStatus
+from .api_job_status_response import ApiJobStatusResponse
+from .api_job_status_response_results import ApiJobStatusResponseResults
+from .api_job_status_response_status import ApiJobStatusResponseStatus
+from .api_organization import ApiOrganization
+from .api_organization_allowed_email_domains import ApiOrganizationAllowedEmailDomains
+from .api_organization_allowed_email_domains_status import ApiOrganizationAllowedEmailDomainsStatus
+from .api_organization_member_profile import ApiOrganizationMemberProfile
+from .api_organization_member_profile_status import ApiOrganizationMemberProfileStatus
+from .api_organization_member_profiles import ApiOrganizationMemberProfiles
+from .api_organization_member_profiles_status import ApiOrganizationMemberProfilesStatus
+from .api_organization_status import ApiOrganizationStatus
+from .api_pinned_items import ApiPinnedItems
+from .api_pinned_items_status import ApiPinnedItemsStatus
+from .api_project_access_list_response import ApiProjectAccessListResponse
+from .api_project_access_list_response_status import ApiProjectAccessListResponseStatus
+from .api_run_query_response import ApiRunQueryResponse
+from .api_run_query_response_results import ApiRunQueryResponseResults
+from .api_run_query_response_status import ApiRunQueryResponseStatus
+from .api_scheduled_jobs_response import ApiScheduledJobsResponse
+from .api_scheduled_jobs_response_status import ApiScheduledJobsResponseStatus
+from .api_scheduler_and_targets_response_status import ApiSchedulerAndTargetsResponseStatus
+from .api_scheduler_logs_response_status import ApiSchedulerLogsResponseStatus
+from .api_share_response import ApiShareResponse
+from .api_share_response_status import ApiShareResponseStatus
+from .api_slack_channels_response import ApiSlackChannelsResponse
+from .api_slack_channels_response_status import ApiSlackChannelsResponseStatus
+from .api_space_response_status import ApiSpaceResponseStatus
+from .api_space_summary_list_response import ApiSpaceSummaryListResponse
+from .api_space_summary_list_response_status import ApiSpaceSummaryListResponseStatus
+from .api_ssh_key_pair_response import ApiSshKeyPairResponse
+from .api_ssh_key_pair_response_status import ApiSshKeyPairResponseStatus
+from .api_success_empty import ApiSuccessEmpty
+from .api_success_empty_status import ApiSuccessEmptyStatus
+from .api_user_allowed_organizations_response import ApiUserAllowedOrganizationsResponse
+from .api_user_allowed_organizations_response_status import ApiUserAllowedOrganizationsResponseStatus
+from .api_validate_response import ApiValidateResponse
+from .api_validate_response_status import ApiValidateResponseStatus
+from .api_validation_dismiss_response import ApiValidationDismissResponse
+from .api_validation_dismiss_response_status import ApiValidationDismissResponseStatus
+from .chart_kind import ChartKind
+from .chart_summary import ChartSummary
+from .chart_type import ChartType
+from .compact import Compact
+from .compact_or_alias_type_1 import CompactOrAliasType1
+from .create_project_member import CreateProjectMember
+from .create_space import CreateSpace
+from .dbt_cloud_metadata_response_metrics import DbtCloudMetadataResponseMetrics
+from .dbt_cloud_metric import DbtCloudMetric
+from .delete_scheduler_response_201 import DeleteSchedulerResponse201
+from .delete_scheduler_response_201_status import DeleteSchedulerResponse201Status
+from .email_one_time_password import EmailOneTimePassword
+from .email_one_time_password_expiring import EmailOneTimePasswordExpiring
+from .email_status import EmailStatus
+from .filter_group_response_type_0 import FilterGroupResponseType0
+from .filter_group_response_type_1 import FilterGroupResponseType1
+from .filters import Filters
+from .group import Group
+from .group_member import GroupMember
+from .metric_query_response import MetricQueryResponse
+from .metric_type import MetricType
+from .organization import Organization
+from .organization_member_profile import OrganizationMemberProfile
+from .organization_member_role import OrganizationMemberRole
+from .partial_omit_organization_organization_uuid_or_needs_project import (
+    PartialOmitOrganizationOrganizationUuidOrNeedsProject,
+)
+from .partial_pick_organization_member_profile_role import PartialPickOrganizationMemberProfileRole
+from .partial_pick_space_is_private_or_access import PartialPickSpaceIsPrivateOrAccess
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid,
+)
+from .pick_create_dbt_cloud_integration_metrics_job_id import PickCreateDbtCloudIntegrationMetricsJobId
+from .pick_create_group_name import PickCreateGroupName
+from .pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order import (
+    PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder,
+)
+from .pick_group_name import PickGroupName
+from .pick_organization_name import PickOrganizationName
+from .pick_resource_view_item_at_data_uuid_or_pinned_list_order import PickResourceViewItemAtDataUuidOrPinnedListOrder
+from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid import (
+    PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid,
+)
+from .pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order import (
+    PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder,
+)
+from .pick_share_url_path_or_params import PickShareUrlPathOrParams
+from .pick_space_name import PickSpaceName
+from .pick_space_name_or_is_private import PickSpaceNameOrIsPrivate
+from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private import (
+    PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivate,
+)
+from .pick_space_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_organization_uuid import (
+    PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid,
+)
+from .pick_space_share_user_uuid import PickSpaceShareUserUuid
+from .pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
+from .pick_validation_response_base_exclude_keyof_validation_response_base_name import (
+    PickValidationResponseBaseExcludeKeyofValidationResponseBaseName,
+)
+from .pick_validation_response_error_or_created_at_or_validation_id import (
+    PickValidationResponseErrorOrCreatedAtOrValidationId,
+)
+from .post_chart_results_json_body import PostChartResultsJsonBody
+from .project_member_profile import ProjectMemberProfile
+from .project_member_role import ProjectMemberRole
+from .record_string_any import RecordStringAny
+from .resource_view_item_type import ResourceViewItemType
+from .resource_view_item_type_chart import ResourceViewItemTypeCHART
+from .resource_view_item_type_dashboard import ResourceViewItemTypeDASHBOARD
+from .resource_view_item_type_space import ResourceViewItemTypeSPACE
+from .resource_view_space_item import ResourceViewSpaceItem
+from .resource_view_space_item_data import ResourceViewSpaceItemData
+from .run_query_request import RunQueryRequest
+from .run_query_request_filters import RunQueryRequestFilters
+from .scheduled_jobs import ScheduledJobs
+from .scheduler_base import SchedulerBase
+from .scheduler_csv_options import SchedulerCsvOptions
+from .scheduler_csv_options_limit_type_1 import SchedulerCsvOptionsLimitType1
+from .scheduler_email_target import SchedulerEmailTarget
+from .scheduler_format import SchedulerFormat
+from .scheduler_image_options import SchedulerImageOptions
+from .scheduler_job_status import SchedulerJobStatus
+from .scheduler_log import SchedulerLog
+from .scheduler_log_target_type import SchedulerLogTargetType
+from .scheduler_log_task import SchedulerLogTask
+from .scheduler_slack_target import SchedulerSlackTarget
+from .share_url import ShareUrl
+from .slack_channel import SlackChannel
+from .sort_field import SortField
+from .space_share import SpaceShare
+from .space_summary import SpaceSummary
+from .table_calculation import TableCalculation
+from .update_pinned_item_order import UpdatePinnedItemOrder
+from .update_project_member import UpdateProjectMember
 from .updated_by_user import UpdatedByUser
+from .user_allowed_organization import UserAllowedOrganization
+from .validate_project_json_body import ValidateProjectJsonBody
+from .validation_error_chart_response import ValidationErrorChartResponse
+from .validation_error_dashboard_response import ValidationErrorDashboardResponse
+from .validation_error_type import ValidationErrorType
+from .validation_response_base import ValidationResponseBase
+from .validation_source_type import ValidationSourceType
+from .view_statistics import ViewStatistics
 
 __all__ = (
-    "ChartConfig",
-    "ChartConfigChartType",
-    "ChartConfigConfig",
-    "CreateDashboardTile",
-    "CreateDashboardTileType",
-    "CreateInviteLink",
-    "CreateInviteLinkResponse201",
-    "CreatePersonalAccessToken",
-    "CreatePersonalAccessTokenResponse200",
-    "CreateSavedChart",
-    "CreateSavedChartMetricQuery",
-    "CreateSavedChartPivotConfig",
-    "CreateSavedChartTableConfig",
-    "CreateSavedChartVersion",
-    "CreateSavedChartVersionMetricQuery",
-    "CreateSavedChartVersionPivotConfig",
-    "CreateSavedChartVersionResponse200",
-    "CreateSavedChartVersionTableConfig",
-    "CreateUser",
-    "CreateUserResponse201",
-    "DashboardListItem",
-    "DashboardTile",
-    "Error",
-    "ErrorError",
-    "ErrorErrorData",
-    "ErrorStatus",
-    "Field",
-    "GetAvailableChartFiltersResponse200",
-    "GetDashboardsResponse200",
-    "GetInviteLinkResponse200",
-    "GetJobResponse200",
-    "GetOrganizationProjectsJsonBody",
-    "GetOrganizationProjectsResponse200",
-    "GetOrganizationUsersResponse200",
-    "GetPersonalAccessTokensResponse200",
-    "GetProjectCatalogResponse200",
-    "GetProjectTablesConfigurationResponse200",
-    "GetSavedChartResponse200",
-    "GetUserResponse200",
-    "InviteLink",
-    "Job",
-    "JobJobResults",
-    "JobJobStatus",
-    "JobJobType",
-    "LightdashUser",
-    "LightdashUserAbilityRulesItem",
-    "Login",
-    "LoomTileProperties",
-    "MarkdownTileProperties",
-    "OrganizationUser",
-    "PatchSavedChartResponse200",
-    "PatchSavedChartsResponse200",
-    "PersonalAccessToken",
-    "PersonalAccessTokenWithSecret",
-    "PostSavedChartResponse200",
-    "Project",
-    "ProjectCatalog",
-    "ProjectCatalogDatabase",
-    "ProjectCatalogDatabaseSchema",
-    "ProjectCatalogDatabaseSchemaTable",
-    "ProjectTablesConfiguration",
-    "ProjectTablesConfigurationTableSelection",
-    "ProjectTablesConfigurationTableSelectionType",
-    "QueryResult",
-    "QueryResultColumnId",
-    "QueryResultColumnIdValue",
-    "RunQueryResponse200",
-    "RunQueryResponse200Results",
-    "RunSqlQueryJsonBody",
-    "RunSqlQueryResponse200",
-    "SavedChart",
-    "SavedChartMetricQuery",
-    "SavedChartPivotConfig",
-    "SavedChartTableConfig",
-    "Step",
-    "StepError",
-    "StepStepStatus",
-    "Success",
-    "SuccessStatus",
-    "TilePropertiesChart",
-    "UnversionedFields",
+    "AdditionalMetric",
+    "AllowedEmailDomains",
+    "ApiChartSummaryListResponse",
+    "ApiChartSummaryListResponseStatus",
+    "ApiCsvUrlResponse",
+    "ApiCsvUrlResponseResults",
+    "ApiCsvUrlResponseStatus",
+    "ApiDbtCloudMetrics",
+    "ApiDbtCloudMetricsStatus",
+    "ApiDbtCloudSettingsDeleteSuccess",
+    "ApiDbtCloudSettingsDeleteSuccessStatus",
+    "ApiEmailStatusResponseStatus",
+    "ApiErrorPayload",
+    "ApiErrorPayloadError",
+    "ApiErrorPayloadStatus",
+    "ApiGroupListResponse",
+    "ApiGroupListResponseStatus",
+    "ApiGroupMembersResponse",
+    "ApiGroupMembersResponseStatus",
+    "ApiGroupResponse",
+    "ApiGroupResponseStatus",
+    "ApiJobScheduledResponse",
+    "ApiJobScheduledResponseResults",
+    "ApiJobScheduledResponseStatus",
+    "ApiJobStatusResponse",
+    "ApiJobStatusResponseResults",
+    "ApiJobStatusResponseStatus",
+    "ApiOrganization",
+    "ApiOrganizationAllowedEmailDomains",
+    "ApiOrganizationAllowedEmailDomainsStatus",
+    "ApiOrganizationMemberProfile",
+    "ApiOrganizationMemberProfiles",
+    "ApiOrganizationMemberProfilesStatus",
+    "ApiOrganizationMemberProfileStatus",
+    "ApiOrganizationStatus",
+    "ApiPinnedItems",
+    "ApiPinnedItemsStatus",
+    "ApiProjectAccessListResponse",
+    "ApiProjectAccessListResponseStatus",
+    "ApiRunQueryResponse",
+    "ApiRunQueryResponseResults",
+    "ApiRunQueryResponseStatus",
+    "ApiScheduledJobsResponse",
+    "ApiScheduledJobsResponseStatus",
+    "ApiSchedulerAndTargetsResponseStatus",
+    "ApiSchedulerLogsResponseStatus",
+    "ApiShareResponse",
+    "ApiShareResponseStatus",
+    "ApiSlackChannelsResponse",
+    "ApiSlackChannelsResponseStatus",
+    "ApiSpaceResponseStatus",
+    "ApiSpaceSummaryListResponse",
+    "ApiSpaceSummaryListResponseStatus",
+    "ApiSshKeyPairResponse",
+    "ApiSshKeyPairResponseStatus",
+    "ApiSuccessEmpty",
+    "ApiSuccessEmptyStatus",
+    "ApiUserAllowedOrganizationsResponse",
+    "ApiUserAllowedOrganizationsResponseStatus",
+    "ApiValidateResponse",
+    "ApiValidateResponseStatus",
+    "ApiValidationDismissResponse",
+    "ApiValidationDismissResponseStatus",
+    "ChartKind",
+    "ChartSummary",
+    "ChartType",
+    "Compact",
+    "CompactOrAliasType1",
+    "CreateProjectMember",
+    "CreateSpace",
+    "DbtCloudMetadataResponseMetrics",
+    "DbtCloudMetric",
+    "DeleteSchedulerResponse201",
+    "DeleteSchedulerResponse201Status",
+    "EmailOneTimePassword",
+    "EmailOneTimePasswordExpiring",
+    "EmailStatus",
+    "FilterGroupResponseType0",
+    "FilterGroupResponseType1",
+    "Filters",
+    "Group",
+    "GroupMember",
+    "MetricQueryResponse",
+    "MetricType",
+    "Organization",
+    "OrganizationMemberProfile",
+    "OrganizationMemberRole",
+    "PartialOmitOrganizationOrganizationUuidOrNeedsProject",
+    "PartialPickOrganizationMemberProfileRole",
+    "PartialPickSpaceIsPrivateOrAccess",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid",
+    "PickCreateDbtCloudIntegrationMetricsJobId",
+    "PickCreateGroupName",
+    "PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder",
+    "PickGroupName",
+    "PickOrganizationName",
+    "PickResourceViewItemAtDataUuidOrPinnedListOrder",
+    "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid",
+    "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder",
+    "PickShareUrlPathOrParams",
+    "PickSpaceName",
+    "PickSpaceNameOrIsPrivate",
+    "PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivate",
+    "PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid",
+    "PickSpaceShareUserUuid",
+    "PickSshKeyPairPublicKey",
+    "PickValidationResponseBaseExcludeKeyofValidationResponseBaseName",
+    "PickValidationResponseErrorOrCreatedAtOrValidationId",
+    "PostChartResultsJsonBody",
+    "ProjectMemberProfile",
+    "ProjectMemberRole",
+    "RecordStringAny",
+    "ResourceViewItemType",
+    "ResourceViewItemTypeCHART",
+    "ResourceViewItemTypeDASHBOARD",
+    "ResourceViewItemTypeSPACE",
+    "ResourceViewSpaceItem",
+    "ResourceViewSpaceItemData",
+    "RunQueryRequest",
+    "RunQueryRequestFilters",
+    "ScheduledJobs",
+    "SchedulerBase",
+    "SchedulerCsvOptions",
+    "SchedulerCsvOptionsLimitType1",
+    "SchedulerEmailTarget",
+    "SchedulerFormat",
+    "SchedulerImageOptions",
+    "SchedulerJobStatus",
+    "SchedulerLog",
+    "SchedulerLogTargetType",
+    "SchedulerLogTask",
+    "SchedulerSlackTarget",
+    "ShareUrl",
+    "SlackChannel",
+    "SortField",
+    "SpaceShare",
+    "SpaceSummary",
+    "TableCalculation",
     "UpdatedByUser",
-    "UpdateMultipleSavedChart",
-    "UpdateOrganizationMemberJsonBody",
-    "UpdateOrganizationMemberResponse200",
-    "UpdateProjectTablesConfigurationResponse201",
-    "UpdateSavedChart",
+    "UpdatePinnedItemOrder",
+    "UpdateProjectMember",
+    "UserAllowedOrganization",
+    "ValidateProjectJsonBody",
+    "ValidationErrorChartResponse",
+    "ValidationErrorDashboardResponse",
+    "ValidationErrorType",
+    "ValidationResponseBase",
+    "ValidationSourceType",
+    "ViewStatistics",
 )
