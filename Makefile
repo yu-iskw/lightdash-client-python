@@ -35,3 +35,7 @@ publish:
 # Publish to testpypi
 test-publish:
 	bash ./dev/publish.sh "testpypi"
+
+generate-client:
+	rm -fr "lightdash_client/api/" "lightdash_client/models/"
+	bash dev/generate_clients.sh --skip-validate-spec 1

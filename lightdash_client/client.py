@@ -58,6 +58,7 @@ class AuthenticatedClient(Client):
     """A Client which has been authenticated for use on secured endpoints"""
 
     token: str
+    # The prefix was manually changed from the default value 'Bearer'.
     prefix: str = "ApiKey"
     auth_header_name: str = "Authorization"
 

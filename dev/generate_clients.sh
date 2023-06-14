@@ -22,10 +22,11 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Arguments
-schema_json="${PROJECT_DIR}/dev/schemas/openapibundle.json"
+schema_json="${PROJECT_DIR}/dev/schemas/swagger.json"
 config_yaml="${PROJECT_DIR}/dev/openapi-python-client.yml"
 output_dir="${PROJECT_DIR}"
 meta="setup"
+skip_validate_spec=1
 while (($# > 0)); do
   if [[ "$1" == "--schema-json" ]]; then
     schema_json="${2:?}"
@@ -39,6 +40,9 @@ while (($# > 0)); do
   elif [[ "$1" == "--meta" ]]; then
     meta="${2:?}"
     shift 2
+  elif [[ "$1" == "--skip-validate-spec" ]]; then
+    skip_validate_spec="${2:?}"
+    shift 2
   else
     echo "ERROR: Unrecognized argument ${1}" >&2
     exit 1
@@ -46,7 +50,7 @@ while (($# > 0)); do
 done
 
 options=()
-if [[ "${skip_validate_spec}" == "1" ]]; then
+if [[ "${skip_validate_spec:?}" == "1" ]]; then
   options+=("--skip-validate-spec")
 fi
 
