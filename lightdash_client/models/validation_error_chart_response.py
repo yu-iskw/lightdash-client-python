@@ -31,6 +31,7 @@ class ValidationErrorChartResponse:
         chart_views (float):
         source (Union[Unset, ValidationSourceType]):
         space_uuid (Union[Unset, str]):
+        chart_name (Union[Unset, str]):
         last_updated_at (Union[Unset, datetime.datetime]):
         last_updated_by (Union[Unset, str]):
         field_name (Union[Unset, str]):
@@ -47,6 +48,7 @@ class ValidationErrorChartResponse:
     chart_views: float
     source: Union[Unset, ValidationSourceType] = UNSET
     space_uuid: Union[Unset, str] = UNSET
+    chart_name: Union[Unset, str] = UNSET
     last_updated_at: Union[Unset, datetime.datetime] = UNSET
     last_updated_by: Union[Unset, str] = UNSET
     field_name: Union[Unset, str] = UNSET
@@ -69,6 +71,7 @@ class ValidationErrorChartResponse:
             source = self.source.value
 
         space_uuid = self.space_uuid
+        chart_name = self.chart_name
         last_updated_at: Union[Unset, str] = UNSET
         if not isinstance(self.last_updated_at, Unset):
             last_updated_at = self.last_updated_at.isoformat()
@@ -98,6 +101,8 @@ class ValidationErrorChartResponse:
             field_dict["source"] = source
         if space_uuid is not UNSET:
             field_dict["spaceUuid"] = space_uuid
+        if chart_name is not UNSET:
+            field_dict["chartName"] = chart_name
         if last_updated_at is not UNSET:
             field_dict["lastUpdatedAt"] = last_updated_at
         if last_updated_by is not UNSET:
@@ -137,6 +142,8 @@ class ValidationErrorChartResponse:
 
         space_uuid = d.pop("spaceUuid", UNSET)
 
+        chart_name = d.pop("chartName", UNSET)
+
         _last_updated_at = d.pop("lastUpdatedAt", UNSET)
         last_updated_at: Union[Unset, datetime.datetime]
         if isinstance(_last_updated_at, Unset):
@@ -167,6 +174,7 @@ class ValidationErrorChartResponse:
             chart_views=chart_views,
             source=source,
             space_uuid=space_uuid,
+            chart_name=chart_name,
             last_updated_at=last_updated_at,
             last_updated_by=last_updated_by,
             field_name=field_name,

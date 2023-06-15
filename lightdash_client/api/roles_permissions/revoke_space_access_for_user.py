@@ -13,12 +13,13 @@ from ...types import Response
 
 def _get_kwargs(
     project_uuid: str,
+    space_uuid: str,
     user_uuid: str,
     *,
     client: Client,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/projects/{projectUuid}/access/{userUuid}".format(
-        client.base_url, projectUuid=project_uuid, userUuid=user_uuid
+    url = "{}/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share/{userUuid}".format(
+        client.base_url, projectUuid=project_uuid, spaceUuid=space_uuid, userUuid=user_uuid
     )
 
     headers: Dict[str, str] = client.get_headers()
@@ -56,14 +57,16 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 
 def sync_detailed(
     project_uuid: str,
+    space_uuid: str,
     user_uuid: str,
     *,
     client: Client,
 ) -> Response[ApiSuccessEmpty]:
-    """Remove a user's access to a project
+    """Remove a user's access to a space
 
     Args:
         project_uuid (str):
+        space_uuid (str):
         user_uuid (str):
 
     Raises:
@@ -76,6 +79,7 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        space_uuid=space_uuid,
         user_uuid=user_uuid,
         client=client,
     )
@@ -90,14 +94,16 @@ def sync_detailed(
 
 def sync(
     project_uuid: str,
+    space_uuid: str,
     user_uuid: str,
     *,
     client: Client,
 ) -> Optional[ApiSuccessEmpty]:
-    """Remove a user's access to a project
+    """Remove a user's access to a space
 
     Args:
         project_uuid (str):
+        space_uuid (str):
         user_uuid (str):
 
     Raises:
@@ -110,6 +116,7 @@ def sync(
 
     return sync_detailed(
         project_uuid=project_uuid,
+        space_uuid=space_uuid,
         user_uuid=user_uuid,
         client=client,
     ).parsed
@@ -117,14 +124,16 @@ def sync(
 
 async def asyncio_detailed(
     project_uuid: str,
+    space_uuid: str,
     user_uuid: str,
     *,
     client: Client,
 ) -> Response[ApiSuccessEmpty]:
-    """Remove a user's access to a project
+    """Remove a user's access to a space
 
     Args:
         project_uuid (str):
+        space_uuid (str):
         user_uuid (str):
 
     Raises:
@@ -137,6 +146,7 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        space_uuid=space_uuid,
         user_uuid=user_uuid,
         client=client,
     )
@@ -149,14 +159,16 @@ async def asyncio_detailed(
 
 async def asyncio(
     project_uuid: str,
+    space_uuid: str,
     user_uuid: str,
     *,
     client: Client,
 ) -> Optional[ApiSuccessEmpty]:
-    """Remove a user's access to a project
+    """Remove a user's access to a space
 
     Args:
         project_uuid (str):
+        space_uuid (str):
         user_uuid (str):
 
     Raises:
@@ -170,6 +182,7 @@ async def asyncio(
     return (
         await asyncio_detailed(
             project_uuid=project_uuid,
+            space_uuid=space_uuid,
             user_uuid=user_uuid,
             client=client,
         )
