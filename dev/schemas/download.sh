@@ -34,4 +34,4 @@ done
 
 
 # Download swagger.json from the GitHub repository
-curl -O "https://raw.githubusercontent.com/lightdash/lightdash/${lightdash_version}/packages/backend/src/generated/swagger.json"
+curl -O "https://raw.githubusercontent.com/lightdash/lightdash/${lightdash_version:?}/packages/backend/src/generated/swagger.json"
