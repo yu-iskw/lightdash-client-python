@@ -104,12 +104,12 @@ from .metric_query_response import MetricQueryResponse
 from .metric_type import MetricType
 from .organization import Organization
 from .organization_member_profile import OrganizationMemberProfile
+from .organization_member_profile_update import OrganizationMemberProfileUpdate
 from .organization_member_role import OrganizationMemberRole
 from .organization_project import OrganizationProject
 from .partial_omit_organization_organization_uuid_or_needs_project import (
     PartialOmitOrganizationOrganizationUuidOrNeedsProject,
 )
-from .partial_pick_organization_member_profile_role import PartialPickOrganizationMemberProfileRole
 from .partial_pick_space_is_private_or_access import PartialPickSpaceIsPrivateOrAccess
 from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid import (
     PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid,
@@ -322,10 +322,10 @@ __all__ = (
     "MetricType",
     "Organization",
     "OrganizationMemberProfile",
+    "OrganizationMemberProfileUpdate",
     "OrganizationMemberRole",
     "OrganizationProject",
     "PartialOmitOrganizationOrganizationUuidOrNeedsProject",
-    "PartialPickOrganizationMemberProfileRole",
     "PartialPickSpaceIsPrivateOrAccess",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
