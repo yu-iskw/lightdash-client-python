@@ -33,11 +33,14 @@ from .api_organization_member_profile import ApiOrganizationMemberProfile
 from .api_organization_member_profile_status import ApiOrganizationMemberProfileStatus
 from .api_organization_member_profiles import ApiOrganizationMemberProfiles
 from .api_organization_member_profiles_status import ApiOrganizationMemberProfilesStatus
+from .api_organization_projects import ApiOrganizationProjects
+from .api_organization_projects_status import ApiOrganizationProjectsStatus
 from .api_organization_status import ApiOrganizationStatus
 from .api_pinned_items import ApiPinnedItems
 from .api_pinned_items_status import ApiPinnedItemsStatus
 from .api_project_access_list_response import ApiProjectAccessListResponse
 from .api_project_access_list_response_status import ApiProjectAccessListResponseStatus
+from .api_project_response_status import ApiProjectResponseStatus
 from .api_run_query_response import ApiRunQueryResponse
 from .api_run_query_response_results import ApiRunQueryResponseResults
 from .api_run_query_response_status import ApiRunQueryResponseStatus
@@ -69,8 +72,24 @@ from .compact import Compact
 from .compact_or_alias_type_1 import CompactOrAliasType1
 from .create_project_member import CreateProjectMember
 from .create_space import CreateSpace
+from .dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
+from .dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
+from .dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
 from .dbt_cloud_metadata_response_metrics import DbtCloudMetadataResponseMetrics
 from .dbt_cloud_metric import DbtCloudMetric
+from .dbt_github_project_config import DbtGithubProjectConfig
+from .dbt_gitlab_project_config import DbtGitlabProjectConfig
+from .dbt_local_project_config import DbtLocalProjectConfig
+from .dbt_none_project_config import DbtNoneProjectConfig
+from .dbt_project_environment_variable import DbtProjectEnvironmentVariable
+from .dbt_project_type import DbtProjectType
+from .dbt_project_type_azuredevops import DbtProjectTypeAZUREDEVOPS
+from .dbt_project_type_bitbucket import DbtProjectTypeBITBUCKET
+from .dbt_project_type_dbt import DbtProjectTypeDBT
+from .dbt_project_type_dbtcloudide import DbtProjectTypeDBTCLOUDIDE
+from .dbt_project_type_github import DbtProjectTypeGITHUB
+from .dbt_project_type_gitlab import DbtProjectTypeGITLAB
+from .dbt_project_type_none import DbtProjectTypeNONE
 from .delete_scheduler_response_201 import DeleteSchedulerResponse201
 from .delete_scheduler_response_201_status import DeleteSchedulerResponse201Status
 from .email_one_time_password import EmailOneTimePassword
@@ -86,6 +105,7 @@ from .metric_type import MetricType
 from .organization import Organization
 from .organization_member_profile import OrganizationMemberProfile
 from .organization_member_role import OrganizationMemberRole
+from .organization_project import OrganizationProject
 from .partial_omit_organization_organization_uuid_or_needs_project import (
     PartialOmitOrganizationOrganizationUuidOrNeedsProject,
 )
@@ -94,8 +114,29 @@ from .partial_pick_space_is_private_or_access import PartialPickSpaceIsPrivateOr
 from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid import (
     PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid,
 )
+from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
+    PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
+)
+from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_priority import (
+    PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority,
+)
+from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names import (
+    PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames,
+)
 from .pick_create_dbt_cloud_integration_metrics_job_id import PickCreateDbtCloudIntegrationMetricsJobId
 from .pick_create_group_name import PickCreateGroupName
+from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names import (
+    PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames,
+)
+from .pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names import (
+    PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames,
+)
+from .pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names import (
+    PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames,
+)
+from .pick_create_trino_credentials_exclude_keyof_create_trino_credentials_sensitive_credentials_field_names import (
+    PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames,
+)
 from .pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order import (
     PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder,
 )
@@ -128,6 +169,7 @@ from .pick_validation_response_error_or_created_at_or_validation_id import (
 from .post_chart_results_json_body import PostChartResultsJsonBody
 from .project_member_profile import ProjectMemberProfile
 from .project_member_role import ProjectMemberRole
+from .project_type import ProjectType
 from .record_string_any import RecordStringAny
 from .resource_view_item_type import ResourceViewItemType
 from .resource_view_item_type_chart import ResourceViewItemTypeCHART
@@ -166,6 +208,13 @@ from .validation_error_type import ValidationErrorType
 from .validation_response_base import ValidationResponseBase
 from .validation_source_type import ValidationSourceType
 from .view_statistics import ViewStatistics
+from .warehouse_types_bigquery import WarehouseTypesBIGQUERY
+from .warehouse_types_databricks import WarehouseTypesDATABRICKS
+from .warehouse_types_postgres import WarehouseTypesPOSTGRES
+from .warehouse_types_redshift import WarehouseTypesREDSHIFT
+from .warehouse_types_snowflake import WarehouseTypesSNOWFLAKE
+from .warehouse_types_trino import WarehouseTypesTRINO
+from .week_day import WeekDay
 
 __all__ = (
     "AdditionalMetric",
@@ -202,11 +251,14 @@ __all__ = (
     "ApiOrganizationMemberProfiles",
     "ApiOrganizationMemberProfilesStatus",
     "ApiOrganizationMemberProfileStatus",
+    "ApiOrganizationProjects",
+    "ApiOrganizationProjectsStatus",
     "ApiOrganizationStatus",
     "ApiPinnedItems",
     "ApiPinnedItemsStatus",
     "ApiProjectAccessListResponse",
     "ApiProjectAccessListResponseStatus",
+    "ApiProjectResponseStatus",
     "ApiRunQueryResponse",
     "ApiRunQueryResponseResults",
     "ApiRunQueryResponseStatus",
@@ -238,8 +290,24 @@ __all__ = (
     "CompactOrAliasType1",
     "CreateProjectMember",
     "CreateSpace",
+    "DbtAzureDevOpsProjectConfig",
+    "DbtBitBucketProjectConfig",
+    "DbtCloudIDEProjectConfig",
     "DbtCloudMetadataResponseMetrics",
     "DbtCloudMetric",
+    "DbtGithubProjectConfig",
+    "DbtGitlabProjectConfig",
+    "DbtLocalProjectConfig",
+    "DbtNoneProjectConfig",
+    "DbtProjectEnvironmentVariable",
+    "DbtProjectType",
+    "DbtProjectTypeAZUREDEVOPS",
+    "DbtProjectTypeBITBUCKET",
+    "DbtProjectTypeDBT",
+    "DbtProjectTypeDBTCLOUDIDE",
+    "DbtProjectTypeGITHUB",
+    "DbtProjectTypeGITLAB",
+    "DbtProjectTypeNONE",
     "DeleteSchedulerResponse201",
     "DeleteSchedulerResponse201Status",
     "EmailOneTimePassword",
@@ -255,12 +323,20 @@ __all__ = (
     "Organization",
     "OrganizationMemberProfile",
     "OrganizationMemberRole",
+    "OrganizationProject",
     "PartialOmitOrganizationOrganizationUuidOrNeedsProject",
     "PartialPickOrganizationMemberProfileRole",
     "PartialPickSpaceIsPrivateOrAccess",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid",
+    "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority",
+    "PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames",
     "PickCreateDbtCloudIntegrationMetricsJobId",
     "PickCreateGroupName",
+    "PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames",
     "PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder",
     "PickGroupName",
     "PickOrganizationName",
@@ -279,6 +355,7 @@ __all__ = (
     "PostChartResultsJsonBody",
     "ProjectMemberProfile",
     "ProjectMemberRole",
+    "ProjectType",
     "RecordStringAny",
     "ResourceViewItemType",
     "ResourceViewItemTypeCHART",
@@ -317,4 +394,11 @@ __all__ = (
     "ValidationResponseBase",
     "ValidationSourceType",
     "ViewStatistics",
+    "WarehouseTypesBIGQUERY",
+    "WarehouseTypesDATABRICKS",
+    "WarehouseTypesPOSTGRES",
+    "WarehouseTypesREDSHIFT",
+    "WarehouseTypesSNOWFLAKE",
+    "WarehouseTypesTRINO",
+    "WeekDay",
 )
