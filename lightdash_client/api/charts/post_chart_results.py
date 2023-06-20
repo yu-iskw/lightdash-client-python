@@ -7,8 +7,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_run_query_response import ApiRunQueryResponse
 from ...models.post_chart_results_json_body import PostChartResultsJsonBody
+from ...models.post_chart_results_response_200 import PostChartResultsResponse200
 from ...types import Response
 
 
@@ -36,9 +36,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiRunQueryResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[PostChartResultsResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiRunQueryResponse.from_dict(response.json())
+        response_200 = PostChartResultsResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -47,7 +47,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiRunQueryResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[PostChartResultsResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
