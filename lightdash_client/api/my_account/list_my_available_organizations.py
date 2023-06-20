@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_user_allowed_organizations_response import ApiUserAllowedOrganizationsResponse
+from ...models.list_my_available_organizations_response_200 import ListMyAvailableOrganizationsResponse200
 from ...types import Response
 
 
@@ -30,9 +30,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiUserAllowedOrganizationsResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ListMyAvailableOrganizationsResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiUserAllowedOrganizationsResponse.from_dict(response.json())
+        response_200 = ListMyAvailableOrganizationsResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -41,7 +41,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiUserAllowedOrganizationsResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ListMyAvailableOrganizationsResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     *,
     client: Client,
-) -> Response[ApiUserAllowedOrganizationsResponse]:
+) -> Response[ListMyAvailableOrganizationsResponse200]:
     """List the organizations that the current user can join.
     This is based on the user's primary email domain and the organization's allowed email domains.
 
@@ -62,7 +62,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiUserAllowedOrganizationsResponse]
+        Response[ListMyAvailableOrganizationsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -80,7 +80,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-) -> Optional[ApiUserAllowedOrganizationsResponse]:
+) -> Optional[ListMyAvailableOrganizationsResponse200]:
     """List the organizations that the current user can join.
     This is based on the user's primary email domain and the organization's allowed email domains.
 
@@ -89,7 +89,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiUserAllowedOrganizationsResponse
+        ListMyAvailableOrganizationsResponse200
     """
 
     return sync_detailed(
@@ -100,7 +100,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-) -> Response[ApiUserAllowedOrganizationsResponse]:
+) -> Response[ListMyAvailableOrganizationsResponse200]:
     """List the organizations that the current user can join.
     This is based on the user's primary email domain and the organization's allowed email domains.
 
@@ -109,7 +109,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiUserAllowedOrganizationsResponse]
+        Response[ListMyAvailableOrganizationsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -125,7 +125,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-) -> Optional[ApiUserAllowedOrganizationsResponse]:
+) -> Optional[ListMyAvailableOrganizationsResponse200]:
     """List the organizations that the current user can join.
     This is based on the user's primary email domain and the organization's allowed email domains.
 
@@ -134,7 +134,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiUserAllowedOrganizationsResponse
+        ListMyAvailableOrganizationsResponse200
     """
 
     return (

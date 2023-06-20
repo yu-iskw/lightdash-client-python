@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_pinned_items import ApiPinnedItems
+from ...models.get_pinned_items_response_200 import GetPinnedItemsResponse200
 from ...types import Response
 
 
@@ -34,9 +34,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiPinnedItems]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetPinnedItemsResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiPinnedItems.from_dict(response.json())
+        response_200 = GetPinnedItemsResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiPinnedItems]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[GetPinnedItemsResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,7 +59,7 @@ def sync_detailed(
     pinned_list_uuid: str,
     *,
     client: Client,
-) -> Response[ApiPinnedItems]:
+) -> Response[GetPinnedItemsResponse200]:
     """Get pinned items
 
     Args:
@@ -71,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiPinnedItems]
+        Response[GetPinnedItemsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -93,7 +93,7 @@ def sync(
     pinned_list_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiPinnedItems]:
+) -> Optional[GetPinnedItemsResponse200]:
     """Get pinned items
 
     Args:
@@ -105,7 +105,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiPinnedItems
+        GetPinnedItemsResponse200
     """
 
     return sync_detailed(
@@ -120,7 +120,7 @@ async def asyncio_detailed(
     pinned_list_uuid: str,
     *,
     client: Client,
-) -> Response[ApiPinnedItems]:
+) -> Response[GetPinnedItemsResponse200]:
     """Get pinned items
 
     Args:
@@ -132,7 +132,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiPinnedItems]
+        Response[GetPinnedItemsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -152,7 +152,7 @@ async def asyncio(
     pinned_list_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiPinnedItems]:
+) -> Optional[GetPinnedItemsResponse200]:
     """Get pinned items
 
     Args:
@@ -164,7 +164,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiPinnedItems
+        GetPinnedItemsResponse200
     """
 
     return (

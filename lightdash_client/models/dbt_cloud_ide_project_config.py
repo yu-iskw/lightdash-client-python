@@ -7,7 +7,7 @@ from typing import Union
 
 import attr
 
-from ..models.dbt_project_type_dbtcloudide import DbtProjectTypeDBTCLOUDIDE
+from ..models.dbt_cloud_ide_project_config_type import DbtCloudIDEProjectConfigType
 
 T = TypeVar("T", bound="DbtCloudIDEProjectConfig")
 
@@ -16,14 +16,14 @@ T = TypeVar("T", bound="DbtCloudIDEProjectConfig")
 class DbtCloudIDEProjectConfig:
     """
     Attributes:
-        type (DbtProjectTypeDBTCLOUDIDE):
+        type (DbtCloudIDEProjectConfigType):
         api_key (str):
         account_id (Union[float, str]):
         environment_id (Union[float, str]):
         project_id (Union[float, str]):
     """
 
-    type: DbtProjectTypeDBTCLOUDIDE
+    type: DbtCloudIDEProjectConfigType
     api_key: str
     account_id: Union[float, str]
     environment_id: Union[float, str]
@@ -61,7 +61,7 @@ class DbtCloudIDEProjectConfig:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        type = DbtProjectTypeDBTCLOUDIDE(d.pop("type"))
+        type = DbtCloudIDEProjectConfigType(d.pop("type"))
 
         api_key = d.pop("api_key")
 

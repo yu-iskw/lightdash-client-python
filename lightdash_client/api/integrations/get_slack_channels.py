@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_slack_channels_response import ApiSlackChannelsResponse
+from ...models.get_slack_channels_response_200 import GetSlackChannelsResponse200
 from ...types import Response
 
 
@@ -30,9 +30,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSlackChannelsResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetSlackChannelsResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiSlackChannelsResponse.from_dict(response.json())
+        response_200 = GetSlackChannelsResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -41,7 +41,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSlackChannelsResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[GetSlackChannelsResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     *,
     client: Client,
-) -> Response[ApiSlackChannelsResponse]:
+) -> Response[GetSlackChannelsResponse200]:
     """Get slack channels
 
     Raises:
@@ -61,7 +61,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSlackChannelsResponse]
+        Response[GetSlackChannelsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -79,7 +79,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-) -> Optional[ApiSlackChannelsResponse]:
+) -> Optional[GetSlackChannelsResponse200]:
     """Get slack channels
 
     Raises:
@@ -87,7 +87,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSlackChannelsResponse
+        GetSlackChannelsResponse200
     """
 
     return sync_detailed(
@@ -98,7 +98,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-) -> Response[ApiSlackChannelsResponse]:
+) -> Response[GetSlackChannelsResponse200]:
     """Get slack channels
 
     Raises:
@@ -106,7 +106,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSlackChannelsResponse]
+        Response[GetSlackChannelsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -122,7 +122,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-) -> Optional[ApiSlackChannelsResponse]:
+) -> Optional[GetSlackChannelsResponse200]:
     """Get slack channels
 
     Raises:
@@ -130,7 +130,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSlackChannelsResponse
+        GetSlackChannelsResponse200
     """
 
     return (

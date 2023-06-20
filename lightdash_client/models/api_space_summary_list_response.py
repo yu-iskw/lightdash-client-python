@@ -10,7 +10,7 @@ import attr
 from ..models.api_space_summary_list_response_status import ApiSpaceSummaryListResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.space_summary import SpaceSummary
+    from ..models.api_space_summary_list_response_results_item import ApiSpaceSummaryListResponseResultsItem
 
 
 T = TypeVar("T", bound="ApiSpaceSummaryListResponse")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiSpaceSummaryListResponse")
 class ApiSpaceSummaryListResponse:
     """
     Attributes:
-        results (List['SpaceSummary']):
+        results (List['ApiSpaceSummaryListResponseResultsItem']):
         status (ApiSpaceSummaryListResponseStatus):
     """
 
-    results: List["SpaceSummary"]
+    results: List["ApiSpaceSummaryListResponseResultsItem"]
     status: ApiSpaceSummaryListResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -50,13 +50,13 @@ class ApiSpaceSummaryListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.space_summary import SpaceSummary
+        from ..models.api_space_summary_list_response_results_item import ApiSpaceSummaryListResponseResultsItem
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = SpaceSummary.from_dict(results_item_data)
+            results_item = ApiSpaceSummaryListResponseResultsItem.from_dict(results_item_data)
 
             results.append(results_item)
 

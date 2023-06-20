@@ -8,8 +8,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_pinned_items import ApiPinnedItems
-from ...models.update_pinned_item_order import UpdatePinnedItemOrder
+from ...models.update_pinned_items_order_json_body_item import UpdatePinnedItemsOrderJsonBodyItem
+from ...models.update_pinned_items_order_response_200 import UpdatePinnedItemsOrderResponse200
 from ...types import Response
 
 
@@ -18,7 +18,7 @@ def _get_kwargs(
     pinned_list_uuid: str,
     *,
     client: Client,
-    json_body: List["UpdatePinnedItemOrder"],
+    json_body: List["UpdatePinnedItemsOrderJsonBodyItem"],
 ) -> Dict[str, Any]:
     url = "{}/api/v1/projects/{projectUuid}/pinned-lists/{pinnedListUuid}/items/order".format(
         client.base_url, projectUuid=project_uuid, pinnedListUuid=pinned_list_uuid
@@ -44,9 +44,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiPinnedItems]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[UpdatePinnedItemsOrderResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiPinnedItems.from_dict(response.json())
+        response_200 = UpdatePinnedItemsOrderResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -55,7 +55,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiPinnedItems]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[UpdatePinnedItemsOrderResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -69,21 +69,21 @@ def sync_detailed(
     pinned_list_uuid: str,
     *,
     client: Client,
-    json_body: List["UpdatePinnedItemOrder"],
-) -> Response[ApiPinnedItems]:
+    json_body: List["UpdatePinnedItemsOrderJsonBodyItem"],
+) -> Response[UpdatePinnedItemsOrderResponse200]:
     """Update pinned items order
 
     Args:
         project_uuid (str):
         pinned_list_uuid (str):
-        json_body (List['UpdatePinnedItemOrder']): the new order of the pinned items
+        json_body (List['UpdatePinnedItemsOrderJsonBodyItem']): the new order of the pinned items
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiPinnedItems]
+        Response[UpdatePinnedItemsOrderResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -106,21 +106,21 @@ def sync(
     pinned_list_uuid: str,
     *,
     client: Client,
-    json_body: List["UpdatePinnedItemOrder"],
-) -> Optional[ApiPinnedItems]:
+    json_body: List["UpdatePinnedItemsOrderJsonBodyItem"],
+) -> Optional[UpdatePinnedItemsOrderResponse200]:
     """Update pinned items order
 
     Args:
         project_uuid (str):
         pinned_list_uuid (str):
-        json_body (List['UpdatePinnedItemOrder']): the new order of the pinned items
+        json_body (List['UpdatePinnedItemsOrderJsonBodyItem']): the new order of the pinned items
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiPinnedItems
+        UpdatePinnedItemsOrderResponse200
     """
 
     return sync_detailed(
@@ -136,21 +136,21 @@ async def asyncio_detailed(
     pinned_list_uuid: str,
     *,
     client: Client,
-    json_body: List["UpdatePinnedItemOrder"],
-) -> Response[ApiPinnedItems]:
+    json_body: List["UpdatePinnedItemsOrderJsonBodyItem"],
+) -> Response[UpdatePinnedItemsOrderResponse200]:
     """Update pinned items order
 
     Args:
         project_uuid (str):
         pinned_list_uuid (str):
-        json_body (List['UpdatePinnedItemOrder']): the new order of the pinned items
+        json_body (List['UpdatePinnedItemsOrderJsonBodyItem']): the new order of the pinned items
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiPinnedItems]
+        Response[UpdatePinnedItemsOrderResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -171,21 +171,21 @@ async def asyncio(
     pinned_list_uuid: str,
     *,
     client: Client,
-    json_body: List["UpdatePinnedItemOrder"],
-) -> Optional[ApiPinnedItems]:
+    json_body: List["UpdatePinnedItemsOrderJsonBodyItem"],
+) -> Optional[UpdatePinnedItemsOrderResponse200]:
     """Update pinned items order
 
     Args:
         project_uuid (str):
         pinned_list_uuid (str):
-        json_body (List['UpdatePinnedItemOrder']): the new order of the pinned items
+        json_body (List['UpdatePinnedItemsOrderJsonBodyItem']): the new order of the pinned items
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiPinnedItems
+        UpdatePinnedItemsOrderResponse200
     """
 
     return (

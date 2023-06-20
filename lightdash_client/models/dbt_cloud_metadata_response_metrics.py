@@ -8,7 +8,7 @@ from typing import TypeVar
 import attr
 
 if TYPE_CHECKING:
-    from ..models.dbt_cloud_metric import DbtCloudMetric
+    from ..models.dbt_cloud_metadata_response_metrics_metrics_item import DbtCloudMetadataResponseMetricsMetricsItem
 
 
 T = TypeVar("T", bound="DbtCloudMetadataResponseMetrics")
@@ -19,10 +19,11 @@ class DbtCloudMetadataResponseMetrics:
     """Response from dbt cloud metadata api containing a list of metric definitions
 
     Attributes:
-        metrics (List['DbtCloudMetric']): A list of dbt metric definitions from the dbt cloud metadata api
+        metrics (List['DbtCloudMetadataResponseMetricsMetricsItem']): A list of dbt metric definitions from the dbt
+            cloud metadata api
     """
 
-    metrics: List["DbtCloudMetric"]
+    metrics: List["DbtCloudMetadataResponseMetricsMetricsItem"]
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -44,13 +45,13 @@ class DbtCloudMetadataResponseMetrics:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_cloud_metric import DbtCloudMetric
+        from ..models.dbt_cloud_metadata_response_metrics_metrics_item import DbtCloudMetadataResponseMetricsMetricsItem
 
         d = src_dict.copy()
         metrics = []
         _metrics = d.pop("metrics")
         for metrics_item_data in _metrics:
-            metrics_item = DbtCloudMetric.from_dict(metrics_item_data)
+            metrics_item = DbtCloudMetadataResponseMetricsMetricsItem.from_dict(metrics_item_data)
 
             metrics.append(metrics_item)
 

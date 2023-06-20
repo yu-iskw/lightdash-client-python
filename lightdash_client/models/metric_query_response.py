@@ -13,10 +13,10 @@ from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.additional_metric import AdditionalMetric
-    from ..models.filters import Filters
-    from ..models.sort_field import SortField
-    from ..models.table_calculation import TableCalculation
+    from ..models.metric_query_response_additional_metrics_item import MetricQueryResponseAdditionalMetricsItem
+    from ..models.metric_query_response_filters import MetricQueryResponseFilters
+    from ..models.metric_query_response_sorts_item import MetricQueryResponseSortsItem
+    from ..models.metric_query_response_table_calculations_item import MetricQueryResponseTableCalculationsItem
 
 
 T = TypeVar("T", bound="MetricQueryResponse")
@@ -26,22 +26,22 @@ T = TypeVar("T", bound="MetricQueryResponse")
 class MetricQueryResponse:
     """
     Attributes:
-        table_calculations (List['TableCalculation']):
+        table_calculations (List['MetricQueryResponseTableCalculationsItem']):
         limit (float):
-        sorts (List['SortField']):
-        filters (Filters):
+        sorts (List['MetricQueryResponseSortsItem']):
+        filters (MetricQueryResponseFilters):
         metrics (List[str]):
         dimensions (List[str]):
-        additional_metrics (Union[Unset, List['AdditionalMetric']]):
+        additional_metrics (Union[Unset, List['MetricQueryResponseAdditionalMetricsItem']]):
     """
 
-    table_calculations: List["TableCalculation"]
+    table_calculations: List["MetricQueryResponseTableCalculationsItem"]
     limit: float
-    sorts: List["SortField"]
-    filters: "Filters"
+    sorts: List["MetricQueryResponseSortsItem"]
+    filters: "MetricQueryResponseFilters"
     metrics: List[str]
     dimensions: List[str]
-    additional_metrics: Union[Unset, List["AdditionalMetric"]] = UNSET
+    additional_metrics: Union[Unset, List["MetricQueryResponseAdditionalMetricsItem"]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -91,16 +91,16 @@ class MetricQueryResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.additional_metric import AdditionalMetric
-        from ..models.filters import Filters
-        from ..models.sort_field import SortField
-        from ..models.table_calculation import TableCalculation
+        from ..models.metric_query_response_additional_metrics_item import MetricQueryResponseAdditionalMetricsItem
+        from ..models.metric_query_response_filters import MetricQueryResponseFilters
+        from ..models.metric_query_response_sorts_item import MetricQueryResponseSortsItem
+        from ..models.metric_query_response_table_calculations_item import MetricQueryResponseTableCalculationsItem
 
         d = src_dict.copy()
         table_calculations = []
         _table_calculations = d.pop("tableCalculations")
         for table_calculations_item_data in _table_calculations:
-            table_calculations_item = TableCalculation.from_dict(table_calculations_item_data)
+            table_calculations_item = MetricQueryResponseTableCalculationsItem.from_dict(table_calculations_item_data)
 
             table_calculations.append(table_calculations_item)
 
@@ -109,11 +109,11 @@ class MetricQueryResponse:
         sorts = []
         _sorts = d.pop("sorts")
         for sorts_item_data in _sorts:
-            sorts_item = SortField.from_dict(sorts_item_data)
+            sorts_item = MetricQueryResponseSortsItem.from_dict(sorts_item_data)
 
             sorts.append(sorts_item)
 
-        filters = Filters.from_dict(d.pop("filters"))
+        filters = MetricQueryResponseFilters.from_dict(d.pop("filters"))
 
         metrics = cast(List[str], d.pop("metrics"))
 
@@ -122,7 +122,7 @@ class MetricQueryResponse:
         additional_metrics = []
         _additional_metrics = d.pop("additionalMetrics", UNSET)
         for additional_metrics_item_data in _additional_metrics or []:
-            additional_metrics_item = AdditionalMetric.from_dict(additional_metrics_item_data)
+            additional_metrics_item = MetricQueryResponseAdditionalMetricsItem.from_dict(additional_metrics_item_data)
 
             additional_metrics.append(additional_metrics_item)
 

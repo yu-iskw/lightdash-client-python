@@ -2,15 +2,23 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Type
+from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
 
 import attr
 
-from ..models.warehouse_types_snowflake import WarehouseTypesSNOWFLAKE
-from ..models.week_day import WeekDay
+from ..models.pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names_type import (
+    PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType,
+)
 from ..types import UNSET
 from ..types import Unset
+
+if TYPE_CHECKING:
+    from ..models.pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names_start_of_week import (
+        PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
+    )
+
 
 T = TypeVar(
     "T", bound="PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames"
@@ -22,7 +30,7 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        type (WarehouseTypesSNOWFLAKE):
+        type (PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType):
         account (str):
         database (str):
         warehouse (str):
@@ -32,10 +40,11 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
         client_session_keep_alive (Union[Unset, bool]):
         query_tag (Union[Unset, str]):
         access_url (Union[Unset, str]):
-        start_of_week (Union[Unset, None, WeekDay]):
+        start_of_week (Union[Unset, None,
+            PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek]):
     """
 
-    type: WarehouseTypesSNOWFLAKE
+    type: PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType
     account: str
     database: str
     warehouse: str
@@ -45,7 +54,11 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
     client_session_keep_alive: Union[Unset, bool] = UNSET
     query_tag: Union[Unset, str] = UNSET
     access_url: Union[Unset, str] = UNSET
-    start_of_week: Union[Unset, None, WeekDay] = UNSET
+    start_of_week: Union[
+        Unset,
+        None,
+        "PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
+    ] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -60,9 +73,9 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
         client_session_keep_alive = self.client_session_keep_alive
         query_tag = self.query_tag
         access_url = self.access_url
-        start_of_week: Union[Unset, None, int] = UNSET
+        start_of_week: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.start_of_week, Unset):
-            start_of_week = self.start_of_week.value if self.start_of_week else None
+            start_of_week = self.start_of_week.to_dict() if self.start_of_week else None
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -92,8 +105,14 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names_start_of_week import (
+            PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
+        )
+
         d = src_dict.copy()
-        type = WarehouseTypesSNOWFLAKE(d.pop("type"))
+        type = PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType(
+            d.pop("type")
+        )
 
         account = d.pop("account")
 
@@ -114,13 +133,19 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
         access_url = d.pop("accessUrl", UNSET)
 
         _start_of_week = d.pop("startOfWeek", UNSET)
-        start_of_week: Union[Unset, None, WeekDay]
+        start_of_week: Union[
+            Unset,
+            None,
+            PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
+        ]
         if _start_of_week is None:
             start_of_week = None
         elif isinstance(_start_of_week, Unset):
             start_of_week = UNSET
         else:
-            start_of_week = WeekDay(_start_of_week)
+            start_of_week = PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek.from_dict(
+                _start_of_week
+            )
 
         pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names = cls(
             type=type,

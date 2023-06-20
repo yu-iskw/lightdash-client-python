@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_success_empty import ApiSuccessEmpty
+from ...models.delete_space_response_204 import DeleteSpaceResponse204
 from ...types import Response
 
 
@@ -34,9 +34,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[DeleteSpaceResponse204]:
     if response.status_code == HTTPStatus.NO_CONTENT:
-        response_204 = ApiSuccessEmpty.from_dict(response.json())
+        response_204 = DeleteSpaceResponse204.from_dict(response.json())
 
         return response_204
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[DeleteSpaceResponse204]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,7 +59,7 @@ def sync_detailed(
     space_uuid: str,
     *,
     client: Client,
-) -> Response[ApiSuccessEmpty]:
+) -> Response[DeleteSpaceResponse204]:
     """Delete a space from a project
 
     Args:
@@ -71,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[DeleteSpaceResponse204]
     """
 
     kwargs = _get_kwargs(
@@ -93,7 +93,7 @@ def sync(
     space_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiSuccessEmpty]:
+) -> Optional[DeleteSpaceResponse204]:
     """Delete a space from a project
 
     Args:
@@ -105,7 +105,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        DeleteSpaceResponse204
     """
 
     return sync_detailed(
@@ -120,7 +120,7 @@ async def asyncio_detailed(
     space_uuid: str,
     *,
     client: Client,
-) -> Response[ApiSuccessEmpty]:
+) -> Response[DeleteSpaceResponse204]:
     """Delete a space from a project
 
     Args:
@@ -132,7 +132,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[DeleteSpaceResponse204]
     """
 
     kwargs = _get_kwargs(
@@ -152,7 +152,7 @@ async def asyncio(
     space_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiSuccessEmpty]:
+) -> Optional[DeleteSpaceResponse204]:
     """Delete a space from a project
 
     Args:
@@ -164,7 +164,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        DeleteSpaceResponse204
     """
 
     return (

@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_success_empty import ApiSuccessEmpty
+from ...models.delete_my_organization_response_200 import DeleteMyOrganizationResponse200
 from ...types import Response
 
 
@@ -31,9 +31,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[DeleteMyOrganizationResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiSuccessEmpty.from_dict(response.json())
+        response_200 = DeleteMyOrganizationResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -42,7 +42,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[DeleteMyOrganizationResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -55,7 +55,7 @@ def sync_detailed(
     organization_uuid: str,
     *,
     client: Client,
-) -> Response[ApiSuccessEmpty]:
+) -> Response[DeleteMyOrganizationResponse200]:
     """Deletes an organization and all users inside that organization
 
     Args:
@@ -66,7 +66,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[DeleteMyOrganizationResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -86,7 +86,7 @@ def sync(
     organization_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiSuccessEmpty]:
+) -> Optional[DeleteMyOrganizationResponse200]:
     """Deletes an organization and all users inside that organization
 
     Args:
@@ -97,7 +97,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        DeleteMyOrganizationResponse200
     """
 
     return sync_detailed(
@@ -110,7 +110,7 @@ async def asyncio_detailed(
     organization_uuid: str,
     *,
     client: Client,
-) -> Response[ApiSuccessEmpty]:
+) -> Response[DeleteMyOrganizationResponse200]:
     """Deletes an organization and all users inside that organization
 
     Args:
@@ -121,7 +121,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[DeleteMyOrganizationResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -139,7 +139,7 @@ async def asyncio(
     organization_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiSuccessEmpty]:
+) -> Optional[DeleteMyOrganizationResponse200]:
     """Deletes an organization and all users inside that organization
 
     Args:
@@ -150,7 +150,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        DeleteMyOrganizationResponse200
     """
 
     return (

@@ -7,15 +7,15 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_group_response import ApiGroupResponse
-from ...models.pick_create_group_name import PickCreateGroupName
+from ...models.create_group_in_organization_json_body import CreateGroupInOrganizationJsonBody
+from ...models.create_group_in_organization_response_200 import CreateGroupInOrganizationResponse200
 from ...types import Response
 
 
 def _get_kwargs(
     *,
     client: Client,
-    json_body: PickCreateGroupName,
+    json_body: CreateGroupInOrganizationJsonBody,
 ) -> Dict[str, Any]:
     url = "{}/api/v1/org/groups".format(client.base_url)
 
@@ -35,9 +35,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiGroupResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[CreateGroupInOrganizationResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiGroupResponse.from_dict(response.json())
+        response_200 = CreateGroupInOrganizationResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -46,7 +46,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiGroupResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[CreateGroupInOrganizationResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -58,20 +58,20 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     *,
     client: Client,
-    json_body: PickCreateGroupName,
-) -> Response[ApiGroupResponse]:
+    json_body: CreateGroupInOrganizationJsonBody,
+) -> Response[CreateGroupInOrganizationResponse200]:
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (PickCreateGroupName): From T, pick a set of properties whose keys are in the
-            union K
+        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
+            are in the union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiGroupResponse]
+        Response[CreateGroupInOrganizationResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -90,20 +90,20 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    json_body: PickCreateGroupName,
-) -> Optional[ApiGroupResponse]:
+    json_body: CreateGroupInOrganizationJsonBody,
+) -> Optional[CreateGroupInOrganizationResponse200]:
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (PickCreateGroupName): From T, pick a set of properties whose keys are in the
-            union K
+        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
+            are in the union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiGroupResponse
+        CreateGroupInOrganizationResponse200
     """
 
     return sync_detailed(
@@ -115,20 +115,20 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    json_body: PickCreateGroupName,
-) -> Response[ApiGroupResponse]:
+    json_body: CreateGroupInOrganizationJsonBody,
+) -> Response[CreateGroupInOrganizationResponse200]:
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (PickCreateGroupName): From T, pick a set of properties whose keys are in the
-            union K
+        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
+            are in the union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiGroupResponse]
+        Response[CreateGroupInOrganizationResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -145,20 +145,20 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    json_body: PickCreateGroupName,
-) -> Optional[ApiGroupResponse]:
+    json_body: CreateGroupInOrganizationJsonBody,
+) -> Optional[CreateGroupInOrganizationResponse200]:
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (PickCreateGroupName): From T, pick a set of properties whose keys are in the
-            union K
+        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
+            are in the union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiGroupResponse
+        CreateGroupInOrganizationResponse200
     """
 
     return (

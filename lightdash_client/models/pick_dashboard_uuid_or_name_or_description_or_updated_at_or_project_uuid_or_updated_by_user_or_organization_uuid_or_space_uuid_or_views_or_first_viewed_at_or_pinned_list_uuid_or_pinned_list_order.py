@@ -16,7 +16,9 @@ from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.updated_by_user import UpdatedByUser
+    from ..models.pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_updated_by_user import (
+        PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
+    )
 
 
 T = TypeVar(
@@ -38,7 +40,8 @@ class PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUse
         space_uuid (str):
         views (float):
         description (Union[Unset, str]):
-        updated_by_user (Union[Unset, UpdatedByUser]):
+        updated_by_user (Union[Unset, PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrgan
+            izationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser]):
         first_viewed_at (Union[None, datetime.datetime, str]):
         pinned_list_uuid (Optional[str]):
         pinned_list_order (Optional[float]):
@@ -55,7 +58,10 @@ class PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUse
     pinned_list_uuid: Optional[str]
     pinned_list_order: Optional[float]
     description: Union[Unset, str] = UNSET
-    updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
+    updated_by_user: Union[
+        Unset,
+        "PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser",
+    ] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -110,7 +116,9 @@ class PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUse
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.updated_by_user import UpdatedByUser
+        from ..models.pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_updated_by_user import (
+            PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
+        )
 
         d = src_dict.copy()
         name = d.pop("name")
@@ -130,11 +138,16 @@ class PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUse
         description = d.pop("description", UNSET)
 
         _updated_by_user = d.pop("updatedByUser", UNSET)
-        updated_by_user: Union[Unset, UpdatedByUser]
+        updated_by_user: Union[
+            Unset,
+            PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
+        ]
         if isinstance(_updated_by_user, Unset):
             updated_by_user = UNSET
         else:
-            updated_by_user = UpdatedByUser.from_dict(_updated_by_user)
+            updated_by_user = PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser.from_dict(
+                _updated_by_user
+            )
 
         def _parse_first_viewed_at(data: object) -> Union[None, datetime.datetime, str]:
             if data is None:

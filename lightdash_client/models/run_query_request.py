@@ -13,10 +13,10 @@ from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.additional_metric import AdditionalMetric
+    from ..models.run_query_request_additional_metrics_item import RunQueryRequestAdditionalMetricsItem
     from ..models.run_query_request_filters import RunQueryRequestFilters
-    from ..models.sort_field import SortField
-    from ..models.table_calculation import TableCalculation
+    from ..models.run_query_request_sorts_item import RunQueryRequestSortsItem
+    from ..models.run_query_request_table_calculations_item import RunQueryRequestTableCalculationsItem
 
 
 T = TypeVar("T", bound="RunQueryRequest")
@@ -26,24 +26,24 @@ T = TypeVar("T", bound="RunQueryRequest")
 class RunQueryRequest:
     """
     Attributes:
-        table_calculations (List['TableCalculation']):
+        table_calculations (List['RunQueryRequestTableCalculationsItem']):
         limit (float):
-        sorts (List['SortField']):
+        sorts (List['RunQueryRequestSortsItem']):
         filters (RunQueryRequestFilters):
         metrics (List[str]):
         dimensions (List[str]):
         csv_limit (Union[Unset, float]):
-        additional_metrics (Union[Unset, List['AdditionalMetric']]):
+        additional_metrics (Union[Unset, List['RunQueryRequestAdditionalMetricsItem']]):
     """
 
-    table_calculations: List["TableCalculation"]
+    table_calculations: List["RunQueryRequestTableCalculationsItem"]
     limit: float
-    sorts: List["SortField"]
+    sorts: List["RunQueryRequestSortsItem"]
     filters: "RunQueryRequestFilters"
     metrics: List[str]
     dimensions: List[str]
     csv_limit: Union[Unset, float] = UNSET
-    additional_metrics: Union[Unset, List["AdditionalMetric"]] = UNSET
+    additional_metrics: Union[Unset, List["RunQueryRequestAdditionalMetricsItem"]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -96,16 +96,16 @@ class RunQueryRequest:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.additional_metric import AdditionalMetric
+        from ..models.run_query_request_additional_metrics_item import RunQueryRequestAdditionalMetricsItem
         from ..models.run_query_request_filters import RunQueryRequestFilters
-        from ..models.sort_field import SortField
-        from ..models.table_calculation import TableCalculation
+        from ..models.run_query_request_sorts_item import RunQueryRequestSortsItem
+        from ..models.run_query_request_table_calculations_item import RunQueryRequestTableCalculationsItem
 
         d = src_dict.copy()
         table_calculations = []
         _table_calculations = d.pop("tableCalculations")
         for table_calculations_item_data in _table_calculations:
-            table_calculations_item = TableCalculation.from_dict(table_calculations_item_data)
+            table_calculations_item = RunQueryRequestTableCalculationsItem.from_dict(table_calculations_item_data)
 
             table_calculations.append(table_calculations_item)
 
@@ -114,7 +114,7 @@ class RunQueryRequest:
         sorts = []
         _sorts = d.pop("sorts")
         for sorts_item_data in _sorts:
-            sorts_item = SortField.from_dict(sorts_item_data)
+            sorts_item = RunQueryRequestSortsItem.from_dict(sorts_item_data)
 
             sorts.append(sorts_item)
 
@@ -129,7 +129,7 @@ class RunQueryRequest:
         additional_metrics = []
         _additional_metrics = d.pop("additionalMetrics", UNSET)
         for additional_metrics_item_data in _additional_metrics or []:
-            additional_metrics_item = AdditionalMetric.from_dict(additional_metrics_item_data)
+            additional_metrics_item = RunQueryRequestAdditionalMetricsItem.from_dict(additional_metrics_item_data)
 
             additional_metrics.append(additional_metrics_item)
 

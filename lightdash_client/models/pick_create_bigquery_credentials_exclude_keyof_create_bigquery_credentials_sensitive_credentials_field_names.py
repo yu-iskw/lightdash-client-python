@@ -2,6 +2,7 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Type
+from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
 
@@ -10,10 +11,17 @@ import attr
 from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_priority import (
     PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority,
 )
-from ..models.warehouse_types_bigquery import WarehouseTypesBIGQUERY
-from ..models.week_day import WeekDay
+from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_type import (
+    PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType,
+)
 from ..types import UNSET
 from ..types import Unset
+
+if TYPE_CHECKING:
+    from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_start_of_week import (
+        PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
+    )
+
 
 T = TypeVar(
     "T", bound="PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames"
@@ -25,11 +33,12 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        type (WarehouseTypesBIGQUERY):
+        type (PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType):
         project (str):
         dataset (str):
         threads (Union[Unset, float]):
-        start_of_week (Union[Unset, None, WeekDay]):
+        start_of_week (Union[Unset, None,
+            PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek]):
         timeout_seconds (Union[Unset, float]):
         priority (Union[Unset,
             PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority]):
@@ -38,11 +47,15 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
         maximum_bytes_billed (Union[Unset, float]):
     """
 
-    type: WarehouseTypesBIGQUERY
+    type: PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType
     project: str
     dataset: str
     threads: Union[Unset, float] = UNSET
-    start_of_week: Union[Unset, None, WeekDay] = UNSET
+    start_of_week: Union[
+        Unset,
+        None,
+        "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
+    ] = UNSET
     timeout_seconds: Union[Unset, float] = UNSET
     priority: Union[
         Unset, PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority
@@ -58,9 +71,9 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
         project = self.project
         dataset = self.dataset
         threads = self.threads
-        start_of_week: Union[Unset, None, int] = UNSET
+        start_of_week: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.start_of_week, Unset):
-            start_of_week = self.start_of_week.value if self.start_of_week else None
+            start_of_week = self.start_of_week.to_dict() if self.start_of_week else None
 
         timeout_seconds = self.timeout_seconds
         priority: Union[Unset, str] = UNSET
@@ -99,8 +112,14 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_start_of_week import (
+            PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
+        )
+
         d = src_dict.copy()
-        type = WarehouseTypesBIGQUERY(d.pop("type"))
+        type = PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType(
+            d.pop("type")
+        )
 
         project = d.pop("project")
 
@@ -109,13 +128,19 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
         threads = d.pop("threads", UNSET)
 
         _start_of_week = d.pop("startOfWeek", UNSET)
-        start_of_week: Union[Unset, None, WeekDay]
+        start_of_week: Union[
+            Unset,
+            None,
+            PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
+        ]
         if _start_of_week is None:
             start_of_week = None
         elif isinstance(_start_of_week, Unset):
             start_of_week = UNSET
         else:
-            start_of_week = WeekDay(_start_of_week)
+            start_of_week = PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek.from_dict(
+                _start_of_week
+            )
 
         timeout_seconds = d.pop("timeoutSeconds", UNSET)
 

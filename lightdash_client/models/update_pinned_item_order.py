@@ -7,12 +7,10 @@ from typing import TypeVar
 
 import attr
 
-from ..models.resource_view_item_type import ResourceViewItemType
+from ..models.update_pinned_item_order_type import UpdatePinnedItemOrderType
 
 if TYPE_CHECKING:
-    from ..models.pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
-        PickResourceViewItemAtDataUuidOrPinnedListOrder,
-    )
+    from ..models.update_pinned_item_order_data import UpdatePinnedItemOrderData
 
 
 T = TypeVar("T", bound="UpdatePinnedItemOrder")
@@ -22,13 +20,12 @@ T = TypeVar("T", bound="UpdatePinnedItemOrder")
 class UpdatePinnedItemOrder:
     """
     Attributes:
-        data (PickResourceViewItemAtDataUuidOrPinnedListOrder): From T, pick a set of properties whose keys are in the
-            union K
-        type (ResourceViewItemType):
+        data (UpdatePinnedItemOrderData): From T, pick a set of properties whose keys are in the union K
+        type (UpdatePinnedItemOrderType):
     """
 
-    data: "PickResourceViewItemAtDataUuidOrPinnedListOrder"
-    type: ResourceViewItemType
+    data: "UpdatePinnedItemOrderData"
+    type: UpdatePinnedItemOrderType
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -49,14 +46,12 @@ class UpdatePinnedItemOrder:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
-            PickResourceViewItemAtDataUuidOrPinnedListOrder,
-        )
+        from ..models.update_pinned_item_order_data import UpdatePinnedItemOrderData
 
         d = src_dict.copy()
-        data = PickResourceViewItemAtDataUuidOrPinnedListOrder.from_dict(d.pop("data"))
+        data = UpdatePinnedItemOrderData.from_dict(d.pop("data"))
 
-        type = ResourceViewItemType(d.pop("type"))
+        type = UpdatePinnedItemOrderType(d.pop("type"))
 
         update_pinned_item_order = cls(
             data=data,

@@ -9,7 +9,7 @@ from typing import TypeVar
 import attr
 
 if TYPE_CHECKING:
-    from ..models.metric_query_response import MetricQueryResponse
+    from ..models.api_run_query_response_results_metric_query import ApiRunQueryResponseResultsMetricQuery
 
 
 T = TypeVar("T", bound="ApiRunQueryResponseResults")
@@ -20,11 +20,11 @@ class ApiRunQueryResponseResults:
     """
     Attributes:
         rows (List[Any]):
-        metric_query (MetricQueryResponse):
+        metric_query (ApiRunQueryResponseResultsMetricQuery):
     """
 
     rows: List[Any]
-    metric_query: "MetricQueryResponse"
+    metric_query: "ApiRunQueryResponseResultsMetricQuery"
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -45,12 +45,12 @@ class ApiRunQueryResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.metric_query_response import MetricQueryResponse
+        from ..models.api_run_query_response_results_metric_query import ApiRunQueryResponseResultsMetricQuery
 
         d = src_dict.copy()
         rows = cast(List[Any], d.pop("rows"))
 
-        metric_query = MetricQueryResponse.from_dict(d.pop("metricQuery"))
+        metric_query = ApiRunQueryResponseResultsMetricQuery.from_dict(d.pop("metricQuery"))
 
         api_run_query_response_results = cls(
             rows=rows,

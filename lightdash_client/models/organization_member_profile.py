@@ -7,7 +7,7 @@ from typing import Union
 
 import attr
 
-from ..models.organization_member_role import OrganizationMemberRole
+from ..models.organization_member_profile_role import OrganizationMemberProfileRole
 from ..types import UNSET
 from ..types import Unset
 
@@ -20,7 +20,7 @@ class OrganizationMemberProfile:
 
     Attributes:
         is_active (bool): Whether the user has accepted their invite to the organization
-        role (OrganizationMemberRole):
+        role (OrganizationMemberProfileRole): The role of the user in the organization
         organization_uuid (str): Unique identifier for the organization the user is a member of
         email (str):
         last_name (str):
@@ -30,7 +30,7 @@ class OrganizationMemberProfile:
     """
 
     is_active: bool
-    role: OrganizationMemberRole
+    role: OrganizationMemberProfileRole
     organization_uuid: str
     email: str
     last_name: str
@@ -73,7 +73,7 @@ class OrganizationMemberProfile:
         d = src_dict.copy()
         is_active = d.pop("isActive")
 
-        role = OrganizationMemberRole(d.pop("role"))
+        role = OrganizationMemberProfileRole(d.pop("role"))
 
         organization_uuid = d.pop("organizationUuid")
 

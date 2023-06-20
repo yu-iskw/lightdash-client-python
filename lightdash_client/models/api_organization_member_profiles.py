@@ -10,7 +10,7 @@ import attr
 from ..models.api_organization_member_profiles_status import ApiOrganizationMemberProfilesStatus
 
 if TYPE_CHECKING:
-    from ..models.organization_member_profile import OrganizationMemberProfile
+    from ..models.api_organization_member_profiles_results_item import ApiOrganizationMemberProfilesResultsItem
 
 
 T = TypeVar("T", bound="ApiOrganizationMemberProfiles")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiOrganizationMemberProfiles")
 class ApiOrganizationMemberProfiles:
     """
     Attributes:
-        results (List['OrganizationMemberProfile']):
+        results (List['ApiOrganizationMemberProfilesResultsItem']):
         status (ApiOrganizationMemberProfilesStatus):
     """
 
-    results: List["OrganizationMemberProfile"]
+    results: List["ApiOrganizationMemberProfilesResultsItem"]
     status: ApiOrganizationMemberProfilesStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -50,13 +50,13 @@ class ApiOrganizationMemberProfiles:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.organization_member_profile import OrganizationMemberProfile
+        from ..models.api_organization_member_profiles_results_item import ApiOrganizationMemberProfilesResultsItem
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = OrganizationMemberProfile.from_dict(results_item_data)
+            results_item = ApiOrganizationMemberProfilesResultsItem.from_dict(results_item_data)
 
             results.append(results_item)
 

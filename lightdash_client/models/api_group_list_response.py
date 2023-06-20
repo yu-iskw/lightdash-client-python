@@ -10,7 +10,7 @@ import attr
 from ..models.api_group_list_response_status import ApiGroupListResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.group import Group
+    from ..models.api_group_list_response_results_item import ApiGroupListResponseResultsItem
 
 
 T = TypeVar("T", bound="ApiGroupListResponse")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiGroupListResponse")
 class ApiGroupListResponse:
     """
     Attributes:
-        results (List['Group']):
+        results (List['ApiGroupListResponseResultsItem']):
         status (ApiGroupListResponseStatus):
     """
 
-    results: List["Group"]
+    results: List["ApiGroupListResponseResultsItem"]
     status: ApiGroupListResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -50,13 +50,13 @@ class ApiGroupListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.group import Group
+        from ..models.api_group_list_response_results_item import ApiGroupListResponseResultsItem
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = Group.from_dict(results_item_data)
+            results_item = ApiGroupListResponseResultsItem.from_dict(results_item_data)
 
             results.append(results_item)
 

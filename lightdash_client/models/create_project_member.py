@@ -6,7 +6,7 @@ from typing import TypeVar
 
 import attr
 
-from ..models.project_member_role import ProjectMemberRole
+from ..models.create_project_member_role import CreateProjectMemberRole
 
 T = TypeVar("T", bound="CreateProjectMember")
 
@@ -16,12 +16,12 @@ class CreateProjectMember:
     """
     Attributes:
         send_email (bool):
-        role (ProjectMemberRole):
+        role (CreateProjectMemberRole):
         email (str):
     """
 
     send_email: bool
-    role: ProjectMemberRole
+    role: CreateProjectMemberRole
     email: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -48,7 +48,7 @@ class CreateProjectMember:
         d = src_dict.copy()
         send_email = d.pop("sendEmail")
 
-        role = ProjectMemberRole(d.pop("role"))
+        role = CreateProjectMemberRole(d.pop("role"))
 
         email = d.pop("email")
 

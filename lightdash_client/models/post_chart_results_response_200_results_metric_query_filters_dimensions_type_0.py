@@ -1,74 +1,57 @@
 from typing import Any
+from typing import cast
 from typing import Dict
 from typing import List
 from typing import Type
 from typing import TypeVar
-from typing import Union
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
-
-T = TypeVar("T", bound="TableCalculation")
+T = TypeVar("T", bound="PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType0")
 
 
 @attr.s(auto_attribs=True)
-class TableCalculation:
+class PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType0:
     """
     Attributes:
-        sql (str):
-        display_name (str):
-        name (str):
-        index (Union[Unset, float]):
+        or_ (List[Any]):
+        id (str):
     """
 
-    sql: str
-    display_name: str
-    name: str
-    index: Union[Unset, float] = UNSET
+    or_: List[Any]
+    id: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        sql = self.sql
-        display_name = self.display_name
-        name = self.name
-        index = self.index
+        or_ = self.or_
+
+        id = self.id
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "sql": sql,
-                "displayName": display_name,
-                "name": name,
+                "or": or_,
+                "id": id,
             }
         )
-        if index is not UNSET:
-            field_dict["index"] = index
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        sql = d.pop("sql")
+        or_ = cast(List[Any], d.pop("or"))
 
-        display_name = d.pop("displayName")
+        id = d.pop("id")
 
-        name = d.pop("name")
-
-        index = d.pop("index", UNSET)
-
-        table_calculation = cls(
-            sql=sql,
-            display_name=display_name,
-            name=name,
-            index=index,
+        post_chart_results_response_200_results_metric_query_filters_dimensions_type_0 = cls(
+            or_=or_,
+            id=id,
         )
 
-        table_calculation.additional_properties = d
-        return table_calculation
+        post_chart_results_response_200_results_metric_query_filters_dimensions_type_0.additional_properties = d
+        return post_chart_results_response_200_results_metric_query_filters_dimensions_type_0
 
     @property
     def additional_keys(self) -> List[str]:

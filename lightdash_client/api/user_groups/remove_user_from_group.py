@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_success_empty import ApiSuccessEmpty
+from ...models.remove_user_from_group_response_200 import RemoveUserFromGroupResponse200
 from ...types import Response
 
 
@@ -34,9 +34,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[RemoveUserFromGroupResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiSuccessEmpty.from_dict(response.json())
+        response_200 = RemoveUserFromGroupResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[RemoveUserFromGroupResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,7 +59,7 @@ def sync_detailed(
     user_uuid: str,
     *,
     client: Client,
-) -> Response[ApiSuccessEmpty]:
+) -> Response[RemoveUserFromGroupResponse200]:
     """Remove a user from a group
 
     Args:
@@ -71,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[RemoveUserFromGroupResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -93,7 +93,7 @@ def sync(
     user_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiSuccessEmpty]:
+) -> Optional[RemoveUserFromGroupResponse200]:
     """Remove a user from a group
 
     Args:
@@ -105,7 +105,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        RemoveUserFromGroupResponse200
     """
 
     return sync_detailed(
@@ -120,7 +120,7 @@ async def asyncio_detailed(
     user_uuid: str,
     *,
     client: Client,
-) -> Response[ApiSuccessEmpty]:
+) -> Response[RemoveUserFromGroupResponse200]:
     """Remove a user from a group
 
     Args:
@@ -132,7 +132,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[RemoveUserFromGroupResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -152,7 +152,7 @@ async def asyncio(
     user_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiSuccessEmpty]:
+) -> Optional[RemoveUserFromGroupResponse200]:
     """Remove a user from a group
 
     Args:
@@ -164,7 +164,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        RemoveUserFromGroupResponse200
     """
 
     return (

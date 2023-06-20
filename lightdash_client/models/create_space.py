@@ -12,7 +12,7 @@ from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.space_share import SpaceShare
+    from ..models.create_space_access_item import CreateSpaceAccessItem
 
 
 T = TypeVar("T", bound="CreateSpace")
@@ -24,12 +24,12 @@ class CreateSpace:
     Attributes:
         name (str):
         is_private (Union[Unset, bool]):
-        access (Union[Unset, List['SpaceShare']]):
+        access (Union[Unset, List['CreateSpaceAccessItem']]):
     """
 
     name: str
     is_private: Union[Unset, bool] = UNSET
-    access: Union[Unset, List["SpaceShare"]] = UNSET
+    access: Union[Unset, List["CreateSpaceAccessItem"]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -59,7 +59,7 @@ class CreateSpace:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.space_share import SpaceShare
+        from ..models.create_space_access_item import CreateSpaceAccessItem
 
         d = src_dict.copy()
         name = d.pop("name")
@@ -69,7 +69,7 @@ class CreateSpace:
         access = []
         _access = d.pop("access", UNSET)
         for access_item_data in _access or []:
-            access_item = SpaceShare.from_dict(access_item_data)
+            access_item = CreateSpaceAccessItem.from_dict(access_item_data)
 
             access.append(access_item)
 

@@ -12,7 +12,7 @@ from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.filters import Filters
+    from ..models.post_chart_results_json_body_filters import PostChartResultsJsonBodyFilters
 
 
 T = TypeVar("T", bound="PostChartResultsJsonBody")
@@ -22,10 +22,10 @@ T = TypeVar("T", bound="PostChartResultsJsonBody")
 class PostChartResultsJsonBody:
     """
     Attributes:
-        filters (Union[Unset, Filters]):
+        filters (Union[Unset, PostChartResultsJsonBodyFilters]):
     """
 
-    filters: Union[Unset, "Filters"] = UNSET
+    filters: Union[Unset, "PostChartResultsJsonBodyFilters"] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -43,15 +43,15 @@ class PostChartResultsJsonBody:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.filters import Filters
+        from ..models.post_chart_results_json_body_filters import PostChartResultsJsonBodyFilters
 
         d = src_dict.copy()
         _filters = d.pop("filters", UNSET)
-        filters: Union[Unset, Filters]
+        filters: Union[Unset, PostChartResultsJsonBodyFilters]
         if isinstance(_filters, Unset):
             filters = UNSET
         else:
-            filters = Filters.from_dict(_filters)
+            filters = PostChartResultsJsonBodyFilters.from_dict(_filters)
 
         post_chart_results_json_body = cls(
             filters=filters,

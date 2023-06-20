@@ -6,7 +6,7 @@ from typing import TypeVar
 
 import attr
 
-from ..models.project_member_role import ProjectMemberRole
+from ..models.space_share_role import SpaceShareRole
 
 T = TypeVar("T", bound="SpaceShare")
 
@@ -15,13 +15,13 @@ T = TypeVar("T", bound="SpaceShare")
 class SpaceShare:
     """
     Attributes:
-        role (ProjectMemberRole):
+        role (SpaceShareRole):
         last_name (str):
         first_name (str):
         user_uuid (str):
     """
 
-    role: ProjectMemberRole
+    role: SpaceShareRole
     last_name: str
     first_name: str
     user_uuid: str
@@ -50,7 +50,7 @@ class SpaceShare:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        role = ProjectMemberRole(d.pop("role"))
+        role = SpaceShareRole(d.pop("role"))
 
         last_name = d.pop("lastName")
 

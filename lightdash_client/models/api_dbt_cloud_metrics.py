@@ -10,7 +10,7 @@ import attr
 from ..models.api_dbt_cloud_metrics_status import ApiDbtCloudMetricsStatus
 
 if TYPE_CHECKING:
-    from ..models.dbt_cloud_metadata_response_metrics import DbtCloudMetadataResponseMetrics
+    from ..models.api_dbt_cloud_metrics_results import ApiDbtCloudMetricsResults
 
 
 T = TypeVar("T", bound="ApiDbtCloudMetrics")
@@ -20,12 +20,12 @@ T = TypeVar("T", bound="ApiDbtCloudMetrics")
 class ApiDbtCloudMetrics:
     """
     Attributes:
-        results (DbtCloudMetadataResponseMetrics): Response from dbt cloud metadata api containing a list of metric
+        results (ApiDbtCloudMetricsResults): Response from dbt cloud metadata api containing a list of metric
             definitions
         status (ApiDbtCloudMetricsStatus):
     """
 
-    results: "DbtCloudMetadataResponseMetrics"
+    results: "ApiDbtCloudMetricsResults"
     status: ApiDbtCloudMetricsStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -47,10 +47,10 @@ class ApiDbtCloudMetrics:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_cloud_metadata_response_metrics import DbtCloudMetadataResponseMetrics
+        from ..models.api_dbt_cloud_metrics_results import ApiDbtCloudMetricsResults
 
         d = src_dict.copy()
-        results = DbtCloudMetadataResponseMetrics.from_dict(d.pop("results"))
+        results = ApiDbtCloudMetricsResults.from_dict(d.pop("results"))
 
         status = ApiDbtCloudMetricsStatus(d.pop("status"))
 

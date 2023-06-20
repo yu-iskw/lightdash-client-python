@@ -10,7 +10,7 @@ import attr
 from ..models.api_share_response_status import ApiShareResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.share_url import ShareUrl
+    from ..models.api_share_response_results import ApiShareResponseResults
 
 
 T = TypeVar("T", bound="ApiShareResponse")
@@ -20,13 +20,13 @@ T = TypeVar("T", bound="ApiShareResponse")
 class ApiShareResponse:
     """
     Attributes:
-        results (ShareUrl): A ShareUrl maps a short shareable id to a full URL
+        results (ApiShareResponseResults): A ShareUrl maps a short shareable id to a full URL
             in the Lightdash UI. This allows very long URLs
             to be represented by short ids.
         status (ApiShareResponseStatus):
     """
 
-    results: "ShareUrl"
+    results: "ApiShareResponseResults"
     status: ApiShareResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -48,10 +48,10 @@ class ApiShareResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.share_url import ShareUrl
+        from ..models.api_share_response_results import ApiShareResponseResults
 
         d = src_dict.copy()
-        results = ShareUrl.from_dict(d.pop("results"))
+        results = ApiShareResponseResults.from_dict(d.pop("results"))
 
         status = ApiShareResponseStatus(d.pop("status"))
 
