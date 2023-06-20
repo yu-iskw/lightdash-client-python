@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_dbt_cloud_metrics import ApiDbtCloudMetrics
+from ...models.get_dbt_cloud_metrics_response_200 import GetDbtCloudMetricsResponse200
 from ...types import Response
 
 
@@ -33,9 +33,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiDbtCloudMetrics]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetDbtCloudMetricsResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiDbtCloudMetrics.from_dict(response.json())
+        response_200 = GetDbtCloudMetricsResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -44,7 +44,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiDbtCloudMetrics]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[GetDbtCloudMetricsResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -57,7 +57,7 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[ApiDbtCloudMetrics]:
+) -> Response[GetDbtCloudMetricsResponse200]:
     """Get a list of dbt metric definitions from the dbt Cloud metadata api.
     The metrics are taken from the metadata from a single dbt Cloud job configured
     with the dbt Cloud integration settings for the project.
@@ -70,7 +70,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiDbtCloudMetrics]
+        Response[GetDbtCloudMetricsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -90,7 +90,7 @@ def sync(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiDbtCloudMetrics]:
+) -> Optional[GetDbtCloudMetricsResponse200]:
     """Get a list of dbt metric definitions from the dbt Cloud metadata api.
     The metrics are taken from the metadata from a single dbt Cloud job configured
     with the dbt Cloud integration settings for the project.
@@ -103,7 +103,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiDbtCloudMetrics
+        GetDbtCloudMetricsResponse200
     """
 
     return sync_detailed(
@@ -116,7 +116,7 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[ApiDbtCloudMetrics]:
+) -> Response[GetDbtCloudMetricsResponse200]:
     """Get a list of dbt metric definitions from the dbt Cloud metadata api.
     The metrics are taken from the metadata from a single dbt Cloud job configured
     with the dbt Cloud integration settings for the project.
@@ -129,7 +129,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiDbtCloudMetrics]
+        Response[GetDbtCloudMetricsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -147,7 +147,7 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiDbtCloudMetrics]:
+) -> Optional[GetDbtCloudMetricsResponse200]:
     """Get a list of dbt metric definitions from the dbt Cloud metadata api.
     The metrics are taken from the metadata from a single dbt Cloud job configured
     with the dbt Cloud integration settings for the project.
@@ -160,7 +160,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiDbtCloudMetrics
+        GetDbtCloudMetricsResponse200
     """
 
     return (

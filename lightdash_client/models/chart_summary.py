@@ -8,7 +8,7 @@ from typing import Union
 
 import attr
 
-from ..models.chart_type import ChartType
+from ..models.chart_summary_chart_type import ChartSummaryChartType
 from ..types import UNSET
 from ..types import Unset
 
@@ -27,7 +27,7 @@ class ChartSummary:
         space_name (str):
         description (Union[Unset, str]):
         pinned_list_uuid (Optional[str]):
-        chart_type (Union[Unset, ChartType]):
+        chart_type (Union[Unset, ChartSummaryChartType]):
     """
 
     name: str
@@ -38,7 +38,7 @@ class ChartSummary:
     space_name: str
     pinned_list_uuid: Optional[str]
     description: Union[Unset, str] = UNSET
-    chart_type: Union[Unset, ChartType] = UNSET
+    chart_type: Union[Unset, ChartSummaryChartType] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -94,11 +94,11 @@ class ChartSummary:
         pinned_list_uuid = d.pop("pinnedListUuid")
 
         _chart_type = d.pop("chartType", UNSET)
-        chart_type: Union[Unset, ChartType]
+        chart_type: Union[Unset, ChartSummaryChartType]
         if isinstance(_chart_type, Unset):
             chart_type = UNSET
         else:
-            chart_type = ChartType(_chart_type)
+            chart_type = ChartSummaryChartType(_chart_type)
 
         chart_summary = cls(
             name=name,

@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_dbt_cloud_settings_delete_success import ApiDbtCloudSettingsDeleteSuccess
+from ...models.delete_dbt_cloud_integration_settings_response_200 import DeleteDbtCloudIntegrationSettingsResponse200
 from ...types import Response
 
 
@@ -33,9 +33,11 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiDbtCloudSettingsDeleteSuccess]:
+def _parse_response(
+    *, client: Client, response: httpx.Response
+) -> Optional[DeleteDbtCloudIntegrationSettingsResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiDbtCloudSettingsDeleteSuccess.from_dict(response.json())
+        response_200 = DeleteDbtCloudIntegrationSettingsResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -44,7 +46,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiDbtCloudSettingsDeleteSuccess]:
+def _build_response(
+    *, client: Client, response: httpx.Response
+) -> Response[DeleteDbtCloudIntegrationSettingsResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -57,7 +61,7 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[ApiDbtCloudSettingsDeleteSuccess]:
+) -> Response[DeleteDbtCloudIntegrationSettingsResponse200]:
     """Remove the dbt Cloud integration settings for a project
 
     Args:
@@ -68,7 +72,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiDbtCloudSettingsDeleteSuccess]
+        Response[DeleteDbtCloudIntegrationSettingsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -88,7 +92,7 @@ def sync(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiDbtCloudSettingsDeleteSuccess]:
+) -> Optional[DeleteDbtCloudIntegrationSettingsResponse200]:
     """Remove the dbt Cloud integration settings for a project
 
     Args:
@@ -99,7 +103,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiDbtCloudSettingsDeleteSuccess
+        DeleteDbtCloudIntegrationSettingsResponse200
     """
 
     return sync_detailed(
@@ -112,7 +116,7 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[ApiDbtCloudSettingsDeleteSuccess]:
+) -> Response[DeleteDbtCloudIntegrationSettingsResponse200]:
     """Remove the dbt Cloud integration settings for a project
 
     Args:
@@ -123,7 +127,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiDbtCloudSettingsDeleteSuccess]
+        Response[DeleteDbtCloudIntegrationSettingsResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -141,7 +145,7 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[ApiDbtCloudSettingsDeleteSuccess]:
+) -> Optional[DeleteDbtCloudIntegrationSettingsResponse200]:
     """Remove the dbt Cloud integration settings for a project
 
     Args:
@@ -152,7 +156,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiDbtCloudSettingsDeleteSuccess
+        DeleteDbtCloudIntegrationSettingsResponse200
     """
 
     return (

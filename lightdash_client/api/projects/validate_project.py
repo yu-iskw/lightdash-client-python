@@ -7,8 +7,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_job_scheduled_response import ApiJobScheduledResponse
 from ...models.validate_project_json_body import ValidateProjectJsonBody
+from ...models.validate_project_response_200 import ValidateProjectResponse200
 from ...types import Response
 
 
@@ -36,9 +36,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiJobScheduledResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ValidateProjectResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiJobScheduledResponse.from_dict(response.json())
+        response_200 = ValidateProjectResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -47,7 +47,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiJobScheduledResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ValidateProjectResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -61,7 +61,7 @@ def sync_detailed(
     *,
     client: Client,
     json_body: ValidateProjectJsonBody,
-) -> Response[ApiJobScheduledResponse]:
+) -> Response[ValidateProjectResponse200]:
     """Validate content inside a project. This will start a validation job and return the job id.
 
     Validation jobs scan all charts and dashboards inside a project to find any broken references
@@ -77,7 +77,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiJobScheduledResponse]
+        Response[ValidateProjectResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -99,7 +99,7 @@ def sync(
     *,
     client: Client,
     json_body: ValidateProjectJsonBody,
-) -> Optional[ApiJobScheduledResponse]:
+) -> Optional[ValidateProjectResponse200]:
     """Validate content inside a project. This will start a validation job and return the job id.
 
     Validation jobs scan all charts and dashboards inside a project to find any broken references
@@ -115,7 +115,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiJobScheduledResponse
+        ValidateProjectResponse200
     """
 
     return sync_detailed(
@@ -130,7 +130,7 @@ async def asyncio_detailed(
     *,
     client: Client,
     json_body: ValidateProjectJsonBody,
-) -> Response[ApiJobScheduledResponse]:
+) -> Response[ValidateProjectResponse200]:
     """Validate content inside a project. This will start a validation job and return the job id.
 
     Validation jobs scan all charts and dashboards inside a project to find any broken references
@@ -146,7 +146,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiJobScheduledResponse]
+        Response[ValidateProjectResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -166,7 +166,7 @@ async def asyncio(
     *,
     client: Client,
     json_body: ValidateProjectJsonBody,
-) -> Optional[ApiJobScheduledResponse]:
+) -> Optional[ValidateProjectResponse200]:
     """Validate content inside a project. This will start a validation job and return the job id.
 
     Validation jobs scan all charts and dashboards inside a project to find any broken references
@@ -182,7 +182,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiJobScheduledResponse
+        ValidateProjectResponse200
     """
 
     return (

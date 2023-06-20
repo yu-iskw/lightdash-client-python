@@ -7,7 +7,7 @@ from typing import TypeVar
 
 import attr
 
-from ..models.organization_member_role import OrganizationMemberRole
+from ..models.allowed_email_domains_role import AllowedEmailDomainsRole
 
 T = TypeVar("T", bound="AllowedEmailDomains")
 
@@ -17,13 +17,13 @@ class AllowedEmailDomains:
     """
     Attributes:
         project_uuids (List[str]):
-        role (OrganizationMemberRole):
+        role (AllowedEmailDomainsRole):
         email_domains (List[str]):
         organization_uuid (str):
     """
 
     project_uuids: List[str]
-    role: OrganizationMemberRole
+    role: AllowedEmailDomainsRole
     email_domains: List[str]
     organization_uuid: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -55,7 +55,7 @@ class AllowedEmailDomains:
         d = src_dict.copy()
         project_uuids = cast(List[str], d.pop("projectUuids"))
 
-        role = OrganizationMemberRole(d.pop("role"))
+        role = AllowedEmailDomainsRole(d.pop("role"))
 
         email_domains = cast(List[str], d.pop("emailDomains"))
 

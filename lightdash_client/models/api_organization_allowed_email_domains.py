@@ -10,7 +10,7 @@ import attr
 from ..models.api_organization_allowed_email_domains_status import ApiOrganizationAllowedEmailDomainsStatus
 
 if TYPE_CHECKING:
-    from ..models.allowed_email_domains import AllowedEmailDomains
+    from ..models.api_organization_allowed_email_domains_results import ApiOrganizationAllowedEmailDomainsResults
 
 
 T = TypeVar("T", bound="ApiOrganizationAllowedEmailDomains")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiOrganizationAllowedEmailDomains")
 class ApiOrganizationAllowedEmailDomains:
     """
     Attributes:
-        results (AllowedEmailDomains):
+        results (ApiOrganizationAllowedEmailDomainsResults):
         status (ApiOrganizationAllowedEmailDomainsStatus):
     """
 
-    results: "AllowedEmailDomains"
+    results: "ApiOrganizationAllowedEmailDomainsResults"
     status: ApiOrganizationAllowedEmailDomainsStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -46,10 +46,10 @@ class ApiOrganizationAllowedEmailDomains:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.allowed_email_domains import AllowedEmailDomains
+        from ..models.api_organization_allowed_email_domains_results import ApiOrganizationAllowedEmailDomainsResults
 
         d = src_dict.copy()
-        results = AllowedEmailDomains.from_dict(d.pop("results"))
+        results = ApiOrganizationAllowedEmailDomainsResults.from_dict(d.pop("results"))
 
         status = ApiOrganizationAllowedEmailDomainsStatus(d.pop("status"))
 

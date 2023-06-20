@@ -10,7 +10,7 @@ import attr
 from ..models.api_slack_channels_response_status import ApiSlackChannelsResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.slack_channel import SlackChannel
+    from ..models.api_slack_channels_response_results_item import ApiSlackChannelsResponseResultsItem
 
 
 T = TypeVar("T", bound="ApiSlackChannelsResponse")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiSlackChannelsResponse")
 class ApiSlackChannelsResponse:
     """
     Attributes:
-        results (List['SlackChannel']):
+        results (List['ApiSlackChannelsResponseResultsItem']):
         status (ApiSlackChannelsResponseStatus):
     """
 
-    results: List["SlackChannel"]
+    results: List["ApiSlackChannelsResponseResultsItem"]
     status: ApiSlackChannelsResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -50,13 +50,13 @@ class ApiSlackChannelsResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.slack_channel import SlackChannel
+        from ..models.api_slack_channels_response_results_item import ApiSlackChannelsResponseResultsItem
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = SlackChannel.from_dict(results_item_data)
+            results_item = ApiSlackChannelsResponseResultsItem.from_dict(results_item_data)
 
             results.append(results_item)
 

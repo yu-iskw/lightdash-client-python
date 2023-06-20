@@ -10,7 +10,7 @@ import attr
 from ..models.api_organization_member_profile_status import ApiOrganizationMemberProfileStatus
 
 if TYPE_CHECKING:
-    from ..models.organization_member_profile import OrganizationMemberProfile
+    from ..models.api_organization_member_profile_results import ApiOrganizationMemberProfileResults
 
 
 T = TypeVar("T", bound="ApiOrganizationMemberProfile")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiOrganizationMemberProfile")
 class ApiOrganizationMemberProfile:
     """
     Attributes:
-        results (OrganizationMemberProfile): Profile for a user's membership in an organization
+        results (ApiOrganizationMemberProfileResults): Profile for a user's membership in an organization
         status (ApiOrganizationMemberProfileStatus):
     """
 
-    results: "OrganizationMemberProfile"
+    results: "ApiOrganizationMemberProfileResults"
     status: ApiOrganizationMemberProfileStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -46,10 +46,10 @@ class ApiOrganizationMemberProfile:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.organization_member_profile import OrganizationMemberProfile
+        from ..models.api_organization_member_profile_results import ApiOrganizationMemberProfileResults
 
         d = src_dict.copy()
-        results = OrganizationMemberProfile.from_dict(d.pop("results"))
+        results = ApiOrganizationMemberProfileResults.from_dict(d.pop("results"))
 
         status = ApiOrganizationMemberProfileStatus(d.pop("status"))
 

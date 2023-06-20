@@ -9,8 +9,12 @@ from typing import Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.validation_error_type import ValidationErrorType
-from ..models.validation_source_type import ValidationSourceType
+from ..models.pick_validation_response_base_exclude_keyof_validation_response_base_name_error_type import (
+    PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType,
+)
+from ..models.pick_validation_response_base_exclude_keyof_validation_response_base_name_source import (
+    PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource,
+)
 from ..types import UNSET
 from ..types import Unset
 
@@ -26,18 +30,18 @@ class PickValidationResponseBaseExcludeKeyofValidationResponseBaseName:
         validation_id (float):
         created_at (datetime.datetime):
         error (str):
-        error_type (ValidationErrorType):
+        error_type (PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType):
         space_uuid (Union[Unset, str]):
-        source (Union[Unset, ValidationSourceType]):
+        source (Union[Unset, PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource]):
     """
 
     project_uuid: str
     validation_id: float
     created_at: datetime.datetime
     error: str
-    error_type: ValidationErrorType
+    error_type: PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType
     space_uuid: Union[Unset, str] = UNSET
-    source: Union[Unset, ValidationSourceType] = UNSET
+    source: Union[Unset, PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -82,16 +86,16 @@ class PickValidationResponseBaseExcludeKeyofValidationResponseBaseName:
 
         error = d.pop("error")
 
-        error_type = ValidationErrorType(d.pop("errorType"))
+        error_type = PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType(d.pop("errorType"))
 
         space_uuid = d.pop("spaceUuid", UNSET)
 
         _source = d.pop("source", UNSET)
-        source: Union[Unset, ValidationSourceType]
+        source: Union[Unset, PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource]
         if isinstance(_source, Unset):
             source = UNSET
         else:
-            source = ValidationSourceType(_source)
+            source = PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource(_source)
 
         pick_validation_response_base_exclude_keyof_validation_response_base_name = cls(
             project_uuid=project_uuid,

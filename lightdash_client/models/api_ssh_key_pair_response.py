@@ -10,7 +10,7 @@ import attr
 from ..models.api_ssh_key_pair_response_status import ApiSshKeyPairResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
+    from ..models.api_ssh_key_pair_response_results import ApiSshKeyPairResponseResults
 
 
 T = TypeVar("T", bound="ApiSshKeyPairResponse")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiSshKeyPairResponse")
 class ApiSshKeyPairResponse:
     """
     Attributes:
-        results (PickSshKeyPairPublicKey): From T, pick a set of properties whose keys are in the union K
+        results (ApiSshKeyPairResponseResults): From T, pick a set of properties whose keys are in the union K
         status (ApiSshKeyPairResponseStatus):
     """
 
-    results: "PickSshKeyPairPublicKey"
+    results: "ApiSshKeyPairResponseResults"
     status: ApiSshKeyPairResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -46,10 +46,10 @@ class ApiSshKeyPairResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
+        from ..models.api_ssh_key_pair_response_results import ApiSshKeyPairResponseResults
 
         d = src_dict.copy()
-        results = PickSshKeyPairPublicKey.from_dict(d.pop("results"))
+        results = ApiSshKeyPairResponseResults.from_dict(d.pop("results"))
 
         status = ApiSshKeyPairResponseStatus(d.pop("status"))
 

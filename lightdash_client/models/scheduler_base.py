@@ -11,11 +11,11 @@ from typing import Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.scheduler_format import SchedulerFormat
+from ..models.scheduler_base_format import SchedulerBaseFormat
 
 if TYPE_CHECKING:
-    from ..models.scheduler_csv_options import SchedulerCsvOptions
-    from ..models.scheduler_image_options import SchedulerImageOptions
+    from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
+    from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
 
 
 T = TypeVar("T", bound="SchedulerBase")
@@ -25,9 +25,9 @@ T = TypeVar("T", bound="SchedulerBase")
 class SchedulerBase:
     """
     Attributes:
-        options (Union['SchedulerCsvOptions', 'SchedulerImageOptions']):
+        options (Union['SchedulerBaseOptionsType0', 'SchedulerBaseOptionsType1']):
         cron (str):
-        format_ (SchedulerFormat):
+        format_ (SchedulerBaseFormat):
         created_by (str):
         updated_at (datetime.datetime):
         created_at (datetime.datetime):
@@ -37,9 +37,9 @@ class SchedulerBase:
         saved_chart_uuid (Optional[str]):
     """
 
-    options: Union["SchedulerCsvOptions", "SchedulerImageOptions"]
+    options: Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1"]
     cron: str
-    format_: SchedulerFormat
+    format_: SchedulerBaseFormat
     created_by: str
     updated_at: datetime.datetime
     created_at: datetime.datetime
@@ -50,11 +50,11 @@ class SchedulerBase:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.scheduler_csv_options import SchedulerCsvOptions
+        from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
 
         options: Dict[str, Any]
 
-        if isinstance(self.options, SchedulerCsvOptions):
+        if isinstance(self.options, SchedulerBaseOptionsType0):
             options = self.options.to_dict()
 
         else:
@@ -94,31 +94,31 @@ class SchedulerBase:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.scheduler_csv_options import SchedulerCsvOptions
-        from ..models.scheduler_image_options import SchedulerImageOptions
+        from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
+        from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
 
         d = src_dict.copy()
 
-        def _parse_options(data: object) -> Union["SchedulerCsvOptions", "SchedulerImageOptions"]:
+        def _parse_options(data: object) -> Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1"]:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                componentsschemas_scheduler_options_type_0 = SchedulerCsvOptions.from_dict(data)
+                options_type_0 = SchedulerBaseOptionsType0.from_dict(data)
 
-                return componentsschemas_scheduler_options_type_0
+                return options_type_0
             except:  # noqa: E722
                 pass
             if not isinstance(data, dict):
                 raise TypeError()
-            componentsschemas_scheduler_options_type_1 = SchedulerImageOptions.from_dict(data)
+            options_type_1 = SchedulerBaseOptionsType1.from_dict(data)
 
-            return componentsschemas_scheduler_options_type_1
+            return options_type_1
 
         options = _parse_options(d.pop("options"))
 
         cron = d.pop("cron")
 
-        format_ = SchedulerFormat(d.pop("format"))
+        format_ = SchedulerBaseFormat(d.pop("format"))
 
         created_by = d.pop("createdBy")
 

@@ -8,12 +8,12 @@ from typing import Union
 
 import attr
 
-from ..models.dbt_project_type_github import DbtProjectTypeGITHUB
+from ..models.dbt_github_project_config_type import DbtGithubProjectConfigType
 from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
+    from ..models.dbt_github_project_config_environment_item import DbtGithubProjectConfigEnvironmentItem
 
 
 T = TypeVar("T", bound="DbtGithubProjectConfig")
@@ -23,23 +23,23 @@ T = TypeVar("T", bound="DbtGithubProjectConfig")
 class DbtGithubProjectConfig:
     """
     Attributes:
-        type (DbtProjectTypeGITHUB):
+        type (DbtGithubProjectConfigType):
         personal_access_token (str):
         repository (str):
         branch (str):
         project_sub_path (str):
         target (Union[Unset, str]):
-        environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
+        environment (Union[Unset, List['DbtGithubProjectConfigEnvironmentItem']]):
         host_domain (Union[Unset, str]):
     """
 
-    type: DbtProjectTypeGITHUB
+    type: DbtGithubProjectConfigType
     personal_access_token: str
     repository: str
     branch: str
     project_sub_path: str
     target: Union[Unset, str] = UNSET
-    environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    environment: Union[Unset, List["DbtGithubProjectConfigEnvironmentItem"]] = UNSET
     host_domain: Union[Unset, str] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,10 +81,10 @@ class DbtGithubProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
+        from ..models.dbt_github_project_config_environment_item import DbtGithubProjectConfigEnvironmentItem
 
         d = src_dict.copy()
-        type = DbtProjectTypeGITHUB(d.pop("type"))
+        type = DbtGithubProjectConfigType(d.pop("type"))
 
         personal_access_token = d.pop("personal_access_token")
 
@@ -99,7 +99,7 @@ class DbtGithubProjectConfig:
         environment = []
         _environment = d.pop("environment", UNSET)
         for environment_item_data in _environment or []:
-            environment_item = DbtProjectEnvironmentVariable.from_dict(environment_item_data)
+            environment_item = DbtGithubProjectConfigEnvironmentItem.from_dict(environment_item_data)
 
             environment.append(environment_item)
 

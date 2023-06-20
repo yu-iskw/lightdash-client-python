@@ -7,7 +7,7 @@ from typing import TypeVar
 
 import attr
 
-from ..models.resource_view_item_type_space import ResourceViewItemTypeSPACE
+from ..models.resource_view_space_item_type import ResourceViewSpaceItemType
 
 if TYPE_CHECKING:
     from ..models.resource_view_space_item_data import ResourceViewSpaceItemData
@@ -21,11 +21,11 @@ class ResourceViewSpaceItem:
     """
     Attributes:
         data (ResourceViewSpaceItemData):
-        type (ResourceViewItemTypeSPACE):
+        type (ResourceViewSpaceItemType):
     """
 
     data: "ResourceViewSpaceItemData"
-    type: ResourceViewItemTypeSPACE
+    type: ResourceViewSpaceItemType
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -51,7 +51,7 @@ class ResourceViewSpaceItem:
         d = src_dict.copy()
         data = ResourceViewSpaceItemData.from_dict(d.pop("data"))
 
-        type = ResourceViewItemTypeSPACE(d.pop("type"))
+        type = ResourceViewSpaceItemType(d.pop("type"))
 
         resource_view_space_item = cls(
             data=data,

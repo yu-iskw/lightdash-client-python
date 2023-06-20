@@ -12,7 +12,7 @@ from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.email_one_time_password import EmailOneTimePassword
+    from ..models.email_status_otp import EmailStatusOtp
 
 
 T = TypeVar("T", bound="EmailStatus")
@@ -24,12 +24,12 @@ class EmailStatus:
     Attributes:
         is_verified (bool):
         email (str):
-        otp (Union[Unset, EmailOneTimePassword]):
+        otp (Union[Unset, EmailStatusOtp]):
     """
 
     is_verified: bool
     email: str
-    otp: Union[Unset, "EmailOneTimePassword"] = UNSET
+    otp: Union[Unset, "EmailStatusOtp"] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -54,7 +54,7 @@ class EmailStatus:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.email_one_time_password import EmailOneTimePassword
+        from ..models.email_status_otp import EmailStatusOtp
 
         d = src_dict.copy()
         is_verified = d.pop("isVerified")
@@ -62,11 +62,11 @@ class EmailStatus:
         email = d.pop("email")
 
         _otp = d.pop("otp", UNSET)
-        otp: Union[Unset, EmailOneTimePassword]
+        otp: Union[Unset, EmailStatusOtp]
         if isinstance(_otp, Unset):
             otp = UNSET
         else:
-            otp = EmailOneTimePassword.from_dict(_otp)
+            otp = EmailStatusOtp.from_dict(_otp)
 
         email_status = cls(
             is_verified=is_verified,

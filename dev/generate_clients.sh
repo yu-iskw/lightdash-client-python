@@ -22,7 +22,7 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Arguments
-schema_json="${PROJECT_DIR}/dev/schemas/swagger.json"
+schema_json="${PROJECT_DIR}/dev/schemas/dereferenced-swagger.json"
 config_yaml="${PROJECT_DIR}/dev/openapi-python-client.yml"
 output_dir="${PROJECT_DIR}"
 meta="setup"

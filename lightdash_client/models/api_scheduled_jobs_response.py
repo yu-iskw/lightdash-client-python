@@ -10,7 +10,7 @@ import attr
 from ..models.api_scheduled_jobs_response_status import ApiScheduledJobsResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.scheduled_jobs import ScheduledJobs
+    from ..models.api_scheduled_jobs_response_results_item import ApiScheduledJobsResponseResultsItem
 
 
 T = TypeVar("T", bound="ApiScheduledJobsResponse")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiScheduledJobsResponse")
 class ApiScheduledJobsResponse:
     """
     Attributes:
-        results (List['ScheduledJobs']):
+        results (List['ApiScheduledJobsResponseResultsItem']):
         status (ApiScheduledJobsResponseStatus):
     """
 
-    results: List["ScheduledJobs"]
+    results: List["ApiScheduledJobsResponseResultsItem"]
     status: ApiScheduledJobsResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -50,13 +50,13 @@ class ApiScheduledJobsResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.scheduled_jobs import ScheduledJobs
+        from ..models.api_scheduled_jobs_response_results_item import ApiScheduledJobsResponseResultsItem
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ScheduledJobs.from_dict(results_item_data)
+            results_item = ApiScheduledJobsResponseResultsItem.from_dict(results_item_data)
 
             results.append(results_item)
 

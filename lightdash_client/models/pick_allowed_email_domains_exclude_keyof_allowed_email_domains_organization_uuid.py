@@ -7,7 +7,9 @@ from typing import TypeVar
 
 import attr
 
-from ..models.organization_member_role import OrganizationMemberRole
+from ..models.pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRole,
+)
 
 T = TypeVar("T", bound="PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid")
 
@@ -17,20 +19,20 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
+        role (PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRole):
         email_domains (List[str]):
-        role (OrganizationMemberRole):
         project_uuids (List[str]):
     """
 
+    role: PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRole
     email_domains: List[str]
-    role: OrganizationMemberRole
     project_uuids: List[str]
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        email_domains = self.email_domains
-
         role = self.role.value
+
+        email_domains = self.email_domains
 
         project_uuids = self.project_uuids
 
@@ -38,8 +40,8 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "emailDomains": email_domains,
                 "role": role,
+                "emailDomains": email_domains,
                 "projectUuids": project_uuids,
             }
         )
@@ -49,15 +51,15 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        email_domains = cast(List[str], d.pop("emailDomains"))
+        role = PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRole(d.pop("role"))
 
-        role = OrganizationMemberRole(d.pop("role"))
+        email_domains = cast(List[str], d.pop("emailDomains"))
 
         project_uuids = cast(List[str], d.pop("projectUuids"))
 
         pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid = cls(
-            email_domains=email_domains,
             role=role,
+            email_domains=email_domains,
             project_uuids=project_uuids,
         )
 

@@ -8,12 +8,12 @@ from typing import Union
 
 import attr
 
-from ..models.dbt_project_type_azuredevops import DbtProjectTypeAZUREDEVOPS
+from ..models.dbt_azure_dev_ops_project_config_type import DbtAzureDevOpsProjectConfigType
 from ..types import UNSET
 from ..types import Unset
 
 if TYPE_CHECKING:
-    from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
+    from ..models.dbt_azure_dev_ops_project_config_environment_item import DbtAzureDevOpsProjectConfigEnvironmentItem
 
 
 T = TypeVar("T", bound="DbtAzureDevOpsProjectConfig")
@@ -23,7 +23,7 @@ T = TypeVar("T", bound="DbtAzureDevOpsProjectConfig")
 class DbtAzureDevOpsProjectConfig:
     """
     Attributes:
-        type (DbtProjectTypeAZUREDEVOPS):
+        type (DbtAzureDevOpsProjectConfigType):
         personal_access_token (str):
         organization (str):
         project (str):
@@ -31,10 +31,10 @@ class DbtAzureDevOpsProjectConfig:
         branch (str):
         project_sub_path (str):
         target (Union[Unset, str]):
-        environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
+        environment (Union[Unset, List['DbtAzureDevOpsProjectConfigEnvironmentItem']]):
     """
 
-    type: DbtProjectTypeAZUREDEVOPS
+    type: DbtAzureDevOpsProjectConfigType
     personal_access_token: str
     organization: str
     project: str
@@ -42,7 +42,7 @@ class DbtAzureDevOpsProjectConfig:
     branch: str
     project_sub_path: str
     target: Union[Unset, str] = UNSET
-    environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    environment: Union[Unset, List["DbtAzureDevOpsProjectConfigEnvironmentItem"]] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
@@ -83,10 +83,12 @@ class DbtAzureDevOpsProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
+        from ..models.dbt_azure_dev_ops_project_config_environment_item import (
+            DbtAzureDevOpsProjectConfigEnvironmentItem,
+        )
 
         d = src_dict.copy()
-        type = DbtProjectTypeAZUREDEVOPS(d.pop("type"))
+        type = DbtAzureDevOpsProjectConfigType(d.pop("type"))
 
         personal_access_token = d.pop("personal_access_token")
 
@@ -105,7 +107,7 @@ class DbtAzureDevOpsProjectConfig:
         environment = []
         _environment = d.pop("environment", UNSET)
         for environment_item_data in _environment or []:
-            environment_item = DbtProjectEnvironmentVariable.from_dict(environment_item_data)
+            environment_item = DbtAzureDevOpsProjectConfigEnvironmentItem.from_dict(environment_item_data)
 
             environment.append(environment_item)
 

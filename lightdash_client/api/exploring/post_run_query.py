@@ -7,8 +7,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_run_query_response import ApiRunQueryResponse
-from ...models.run_query_request import RunQueryRequest
+from ...models.post_run_query_json_body import PostRunQueryJsonBody
+from ...models.post_run_query_response_200 import PostRunQueryResponse200
 from ...types import Response
 
 
@@ -17,7 +17,7 @@ def _get_kwargs(
     explore_id: str,
     *,
     client: Client,
-    json_body: RunQueryRequest,
+    json_body: PostRunQueryJsonBody,
 ) -> Dict[str, Any]:
     url = "{}/api/v1/projects/{projectUuid}/explores/{exploreId}/runQuery".format(
         client.base_url, projectUuid=project_uuid, exploreId=explore_id
@@ -39,9 +39,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiRunQueryResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[PostRunQueryResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiRunQueryResponse.from_dict(response.json())
+        response_200 = PostRunQueryResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -50,7 +50,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiRunQueryResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[PostRunQueryResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -64,21 +64,21 @@ def sync_detailed(
     explore_id: str,
     *,
     client: Client,
-    json_body: RunQueryRequest,
-) -> Response[ApiRunQueryResponse]:
+    json_body: PostRunQueryJsonBody,
+) -> Response[PostRunQueryResponse200]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunQueryRequest):
+        json_body (PostRunQueryJsonBody): metricQuery for the chart to run
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiRunQueryResponse]
+        Response[PostRunQueryResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -101,21 +101,21 @@ def sync(
     explore_id: str,
     *,
     client: Client,
-    json_body: RunQueryRequest,
-) -> Optional[ApiRunQueryResponse]:
+    json_body: PostRunQueryJsonBody,
+) -> Optional[PostRunQueryResponse200]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunQueryRequest):
+        json_body (PostRunQueryJsonBody): metricQuery for the chart to run
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiRunQueryResponse
+        PostRunQueryResponse200
     """
 
     return sync_detailed(
@@ -131,21 +131,21 @@ async def asyncio_detailed(
     explore_id: str,
     *,
     client: Client,
-    json_body: RunQueryRequest,
-) -> Response[ApiRunQueryResponse]:
+    json_body: PostRunQueryJsonBody,
+) -> Response[PostRunQueryResponse200]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunQueryRequest):
+        json_body (PostRunQueryJsonBody): metricQuery for the chart to run
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiRunQueryResponse]
+        Response[PostRunQueryResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -166,21 +166,21 @@ async def asyncio(
     explore_id: str,
     *,
     client: Client,
-    json_body: RunQueryRequest,
-) -> Optional[ApiRunQueryResponse]:
+    json_body: PostRunQueryJsonBody,
+) -> Optional[PostRunQueryResponse200]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunQueryRequest):
+        json_body (PostRunQueryJsonBody): metricQuery for the chart to run
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiRunQueryResponse
+        PostRunQueryResponse200
     """
 
     return (

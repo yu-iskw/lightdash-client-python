@@ -39,3 +39,14 @@ test-publish:
 generate-client:
 	rm -fr "lightdash_client/api/" "lightdash_client/models/"
 	bash dev/generate_clients.sh --skip-validate-spec 1
+
+prepare-schema: download-swagger-json dereference-swagger-json
+
+download-swagger-json:
+	bash dev/download_swagger_json.sh --version "0.621.0"
+
+dereference-swagger-json: build-swagger-cli-image
+	bash dev/dereference_swagger_json.sh --image "swagger-cli:latest"
+
+build-swagger-cli-image:
+	docker build -t "swagger-cli:latest" -f "docker/swagger-cli/Dockerfile" .

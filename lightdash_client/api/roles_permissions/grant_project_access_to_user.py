@@ -7,8 +7,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_success_empty import ApiSuccessEmpty
-from ...models.create_project_member import CreateProjectMember
+from ...models.grant_project_access_to_user_json_body import GrantProjectAccessToUserJsonBody
+from ...models.grant_project_access_to_user_response_200 import GrantProjectAccessToUserResponse200
 from ...types import Response
 
 
@@ -16,7 +16,7 @@ def _get_kwargs(
     project_uuid: str,
     *,
     client: Client,
-    json_body: CreateProjectMember,
+    json_body: GrantProjectAccessToUserJsonBody,
 ) -> Dict[str, Any]:
     url = "{}/api/v1/projects/{projectUuid}/access".format(client.base_url, projectUuid=project_uuid)
 
@@ -36,9 +36,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GrantProjectAccessToUserResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiSuccessEmpty.from_dict(response.json())
+        response_200 = GrantProjectAccessToUserResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -47,7 +47,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[GrantProjectAccessToUserResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -60,20 +60,20 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Client,
-    json_body: CreateProjectMember,
-) -> Response[ApiSuccessEmpty]:
+    json_body: GrantProjectAccessToUserJsonBody,
+) -> Response[GrantProjectAccessToUserResponse200]:
     """Grant a user access to a project
 
     Args:
         project_uuid (str):
-        json_body (CreateProjectMember):
+        json_body (GrantProjectAccessToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[GrantProjectAccessToUserResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -94,20 +94,20 @@ def sync(
     project_uuid: str,
     *,
     client: Client,
-    json_body: CreateProjectMember,
-) -> Optional[ApiSuccessEmpty]:
+    json_body: GrantProjectAccessToUserJsonBody,
+) -> Optional[GrantProjectAccessToUserResponse200]:
     """Grant a user access to a project
 
     Args:
         project_uuid (str):
-        json_body (CreateProjectMember):
+        json_body (GrantProjectAccessToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        GrantProjectAccessToUserResponse200
     """
 
     return sync_detailed(
@@ -121,20 +121,20 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Client,
-    json_body: CreateProjectMember,
-) -> Response[ApiSuccessEmpty]:
+    json_body: GrantProjectAccessToUserJsonBody,
+) -> Response[GrantProjectAccessToUserResponse200]:
     """Grant a user access to a project
 
     Args:
         project_uuid (str):
-        json_body (CreateProjectMember):
+        json_body (GrantProjectAccessToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSuccessEmpty]
+        Response[GrantProjectAccessToUserResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -153,20 +153,20 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Client,
-    json_body: CreateProjectMember,
-) -> Optional[ApiSuccessEmpty]:
+    json_body: GrantProjectAccessToUserJsonBody,
+) -> Optional[GrantProjectAccessToUserResponse200]:
     """Grant a user access to a project
 
     Args:
         project_uuid (str):
-        json_body (CreateProjectMember):
+        json_body (GrantProjectAccessToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSuccessEmpty
+        GrantProjectAccessToUserResponse200
     """
 
     return (

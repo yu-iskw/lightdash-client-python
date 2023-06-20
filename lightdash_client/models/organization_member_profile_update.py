@@ -3,41 +3,50 @@ from typing import Dict
 from typing import List
 from typing import Type
 from typing import TypeVar
+from typing import Union
 
 import attr
 
-from ..models.organization_member_role import OrganizationMemberRole
+from ..models.organization_member_profile_update_role import OrganizationMemberProfileUpdateRole
+from ..types import UNSET
+from ..types import Unset
 
 T = TypeVar("T", bound="OrganizationMemberProfileUpdate")
 
 
 @attr.s(auto_attribs=True)
 class OrganizationMemberProfileUpdate:
-    """
+    """Make all properties in T optional
+
     Attributes:
-        role (OrganizationMemberRole):
+        role (Union[Unset, OrganizationMemberProfileUpdateRole]): The role of the user in the organization
     """
 
-    role: OrganizationMemberRole
+    role: Union[Unset, OrganizationMemberProfileUpdateRole] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        role = self.role.value
+        role: Union[Unset, str] = UNSET
+        if not isinstance(self.role, Unset):
+            role = self.role.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "role": role,
-            }
-        )
+        field_dict.update({})
+        if role is not UNSET:
+            field_dict["role"] = role
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        role = OrganizationMemberRole(d.pop("role"))
+        _role = d.pop("role", UNSET)
+        role: Union[Unset, OrganizationMemberProfileUpdateRole]
+        if isinstance(_role, Unset):
+            role = UNSET
+        else:
+            role = OrganizationMemberProfileUpdateRole(_role)
 
         organization_member_profile_update = cls(
             role=role,

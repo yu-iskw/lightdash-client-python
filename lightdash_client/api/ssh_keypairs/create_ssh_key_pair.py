@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_ssh_key_pair_response import ApiSshKeyPairResponse
+from ...models.create_ssh_key_pair_response_201 import CreateSshKeyPairResponse201
 from ...types import Response
 
 
@@ -30,9 +30,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSshKeyPairResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[CreateSshKeyPairResponse201]:
     if response.status_code == HTTPStatus.CREATED:
-        response_201 = ApiSshKeyPairResponse.from_dict(response.json())
+        response_201 = CreateSshKeyPairResponse201.from_dict(response.json())
 
         return response_201
     if client.raise_on_unexpected_status:
@@ -41,7 +41,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSshKeyPairResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[CreateSshKeyPairResponse201]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,14 +53,14 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     *,
     client: Client,
-) -> Response[ApiSshKeyPairResponse]:
+) -> Response[CreateSshKeyPairResponse201]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSshKeyPairResponse]
+        Response[CreateSshKeyPairResponse201]
     """
 
     kwargs = _get_kwargs(
@@ -78,14 +78,14 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-) -> Optional[ApiSshKeyPairResponse]:
+) -> Optional[CreateSshKeyPairResponse201]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSshKeyPairResponse
+        CreateSshKeyPairResponse201
     """
 
     return sync_detailed(
@@ -96,14 +96,14 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-) -> Response[ApiSshKeyPairResponse]:
+) -> Response[CreateSshKeyPairResponse201]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiSshKeyPairResponse]
+        Response[CreateSshKeyPairResponse201]
     """
 
     kwargs = _get_kwargs(
@@ -119,14 +119,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-) -> Optional[ApiSshKeyPairResponse]:
+) -> Optional[CreateSshKeyPairResponse201]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiSshKeyPairResponse
+        CreateSshKeyPairResponse201
     """
 
     return (

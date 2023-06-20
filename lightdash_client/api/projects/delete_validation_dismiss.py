@@ -7,7 +7,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_validation_dismiss_response import ApiValidationDismissResponse
+from ...models.delete_validation_dismiss_response_200 import DeleteValidationDismissResponse200
 from ...types import Response
 
 
@@ -34,9 +34,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiValidationDismissResponse]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[DeleteValidationDismissResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiValidationDismissResponse.from_dict(response.json())
+        response_200 = DeleteValidationDismissResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiValidationDismissResponse]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[DeleteValidationDismissResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,7 +59,7 @@ def sync_detailed(
     validation_id: float,
     *,
     client: Client,
-) -> Response[ApiValidationDismissResponse]:
+) -> Response[DeleteValidationDismissResponse200]:
     """Deletes a single validation error.
 
     Args:
@@ -71,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiValidationDismissResponse]
+        Response[DeleteValidationDismissResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -93,7 +93,7 @@ def sync(
     validation_id: float,
     *,
     client: Client,
-) -> Optional[ApiValidationDismissResponse]:
+) -> Optional[DeleteValidationDismissResponse200]:
     """Deletes a single validation error.
 
     Args:
@@ -105,7 +105,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiValidationDismissResponse
+        DeleteValidationDismissResponse200
     """
 
     return sync_detailed(
@@ -120,7 +120,7 @@ async def asyncio_detailed(
     validation_id: float,
     *,
     client: Client,
-) -> Response[ApiValidationDismissResponse]:
+) -> Response[DeleteValidationDismissResponse200]:
     """Deletes a single validation error.
 
     Args:
@@ -132,7 +132,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiValidationDismissResponse]
+        Response[DeleteValidationDismissResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -152,7 +152,7 @@ async def asyncio(
     validation_id: float,
     *,
     client: Client,
-) -> Optional[ApiValidationDismissResponse]:
+) -> Optional[DeleteValidationDismissResponse200]:
     """Deletes a single validation error.
 
     Args:
@@ -164,7 +164,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiValidationDismissResponse
+        DeleteValidationDismissResponse200
     """
 
     return (

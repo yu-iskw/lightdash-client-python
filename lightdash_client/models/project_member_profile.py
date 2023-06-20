@@ -6,7 +6,7 @@ from typing import TypeVar
 
 import attr
 
-from ..models.project_member_role import ProjectMemberRole
+from ..models.project_member_profile_role import ProjectMemberProfileRole
 
 T = TypeVar("T", bound="ProjectMemberProfile")
 
@@ -18,7 +18,7 @@ class ProjectMemberProfile:
         last_name (str):
         first_name (str):
         email (str):
-        role (ProjectMemberRole):
+        role (ProjectMemberProfileRole):
         project_uuid (str):
         user_uuid (str):
     """
@@ -26,7 +26,7 @@ class ProjectMemberProfile:
     last_name: str
     first_name: str
     email: str
-    role: ProjectMemberRole
+    role: ProjectMemberProfileRole
     project_uuid: str
     user_uuid: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -64,7 +64,7 @@ class ProjectMemberProfile:
 
         email = d.pop("email")
 
-        role = ProjectMemberRole(d.pop("role"))
+        role = ProjectMemberProfileRole(d.pop("role"))
 
         project_uuid = d.pop("projectUuid")
 

@@ -10,7 +10,7 @@ import attr
 from ..models.api_organization_status import ApiOrganizationStatus
 
 if TYPE_CHECKING:
-    from ..models.organization import Organization
+    from ..models.api_organization_results import ApiOrganizationResults
 
 
 T = TypeVar("T", bound="ApiOrganization")
@@ -20,11 +20,11 @@ T = TypeVar("T", bound="ApiOrganization")
 class ApiOrganization:
     """
     Attributes:
-        results (Organization): Details of a user's Organization
+        results (ApiOrganizationResults): Details of a user's Organization
         status (ApiOrganizationStatus):
     """
 
-    results: "Organization"
+    results: "ApiOrganizationResults"
     status: ApiOrganizationStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -46,10 +46,10 @@ class ApiOrganization:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.organization import Organization
+        from ..models.api_organization_results import ApiOrganizationResults
 
         d = src_dict.copy()
-        results = Organization.from_dict(d.pop("results"))
+        results = ApiOrganizationResults.from_dict(d.pop("results"))
 
         status = ApiOrganizationStatus(d.pop("status"))
 

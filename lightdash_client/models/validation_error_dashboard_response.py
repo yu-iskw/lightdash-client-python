@@ -9,8 +9,8 @@ from typing import Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.validation_error_type import ValidationErrorType
-from ..models.validation_source_type import ValidationSourceType
+from ..models.validation_error_dashboard_response_error_type import ValidationErrorDashboardResponseErrorType
+from ..models.validation_error_dashboard_response_source import ValidationErrorDashboardResponseSource
 from ..types import UNSET
 from ..types import Unset
 
@@ -22,13 +22,13 @@ class ValidationErrorDashboardResponse:
     """
     Attributes:
         project_uuid (str):
-        error_type (ValidationErrorType):
+        error_type (ValidationErrorDashboardResponseErrorType):
         error (str):
         name (str):
         created_at (datetime.datetime):
         validation_id (float):
         dashboard_views (float):
-        source (Union[Unset, ValidationSourceType]):
+        source (Union[Unset, ValidationErrorDashboardResponseSource]):
         space_uuid (Union[Unset, str]):
         last_updated_at (Union[Unset, datetime.datetime]):
         last_updated_by (Union[Unset, str]):
@@ -38,13 +38,13 @@ class ValidationErrorDashboardResponse:
     """
 
     project_uuid: str
-    error_type: ValidationErrorType
+    error_type: ValidationErrorDashboardResponseErrorType
     error: str
     name: str
     created_at: datetime.datetime
     validation_id: float
     dashboard_views: float
-    source: Union[Unset, ValidationSourceType] = UNSET
+    source: Union[Unset, ValidationErrorDashboardResponseSource] = UNSET
     space_uuid: Union[Unset, str] = UNSET
     last_updated_at: Union[Unset, datetime.datetime] = UNSET
     last_updated_by: Union[Unset, str] = UNSET
@@ -112,7 +112,7 @@ class ValidationErrorDashboardResponse:
         d = src_dict.copy()
         project_uuid = d.pop("projectUuid")
 
-        error_type = ValidationErrorType(d.pop("errorType"))
+        error_type = ValidationErrorDashboardResponseErrorType(d.pop("errorType"))
 
         error = d.pop("error")
 
@@ -125,11 +125,11 @@ class ValidationErrorDashboardResponse:
         dashboard_views = d.pop("dashboardViews")
 
         _source = d.pop("source", UNSET)
-        source: Union[Unset, ValidationSourceType]
+        source: Union[Unset, ValidationErrorDashboardResponseSource]
         if isinstance(_source, Unset):
             source = UNSET
         else:
-            source = ValidationSourceType(_source)
+            source = ValidationErrorDashboardResponseSource(_source)
 
         space_uuid = d.pop("spaceUuid", UNSET)
 

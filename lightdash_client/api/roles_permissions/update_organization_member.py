@@ -7,8 +7,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.api_organization_member_profile import ApiOrganizationMemberProfile
-from ...models.organization_member_profile_update import OrganizationMemberProfileUpdate
+from ...models.update_organization_member_json_body import UpdateOrganizationMemberJsonBody
+from ...models.update_organization_member_response_200 import UpdateOrganizationMemberResponse200
 from ...types import Response
 
 
@@ -16,7 +16,7 @@ def _get_kwargs(
     user_uuid: str,
     *,
     client: Client,
-    json_body: OrganizationMemberProfileUpdate,
+    json_body: UpdateOrganizationMemberJsonBody,
 ) -> Dict[str, Any]:
     url = "{}/api/v1/org/users/{userUuid}".format(client.base_url, userUuid=user_uuid)
 
@@ -36,9 +36,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiOrganizationMemberProfile]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[UpdateOrganizationMemberResponse200]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiOrganizationMemberProfile.from_dict(response.json())
+        response_200 = UpdateOrganizationMemberResponse200.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -47,7 +47,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiOrganizationMemberProfile]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[UpdateOrganizationMemberResponse200]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -60,20 +60,20 @@ def sync_detailed(
     user_uuid: str,
     *,
     client: Client,
-    json_body: OrganizationMemberProfileUpdate,
-) -> Response[ApiOrganizationMemberProfile]:
+    json_body: UpdateOrganizationMemberJsonBody,
+) -> Response[UpdateOrganizationMemberResponse200]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        json_body (UpdateOrganizationMemberJsonBody): the new membership profile
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiOrganizationMemberProfile]
+        Response[UpdateOrganizationMemberResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -94,20 +94,20 @@ def sync(
     user_uuid: str,
     *,
     client: Client,
-    json_body: OrganizationMemberProfileUpdate,
-) -> Optional[ApiOrganizationMemberProfile]:
+    json_body: UpdateOrganizationMemberJsonBody,
+) -> Optional[UpdateOrganizationMemberResponse200]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        json_body (UpdateOrganizationMemberJsonBody): the new membership profile
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiOrganizationMemberProfile
+        UpdateOrganizationMemberResponse200
     """
 
     return sync_detailed(
@@ -121,20 +121,20 @@ async def asyncio_detailed(
     user_uuid: str,
     *,
     client: Client,
-    json_body: OrganizationMemberProfileUpdate,
-) -> Response[ApiOrganizationMemberProfile]:
+    json_body: UpdateOrganizationMemberJsonBody,
+) -> Response[UpdateOrganizationMemberResponse200]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        json_body (UpdateOrganizationMemberJsonBody): the new membership profile
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiOrganizationMemberProfile]
+        Response[UpdateOrganizationMemberResponse200]
     """
 
     kwargs = _get_kwargs(
@@ -153,20 +153,20 @@ async def asyncio(
     user_uuid: str,
     *,
     client: Client,
-    json_body: OrganizationMemberProfileUpdate,
-) -> Optional[ApiOrganizationMemberProfile]:
+    json_body: UpdateOrganizationMemberJsonBody,
+) -> Optional[UpdateOrganizationMemberResponse200]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        json_body (UpdateOrganizationMemberJsonBody): the new membership profile
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiOrganizationMemberProfile
+        UpdateOrganizationMemberResponse200
     """
 
     return (

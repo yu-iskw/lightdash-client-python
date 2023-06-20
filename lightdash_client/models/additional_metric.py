@@ -6,9 +6,9 @@ from typing import Union
 
 import attr
 
-from ..models.compact import Compact
-from ..models.compact_or_alias_type_1 import CompactOrAliasType1
-from ..models.metric_type import MetricType
+from ..models.additional_metric_compact_type_0 import AdditionalMetricCompactType0
+from ..models.additional_metric_compact_type_1 import AdditionalMetricCompactType1
+from ..models.additional_metric_type import AdditionalMetricType
 from ..types import UNSET
 from ..types import Unset
 
@@ -19,7 +19,7 @@ T = TypeVar("T", bound="AdditionalMetric")
 class AdditionalMetric:
     """
     Attributes:
-        type (MetricType):
+        type (AdditionalMetricType):
         sql (str):
         table (str):
         name (str):
@@ -27,12 +27,12 @@ class AdditionalMetric:
         description (Union[Unset, str]):
         hidden (Union[Unset, bool]):
         round_ (Union[Unset, float]):
-        compact (Union[Compact, CompactOrAliasType1, Unset]):
+        compact (Union[AdditionalMetricCompactType0, AdditionalMetricCompactType1, Unset]):
         format_ (Union[Unset, str]):
         index (Union[Unset, float]):
     """
 
-    type: MetricType
+    type: AdditionalMetricType
     sql: str
     table: str
     name: str
@@ -40,7 +40,7 @@ class AdditionalMetric:
     description: Union[Unset, str] = UNSET
     hidden: Union[Unset, bool] = UNSET
     round_: Union[Unset, float] = UNSET
-    compact: Union[Compact, CompactOrAliasType1, Unset] = UNSET
+    compact: Union[AdditionalMetricCompactType0, AdditionalMetricCompactType1, Unset] = UNSET
     format_: Union[Unset, str] = UNSET
     index: Union[Unset, float] = UNSET
 
@@ -58,11 +58,15 @@ class AdditionalMetric:
         if isinstance(self.compact, Unset):
             compact = UNSET
 
-        elif isinstance(self.compact, Compact):
-            compact = self.compact.value
+        elif isinstance(self.compact, AdditionalMetricCompactType0):
+            compact = UNSET
+            if not isinstance(self.compact, Unset):
+                compact = self.compact.value
 
         else:
-            compact = self.compact.value
+            compact = UNSET
+            if not isinstance(self.compact, Unset):
+                compact = self.compact.value
 
         format_ = self.format_
         index = self.index
@@ -96,7 +100,7 @@ class AdditionalMetric:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        type = MetricType(d.pop("type"))
+        type = AdditionalMetricType(d.pop("type"))
 
         sql = d.pop("sql")
 
@@ -112,22 +116,32 @@ class AdditionalMetric:
 
         round_ = d.pop("round", UNSET)
 
-        def _parse_compact(data: object) -> Union[Compact, CompactOrAliasType1, Unset]:
+        def _parse_compact(data: object) -> Union[AdditionalMetricCompactType0, AdditionalMetricCompactType1, Unset]:
             if isinstance(data, Unset):
                 return data
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                componentsschemas_compact_or_alias_type_0 = Compact(data)
+                _compact_type_0 = data
+                compact_type_0: Union[Unset, AdditionalMetricCompactType0]
+                if isinstance(_compact_type_0, Unset):
+                    compact_type_0 = UNSET
+                else:
+                    compact_type_0 = AdditionalMetricCompactType0(_compact_type_0)
 
-                return componentsschemas_compact_or_alias_type_0
+                return compact_type_0
             except:  # noqa: E722
                 pass
             if not isinstance(data, str):
                 raise TypeError()
-            componentsschemas_compact_or_alias_type_1 = CompactOrAliasType1(data)
+            _compact_type_1 = data
+            compact_type_1: Union[Unset, AdditionalMetricCompactType1]
+            if isinstance(_compact_type_1, Unset):
+                compact_type_1 = UNSET
+            else:
+                compact_type_1 = AdditionalMetricCompactType1(_compact_type_1)
 
-            return componentsschemas_compact_or_alias_type_1
+            return compact_type_1
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
