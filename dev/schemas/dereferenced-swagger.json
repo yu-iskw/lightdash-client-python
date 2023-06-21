@@ -913,28 +913,9 @@
         ],
         "type": "object"
       },
-      "Partial_Pick_OrganizationMemberProfile.role__": {
-        "properties": {
-          "role": {
-            "description": "The role of the user in the organization",
-            "enum": [
-              "member",
-              "viewer",
-              "interactive_viewer",
-              "editor",
-              "developer",
-              "admin"
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object",
-        "description": "Make all properties in T optional"
-      },
       "OrganizationMemberProfileUpdate": {
         "properties": {
           "role": {
-            "description": "The role of the user in the organization",
             "enum": [
               "member",
               "viewer",
@@ -946,8 +927,10 @@
             "type": "string"
           }
         },
-        "type": "object",
-        "description": "Make all properties in T optional"
+        "required": [
+          "role"
+        ],
+        "type": "object"
       },
       "AllowedEmailDomains": {
         "properties": {
@@ -1041,6 +1024,12 @@
       },
       "Pick_AllowedEmailDomains.Exclude_keyofAllowedEmailDomains.organizationUuid__": {
         "properties": {
+          "emailDomains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "role": {
             "enum": [
               "member",
@@ -1052,12 +1041,6 @@
             ],
             "type": "string"
           },
-          "emailDomains": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
           "projectUuids": {
             "items": {
               "type": "string"
@@ -1066,8 +1049,8 @@
           }
         },
         "required": [
-          "role",
           "emailDomains",
+          "role",
           "projectUuids"
         ],
         "type": "object",
@@ -1076,6 +1059,12 @@
       "Omit_AllowedEmailDomains.organizationUuid_": {
         "description": "Construct a type with the properties of T except for those in type K.",
         "properties": {
+          "emailDomains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "role": {
             "enum": [
               "member",
@@ -1087,12 +1076,6 @@
             ],
             "type": "string"
           },
-          "emailDomains": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
           "projectUuids": {
             "items": {
               "type": "string"
@@ -1101,8 +1084,8 @@
           }
         },
         "required": [
-          "role",
           "emailDomains",
+          "role",
           "projectUuids"
         ],
         "type": "object"
@@ -1110,6 +1093,12 @@
       "UpdateAllowedEmailDomains": {
         "description": "Construct a type with the properties of T except for those in type K.",
         "properties": {
+          "emailDomains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "role": {
             "enum": [
               "member",
@@ -1121,12 +1110,6 @@
             ],
             "type": "string"
           },
-          "emailDomains": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
           "projectUuids": {
             "items": {
               "type": "string"
@@ -1135,8 +1118,8 @@
           }
         },
         "required": [
-          "role",
           "emailDomains",
+          "role",
           "projectUuids"
         ],
         "type": "object"
@@ -7423,6 +7406,78 @@
           }
         ]
       },
+      "ConditionalOperator": {
+        "enum": [
+          "isNull",
+          "notNull",
+          "equals",
+          "notEquals",
+          "startsWith",
+          "endsWith",
+          "include",
+          "doesNotInclude",
+          "lessThan",
+          "lessThanOrEqual",
+          "greaterThan",
+          "greaterThanOrEqual",
+          "inThePast",
+          "inTheNext",
+          "inTheCurrent",
+          "inBetween"
+        ],
+        "type": "string"
+      },
+      "MetricFilterRule": {
+        "properties": {
+          "values": {
+            "items": {},
+            "type": "array"
+          },
+          "operator": {
+            "enum": [
+              "isNull",
+              "notNull",
+              "equals",
+              "notEquals",
+              "startsWith",
+              "endsWith",
+              "include",
+              "doesNotInclude",
+              "lessThan",
+              "lessThanOrEqual",
+              "greaterThan",
+              "greaterThanOrEqual",
+              "inThePast",
+              "inTheNext",
+              "inTheCurrent",
+              "inBetween"
+            ],
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "target": {
+            "properties": {
+              "fieldRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fieldRef"
+            ],
+            "type": "object"
+          },
+          "settings": {}
+        },
+        "required": [
+          "operator",
+          "id",
+          "target"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
       "AdditionalMetric": {
         "properties": {
           "label": {
@@ -7496,6 +7551,67 @@
           "index": {
             "type": "number",
             "format": "double"
+          },
+          "filters": {
+            "items": {
+              "properties": {
+                "values": {
+                  "items": {},
+                  "type": "array"
+                },
+                "operator": {
+                  "enum": [
+                    "isNull",
+                    "notNull",
+                    "equals",
+                    "notEquals",
+                    "startsWith",
+                    "endsWith",
+                    "include",
+                    "doesNotInclude",
+                    "lessThan",
+                    "lessThanOrEqual",
+                    "greaterThan",
+                    "greaterThanOrEqual",
+                    "inThePast",
+                    "inTheNext",
+                    "inTheCurrent",
+                    "inBetween"
+                  ],
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "target": {
+                  "properties": {
+                    "fieldRef": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "fieldRef"
+                  ],
+                  "type": "object"
+                },
+                "settings": {}
+              },
+              "required": [
+                "operator",
+                "id",
+                "target"
+              ],
+              "type": "object",
+              "additionalProperties": false
+            },
+            "type": "array"
+          },
+          "baseDimensionName": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string",
+            "nullable": true
           }
         },
         "required": [
@@ -7583,6 +7699,67 @@
                 "index": {
                   "type": "number",
                   "format": "double"
+                },
+                "filters": {
+                  "items": {
+                    "properties": {
+                      "values": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "operator": {
+                        "enum": [
+                          "isNull",
+                          "notNull",
+                          "equals",
+                          "notEquals",
+                          "startsWith",
+                          "endsWith",
+                          "include",
+                          "doesNotInclude",
+                          "lessThan",
+                          "lessThanOrEqual",
+                          "greaterThan",
+                          "greaterThanOrEqual",
+                          "inThePast",
+                          "inTheNext",
+                          "inTheCurrent",
+                          "inBetween"
+                        ],
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "target": {
+                        "properties": {
+                          "fieldRef": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "fieldRef"
+                        ],
+                        "type": "object"
+                      },
+                      "settings": {}
+                    },
+                    "required": [
+                      "operator",
+                      "id",
+                      "target"
+                    ],
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "type": "array"
+                },
+                "baseDimensionName": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "type": "string",
+                  "nullable": true
                 }
               },
               "required": [
@@ -7856,6 +8033,67 @@
                         "index": {
                           "type": "number",
                           "format": "double"
+                        },
+                        "filters": {
+                          "items": {
+                            "properties": {
+                              "values": {
+                                "items": {},
+                                "type": "array"
+                              },
+                              "operator": {
+                                "enum": [
+                                  "isNull",
+                                  "notNull",
+                                  "equals",
+                                  "notEquals",
+                                  "startsWith",
+                                  "endsWith",
+                                  "include",
+                                  "doesNotInclude",
+                                  "lessThan",
+                                  "lessThanOrEqual",
+                                  "greaterThan",
+                                  "greaterThanOrEqual",
+                                  "inThePast",
+                                  "inTheNext",
+                                  "inTheCurrent",
+                                  "inBetween"
+                                ],
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "properties": {
+                                  "fieldRef": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "fieldRef"
+                                ],
+                                "type": "object"
+                              },
+                              "settings": {}
+                            },
+                            "required": [
+                              "operator",
+                              "id",
+                              "target"
+                            ],
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
+                        },
+                        "baseDimensionName": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string",
+                          "nullable": true
                         }
                       },
                       "required": [
@@ -8146,6 +8384,67 @@
                 "index": {
                   "type": "number",
                   "format": "double"
+                },
+                "filters": {
+                  "items": {
+                    "properties": {
+                      "values": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "operator": {
+                        "enum": [
+                          "isNull",
+                          "notNull",
+                          "equals",
+                          "notEquals",
+                          "startsWith",
+                          "endsWith",
+                          "include",
+                          "doesNotInclude",
+                          "lessThan",
+                          "lessThanOrEqual",
+                          "greaterThan",
+                          "greaterThanOrEqual",
+                          "inThePast",
+                          "inTheNext",
+                          "inTheCurrent",
+                          "inBetween"
+                        ],
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "target": {
+                        "properties": {
+                          "fieldRef": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "fieldRef"
+                        ],
+                        "type": "object"
+                      },
+                      "settings": {}
+                    },
+                    "required": [
+                      "operator",
+                      "id",
+                      "target"
+                    ],
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "type": "array"
+                },
+                "baseDimensionName": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "type": "string",
+                  "nullable": true
                 }
               },
               "required": [
@@ -12023,23 +12322,8 @@
         ],
         "type": "object"
       },
-      "Pick_Space.name_": {
+      "CreateSpace": {
         "properties": {
-          "name": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
-      },
-      "Partial_Pick_Space.isPrivate-or-access__": {
-        "properties": {
-          "isPrivate": {
-            "type": "boolean"
-          },
           "access": {
             "items": {
               "properties": {
@@ -12072,112 +12356,33 @@
               "type": "object"
             },
             "type": "array"
-          }
-        },
-        "type": "object",
-        "description": "Make all properties in T optional"
-      },
-      "CreateSpace": {
-        "allOf": [
-          {
-            "properties": {
-              "name": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name"
-            ],
-            "type": "object",
-            "description": "From T, pick a set of properties whose keys are in the union K"
-          },
-          {
-            "properties": {
-              "isPrivate": {
-                "type": "boolean"
-              },
-              "access": {
-                "items": {
-                  "properties": {
-                    "role": {
-                      "enum": [
-                        "viewer",
-                        "interactive_viewer",
-                        "editor",
-                        "developer",
-                        "admin"
-                      ],
-                      "type": "string"
-                    },
-                    "lastName": {
-                      "type": "string"
-                    },
-                    "firstName": {
-                      "type": "string"
-                    },
-                    "userUuid": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "role",
-                    "lastName",
-                    "firstName",
-                    "userUuid"
-                  ],
-                  "type": "object"
-                },
-                "type": "array"
-              }
-            },
-            "type": "object",
-            "description": "Make all properties in T optional"
-          }
-        ]
-      },
-      "Pick_Space.name-or-isPrivate_": {
-        "properties": {
-          "name": {
-            "type": "string"
           },
           "isPrivate": {
             "type": "boolean"
+          },
+          "name": {
+            "type": "string"
           }
         },
         "required": [
-          "name",
-          "isPrivate"
+          "name"
         ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
+        "type": "object"
       },
       "UpdateSpace": {
         "properties": {
-          "name": {
-            "type": "string"
-          },
           "isPrivate": {
             "type": "boolean"
-          }
-        },
-        "required": [
-          "name",
-          "isPrivate"
-        ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
-      },
-      "Pick_SpaceShare.userUuid_": {
-        "properties": {
-          "userUuid": {
+          },
+          "name": {
             "type": "string"
           }
         },
         "required": [
-          "userUuid"
+          "isPrivate",
+          "name"
         ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
+        "type": "object"
       },
       "AddSpaceShare": {
         "properties": {
@@ -12188,8 +12393,7 @@
         "required": [
           "userUuid"
         ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
+        "type": "object"
       },
       "Pick_SshKeyPair.publicKey_": {
         "properties": {
@@ -13560,7 +13764,7 @@
   },
   "info": {
     "title": "Lightdash API",
-    "version": "0.620.0",
+    "version": "0.621.2",
     "description": "Open API documentation for all public Lightdash API endpoints",
     "license": {
       "name": "MIT"
@@ -15653,7 +15857,6 @@
                 "description": "the new membership profile",
                 "properties": {
                   "role": {
-                    "description": "The role of the user in the organization",
                     "enum": [
                       "member",
                       "viewer",
@@ -15665,6 +15868,9 @@
                     "type": "string"
                   }
                 },
+                "required": [
+                  "role"
+                ],
                 "type": "object"
               }
             }
@@ -16014,6 +16220,12 @@
               "schema": {
                 "description": "Construct a type with the properties of T except for those in type K.",
                 "properties": {
+                  "emailDomains": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "role": {
                     "enum": [
                       "member",
@@ -16025,12 +16237,6 @@
                     ],
                     "type": "string"
                   },
-                  "emailDomains": {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  },
                   "projectUuids": {
                     "items": {
                       "type": "string"
@@ -16039,8 +16245,8 @@
                   }
                 },
                 "required": [
-                  "role",
                   "emailDomains",
+                  "role",
                   "projectUuids"
                 ],
                 "type": "object"
@@ -18852,62 +19058,51 @@
           "content": {
             "application/json": {
               "schema": {
-                "allOf": [
-                  {
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "type": "object",
-                    "description": "From T, pick a set of properties whose keys are in the union K"
-                  },
-                  {
-                    "properties": {
-                      "isPrivate": {
-                        "type": "boolean"
-                      },
-                      "access": {
-                        "items": {
-                          "properties": {
-                            "role": {
-                              "enum": [
-                                "viewer",
-                                "interactive_viewer",
-                                "editor",
-                                "developer",
-                                "admin"
-                              ],
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "userUuid": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "role",
-                            "lastName",
-                            "firstName",
-                            "userUuid"
+                "properties": {
+                  "access": {
+                    "items": {
+                      "properties": {
+                        "role": {
+                          "enum": [
+                            "viewer",
+                            "interactive_viewer",
+                            "editor",
+                            "developer",
+                            "admin"
                           ],
-                          "type": "object"
+                          "type": "string"
                         },
-                        "type": "array"
-                      }
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "userUuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "role",
+                        "lastName",
+                        "firstName",
+                        "userUuid"
+                      ],
+                      "type": "object"
                     },
-                    "type": "object",
-                    "description": "Make all properties in T optional"
+                    "type": "array"
+                  },
+                  "isPrivate": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "string"
                   }
-                ]
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
               }
             }
           }
@@ -19497,6 +19692,67 @@
                                   "index": {
                                     "type": "number",
                                     "format": "double"
+                                  },
+                                  "filters": {
+                                    "items": {
+                                      "properties": {
+                                        "values": {
+                                          "items": {},
+                                          "type": "array"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "isNull",
+                                            "notNull",
+                                            "equals",
+                                            "notEquals",
+                                            "startsWith",
+                                            "endsWith",
+                                            "include",
+                                            "doesNotInclude",
+                                            "lessThan",
+                                            "lessThanOrEqual",
+                                            "greaterThan",
+                                            "greaterThanOrEqual",
+                                            "inThePast",
+                                            "inTheNext",
+                                            "inTheCurrent",
+                                            "inBetween"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "target": {
+                                          "properties": {
+                                            "fieldRef": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "fieldRef"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        "settings": {}
+                                      },
+                                      "required": [
+                                        "operator",
+                                        "id",
+                                        "target"
+                                      ],
+                                      "type": "object",
+                                      "additionalProperties": false
+                                    },
+                                    "type": "array"
+                                  },
+                                  "baseDimensionName": {
+                                    "type": "string"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "nullable": true
                                   }
                                 },
                                 "required": [
@@ -19871,6 +20127,67 @@
                         "index": {
                           "type": "number",
                           "format": "double"
+                        },
+                        "filters": {
+                          "items": {
+                            "properties": {
+                              "values": {
+                                "items": {},
+                                "type": "array"
+                              },
+                              "operator": {
+                                "enum": [
+                                  "isNull",
+                                  "notNull",
+                                  "equals",
+                                  "notEquals",
+                                  "startsWith",
+                                  "endsWith",
+                                  "include",
+                                  "doesNotInclude",
+                                  "lessThan",
+                                  "lessThanOrEqual",
+                                  "greaterThan",
+                                  "greaterThanOrEqual",
+                                  "inThePast",
+                                  "inTheNext",
+                                  "inTheCurrent",
+                                  "inBetween"
+                                ],
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "properties": {
+                                  "fieldRef": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "fieldRef"
+                                ],
+                                "type": "object"
+                              },
+                              "settings": {}
+                            },
+                            "required": [
+                              "operator",
+                              "id",
+                              "target"
+                            ],
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
+                        },
+                        "baseDimensionName": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string",
+                          "nullable": true
                         }
                       },
                       "required": [
@@ -20087,6 +20404,67 @@
                                   "index": {
                                     "type": "number",
                                     "format": "double"
+                                  },
+                                  "filters": {
+                                    "items": {
+                                      "properties": {
+                                        "values": {
+                                          "items": {},
+                                          "type": "array"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "isNull",
+                                            "notNull",
+                                            "equals",
+                                            "notEquals",
+                                            "startsWith",
+                                            "endsWith",
+                                            "include",
+                                            "doesNotInclude",
+                                            "lessThan",
+                                            "lessThanOrEqual",
+                                            "greaterThan",
+                                            "greaterThanOrEqual",
+                                            "inThePast",
+                                            "inTheNext",
+                                            "inTheCurrent",
+                                            "inBetween"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "target": {
+                                          "properties": {
+                                            "fieldRef": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "fieldRef"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        "settings": {}
+                                      },
+                                      "required": [
+                                        "operator",
+                                        "id",
+                                        "target"
+                                      ],
+                                      "type": "object",
+                                      "additionalProperties": false
+                                    },
+                                    "type": "array"
+                                  },
+                                  "baseDimensionName": {
+                                    "type": "string"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "nullable": true
                                   }
                                 },
                                 "required": [
@@ -20461,6 +20839,67 @@
                         "index": {
                           "type": "number",
                           "format": "double"
+                        },
+                        "filters": {
+                          "items": {
+                            "properties": {
+                              "values": {
+                                "items": {},
+                                "type": "array"
+                              },
+                              "operator": {
+                                "enum": [
+                                  "isNull",
+                                  "notNull",
+                                  "equals",
+                                  "notEquals",
+                                  "startsWith",
+                                  "endsWith",
+                                  "include",
+                                  "doesNotInclude",
+                                  "lessThan",
+                                  "lessThanOrEqual",
+                                  "greaterThan",
+                                  "greaterThanOrEqual",
+                                  "inThePast",
+                                  "inTheNext",
+                                  "inTheCurrent",
+                                  "inBetween"
+                                ],
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "properties": {
+                                  "fieldRef": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "fieldRef"
+                                ],
+                                "type": "object"
+                              },
+                              "settings": {}
+                            },
+                            "required": [
+                              "operator",
+                              "id",
+                              "target"
+                            ],
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
+                        },
+                        "baseDimensionName": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string",
+                          "nullable": true
                         }
                       },
                       "required": [
@@ -20677,6 +21116,67 @@
                                   "index": {
                                     "type": "number",
                                     "format": "double"
+                                  },
+                                  "filters": {
+                                    "items": {
+                                      "properties": {
+                                        "values": {
+                                          "items": {},
+                                          "type": "array"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "isNull",
+                                            "notNull",
+                                            "equals",
+                                            "notEquals",
+                                            "startsWith",
+                                            "endsWith",
+                                            "include",
+                                            "doesNotInclude",
+                                            "lessThan",
+                                            "lessThanOrEqual",
+                                            "greaterThan",
+                                            "greaterThanOrEqual",
+                                            "inThePast",
+                                            "inTheNext",
+                                            "inTheCurrent",
+                                            "inBetween"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "target": {
+                                          "properties": {
+                                            "fieldRef": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "fieldRef"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        "settings": {}
+                                      },
+                                      "required": [
+                                        "operator",
+                                        "id",
+                                        "target"
+                                      ],
+                                      "type": "object",
+                                      "additionalProperties": false
+                                    },
+                                    "type": "array"
+                                  },
+                                  "baseDimensionName": {
+                                    "type": "string"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "nullable": true
                                   }
                                 },
                                 "required": [
@@ -24056,19 +24556,18 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "name": {
-                    "type": "string"
-                  },
                   "isPrivate": {
                     "type": "boolean"
+                  },
+                  "name": {
+                    "type": "string"
                   }
                 },
                 "required": [
-                  "name",
-                  "isPrivate"
+                  "isPrivate",
+                  "name"
                 ],
-                "type": "object",
-                "description": "From T, pick a set of properties whose keys are in the union K"
+                "type": "object"
               }
             }
           }
@@ -24190,8 +24689,7 @@
                 "required": [
                   "userUuid"
                 ],
-                "type": "object",
-                "description": "From T, pick a set of properties whose keys are in the union K"
+                "type": "object"
               }
             }
           }

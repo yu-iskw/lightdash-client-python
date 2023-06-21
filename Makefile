@@ -40,13 +40,20 @@ generate-client:
 	rm -fr "lightdash_client/api/" "lightdash_client/models/"
 	bash dev/generate_clients.sh --skip-validate-spec 1
 
-prepare-schema: download-swagger-json dereference-swagger-json
+prepare-schema: download-swagger-json dereference-swagger-json lint
 
 download-swagger-json:
-	bash dev/download_swagger_json.sh --version "0.621.0"
+ifndef VERSION
+	@echo "VERSION is not set"
+endif
+	bash dev/download_swagger_json.sh --version "$(VERSION)"
 
 dereference-swagger-json: build-swagger-cli-image
 	bash dev/dereference_swagger_json.sh --image "swagger-cli:latest"
 
 build-swagger-cli-image:
 	docker build -t "swagger-cli:latest" -f "docker/swagger-cli/Dockerfile" .
+
+# Check lightdash version is set
+check-version:
+	IF [ -z "${LIGHTDASH_VERSION}" ]; then echo "LIGHTDASH_VERSION is not set"; exit 1; fi
