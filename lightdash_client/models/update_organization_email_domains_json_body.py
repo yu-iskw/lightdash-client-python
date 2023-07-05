@@ -3,44 +3,85 @@ from typing import cast
 from typing import Dict
 from typing import List
 from typing import Type
+from typing import TYPE_CHECKING
 from typing import TypeVar
+from typing import Union
 
 import attr
 
-from ..models.update_organization_email_domains_json_body_role import UpdateOrganizationEmailDomainsJsonBodyRole
+from ..models.update_organization_email_domains_json_body_role_type_0 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType0,
+)
+from ..models.update_organization_email_domains_json_body_role_type_1 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType1,
+)
+from ..models.update_organization_email_domains_json_body_role_type_2 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType2,
+)
+from ..models.update_organization_email_domains_json_body_role_type_3 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType3,
+)
+
+if TYPE_CHECKING:
+    from ..models.update_organization_email_domains_json_body_projects_item import (
+        UpdateOrganizationEmailDomainsJsonBodyProjectsItem,
+    )
+
 
 T = TypeVar("T", bound="UpdateOrganizationEmailDomainsJsonBody")
 
 
 @attr.s(auto_attribs=True)
 class UpdateOrganizationEmailDomainsJsonBody:
-    """Construct a type with the properties of T except for those in type K.
+    """the new allowed email domains
 
     Attributes:
-        role (UpdateOrganizationEmailDomainsJsonBodyRole):
         email_domains (List[str]):
-        project_uuids (List[str]):
+        role (Union[UpdateOrganizationEmailDomainsJsonBodyRoleType0, UpdateOrganizationEmailDomainsJsonBodyRoleType1,
+            UpdateOrganizationEmailDomainsJsonBodyRoleType2, UpdateOrganizationEmailDomainsJsonBodyRoleType3]):
+        projects (List['UpdateOrganizationEmailDomainsJsonBodyProjectsItem']):
     """
 
-    role: UpdateOrganizationEmailDomainsJsonBodyRole
     email_domains: List[str]
-    project_uuids: List[str]
+    role: Union[
+        UpdateOrganizationEmailDomainsJsonBodyRoleType0,
+        UpdateOrganizationEmailDomainsJsonBodyRoleType1,
+        UpdateOrganizationEmailDomainsJsonBodyRoleType2,
+        UpdateOrganizationEmailDomainsJsonBodyRoleType3,
+    ]
+    projects: List["UpdateOrganizationEmailDomainsJsonBodyProjectsItem"]
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        role = self.role.value
-
         email_domains = self.email_domains
 
-        project_uuids = self.project_uuids
+        role: str
+
+        if isinstance(self.role, UpdateOrganizationEmailDomainsJsonBodyRoleType0):
+            role = self.role.value
+
+        elif isinstance(self.role, UpdateOrganizationEmailDomainsJsonBodyRoleType1):
+            role = self.role.value
+
+        elif isinstance(self.role, UpdateOrganizationEmailDomainsJsonBodyRoleType2):
+            role = self.role.value
+
+        else:
+            role = self.role.value
+
+        projects = []
+        for projects_item_data in self.projects:
+            projects_item = projects_item_data.to_dict()
+
+            projects.append(projects_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "role": role,
                 "emailDomains": email_domains,
-                "projectUuids": project_uuids,
+                "role": role,
+                "projects": projects,
             }
         )
 
@@ -48,17 +89,64 @@ class UpdateOrganizationEmailDomainsJsonBody:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        d = src_dict.copy()
-        role = UpdateOrganizationEmailDomainsJsonBodyRole(d.pop("role"))
+        from ..models.update_organization_email_domains_json_body_projects_item import (
+            UpdateOrganizationEmailDomainsJsonBodyProjectsItem,
+        )
 
+        d = src_dict.copy()
         email_domains = cast(List[str], d.pop("emailDomains"))
 
-        project_uuids = cast(List[str], d.pop("projectUuids"))
+        def _parse_role(
+            data: object,
+        ) -> Union[
+            UpdateOrganizationEmailDomainsJsonBodyRoleType0,
+            UpdateOrganizationEmailDomainsJsonBodyRoleType1,
+            UpdateOrganizationEmailDomainsJsonBodyRoleType2,
+            UpdateOrganizationEmailDomainsJsonBodyRoleType3,
+        ]:
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                role_type_0 = UpdateOrganizationEmailDomainsJsonBodyRoleType0(data)
+
+                return role_type_0
+            except:  # noqa: E722
+                pass
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                role_type_1 = UpdateOrganizationEmailDomainsJsonBodyRoleType1(data)
+
+                return role_type_1
+            except:  # noqa: E722
+                pass
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                role_type_2 = UpdateOrganizationEmailDomainsJsonBodyRoleType2(data)
+
+                return role_type_2
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, str):
+                raise TypeError()
+            role_type_3 = UpdateOrganizationEmailDomainsJsonBodyRoleType3(data)
+
+            return role_type_3
+
+        role = _parse_role(d.pop("role"))
+
+        projects = []
+        _projects = d.pop("projects")
+        for projects_item_data in _projects:
+            projects_item = UpdateOrganizationEmailDomainsJsonBodyProjectsItem.from_dict(projects_item_data)
+
+            projects.append(projects_item)
 
         update_organization_email_domains_json_body = cls(
-            role=role,
             email_domains=email_domains,
-            project_uuids=project_uuids,
+            role=role,
+            projects=projects,
         )
 
         update_organization_email_domains_json_body.additional_properties = d

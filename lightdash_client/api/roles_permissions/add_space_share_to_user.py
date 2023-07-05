@@ -71,8 +71,7 @@ def sync_detailed(
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody): From T, pick a set of properties whose keys are
-            in the union K
+        json_body (AddSpaceShareToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -109,8 +108,7 @@ def sync(
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody): From T, pick a set of properties whose keys are
-            in the union K
+        json_body (AddSpaceShareToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -140,8 +138,7 @@ async def asyncio_detailed(
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody): From T, pick a set of properties whose keys are
-            in the union K
+        json_body (AddSpaceShareToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -176,8 +173,7 @@ async def asyncio(
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody): From T, pick a set of properties whose keys are
-            in the union K
+        json_body (AddSpaceShareToUserJsonBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

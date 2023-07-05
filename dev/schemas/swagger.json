@@ -275,6 +275,10 @@
             },
             "Organization": {
                 "properties": {
+                    "defaultProjectUuid": {
+                        "type": "string",
+                        "description": "The project a user sees when they first log in to the organization"
+                    },
                     "needsProject": {
                         "type": "boolean",
                         "description": "The organization needs a project if it doesn't have at least one project."
@@ -340,6 +344,10 @@
                         },
                         "type": "array",
                         "description": "The default color palette for all projects in the organization"
+                    },
+                    "defaultProjectUuid": {
+                        "type": "string",
+                        "description": "The project a user sees when they first log in to the organization"
                     }
                 },
                 "type": "object",
@@ -475,29 +483,91 @@
                 "required": ["results", "status"],
                 "type": "object"
             },
-            "Partial_Pick_OrganizationMemberProfile.role__": {
+            "OrganizationMemberProfileUpdate": {
                 "properties": {
                     "role": {
-                        "$ref": "#/components/schemas/OrganizationMemberRole",
-                        "description": "The role of the user in the organization"
+                        "$ref": "#/components/schemas/OrganizationMemberRole"
                     }
                 },
-                "type": "object",
-                "description": "Make all properties in T optional"
+                "required": ["role"],
+                "type": "object"
             },
-            "OrganizationMemberProfileUpdate": {
-                "$ref": "#/components/schemas/Partial_Pick_OrganizationMemberProfile.role__"
+            "OrganizationMemberRole.EDITOR": {
+                "enum": ["editor"],
+                "type": "string"
+            },
+            "OrganizationMemberRole.INTERACTIVE_VIEWER": {
+                "enum": ["interactive_viewer"],
+                "type": "string"
+            },
+            "OrganizationMemberRole.VIEWER": {
+                "enum": ["viewer"],
+                "type": "string"
+            },
+            "OrganizationMemberRole.MEMBER": {
+                "enum": ["member"],
+                "type": "string"
+            },
+            "AllowedEmailDomainsRole": {
+                "anyOf": [
+                    {
+                        "$ref": "#/components/schemas/OrganizationMemberRole.EDITOR"
+                    },
+                    {
+                        "$ref": "#/components/schemas/OrganizationMemberRole.INTERACTIVE_VIEWER"
+                    },
+                    {
+                        "$ref": "#/components/schemas/OrganizationMemberRole.VIEWER"
+                    },
+                    {
+                        "$ref": "#/components/schemas/OrganizationMemberRole.MEMBER"
+                    }
+                ]
+            },
+            "ProjectMemberRole.EDITOR": {
+                "enum": ["editor"],
+                "type": "string"
+            },
+            "ProjectMemberRole.INTERACTIVE_VIEWER": {
+                "enum": ["interactive_viewer"],
+                "type": "string"
+            },
+            "ProjectMemberRole.VIEWER": {
+                "enum": ["viewer"],
+                "type": "string"
+            },
+            "AllowedEmailDomainProjectsRole": {
+                "anyOf": [
+                    {
+                        "$ref": "#/components/schemas/ProjectMemberRole.EDITOR"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ProjectMemberRole.INTERACTIVE_VIEWER"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ProjectMemberRole.VIEWER"
+                    }
+                ]
             },
             "AllowedEmailDomains": {
                 "properties": {
-                    "projectUuids": {
+                    "projects": {
                         "items": {
-                            "type": "string"
+                            "properties": {
+                                "role": {
+                                    "$ref": "#/components/schemas/AllowedEmailDomainProjectsRole"
+                                },
+                                "projectUuid": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["role", "projectUuid"],
+                            "type": "object"
                         },
                         "type": "array"
                     },
                     "role": {
-                        "$ref": "#/components/schemas/OrganizationMemberRole"
+                        "$ref": "#/components/schemas/AllowedEmailDomainsRole"
                     },
                     "emailDomains": {
                         "items": {
@@ -510,7 +580,7 @@
                     }
                 },
                 "required": [
-                    "projectUuids",
+                    "projects",
                     "role",
                     "emailDomains",
                     "organizationUuid"
@@ -533,23 +603,32 @@
             },
             "Pick_AllowedEmailDomains.Exclude_keyofAllowedEmailDomains.organizationUuid__": {
                 "properties": {
-                    "role": {
-                        "$ref": "#/components/schemas/OrganizationMemberRole"
-                    },
                     "emailDomains": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "projectUuids": {
+                    "role": {
+                        "$ref": "#/components/schemas/AllowedEmailDomainsRole"
+                    },
+                    "projects": {
                         "items": {
-                            "type": "string"
+                            "properties": {
+                                "role": {
+                                    "$ref": "#/components/schemas/AllowedEmailDomainProjectsRole"
+                                },
+                                "projectUuid": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["role", "projectUuid"],
+                            "type": "object"
                         },
                         "type": "array"
                     }
                 },
-                "required": ["role", "emailDomains", "projectUuids"],
+                "required": ["emailDomains", "role", "projects"],
                 "type": "object",
                 "description": "From T, pick a set of properties whose keys are in the union K"
             },
@@ -719,6 +798,7 @@
                     "scatter",
                     "area",
                     "mixed",
+                    "pie",
                     "table",
                     "big_number"
                 ],
@@ -1777,7 +1857,7 @@
                 "description": "From T, pick a set of properties whose keys are in the union K"
             },
             "ChartType": {
-                "enum": ["cartesian", "table", "big_number"],
+                "enum": ["cartesian", "table", "big_number", "pie"],
                 "type": "string"
             },
             "ChartSummary": {
@@ -2015,11 +2095,12 @@
                 "type": "object"
             },
             "TableCalculationFormatType": {
-                "enum": ["default", "percent"],
+                "enum": ["default", "percent", "currency", "number"],
                 "type": "string"
             },
             "NumberSeparator": {
                 "enum": [
+                    "default",
                     "commaPeriod",
                     "spacePeriod",
                     "periodComma",
@@ -2027,8 +2108,24 @@
                 ],
                 "type": "string"
             },
+            "Compact": {
+                "enum": ["thousands", "millions", "billions", "trillions"],
+                "type": "string"
+            },
             "TableCalculationFormat": {
                 "properties": {
+                    "suffix": {
+                        "type": "string"
+                    },
+                    "prefix": {
+                        "type": "string"
+                    },
+                    "compact": {
+                        "$ref": "#/components/schemas/Compact"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
                     "separator": {
                         "$ref": "#/components/schemas/NumberSeparator"
                     },
@@ -2082,10 +2179,6 @@
                 ],
                 "type": "string"
             },
-            "Compact": {
-                "enum": ["thousands", "millions", "billions", "trillions"],
-                "type": "string"
-            },
             "CompactOrAlias": {
                 "anyOf": [
                     {
@@ -2105,6 +2198,54 @@
                         ]
                     }
                 ]
+            },
+            "ConditionalOperator": {
+                "enum": [
+                    "isNull",
+                    "notNull",
+                    "equals",
+                    "notEquals",
+                    "startsWith",
+                    "endsWith",
+                    "include",
+                    "doesNotInclude",
+                    "lessThan",
+                    "lessThanOrEqual",
+                    "greaterThan",
+                    "greaterThanOrEqual",
+                    "inThePast",
+                    "inTheNext",
+                    "inTheCurrent",
+                    "inBetween"
+                ],
+                "type": "string"
+            },
+            "MetricFilterRule": {
+                "properties": {
+                    "values": {
+                        "items": {},
+                        "type": "array"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/ConditionalOperator"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "target": {
+                        "properties": {
+                            "fieldRef": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["fieldRef"],
+                        "type": "object"
+                    },
+                    "settings": {}
+                },
+                "required": ["operator", "id", "target"],
+                "type": "object",
+                "additionalProperties": false
             },
             "AdditionalMetric": {
                 "properties": {
@@ -2142,6 +2283,19 @@
                     "index": {
                         "type": "number",
                         "format": "double"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/components/schemas/MetricFilterRule"
+                        },
+                        "type": "array"
+                    },
+                    "baseDimensionName": {
+                        "type": "string"
+                    },
+                    "uuid": {
+                        "type": "string",
+                        "nullable": true
                     }
                 },
                 "required": ["type", "sql", "table", "name"],
@@ -3083,69 +3237,44 @@
                 "required": ["results", "status"],
                 "type": "object"
             },
-            "Pick_Space.name_": {
+            "CreateSpace": {
                 "properties": {
-                    "name": {
-                        "type": "string"
-                    }
-                },
-                "required": ["name"],
-                "type": "object",
-                "description": "From T, pick a set of properties whose keys are in the union K"
-            },
-            "Partial_Pick_Space.isPrivate-or-access__": {
-                "properties": {
-                    "isPrivate": {
-                        "type": "boolean"
-                    },
                     "access": {
                         "items": {
                             "$ref": "#/components/schemas/SpaceShare"
                         },
                         "type": "array"
-                    }
-                },
-                "type": "object",
-                "description": "Make all properties in T optional"
-            },
-            "CreateSpace": {
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Pick_Space.name_"
-                    },
-                    {
-                        "$ref": "#/components/schemas/Partial_Pick_Space.isPrivate-or-access__"
-                    }
-                ]
-            },
-            "Pick_Space.name-or-isPrivate_": {
-                "properties": {
-                    "name": {
-                        "type": "string"
                     },
                     "isPrivate": {
                         "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
                     }
                 },
-                "required": ["name", "isPrivate"],
-                "type": "object",
-                "description": "From T, pick a set of properties whose keys are in the union K"
+                "required": ["name"],
+                "type": "object"
             },
             "UpdateSpace": {
-                "$ref": "#/components/schemas/Pick_Space.name-or-isPrivate_"
+                "properties": {
+                    "isPrivate": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": ["isPrivate", "name"],
+                "type": "object"
             },
-            "Pick_SpaceShare.userUuid_": {
+            "AddSpaceShare": {
                 "properties": {
                     "userUuid": {
                         "type": "string"
                     }
                 },
                 "required": ["userUuid"],
-                "type": "object",
-                "description": "From T, pick a set of properties whose keys are in the union K"
-            },
-            "AddSpaceShare": {
-                "$ref": "#/components/schemas/Pick_SpaceShare.userUuid_"
+                "type": "object"
             },
             "Pick_SshKeyPair.publicKey_": {
                 "properties": {
@@ -3546,7 +3675,7 @@
     },
     "info": {
         "title": "Lightdash API",
-        "version": "0.620.0",
+        "version": "0.640.1",
         "description": "Open API documentation for all public Lightdash API endpoints",
         "license": {
             "name": "MIT"
@@ -4388,16 +4517,18 @@
                         }
                     }
                 },
-                "description": "Gets the allowed email domains for the current user's organization",
+                "description": "Updates the allowed email domains for the current user's organization",
                 "tags": ["Organizations"],
                 "security": [],
                 "parameters": [],
                 "requestBody": {
+                    "description": "the new allowed email domains",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/UpdateAllowedEmailDomains"
+                                "$ref": "#/components/schemas/UpdateAllowedEmailDomains",
+                                "description": "the new allowed email domains"
                             }
                         }
                     }
@@ -4434,11 +4565,13 @@
                 "security": [],
                 "parameters": [],
                 "requestBody": {
+                    "description": "the new group details",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Pick_CreateGroup.name_"
+                                "$ref": "#/components/schemas/Pick_CreateGroup.name_",
+                                "description": "the new group details"
                             }
                         }
                     }

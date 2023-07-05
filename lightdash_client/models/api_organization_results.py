@@ -21,12 +21,14 @@ class ApiOrganizationResults:
     Attributes:
         name (str): The name of the organization
         organization_uuid (str): The unique identifier of the organization
+        default_project_uuid (Union[Unset, str]): The project a user sees when they first log in to the organization
         needs_project (Union[Unset, bool]): The organization needs a project if it doesn't have at least one project.
         chart_colors (Union[Unset, List[str]]): The default color palette for all projects in the organization
     """
 
     name: str
     organization_uuid: str
+    default_project_uuid: Union[Unset, str] = UNSET
     needs_project: Union[Unset, bool] = UNSET
     chart_colors: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -34,6 +36,7 @@ class ApiOrganizationResults:
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
         organization_uuid = self.organization_uuid
+        default_project_uuid = self.default_project_uuid
         needs_project = self.needs_project
         chart_colors: Union[Unset, List[str]] = UNSET
         if not isinstance(self.chart_colors, Unset):
@@ -47,6 +50,8 @@ class ApiOrganizationResults:
                 "organizationUuid": organization_uuid,
             }
         )
+        if default_project_uuid is not UNSET:
+            field_dict["defaultProjectUuid"] = default_project_uuid
         if needs_project is not UNSET:
             field_dict["needsProject"] = needs_project
         if chart_colors is not UNSET:
@@ -61,6 +66,8 @@ class ApiOrganizationResults:
 
         organization_uuid = d.pop("organizationUuid")
 
+        default_project_uuid = d.pop("defaultProjectUuid", UNSET)
+
         needs_project = d.pop("needsProject", UNSET)
 
         chart_colors = cast(List[str], d.pop("chartColors", UNSET))
@@ -68,6 +75,7 @@ class ApiOrganizationResults:
         api_organization_results = cls(
             name=name,
             organization_uuid=organization_uuid,
+            default_project_uuid=default_project_uuid,
             needs_project=needs_project,
             chart_colors=chart_colors,
         )

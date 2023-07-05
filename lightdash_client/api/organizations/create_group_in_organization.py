@@ -63,8 +63,7 @@ def sync_detailed(
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
-            are in the union K
+        json_body (CreateGroupInOrganizationJsonBody): the new group details
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -95,8 +94,7 @@ def sync(
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
-            are in the union K
+        json_body (CreateGroupInOrganizationJsonBody): the new group details
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,8 +118,7 @@ async def asyncio_detailed(
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
-            are in the union K
+        json_body (CreateGroupInOrganizationJsonBody): the new group details
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -150,8 +147,7 @@ async def asyncio(
     """Creates a new group in the current user's organization
 
     Args:
-        json_body (CreateGroupInOrganizationJsonBody): From T, pick a set of properties whose keys
-            are in the union K
+        json_body (CreateGroupInOrganizationJsonBody): the new group details
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

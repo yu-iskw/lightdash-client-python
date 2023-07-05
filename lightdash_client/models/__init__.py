@@ -8,9 +8,22 @@ from .add_user_to_group_response_200_status import AddUserToGroupResponse200Stat
 from .additional_metric import AdditionalMetric
 from .additional_metric_compact_type_0 import AdditionalMetricCompactType0
 from .additional_metric_compact_type_1 import AdditionalMetricCompactType1
+from .additional_metric_filters_item import AdditionalMetricFiltersItem
+from .additional_metric_filters_item_operator import AdditionalMetricFiltersItemOperator
+from .additional_metric_filters_item_target import AdditionalMetricFiltersItemTarget
 from .additional_metric_type import AdditionalMetricType
+from .allowed_email_domain_projects_role_type_0 import AllowedEmailDomainProjectsRoleType0
+from .allowed_email_domain_projects_role_type_1 import AllowedEmailDomainProjectsRoleType1
+from .allowed_email_domain_projects_role_type_2 import AllowedEmailDomainProjectsRoleType2
 from .allowed_email_domains import AllowedEmailDomains
-from .allowed_email_domains_role import AllowedEmailDomainsRole
+from .allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
+from .allowed_email_domains_projects_item_role_type_0 import AllowedEmailDomainsProjectsItemRoleType0
+from .allowed_email_domains_projects_item_role_type_1 import AllowedEmailDomainsProjectsItemRoleType1
+from .allowed_email_domains_projects_item_role_type_2 import AllowedEmailDomainsProjectsItemRoleType2
+from .allowed_email_domains_role_type_0 import AllowedEmailDomainsRoleType0
+from .allowed_email_domains_role_type_1 import AllowedEmailDomainsRoleType1
+from .allowed_email_domains_role_type_2 import AllowedEmailDomainsRoleType2
+from .allowed_email_domains_role_type_3 import AllowedEmailDomainsRoleType3
 from .api_chart_summary_list_response import ApiChartSummaryListResponse
 from .api_chart_summary_list_response_results_item import ApiChartSummaryListResponseResultsItem
 from .api_chart_summary_list_response_results_item_chart_type import ApiChartSummaryListResponseResultsItemChartType
@@ -52,7 +65,30 @@ from .api_job_status_response_status import ApiJobStatusResponseStatus
 from .api_organization import ApiOrganization
 from .api_organization_allowed_email_domains import ApiOrganizationAllowedEmailDomains
 from .api_organization_allowed_email_domains_results import ApiOrganizationAllowedEmailDomainsResults
-from .api_organization_allowed_email_domains_results_role import ApiOrganizationAllowedEmailDomainsResultsRole
+from .api_organization_allowed_email_domains_results_projects_item import (
+    ApiOrganizationAllowedEmailDomainsResultsProjectsItem,
+)
+from .api_organization_allowed_email_domains_results_projects_item_role_type_0 import (
+    ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType0,
+)
+from .api_organization_allowed_email_domains_results_projects_item_role_type_1 import (
+    ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType1,
+)
+from .api_organization_allowed_email_domains_results_projects_item_role_type_2 import (
+    ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType2,
+)
+from .api_organization_allowed_email_domains_results_role_type_0 import (
+    ApiOrganizationAllowedEmailDomainsResultsRoleType0,
+)
+from .api_organization_allowed_email_domains_results_role_type_1 import (
+    ApiOrganizationAllowedEmailDomainsResultsRoleType1,
+)
+from .api_organization_allowed_email_domains_results_role_type_2 import (
+    ApiOrganizationAllowedEmailDomainsResultsRoleType2,
+)
+from .api_organization_allowed_email_domains_results_role_type_3 import (
+    ApiOrganizationAllowedEmailDomainsResultsRoleType3,
+)
 from .api_organization_allowed_email_domains_status import ApiOrganizationAllowedEmailDomainsStatus
 from .api_organization_member_profile import ApiOrganizationMemberProfile
 from .api_organization_member_profile_results import ApiOrganizationMemberProfileResults
@@ -185,6 +221,15 @@ from .api_run_query_response_results_metric_query_additional_metrics_item_compac
 from .api_run_query_response_results_metric_query_additional_metrics_item_compact_type_1 import (
     ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1,
 )
+from .api_run_query_response_results_metric_query_additional_metrics_item_filters_item import (
+    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItem,
+)
+from .api_run_query_response_results_metric_query_additional_metrics_item_filters_item_operator import (
+    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
+)
+from .api_run_query_response_results_metric_query_additional_metrics_item_filters_item_target import (
+    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
+)
 from .api_run_query_response_results_metric_query_additional_metrics_item_type import (
     ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemType,
 )
@@ -207,6 +252,9 @@ from .api_run_query_response_results_metric_query_table_calculations_item import
 )
 from .api_run_query_response_results_metric_query_table_calculations_item_format import (
     ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormat,
+)
+from .api_run_query_response_results_metric_query_table_calculations_item_format_compact import (
+    ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatCompact,
 )
 from .api_run_query_response_results_metric_query_table_calculations_item_format_separator import (
     ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatSeparator,
@@ -310,6 +358,7 @@ from .chart_type import ChartType
 from .compact import Compact
 from .compact_or_alias_type_0 import CompactOrAliasType0
 from .compact_or_alias_type_1 import CompactOrAliasType1
+from .conditional_operator import ConditionalOperator
 from .create_email_one_time_passcode_response_200 import CreateEmailOneTimePasscodeResponse200
 from .create_email_one_time_passcode_response_200_results import CreateEmailOneTimePasscodeResponse200Results
 from .create_email_one_time_passcode_response_200_results_otp import CreateEmailOneTimePasscodeResponse200ResultsOtp
@@ -726,8 +775,29 @@ from .list_my_available_organizations_response_200_results_item import (
 from .list_my_available_organizations_response_200_status import ListMyAvailableOrganizationsResponse200Status
 from .list_organization_email_domains_response_200 import ListOrganizationEmailDomainsResponse200
 from .list_organization_email_domains_response_200_results import ListOrganizationEmailDomainsResponse200Results
-from .list_organization_email_domains_response_200_results_role import (
-    ListOrganizationEmailDomainsResponse200ResultsRole,
+from .list_organization_email_domains_response_200_results_projects_item import (
+    ListOrganizationEmailDomainsResponse200ResultsProjectsItem,
+)
+from .list_organization_email_domains_response_200_results_projects_item_role_type_0 import (
+    ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0,
+)
+from .list_organization_email_domains_response_200_results_projects_item_role_type_1 import (
+    ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1,
+)
+from .list_organization_email_domains_response_200_results_projects_item_role_type_2 import (
+    ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2,
+)
+from .list_organization_email_domains_response_200_results_role_type_0 import (
+    ListOrganizationEmailDomainsResponse200ResultsRoleType0,
+)
+from .list_organization_email_domains_response_200_results_role_type_1 import (
+    ListOrganizationEmailDomainsResponse200ResultsRoleType1,
+)
+from .list_organization_email_domains_response_200_results_role_type_2 import (
+    ListOrganizationEmailDomainsResponse200ResultsRoleType2,
+)
+from .list_organization_email_domains_response_200_results_role_type_3 import (
+    ListOrganizationEmailDomainsResponse200ResultsRoleType3,
 )
 from .list_organization_email_domains_response_200_status import ListOrganizationEmailDomainsResponse200Status
 from .list_organization_members_response_200 import ListOrganizationMembersResponse200
@@ -743,6 +813,9 @@ from .list_organization_projects_response_200_status import ListOrganizationProj
 from .list_spaces_in_project_response_200 import ListSpacesInProjectResponse200
 from .list_spaces_in_project_response_200_results_item import ListSpacesInProjectResponse200ResultsItem
 from .list_spaces_in_project_response_200_status import ListSpacesInProjectResponse200Status
+from .metric_filter_rule import MetricFilterRule
+from .metric_filter_rule_operator import MetricFilterRuleOperator
+from .metric_filter_rule_target import MetricFilterRuleTarget
 from .metric_query_response import MetricQueryResponse
 from .metric_query_response_additional_metrics_item import MetricQueryResponseAdditionalMetricsItem
 from .metric_query_response_additional_metrics_item_compact_type_0 import (
@@ -750,6 +823,15 @@ from .metric_query_response_additional_metrics_item_compact_type_0 import (
 )
 from .metric_query_response_additional_metrics_item_compact_type_1 import (
     MetricQueryResponseAdditionalMetricsItemCompactType1,
+)
+from .metric_query_response_additional_metrics_item_filters_item import (
+    MetricQueryResponseAdditionalMetricsItemFiltersItem,
+)
+from .metric_query_response_additional_metrics_item_filters_item_operator import (
+    MetricQueryResponseAdditionalMetricsItemFiltersItemOperator,
+)
+from .metric_query_response_additional_metrics_item_filters_item_target import (
+    MetricQueryResponseAdditionalMetricsItemFiltersItemTarget,
 )
 from .metric_query_response_additional_metrics_item_type import MetricQueryResponseAdditionalMetricsItemType
 from .metric_query_response_filters import MetricQueryResponseFilters
@@ -760,6 +842,9 @@ from .metric_query_response_filters_metrics_type_1 import MetricQueryResponseFil
 from .metric_query_response_sorts_item import MetricQueryResponseSortsItem
 from .metric_query_response_table_calculations_item import MetricQueryResponseTableCalculationsItem
 from .metric_query_response_table_calculations_item_format import MetricQueryResponseTableCalculationsItemFormat
+from .metric_query_response_table_calculations_item_format_compact import (
+    MetricQueryResponseTableCalculationsItemFormatCompact,
+)
 from .metric_query_response_table_calculations_item_format_separator import (
     MetricQueryResponseTableCalculationsItemFormatSeparator,
 )
@@ -769,7 +854,22 @@ from .metric_query_response_table_calculations_item_format_type import (
 from .metric_type import MetricType
 from .number_separator import NumberSeparator
 from .omit_allowed_email_domains_organization_uuid import OmitAllowedEmailDomainsOrganizationUuid
-from .omit_allowed_email_domains_organization_uuid_role import OmitAllowedEmailDomainsOrganizationUuidRole
+from .omit_allowed_email_domains_organization_uuid_projects_item import (
+    OmitAllowedEmailDomainsOrganizationUuidProjectsItem,
+)
+from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_0 import (
+    OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0,
+)
+from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_1 import (
+    OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1,
+)
+from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_2 import (
+    OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2,
+)
+from .omit_allowed_email_domains_organization_uuid_role_type_0 import OmitAllowedEmailDomainsOrganizationUuidRoleType0
+from .omit_allowed_email_domains_organization_uuid_role_type_1 import OmitAllowedEmailDomainsOrganizationUuidRoleType1
+from .omit_allowed_email_domains_organization_uuid_role_type_2 import OmitAllowedEmailDomainsOrganizationUuidRoleType2
+from .omit_allowed_email_domains_organization_uuid_role_type_3 import OmitAllowedEmailDomainsOrganizationUuidRoleType3
 from .omit_create_bigquery_credentials_sensitive_credentials_field_names import (
     OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
 )
@@ -836,21 +936,41 @@ from .organization_member_profile_role import OrganizationMemberProfileRole
 from .organization_member_profile_update import OrganizationMemberProfileUpdate
 from .organization_member_profile_update_role import OrganizationMemberProfileUpdateRole
 from .organization_member_role import OrganizationMemberRole
+from .organization_member_role_editor import OrganizationMemberRoleEDITOR
+from .organization_member_role_interactiveviewer import OrganizationMemberRoleINTERACTIVEVIEWER
+from .organization_member_role_member import OrganizationMemberRoleMEMBER
+from .organization_member_role_viewer import OrganizationMemberRoleVIEWER
 from .organization_project import OrganizationProject
 from .organization_project_type import OrganizationProjectType
 from .partial_omit_organization_organization_uuid_or_needs_project import (
     PartialOmitOrganizationOrganizationUuidOrNeedsProject,
 )
-from .partial_pick_organization_member_profile_role import PartialPickOrganizationMemberProfileRole
-from .partial_pick_organization_member_profile_role_role import PartialPickOrganizationMemberProfileRoleRole
-from .partial_pick_space_is_private_or_access import PartialPickSpaceIsPrivateOrAccess
-from .partial_pick_space_is_private_or_access_access_item import PartialPickSpaceIsPrivateOrAccessAccessItem
-from .partial_pick_space_is_private_or_access_access_item_role import PartialPickSpaceIsPrivateOrAccessAccessItemRole
 from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid import (
     PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid,
 )
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRole,
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item_role_type_0 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item_role_type_1 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item_role_type_2 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_0 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_1 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_2 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2,
+)
+from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_3 import (
+    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3,
 )
 from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
     PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
@@ -939,8 +1059,6 @@ from .pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_descript
     PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
 )
 from .pick_share_url_path_or_params import PickShareUrlPathOrParams
-from .pick_space_name import PickSpaceName
-from .pick_space_name_or_is_private import PickSpaceNameOrIsPrivate
 from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private import (
     PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivate,
 )
@@ -959,7 +1077,6 @@ from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or
 from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_validation_errors_item import (
     PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem,
 )
-from .pick_space_share_user_uuid import PickSpaceShareUserUuid
 from .pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
 from .pick_validation_response_base_exclude_keyof_validation_response_base_name import (
     PickValidationResponseBaseExcludeKeyofValidationResponseBaseName,
@@ -1000,6 +1117,15 @@ from .post_chart_results_response_200_results_metric_query_additional_metrics_it
 from .post_chart_results_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
     PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
 )
+from .post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item import (
+    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
+)
+from .post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item_operator import (
+    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
+)
+from .post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item_target import (
+    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
+)
 from .post_chart_results_response_200_results_metric_query_additional_metrics_item_type import (
     PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType,
 )
@@ -1027,6 +1153,9 @@ from .post_chart_results_response_200_results_metric_query_table_calculations_it
 from .post_chart_results_response_200_results_metric_query_table_calculations_item_format import (
     PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormat,
 )
+from .post_chart_results_response_200_results_metric_query_table_calculations_item_format_compact import (
+    PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
+)
 from .post_chart_results_response_200_results_metric_query_table_calculations_item_format_separator import (
     PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
 )
@@ -1042,11 +1171,23 @@ from .post_run_query_json_body_additional_metrics_item_compact_type_0 import (
 from .post_run_query_json_body_additional_metrics_item_compact_type_1 import (
     PostRunQueryJsonBodyAdditionalMetricsItemCompactType1,
 )
+from .post_run_query_json_body_additional_metrics_item_filters_item import (
+    PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem,
+)
+from .post_run_query_json_body_additional_metrics_item_filters_item_operator import (
+    PostRunQueryJsonBodyAdditionalMetricsItemFiltersItemOperator,
+)
+from .post_run_query_json_body_additional_metrics_item_filters_item_target import (
+    PostRunQueryJsonBodyAdditionalMetricsItemFiltersItemTarget,
+)
 from .post_run_query_json_body_additional_metrics_item_type import PostRunQueryJsonBodyAdditionalMetricsItemType
 from .post_run_query_json_body_filters import PostRunQueryJsonBodyFilters
 from .post_run_query_json_body_sorts_item import PostRunQueryJsonBodySortsItem
 from .post_run_query_json_body_table_calculations_item import PostRunQueryJsonBodyTableCalculationsItem
 from .post_run_query_json_body_table_calculations_item_format import PostRunQueryJsonBodyTableCalculationsItemFormat
+from .post_run_query_json_body_table_calculations_item_format_compact import (
+    PostRunQueryJsonBodyTableCalculationsItemFormatCompact,
+)
 from .post_run_query_json_body_table_calculations_item_format_separator import (
     PostRunQueryJsonBodyTableCalculationsItemFormatSeparator,
 )
@@ -1064,6 +1205,15 @@ from .post_run_query_response_200_results_metric_query_additional_metrics_item_c
 )
 from .post_run_query_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
     PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
+)
+from .post_run_query_response_200_results_metric_query_additional_metrics_item_filters_item import (
+    PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
+)
+from .post_run_query_response_200_results_metric_query_additional_metrics_item_filters_item_operator import (
+    PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
+)
+from .post_run_query_response_200_results_metric_query_additional_metrics_item_filters_item_target import (
+    PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
 )
 from .post_run_query_response_200_results_metric_query_additional_metrics_item_type import (
     PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemType,
@@ -1090,6 +1240,9 @@ from .post_run_query_response_200_results_metric_query_table_calculations_item i
 from .post_run_query_response_200_results_metric_query_table_calculations_item_format import (
     PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat,
 )
+from .post_run_query_response_200_results_metric_query_table_calculations_item_format_compact import (
+    PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
+)
 from .post_run_query_response_200_results_metric_query_table_calculations_item_format_separator import (
     PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
 )
@@ -1107,6 +1260,15 @@ from .post_run_underlying_data_query_json_body_additional_metrics_item_compact_t
 from .post_run_underlying_data_query_json_body_additional_metrics_item_compact_type_1 import (
     PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1,
 )
+from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_item import (
+    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItem,
+)
+from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_item_operator import (
+    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemOperator,
+)
+from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_item_target import (
+    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemTarget,
+)
 from .post_run_underlying_data_query_json_body_additional_metrics_item_type import (
     PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemType,
 )
@@ -1117,6 +1279,9 @@ from .post_run_underlying_data_query_json_body_table_calculations_item import (
 )
 from .post_run_underlying_data_query_json_body_table_calculations_item_format import (
     PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat,
+)
+from .post_run_underlying_data_query_json_body_table_calculations_item_format_compact import (
+    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact,
 )
 from .post_run_underlying_data_query_json_body_table_calculations_item_format_separator import (
     PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator,
@@ -1137,6 +1302,15 @@ from .post_run_underlying_data_query_response_200_results_metric_query_additiona
 )
 from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
+)
+from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_filters_item import (
+    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
+)
+from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_filters_item_operator import (
+    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
+)
+from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_filters_item_target import (
+    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
 )
 from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_type import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemType,
@@ -1164,6 +1338,9 @@ from .post_run_underlying_data_query_response_200_results_metric_query_table_cal
 )
 from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormat,
+)
+from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_compact import (
+    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
 )
 from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_separator import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
@@ -1199,6 +1376,9 @@ from .project_dbt_connection_type_6_type import ProjectDbtConnectionType6Type
 from .project_member_profile import ProjectMemberProfile
 from .project_member_profile_role import ProjectMemberProfileRole
 from .project_member_role import ProjectMemberRole
+from .project_member_role_editor import ProjectMemberRoleEDITOR
+from .project_member_role_interactiveviewer import ProjectMemberRoleINTERACTIVEVIEWER
+from .project_member_role_viewer import ProjectMemberRoleVIEWER
 from .project_type import ProjectType
 from .project_warehouse_connection_type_0 import ProjectWarehouseConnectionType0
 from .project_warehouse_connection_type_0_start_of_week import ProjectWarehouseConnectionType0StartOfWeek
@@ -1251,11 +1431,19 @@ from .run_query_request import RunQueryRequest
 from .run_query_request_additional_metrics_item import RunQueryRequestAdditionalMetricsItem
 from .run_query_request_additional_metrics_item_compact_type_0 import RunQueryRequestAdditionalMetricsItemCompactType0
 from .run_query_request_additional_metrics_item_compact_type_1 import RunQueryRequestAdditionalMetricsItemCompactType1
+from .run_query_request_additional_metrics_item_filters_item import RunQueryRequestAdditionalMetricsItemFiltersItem
+from .run_query_request_additional_metrics_item_filters_item_operator import (
+    RunQueryRequestAdditionalMetricsItemFiltersItemOperator,
+)
+from .run_query_request_additional_metrics_item_filters_item_target import (
+    RunQueryRequestAdditionalMetricsItemFiltersItemTarget,
+)
 from .run_query_request_additional_metrics_item_type import RunQueryRequestAdditionalMetricsItemType
 from .run_query_request_filters import RunQueryRequestFilters
 from .run_query_request_sorts_item import RunQueryRequestSortsItem
 from .run_query_request_table_calculations_item import RunQueryRequestTableCalculationsItem
 from .run_query_request_table_calculations_item_format import RunQueryRequestTableCalculationsItemFormat
+from .run_query_request_table_calculations_item_format_compact import RunQueryRequestTableCalculationsItemFormatCompact
 from .run_query_request_table_calculations_item_format_separator import (
     RunQueryRequestTableCalculationsItemFormatSeparator,
 )
@@ -1330,13 +1518,21 @@ from .space_query_validation_errors_item import SpaceQueryValidationErrorsItem
 from .space_share import SpaceShare
 from .space_share_role import SpaceShareRole
 from .space_summary import SpaceSummary
+from .table_calculation_format_compact import TableCalculationFormatCompact
 from .table_calculation_format_separator import TableCalculationFormatSeparator
 from .table_calculation_format_type import TableCalculationFormatType
 from .trino_credentials import TrinoCredentials
 from .trino_credentials_start_of_week import TrinoCredentialsStartOfWeek
 from .trino_credentials_type import TrinoCredentialsType
 from .update_allowed_email_domains import UpdateAllowedEmailDomains
-from .update_allowed_email_domains_role import UpdateAllowedEmailDomainsRole
+from .update_allowed_email_domains_projects_item import UpdateAllowedEmailDomainsProjectsItem
+from .update_allowed_email_domains_projects_item_role_type_0 import UpdateAllowedEmailDomainsProjectsItemRoleType0
+from .update_allowed_email_domains_projects_item_role_type_1 import UpdateAllowedEmailDomainsProjectsItemRoleType1
+from .update_allowed_email_domains_projects_item_role_type_2 import UpdateAllowedEmailDomainsProjectsItemRoleType2
+from .update_allowed_email_domains_role_type_0 import UpdateAllowedEmailDomainsRoleType0
+from .update_allowed_email_domains_role_type_1 import UpdateAllowedEmailDomainsRoleType1
+from .update_allowed_email_domains_role_type_2 import UpdateAllowedEmailDomainsRoleType2
+from .update_allowed_email_domains_role_type_3 import UpdateAllowedEmailDomainsRoleType3
 from .update_dbt_cloud_integration_settings_response_200 import UpdateDbtCloudIntegrationSettingsResponse200
 from .update_dbt_cloud_integration_settings_response_200_results import (
     UpdateDbtCloudIntegrationSettingsResponse200Results,
@@ -1354,11 +1550,47 @@ from .update_my_organization_response_200 import UpdateMyOrganizationResponse200
 from .update_my_organization_response_200_status import UpdateMyOrganizationResponse200Status
 from .update_organization import UpdateOrganization
 from .update_organization_email_domains_json_body import UpdateOrganizationEmailDomainsJsonBody
-from .update_organization_email_domains_json_body_role import UpdateOrganizationEmailDomainsJsonBodyRole
+from .update_organization_email_domains_json_body_projects_item import (
+    UpdateOrganizationEmailDomainsJsonBodyProjectsItem,
+)
+from .update_organization_email_domains_json_body_projects_item_role_type_0 import (
+    UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType0,
+)
+from .update_organization_email_domains_json_body_projects_item_role_type_1 import (
+    UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType1,
+)
+from .update_organization_email_domains_json_body_projects_item_role_type_2 import (
+    UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType2,
+)
+from .update_organization_email_domains_json_body_role_type_0 import UpdateOrganizationEmailDomainsJsonBodyRoleType0
+from .update_organization_email_domains_json_body_role_type_1 import UpdateOrganizationEmailDomainsJsonBodyRoleType1
+from .update_organization_email_domains_json_body_role_type_2 import UpdateOrganizationEmailDomainsJsonBodyRoleType2
+from .update_organization_email_domains_json_body_role_type_3 import UpdateOrganizationEmailDomainsJsonBodyRoleType3
 from .update_organization_email_domains_response_200 import UpdateOrganizationEmailDomainsResponse200
 from .update_organization_email_domains_response_200_results import UpdateOrganizationEmailDomainsResponse200Results
-from .update_organization_email_domains_response_200_results_role import (
-    UpdateOrganizationEmailDomainsResponse200ResultsRole,
+from .update_organization_email_domains_response_200_results_projects_item import (
+    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItem,
+)
+from .update_organization_email_domains_response_200_results_projects_item_role_type_0 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0,
+)
+from .update_organization_email_domains_response_200_results_projects_item_role_type_1 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1,
+)
+from .update_organization_email_domains_response_200_results_projects_item_role_type_2 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2,
+)
+from .update_organization_email_domains_response_200_results_role_type_0 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsRoleType0,
+)
+from .update_organization_email_domains_response_200_results_role_type_1 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsRoleType1,
+)
+from .update_organization_email_domains_response_200_results_role_type_2 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsRoleType2,
+)
+from .update_organization_email_domains_response_200_results_role_type_3 import (
+    UpdateOrganizationEmailDomainsResponse200ResultsRoleType3,
 )
 from .update_organization_email_domains_response_200_status import UpdateOrganizationEmailDomainsResponse200Status
 from .update_organization_member_json_body import UpdateOrganizationMemberJsonBody
@@ -1508,6 +1740,9 @@ __all__ = (
     "AdditionalMetric",
     "AdditionalMetricCompactType0",
     "AdditionalMetricCompactType1",
+    "AdditionalMetricFiltersItem",
+    "AdditionalMetricFiltersItemOperator",
+    "AdditionalMetricFiltersItemTarget",
     "AdditionalMetricType",
     "AddSpaceShare",
     "AddSpaceShareToUserJsonBody",
@@ -1515,8 +1750,18 @@ __all__ = (
     "AddSpaceShareToUserResponse200Status",
     "AddUserToGroupResponse200",
     "AddUserToGroupResponse200Status",
+    "AllowedEmailDomainProjectsRoleType0",
+    "AllowedEmailDomainProjectsRoleType1",
+    "AllowedEmailDomainProjectsRoleType2",
     "AllowedEmailDomains",
-    "AllowedEmailDomainsRole",
+    "AllowedEmailDomainsProjectsItem",
+    "AllowedEmailDomainsProjectsItemRoleType0",
+    "AllowedEmailDomainsProjectsItemRoleType1",
+    "AllowedEmailDomainsProjectsItemRoleType2",
+    "AllowedEmailDomainsRoleType0",
+    "AllowedEmailDomainsRoleType1",
+    "AllowedEmailDomainsRoleType2",
+    "AllowedEmailDomainsRoleType3",
     "ApiChartSummaryListResponse",
     "ApiChartSummaryListResponseResultsItem",
     "ApiChartSummaryListResponseResultsItemChartType",
@@ -1558,7 +1803,14 @@ __all__ = (
     "ApiOrganization",
     "ApiOrganizationAllowedEmailDomains",
     "ApiOrganizationAllowedEmailDomainsResults",
-    "ApiOrganizationAllowedEmailDomainsResultsRole",
+    "ApiOrganizationAllowedEmailDomainsResultsProjectsItem",
+    "ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType0",
+    "ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType1",
+    "ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType2",
+    "ApiOrganizationAllowedEmailDomainsResultsRoleType0",
+    "ApiOrganizationAllowedEmailDomainsResultsRoleType1",
+    "ApiOrganizationAllowedEmailDomainsResultsRoleType2",
+    "ApiOrganizationAllowedEmailDomainsResultsRoleType3",
     "ApiOrganizationAllowedEmailDomainsStatus",
     "ApiOrganizationMemberProfile",
     "ApiOrganizationMemberProfileResults",
@@ -1643,6 +1895,9 @@ __all__ = (
     "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem",
     "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType0",
     "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1",
+    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItem",
+    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
+    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
     "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemType",
     "ApiRunQueryResponseResultsMetricQueryFilters",
     "ApiRunQueryResponseResultsMetricQueryFiltersDimensionsType0",
@@ -1652,6 +1907,7 @@ __all__ = (
     "ApiRunQueryResponseResultsMetricQuerySortsItem",
     "ApiRunQueryResponseResultsMetricQueryTableCalculationsItem",
     "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormat",
+    "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatCompact",
     "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatSeparator",
     "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatType",
     "ApiRunQueryResponseStatus",
@@ -1736,6 +1992,7 @@ __all__ = (
     "Compact",
     "CompactOrAliasType0",
     "CompactOrAliasType1",
+    "ConditionalOperator",
     "CreateEmailOneTimePasscodeResponse200",
     "CreateEmailOneTimePasscodeResponse200Results",
     "CreateEmailOneTimePasscodeResponse200ResultsOtp",
@@ -2024,7 +2281,14 @@ __all__ = (
     "ListMyAvailableOrganizationsResponse200Status",
     "ListOrganizationEmailDomainsResponse200",
     "ListOrganizationEmailDomainsResponse200Results",
-    "ListOrganizationEmailDomainsResponse200ResultsRole",
+    "ListOrganizationEmailDomainsResponse200ResultsProjectsItem",
+    "ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0",
+    "ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1",
+    "ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2",
+    "ListOrganizationEmailDomainsResponse200ResultsRoleType0",
+    "ListOrganizationEmailDomainsResponse200ResultsRoleType1",
+    "ListOrganizationEmailDomainsResponse200ResultsRoleType2",
+    "ListOrganizationEmailDomainsResponse200ResultsRoleType3",
     "ListOrganizationEmailDomainsResponse200Status",
     "ListOrganizationMembersResponse200",
     "ListOrganizationMembersResponse200ResultsItem",
@@ -2037,10 +2301,16 @@ __all__ = (
     "ListSpacesInProjectResponse200",
     "ListSpacesInProjectResponse200ResultsItem",
     "ListSpacesInProjectResponse200Status",
+    "MetricFilterRule",
+    "MetricFilterRuleOperator",
+    "MetricFilterRuleTarget",
     "MetricQueryResponse",
     "MetricQueryResponseAdditionalMetricsItem",
     "MetricQueryResponseAdditionalMetricsItemCompactType0",
     "MetricQueryResponseAdditionalMetricsItemCompactType1",
+    "MetricQueryResponseAdditionalMetricsItemFiltersItem",
+    "MetricQueryResponseAdditionalMetricsItemFiltersItemOperator",
+    "MetricQueryResponseAdditionalMetricsItemFiltersItemTarget",
     "MetricQueryResponseAdditionalMetricsItemType",
     "MetricQueryResponseFilters",
     "MetricQueryResponseFiltersDimensionsType0",
@@ -2050,12 +2320,20 @@ __all__ = (
     "MetricQueryResponseSortsItem",
     "MetricQueryResponseTableCalculationsItem",
     "MetricQueryResponseTableCalculationsItemFormat",
+    "MetricQueryResponseTableCalculationsItemFormatCompact",
     "MetricQueryResponseTableCalculationsItemFormatSeparator",
     "MetricQueryResponseTableCalculationsItemFormatType",
     "MetricType",
     "NumberSeparator",
     "OmitAllowedEmailDomainsOrganizationUuid",
-    "OmitAllowedEmailDomainsOrganizationUuidRole",
+    "OmitAllowedEmailDomainsOrganizationUuidProjectsItem",
+    "OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0",
+    "OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1",
+    "OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2",
+    "OmitAllowedEmailDomainsOrganizationUuidRoleType0",
+    "OmitAllowedEmailDomainsOrganizationUuidRoleType1",
+    "OmitAllowedEmailDomainsOrganizationUuidRoleType2",
+    "OmitAllowedEmailDomainsOrganizationUuidRoleType3",
     "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
     "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority",
     "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
@@ -2084,16 +2362,22 @@ __all__ = (
     "OrganizationMemberProfileUpdate",
     "OrganizationMemberProfileUpdateRole",
     "OrganizationMemberRole",
+    "OrganizationMemberRoleEDITOR",
+    "OrganizationMemberRoleINTERACTIVEVIEWER",
+    "OrganizationMemberRoleMEMBER",
+    "OrganizationMemberRoleVIEWER",
     "OrganizationProject",
     "OrganizationProjectType",
     "PartialOmitOrganizationOrganizationUuidOrNeedsProject",
-    "PartialPickOrganizationMemberProfileRole",
-    "PartialPickOrganizationMemberProfileRoleRole",
-    "PartialPickSpaceIsPrivateOrAccess",
-    "PartialPickSpaceIsPrivateOrAccessAccessItem",
-    "PartialPickSpaceIsPrivateOrAccessAccessItemRole",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRole",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2",
+    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
@@ -2127,15 +2411,12 @@ __all__ = (
     "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder",
     "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser",
     "PickShareUrlPathOrParams",
-    "PickSpaceName",
-    "PickSpaceNameOrIsPrivate",
     "PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivate",
     "PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid",
     "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors",
     "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsChartType",
     "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser",
     "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem",
-    "PickSpaceShareUserUuid",
     "PickSshKeyPairPublicKey",
     "PickValidationResponseBaseExcludeKeyofValidationResponseBaseName",
     "PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType",
@@ -2162,6 +2443,9 @@ __all__ = (
     "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem",
     "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0",
     "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1",
+    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem",
+    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
+    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
     "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType",
     "PostChartResultsResponse200ResultsMetricQueryFilters",
     "PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType0",
@@ -2171,6 +2455,7 @@ __all__ = (
     "PostChartResultsResponse200ResultsMetricQuerySortsItem",
     "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItem",
     "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormat",
+    "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatCompact",
     "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator",
     "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatType",
     "PostChartResultsResponse200Status",
@@ -2181,11 +2466,15 @@ __all__ = (
     "PostRunQueryJsonBodyAdditionalMetricsItem",
     "PostRunQueryJsonBodyAdditionalMetricsItemCompactType0",
     "PostRunQueryJsonBodyAdditionalMetricsItemCompactType1",
+    "PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem",
+    "PostRunQueryJsonBodyAdditionalMetricsItemFiltersItemOperator",
+    "PostRunQueryJsonBodyAdditionalMetricsItemFiltersItemTarget",
     "PostRunQueryJsonBodyAdditionalMetricsItemType",
     "PostRunQueryJsonBodyFilters",
     "PostRunQueryJsonBodySortsItem",
     "PostRunQueryJsonBodyTableCalculationsItem",
     "PostRunQueryJsonBodyTableCalculationsItemFormat",
+    "PostRunQueryJsonBodyTableCalculationsItemFormatCompact",
     "PostRunQueryJsonBodyTableCalculationsItemFormatSeparator",
     "PostRunQueryJsonBodyTableCalculationsItemFormatType",
     "PostRunQueryResponse200",
@@ -2194,6 +2483,9 @@ __all__ = (
     "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItem",
     "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0",
     "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1",
+    "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem",
+    "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
+    "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
     "PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemType",
     "PostRunQueryResponse200ResultsMetricQueryFilters",
     "PostRunQueryResponse200ResultsMetricQueryFiltersDimensionsType0",
@@ -2203,6 +2495,7 @@ __all__ = (
     "PostRunQueryResponse200ResultsMetricQuerySortsItem",
     "PostRunQueryResponse200ResultsMetricQueryTableCalculationsItem",
     "PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat",
+    "PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact",
     "PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator",
     "PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType",
     "PostRunQueryResponse200Status",
@@ -2210,11 +2503,15 @@ __all__ = (
     "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem",
     "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType0",
     "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1",
+    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItem",
+    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemOperator",
+    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemTarget",
     "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemType",
     "PostRunUnderlyingDataQueryJsonBodyFilters",
     "PostRunUnderlyingDataQueryJsonBodySortsItem",
     "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItem",
     "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat",
+    "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact",
     "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator",
     "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType",
     "PostRunUnderlyingDataQueryResponse200",
@@ -2223,6 +2520,9 @@ __all__ = (
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItem",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1",
+    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem",
+    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
+    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemType",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFilters",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersDimensionsType0",
@@ -2232,6 +2532,7 @@ __all__ = (
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQuerySortsItem",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItem",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormat",
+    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator",
     "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType",
     "PostRunUnderlyingDataQueryResponse200Status",
@@ -2259,6 +2560,9 @@ __all__ = (
     "ProjectMemberProfile",
     "ProjectMemberProfileRole",
     "ProjectMemberRole",
+    "ProjectMemberRoleEDITOR",
+    "ProjectMemberRoleINTERACTIVEVIEWER",
+    "ProjectMemberRoleVIEWER",
     "ProjectType",
     "ProjectWarehouseConnectionType0",
     "ProjectWarehouseConnectionType0StartOfWeek",
@@ -2311,11 +2615,15 @@ __all__ = (
     "RunQueryRequestAdditionalMetricsItem",
     "RunQueryRequestAdditionalMetricsItemCompactType0",
     "RunQueryRequestAdditionalMetricsItemCompactType1",
+    "RunQueryRequestAdditionalMetricsItemFiltersItem",
+    "RunQueryRequestAdditionalMetricsItemFiltersItemOperator",
+    "RunQueryRequestAdditionalMetricsItemFiltersItemTarget",
     "RunQueryRequestAdditionalMetricsItemType",
     "RunQueryRequestFilters",
     "RunQueryRequestSortsItem",
     "RunQueryRequestTableCalculationsItem",
     "RunQueryRequestTableCalculationsItemFormat",
+    "RunQueryRequestTableCalculationsItemFormatCompact",
     "RunQueryRequestTableCalculationsItemFormatSeparator",
     "RunQueryRequestTableCalculationsItemFormatType",
     "ScheduledJobs",
@@ -2388,13 +2696,21 @@ __all__ = (
     "SpaceShare",
     "SpaceShareRole",
     "SpaceSummary",
+    "TableCalculationFormatCompact",
     "TableCalculationFormatSeparator",
     "TableCalculationFormatType",
     "TrinoCredentials",
     "TrinoCredentialsStartOfWeek",
     "TrinoCredentialsType",
     "UpdateAllowedEmailDomains",
-    "UpdateAllowedEmailDomainsRole",
+    "UpdateAllowedEmailDomainsProjectsItem",
+    "UpdateAllowedEmailDomainsProjectsItemRoleType0",
+    "UpdateAllowedEmailDomainsProjectsItemRoleType1",
+    "UpdateAllowedEmailDomainsProjectsItemRoleType2",
+    "UpdateAllowedEmailDomainsRoleType0",
+    "UpdateAllowedEmailDomainsRoleType1",
+    "UpdateAllowedEmailDomainsRoleType2",
+    "UpdateAllowedEmailDomainsRoleType3",
     "UpdateDbtCloudIntegrationSettingsResponse200",
     "UpdateDbtCloudIntegrationSettingsResponse200Results",
     "UpdateDbtCloudIntegrationSettingsResponse200Status",
@@ -2409,10 +2725,24 @@ __all__ = (
     "UpdateMyOrganizationResponse200Status",
     "UpdateOrganization",
     "UpdateOrganizationEmailDomainsJsonBody",
-    "UpdateOrganizationEmailDomainsJsonBodyRole",
+    "UpdateOrganizationEmailDomainsJsonBodyProjectsItem",
+    "UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType0",
+    "UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType1",
+    "UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType2",
+    "UpdateOrganizationEmailDomainsJsonBodyRoleType0",
+    "UpdateOrganizationEmailDomainsJsonBodyRoleType1",
+    "UpdateOrganizationEmailDomainsJsonBodyRoleType2",
+    "UpdateOrganizationEmailDomainsJsonBodyRoleType3",
     "UpdateOrganizationEmailDomainsResponse200",
     "UpdateOrganizationEmailDomainsResponse200Results",
-    "UpdateOrganizationEmailDomainsResponse200ResultsRole",
+    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItem",
+    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0",
+    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1",
+    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2",
+    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType0",
+    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType1",
+    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType2",
+    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType3",
     "UpdateOrganizationEmailDomainsResponse200Status",
     "UpdateOrganizationMemberJsonBody",
     "UpdateOrganizationMemberJsonBodyRole",

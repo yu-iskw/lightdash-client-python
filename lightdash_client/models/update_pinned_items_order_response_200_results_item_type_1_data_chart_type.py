@@ -7,6 +7,7 @@ class UpdatePinnedItemsOrderResponse200ResultsItemType1DataChartType(str, Enum):
     HORIZONTAL_BAR = "horizontal_bar"
     LINE = "line"
     MIXED = "mixed"
+    PIE = "pie"
     SCATTER = "scatter"
     TABLE = "table"
     VERTICAL_BAR = "vertical_bar"

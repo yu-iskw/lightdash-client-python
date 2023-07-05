@@ -11,8 +11,7 @@ T = TypeVar("T", bound="AddSpaceShare")
 
 @attr.s(auto_attribs=True)
 class AddSpaceShare:
-    """From T, pick a set of properties whose keys are in the union K
-
+    """
     Attributes:
         user_uuid (str):
     """

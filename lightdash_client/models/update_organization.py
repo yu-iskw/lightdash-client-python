@@ -21,10 +21,12 @@ class UpdateOrganization:
     Attributes:
         name (Union[Unset, str]): The name of the organization
         chart_colors (Union[Unset, List[str]]): The default color palette for all projects in the organization
+        default_project_uuid (Union[Unset, str]): The project a user sees when they first log in to the organization
     """
 
     name: Union[Unset, str] = UNSET
     chart_colors: Union[Unset, List[str]] = UNSET
+    default_project_uuid: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -33,6 +35,8 @@ class UpdateOrganization:
         if not isinstance(self.chart_colors, Unset):
             chart_colors = self.chart_colors
 
+        default_project_uuid = self.default_project_uuid
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -40,6 +44,8 @@ class UpdateOrganization:
             field_dict["name"] = name
         if chart_colors is not UNSET:
             field_dict["chartColors"] = chart_colors
+        if default_project_uuid is not UNSET:
+            field_dict["defaultProjectUuid"] = default_project_uuid
 
         return field_dict
 
@@ -50,9 +56,12 @@ class UpdateOrganization:
 
         chart_colors = cast(List[str], d.pop("chartColors", UNSET))
 
+        default_project_uuid = d.pop("defaultProjectUuid", UNSET)
+
         update_organization = cls(
             name=name,
             chart_colors=chart_colors,
+            default_project_uuid=default_project_uuid,
         )
 
         update_organization.additional_properties = d

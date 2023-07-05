@@ -9,6 +9,7 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidO
     HORIZONTAL_BAR = "horizontal_bar"
     LINE = "line"
     MIXED = "mixed"
+    PIE = "pie"
     SCATTER = "scatter"
     TABLE = "table"
     VERTICAL_BAR = "vertical_bar"
