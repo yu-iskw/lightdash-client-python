@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.validate_project_response_200_status import ValidateProjectResponse200Status
+from ..models.validate_project_response_200_status import (
+    ValidateProjectResponse200Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.validate_project_response_200_results import ValidateProjectResponse200Results
+    from ..models.validate_project_response_200_results import (
+        ValidateProjectResponse200Results,
+    )
 
 
 T = TypeVar("T", bound="ValidateProjectResponse200")
@@ -46,7 +45,9 @@ class ValidateProjectResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.validate_project_response_200_results import ValidateProjectResponse200Results
+        from ..models.validate_project_response_200_results import (
+            ValidateProjectResponse200Results,
+        )
 
         d = src_dict.copy()
         results = ValidateProjectResponse200Results.from_dict(d.pop("results"))

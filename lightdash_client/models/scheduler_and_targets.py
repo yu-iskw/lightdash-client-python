@@ -1,16 +1,14 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 if TYPE_CHECKING:
-    from ..models.scheduler_and_targets_targets_item_type_0 import SchedulerAndTargetsTargetsItemType0
-    from ..models.scheduler_and_targets_targets_item_type_1 import SchedulerAndTargetsTargetsItemType1
+    from ..models.scheduler_and_targets_targets_item_type_0 import (
+        SchedulerAndTargetsTargetsItemType0,
+    )
+    from ..models.scheduler_and_targets_targets_item_type_1 import (
+        SchedulerAndTargetsTargetsItemType1,
+    )
 
 
 T = TypeVar("T", bound="SchedulerAndTargets")
@@ -27,7 +25,9 @@ class SchedulerAndTargets:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.scheduler_and_targets_targets_item_type_0 import SchedulerAndTargetsTargetsItemType0
+        from ..models.scheduler_and_targets_targets_item_type_0 import (
+            SchedulerAndTargetsTargetsItemType0,
+        )
 
         targets = []
         for targets_item_data in self.targets:
@@ -53,8 +53,12 @@ class SchedulerAndTargets:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.scheduler_and_targets_targets_item_type_0 import SchedulerAndTargetsTargetsItemType0
-        from ..models.scheduler_and_targets_targets_item_type_1 import SchedulerAndTargetsTargetsItemType1
+        from ..models.scheduler_and_targets_targets_item_type_0 import (
+            SchedulerAndTargetsTargetsItemType0,
+        )
+        from ..models.scheduler_and_targets_targets_item_type_1 import (
+            SchedulerAndTargetsTargetsItemType1,
+        )
 
         d = src_dict.copy()
         targets = []

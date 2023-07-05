@@ -1,9 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
@@ -46,7 +41,9 @@ class ApiSshKeyPairResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_ssh_key_pair_response_results import ApiSshKeyPairResponseResults
+        from ..models.api_ssh_key_pair_response_results import (
+            ApiSshKeyPairResponseResults,
+        )
 
         d = src_dict.copy()
         results = ApiSshKeyPairResponseResults.from_dict(d.pop("results"))

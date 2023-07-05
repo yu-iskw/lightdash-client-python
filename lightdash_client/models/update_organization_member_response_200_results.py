@@ -1,15 +1,11 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.update_organization_member_response_200_results_role import UpdateOrganizationMemberResponse200ResultsRole
-from ..types import UNSET
-from ..types import Unset
+from ..models.update_organization_member_response_200_results_role import (
+    UpdateOrganizationMemberResponse200ResultsRole,
+)
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="UpdateOrganizationMemberResponse200Results")
 

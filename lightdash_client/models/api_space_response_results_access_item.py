@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_space_response_results_access_item_role import ApiSpaceResponseResultsAccessItemRole
+from ..models.api_space_response_results_access_item_role import (
+    ApiSpaceResponseResultsAccessItemRole,
+)
 
 T = TypeVar("T", bound="ApiSpaceResponseResultsAccessItem")
 

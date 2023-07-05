@@ -1,15 +1,11 @@
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, cast
 
 import attr
 
 if TYPE_CHECKING:
-    from ..models.api_run_query_response_results_metric_query import ApiRunQueryResponseResultsMetricQuery
+    from ..models.api_run_query_response_results_metric_query import (
+        ApiRunQueryResponseResultsMetricQuery,
+    )
 
 
 T = TypeVar("T", bound="ApiRunQueryResponseResults")
@@ -45,7 +41,9 @@ class ApiRunQueryResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_run_query_response_results_metric_query import ApiRunQueryResponseResultsMetricQuery
+        from ..models.api_run_query_response_results_metric_query import (
+            ApiRunQueryResponseResultsMetricQuery,
+        )
 
         d = src_dict.copy()
         rows = cast(List[Any], d.pop("rows"))

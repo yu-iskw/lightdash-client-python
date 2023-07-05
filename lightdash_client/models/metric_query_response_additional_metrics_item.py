@@ -1,10 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
@@ -14,9 +8,10 @@ from ..models.metric_query_response_additional_metrics_item_compact_type_0 impor
 from ..models.metric_query_response_additional_metrics_item_compact_type_1 import (
     MetricQueryResponseAdditionalMetricsItemCompactType1,
 )
-from ..models.metric_query_response_additional_metrics_item_type import MetricQueryResponseAdditionalMetricsItemType
-from ..types import UNSET
-from ..types import Unset
+from ..models.metric_query_response_additional_metrics_item_type import (
+    MetricQueryResponseAdditionalMetricsItemType,
+)
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.metric_query_response_additional_metrics_item_filters_item import (

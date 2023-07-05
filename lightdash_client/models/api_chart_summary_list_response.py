@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_chart_summary_list_response_status import ApiChartSummaryListResponseStatus
+from ..models.api_chart_summary_list_response_status import (
+    ApiChartSummaryListResponseStatus,
+)
 
 if TYPE_CHECKING:
-    from ..models.api_chart_summary_list_response_results_item import ApiChartSummaryListResponseResultsItem
+    from ..models.api_chart_summary_list_response_results_item import (
+        ApiChartSummaryListResponseResultsItem,
+    )
 
 
 T = TypeVar("T", bound="ApiChartSummaryListResponse")
@@ -50,7 +49,9 @@ class ApiChartSummaryListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_chart_summary_list_response_results_item import ApiChartSummaryListResponseResultsItem
+        from ..models.api_chart_summary_list_response_results_item import (
+            ApiChartSummaryListResponseResultsItem,
+        )
 
         d = src_dict.copy()
         results = []

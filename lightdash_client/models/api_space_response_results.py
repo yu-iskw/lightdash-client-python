@@ -1,17 +1,17 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
 
 import attr
 
 if TYPE_CHECKING:
-    from ..models.api_space_response_results_access_item import ApiSpaceResponseResultsAccessItem
-    from ..models.api_space_response_results_dashboards_item import ApiSpaceResponseResultsDashboardsItem
-    from ..models.api_space_response_results_queries_item import ApiSpaceResponseResultsQueriesItem
+    from ..models.api_space_response_results_access_item import (
+        ApiSpaceResponseResultsAccessItem,
+    )
+    from ..models.api_space_response_results_dashboards_item import (
+        ApiSpaceResponseResultsDashboardsItem,
+    )
+    from ..models.api_space_response_results_queries_item import (
+        ApiSpaceResponseResultsQueriesItem,
+    )
 
 
 T = TypeVar("T", bound="ApiSpaceResponseResults")
@@ -93,9 +93,15 @@ class ApiSpaceResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_space_response_results_access_item import ApiSpaceResponseResultsAccessItem
-        from ..models.api_space_response_results_dashboards_item import ApiSpaceResponseResultsDashboardsItem
-        from ..models.api_space_response_results_queries_item import ApiSpaceResponseResultsQueriesItem
+        from ..models.api_space_response_results_access_item import (
+            ApiSpaceResponseResultsAccessItem,
+        )
+        from ..models.api_space_response_results_dashboards_item import (
+            ApiSpaceResponseResultsDashboardsItem,
+        )
+        from ..models.api_space_response_results_queries_item import (
+            ApiSpaceResponseResultsQueriesItem,
+        )
 
         d = src_dict.copy()
         access = []

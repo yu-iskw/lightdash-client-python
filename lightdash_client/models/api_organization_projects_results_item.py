@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_organization_projects_results_item_type import ApiOrganizationProjectsResultsItemType
+from ..models.api_organization_projects_results_item_type import (
+    ApiOrganizationProjectsResultsItemType,
+)
 
 T = TypeVar("T", bound="ApiOrganizationProjectsResultsItem")
 

@@ -1,19 +1,21 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.get_pinned_items_response_200_status import GetPinnedItemsResponse200Status
+from ..models.get_pinned_items_response_200_status import (
+    GetPinnedItemsResponse200Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.get_pinned_items_response_200_results_item_type_0 import GetPinnedItemsResponse200ResultsItemType0
-    from ..models.get_pinned_items_response_200_results_item_type_1 import GetPinnedItemsResponse200ResultsItemType1
-    from ..models.get_pinned_items_response_200_results_item_type_2 import GetPinnedItemsResponse200ResultsItemType2
+    from ..models.get_pinned_items_response_200_results_item_type_0 import (
+        GetPinnedItemsResponse200ResultsItemType0,
+    )
+    from ..models.get_pinned_items_response_200_results_item_type_1 import (
+        GetPinnedItemsResponse200ResultsItemType1,
+    )
+    from ..models.get_pinned_items_response_200_results_item_type_2 import (
+        GetPinnedItemsResponse200ResultsItemType2,
+    )
 
 
 T = TypeVar("T", bound="GetPinnedItemsResponse200")
@@ -39,8 +41,12 @@ class GetPinnedItemsResponse200:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.get_pinned_items_response_200_results_item_type_0 import GetPinnedItemsResponse200ResultsItemType0
-        from ..models.get_pinned_items_response_200_results_item_type_1 import GetPinnedItemsResponse200ResultsItemType1
+        from ..models.get_pinned_items_response_200_results_item_type_0 import (
+            GetPinnedItemsResponse200ResultsItemType0,
+        )
+        from ..models.get_pinned_items_response_200_results_item_type_1 import (
+            GetPinnedItemsResponse200ResultsItemType1,
+        )
 
         results = []
         for results_item_data in self.results:
@@ -72,9 +78,15 @@ class GetPinnedItemsResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.get_pinned_items_response_200_results_item_type_0 import GetPinnedItemsResponse200ResultsItemType0
-        from ..models.get_pinned_items_response_200_results_item_type_1 import GetPinnedItemsResponse200ResultsItemType1
-        from ..models.get_pinned_items_response_200_results_item_type_2 import GetPinnedItemsResponse200ResultsItemType2
+        from ..models.get_pinned_items_response_200_results_item_type_0 import (
+            GetPinnedItemsResponse200ResultsItemType0,
+        )
+        from ..models.get_pinned_items_response_200_results_item_type_1 import (
+            GetPinnedItemsResponse200ResultsItemType1,
+        )
+        from ..models.get_pinned_items_response_200_results_item_type_2 import (
+            GetPinnedItemsResponse200ResultsItemType2,
+        )
 
         d = src_dict.copy()
         results = []

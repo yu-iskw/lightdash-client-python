@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.update_space_response_200_results_access_item_role import UpdateSpaceResponse200ResultsAccessItemRole
+from ..models.update_space_response_200_results_access_item_role import (
+    UpdateSpaceResponse200ResultsAccessItemRole,
+)
 
 T = TypeVar("T", bound="UpdateSpaceResponse200ResultsAccessItem")
 

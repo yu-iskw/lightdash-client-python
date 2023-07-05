@@ -1,18 +1,13 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_email_status_response_results_otp import ApiEmailStatusResponseResultsOtp
+    from ..models.api_email_status_response_results_otp import (
+        ApiEmailStatusResponseResultsOtp,
+    )
 
 
 T = TypeVar("T", bound="ApiEmailStatusResponseResults")
@@ -56,7 +51,9 @@ class ApiEmailStatusResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_email_status_response_results_otp import ApiEmailStatusResponseResultsOtp
+        from ..models.api_email_status_response_results_otp import (
+            ApiEmailStatusResponseResultsOtp,
+        )
 
         d = src_dict.copy()
         is_verified = d.pop("isVerified")

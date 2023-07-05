@@ -1,18 +1,11 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.omit_create_databricks_credentials_sensitive_credentials_field_names_type import (
     OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType,
 )
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.omit_create_databricks_credentials_sensitive_credentials_field_names_start_of_week import (

@@ -1,18 +1,14 @@
 import datetime
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
 
-from ..models.validation_response_type_1_error_type import ValidationResponseType1ErrorType
+from ..models.validation_response_type_1_error_type import (
+    ValidationResponseType1ErrorType,
+)
 from ..models.validation_response_type_1_source import ValidationResponseType1Source
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ValidationResponseType1")
 

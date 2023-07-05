@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.create_space_in_project_json_body_access_item_role import CreateSpaceInProjectJsonBodyAccessItemRole
+from ..models.create_space_in_project_json_body_access_item_role import (
+    CreateSpaceInProjectJsonBodyAccessItemRole,
+)
 
 T = TypeVar("T", bound="CreateSpaceInProjectJsonBodyAccessItem")
 

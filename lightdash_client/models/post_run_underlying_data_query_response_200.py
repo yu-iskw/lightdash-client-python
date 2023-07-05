@@ -1,13 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.post_run_underlying_data_query_response_200_status import PostRunUnderlyingDataQueryResponse200Status
+from ..models.post_run_underlying_data_query_response_200_status import (
+    PostRunUnderlyingDataQueryResponse200Status,
+)
 
 if TYPE_CHECKING:
     from ..models.post_run_underlying_data_query_response_200_results import (

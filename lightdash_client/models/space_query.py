@@ -1,24 +1,17 @@
 import datetime
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
 
 import attr
 from dateutil.parser import isoparse
 
 from ..models.space_query_chart_type import SpaceQueryChartType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.space_query_updated_by_user import SpaceQueryUpdatedByUser
-    from ..models.space_query_validation_errors_item import SpaceQueryValidationErrorsItem
+    from ..models.space_query_validation_errors_item import (
+        SpaceQueryValidationErrorsItem,
+    )
 
 
 T = TypeVar("T", bound="SpaceQuery")
@@ -120,7 +113,9 @@ class SpaceQuery:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.space_query_updated_by_user import SpaceQueryUpdatedByUser
-        from ..models.space_query_validation_errors_item import SpaceQueryValidationErrorsItem
+        from ..models.space_query_validation_errors_item import (
+            SpaceQueryValidationErrorsItem,
+        )
 
         d = src_dict.copy()
         name = d.pop("name")

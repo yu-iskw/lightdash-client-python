@@ -1,10 +1,5 @@
 import datetime
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
@@ -15,8 +10,7 @@ from ..models.get_latest_validation_results_response_200_results_item_type_1_err
 from ..models.get_latest_validation_results_response_200_results_item_type_1_source import (
     GetLatestValidationResultsResponse200ResultsItemType1Source,
 )
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="GetLatestValidationResultsResponse200ResultsItemType1")
 

@@ -1,14 +1,16 @@
 from http import HTTPStatus
-from typing import Any
-from typing import Dict
-from typing import Optional
+from typing import Any, Dict, Optional
 
 import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.update_project_access_for_user_json_body import UpdateProjectAccessForUserJsonBody
-from ...models.update_project_access_for_user_response_200 import UpdateProjectAccessForUserResponse200
+from ...models.update_project_access_for_user_json_body import (
+    UpdateProjectAccessForUserJsonBody,
+)
+from ...models.update_project_access_for_user_response_200 import (
+    UpdateProjectAccessForUserResponse200,
+)
 from ...types import Response
 
 

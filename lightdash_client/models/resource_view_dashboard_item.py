@@ -1,9 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
@@ -46,7 +41,9 @@ class ResourceViewDashboardItem:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.resource_view_dashboard_item_data import ResourceViewDashboardItemData
+        from ..models.resource_view_dashboard_item_data import (
+            ResourceViewDashboardItemData,
+        )
 
         d = src_dict.copy()
         data = ResourceViewDashboardItemData.from_dict(d.pop("data"))

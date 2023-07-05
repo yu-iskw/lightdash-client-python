@@ -1,19 +1,14 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.redshift_credentials_type import RedshiftCredentialsType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.redshift_credentials_start_of_week import RedshiftCredentialsStartOfWeek
+    from ..models.redshift_credentials_start_of_week import (
+        RedshiftCredentialsStartOfWeek,
+    )
 
 
 T = TypeVar("T", bound="RedshiftCredentials")
@@ -115,7 +110,9 @@ class RedshiftCredentials:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.redshift_credentials_start_of_week import RedshiftCredentialsStartOfWeek
+        from ..models.redshift_credentials_start_of_week import (
+            RedshiftCredentialsStartOfWeek,
+        )
 
         d = src_dict.copy()
         type = RedshiftCredentialsType(d.pop("type"))

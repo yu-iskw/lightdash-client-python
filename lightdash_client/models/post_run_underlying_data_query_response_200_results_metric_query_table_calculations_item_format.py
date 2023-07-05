@@ -1,9 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
@@ -16,8 +11,7 @@ from ..models.post_run_underlying_data_query_response_200_results_metric_query_t
 from ..models.post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_type import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType,
 )
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormat")
 

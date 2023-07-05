@@ -1,15 +1,11 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.add_user_to_group_response_200_status import AddUserToGroupResponse200Status
-from ..types import UNSET
-from ..types import Unset
+from ..models.add_user_to_group_response_200_status import (
+    AddUserToGroupResponse200Status,
+)
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="AddUserToGroupResponse200")
 

@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.create_ssh_key_pair_response_201_status import CreateSshKeyPairResponse201Status
+from ..models.create_ssh_key_pair_response_201_status import (
+    CreateSshKeyPairResponse201Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.create_ssh_key_pair_response_201_results import CreateSshKeyPairResponse201Results
+    from ..models.create_ssh_key_pair_response_201_results import (
+        CreateSshKeyPairResponse201Results,
+    )
 
 
 T = TypeVar("T", bound="CreateSshKeyPairResponse201")
@@ -46,7 +45,9 @@ class CreateSshKeyPairResponse201:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.create_ssh_key_pair_response_201_results import CreateSshKeyPairResponse201Results
+        from ..models.create_ssh_key_pair_response_201_results import (
+            CreateSshKeyPairResponse201Results,
+        )
 
         d = src_dict.copy()
         results = CreateSshKeyPairResponse201Results.from_dict(d.pop("results"))

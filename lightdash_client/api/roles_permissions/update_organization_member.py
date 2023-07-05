@@ -1,14 +1,16 @@
 from http import HTTPStatus
-from typing import Any
-from typing import Dict
-from typing import Optional
+from typing import Any, Dict, Optional
 
 import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.update_organization_member_json_body import UpdateOrganizationMemberJsonBody
-from ...models.update_organization_member_response_200 import UpdateOrganizationMemberResponse200
+from ...models.update_organization_member_json_body import (
+    UpdateOrganizationMemberJsonBody,
+)
+from ...models.update_organization_member_response_200 import (
+    UpdateOrganizationMemberResponse200,
+)
 from ...types import Response
 
 

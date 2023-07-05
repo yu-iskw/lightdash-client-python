@@ -1,16 +1,9 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.project_type import ProjectType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.project_dbt_connection_type_0 import ProjectDbtConnectionType0
@@ -20,12 +13,24 @@ if TYPE_CHECKING:
     from ..models.project_dbt_connection_type_4 import ProjectDbtConnectionType4
     from ..models.project_dbt_connection_type_5 import ProjectDbtConnectionType5
     from ..models.project_dbt_connection_type_6 import ProjectDbtConnectionType6
-    from ..models.project_warehouse_connection_type_0 import ProjectWarehouseConnectionType0
-    from ..models.project_warehouse_connection_type_1 import ProjectWarehouseConnectionType1
-    from ..models.project_warehouse_connection_type_2 import ProjectWarehouseConnectionType2
-    from ..models.project_warehouse_connection_type_3 import ProjectWarehouseConnectionType3
-    from ..models.project_warehouse_connection_type_4 import ProjectWarehouseConnectionType4
-    from ..models.project_warehouse_connection_type_5 import ProjectWarehouseConnectionType5
+    from ..models.project_warehouse_connection_type_0 import (
+        ProjectWarehouseConnectionType0,
+    )
+    from ..models.project_warehouse_connection_type_1 import (
+        ProjectWarehouseConnectionType1,
+    )
+    from ..models.project_warehouse_connection_type_2 import (
+        ProjectWarehouseConnectionType2,
+    )
+    from ..models.project_warehouse_connection_type_3 import (
+        ProjectWarehouseConnectionType3,
+    )
+    from ..models.project_warehouse_connection_type_4 import (
+        ProjectWarehouseConnectionType4,
+    )
+    from ..models.project_warehouse_connection_type_5 import (
+        ProjectWarehouseConnectionType5,
+    )
 
 
 T = TypeVar("T", bound="Project")
@@ -82,11 +87,21 @@ class Project:
         from ..models.project_dbt_connection_type_3 import ProjectDbtConnectionType3
         from ..models.project_dbt_connection_type_4 import ProjectDbtConnectionType4
         from ..models.project_dbt_connection_type_5 import ProjectDbtConnectionType5
-        from ..models.project_warehouse_connection_type_0 import ProjectWarehouseConnectionType0
-        from ..models.project_warehouse_connection_type_1 import ProjectWarehouseConnectionType1
-        from ..models.project_warehouse_connection_type_2 import ProjectWarehouseConnectionType2
-        from ..models.project_warehouse_connection_type_3 import ProjectWarehouseConnectionType3
-        from ..models.project_warehouse_connection_type_4 import ProjectWarehouseConnectionType4
+        from ..models.project_warehouse_connection_type_0 import (
+            ProjectWarehouseConnectionType0,
+        )
+        from ..models.project_warehouse_connection_type_1 import (
+            ProjectWarehouseConnectionType1,
+        )
+        from ..models.project_warehouse_connection_type_2 import (
+            ProjectWarehouseConnectionType2,
+        )
+        from ..models.project_warehouse_connection_type_3 import (
+            ProjectWarehouseConnectionType3,
+        )
+        from ..models.project_warehouse_connection_type_4 import (
+            ProjectWarehouseConnectionType4,
+        )
 
         dbt_connection: Dict[str, Any]
 
@@ -181,12 +196,24 @@ class Project:
         from ..models.project_dbt_connection_type_4 import ProjectDbtConnectionType4
         from ..models.project_dbt_connection_type_5 import ProjectDbtConnectionType5
         from ..models.project_dbt_connection_type_6 import ProjectDbtConnectionType6
-        from ..models.project_warehouse_connection_type_0 import ProjectWarehouseConnectionType0
-        from ..models.project_warehouse_connection_type_1 import ProjectWarehouseConnectionType1
-        from ..models.project_warehouse_connection_type_2 import ProjectWarehouseConnectionType2
-        from ..models.project_warehouse_connection_type_3 import ProjectWarehouseConnectionType3
-        from ..models.project_warehouse_connection_type_4 import ProjectWarehouseConnectionType4
-        from ..models.project_warehouse_connection_type_5 import ProjectWarehouseConnectionType5
+        from ..models.project_warehouse_connection_type_0 import (
+            ProjectWarehouseConnectionType0,
+        )
+        from ..models.project_warehouse_connection_type_1 import (
+            ProjectWarehouseConnectionType1,
+        )
+        from ..models.project_warehouse_connection_type_2 import (
+            ProjectWarehouseConnectionType2,
+        )
+        from ..models.project_warehouse_connection_type_3 import (
+            ProjectWarehouseConnectionType3,
+        )
+        from ..models.project_warehouse_connection_type_4 import (
+            ProjectWarehouseConnectionType4,
+        )
+        from ..models.project_warehouse_connection_type_5 import (
+            ProjectWarehouseConnectionType5,
+        )
 
         d = src_dict.copy()
 

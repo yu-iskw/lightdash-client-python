@@ -1,13 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.list_groups_in_organization_response_200_status import ListGroupsInOrganizationResponse200Status
+from ..models.list_groups_in_organization_response_200_status import (
+    ListGroupsInOrganizationResponse200Status,
+)
 
 if TYPE_CHECKING:
     from ..models.list_groups_in_organization_response_200_results_item import (

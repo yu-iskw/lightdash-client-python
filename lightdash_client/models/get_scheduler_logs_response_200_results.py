@@ -1,9 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
@@ -14,11 +9,15 @@ if TYPE_CHECKING:
     from ..models.get_scheduler_logs_response_200_results_dashboards_item import (
         GetSchedulerLogsResponse200ResultsDashboardsItem,
     )
-    from ..models.get_scheduler_logs_response_200_results_logs_item import GetSchedulerLogsResponse200ResultsLogsItem
+    from ..models.get_scheduler_logs_response_200_results_logs_item import (
+        GetSchedulerLogsResponse200ResultsLogsItem,
+    )
     from ..models.get_scheduler_logs_response_200_results_schedulers_item import (
         GetSchedulerLogsResponse200ResultsSchedulersItem,
     )
-    from ..models.get_scheduler_logs_response_200_results_users_item import GetSchedulerLogsResponse200ResultsUsersItem
+    from ..models.get_scheduler_logs_response_200_results_users_item import (
+        GetSchedulerLogsResponse200ResultsUsersItem,
+    )
 
 
 T = TypeVar("T", bound="GetSchedulerLogsResponse200Results")

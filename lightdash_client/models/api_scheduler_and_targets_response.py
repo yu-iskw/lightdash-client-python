@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_scheduler_and_targets_response_status import ApiSchedulerAndTargetsResponseStatus
+from ..models.api_scheduler_and_targets_response_status import (
+    ApiSchedulerAndTargetsResponseStatus,
+)
 
 if TYPE_CHECKING:
-    from ..models.api_scheduler_and_targets_response_results import ApiSchedulerAndTargetsResponseResults
+    from ..models.api_scheduler_and_targets_response_results import (
+        ApiSchedulerAndTargetsResponseResults,
+    )
 
 
 T = TypeVar("T", bound="ApiSchedulerAndTargetsResponse")
@@ -46,7 +45,9 @@ class ApiSchedulerAndTargetsResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_scheduler_and_targets_response_results import ApiSchedulerAndTargetsResponseResults
+        from ..models.api_scheduler_and_targets_response_results import (
+            ApiSchedulerAndTargetsResponseResults,
+        )
 
         d = src_dict.copy()
         results = ApiSchedulerAndTargetsResponseResults.from_dict(d.pop("results"))

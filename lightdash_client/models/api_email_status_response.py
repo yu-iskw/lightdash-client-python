@@ -1,9 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
@@ -47,7 +42,9 @@ class ApiEmailStatusResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_email_status_response_results import ApiEmailStatusResponseResults
+        from ..models.api_email_status_response_results import (
+            ApiEmailStatusResponseResults,
+        )
 
         d = src_dict.copy()
         results = ApiEmailStatusResponseResults.from_dict(d.pop("results"))

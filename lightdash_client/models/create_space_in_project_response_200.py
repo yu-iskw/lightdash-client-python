@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.create_space_in_project_response_200_status import CreateSpaceInProjectResponse200Status
+from ..models.create_space_in_project_response_200_status import (
+    CreateSpaceInProjectResponse200Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.create_space_in_project_response_200_results import CreateSpaceInProjectResponse200Results
+    from ..models.create_space_in_project_response_200_results import (
+        CreateSpaceInProjectResponse200Results,
+    )
 
 
 T = TypeVar("T", bound="CreateSpaceInProjectResponse200")
@@ -46,7 +45,9 @@ class CreateSpaceInProjectResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.create_space_in_project_response_200_results import CreateSpaceInProjectResponse200Results
+        from ..models.create_space_in_project_response_200_results import (
+            CreateSpaceInProjectResponse200Results,
+        )
 
         d = src_dict.copy()
         results = CreateSpaceInProjectResponse200Results.from_dict(d.pop("results"))

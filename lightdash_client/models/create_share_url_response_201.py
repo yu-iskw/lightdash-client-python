@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.create_share_url_response_201_status import CreateShareUrlResponse201Status
+from ..models.create_share_url_response_201_status import (
+    CreateShareUrlResponse201Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.create_share_url_response_201_results import CreateShareUrlResponse201Results
+    from ..models.create_share_url_response_201_results import (
+        CreateShareUrlResponse201Results,
+    )
 
 
 T = TypeVar("T", bound="CreateShareUrlResponse201")
@@ -48,7 +47,9 @@ class CreateShareUrlResponse201:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.create_share_url_response_201_results import CreateShareUrlResponse201Results
+        from ..models.create_share_url_response_201_results import (
+            CreateShareUrlResponse201Results,
+        )
 
         d = src_dict.copy()
         results = CreateShareUrlResponse201Results.from_dict(d.pop("results"))

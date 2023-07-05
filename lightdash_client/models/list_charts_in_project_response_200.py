@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.list_charts_in_project_response_200_status import ListChartsInProjectResponse200Status
+from ..models.list_charts_in_project_response_200_status import (
+    ListChartsInProjectResponse200Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.list_charts_in_project_response_200_results_item import ListChartsInProjectResponse200ResultsItem
+    from ..models.list_charts_in_project_response_200_results_item import (
+        ListChartsInProjectResponse200ResultsItem,
+    )
 
 
 T = TypeVar("T", bound="ListChartsInProjectResponse200")
@@ -50,7 +49,9 @@ class ListChartsInProjectResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.list_charts_in_project_response_200_results_item import ListChartsInProjectResponse200ResultsItem
+        from ..models.list_charts_in_project_response_200_results_item import (
+            ListChartsInProjectResponse200ResultsItem,
+        )
 
         d = src_dict.copy()
         results = []

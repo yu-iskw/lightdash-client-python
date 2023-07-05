@@ -1,19 +1,16 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.api_dbt_cloud_integration_settings_status import ApiDbtCloudIntegrationSettingsStatus
-from ..types import UNSET
-from ..types import Unset
+from ..models.api_dbt_cloud_integration_settings_status import (
+    ApiDbtCloudIntegrationSettingsStatus,
+)
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_dbt_cloud_integration_settings_results import ApiDbtCloudIntegrationSettingsResults
+    from ..models.api_dbt_cloud_integration_settings_results import (
+        ApiDbtCloudIntegrationSettingsResults,
+    )
 
 
 T = TypeVar("T", bound="ApiDbtCloudIntegrationSettings")
@@ -53,7 +50,9 @@ class ApiDbtCloudIntegrationSettings:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_dbt_cloud_integration_settings_results import ApiDbtCloudIntegrationSettingsResults
+        from ..models.api_dbt_cloud_integration_settings_results import (
+            ApiDbtCloudIntegrationSettingsResults,
+        )
 
         d = src_dict.copy()
         status = ApiDbtCloudIntegrationSettingsStatus(d.pop("status"))

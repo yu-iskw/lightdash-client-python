@@ -1,20 +1,16 @@
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.additional_metric_filters_item_operator import AdditionalMetricFiltersItemOperator
-from ..types import UNSET
-from ..types import Unset
+from ..models.additional_metric_filters_item_operator import (
+    AdditionalMetricFiltersItemOperator,
+)
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.additional_metric_filters_item_target import AdditionalMetricFiltersItemTarget
+    from ..models.additional_metric_filters_item_target import (
+        AdditionalMetricFiltersItemTarget,
+    )
 
 
 T = TypeVar("T", bound="AdditionalMetricFiltersItem")
@@ -66,7 +62,9 @@ class AdditionalMetricFiltersItem:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.additional_metric_filters_item_target import AdditionalMetricFiltersItemTarget
+        from ..models.additional_metric_filters_item_target import (
+            AdditionalMetricFiltersItemTarget,
+        )
 
         d = src_dict.copy()
         operator = AdditionalMetricFiltersItemOperator(d.pop("operator"))

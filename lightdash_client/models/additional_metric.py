@@ -1,18 +1,11 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.additional_metric_compact_type_0 import AdditionalMetricCompactType0
 from ..models.additional_metric_compact_type_1 import AdditionalMetricCompactType1
 from ..models.additional_metric_type import AdditionalMetricType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.additional_metric_filters_item import AdditionalMetricFiltersItem

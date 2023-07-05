@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_validation_dismiss_response_status import ApiValidationDismissResponseStatus
+from ..models.api_validation_dismiss_response_status import (
+    ApiValidationDismissResponseStatus,
+)
 
 T = TypeVar("T", bound="ApiValidationDismissResponse")
 
