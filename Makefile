@@ -42,11 +42,16 @@ generate-client:
 
 prepare-schema: download-swagger-json dereference-swagger-json
 
-download-swagger-json:
-	bash dev/download_swagger_json.sh --version "0.621.0"
+download-swagger-json: check-lightdash-version
+	bash dev/download_swagger_json.sh --version "$(VERSION)"
 
 dereference-swagger-json: build-swagger-cli-image
 	bash dev/dereference_swagger_json.sh --image "swagger-cli:latest"
 
 build-swagger-cli-image:
 	docker build -t "swagger-cli:latest" -f "docker/swagger-cli/Dockerfile" .
+
+check-lightdash-version:
+ifndef VERSION
+	$(error VERSION is undefined)
+endif
