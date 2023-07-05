@@ -5,6 +5,20 @@ build-backend = "flit_core.buildapi"
 [tool.flit.module]
 name = "lightdash_client"
 
+[tool.flit.sdist]
+exclude = [
+    ".github/",
+    ".gitignore",
+    ".pre-commit-config.yaml",
+    ".style.yapf",
+    ".pylintrc",
+    ".pypirc",
+    "Makefile",
+    "dev/",
+    "tests/",
+    "docker/",
+]
+
 [project]
 name = "lightdash-client-python"
 authors = [{name = "yu-iskw"}]
@@ -57,3 +71,6 @@ dev = [
     "pre-commit >=2.15.0",
     "openapi-python-client >=0.14,<1.0",
 ]
+
+[tool.isort]
+profile = "black"
