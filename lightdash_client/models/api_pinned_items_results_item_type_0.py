@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_pinned_items_results_item_type_0_type import ApiPinnedItemsResultsItemType0Type
+from ..models.api_pinned_items_results_item_type_0_type import (
+    ApiPinnedItemsResultsItemType0Type,
+)
 
 if TYPE_CHECKING:
-    from ..models.api_pinned_items_results_item_type_0_data import ApiPinnedItemsResultsItemType0Data
+    from ..models.api_pinned_items_results_item_type_0_data import (
+        ApiPinnedItemsResultsItemType0Data,
+    )
 
 
 T = TypeVar("T", bound="ApiPinnedItemsResultsItemType0")
@@ -46,7 +45,9 @@ class ApiPinnedItemsResultsItemType0:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_pinned_items_results_item_type_0_data import ApiPinnedItemsResultsItemType0Data
+        from ..models.api_pinned_items_results_item_type_0_data import (
+            ApiPinnedItemsResultsItemType0Data,
+        )
 
         d = src_dict.copy()
         data = ApiPinnedItemsResultsItemType0Data.from_dict(d.pop("data"))

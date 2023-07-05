@@ -1,21 +1,22 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.metric_query_response_filters_dimensions_type_0 import MetricQueryResponseFiltersDimensionsType0
-    from ..models.metric_query_response_filters_dimensions_type_1 import MetricQueryResponseFiltersDimensionsType1
-    from ..models.metric_query_response_filters_metrics_type_0 import MetricQueryResponseFiltersMetricsType0
-    from ..models.metric_query_response_filters_metrics_type_1 import MetricQueryResponseFiltersMetricsType1
+    from ..models.metric_query_response_filters_dimensions_type_0 import (
+        MetricQueryResponseFiltersDimensionsType0,
+    )
+    from ..models.metric_query_response_filters_dimensions_type_1 import (
+        MetricQueryResponseFiltersDimensionsType1,
+    )
+    from ..models.metric_query_response_filters_metrics_type_0 import (
+        MetricQueryResponseFiltersMetricsType0,
+    )
+    from ..models.metric_query_response_filters_metrics_type_1 import (
+        MetricQueryResponseFiltersMetricsType1,
+    )
 
 
 T = TypeVar("T", bound="MetricQueryResponseFilters")
@@ -37,8 +38,12 @@ class MetricQueryResponseFilters:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.metric_query_response_filters_dimensions_type_0 import MetricQueryResponseFiltersDimensionsType0
-        from ..models.metric_query_response_filters_metrics_type_0 import MetricQueryResponseFiltersMetricsType0
+        from ..models.metric_query_response_filters_dimensions_type_0 import (
+            MetricQueryResponseFiltersDimensionsType0,
+        )
+        from ..models.metric_query_response_filters_metrics_type_0 import (
+            MetricQueryResponseFiltersMetricsType0,
+        )
 
         metrics: Union[Dict[str, Any], Unset]
         if isinstance(self.metrics, Unset):
@@ -80,10 +85,18 @@ class MetricQueryResponseFilters:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.metric_query_response_filters_dimensions_type_0 import MetricQueryResponseFiltersDimensionsType0
-        from ..models.metric_query_response_filters_dimensions_type_1 import MetricQueryResponseFiltersDimensionsType1
-        from ..models.metric_query_response_filters_metrics_type_0 import MetricQueryResponseFiltersMetricsType0
-        from ..models.metric_query_response_filters_metrics_type_1 import MetricQueryResponseFiltersMetricsType1
+        from ..models.metric_query_response_filters_dimensions_type_0 import (
+            MetricQueryResponseFiltersDimensionsType0,
+        )
+        from ..models.metric_query_response_filters_dimensions_type_1 import (
+            MetricQueryResponseFiltersDimensionsType1,
+        )
+        from ..models.metric_query_response_filters_metrics_type_0 import (
+            MetricQueryResponseFiltersMetricsType0,
+        )
+        from ..models.metric_query_response_filters_metrics_type_1 import (
+            MetricQueryResponseFiltersMetricsType1,
+        )
 
         d = src_dict.copy()
 

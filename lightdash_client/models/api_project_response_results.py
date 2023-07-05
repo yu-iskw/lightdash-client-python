@@ -1,25 +1,32 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.api_project_response_results_type import ApiProjectResponseResultsType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_project_response_results_dbt_connection_type_0 import ApiProjectResponseResultsDbtConnectionType0
-    from ..models.api_project_response_results_dbt_connection_type_1 import ApiProjectResponseResultsDbtConnectionType1
-    from ..models.api_project_response_results_dbt_connection_type_2 import ApiProjectResponseResultsDbtConnectionType2
-    from ..models.api_project_response_results_dbt_connection_type_3 import ApiProjectResponseResultsDbtConnectionType3
-    from ..models.api_project_response_results_dbt_connection_type_4 import ApiProjectResponseResultsDbtConnectionType4
-    from ..models.api_project_response_results_dbt_connection_type_5 import ApiProjectResponseResultsDbtConnectionType5
-    from ..models.api_project_response_results_dbt_connection_type_6 import ApiProjectResponseResultsDbtConnectionType6
+    from ..models.api_project_response_results_dbt_connection_type_0 import (
+        ApiProjectResponseResultsDbtConnectionType0,
+    )
+    from ..models.api_project_response_results_dbt_connection_type_1 import (
+        ApiProjectResponseResultsDbtConnectionType1,
+    )
+    from ..models.api_project_response_results_dbt_connection_type_2 import (
+        ApiProjectResponseResultsDbtConnectionType2,
+    )
+    from ..models.api_project_response_results_dbt_connection_type_3 import (
+        ApiProjectResponseResultsDbtConnectionType3,
+    )
+    from ..models.api_project_response_results_dbt_connection_type_4 import (
+        ApiProjectResponseResultsDbtConnectionType4,
+    )
+    from ..models.api_project_response_results_dbt_connection_type_5 import (
+        ApiProjectResponseResultsDbtConnectionType5,
+    )
+    from ..models.api_project_response_results_dbt_connection_type_6 import (
+        ApiProjectResponseResultsDbtConnectionType6,
+    )
     from ..models.api_project_response_results_warehouse_connection_type_0 import (
         ApiProjectResponseResultsWarehouseConnectionType0,
     )

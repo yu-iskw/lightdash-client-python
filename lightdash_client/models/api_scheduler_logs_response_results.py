@@ -1,22 +1,23 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
 if TYPE_CHECKING:
-    from ..models.api_scheduler_logs_response_results_charts_item import ApiSchedulerLogsResponseResultsChartsItem
+    from ..models.api_scheduler_logs_response_results_charts_item import (
+        ApiSchedulerLogsResponseResultsChartsItem,
+    )
     from ..models.api_scheduler_logs_response_results_dashboards_item import (
         ApiSchedulerLogsResponseResultsDashboardsItem,
     )
-    from ..models.api_scheduler_logs_response_results_logs_item import ApiSchedulerLogsResponseResultsLogsItem
+    from ..models.api_scheduler_logs_response_results_logs_item import (
+        ApiSchedulerLogsResponseResultsLogsItem,
+    )
     from ..models.api_scheduler_logs_response_results_schedulers_item import (
         ApiSchedulerLogsResponseResultsSchedulersItem,
     )
-    from ..models.api_scheduler_logs_response_results_users_item import ApiSchedulerLogsResponseResultsUsersItem
+    from ..models.api_scheduler_logs_response_results_users_item import (
+        ApiSchedulerLogsResponseResultsUsersItem,
+    )
 
 
 T = TypeVar("T", bound="ApiSchedulerLogsResponseResults")
@@ -87,15 +88,21 @@ class ApiSchedulerLogsResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_scheduler_logs_response_results_charts_item import ApiSchedulerLogsResponseResultsChartsItem
+        from ..models.api_scheduler_logs_response_results_charts_item import (
+            ApiSchedulerLogsResponseResultsChartsItem,
+        )
         from ..models.api_scheduler_logs_response_results_dashboards_item import (
             ApiSchedulerLogsResponseResultsDashboardsItem,
         )
-        from ..models.api_scheduler_logs_response_results_logs_item import ApiSchedulerLogsResponseResultsLogsItem
+        from ..models.api_scheduler_logs_response_results_logs_item import (
+            ApiSchedulerLogsResponseResultsLogsItem,
+        )
         from ..models.api_scheduler_logs_response_results_schedulers_item import (
             ApiSchedulerLogsResponseResultsSchedulersItem,
         )
-        from ..models.api_scheduler_logs_response_results_users_item import ApiSchedulerLogsResponseResultsUsersItem
+        from ..models.api_scheduler_logs_response_results_users_item import (
+            ApiSchedulerLogsResponseResultsUsersItem,
+        )
 
         d = src_dict.copy()
         logs = []

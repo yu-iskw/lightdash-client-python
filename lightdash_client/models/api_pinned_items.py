@@ -1,19 +1,19 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.api_pinned_items_status import ApiPinnedItemsStatus
 
 if TYPE_CHECKING:
-    from ..models.api_pinned_items_results_item_type_0 import ApiPinnedItemsResultsItemType0
-    from ..models.api_pinned_items_results_item_type_1 import ApiPinnedItemsResultsItemType1
-    from ..models.api_pinned_items_results_item_type_2 import ApiPinnedItemsResultsItemType2
+    from ..models.api_pinned_items_results_item_type_0 import (
+        ApiPinnedItemsResultsItemType0,
+    )
+    from ..models.api_pinned_items_results_item_type_1 import (
+        ApiPinnedItemsResultsItemType1,
+    )
+    from ..models.api_pinned_items_results_item_type_2 import (
+        ApiPinnedItemsResultsItemType2,
+    )
 
 
 T = TypeVar("T", bound="ApiPinnedItems")
@@ -35,8 +35,12 @@ class ApiPinnedItems:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.api_pinned_items_results_item_type_0 import ApiPinnedItemsResultsItemType0
-        from ..models.api_pinned_items_results_item_type_1 import ApiPinnedItemsResultsItemType1
+        from ..models.api_pinned_items_results_item_type_0 import (
+            ApiPinnedItemsResultsItemType0,
+        )
+        from ..models.api_pinned_items_results_item_type_1 import (
+            ApiPinnedItemsResultsItemType1,
+        )
 
         results = []
         for results_item_data in self.results:
@@ -68,9 +72,15 @@ class ApiPinnedItems:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_pinned_items_results_item_type_0 import ApiPinnedItemsResultsItemType0
-        from ..models.api_pinned_items_results_item_type_1 import ApiPinnedItemsResultsItemType1
-        from ..models.api_pinned_items_results_item_type_2 import ApiPinnedItemsResultsItemType2
+        from ..models.api_pinned_items_results_item_type_0 import (
+            ApiPinnedItemsResultsItemType0,
+        )
+        from ..models.api_pinned_items_results_item_type_1 import (
+            ApiPinnedItemsResultsItemType1,
+        )
+        from ..models.api_pinned_items_results_item_type_2 import (
+            ApiPinnedItemsResultsItemType2,
+        )
 
         d = src_dict.copy()
         results = []

@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_organization_member_profiles_status import ApiOrganizationMemberProfilesStatus
+from ..models.api_organization_member_profiles_status import (
+    ApiOrganizationMemberProfilesStatus,
+)
 
 if TYPE_CHECKING:
-    from ..models.api_organization_member_profiles_results_item import ApiOrganizationMemberProfilesResultsItem
+    from ..models.api_organization_member_profiles_results_item import (
+        ApiOrganizationMemberProfilesResultsItem,
+    )
 
 
 T = TypeVar("T", bound="ApiOrganizationMemberProfiles")
@@ -50,7 +49,9 @@ class ApiOrganizationMemberProfiles:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_organization_member_profiles_results_item import ApiOrganizationMemberProfilesResultsItem
+        from ..models.api_organization_member_profiles_results_item import (
+            ApiOrganizationMemberProfilesResultsItem,
+        )
 
         d = src_dict.copy()
         results = []

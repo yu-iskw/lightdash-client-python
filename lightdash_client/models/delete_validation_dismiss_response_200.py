@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.delete_validation_dismiss_response_200_status import DeleteValidationDismissResponse200Status
+from ..models.delete_validation_dismiss_response_200_status import (
+    DeleteValidationDismissResponse200Status,
+)
 
 T = TypeVar("T", bound="DeleteValidationDismissResponse200")
 

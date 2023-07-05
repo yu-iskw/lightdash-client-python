@@ -1,14 +1,14 @@
 from http import HTTPStatus
-from typing import Any
-from typing import Dict
-from typing import Optional
+from typing import Any, Dict, Optional
 
 import httpx
 
 from ... import errors
 from ...client import Client
 from ...models.add_space_share_to_user_json_body import AddSpaceShareToUserJsonBody
-from ...models.add_space_share_to_user_response_200 import AddSpaceShareToUserResponse200
+from ...models.add_space_share_to_user_response_200 import (
+    AddSpaceShareToUserResponse200,
+)
 from ...types import Response
 
 

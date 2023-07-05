@@ -1,11 +1,4 @@
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
@@ -15,7 +8,9 @@ from ..models.allowed_email_domains_role_type_2 import AllowedEmailDomainsRoleTy
 from ..models.allowed_email_domains_role_type_3 import AllowedEmailDomainsRoleType3
 
 if TYPE_CHECKING:
-    from ..models.allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
+    from ..models.allowed_email_domains_projects_item import (
+        AllowedEmailDomainsProjectsItem,
+    )
 
 
 T = TypeVar("T", bound="AllowedEmailDomains")
@@ -83,7 +78,9 @@ class AllowedEmailDomains:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
+        from ..models.allowed_email_domains_projects_item import (
+            AllowedEmailDomainsProjectsItem,
+        )
 
         d = src_dict.copy()
         projects = []

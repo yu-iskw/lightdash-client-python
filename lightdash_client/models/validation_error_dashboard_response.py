@@ -1,18 +1,16 @@
 import datetime
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
 
-from ..models.validation_error_dashboard_response_error_type import ValidationErrorDashboardResponseErrorType
-from ..models.validation_error_dashboard_response_source import ValidationErrorDashboardResponseSource
-from ..types import UNSET
-from ..types import Unset
+from ..models.validation_error_dashboard_response_error_type import (
+    ValidationErrorDashboardResponseErrorType,
+)
+from ..models.validation_error_dashboard_response_source import (
+    ValidationErrorDashboardResponseSource,
+)
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ValidationErrorDashboardResponse")
 

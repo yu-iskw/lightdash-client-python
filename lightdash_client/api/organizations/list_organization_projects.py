@@ -1,13 +1,13 @@
 from http import HTTPStatus
-from typing import Any
-from typing import Dict
-from typing import Optional
+from typing import Any, Dict, Optional
 
 import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.list_organization_projects_response_200 import ListOrganizationProjectsResponse200
+from ...models.list_organization_projects_response_200 import (
+    ListOrganizationProjectsResponse200,
+)
 from ...types import Response
 
 

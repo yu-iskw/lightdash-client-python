@@ -1,11 +1,5 @@
 import datetime
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
@@ -13,8 +7,12 @@ from dateutil.parser import isoparse
 from ..models.dashboard_scheduler_format import DashboardSchedulerFormat
 
 if TYPE_CHECKING:
-    from ..models.dashboard_scheduler_options_type_0 import DashboardSchedulerOptionsType0
-    from ..models.dashboard_scheduler_options_type_1 import DashboardSchedulerOptionsType1
+    from ..models.dashboard_scheduler_options_type_0 import (
+        DashboardSchedulerOptionsType0,
+    )
+    from ..models.dashboard_scheduler_options_type_1 import (
+        DashboardSchedulerOptionsType1,
+    )
 
 
 T = TypeVar("T", bound="DashboardScheduler")
@@ -49,7 +47,9 @@ class DashboardScheduler:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.dashboard_scheduler_options_type_0 import DashboardSchedulerOptionsType0
+        from ..models.dashboard_scheduler_options_type_0 import (
+            DashboardSchedulerOptionsType0,
+        )
 
         options: Dict[str, Any]
 
@@ -93,8 +93,12 @@ class DashboardScheduler:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dashboard_scheduler_options_type_0 import DashboardSchedulerOptionsType0
-        from ..models.dashboard_scheduler_options_type_1 import DashboardSchedulerOptionsType1
+        from ..models.dashboard_scheduler_options_type_0 import (
+            DashboardSchedulerOptionsType0,
+        )
+        from ..models.dashboard_scheduler_options_type_1 import (
+            DashboardSchedulerOptionsType1,
+        )
 
         d = src_dict.copy()
 

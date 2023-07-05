@@ -1,17 +1,14 @@
 from http import HTTPStatus
-from typing import Any
-from typing import Dict
-from typing import Optional
-from typing import Union
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_latest_validation_results_response_200 import GetLatestValidationResultsResponse200
-from ...types import Response
-from ...types import UNSET
-from ...types import Unset
+from ...models.get_latest_validation_results_response_200 import (
+    GetLatestValidationResultsResponse200,
+)
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(

@@ -1,15 +1,8 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Optional, Type, TypeVar, Union
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 T = TypeVar(
     "T",

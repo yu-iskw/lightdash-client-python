@@ -1,16 +1,13 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
 from ..models.api_group_members_response_status import ApiGroupMembersResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_group_members_response_results_item import ApiGroupMembersResponseResultsItem
+    from ..models.api_group_members_response_results_item import (
+        ApiGroupMembersResponseResultsItem,
+    )
 
 
 T = TypeVar("T", bound="ApiGroupMembersResponse")
@@ -50,7 +47,9 @@ class ApiGroupMembersResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_group_members_response_results_item import ApiGroupMembersResponseResultsItem
+        from ..models.api_group_members_response_results_item import (
+            ApiGroupMembersResponseResultsItem,
+        )
 
         d = src_dict.copy()
         results = []

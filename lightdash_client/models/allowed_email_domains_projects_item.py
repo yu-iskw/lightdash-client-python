@@ -1,15 +1,16 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.allowed_email_domains_projects_item_role_type_0 import AllowedEmailDomainsProjectsItemRoleType0
-from ..models.allowed_email_domains_projects_item_role_type_1 import AllowedEmailDomainsProjectsItemRoleType1
-from ..models.allowed_email_domains_projects_item_role_type_2 import AllowedEmailDomainsProjectsItemRoleType2
+from ..models.allowed_email_domains_projects_item_role_type_0 import (
+    AllowedEmailDomainsProjectsItemRoleType0,
+)
+from ..models.allowed_email_domains_projects_item_role_type_1 import (
+    AllowedEmailDomainsProjectsItemRoleType1,
+)
+from ..models.allowed_email_domains_projects_item_role_type_2 import (
+    AllowedEmailDomainsProjectsItemRoleType2,
+)
 
 T = TypeVar("T", bound="AllowedEmailDomainsProjectsItem")
 

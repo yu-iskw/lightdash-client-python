@@ -1,12 +1,6 @@
 """ Contains some shared types for properties """
 from http import HTTPStatus
-from typing import BinaryIO
-from typing import Generic
-from typing import Literal
-from typing import MutableMapping
-from typing import Optional
-from typing import Tuple
-from typing import TypeVar
+from typing import BinaryIO, Generic, Literal, MutableMapping, Optional, Tuple, TypeVar
 
 import attr
 

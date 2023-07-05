@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_organization_allowed_email_domains_status import ApiOrganizationAllowedEmailDomainsStatus
+from ..models.api_organization_allowed_email_domains_status import (
+    ApiOrganizationAllowedEmailDomainsStatus,
+)
 
 if TYPE_CHECKING:
-    from ..models.api_organization_allowed_email_domains_results import ApiOrganizationAllowedEmailDomainsResults
+    from ..models.api_organization_allowed_email_domains_results import (
+        ApiOrganizationAllowedEmailDomainsResults,
+    )
 
 
 T = TypeVar("T", bound="ApiOrganizationAllowedEmailDomains")
@@ -46,7 +45,9 @@ class ApiOrganizationAllowedEmailDomains:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_organization_allowed_email_domains_results import ApiOrganizationAllowedEmailDomainsResults
+        from ..models.api_organization_allowed_email_domains_results import (
+            ApiOrganizationAllowedEmailDomainsResults,
+        )
 
         d = src_dict.copy()
         results = ApiOrganizationAllowedEmailDomainsResults.from_dict(d.pop("results"))

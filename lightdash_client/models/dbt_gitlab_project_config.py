@@ -1,19 +1,14 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.dbt_gitlab_project_config_type import DbtGitlabProjectConfigType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dbt_gitlab_project_config_environment_item import DbtGitlabProjectConfigEnvironmentItem
+    from ..models.dbt_gitlab_project_config_environment_item import (
+        DbtGitlabProjectConfigEnvironmentItem,
+    )
 
 
 T = TypeVar("T", bound="DbtGitlabProjectConfig")
@@ -81,7 +76,9 @@ class DbtGitlabProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_gitlab_project_config_environment_item import DbtGitlabProjectConfigEnvironmentItem
+        from ..models.dbt_gitlab_project_config_environment_item import (
+            DbtGitlabProjectConfigEnvironmentItem,
+        )
 
         d = src_dict.copy()
         type = DbtGitlabProjectConfigType(d.pop("type"))

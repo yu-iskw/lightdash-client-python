@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.get_scheduler_job_status_response_200_status import GetSchedulerJobStatusResponse200Status
+from ..models.get_scheduler_job_status_response_200_status import (
+    GetSchedulerJobStatusResponse200Status,
+)
 
 if TYPE_CHECKING:
-    from ..models.get_scheduler_job_status_response_200_results import GetSchedulerJobStatusResponse200Results
+    from ..models.get_scheduler_job_status_response_200_results import (
+        GetSchedulerJobStatusResponse200Results,
+    )
 
 
 T = TypeVar("T", bound="GetSchedulerJobStatusResponse200")
@@ -46,7 +45,9 @@ class GetSchedulerJobStatusResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.get_scheduler_job_status_response_200_results import GetSchedulerJobStatusResponse200Results
+        from ..models.get_scheduler_job_status_response_200_results import (
+            GetSchedulerJobStatusResponse200Results,
+        )
 
         d = src_dict.copy()
         results = GetSchedulerJobStatusResponse200Results.from_dict(d.pop("results"))

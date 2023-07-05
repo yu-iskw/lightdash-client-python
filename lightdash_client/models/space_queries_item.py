@@ -1,24 +1,19 @@
 import datetime
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
 
 import attr
 from dateutil.parser import isoparse
 
 from ..models.space_queries_item_chart_type import SpaceQueriesItemChartType
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.space_queries_item_updated_by_user import SpaceQueriesItemUpdatedByUser
-    from ..models.space_queries_item_validation_errors_item import SpaceQueriesItemValidationErrorsItem
+    from ..models.space_queries_item_updated_by_user import (
+        SpaceQueriesItemUpdatedByUser,
+    )
+    from ..models.space_queries_item_validation_errors_item import (
+        SpaceQueriesItemValidationErrorsItem,
+    )
 
 
 T = TypeVar("T", bound="SpaceQueriesItem")
@@ -119,8 +114,12 @@ class SpaceQueriesItem:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.space_queries_item_updated_by_user import SpaceQueriesItemUpdatedByUser
-        from ..models.space_queries_item_validation_errors_item import SpaceQueriesItemValidationErrorsItem
+        from ..models.space_queries_item_updated_by_user import (
+            SpaceQueriesItemUpdatedByUser,
+        )
+        from ..models.space_queries_item_validation_errors_item import (
+            SpaceQueriesItemValidationErrorsItem,
+        )
 
         d = src_dict.copy()
         name = d.pop("name")

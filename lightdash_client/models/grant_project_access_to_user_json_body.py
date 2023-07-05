@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.grant_project_access_to_user_json_body_role import GrantProjectAccessToUserJsonBodyRole
+from ..models.grant_project_access_to_user_json_body_role import (
+    GrantProjectAccessToUserJsonBodyRole,
+)
 
 T = TypeVar("T", bound="GrantProjectAccessToUserJsonBody")
 

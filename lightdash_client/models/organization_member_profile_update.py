@@ -1,12 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.organization_member_profile_update_role import OrganizationMemberProfileUpdateRole
+from ..models.organization_member_profile_update_role import (
+    OrganizationMemberProfileUpdateRole,
+)
 
 T = TypeVar("T", bound="OrganizationMemberProfileUpdate")
 

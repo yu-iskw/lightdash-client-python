@@ -1,15 +1,16 @@
 from http import HTTPStatus
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
+from typing import Any, Dict, List, Optional
 
 import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.update_pinned_items_order_json_body_item import UpdatePinnedItemsOrderJsonBodyItem
-from ...models.update_pinned_items_order_response_200 import UpdatePinnedItemsOrderResponse200
+from ...models.update_pinned_items_order_json_body_item import (
+    UpdatePinnedItemsOrderJsonBodyItem,
+)
+from ...models.update_pinned_items_order_response_200 import (
+    UpdatePinnedItemsOrderResponse200,
+)
 from ...types import Response
 
 

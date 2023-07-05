@@ -1,13 +1,10 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.api_user_allowed_organizations_response_status import ApiUserAllowedOrganizationsResponseStatus
+from ..models.api_user_allowed_organizations_response_status import (
+    ApiUserAllowedOrganizationsResponseStatus,
+)
 
 if TYPE_CHECKING:
     from ..models.api_user_allowed_organizations_response_results_item import (

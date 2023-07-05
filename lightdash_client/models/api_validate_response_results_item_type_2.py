@@ -1,18 +1,16 @@
 import datetime
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
 
-from ..models.api_validate_response_results_item_type_2_error_type import ApiValidateResponseResultsItemType2ErrorType
-from ..models.api_validate_response_results_item_type_2_source import ApiValidateResponseResultsItemType2Source
-from ..types import UNSET
-from ..types import Unset
+from ..models.api_validate_response_results_item_type_2_error_type import (
+    ApiValidateResponseResultsItemType2ErrorType,
+)
+from ..models.api_validate_response_results_item_type_2_source import (
+    ApiValidateResponseResultsItemType2Source,
+)
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ApiValidateResponseResultsItemType2")
 

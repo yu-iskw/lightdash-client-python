@@ -1,18 +1,13 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.create_space_in_project_json_body_access_item import CreateSpaceInProjectJsonBodyAccessItem
+    from ..models.create_space_in_project_json_body_access_item import (
+        CreateSpaceInProjectJsonBodyAccessItem,
+    )
 
 
 T = TypeVar("T", bound="CreateSpaceInProjectJsonBody")
@@ -60,7 +55,9 @@ class CreateSpaceInProjectJsonBody:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.create_space_in_project_json_body_access_item import CreateSpaceInProjectJsonBodyAccessItem
+        from ..models.create_space_in_project_json_body_access_item import (
+            CreateSpaceInProjectJsonBodyAccessItem,
+        )
 
         d = src_dict.copy()
         name = d.pop("name")

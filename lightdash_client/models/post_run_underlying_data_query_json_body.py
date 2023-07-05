@@ -1,23 +1,19 @@
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.post_run_underlying_data_query_json_body_additional_metrics_item import (
         PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem,
     )
-    from ..models.post_run_underlying_data_query_json_body_filters import PostRunUnderlyingDataQueryJsonBodyFilters
-    from ..models.post_run_underlying_data_query_json_body_sorts_item import PostRunUnderlyingDataQueryJsonBodySortsItem
+    from ..models.post_run_underlying_data_query_json_body_filters import (
+        PostRunUnderlyingDataQueryJsonBodyFilters,
+    )
+    from ..models.post_run_underlying_data_query_json_body_sorts_item import (
+        PostRunUnderlyingDataQueryJsonBodySortsItem,
+    )
     from ..models.post_run_underlying_data_query_json_body_table_calculations_item import (
         PostRunUnderlyingDataQueryJsonBodyTableCalculationsItem,
     )
@@ -104,7 +100,9 @@ class PostRunUnderlyingDataQueryJsonBody:
         from ..models.post_run_underlying_data_query_json_body_additional_metrics_item import (
             PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem,
         )
-        from ..models.post_run_underlying_data_query_json_body_filters import PostRunUnderlyingDataQueryJsonBodyFilters
+        from ..models.post_run_underlying_data_query_json_body_filters import (
+            PostRunUnderlyingDataQueryJsonBodyFilters,
+        )
         from ..models.post_run_underlying_data_query_json_body_sorts_item import (
             PostRunUnderlyingDataQueryJsonBodySortsItem,
         )

@@ -2,7 +2,9 @@
 from .add_space_share import AddSpaceShare
 from .add_space_share_to_user_json_body import AddSpaceShareToUserJsonBody
 from .add_space_share_to_user_response_200 import AddSpaceShareToUserResponse200
-from .add_space_share_to_user_response_200_status import AddSpaceShareToUserResponse200Status
+from .add_space_share_to_user_response_200_status import (
+    AddSpaceShareToUserResponse200Status,
+)
 from .add_user_to_group_response_200 import AddUserToGroupResponse200
 from .add_user_to_group_response_200_status import AddUserToGroupResponse200Status
 from .additional_metric import AdditionalMetric
@@ -12,34 +14,58 @@ from .additional_metric_filters_item import AdditionalMetricFiltersItem
 from .additional_metric_filters_item_operator import AdditionalMetricFiltersItemOperator
 from .additional_metric_filters_item_target import AdditionalMetricFiltersItemTarget
 from .additional_metric_type import AdditionalMetricType
-from .allowed_email_domain_projects_role_type_0 import AllowedEmailDomainProjectsRoleType0
-from .allowed_email_domain_projects_role_type_1 import AllowedEmailDomainProjectsRoleType1
-from .allowed_email_domain_projects_role_type_2 import AllowedEmailDomainProjectsRoleType2
+from .allowed_email_domain_projects_role_type_0 import (
+    AllowedEmailDomainProjectsRoleType0,
+)
+from .allowed_email_domain_projects_role_type_1 import (
+    AllowedEmailDomainProjectsRoleType1,
+)
+from .allowed_email_domain_projects_role_type_2 import (
+    AllowedEmailDomainProjectsRoleType2,
+)
 from .allowed_email_domains import AllowedEmailDomains
 from .allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
-from .allowed_email_domains_projects_item_role_type_0 import AllowedEmailDomainsProjectsItemRoleType0
-from .allowed_email_domains_projects_item_role_type_1 import AllowedEmailDomainsProjectsItemRoleType1
-from .allowed_email_domains_projects_item_role_type_2 import AllowedEmailDomainsProjectsItemRoleType2
+from .allowed_email_domains_projects_item_role_type_0 import (
+    AllowedEmailDomainsProjectsItemRoleType0,
+)
+from .allowed_email_domains_projects_item_role_type_1 import (
+    AllowedEmailDomainsProjectsItemRoleType1,
+)
+from .allowed_email_domains_projects_item_role_type_2 import (
+    AllowedEmailDomainsProjectsItemRoleType2,
+)
 from .allowed_email_domains_role_type_0 import AllowedEmailDomainsRoleType0
 from .allowed_email_domains_role_type_1 import AllowedEmailDomainsRoleType1
 from .allowed_email_domains_role_type_2 import AllowedEmailDomainsRoleType2
 from .allowed_email_domains_role_type_3 import AllowedEmailDomainsRoleType3
 from .api_chart_summary_list_response import ApiChartSummaryListResponse
-from .api_chart_summary_list_response_results_item import ApiChartSummaryListResponseResultsItem
-from .api_chart_summary_list_response_results_item_chart_type import ApiChartSummaryListResponseResultsItemChartType
+from .api_chart_summary_list_response_results_item import (
+    ApiChartSummaryListResponseResultsItem,
+)
+from .api_chart_summary_list_response_results_item_chart_type import (
+    ApiChartSummaryListResponseResultsItemChartType,
+)
 from .api_chart_summary_list_response_status import ApiChartSummaryListResponseStatus
 from .api_csv_url_response import ApiCsvUrlResponse
 from .api_csv_url_response_results import ApiCsvUrlResponseResults
 from .api_csv_url_response_status import ApiCsvUrlResponseStatus
 from .api_dbt_cloud_integration_settings import ApiDbtCloudIntegrationSettings
-from .api_dbt_cloud_integration_settings_results import ApiDbtCloudIntegrationSettingsResults
-from .api_dbt_cloud_integration_settings_status import ApiDbtCloudIntegrationSettingsStatus
+from .api_dbt_cloud_integration_settings_results import (
+    ApiDbtCloudIntegrationSettingsResults,
+)
+from .api_dbt_cloud_integration_settings_status import (
+    ApiDbtCloudIntegrationSettingsStatus,
+)
 from .api_dbt_cloud_metrics import ApiDbtCloudMetrics
 from .api_dbt_cloud_metrics_results import ApiDbtCloudMetricsResults
-from .api_dbt_cloud_metrics_results_metrics_item import ApiDbtCloudMetricsResultsMetricsItem
+from .api_dbt_cloud_metrics_results_metrics_item import (
+    ApiDbtCloudMetricsResultsMetricsItem,
+)
 from .api_dbt_cloud_metrics_status import ApiDbtCloudMetricsStatus
 from .api_dbt_cloud_settings_delete_success import ApiDbtCloudSettingsDeleteSuccess
-from .api_dbt_cloud_settings_delete_success_status import ApiDbtCloudSettingsDeleteSuccessStatus
+from .api_dbt_cloud_settings_delete_success_status import (
+    ApiDbtCloudSettingsDeleteSuccessStatus,
+)
 from .api_email_status_response import ApiEmailStatusResponse
 from .api_email_status_response_results import ApiEmailStatusResponseResults
 from .api_email_status_response_results_otp import ApiEmailStatusResponseResultsOtp
@@ -64,7 +90,9 @@ from .api_job_status_response_results import ApiJobStatusResponseResults
 from .api_job_status_response_status import ApiJobStatusResponseStatus
 from .api_organization import ApiOrganization
 from .api_organization_allowed_email_domains import ApiOrganizationAllowedEmailDomains
-from .api_organization_allowed_email_domains_results import ApiOrganizationAllowedEmailDomainsResults
+from .api_organization_allowed_email_domains_results import (
+    ApiOrganizationAllowedEmailDomainsResults,
+)
 from .api_organization_allowed_email_domains_results_projects_item import (
     ApiOrganizationAllowedEmailDomainsResultsProjectsItem,
 )
@@ -89,102 +117,170 @@ from .api_organization_allowed_email_domains_results_role_type_2 import (
 from .api_organization_allowed_email_domains_results_role_type_3 import (
     ApiOrganizationAllowedEmailDomainsResultsRoleType3,
 )
-from .api_organization_allowed_email_domains_status import ApiOrganizationAllowedEmailDomainsStatus
+from .api_organization_allowed_email_domains_status import (
+    ApiOrganizationAllowedEmailDomainsStatus,
+)
 from .api_organization_member_profile import ApiOrganizationMemberProfile
 from .api_organization_member_profile_results import ApiOrganizationMemberProfileResults
-from .api_organization_member_profile_results_role import ApiOrganizationMemberProfileResultsRole
+from .api_organization_member_profile_results_role import (
+    ApiOrganizationMemberProfileResultsRole,
+)
 from .api_organization_member_profile_status import ApiOrganizationMemberProfileStatus
 from .api_organization_member_profiles import ApiOrganizationMemberProfiles
-from .api_organization_member_profiles_results_item import ApiOrganizationMemberProfilesResultsItem
-from .api_organization_member_profiles_results_item_role import ApiOrganizationMemberProfilesResultsItemRole
+from .api_organization_member_profiles_results_item import (
+    ApiOrganizationMemberProfilesResultsItem,
+)
+from .api_organization_member_profiles_results_item_role import (
+    ApiOrganizationMemberProfilesResultsItemRole,
+)
 from .api_organization_member_profiles_status import ApiOrganizationMemberProfilesStatus
 from .api_organization_projects import ApiOrganizationProjects
 from .api_organization_projects_results_item import ApiOrganizationProjectsResultsItem
-from .api_organization_projects_results_item_type import ApiOrganizationProjectsResultsItemType
+from .api_organization_projects_results_item_type import (
+    ApiOrganizationProjectsResultsItemType,
+)
 from .api_organization_projects_status import ApiOrganizationProjectsStatus
 from .api_organization_results import ApiOrganizationResults
 from .api_organization_status import ApiOrganizationStatus
 from .api_pinned_items import ApiPinnedItems
 from .api_pinned_items_results_item_type_0 import ApiPinnedItemsResultsItemType0
-from .api_pinned_items_results_item_type_0_data import ApiPinnedItemsResultsItemType0Data
-from .api_pinned_items_results_item_type_0_data_updated_by_user import ApiPinnedItemsResultsItemType0DataUpdatedByUser
+from .api_pinned_items_results_item_type_0_data import (
+    ApiPinnedItemsResultsItemType0Data,
+)
+from .api_pinned_items_results_item_type_0_data_updated_by_user import (
+    ApiPinnedItemsResultsItemType0DataUpdatedByUser,
+)
 from .api_pinned_items_results_item_type_0_data_validation_errors_item import (
     ApiPinnedItemsResultsItemType0DataValidationErrorsItem,
 )
-from .api_pinned_items_results_item_type_0_type import ApiPinnedItemsResultsItemType0Type
+from .api_pinned_items_results_item_type_0_type import (
+    ApiPinnedItemsResultsItemType0Type,
+)
 from .api_pinned_items_results_item_type_1 import ApiPinnedItemsResultsItemType1
-from .api_pinned_items_results_item_type_1_data import ApiPinnedItemsResultsItemType1Data
-from .api_pinned_items_results_item_type_1_data_chart_type import ApiPinnedItemsResultsItemType1DataChartType
-from .api_pinned_items_results_item_type_1_data_updated_by_user import ApiPinnedItemsResultsItemType1DataUpdatedByUser
+from .api_pinned_items_results_item_type_1_data import (
+    ApiPinnedItemsResultsItemType1Data,
+)
+from .api_pinned_items_results_item_type_1_data_chart_type import (
+    ApiPinnedItemsResultsItemType1DataChartType,
+)
+from .api_pinned_items_results_item_type_1_data_updated_by_user import (
+    ApiPinnedItemsResultsItemType1DataUpdatedByUser,
+)
 from .api_pinned_items_results_item_type_1_data_validation_errors_item import (
     ApiPinnedItemsResultsItemType1DataValidationErrorsItem,
 )
-from .api_pinned_items_results_item_type_1_type import ApiPinnedItemsResultsItemType1Type
+from .api_pinned_items_results_item_type_1_type import (
+    ApiPinnedItemsResultsItemType1Type,
+)
 from .api_pinned_items_results_item_type_2 import ApiPinnedItemsResultsItemType2
-from .api_pinned_items_results_item_type_2_data import ApiPinnedItemsResultsItemType2Data
-from .api_pinned_items_results_item_type_2_type import ApiPinnedItemsResultsItemType2Type
+from .api_pinned_items_results_item_type_2_data import (
+    ApiPinnedItemsResultsItemType2Data,
+)
+from .api_pinned_items_results_item_type_2_type import (
+    ApiPinnedItemsResultsItemType2Type,
+)
 from .api_pinned_items_status import ApiPinnedItemsStatus
 from .api_project_access_list_response import ApiProjectAccessListResponse
-from .api_project_access_list_response_results_item import ApiProjectAccessListResponseResultsItem
-from .api_project_access_list_response_results_item_role import ApiProjectAccessListResponseResultsItemRole
+from .api_project_access_list_response_results_item import (
+    ApiProjectAccessListResponseResultsItem,
+)
+from .api_project_access_list_response_results_item_role import (
+    ApiProjectAccessListResponseResultsItemRole,
+)
 from .api_project_access_list_response_status import ApiProjectAccessListResponseStatus
 from .api_project_response import ApiProjectResponse
 from .api_project_response_results import ApiProjectResponseResults
-from .api_project_response_results_dbt_connection_type_0 import ApiProjectResponseResultsDbtConnectionType0
+from .api_project_response_results_dbt_connection_type_0 import (
+    ApiProjectResponseResultsDbtConnectionType0,
+)
 from .api_project_response_results_dbt_connection_type_0_environment_item import (
     ApiProjectResponseResultsDbtConnectionType0EnvironmentItem,
 )
-from .api_project_response_results_dbt_connection_type_0_type import ApiProjectResponseResultsDbtConnectionType0Type
-from .api_project_response_results_dbt_connection_type_1 import ApiProjectResponseResultsDbtConnectionType1
-from .api_project_response_results_dbt_connection_type_1_type import ApiProjectResponseResultsDbtConnectionType1Type
-from .api_project_response_results_dbt_connection_type_2 import ApiProjectResponseResultsDbtConnectionType2
+from .api_project_response_results_dbt_connection_type_0_type import (
+    ApiProjectResponseResultsDbtConnectionType0Type,
+)
+from .api_project_response_results_dbt_connection_type_1 import (
+    ApiProjectResponseResultsDbtConnectionType1,
+)
+from .api_project_response_results_dbt_connection_type_1_type import (
+    ApiProjectResponseResultsDbtConnectionType1Type,
+)
+from .api_project_response_results_dbt_connection_type_2 import (
+    ApiProjectResponseResultsDbtConnectionType2,
+)
 from .api_project_response_results_dbt_connection_type_2_environment_item import (
     ApiProjectResponseResultsDbtConnectionType2EnvironmentItem,
 )
-from .api_project_response_results_dbt_connection_type_2_type import ApiProjectResponseResultsDbtConnectionType2Type
-from .api_project_response_results_dbt_connection_type_3 import ApiProjectResponseResultsDbtConnectionType3
+from .api_project_response_results_dbt_connection_type_2_type import (
+    ApiProjectResponseResultsDbtConnectionType2Type,
+)
+from .api_project_response_results_dbt_connection_type_3 import (
+    ApiProjectResponseResultsDbtConnectionType3,
+)
 from .api_project_response_results_dbt_connection_type_3_environment_item import (
     ApiProjectResponseResultsDbtConnectionType3EnvironmentItem,
 )
-from .api_project_response_results_dbt_connection_type_3_type import ApiProjectResponseResultsDbtConnectionType3Type
-from .api_project_response_results_dbt_connection_type_4 import ApiProjectResponseResultsDbtConnectionType4
+from .api_project_response_results_dbt_connection_type_3_type import (
+    ApiProjectResponseResultsDbtConnectionType3Type,
+)
+from .api_project_response_results_dbt_connection_type_4 import (
+    ApiProjectResponseResultsDbtConnectionType4,
+)
 from .api_project_response_results_dbt_connection_type_4_environment_item import (
     ApiProjectResponseResultsDbtConnectionType4EnvironmentItem,
 )
-from .api_project_response_results_dbt_connection_type_4_type import ApiProjectResponseResultsDbtConnectionType4Type
-from .api_project_response_results_dbt_connection_type_5 import ApiProjectResponseResultsDbtConnectionType5
+from .api_project_response_results_dbt_connection_type_4_type import (
+    ApiProjectResponseResultsDbtConnectionType4Type,
+)
+from .api_project_response_results_dbt_connection_type_5 import (
+    ApiProjectResponseResultsDbtConnectionType5,
+)
 from .api_project_response_results_dbt_connection_type_5_environment_item import (
     ApiProjectResponseResultsDbtConnectionType5EnvironmentItem,
 )
-from .api_project_response_results_dbt_connection_type_5_type import ApiProjectResponseResultsDbtConnectionType5Type
-from .api_project_response_results_dbt_connection_type_6 import ApiProjectResponseResultsDbtConnectionType6
+from .api_project_response_results_dbt_connection_type_5_type import (
+    ApiProjectResponseResultsDbtConnectionType5Type,
+)
+from .api_project_response_results_dbt_connection_type_6 import (
+    ApiProjectResponseResultsDbtConnectionType6,
+)
 from .api_project_response_results_dbt_connection_type_6_environment_item import (
     ApiProjectResponseResultsDbtConnectionType6EnvironmentItem,
 )
-from .api_project_response_results_dbt_connection_type_6_type import ApiProjectResponseResultsDbtConnectionType6Type
+from .api_project_response_results_dbt_connection_type_6_type import (
+    ApiProjectResponseResultsDbtConnectionType6Type,
+)
 from .api_project_response_results_type import ApiProjectResponseResultsType
-from .api_project_response_results_warehouse_connection_type_0 import ApiProjectResponseResultsWarehouseConnectionType0
+from .api_project_response_results_warehouse_connection_type_0 import (
+    ApiProjectResponseResultsWarehouseConnectionType0,
+)
 from .api_project_response_results_warehouse_connection_type_0_start_of_week import (
     ApiProjectResponseResultsWarehouseConnectionType0StartOfWeek,
 )
 from .api_project_response_results_warehouse_connection_type_0_type import (
     ApiProjectResponseResultsWarehouseConnectionType0Type,
 )
-from .api_project_response_results_warehouse_connection_type_1 import ApiProjectResponseResultsWarehouseConnectionType1
+from .api_project_response_results_warehouse_connection_type_1 import (
+    ApiProjectResponseResultsWarehouseConnectionType1,
+)
 from .api_project_response_results_warehouse_connection_type_1_start_of_week import (
     ApiProjectResponseResultsWarehouseConnectionType1StartOfWeek,
 )
 from .api_project_response_results_warehouse_connection_type_1_type import (
     ApiProjectResponseResultsWarehouseConnectionType1Type,
 )
-from .api_project_response_results_warehouse_connection_type_2 import ApiProjectResponseResultsWarehouseConnectionType2
+from .api_project_response_results_warehouse_connection_type_2 import (
+    ApiProjectResponseResultsWarehouseConnectionType2,
+)
 from .api_project_response_results_warehouse_connection_type_2_start_of_week import (
     ApiProjectResponseResultsWarehouseConnectionType2StartOfWeek,
 )
 from .api_project_response_results_warehouse_connection_type_2_type import (
     ApiProjectResponseResultsWarehouseConnectionType2Type,
 )
-from .api_project_response_results_warehouse_connection_type_3 import ApiProjectResponseResultsWarehouseConnectionType3
+from .api_project_response_results_warehouse_connection_type_3 import (
+    ApiProjectResponseResultsWarehouseConnectionType3,
+)
 from .api_project_response_results_warehouse_connection_type_3_priority import (
     ApiProjectResponseResultsWarehouseConnectionType3Priority,
 )
@@ -194,14 +290,18 @@ from .api_project_response_results_warehouse_connection_type_3_start_of_week imp
 from .api_project_response_results_warehouse_connection_type_3_type import (
     ApiProjectResponseResultsWarehouseConnectionType3Type,
 )
-from .api_project_response_results_warehouse_connection_type_4 import ApiProjectResponseResultsWarehouseConnectionType4
+from .api_project_response_results_warehouse_connection_type_4 import (
+    ApiProjectResponseResultsWarehouseConnectionType4,
+)
 from .api_project_response_results_warehouse_connection_type_4_start_of_week import (
     ApiProjectResponseResultsWarehouseConnectionType4StartOfWeek,
 )
 from .api_project_response_results_warehouse_connection_type_4_type import (
     ApiProjectResponseResultsWarehouseConnectionType4Type,
 )
-from .api_project_response_results_warehouse_connection_type_5 import ApiProjectResponseResultsWarehouseConnectionType5
+from .api_project_response_results_warehouse_connection_type_5 import (
+    ApiProjectResponseResultsWarehouseConnectionType5,
+)
 from .api_project_response_results_warehouse_connection_type_5_start_of_week import (
     ApiProjectResponseResultsWarehouseConnectionType5StartOfWeek,
 )
@@ -211,7 +311,9 @@ from .api_project_response_results_warehouse_connection_type_5_type import (
 from .api_project_response_status import ApiProjectResponseStatus
 from .api_run_query_response import ApiRunQueryResponse
 from .api_run_query_response_results import ApiRunQueryResponseResults
-from .api_run_query_response_results_metric_query import ApiRunQueryResponseResultsMetricQuery
+from .api_run_query_response_results_metric_query import (
+    ApiRunQueryResponseResultsMetricQuery,
+)
 from .api_run_query_response_results_metric_query_additional_metrics_item import (
     ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem,
 )
@@ -233,7 +335,9 @@ from .api_run_query_response_results_metric_query_additional_metrics_item_filter
 from .api_run_query_response_results_metric_query_additional_metrics_item_type import (
     ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemType,
 )
-from .api_run_query_response_results_metric_query_filters import ApiRunQueryResponseResultsMetricQueryFilters
+from .api_run_query_response_results_metric_query_filters import (
+    ApiRunQueryResponseResultsMetricQueryFilters,
+)
 from .api_run_query_response_results_metric_query_filters_dimensions_type_0 import (
     ApiRunQueryResponseResultsMetricQueryFiltersDimensionsType0,
 )
@@ -246,7 +350,9 @@ from .api_run_query_response_results_metric_query_filters_metrics_type_0 import 
 from .api_run_query_response_results_metric_query_filters_metrics_type_1 import (
     ApiRunQueryResponseResultsMetricQueryFiltersMetricsType1,
 )
-from .api_run_query_response_results_metric_query_sorts_item import ApiRunQueryResponseResultsMetricQuerySortsItem
+from .api_run_query_response_results_metric_query_sorts_item import (
+    ApiRunQueryResponseResultsMetricQuerySortsItem,
+)
 from .api_run_query_response_results_metric_query_table_calculations_item import (
     ApiRunQueryResponseResultsMetricQueryTableCalculationsItem,
 )
@@ -264,46 +370,76 @@ from .api_run_query_response_results_metric_query_table_calculations_item_format
 )
 from .api_run_query_response_status import ApiRunQueryResponseStatus
 from .api_scheduled_jobs_response import ApiScheduledJobsResponse
-from .api_scheduled_jobs_response_results_item import ApiScheduledJobsResponseResultsItem
+from .api_scheduled_jobs_response_results_item import (
+    ApiScheduledJobsResponseResultsItem,
+)
 from .api_scheduled_jobs_response_status import ApiScheduledJobsResponseStatus
 from .api_scheduler_and_targets_response import ApiSchedulerAndTargetsResponse
-from .api_scheduler_and_targets_response_results import ApiSchedulerAndTargetsResponseResults
+from .api_scheduler_and_targets_response_results import (
+    ApiSchedulerAndTargetsResponseResults,
+)
 from .api_scheduler_and_targets_response_results_targets_item_type_0 import (
     ApiSchedulerAndTargetsResponseResultsTargetsItemType0,
 )
 from .api_scheduler_and_targets_response_results_targets_item_type_1 import (
     ApiSchedulerAndTargetsResponseResultsTargetsItemType1,
 )
-from .api_scheduler_and_targets_response_status import ApiSchedulerAndTargetsResponseStatus
+from .api_scheduler_and_targets_response_status import (
+    ApiSchedulerAndTargetsResponseStatus,
+)
 from .api_scheduler_logs_response import ApiSchedulerLogsResponse
 from .api_scheduler_logs_response_results import ApiSchedulerLogsResponseResults
-from .api_scheduler_logs_response_results_charts_item import ApiSchedulerLogsResponseResultsChartsItem
-from .api_scheduler_logs_response_results_dashboards_item import ApiSchedulerLogsResponseResultsDashboardsItem
-from .api_scheduler_logs_response_results_logs_item import ApiSchedulerLogsResponseResultsLogsItem
-from .api_scheduler_logs_response_results_logs_item_details import ApiSchedulerLogsResponseResultsLogsItemDetails
-from .api_scheduler_logs_response_results_logs_item_status import ApiSchedulerLogsResponseResultsLogsItemStatus
-from .api_scheduler_logs_response_results_logs_item_target_type import ApiSchedulerLogsResponseResultsLogsItemTargetType
-from .api_scheduler_logs_response_results_logs_item_task import ApiSchedulerLogsResponseResultsLogsItemTask
-from .api_scheduler_logs_response_results_schedulers_item import ApiSchedulerLogsResponseResultsSchedulersItem
+from .api_scheduler_logs_response_results_charts_item import (
+    ApiSchedulerLogsResponseResultsChartsItem,
+)
+from .api_scheduler_logs_response_results_dashboards_item import (
+    ApiSchedulerLogsResponseResultsDashboardsItem,
+)
+from .api_scheduler_logs_response_results_logs_item import (
+    ApiSchedulerLogsResponseResultsLogsItem,
+)
+from .api_scheduler_logs_response_results_logs_item_details import (
+    ApiSchedulerLogsResponseResultsLogsItemDetails,
+)
+from .api_scheduler_logs_response_results_logs_item_status import (
+    ApiSchedulerLogsResponseResultsLogsItemStatus,
+)
+from .api_scheduler_logs_response_results_logs_item_target_type import (
+    ApiSchedulerLogsResponseResultsLogsItemTargetType,
+)
+from .api_scheduler_logs_response_results_logs_item_task import (
+    ApiSchedulerLogsResponseResultsLogsItemTask,
+)
+from .api_scheduler_logs_response_results_schedulers_item import (
+    ApiSchedulerLogsResponseResultsSchedulersItem,
+)
 from .api_scheduler_logs_response_results_schedulers_item_targets_item_type_0 import (
     ApiSchedulerLogsResponseResultsSchedulersItemTargetsItemType0,
 )
 from .api_scheduler_logs_response_results_schedulers_item_targets_item_type_1 import (
     ApiSchedulerLogsResponseResultsSchedulersItemTargetsItemType1,
 )
-from .api_scheduler_logs_response_results_users_item import ApiSchedulerLogsResponseResultsUsersItem
+from .api_scheduler_logs_response_results_users_item import (
+    ApiSchedulerLogsResponseResultsUsersItem,
+)
 from .api_scheduler_logs_response_status import ApiSchedulerLogsResponseStatus
 from .api_share_response import ApiShareResponse
 from .api_share_response_results import ApiShareResponseResults
 from .api_share_response_status import ApiShareResponseStatus
 from .api_slack_channels_response import ApiSlackChannelsResponse
-from .api_slack_channels_response_results_item import ApiSlackChannelsResponseResultsItem
+from .api_slack_channels_response_results_item import (
+    ApiSlackChannelsResponseResultsItem,
+)
 from .api_slack_channels_response_status import ApiSlackChannelsResponseStatus
 from .api_space_response import ApiSpaceResponse
 from .api_space_response_results import ApiSpaceResponseResults
 from .api_space_response_results_access_item import ApiSpaceResponseResultsAccessItem
-from .api_space_response_results_access_item_role import ApiSpaceResponseResultsAccessItemRole
-from .api_space_response_results_dashboards_item import ApiSpaceResponseResultsDashboardsItem
+from .api_space_response_results_access_item_role import (
+    ApiSpaceResponseResultsAccessItemRole,
+)
+from .api_space_response_results_dashboards_item import (
+    ApiSpaceResponseResultsDashboardsItem,
+)
 from .api_space_response_results_dashboards_item_updated_by_user import (
     ApiSpaceResponseResultsDashboardsItemUpdatedByUser,
 )
@@ -311,14 +447,20 @@ from .api_space_response_results_dashboards_item_validation_errors_item import (
     ApiSpaceResponseResultsDashboardsItemValidationErrorsItem,
 )
 from .api_space_response_results_queries_item import ApiSpaceResponseResultsQueriesItem
-from .api_space_response_results_queries_item_chart_type import ApiSpaceResponseResultsQueriesItemChartType
-from .api_space_response_results_queries_item_updated_by_user import ApiSpaceResponseResultsQueriesItemUpdatedByUser
+from .api_space_response_results_queries_item_chart_type import (
+    ApiSpaceResponseResultsQueriesItemChartType,
+)
+from .api_space_response_results_queries_item_updated_by_user import (
+    ApiSpaceResponseResultsQueriesItemUpdatedByUser,
+)
 from .api_space_response_results_queries_item_validation_errors_item import (
     ApiSpaceResponseResultsQueriesItemValidationErrorsItem,
 )
 from .api_space_response_status import ApiSpaceResponseStatus
 from .api_space_summary_list_response import ApiSpaceSummaryListResponse
-from .api_space_summary_list_response_results_item import ApiSpaceSummaryListResponseResultsItem
+from .api_space_summary_list_response_results_item import (
+    ApiSpaceSummaryListResponseResultsItem,
+)
 from .api_space_summary_list_response_status import ApiSpaceSummaryListResponseStatus
 from .api_ssh_key_pair_response import ApiSshKeyPairResponse
 from .api_ssh_key_pair_response_results import ApiSshKeyPairResponseResults
@@ -326,19 +468,43 @@ from .api_ssh_key_pair_response_status import ApiSshKeyPairResponseStatus
 from .api_success_empty import ApiSuccessEmpty
 from .api_success_empty_status import ApiSuccessEmptyStatus
 from .api_user_allowed_organizations_response import ApiUserAllowedOrganizationsResponse
-from .api_user_allowed_organizations_response_results_item import ApiUserAllowedOrganizationsResponseResultsItem
-from .api_user_allowed_organizations_response_status import ApiUserAllowedOrganizationsResponseStatus
+from .api_user_allowed_organizations_response_results_item import (
+    ApiUserAllowedOrganizationsResponseResultsItem,
+)
+from .api_user_allowed_organizations_response_status import (
+    ApiUserAllowedOrganizationsResponseStatus,
+)
 from .api_validate_response import ApiValidateResponse
-from .api_validate_response_results_item_type_0 import ApiValidateResponseResultsItemType0
-from .api_validate_response_results_item_type_0_chart_type import ApiValidateResponseResultsItemType0ChartType
-from .api_validate_response_results_item_type_0_error_type import ApiValidateResponseResultsItemType0ErrorType
-from .api_validate_response_results_item_type_0_source import ApiValidateResponseResultsItemType0Source
-from .api_validate_response_results_item_type_1 import ApiValidateResponseResultsItemType1
-from .api_validate_response_results_item_type_1_error_type import ApiValidateResponseResultsItemType1ErrorType
-from .api_validate_response_results_item_type_1_source import ApiValidateResponseResultsItemType1Source
-from .api_validate_response_results_item_type_2 import ApiValidateResponseResultsItemType2
-from .api_validate_response_results_item_type_2_error_type import ApiValidateResponseResultsItemType2ErrorType
-from .api_validate_response_results_item_type_2_source import ApiValidateResponseResultsItemType2Source
+from .api_validate_response_results_item_type_0 import (
+    ApiValidateResponseResultsItemType0,
+)
+from .api_validate_response_results_item_type_0_chart_type import (
+    ApiValidateResponseResultsItemType0ChartType,
+)
+from .api_validate_response_results_item_type_0_error_type import (
+    ApiValidateResponseResultsItemType0ErrorType,
+)
+from .api_validate_response_results_item_type_0_source import (
+    ApiValidateResponseResultsItemType0Source,
+)
+from .api_validate_response_results_item_type_1 import (
+    ApiValidateResponseResultsItemType1,
+)
+from .api_validate_response_results_item_type_1_error_type import (
+    ApiValidateResponseResultsItemType1ErrorType,
+)
+from .api_validate_response_results_item_type_1_source import (
+    ApiValidateResponseResultsItemType1Source,
+)
+from .api_validate_response_results_item_type_2 import (
+    ApiValidateResponseResultsItemType2,
+)
+from .api_validate_response_results_item_type_2_error_type import (
+    ApiValidateResponseResultsItemType2ErrorType,
+)
+from .api_validate_response_results_item_type_2_source import (
+    ApiValidateResponseResultsItemType2Source,
+)
 from .api_validate_response_status import ApiValidateResponseStatus
 from .api_validation_dismiss_response import ApiValidationDismissResponse
 from .api_validation_dismiss_response_status import ApiValidationDismissResponseStatus
@@ -350,7 +516,9 @@ from .chart_kind import ChartKind
 from .chart_scheduler import ChartScheduler
 from .chart_scheduler_format import ChartSchedulerFormat
 from .chart_scheduler_options_type_0 import ChartSchedulerOptionsType0
-from .chart_scheduler_options_type_0_limit_type_1 import ChartSchedulerOptionsType0LimitType1
+from .chart_scheduler_options_type_0_limit_type_1 import (
+    ChartSchedulerOptionsType0LimitType1,
+)
 from .chart_scheduler_options_type_1 import ChartSchedulerOptionsType1
 from .chart_summary import ChartSummary
 from .chart_summary_chart_type import ChartSummaryChartType
@@ -359,14 +527,28 @@ from .compact import Compact
 from .compact_or_alias_type_0 import CompactOrAliasType0
 from .compact_or_alias_type_1 import CompactOrAliasType1
 from .conditional_operator import ConditionalOperator
-from .create_email_one_time_passcode_response_200 import CreateEmailOneTimePasscodeResponse200
-from .create_email_one_time_passcode_response_200_results import CreateEmailOneTimePasscodeResponse200Results
-from .create_email_one_time_passcode_response_200_results_otp import CreateEmailOneTimePasscodeResponse200ResultsOtp
-from .create_email_one_time_passcode_response_200_status import CreateEmailOneTimePasscodeResponse200Status
+from .create_email_one_time_passcode_response_200 import (
+    CreateEmailOneTimePasscodeResponse200,
+)
+from .create_email_one_time_passcode_response_200_results import (
+    CreateEmailOneTimePasscodeResponse200Results,
+)
+from .create_email_one_time_passcode_response_200_results_otp import (
+    CreateEmailOneTimePasscodeResponse200ResultsOtp,
+)
+from .create_email_one_time_passcode_response_200_status import (
+    CreateEmailOneTimePasscodeResponse200Status,
+)
 from .create_group_in_organization_json_body import CreateGroupInOrganizationJsonBody
-from .create_group_in_organization_response_200 import CreateGroupInOrganizationResponse200
-from .create_group_in_organization_response_200_results import CreateGroupInOrganizationResponse200Results
-from .create_group_in_organization_response_200_status import CreateGroupInOrganizationResponse200Status
+from .create_group_in_organization_response_200 import (
+    CreateGroupInOrganizationResponse200,
+)
+from .create_group_in_organization_response_200_results import (
+    CreateGroupInOrganizationResponse200Results,
+)
+from .create_group_in_organization_response_200_status import (
+    CreateGroupInOrganizationResponse200Status,
+)
 from .create_organization import CreateOrganization
 from .create_organization_json_body import CreateOrganizationJsonBody
 from .create_organization_response_200 import CreateOrganizationResponse200
@@ -382,11 +564,19 @@ from .create_space import CreateSpace
 from .create_space_access_item import CreateSpaceAccessItem
 from .create_space_access_item_role import CreateSpaceAccessItemRole
 from .create_space_in_project_json_body import CreateSpaceInProjectJsonBody
-from .create_space_in_project_json_body_access_item import CreateSpaceInProjectJsonBodyAccessItem
-from .create_space_in_project_json_body_access_item_role import CreateSpaceInProjectJsonBodyAccessItemRole
+from .create_space_in_project_json_body_access_item import (
+    CreateSpaceInProjectJsonBodyAccessItem,
+)
+from .create_space_in_project_json_body_access_item_role import (
+    CreateSpaceInProjectJsonBodyAccessItemRole,
+)
 from .create_space_in_project_response_200 import CreateSpaceInProjectResponse200
-from .create_space_in_project_response_200_results import CreateSpaceInProjectResponse200Results
-from .create_space_in_project_response_200_results_access_item import CreateSpaceInProjectResponse200ResultsAccessItem
+from .create_space_in_project_response_200_results import (
+    CreateSpaceInProjectResponse200Results,
+)
+from .create_space_in_project_response_200_results_access_item import (
+    CreateSpaceInProjectResponse200ResultsAccessItem,
+)
 from .create_space_in_project_response_200_results_access_item_role import (
     CreateSpaceInProjectResponse200ResultsAccessItemRole,
 )
@@ -399,7 +589,9 @@ from .create_space_in_project_response_200_results_dashboards_item_updated_by_us
 from .create_space_in_project_response_200_results_dashboards_item_validation_errors_item import (
     CreateSpaceInProjectResponse200ResultsDashboardsItemValidationErrorsItem,
 )
-from .create_space_in_project_response_200_results_queries_item import CreateSpaceInProjectResponse200ResultsQueriesItem
+from .create_space_in_project_response_200_results_queries_item import (
+    CreateSpaceInProjectResponse200ResultsQueriesItem,
+)
 from .create_space_in_project_response_200_results_queries_item_chart_type import (
     CreateSpaceInProjectResponse200ResultsQueriesItemChartType,
 )
@@ -409,58 +601,90 @@ from .create_space_in_project_response_200_results_queries_item_updated_by_user 
 from .create_space_in_project_response_200_results_queries_item_validation_errors_item import (
     CreateSpaceInProjectResponse200ResultsQueriesItemValidationErrorsItem,
 )
-from .create_space_in_project_response_200_status import CreateSpaceInProjectResponse200Status
+from .create_space_in_project_response_200_status import (
+    CreateSpaceInProjectResponse200Status,
+)
 from .create_ssh_key_pair_response_201 import CreateSshKeyPairResponse201
 from .create_ssh_key_pair_response_201_results import CreateSshKeyPairResponse201Results
 from .create_ssh_key_pair_response_201_status import CreateSshKeyPairResponse201Status
 from .dashboard_basic_details import DashboardBasicDetails
 from .dashboard_basic_details_updated_by_user import DashboardBasicDetailsUpdatedByUser
-from .dashboard_basic_details_validation_errors_item import DashboardBasicDetailsValidationErrorsItem
+from .dashboard_basic_details_validation_errors_item import (
+    DashboardBasicDetailsValidationErrorsItem,
+)
 from .dashboard_scheduler import DashboardScheduler
 from .dashboard_scheduler_format import DashboardSchedulerFormat
 from .dashboard_scheduler_options_type_0 import DashboardSchedulerOptionsType0
-from .dashboard_scheduler_options_type_0_limit_type_1 import DashboardSchedulerOptionsType0LimitType1
+from .dashboard_scheduler_options_type_0_limit_type_1 import (
+    DashboardSchedulerOptionsType0LimitType1,
+)
 from .dashboard_scheduler_options_type_1 import DashboardSchedulerOptionsType1
 from .databricks_credentials import DatabricksCredentials
 from .databricks_credentials_start_of_week import DatabricksCredentialsStartOfWeek
 from .databricks_credentials_type import DatabricksCredentialsType
 from .dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
-from .dbt_azure_dev_ops_project_config_environment_item import DbtAzureDevOpsProjectConfigEnvironmentItem
+from .dbt_azure_dev_ops_project_config_environment_item import (
+    DbtAzureDevOpsProjectConfigEnvironmentItem,
+)
 from .dbt_azure_dev_ops_project_config_type import DbtAzureDevOpsProjectConfigType
 from .dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
-from .dbt_bit_bucket_project_config_environment_item import DbtBitBucketProjectConfigEnvironmentItem
+from .dbt_bit_bucket_project_config_environment_item import (
+    DbtBitBucketProjectConfigEnvironmentItem,
+)
 from .dbt_bit_bucket_project_config_type import DbtBitBucketProjectConfigType
 from .dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
 from .dbt_cloud_ide_project_config_type import DbtCloudIDEProjectConfigType
 from .dbt_cloud_integration import DbtCloudIntegration
 from .dbt_cloud_metadata_response_metrics import DbtCloudMetadataResponseMetrics
-from .dbt_cloud_metadata_response_metrics_metrics_item import DbtCloudMetadataResponseMetricsMetricsItem
+from .dbt_cloud_metadata_response_metrics_metrics_item import (
+    DbtCloudMetadataResponseMetricsMetricsItem,
+)
 from .dbt_cloud_metric import DbtCloudMetric
 from .dbt_github_project_config import DbtGithubProjectConfig
-from .dbt_github_project_config_environment_item import DbtGithubProjectConfigEnvironmentItem
+from .dbt_github_project_config_environment_item import (
+    DbtGithubProjectConfigEnvironmentItem,
+)
 from .dbt_github_project_config_type import DbtGithubProjectConfigType
 from .dbt_gitlab_project_config import DbtGitlabProjectConfig
-from .dbt_gitlab_project_config_environment_item import DbtGitlabProjectConfigEnvironmentItem
+from .dbt_gitlab_project_config_environment_item import (
+    DbtGitlabProjectConfigEnvironmentItem,
+)
 from .dbt_gitlab_project_config_type import DbtGitlabProjectConfigType
 from .dbt_local_project_config import DbtLocalProjectConfig
-from .dbt_local_project_config_environment_item import DbtLocalProjectConfigEnvironmentItem
+from .dbt_local_project_config_environment_item import (
+    DbtLocalProjectConfigEnvironmentItem,
+)
 from .dbt_local_project_config_type import DbtLocalProjectConfigType
 from .dbt_none_project_config import DbtNoneProjectConfig
-from .dbt_none_project_config_environment_item import DbtNoneProjectConfigEnvironmentItem
+from .dbt_none_project_config_environment_item import (
+    DbtNoneProjectConfigEnvironmentItem,
+)
 from .dbt_none_project_config_type import DbtNoneProjectConfigType
-from .dbt_project_config_type_0_environment_item import DbtProjectConfigType0EnvironmentItem
+from .dbt_project_config_type_0_environment_item import (
+    DbtProjectConfigType0EnvironmentItem,
+)
 from .dbt_project_config_type_0_type import DbtProjectConfigType0Type
 from .dbt_project_config_type_1 import DbtProjectConfigType1
 from .dbt_project_config_type_1_type import DbtProjectConfigType1Type
-from .dbt_project_config_type_2_environment_item import DbtProjectConfigType2EnvironmentItem
+from .dbt_project_config_type_2_environment_item import (
+    DbtProjectConfigType2EnvironmentItem,
+)
 from .dbt_project_config_type_2_type import DbtProjectConfigType2Type
-from .dbt_project_config_type_3_environment_item import DbtProjectConfigType3EnvironmentItem
+from .dbt_project_config_type_3_environment_item import (
+    DbtProjectConfigType3EnvironmentItem,
+)
 from .dbt_project_config_type_3_type import DbtProjectConfigType3Type
-from .dbt_project_config_type_4_environment_item import DbtProjectConfigType4EnvironmentItem
+from .dbt_project_config_type_4_environment_item import (
+    DbtProjectConfigType4EnvironmentItem,
+)
 from .dbt_project_config_type_4_type import DbtProjectConfigType4Type
-from .dbt_project_config_type_5_environment_item import DbtProjectConfigType5EnvironmentItem
+from .dbt_project_config_type_5_environment_item import (
+    DbtProjectConfigType5EnvironmentItem,
+)
 from .dbt_project_config_type_5_type import DbtProjectConfigType5Type
-from .dbt_project_config_type_6_environment_item import DbtProjectConfigType6EnvironmentItem
+from .dbt_project_config_type_6_environment_item import (
+    DbtProjectConfigType6EnvironmentItem,
+)
 from .dbt_project_config_type_6_type import DbtProjectConfigType6Type
 from .dbt_project_environment_variable import DbtProjectEnvironmentVariable
 from .dbt_project_type import DbtProjectType
@@ -471,7 +695,9 @@ from .dbt_project_type_dbtcloudide import DbtProjectTypeDBTCLOUDIDE
 from .dbt_project_type_github import DbtProjectTypeGITHUB
 from .dbt_project_type_gitlab import DbtProjectTypeGITLAB
 from .dbt_project_type_none import DbtProjectTypeNONE
-from .delete_dbt_cloud_integration_settings_response_200 import DeleteDbtCloudIntegrationSettingsResponse200
+from .delete_dbt_cloud_integration_settings_response_200 import (
+    DeleteDbtCloudIntegrationSettingsResponse200,
+)
 from .delete_dbt_cloud_integration_settings_response_200_status import (
     DeleteDbtCloudIntegrationSettingsResponse200Status,
 )
@@ -480,15 +706,21 @@ from .delete_group_response_200_status import DeleteGroupResponse200Status
 from .delete_me_response_200 import DeleteMeResponse200
 from .delete_me_response_200_status import DeleteMeResponse200Status
 from .delete_my_organization_response_200 import DeleteMyOrganizationResponse200
-from .delete_my_organization_response_200_status import DeleteMyOrganizationResponse200Status
+from .delete_my_organization_response_200_status import (
+    DeleteMyOrganizationResponse200Status,
+)
 from .delete_organization_member_response_200 import DeleteOrganizationMemberResponse200
-from .delete_organization_member_response_200_status import DeleteOrganizationMemberResponse200Status
+from .delete_organization_member_response_200_status import (
+    DeleteOrganizationMemberResponse200Status,
+)
 from .delete_scheduler_response_201 import DeleteSchedulerResponse201
 from .delete_scheduler_response_201_status import DeleteSchedulerResponse201Status
 from .delete_space_response_204 import DeleteSpaceResponse204
 from .delete_space_response_204_status import DeleteSpaceResponse204Status
 from .delete_validation_dismiss_response_200 import DeleteValidationDismissResponse200
-from .delete_validation_dismiss_response_200_status import DeleteValidationDismissResponse200Status
+from .delete_validation_dismiss_response_200_status import (
+    DeleteValidationDismissResponse200Status,
+)
 from .email_one_time_password import EmailOneTimePassword
 from .email_one_time_password_expiring import EmailOneTimePasswordExpiring
 from .email_status import EmailStatus
@@ -505,24 +737,48 @@ from .filters_metrics_type_1 import FiltersMetricsType1
 from .get_csv_url_response_200 import GetCsvUrlResponse200
 from .get_csv_url_response_200_results import GetCsvUrlResponse200Results
 from .get_csv_url_response_200_status import GetCsvUrlResponse200Status
-from .get_dbt_cloud_integration_settings_response_200 import GetDbtCloudIntegrationSettingsResponse200
-from .get_dbt_cloud_integration_settings_response_200_results import GetDbtCloudIntegrationSettingsResponse200Results
-from .get_dbt_cloud_integration_settings_response_200_status import GetDbtCloudIntegrationSettingsResponse200Status
+from .get_dbt_cloud_integration_settings_response_200 import (
+    GetDbtCloudIntegrationSettingsResponse200,
+)
+from .get_dbt_cloud_integration_settings_response_200_results import (
+    GetDbtCloudIntegrationSettingsResponse200Results,
+)
+from .get_dbt_cloud_integration_settings_response_200_status import (
+    GetDbtCloudIntegrationSettingsResponse200Status,
+)
 from .get_dbt_cloud_metrics_response_200 import GetDbtCloudMetricsResponse200
-from .get_dbt_cloud_metrics_response_200_results import GetDbtCloudMetricsResponse200Results
-from .get_dbt_cloud_metrics_response_200_results_metrics_item import GetDbtCloudMetricsResponse200ResultsMetricsItem
-from .get_dbt_cloud_metrics_response_200_status import GetDbtCloudMetricsResponse200Status
-from .get_email_verification_status_response_200 import GetEmailVerificationStatusResponse200
-from .get_email_verification_status_response_200_results import GetEmailVerificationStatusResponse200Results
-from .get_email_verification_status_response_200_results_otp import GetEmailVerificationStatusResponse200ResultsOtp
-from .get_email_verification_status_response_200_status import GetEmailVerificationStatusResponse200Status
+from .get_dbt_cloud_metrics_response_200_results import (
+    GetDbtCloudMetricsResponse200Results,
+)
+from .get_dbt_cloud_metrics_response_200_results_metrics_item import (
+    GetDbtCloudMetricsResponse200ResultsMetricsItem,
+)
+from .get_dbt_cloud_metrics_response_200_status import (
+    GetDbtCloudMetricsResponse200Status,
+)
+from .get_email_verification_status_response_200 import (
+    GetEmailVerificationStatusResponse200,
+)
+from .get_email_verification_status_response_200_results import (
+    GetEmailVerificationStatusResponse200Results,
+)
+from .get_email_verification_status_response_200_results_otp import (
+    GetEmailVerificationStatusResponse200ResultsOtp,
+)
+from .get_email_verification_status_response_200_status import (
+    GetEmailVerificationStatusResponse200Status,
+)
 from .get_group_members_response_200 import GetGroupMembersResponse200
-from .get_group_members_response_200_results_item import GetGroupMembersResponse200ResultsItem
+from .get_group_members_response_200_results_item import (
+    GetGroupMembersResponse200ResultsItem,
+)
 from .get_group_members_response_200_status import GetGroupMembersResponse200Status
 from .get_group_response_200 import GetGroupResponse200
 from .get_group_response_200_results import GetGroupResponse200Results
 from .get_group_response_200_status import GetGroupResponse200Status
-from .get_latest_validation_results_response_200 import GetLatestValidationResultsResponse200
+from .get_latest_validation_results_response_200 import (
+    GetLatestValidationResultsResponse200,
+)
 from .get_latest_validation_results_response_200_results_item_type_0 import (
     GetLatestValidationResultsResponse200ResultsItemType0,
 )
@@ -553,22 +809,36 @@ from .get_latest_validation_results_response_200_results_item_type_2_error_type 
 from .get_latest_validation_results_response_200_results_item_type_2_source import (
     GetLatestValidationResultsResponse200ResultsItemType2Source,
 )
-from .get_latest_validation_results_response_200_status import GetLatestValidationResultsResponse200Status
+from .get_latest_validation_results_response_200_status import (
+    GetLatestValidationResultsResponse200Status,
+)
 from .get_my_organization_response_200 import GetMyOrganizationResponse200
-from .get_my_organization_response_200_results import GetMyOrganizationResponse200Results
+from .get_my_organization_response_200_results import (
+    GetMyOrganizationResponse200Results,
+)
 from .get_my_organization_response_200_status import GetMyOrganizationResponse200Status
 from .get_pinned_items_response_200 import GetPinnedItemsResponse200
-from .get_pinned_items_response_200_results_item_type_0 import GetPinnedItemsResponse200ResultsItemType0
-from .get_pinned_items_response_200_results_item_type_0_data import GetPinnedItemsResponse200ResultsItemType0Data
+from .get_pinned_items_response_200_results_item_type_0 import (
+    GetPinnedItemsResponse200ResultsItemType0,
+)
+from .get_pinned_items_response_200_results_item_type_0_data import (
+    GetPinnedItemsResponse200ResultsItemType0Data,
+)
 from .get_pinned_items_response_200_results_item_type_0_data_updated_by_user import (
     GetPinnedItemsResponse200ResultsItemType0DataUpdatedByUser,
 )
 from .get_pinned_items_response_200_results_item_type_0_data_validation_errors_item import (
     GetPinnedItemsResponse200ResultsItemType0DataValidationErrorsItem,
 )
-from .get_pinned_items_response_200_results_item_type_0_type import GetPinnedItemsResponse200ResultsItemType0Type
-from .get_pinned_items_response_200_results_item_type_1 import GetPinnedItemsResponse200ResultsItemType1
-from .get_pinned_items_response_200_results_item_type_1_data import GetPinnedItemsResponse200ResultsItemType1Data
+from .get_pinned_items_response_200_results_item_type_0_type import (
+    GetPinnedItemsResponse200ResultsItemType0Type,
+)
+from .get_pinned_items_response_200_results_item_type_1 import (
+    GetPinnedItemsResponse200ResultsItemType1,
+)
+from .get_pinned_items_response_200_results_item_type_1_data import (
+    GetPinnedItemsResponse200ResultsItemType1Data,
+)
 from .get_pinned_items_response_200_results_item_type_1_data_chart_type import (
     GetPinnedItemsResponse200ResultsItemType1DataChartType,
 )
@@ -578,57 +848,85 @@ from .get_pinned_items_response_200_results_item_type_1_data_updated_by_user imp
 from .get_pinned_items_response_200_results_item_type_1_data_validation_errors_item import (
     GetPinnedItemsResponse200ResultsItemType1DataValidationErrorsItem,
 )
-from .get_pinned_items_response_200_results_item_type_1_type import GetPinnedItemsResponse200ResultsItemType1Type
-from .get_pinned_items_response_200_results_item_type_2 import GetPinnedItemsResponse200ResultsItemType2
-from .get_pinned_items_response_200_results_item_type_2_data import GetPinnedItemsResponse200ResultsItemType2Data
-from .get_pinned_items_response_200_results_item_type_2_type import GetPinnedItemsResponse200ResultsItemType2Type
+from .get_pinned_items_response_200_results_item_type_1_type import (
+    GetPinnedItemsResponse200ResultsItemType1Type,
+)
+from .get_pinned_items_response_200_results_item_type_2 import (
+    GetPinnedItemsResponse200ResultsItemType2,
+)
+from .get_pinned_items_response_200_results_item_type_2_data import (
+    GetPinnedItemsResponse200ResultsItemType2Data,
+)
+from .get_pinned_items_response_200_results_item_type_2_type import (
+    GetPinnedItemsResponse200ResultsItemType2Type,
+)
 from .get_pinned_items_response_200_status import GetPinnedItemsResponse200Status
 from .get_project_access_list_response_200 import GetProjectAccessListResponse200
-from .get_project_access_list_response_200_results_item import GetProjectAccessListResponse200ResultsItem
-from .get_project_access_list_response_200_results_item_role import GetProjectAccessListResponse200ResultsItemRole
-from .get_project_access_list_response_200_status import GetProjectAccessListResponse200Status
+from .get_project_access_list_response_200_results_item import (
+    GetProjectAccessListResponse200ResultsItem,
+)
+from .get_project_access_list_response_200_results_item_role import (
+    GetProjectAccessListResponse200ResultsItemRole,
+)
+from .get_project_access_list_response_200_status import (
+    GetProjectAccessListResponse200Status,
+)
 from .get_project_response_200 import GetProjectResponse200
 from .get_project_response_200_results import GetProjectResponse200Results
-from .get_project_response_200_results_dbt_connection_type_0 import GetProjectResponse200ResultsDbtConnectionType0
+from .get_project_response_200_results_dbt_connection_type_0 import (
+    GetProjectResponse200ResultsDbtConnectionType0,
+)
 from .get_project_response_200_results_dbt_connection_type_0_environment_item import (
     GetProjectResponse200ResultsDbtConnectionType0EnvironmentItem,
 )
 from .get_project_response_200_results_dbt_connection_type_0_type import (
     GetProjectResponse200ResultsDbtConnectionType0Type,
 )
-from .get_project_response_200_results_dbt_connection_type_1 import GetProjectResponse200ResultsDbtConnectionType1
+from .get_project_response_200_results_dbt_connection_type_1 import (
+    GetProjectResponse200ResultsDbtConnectionType1,
+)
 from .get_project_response_200_results_dbt_connection_type_1_type import (
     GetProjectResponse200ResultsDbtConnectionType1Type,
 )
-from .get_project_response_200_results_dbt_connection_type_2 import GetProjectResponse200ResultsDbtConnectionType2
+from .get_project_response_200_results_dbt_connection_type_2 import (
+    GetProjectResponse200ResultsDbtConnectionType2,
+)
 from .get_project_response_200_results_dbt_connection_type_2_environment_item import (
     GetProjectResponse200ResultsDbtConnectionType2EnvironmentItem,
 )
 from .get_project_response_200_results_dbt_connection_type_2_type import (
     GetProjectResponse200ResultsDbtConnectionType2Type,
 )
-from .get_project_response_200_results_dbt_connection_type_3 import GetProjectResponse200ResultsDbtConnectionType3
+from .get_project_response_200_results_dbt_connection_type_3 import (
+    GetProjectResponse200ResultsDbtConnectionType3,
+)
 from .get_project_response_200_results_dbt_connection_type_3_environment_item import (
     GetProjectResponse200ResultsDbtConnectionType3EnvironmentItem,
 )
 from .get_project_response_200_results_dbt_connection_type_3_type import (
     GetProjectResponse200ResultsDbtConnectionType3Type,
 )
-from .get_project_response_200_results_dbt_connection_type_4 import GetProjectResponse200ResultsDbtConnectionType4
+from .get_project_response_200_results_dbt_connection_type_4 import (
+    GetProjectResponse200ResultsDbtConnectionType4,
+)
 from .get_project_response_200_results_dbt_connection_type_4_environment_item import (
     GetProjectResponse200ResultsDbtConnectionType4EnvironmentItem,
 )
 from .get_project_response_200_results_dbt_connection_type_4_type import (
     GetProjectResponse200ResultsDbtConnectionType4Type,
 )
-from .get_project_response_200_results_dbt_connection_type_5 import GetProjectResponse200ResultsDbtConnectionType5
+from .get_project_response_200_results_dbt_connection_type_5 import (
+    GetProjectResponse200ResultsDbtConnectionType5,
+)
 from .get_project_response_200_results_dbt_connection_type_5_environment_item import (
     GetProjectResponse200ResultsDbtConnectionType5EnvironmentItem,
 )
 from .get_project_response_200_results_dbt_connection_type_5_type import (
     GetProjectResponse200ResultsDbtConnectionType5Type,
 )
-from .get_project_response_200_results_dbt_connection_type_6 import GetProjectResponse200ResultsDbtConnectionType6
+from .get_project_response_200_results_dbt_connection_type_6 import (
+    GetProjectResponse200ResultsDbtConnectionType6,
+)
 from .get_project_response_200_results_dbt_connection_type_6_environment_item import (
     GetProjectResponse200ResultsDbtConnectionType6EnvironmentItem,
 )
@@ -695,55 +993,93 @@ from .get_project_response_200_results_warehouse_connection_type_5_type import (
 )
 from .get_project_response_200_status import GetProjectResponse200Status
 from .get_scheduled_jobs_response_200 import GetScheduledJobsResponse200
-from .get_scheduled_jobs_response_200_results_item import GetScheduledJobsResponse200ResultsItem
+from .get_scheduled_jobs_response_200_results_item import (
+    GetScheduledJobsResponse200ResultsItem,
+)
 from .get_scheduled_jobs_response_200_status import GetScheduledJobsResponse200Status
 from .get_scheduler_job_status_response_200 import GetSchedulerJobStatusResponse200
-from .get_scheduler_job_status_response_200_results import GetSchedulerJobStatusResponse200Results
-from .get_scheduler_job_status_response_200_status import GetSchedulerJobStatusResponse200Status
+from .get_scheduler_job_status_response_200_results import (
+    GetSchedulerJobStatusResponse200Results,
+)
+from .get_scheduler_job_status_response_200_status import (
+    GetSchedulerJobStatusResponse200Status,
+)
 from .get_scheduler_logs_response_200 import GetSchedulerLogsResponse200
 from .get_scheduler_logs_response_200_results import GetSchedulerLogsResponse200Results
-from .get_scheduler_logs_response_200_results_charts_item import GetSchedulerLogsResponse200ResultsChartsItem
-from .get_scheduler_logs_response_200_results_dashboards_item import GetSchedulerLogsResponse200ResultsDashboardsItem
-from .get_scheduler_logs_response_200_results_logs_item import GetSchedulerLogsResponse200ResultsLogsItem
-from .get_scheduler_logs_response_200_results_logs_item_details import GetSchedulerLogsResponse200ResultsLogsItemDetails
-from .get_scheduler_logs_response_200_results_logs_item_status import GetSchedulerLogsResponse200ResultsLogsItemStatus
+from .get_scheduler_logs_response_200_results_charts_item import (
+    GetSchedulerLogsResponse200ResultsChartsItem,
+)
+from .get_scheduler_logs_response_200_results_dashboards_item import (
+    GetSchedulerLogsResponse200ResultsDashboardsItem,
+)
+from .get_scheduler_logs_response_200_results_logs_item import (
+    GetSchedulerLogsResponse200ResultsLogsItem,
+)
+from .get_scheduler_logs_response_200_results_logs_item_details import (
+    GetSchedulerLogsResponse200ResultsLogsItemDetails,
+)
+from .get_scheduler_logs_response_200_results_logs_item_status import (
+    GetSchedulerLogsResponse200ResultsLogsItemStatus,
+)
 from .get_scheduler_logs_response_200_results_logs_item_target_type import (
     GetSchedulerLogsResponse200ResultsLogsItemTargetType,
 )
-from .get_scheduler_logs_response_200_results_logs_item_task import GetSchedulerLogsResponse200ResultsLogsItemTask
-from .get_scheduler_logs_response_200_results_schedulers_item import GetSchedulerLogsResponse200ResultsSchedulersItem
+from .get_scheduler_logs_response_200_results_logs_item_task import (
+    GetSchedulerLogsResponse200ResultsLogsItemTask,
+)
+from .get_scheduler_logs_response_200_results_schedulers_item import (
+    GetSchedulerLogsResponse200ResultsSchedulersItem,
+)
 from .get_scheduler_logs_response_200_results_schedulers_item_targets_item_type_0 import (
     GetSchedulerLogsResponse200ResultsSchedulersItemTargetsItemType0,
 )
 from .get_scheduler_logs_response_200_results_schedulers_item_targets_item_type_1 import (
     GetSchedulerLogsResponse200ResultsSchedulersItemTargetsItemType1,
 )
-from .get_scheduler_logs_response_200_results_users_item import GetSchedulerLogsResponse200ResultsUsersItem
+from .get_scheduler_logs_response_200_results_users_item import (
+    GetSchedulerLogsResponse200ResultsUsersItem,
+)
 from .get_scheduler_logs_response_200_status import GetSchedulerLogsResponse200Status
 from .get_scheduler_response_200 import GetSchedulerResponse200
 from .get_scheduler_response_200_results import GetSchedulerResponse200Results
-from .get_scheduler_response_200_results_targets_item_type_0 import GetSchedulerResponse200ResultsTargetsItemType0
-from .get_scheduler_response_200_results_targets_item_type_1 import GetSchedulerResponse200ResultsTargetsItemType1
+from .get_scheduler_response_200_results_targets_item_type_0 import (
+    GetSchedulerResponse200ResultsTargetsItemType0,
+)
+from .get_scheduler_response_200_results_targets_item_type_1 import (
+    GetSchedulerResponse200ResultsTargetsItemType1,
+)
 from .get_scheduler_response_200_status import GetSchedulerResponse200Status
 from .get_share_url_response_200 import GetShareUrlResponse200
 from .get_share_url_response_200_results import GetShareUrlResponse200Results
 from .get_share_url_response_200_status import GetShareUrlResponse200Status
 from .get_slack_channels_response_200 import GetSlackChannelsResponse200
-from .get_slack_channels_response_200_results_item import GetSlackChannelsResponse200ResultsItem
+from .get_slack_channels_response_200_results_item import (
+    GetSlackChannelsResponse200ResultsItem,
+)
 from .get_slack_channels_response_200_status import GetSlackChannelsResponse200Status
 from .get_space_response_200 import GetSpaceResponse200
 from .get_space_response_200_results import GetSpaceResponse200Results
-from .get_space_response_200_results_access_item import GetSpaceResponse200ResultsAccessItem
-from .get_space_response_200_results_access_item_role import GetSpaceResponse200ResultsAccessItemRole
-from .get_space_response_200_results_dashboards_item import GetSpaceResponse200ResultsDashboardsItem
+from .get_space_response_200_results_access_item import (
+    GetSpaceResponse200ResultsAccessItem,
+)
+from .get_space_response_200_results_access_item_role import (
+    GetSpaceResponse200ResultsAccessItemRole,
+)
+from .get_space_response_200_results_dashboards_item import (
+    GetSpaceResponse200ResultsDashboardsItem,
+)
 from .get_space_response_200_results_dashboards_item_updated_by_user import (
     GetSpaceResponse200ResultsDashboardsItemUpdatedByUser,
 )
 from .get_space_response_200_results_dashboards_item_validation_errors_item import (
     GetSpaceResponse200ResultsDashboardsItemValidationErrorsItem,
 )
-from .get_space_response_200_results_queries_item import GetSpaceResponse200ResultsQueriesItem
-from .get_space_response_200_results_queries_item_chart_type import GetSpaceResponse200ResultsQueriesItemChartType
+from .get_space_response_200_results_queries_item import (
+    GetSpaceResponse200ResultsQueriesItem,
+)
+from .get_space_response_200_results_queries_item_chart_type import (
+    GetSpaceResponse200ResultsQueriesItemChartType,
+)
 from .get_space_response_200_results_queries_item_updated_by_user import (
     GetSpaceResponse200ResultsQueriesItemUpdatedByUser,
 )
@@ -752,29 +1088,53 @@ from .get_space_response_200_results_queries_item_validation_errors_item import 
 )
 from .get_space_response_200_status import GetSpaceResponse200Status
 from .grant_project_access_to_user_json_body import GrantProjectAccessToUserJsonBody
-from .grant_project_access_to_user_json_body_role import GrantProjectAccessToUserJsonBodyRole
-from .grant_project_access_to_user_response_200 import GrantProjectAccessToUserResponse200
-from .grant_project_access_to_user_response_200_status import GrantProjectAccessToUserResponse200Status
+from .grant_project_access_to_user_json_body_role import (
+    GrantProjectAccessToUserJsonBodyRole,
+)
+from .grant_project_access_to_user_response_200 import (
+    GrantProjectAccessToUserResponse200,
+)
+from .grant_project_access_to_user_response_200_status import (
+    GrantProjectAccessToUserResponse200Status,
+)
 from .group import Group
 from .group_member import GroupMember
 from .join_organization_response_200 import JoinOrganizationResponse200
 from .join_organization_response_200_status import JoinOrganizationResponse200Status
 from .list_charts_in_project_response_200 import ListChartsInProjectResponse200
-from .list_charts_in_project_response_200_results_item import ListChartsInProjectResponse200ResultsItem
+from .list_charts_in_project_response_200_results_item import (
+    ListChartsInProjectResponse200ResultsItem,
+)
 from .list_charts_in_project_response_200_results_item_chart_type import (
     ListChartsInProjectResponse200ResultsItemChartType,
 )
-from .list_charts_in_project_response_200_status import ListChartsInProjectResponse200Status
-from .list_groups_in_organization_response_200 import ListGroupsInOrganizationResponse200
-from .list_groups_in_organization_response_200_results_item import ListGroupsInOrganizationResponse200ResultsItem
-from .list_groups_in_organization_response_200_status import ListGroupsInOrganizationResponse200Status
-from .list_my_available_organizations_response_200 import ListMyAvailableOrganizationsResponse200
+from .list_charts_in_project_response_200_status import (
+    ListChartsInProjectResponse200Status,
+)
+from .list_groups_in_organization_response_200 import (
+    ListGroupsInOrganizationResponse200,
+)
+from .list_groups_in_organization_response_200_results_item import (
+    ListGroupsInOrganizationResponse200ResultsItem,
+)
+from .list_groups_in_organization_response_200_status import (
+    ListGroupsInOrganizationResponse200Status,
+)
+from .list_my_available_organizations_response_200 import (
+    ListMyAvailableOrganizationsResponse200,
+)
 from .list_my_available_organizations_response_200_results_item import (
     ListMyAvailableOrganizationsResponse200ResultsItem,
 )
-from .list_my_available_organizations_response_200_status import ListMyAvailableOrganizationsResponse200Status
-from .list_organization_email_domains_response_200 import ListOrganizationEmailDomainsResponse200
-from .list_organization_email_domains_response_200_results import ListOrganizationEmailDomainsResponse200Results
+from .list_my_available_organizations_response_200_status import (
+    ListMyAvailableOrganizationsResponse200Status,
+)
+from .list_organization_email_domains_response_200 import (
+    ListOrganizationEmailDomainsResponse200,
+)
+from .list_organization_email_domains_response_200_results import (
+    ListOrganizationEmailDomainsResponse200Results,
+)
 from .list_organization_email_domains_response_200_results_projects_item import (
     ListOrganizationEmailDomainsResponse200ResultsProjectsItem,
 )
@@ -799,25 +1159,43 @@ from .list_organization_email_domains_response_200_results_role_type_2 import (
 from .list_organization_email_domains_response_200_results_role_type_3 import (
     ListOrganizationEmailDomainsResponse200ResultsRoleType3,
 )
-from .list_organization_email_domains_response_200_status import ListOrganizationEmailDomainsResponse200Status
+from .list_organization_email_domains_response_200_status import (
+    ListOrganizationEmailDomainsResponse200Status,
+)
 from .list_organization_members_response_200 import ListOrganizationMembersResponse200
-from .list_organization_members_response_200_results_item import ListOrganizationMembersResponse200ResultsItem
-from .list_organization_members_response_200_results_item_role import ListOrganizationMembersResponse200ResultsItemRole
-from .list_organization_members_response_200_status import ListOrganizationMembersResponse200Status
+from .list_organization_members_response_200_results_item import (
+    ListOrganizationMembersResponse200ResultsItem,
+)
+from .list_organization_members_response_200_results_item_role import (
+    ListOrganizationMembersResponse200ResultsItemRole,
+)
+from .list_organization_members_response_200_status import (
+    ListOrganizationMembersResponse200Status,
+)
 from .list_organization_projects_response_200 import ListOrganizationProjectsResponse200
-from .list_organization_projects_response_200_results_item import ListOrganizationProjectsResponse200ResultsItem
+from .list_organization_projects_response_200_results_item import (
+    ListOrganizationProjectsResponse200ResultsItem,
+)
 from .list_organization_projects_response_200_results_item_type import (
     ListOrganizationProjectsResponse200ResultsItemType,
 )
-from .list_organization_projects_response_200_status import ListOrganizationProjectsResponse200Status
+from .list_organization_projects_response_200_status import (
+    ListOrganizationProjectsResponse200Status,
+)
 from .list_spaces_in_project_response_200 import ListSpacesInProjectResponse200
-from .list_spaces_in_project_response_200_results_item import ListSpacesInProjectResponse200ResultsItem
-from .list_spaces_in_project_response_200_status import ListSpacesInProjectResponse200Status
+from .list_spaces_in_project_response_200_results_item import (
+    ListSpacesInProjectResponse200ResultsItem,
+)
+from .list_spaces_in_project_response_200_status import (
+    ListSpacesInProjectResponse200Status,
+)
 from .metric_filter_rule import MetricFilterRule
 from .metric_filter_rule_operator import MetricFilterRuleOperator
 from .metric_filter_rule_target import MetricFilterRuleTarget
 from .metric_query_response import MetricQueryResponse
-from .metric_query_response_additional_metrics_item import MetricQueryResponseAdditionalMetricsItem
+from .metric_query_response_additional_metrics_item import (
+    MetricQueryResponseAdditionalMetricsItem,
+)
 from .metric_query_response_additional_metrics_item_compact_type_0 import (
     MetricQueryResponseAdditionalMetricsItemCompactType0,
 )
@@ -833,15 +1211,29 @@ from .metric_query_response_additional_metrics_item_filters_item_operator import
 from .metric_query_response_additional_metrics_item_filters_item_target import (
     MetricQueryResponseAdditionalMetricsItemFiltersItemTarget,
 )
-from .metric_query_response_additional_metrics_item_type import MetricQueryResponseAdditionalMetricsItemType
+from .metric_query_response_additional_metrics_item_type import (
+    MetricQueryResponseAdditionalMetricsItemType,
+)
 from .metric_query_response_filters import MetricQueryResponseFilters
-from .metric_query_response_filters_dimensions_type_0 import MetricQueryResponseFiltersDimensionsType0
-from .metric_query_response_filters_dimensions_type_1 import MetricQueryResponseFiltersDimensionsType1
-from .metric_query_response_filters_metrics_type_0 import MetricQueryResponseFiltersMetricsType0
-from .metric_query_response_filters_metrics_type_1 import MetricQueryResponseFiltersMetricsType1
+from .metric_query_response_filters_dimensions_type_0 import (
+    MetricQueryResponseFiltersDimensionsType0,
+)
+from .metric_query_response_filters_dimensions_type_1 import (
+    MetricQueryResponseFiltersDimensionsType1,
+)
+from .metric_query_response_filters_metrics_type_0 import (
+    MetricQueryResponseFiltersMetricsType0,
+)
+from .metric_query_response_filters_metrics_type_1 import (
+    MetricQueryResponseFiltersMetricsType1,
+)
 from .metric_query_response_sorts_item import MetricQueryResponseSortsItem
-from .metric_query_response_table_calculations_item import MetricQueryResponseTableCalculationsItem
-from .metric_query_response_table_calculations_item_format import MetricQueryResponseTableCalculationsItemFormat
+from .metric_query_response_table_calculations_item import (
+    MetricQueryResponseTableCalculationsItem,
+)
+from .metric_query_response_table_calculations_item_format import (
+    MetricQueryResponseTableCalculationsItemFormat,
+)
 from .metric_query_response_table_calculations_item_format_compact import (
     MetricQueryResponseTableCalculationsItemFormatCompact,
 )
@@ -853,7 +1245,9 @@ from .metric_query_response_table_calculations_item_format_type import (
 )
 from .metric_type import MetricType
 from .number_separator import NumberSeparator
-from .omit_allowed_email_domains_organization_uuid import OmitAllowedEmailDomainsOrganizationUuid
+from .omit_allowed_email_domains_organization_uuid import (
+    OmitAllowedEmailDomainsOrganizationUuid,
+)
 from .omit_allowed_email_domains_organization_uuid_projects_item import (
     OmitAllowedEmailDomainsOrganizationUuidProjectsItem,
 )
@@ -866,10 +1260,18 @@ from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_1 imp
 from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_2 import (
     OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2,
 )
-from .omit_allowed_email_domains_organization_uuid_role_type_0 import OmitAllowedEmailDomainsOrganizationUuidRoleType0
-from .omit_allowed_email_domains_organization_uuid_role_type_1 import OmitAllowedEmailDomainsOrganizationUuidRoleType1
-from .omit_allowed_email_domains_organization_uuid_role_type_2 import OmitAllowedEmailDomainsOrganizationUuidRoleType2
-from .omit_allowed_email_domains_organization_uuid_role_type_3 import OmitAllowedEmailDomainsOrganizationUuidRoleType3
+from .omit_allowed_email_domains_organization_uuid_role_type_0 import (
+    OmitAllowedEmailDomainsOrganizationUuidRoleType0,
+)
+from .omit_allowed_email_domains_organization_uuid_role_type_1 import (
+    OmitAllowedEmailDomainsOrganizationUuidRoleType1,
+)
+from .omit_allowed_email_domains_organization_uuid_role_type_2 import (
+    OmitAllowedEmailDomainsOrganizationUuidRoleType2,
+)
+from .omit_allowed_email_domains_organization_uuid_role_type_3 import (
+    OmitAllowedEmailDomainsOrganizationUuidRoleType3,
+)
 from .omit_create_bigquery_credentials_sensitive_credentials_field_names import (
     OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
 )
@@ -928,8 +1330,12 @@ from .omit_create_trino_credentials_sensitive_credentials_field_names_type impor
     OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesType,
 )
 from .omit_validation_response_base_name import OmitValidationResponseBaseName
-from .omit_validation_response_base_name_error_type import OmitValidationResponseBaseNameErrorType
-from .omit_validation_response_base_name_source import OmitValidationResponseBaseNameSource
+from .omit_validation_response_base_name_error_type import (
+    OmitValidationResponseBaseNameErrorType,
+)
+from .omit_validation_response_base_name_source import (
+    OmitValidationResponseBaseNameSource,
+)
 from .organization import Organization
 from .organization_member_profile import OrganizationMemberProfile
 from .organization_member_profile_role import OrganizationMemberProfileRole
@@ -937,7 +1343,9 @@ from .organization_member_profile_update import OrganizationMemberProfileUpdate
 from .organization_member_profile_update_role import OrganizationMemberProfileUpdateRole
 from .organization_member_role import OrganizationMemberRole
 from .organization_member_role_editor import OrganizationMemberRoleEDITOR
-from .organization_member_role_interactiveviewer import OrganizationMemberRoleINTERACTIVEVIEWER
+from .organization_member_role_interactiveviewer import (
+    OrganizationMemberRoleINTERACTIVEVIEWER,
+)
 from .organization_member_role_member import OrganizationMemberRoleMEMBER
 from .organization_member_role_viewer import OrganizationMemberRoleVIEWER
 from .organization_project import OrganizationProject
@@ -993,7 +1401,9 @@ from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credent
 from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names_type import (
     PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType,
 )
-from .pick_create_dbt_cloud_integration_metrics_job_id import PickCreateDbtCloudIntegrationMetricsJobId
+from .pick_create_dbt_cloud_integration_metrics_job_id import (
+    PickCreateDbtCloudIntegrationMetricsJobId,
+)
 from .pick_create_group_name import PickCreateGroupName
 from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names import (
     PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames,
@@ -1048,7 +1458,9 @@ from .pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_o
 )
 from .pick_group_name import PickGroupName
 from .pick_organization_name import PickOrganizationName
-from .pick_resource_view_item_at_data_uuid_or_pinned_list_order import PickResourceViewItemAtDataUuidOrPinnedListOrder
+from .pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
+    PickResourceViewItemAtDataUuidOrPinnedListOrder,
+)
 from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid import (
     PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid,
 )
@@ -1090,24 +1502,42 @@ from .pick_validation_response_base_exclude_keyof_validation_response_base_name_
 from .pick_validation_response_error_or_created_at_or_validation_id import (
     PickValidationResponseErrorOrCreatedAtOrValidationId,
 )
-from .pinned_items_item_type_0_data_updated_by_user import PinnedItemsItemType0DataUpdatedByUser
-from .pinned_items_item_type_0_data_validation_errors_item import PinnedItemsItemType0DataValidationErrorsItem
+from .pinned_items_item_type_0_data_updated_by_user import (
+    PinnedItemsItemType0DataUpdatedByUser,
+)
+from .pinned_items_item_type_0_data_validation_errors_item import (
+    PinnedItemsItemType0DataValidationErrorsItem,
+)
 from .pinned_items_item_type_0_type import PinnedItemsItemType0Type
 from .pinned_items_item_type_1_data_chart_type import PinnedItemsItemType1DataChartType
-from .pinned_items_item_type_1_data_updated_by_user import PinnedItemsItemType1DataUpdatedByUser
-from .pinned_items_item_type_1_data_validation_errors_item import PinnedItemsItemType1DataValidationErrorsItem
+from .pinned_items_item_type_1_data_updated_by_user import (
+    PinnedItemsItemType1DataUpdatedByUser,
+)
+from .pinned_items_item_type_1_data_validation_errors_item import (
+    PinnedItemsItemType1DataValidationErrorsItem,
+)
 from .pinned_items_item_type_1_type import PinnedItemsItemType1Type
 from .pinned_items_item_type_2_data import PinnedItemsItemType2Data
 from .pinned_items_item_type_2_type import PinnedItemsItemType2Type
 from .post_chart_results_json_body import PostChartResultsJsonBody
 from .post_chart_results_json_body_filters import PostChartResultsJsonBodyFilters
-from .post_chart_results_json_body_filters_dimensions_type_0 import PostChartResultsJsonBodyFiltersDimensionsType0
-from .post_chart_results_json_body_filters_dimensions_type_1 import PostChartResultsJsonBodyFiltersDimensionsType1
-from .post_chart_results_json_body_filters_metrics_type_0 import PostChartResultsJsonBodyFiltersMetricsType0
-from .post_chart_results_json_body_filters_metrics_type_1 import PostChartResultsJsonBodyFiltersMetricsType1
+from .post_chart_results_json_body_filters_dimensions_type_0 import (
+    PostChartResultsJsonBodyFiltersDimensionsType0,
+)
+from .post_chart_results_json_body_filters_dimensions_type_1 import (
+    PostChartResultsJsonBodyFiltersDimensionsType1,
+)
+from .post_chart_results_json_body_filters_metrics_type_0 import (
+    PostChartResultsJsonBodyFiltersMetricsType0,
+)
+from .post_chart_results_json_body_filters_metrics_type_1 import (
+    PostChartResultsJsonBodyFiltersMetricsType1,
+)
 from .post_chart_results_response_200 import PostChartResultsResponse200
 from .post_chart_results_response_200_results import PostChartResultsResponse200Results
-from .post_chart_results_response_200_results_metric_query import PostChartResultsResponse200ResultsMetricQuery
+from .post_chart_results_response_200_results_metric_query import (
+    PostChartResultsResponse200ResultsMetricQuery,
+)
 from .post_chart_results_response_200_results_metric_query_additional_metrics_item import (
     PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem,
 )
@@ -1164,7 +1594,9 @@ from .post_chart_results_response_200_results_metric_query_table_calculations_it
 )
 from .post_chart_results_response_200_status import PostChartResultsResponse200Status
 from .post_run_query_json_body import PostRunQueryJsonBody
-from .post_run_query_json_body_additional_metrics_item import PostRunQueryJsonBodyAdditionalMetricsItem
+from .post_run_query_json_body_additional_metrics_item import (
+    PostRunQueryJsonBodyAdditionalMetricsItem,
+)
 from .post_run_query_json_body_additional_metrics_item_compact_type_0 import (
     PostRunQueryJsonBodyAdditionalMetricsItemCompactType0,
 )
@@ -1180,11 +1612,17 @@ from .post_run_query_json_body_additional_metrics_item_filters_item_operator imp
 from .post_run_query_json_body_additional_metrics_item_filters_item_target import (
     PostRunQueryJsonBodyAdditionalMetricsItemFiltersItemTarget,
 )
-from .post_run_query_json_body_additional_metrics_item_type import PostRunQueryJsonBodyAdditionalMetricsItemType
+from .post_run_query_json_body_additional_metrics_item_type import (
+    PostRunQueryJsonBodyAdditionalMetricsItemType,
+)
 from .post_run_query_json_body_filters import PostRunQueryJsonBodyFilters
 from .post_run_query_json_body_sorts_item import PostRunQueryJsonBodySortsItem
-from .post_run_query_json_body_table_calculations_item import PostRunQueryJsonBodyTableCalculationsItem
-from .post_run_query_json_body_table_calculations_item_format import PostRunQueryJsonBodyTableCalculationsItemFormat
+from .post_run_query_json_body_table_calculations_item import (
+    PostRunQueryJsonBodyTableCalculationsItem,
+)
+from .post_run_query_json_body_table_calculations_item_format import (
+    PostRunQueryJsonBodyTableCalculationsItemFormat,
+)
 from .post_run_query_json_body_table_calculations_item_format_compact import (
     PostRunQueryJsonBodyTableCalculationsItemFormatCompact,
 )
@@ -1196,7 +1634,9 @@ from .post_run_query_json_body_table_calculations_item_format_type import (
 )
 from .post_run_query_response_200 import PostRunQueryResponse200
 from .post_run_query_response_200_results import PostRunQueryResponse200Results
-from .post_run_query_response_200_results_metric_query import PostRunQueryResponse200ResultsMetricQuery
+from .post_run_query_response_200_results_metric_query import (
+    PostRunQueryResponse200ResultsMetricQuery,
+)
 from .post_run_query_response_200_results_metric_query_additional_metrics_item import (
     PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItem,
 )
@@ -1218,7 +1658,9 @@ from .post_run_query_response_200_results_metric_query_additional_metrics_item_f
 from .post_run_query_response_200_results_metric_query_additional_metrics_item_type import (
     PostRunQueryResponse200ResultsMetricQueryAdditionalMetricsItemType,
 )
-from .post_run_query_response_200_results_metric_query_filters import PostRunQueryResponse200ResultsMetricQueryFilters
+from .post_run_query_response_200_results_metric_query_filters import (
+    PostRunQueryResponse200ResultsMetricQueryFilters,
+)
 from .post_run_query_response_200_results_metric_query_filters_dimensions_type_0 import (
     PostRunQueryResponse200ResultsMetricQueryFiltersDimensionsType0,
 )
@@ -1272,8 +1714,12 @@ from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_i
 from .post_run_underlying_data_query_json_body_additional_metrics_item_type import (
     PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemType,
 )
-from .post_run_underlying_data_query_json_body_filters import PostRunUnderlyingDataQueryJsonBodyFilters
-from .post_run_underlying_data_query_json_body_sorts_item import PostRunUnderlyingDataQueryJsonBodySortsItem
+from .post_run_underlying_data_query_json_body_filters import (
+    PostRunUnderlyingDataQueryJsonBodyFilters,
+)
+from .post_run_underlying_data_query_json_body_sorts_item import (
+    PostRunUnderlyingDataQueryJsonBodySortsItem,
+)
 from .post_run_underlying_data_query_json_body_table_calculations_item import (
     PostRunUnderlyingDataQueryJsonBodyTableCalculationsItem,
 )
@@ -1289,8 +1735,12 @@ from .post_run_underlying_data_query_json_body_table_calculations_item_format_se
 from .post_run_underlying_data_query_json_body_table_calculations_item_format_type import (
     PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType,
 )
-from .post_run_underlying_data_query_response_200 import PostRunUnderlyingDataQueryResponse200
-from .post_run_underlying_data_query_response_200_results import PostRunUnderlyingDataQueryResponse200Results
+from .post_run_underlying_data_query_response_200 import (
+    PostRunUnderlyingDataQueryResponse200,
+)
+from .post_run_underlying_data_query_response_200_results import (
+    PostRunUnderlyingDataQueryResponse200Results,
+)
 from .post_run_underlying_data_query_response_200_results_metric_query import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQuery,
 )
@@ -1348,30 +1798,44 @@ from .post_run_underlying_data_query_response_200_results_metric_query_table_cal
 from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_type import (
     PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType,
 )
-from .post_run_underlying_data_query_response_200_status import PostRunUnderlyingDataQueryResponse200Status
+from .post_run_underlying_data_query_response_200_status import (
+    PostRunUnderlyingDataQueryResponse200Status,
+)
 from .postgres_credentials import PostgresCredentials
 from .postgres_credentials_start_of_week import PostgresCredentialsStartOfWeek
 from .postgres_credentials_type import PostgresCredentialsType
 from .project import Project
 from .project_dbt_connection_type_0 import ProjectDbtConnectionType0
-from .project_dbt_connection_type_0_environment_item import ProjectDbtConnectionType0EnvironmentItem
+from .project_dbt_connection_type_0_environment_item import (
+    ProjectDbtConnectionType0EnvironmentItem,
+)
 from .project_dbt_connection_type_0_type import ProjectDbtConnectionType0Type
 from .project_dbt_connection_type_1 import ProjectDbtConnectionType1
 from .project_dbt_connection_type_1_type import ProjectDbtConnectionType1Type
 from .project_dbt_connection_type_2 import ProjectDbtConnectionType2
-from .project_dbt_connection_type_2_environment_item import ProjectDbtConnectionType2EnvironmentItem
+from .project_dbt_connection_type_2_environment_item import (
+    ProjectDbtConnectionType2EnvironmentItem,
+)
 from .project_dbt_connection_type_2_type import ProjectDbtConnectionType2Type
 from .project_dbt_connection_type_3 import ProjectDbtConnectionType3
-from .project_dbt_connection_type_3_environment_item import ProjectDbtConnectionType3EnvironmentItem
+from .project_dbt_connection_type_3_environment_item import (
+    ProjectDbtConnectionType3EnvironmentItem,
+)
 from .project_dbt_connection_type_3_type import ProjectDbtConnectionType3Type
 from .project_dbt_connection_type_4 import ProjectDbtConnectionType4
-from .project_dbt_connection_type_4_environment_item import ProjectDbtConnectionType4EnvironmentItem
+from .project_dbt_connection_type_4_environment_item import (
+    ProjectDbtConnectionType4EnvironmentItem,
+)
 from .project_dbt_connection_type_4_type import ProjectDbtConnectionType4Type
 from .project_dbt_connection_type_5 import ProjectDbtConnectionType5
-from .project_dbt_connection_type_5_environment_item import ProjectDbtConnectionType5EnvironmentItem
+from .project_dbt_connection_type_5_environment_item import (
+    ProjectDbtConnectionType5EnvironmentItem,
+)
 from .project_dbt_connection_type_5_type import ProjectDbtConnectionType5Type
 from .project_dbt_connection_type_6 import ProjectDbtConnectionType6
-from .project_dbt_connection_type_6_environment_item import ProjectDbtConnectionType6EnvironmentItem
+from .project_dbt_connection_type_6_environment_item import (
+    ProjectDbtConnectionType6EnvironmentItem,
+)
 from .project_dbt_connection_type_6_type import ProjectDbtConnectionType6Type
 from .project_member_profile import ProjectMemberProfile
 from .project_member_profile_role import ProjectMemberProfileRole
@@ -1381,40 +1845,76 @@ from .project_member_role_interactiveviewer import ProjectMemberRoleINTERACTIVEV
 from .project_member_role_viewer import ProjectMemberRoleVIEWER
 from .project_type import ProjectType
 from .project_warehouse_connection_type_0 import ProjectWarehouseConnectionType0
-from .project_warehouse_connection_type_0_start_of_week import ProjectWarehouseConnectionType0StartOfWeek
-from .project_warehouse_connection_type_0_type import ProjectWarehouseConnectionType0Type
+from .project_warehouse_connection_type_0_start_of_week import (
+    ProjectWarehouseConnectionType0StartOfWeek,
+)
+from .project_warehouse_connection_type_0_type import (
+    ProjectWarehouseConnectionType0Type,
+)
 from .project_warehouse_connection_type_1 import ProjectWarehouseConnectionType1
-from .project_warehouse_connection_type_1_start_of_week import ProjectWarehouseConnectionType1StartOfWeek
-from .project_warehouse_connection_type_1_type import ProjectWarehouseConnectionType1Type
+from .project_warehouse_connection_type_1_start_of_week import (
+    ProjectWarehouseConnectionType1StartOfWeek,
+)
+from .project_warehouse_connection_type_1_type import (
+    ProjectWarehouseConnectionType1Type,
+)
 from .project_warehouse_connection_type_2 import ProjectWarehouseConnectionType2
-from .project_warehouse_connection_type_2_start_of_week import ProjectWarehouseConnectionType2StartOfWeek
-from .project_warehouse_connection_type_2_type import ProjectWarehouseConnectionType2Type
+from .project_warehouse_connection_type_2_start_of_week import (
+    ProjectWarehouseConnectionType2StartOfWeek,
+)
+from .project_warehouse_connection_type_2_type import (
+    ProjectWarehouseConnectionType2Type,
+)
 from .project_warehouse_connection_type_3 import ProjectWarehouseConnectionType3
-from .project_warehouse_connection_type_3_priority import ProjectWarehouseConnectionType3Priority
-from .project_warehouse_connection_type_3_start_of_week import ProjectWarehouseConnectionType3StartOfWeek
-from .project_warehouse_connection_type_3_type import ProjectWarehouseConnectionType3Type
+from .project_warehouse_connection_type_3_priority import (
+    ProjectWarehouseConnectionType3Priority,
+)
+from .project_warehouse_connection_type_3_start_of_week import (
+    ProjectWarehouseConnectionType3StartOfWeek,
+)
+from .project_warehouse_connection_type_3_type import (
+    ProjectWarehouseConnectionType3Type,
+)
 from .project_warehouse_connection_type_4 import ProjectWarehouseConnectionType4
-from .project_warehouse_connection_type_4_start_of_week import ProjectWarehouseConnectionType4StartOfWeek
-from .project_warehouse_connection_type_4_type import ProjectWarehouseConnectionType4Type
+from .project_warehouse_connection_type_4_start_of_week import (
+    ProjectWarehouseConnectionType4StartOfWeek,
+)
+from .project_warehouse_connection_type_4_type import (
+    ProjectWarehouseConnectionType4Type,
+)
 from .project_warehouse_connection_type_5 import ProjectWarehouseConnectionType5
-from .project_warehouse_connection_type_5_start_of_week import ProjectWarehouseConnectionType5StartOfWeek
-from .project_warehouse_connection_type_5_type import ProjectWarehouseConnectionType5Type
+from .project_warehouse_connection_type_5_start_of_week import (
+    ProjectWarehouseConnectionType5StartOfWeek,
+)
+from .project_warehouse_connection_type_5_type import (
+    ProjectWarehouseConnectionType5Type,
+)
 from .record_string_any import RecordStringAny
 from .redshift_credentials import RedshiftCredentials
 from .redshift_credentials_start_of_week import RedshiftCredentialsStartOfWeek
 from .redshift_credentials_type import RedshiftCredentialsType
 from .remove_user_from_group_response_200 import RemoveUserFromGroupResponse200
-from .remove_user_from_group_response_200_status import RemoveUserFromGroupResponse200Status
+from .remove_user_from_group_response_200_status import (
+    RemoveUserFromGroupResponse200Status,
+)
 from .resource_view_chart_item import ResourceViewChartItem
 from .resource_view_chart_item_data import ResourceViewChartItemData
 from .resource_view_chart_item_data_chart_type import ResourceViewChartItemDataChartType
-from .resource_view_chart_item_data_updated_by_user import ResourceViewChartItemDataUpdatedByUser
-from .resource_view_chart_item_data_validation_errors_item import ResourceViewChartItemDataValidationErrorsItem
+from .resource_view_chart_item_data_updated_by_user import (
+    ResourceViewChartItemDataUpdatedByUser,
+)
+from .resource_view_chart_item_data_validation_errors_item import (
+    ResourceViewChartItemDataValidationErrorsItem,
+)
 from .resource_view_chart_item_type import ResourceViewChartItemType
 from .resource_view_dashboard_item import ResourceViewDashboardItem
 from .resource_view_dashboard_item_data import ResourceViewDashboardItemData
-from .resource_view_dashboard_item_data_updated_by_user import ResourceViewDashboardItemDataUpdatedByUser
-from .resource_view_dashboard_item_data_validation_errors_item import ResourceViewDashboardItemDataValidationErrorsItem
+from .resource_view_dashboard_item_data_updated_by_user import (
+    ResourceViewDashboardItemDataUpdatedByUser,
+)
+from .resource_view_dashboard_item_data_validation_errors_item import (
+    ResourceViewDashboardItemDataValidationErrorsItem,
+)
 from .resource_view_dashboard_item_type import ResourceViewDashboardItemType
 from .resource_view_item_type import ResourceViewItemType
 from .resource_view_item_type_chart import ResourceViewItemTypeCHART
@@ -1423,39 +1923,71 @@ from .resource_view_item_type_space import ResourceViewItemTypeSPACE
 from .resource_view_space_item import ResourceViewSpaceItem
 from .resource_view_space_item_data import ResourceViewSpaceItemData
 from .resource_view_space_item_type import ResourceViewSpaceItemType
-from .revoke_project_access_for_user_response_200 import RevokeProjectAccessForUserResponse200
-from .revoke_project_access_for_user_response_200_status import RevokeProjectAccessForUserResponse200Status
-from .revoke_space_access_for_user_response_200 import RevokeSpaceAccessForUserResponse200
-from .revoke_space_access_for_user_response_200_status import RevokeSpaceAccessForUserResponse200Status
+from .revoke_project_access_for_user_response_200 import (
+    RevokeProjectAccessForUserResponse200,
+)
+from .revoke_project_access_for_user_response_200_status import (
+    RevokeProjectAccessForUserResponse200Status,
+)
+from .revoke_space_access_for_user_response_200 import (
+    RevokeSpaceAccessForUserResponse200,
+)
+from .revoke_space_access_for_user_response_200_status import (
+    RevokeSpaceAccessForUserResponse200Status,
+)
 from .run_query_request import RunQueryRequest
-from .run_query_request_additional_metrics_item import RunQueryRequestAdditionalMetricsItem
-from .run_query_request_additional_metrics_item_compact_type_0 import RunQueryRequestAdditionalMetricsItemCompactType0
-from .run_query_request_additional_metrics_item_compact_type_1 import RunQueryRequestAdditionalMetricsItemCompactType1
-from .run_query_request_additional_metrics_item_filters_item import RunQueryRequestAdditionalMetricsItemFiltersItem
+from .run_query_request_additional_metrics_item import (
+    RunQueryRequestAdditionalMetricsItem,
+)
+from .run_query_request_additional_metrics_item_compact_type_0 import (
+    RunQueryRequestAdditionalMetricsItemCompactType0,
+)
+from .run_query_request_additional_metrics_item_compact_type_1 import (
+    RunQueryRequestAdditionalMetricsItemCompactType1,
+)
+from .run_query_request_additional_metrics_item_filters_item import (
+    RunQueryRequestAdditionalMetricsItemFiltersItem,
+)
 from .run_query_request_additional_metrics_item_filters_item_operator import (
     RunQueryRequestAdditionalMetricsItemFiltersItemOperator,
 )
 from .run_query_request_additional_metrics_item_filters_item_target import (
     RunQueryRequestAdditionalMetricsItemFiltersItemTarget,
 )
-from .run_query_request_additional_metrics_item_type import RunQueryRequestAdditionalMetricsItemType
+from .run_query_request_additional_metrics_item_type import (
+    RunQueryRequestAdditionalMetricsItemType,
+)
 from .run_query_request_filters import RunQueryRequestFilters
 from .run_query_request_sorts_item import RunQueryRequestSortsItem
-from .run_query_request_table_calculations_item import RunQueryRequestTableCalculationsItem
-from .run_query_request_table_calculations_item_format import RunQueryRequestTableCalculationsItemFormat
-from .run_query_request_table_calculations_item_format_compact import RunQueryRequestTableCalculationsItemFormatCompact
+from .run_query_request_table_calculations_item import (
+    RunQueryRequestTableCalculationsItem,
+)
+from .run_query_request_table_calculations_item_format import (
+    RunQueryRequestTableCalculationsItemFormat,
+)
+from .run_query_request_table_calculations_item_format_compact import (
+    RunQueryRequestTableCalculationsItemFormatCompact,
+)
 from .run_query_request_table_calculations_item_format_separator import (
     RunQueryRequestTableCalculationsItemFormatSeparator,
 )
-from .run_query_request_table_calculations_item_format_type import RunQueryRequestTableCalculationsItemFormatType
+from .run_query_request_table_calculations_item_format_type import (
+    RunQueryRequestTableCalculationsItemFormatType,
+)
 from .scheduled_jobs import ScheduledJobs
 from .scheduler_and_targets import SchedulerAndTargets
-from .scheduler_and_targets_targets_item_type_0 import SchedulerAndTargetsTargetsItemType0
-from .scheduler_and_targets_targets_item_type_1 import SchedulerAndTargetsTargetsItemType1
+from .scheduler_and_targets_targets_item_type_0 import (
+    SchedulerAndTargetsTargetsItemType0,
+)
+from .scheduler_and_targets_targets_item_type_1 import (
+    SchedulerAndTargetsTargetsItemType1,
+)
 from .scheduler_base import SchedulerBase
 from .scheduler_base_format import SchedulerBaseFormat
 from .scheduler_base_options_type_0 import SchedulerBaseOptionsType0
-from .scheduler_base_options_type_0_limit_type_1 import SchedulerBaseOptionsType0LimitType1
+from .scheduler_base_options_type_0_limit_type_1 import (
+    SchedulerBaseOptionsType0LimitType1,
+)
 from .scheduler_base_options_type_1 import SchedulerBaseOptionsType1
 from .scheduler_csv_options import SchedulerCsvOptions
 from .scheduler_csv_options_limit_type_1 import SchedulerCsvOptionsLimitType1
@@ -1474,11 +2006,15 @@ from .scheduler_options_type_1 import SchedulerOptionsType1
 from .scheduler_slack_target import SchedulerSlackTarget
 from .scheduler_type_0_format import SchedulerType0Format
 from .scheduler_type_0_options_type_0 import SchedulerType0OptionsType0
-from .scheduler_type_0_options_type_0_limit_type_1 import SchedulerType0OptionsType0LimitType1
+from .scheduler_type_0_options_type_0_limit_type_1 import (
+    SchedulerType0OptionsType0LimitType1,
+)
 from .scheduler_type_0_options_type_1 import SchedulerType0OptionsType1
 from .scheduler_type_1_format import SchedulerType1Format
 from .scheduler_type_1_options_type_0 import SchedulerType1OptionsType0
-from .scheduler_type_1_options_type_0_limit_type_1 import SchedulerType1OptionsType0LimitType1
+from .scheduler_type_1_options_type_0_limit_type_1 import (
+    SchedulerType1OptionsType0LimitType1,
+)
 from .scheduler_type_1_options_type_1 import SchedulerType1OptionsType1
 from .scheduler_with_logs import SchedulerWithLogs
 from .scheduler_with_logs_charts_item import SchedulerWithLogsChartsItem
@@ -1486,11 +2022,17 @@ from .scheduler_with_logs_dashboards_item import SchedulerWithLogsDashboardsItem
 from .scheduler_with_logs_logs_item import SchedulerWithLogsLogsItem
 from .scheduler_with_logs_logs_item_details import SchedulerWithLogsLogsItemDetails
 from .scheduler_with_logs_logs_item_status import SchedulerWithLogsLogsItemStatus
-from .scheduler_with_logs_logs_item_target_type import SchedulerWithLogsLogsItemTargetType
+from .scheduler_with_logs_logs_item_target_type import (
+    SchedulerWithLogsLogsItemTargetType,
+)
 from .scheduler_with_logs_logs_item_task import SchedulerWithLogsLogsItemTask
 from .scheduler_with_logs_schedulers_item import SchedulerWithLogsSchedulersItem
-from .scheduler_with_logs_schedulers_item_targets_item_type_0 import SchedulerWithLogsSchedulersItemTargetsItemType0
-from .scheduler_with_logs_schedulers_item_targets_item_type_1 import SchedulerWithLogsSchedulersItemTargetsItemType1
+from .scheduler_with_logs_schedulers_item_targets_item_type_0 import (
+    SchedulerWithLogsSchedulersItemTargetsItemType0,
+)
+from .scheduler_with_logs_schedulers_item_targets_item_type_1 import (
+    SchedulerWithLogsSchedulersItemTargetsItemType1,
+)
 from .scheduler_with_logs_users_item import SchedulerWithLogsUsersItem
 from .share_url import ShareUrl
 from .slack_channel import SlackChannel
@@ -1506,11 +2048,15 @@ from .space_dashboard_updated_by_user import SpaceDashboardUpdatedByUser
 from .space_dashboard_validation_errors_item import SpaceDashboardValidationErrorsItem
 from .space_dashboards_item import SpaceDashboardsItem
 from .space_dashboards_item_updated_by_user import SpaceDashboardsItemUpdatedByUser
-from .space_dashboards_item_validation_errors_item import SpaceDashboardsItemValidationErrorsItem
+from .space_dashboards_item_validation_errors_item import (
+    SpaceDashboardsItemValidationErrorsItem,
+)
 from .space_queries_item import SpaceQueriesItem
 from .space_queries_item_chart_type import SpaceQueriesItemChartType
 from .space_queries_item_updated_by_user import SpaceQueriesItemUpdatedByUser
-from .space_queries_item_validation_errors_item import SpaceQueriesItemValidationErrorsItem
+from .space_queries_item_validation_errors_item import (
+    SpaceQueriesItemValidationErrorsItem,
+)
 from .space_query import SpaceQuery
 from .space_query_chart_type import SpaceQueryChartType
 from .space_query_updated_by_user import SpaceQueryUpdatedByUser
@@ -1525,15 +2071,25 @@ from .trino_credentials import TrinoCredentials
 from .trino_credentials_start_of_week import TrinoCredentialsStartOfWeek
 from .trino_credentials_type import TrinoCredentialsType
 from .update_allowed_email_domains import UpdateAllowedEmailDomains
-from .update_allowed_email_domains_projects_item import UpdateAllowedEmailDomainsProjectsItem
-from .update_allowed_email_domains_projects_item_role_type_0 import UpdateAllowedEmailDomainsProjectsItemRoleType0
-from .update_allowed_email_domains_projects_item_role_type_1 import UpdateAllowedEmailDomainsProjectsItemRoleType1
-from .update_allowed_email_domains_projects_item_role_type_2 import UpdateAllowedEmailDomainsProjectsItemRoleType2
+from .update_allowed_email_domains_projects_item import (
+    UpdateAllowedEmailDomainsProjectsItem,
+)
+from .update_allowed_email_domains_projects_item_role_type_0 import (
+    UpdateAllowedEmailDomainsProjectsItemRoleType0,
+)
+from .update_allowed_email_domains_projects_item_role_type_1 import (
+    UpdateAllowedEmailDomainsProjectsItemRoleType1,
+)
+from .update_allowed_email_domains_projects_item_role_type_2 import (
+    UpdateAllowedEmailDomainsProjectsItemRoleType2,
+)
 from .update_allowed_email_domains_role_type_0 import UpdateAllowedEmailDomainsRoleType0
 from .update_allowed_email_domains_role_type_1 import UpdateAllowedEmailDomainsRoleType1
 from .update_allowed_email_domains_role_type_2 import UpdateAllowedEmailDomainsRoleType2
 from .update_allowed_email_domains_role_type_3 import UpdateAllowedEmailDomainsRoleType3
-from .update_dbt_cloud_integration_settings_response_200 import UpdateDbtCloudIntegrationSettingsResponse200
+from .update_dbt_cloud_integration_settings_response_200 import (
+    UpdateDbtCloudIntegrationSettingsResponse200,
+)
 from .update_dbt_cloud_integration_settings_response_200_results import (
     UpdateDbtCloudIntegrationSettingsResponse200Results,
 )
@@ -1547,9 +2103,13 @@ from .update_group_response_200_results import UpdateGroupResponse200Results
 from .update_group_response_200_status import UpdateGroupResponse200Status
 from .update_my_organization_json_body import UpdateMyOrganizationJsonBody
 from .update_my_organization_response_200 import UpdateMyOrganizationResponse200
-from .update_my_organization_response_200_status import UpdateMyOrganizationResponse200Status
+from .update_my_organization_response_200_status import (
+    UpdateMyOrganizationResponse200Status,
+)
 from .update_organization import UpdateOrganization
-from .update_organization_email_domains_json_body import UpdateOrganizationEmailDomainsJsonBody
+from .update_organization_email_domains_json_body import (
+    UpdateOrganizationEmailDomainsJsonBody,
+)
 from .update_organization_email_domains_json_body_projects_item import (
     UpdateOrganizationEmailDomainsJsonBodyProjectsItem,
 )
@@ -1562,12 +2122,24 @@ from .update_organization_email_domains_json_body_projects_item_role_type_1 impo
 from .update_organization_email_domains_json_body_projects_item_role_type_2 import (
     UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType2,
 )
-from .update_organization_email_domains_json_body_role_type_0 import UpdateOrganizationEmailDomainsJsonBodyRoleType0
-from .update_organization_email_domains_json_body_role_type_1 import UpdateOrganizationEmailDomainsJsonBodyRoleType1
-from .update_organization_email_domains_json_body_role_type_2 import UpdateOrganizationEmailDomainsJsonBodyRoleType2
-from .update_organization_email_domains_json_body_role_type_3 import UpdateOrganizationEmailDomainsJsonBodyRoleType3
-from .update_organization_email_domains_response_200 import UpdateOrganizationEmailDomainsResponse200
-from .update_organization_email_domains_response_200_results import UpdateOrganizationEmailDomainsResponse200Results
+from .update_organization_email_domains_json_body_role_type_0 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType0,
+)
+from .update_organization_email_domains_json_body_role_type_1 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType1,
+)
+from .update_organization_email_domains_json_body_role_type_2 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType2,
+)
+from .update_organization_email_domains_json_body_role_type_3 import (
+    UpdateOrganizationEmailDomainsJsonBodyRoleType3,
+)
+from .update_organization_email_domains_response_200 import (
+    UpdateOrganizationEmailDomainsResponse200,
+)
+from .update_organization_email_domains_response_200_results import (
+    UpdateOrganizationEmailDomainsResponse200Results,
+)
 from .update_organization_email_domains_response_200_results_projects_item import (
     UpdateOrganizationEmailDomainsResponse200ResultsProjectsItem,
 )
@@ -1592,19 +2164,33 @@ from .update_organization_email_domains_response_200_results_role_type_2 import 
 from .update_organization_email_domains_response_200_results_role_type_3 import (
     UpdateOrganizationEmailDomainsResponse200ResultsRoleType3,
 )
-from .update_organization_email_domains_response_200_status import UpdateOrganizationEmailDomainsResponse200Status
+from .update_organization_email_domains_response_200_status import (
+    UpdateOrganizationEmailDomainsResponse200Status,
+)
 from .update_organization_member_json_body import UpdateOrganizationMemberJsonBody
-from .update_organization_member_json_body_role import UpdateOrganizationMemberJsonBodyRole
+from .update_organization_member_json_body_role import (
+    UpdateOrganizationMemberJsonBodyRole,
+)
 from .update_organization_member_response_200 import UpdateOrganizationMemberResponse200
-from .update_organization_member_response_200_results import UpdateOrganizationMemberResponse200Results
-from .update_organization_member_response_200_results_role import UpdateOrganizationMemberResponse200ResultsRole
-from .update_organization_member_response_200_status import UpdateOrganizationMemberResponse200Status
+from .update_organization_member_response_200_results import (
+    UpdateOrganizationMemberResponse200Results,
+)
+from .update_organization_member_response_200_results_role import (
+    UpdateOrganizationMemberResponse200ResultsRole,
+)
+from .update_organization_member_response_200_status import (
+    UpdateOrganizationMemberResponse200Status,
+)
 from .update_pinned_item_order import UpdatePinnedItemOrder
 from .update_pinned_item_order_data import UpdatePinnedItemOrderData
 from .update_pinned_item_order_type import UpdatePinnedItemOrderType
 from .update_pinned_items_order_json_body_item import UpdatePinnedItemsOrderJsonBodyItem
-from .update_pinned_items_order_json_body_item_data import UpdatePinnedItemsOrderJsonBodyItemData
-from .update_pinned_items_order_json_body_item_type import UpdatePinnedItemsOrderJsonBodyItemType
+from .update_pinned_items_order_json_body_item_data import (
+    UpdatePinnedItemsOrderJsonBodyItemData,
+)
+from .update_pinned_items_order_json_body_item_type import (
+    UpdatePinnedItemsOrderJsonBodyItemType,
+)
 from .update_pinned_items_order_response_200 import UpdatePinnedItemsOrderResponse200
 from .update_pinned_items_order_response_200_results_item_type_0 import (
     UpdatePinnedItemsOrderResponse200ResultsItemType0,
@@ -1648,33 +2234,55 @@ from .update_pinned_items_order_response_200_results_item_type_2_data import (
 from .update_pinned_items_order_response_200_results_item_type_2_type import (
     UpdatePinnedItemsOrderResponse200ResultsItemType2Type,
 )
-from .update_pinned_items_order_response_200_status import UpdatePinnedItemsOrderResponse200Status
+from .update_pinned_items_order_response_200_status import (
+    UpdatePinnedItemsOrderResponse200Status,
+)
 from .update_project_access_for_user_json_body import UpdateProjectAccessForUserJsonBody
-from .update_project_access_for_user_json_body_role import UpdateProjectAccessForUserJsonBodyRole
-from .update_project_access_for_user_response_200 import UpdateProjectAccessForUserResponse200
-from .update_project_access_for_user_response_200_status import UpdateProjectAccessForUserResponse200Status
+from .update_project_access_for_user_json_body_role import (
+    UpdateProjectAccessForUserJsonBodyRole,
+)
+from .update_project_access_for_user_response_200 import (
+    UpdateProjectAccessForUserResponse200,
+)
+from .update_project_access_for_user_response_200_status import (
+    UpdateProjectAccessForUserResponse200Status,
+)
 from .update_project_member import UpdateProjectMember
 from .update_project_member_role import UpdateProjectMemberRole
 from .update_scheduler_response_201 import UpdateSchedulerResponse201
 from .update_scheduler_response_201_results import UpdateSchedulerResponse201Results
-from .update_scheduler_response_201_results_targets_item_type_0 import UpdateSchedulerResponse201ResultsTargetsItemType0
-from .update_scheduler_response_201_results_targets_item_type_1 import UpdateSchedulerResponse201ResultsTargetsItemType1
+from .update_scheduler_response_201_results_targets_item_type_0 import (
+    UpdateSchedulerResponse201ResultsTargetsItemType0,
+)
+from .update_scheduler_response_201_results_targets_item_type_1 import (
+    UpdateSchedulerResponse201ResultsTargetsItemType1,
+)
 from .update_scheduler_response_201_status import UpdateSchedulerResponse201Status
 from .update_space import UpdateSpace
 from .update_space_json_body import UpdateSpaceJsonBody
 from .update_space_response_200 import UpdateSpaceResponse200
 from .update_space_response_200_results import UpdateSpaceResponse200Results
-from .update_space_response_200_results_access_item import UpdateSpaceResponse200ResultsAccessItem
-from .update_space_response_200_results_access_item_role import UpdateSpaceResponse200ResultsAccessItemRole
-from .update_space_response_200_results_dashboards_item import UpdateSpaceResponse200ResultsDashboardsItem
+from .update_space_response_200_results_access_item import (
+    UpdateSpaceResponse200ResultsAccessItem,
+)
+from .update_space_response_200_results_access_item_role import (
+    UpdateSpaceResponse200ResultsAccessItemRole,
+)
+from .update_space_response_200_results_dashboards_item import (
+    UpdateSpaceResponse200ResultsDashboardsItem,
+)
 from .update_space_response_200_results_dashboards_item_updated_by_user import (
     UpdateSpaceResponse200ResultsDashboardsItemUpdatedByUser,
 )
 from .update_space_response_200_results_dashboards_item_validation_errors_item import (
     UpdateSpaceResponse200ResultsDashboardsItemValidationErrorsItem,
 )
-from .update_space_response_200_results_queries_item import UpdateSpaceResponse200ResultsQueriesItem
-from .update_space_response_200_results_queries_item_chart_type import UpdateSpaceResponse200ResultsQueriesItemChartType
+from .update_space_response_200_results_queries_item import (
+    UpdateSpaceResponse200ResultsQueriesItem,
+)
+from .update_space_response_200_results_queries_item_chart_type import (
+    UpdateSpaceResponse200ResultsQueriesItemChartType,
+)
 from .update_space_response_200_results_queries_item_updated_by_user import (
     UpdateSpaceResponse200ResultsQueriesItemUpdatedByUser,
 )
@@ -1689,14 +2297,24 @@ from .validate_project_response_200 import ValidateProjectResponse200
 from .validate_project_response_200_results import ValidateProjectResponse200Results
 from .validate_project_response_200_status import ValidateProjectResponse200Status
 from .validation_error_chart_response import ValidationErrorChartResponse
-from .validation_error_chart_response_chart_type import ValidationErrorChartResponseChartType
-from .validation_error_chart_response_error_type import ValidationErrorChartResponseErrorType
+from .validation_error_chart_response_chart_type import (
+    ValidationErrorChartResponseChartType,
+)
+from .validation_error_chart_response_error_type import (
+    ValidationErrorChartResponseErrorType,
+)
 from .validation_error_chart_response_source import ValidationErrorChartResponseSource
 from .validation_error_dashboard_response import ValidationErrorDashboardResponse
-from .validation_error_dashboard_response_error_type import ValidationErrorDashboardResponseErrorType
-from .validation_error_dashboard_response_source import ValidationErrorDashboardResponseSource
+from .validation_error_dashboard_response_error_type import (
+    ValidationErrorDashboardResponseErrorType,
+)
+from .validation_error_dashboard_response_source import (
+    ValidationErrorDashboardResponseSource,
+)
 from .validation_error_table_response import ValidationErrorTableResponse
-from .validation_error_table_response_error_type import ValidationErrorTableResponseErrorType
+from .validation_error_table_response_error_type import (
+    ValidationErrorTableResponseErrorType,
+)
 from .validation_error_table_response_source import ValidationErrorTableResponseSource
 from .validation_error_type import ValidationErrorType
 from .validation_response_base import ValidationResponseBase
@@ -1715,18 +2333,30 @@ from .validation_response_type_2_source import ValidationResponseType2Source
 from .validation_source_type import ValidationSourceType
 from .validation_summary import ValidationSummary
 from .view_statistics import ViewStatistics
-from .warehouse_credentials_type_0_start_of_week import WarehouseCredentialsType0StartOfWeek
+from .warehouse_credentials_type_0_start_of_week import (
+    WarehouseCredentialsType0StartOfWeek,
+)
 from .warehouse_credentials_type_0_type import WarehouseCredentialsType0Type
-from .warehouse_credentials_type_1_start_of_week import WarehouseCredentialsType1StartOfWeek
+from .warehouse_credentials_type_1_start_of_week import (
+    WarehouseCredentialsType1StartOfWeek,
+)
 from .warehouse_credentials_type_1_type import WarehouseCredentialsType1Type
-from .warehouse_credentials_type_2_start_of_week import WarehouseCredentialsType2StartOfWeek
+from .warehouse_credentials_type_2_start_of_week import (
+    WarehouseCredentialsType2StartOfWeek,
+)
 from .warehouse_credentials_type_2_type import WarehouseCredentialsType2Type
 from .warehouse_credentials_type_3_priority import WarehouseCredentialsType3Priority
-from .warehouse_credentials_type_3_start_of_week import WarehouseCredentialsType3StartOfWeek
+from .warehouse_credentials_type_3_start_of_week import (
+    WarehouseCredentialsType3StartOfWeek,
+)
 from .warehouse_credentials_type_3_type import WarehouseCredentialsType3Type
-from .warehouse_credentials_type_4_start_of_week import WarehouseCredentialsType4StartOfWeek
+from .warehouse_credentials_type_4_start_of_week import (
+    WarehouseCredentialsType4StartOfWeek,
+)
 from .warehouse_credentials_type_4_type import WarehouseCredentialsType4Type
-from .warehouse_credentials_type_5_start_of_week import WarehouseCredentialsType5StartOfWeek
+from .warehouse_credentials_type_5_start_of_week import (
+    WarehouseCredentialsType5StartOfWeek,
+)
 from .warehouse_credentials_type_5_type import WarehouseCredentialsType5Type
 from .warehouse_types_bigquery import WarehouseTypesBIGQUERY
 from .warehouse_types_databricks import WarehouseTypesDATABRICKS

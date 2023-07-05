@@ -1,16 +1,15 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.update_pinned_items_order_json_body_item_type import UpdatePinnedItemsOrderJsonBodyItemType
+from ..models.update_pinned_items_order_json_body_item_type import (
+    UpdatePinnedItemsOrderJsonBodyItemType,
+)
 
 if TYPE_CHECKING:
-    from ..models.update_pinned_items_order_json_body_item_data import UpdatePinnedItemsOrderJsonBodyItemData
+    from ..models.update_pinned_items_order_json_body_item_data import (
+        UpdatePinnedItemsOrderJsonBodyItemData,
+    )
 
 
 T = TypeVar("T", bound="UpdatePinnedItemsOrderJsonBodyItem")
@@ -46,7 +45,9 @@ class UpdatePinnedItemsOrderJsonBodyItem:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.update_pinned_items_order_json_body_item_data import UpdatePinnedItemsOrderJsonBodyItemData
+        from ..models.update_pinned_items_order_json_body_item_data import (
+            UpdatePinnedItemsOrderJsonBodyItemData,
+        )
 
         d = src_dict.copy()
         data = UpdatePinnedItemsOrderJsonBodyItemData.from_dict(d.pop("data"))

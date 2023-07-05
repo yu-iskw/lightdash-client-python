@@ -1,14 +1,11 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
 if TYPE_CHECKING:
-    from ..models.api_dbt_cloud_metrics_results_metrics_item import ApiDbtCloudMetricsResultsMetricsItem
+    from ..models.api_dbt_cloud_metrics_results_metrics_item import (
+        ApiDbtCloudMetricsResultsMetricsItem,
+    )
 
 
 T = TypeVar("T", bound="ApiDbtCloudMetricsResults")
@@ -45,7 +42,9 @@ class ApiDbtCloudMetricsResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_dbt_cloud_metrics_results_metrics_item import ApiDbtCloudMetricsResultsMetricsItem
+        from ..models.api_dbt_cloud_metrics_results_metrics_item import (
+            ApiDbtCloudMetricsResultsMetricsItem,
+        )
 
         d = src_dict.copy()
         metrics = []

@@ -1,23 +1,22 @@
 import datetime
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
 
-from ..models.scheduler_with_logs_logs_item_status import SchedulerWithLogsLogsItemStatus
-from ..models.scheduler_with_logs_logs_item_target_type import SchedulerWithLogsLogsItemTargetType
+from ..models.scheduler_with_logs_logs_item_status import (
+    SchedulerWithLogsLogsItemStatus,
+)
+from ..models.scheduler_with_logs_logs_item_target_type import (
+    SchedulerWithLogsLogsItemTargetType,
+)
 from ..models.scheduler_with_logs_logs_item_task import SchedulerWithLogsLogsItemTask
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.scheduler_with_logs_logs_item_details import SchedulerWithLogsLogsItemDetails
+    from ..models.scheduler_with_logs_logs_item_details import (
+        SchedulerWithLogsLogsItemDetails,
+    )
 
 
 T = TypeVar("T", bound="SchedulerWithLogsLogsItem")
@@ -99,7 +98,9 @@ class SchedulerWithLogsLogsItem:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.scheduler_with_logs_logs_item_details import SchedulerWithLogsLogsItemDetails
+        from ..models.scheduler_with_logs_logs_item_details import (
+            SchedulerWithLogsLogsItemDetails,
+        )
 
         d = src_dict.copy()
         status = SchedulerWithLogsLogsItemStatus(d.pop("status"))

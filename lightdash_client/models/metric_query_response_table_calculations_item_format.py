@@ -1,9 +1,4 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
@@ -16,8 +11,7 @@ from ..models.metric_query_response_table_calculations_item_format_separator imp
 from ..models.metric_query_response_table_calculations_item_format_type import (
     MetricQueryResponseTableCalculationsItemFormatType,
 )
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="MetricQueryResponseTableCalculationsItemFormat")
 

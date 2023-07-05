@@ -1,21 +1,24 @@
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.update_allowed_email_domains_role_type_0 import UpdateAllowedEmailDomainsRoleType0
-from ..models.update_allowed_email_domains_role_type_1 import UpdateAllowedEmailDomainsRoleType1
-from ..models.update_allowed_email_domains_role_type_2 import UpdateAllowedEmailDomainsRoleType2
-from ..models.update_allowed_email_domains_role_type_3 import UpdateAllowedEmailDomainsRoleType3
+from ..models.update_allowed_email_domains_role_type_0 import (
+    UpdateAllowedEmailDomainsRoleType0,
+)
+from ..models.update_allowed_email_domains_role_type_1 import (
+    UpdateAllowedEmailDomainsRoleType1,
+)
+from ..models.update_allowed_email_domains_role_type_2 import (
+    UpdateAllowedEmailDomainsRoleType2,
+)
+from ..models.update_allowed_email_domains_role_type_3 import (
+    UpdateAllowedEmailDomainsRoleType3,
+)
 
 if TYPE_CHECKING:
-    from ..models.update_allowed_email_domains_projects_item import UpdateAllowedEmailDomainsProjectsItem
+    from ..models.update_allowed_email_domains_projects_item import (
+        UpdateAllowedEmailDomainsProjectsItem,
+    )
 
 
 T = TypeVar("T", bound="UpdateAllowedEmailDomains")
@@ -79,7 +82,9 @@ class UpdateAllowedEmailDomains:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.update_allowed_email_domains_projects_item import UpdateAllowedEmailDomainsProjectsItem
+        from ..models.update_allowed_email_domains_projects_item import (
+            UpdateAllowedEmailDomainsProjectsItem,
+        )
 
         d = src_dict.copy()
         email_domains = cast(List[str], d.pop("emailDomains"))

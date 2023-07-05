@@ -1,17 +1,16 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
 if TYPE_CHECKING:
     from ..models.scheduler_with_logs_charts_item import SchedulerWithLogsChartsItem
-    from ..models.scheduler_with_logs_dashboards_item import SchedulerWithLogsDashboardsItem
+    from ..models.scheduler_with_logs_dashboards_item import (
+        SchedulerWithLogsDashboardsItem,
+    )
     from ..models.scheduler_with_logs_logs_item import SchedulerWithLogsLogsItem
-    from ..models.scheduler_with_logs_schedulers_item import SchedulerWithLogsSchedulersItem
+    from ..models.scheduler_with_logs_schedulers_item import (
+        SchedulerWithLogsSchedulersItem,
+    )
     from ..models.scheduler_with_logs_users_item import SchedulerWithLogsUsersItem
 
 
@@ -84,9 +83,13 @@ class SchedulerWithLogs:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.scheduler_with_logs_charts_item import SchedulerWithLogsChartsItem
-        from ..models.scheduler_with_logs_dashboards_item import SchedulerWithLogsDashboardsItem
+        from ..models.scheduler_with_logs_dashboards_item import (
+            SchedulerWithLogsDashboardsItem,
+        )
         from ..models.scheduler_with_logs_logs_item import SchedulerWithLogsLogsItem
-        from ..models.scheduler_with_logs_schedulers_item import SchedulerWithLogsSchedulersItem
+        from ..models.scheduler_with_logs_schedulers_item import (
+            SchedulerWithLogsSchedulersItem,
+        )
         from ..models.scheduler_with_logs_users_item import SchedulerWithLogsUsersItem
 
         d = src_dict.copy()

@@ -1,11 +1,5 @@
 import datetime
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TypeVar
-from typing import Union
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 from dateutil.parser import isoparse

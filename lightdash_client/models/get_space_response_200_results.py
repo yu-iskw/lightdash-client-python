@@ -1,17 +1,17 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
 
 import attr
 
 if TYPE_CHECKING:
-    from ..models.get_space_response_200_results_access_item import GetSpaceResponse200ResultsAccessItem
-    from ..models.get_space_response_200_results_dashboards_item import GetSpaceResponse200ResultsDashboardsItem
-    from ..models.get_space_response_200_results_queries_item import GetSpaceResponse200ResultsQueriesItem
+    from ..models.get_space_response_200_results_access_item import (
+        GetSpaceResponse200ResultsAccessItem,
+    )
+    from ..models.get_space_response_200_results_dashboards_item import (
+        GetSpaceResponse200ResultsDashboardsItem,
+    )
+    from ..models.get_space_response_200_results_queries_item import (
+        GetSpaceResponse200ResultsQueriesItem,
+    )
 
 
 T = TypeVar("T", bound="GetSpaceResponse200Results")
@@ -93,9 +93,15 @@ class GetSpaceResponse200Results:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.get_space_response_200_results_access_item import GetSpaceResponse200ResultsAccessItem
-        from ..models.get_space_response_200_results_dashboards_item import GetSpaceResponse200ResultsDashboardsItem
-        from ..models.get_space_response_200_results_queries_item import GetSpaceResponse200ResultsQueriesItem
+        from ..models.get_space_response_200_results_access_item import (
+            GetSpaceResponse200ResultsAccessItem,
+        )
+        from ..models.get_space_response_200_results_dashboards_item import (
+            GetSpaceResponse200ResultsDashboardsItem,
+        )
+        from ..models.get_space_response_200_results_queries_item import (
+            GetSpaceResponse200ResultsQueriesItem,
+        )
 
         d = src_dict.copy()
         access = []

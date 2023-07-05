@@ -1,23 +1,18 @@
 import datetime
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
 
 import attr
 from dateutil.parser import isoparse
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dashboard_basic_details_updated_by_user import DashboardBasicDetailsUpdatedByUser
-    from ..models.dashboard_basic_details_validation_errors_item import DashboardBasicDetailsValidationErrorsItem
+    from ..models.dashboard_basic_details_updated_by_user import (
+        DashboardBasicDetailsUpdatedByUser,
+    )
+    from ..models.dashboard_basic_details_validation_errors_item import (
+        DashboardBasicDetailsValidationErrorsItem,
+    )
 
 
 T = TypeVar("T", bound="DashboardBasicDetails")
@@ -118,8 +113,12 @@ class DashboardBasicDetails:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dashboard_basic_details_updated_by_user import DashboardBasicDetailsUpdatedByUser
-        from ..models.dashboard_basic_details_validation_errors_item import DashboardBasicDetailsValidationErrorsItem
+        from ..models.dashboard_basic_details_updated_by_user import (
+            DashboardBasicDetailsUpdatedByUser,
+        )
+        from ..models.dashboard_basic_details_validation_errors_item import (
+            DashboardBasicDetailsValidationErrorsItem,
+        )
 
         d = src_dict.copy()
         name = d.pop("name")

@@ -1,19 +1,14 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.project_dbt_connection_type_0_type import ProjectDbtConnectionType0Type
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.project_dbt_connection_type_0_environment_item import ProjectDbtConnectionType0EnvironmentItem
+    from ..models.project_dbt_connection_type_0_environment_item import (
+        ProjectDbtConnectionType0EnvironmentItem,
+    )
 
 
 T = TypeVar("T", bound="ProjectDbtConnectionType0")
@@ -70,7 +65,9 @@ class ProjectDbtConnectionType0:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.project_dbt_connection_type_0_environment_item import ProjectDbtConnectionType0EnvironmentItem
+        from ..models.project_dbt_connection_type_0_environment_item import (
+            ProjectDbtConnectionType0EnvironmentItem,
+        )
 
         d = src_dict.copy()
         type = ProjectDbtConnectionType0Type(d.pop("type"))

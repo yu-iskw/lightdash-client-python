@@ -1,18 +1,11 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..models.get_project_response_200_results_warehouse_connection_type_0_type import (
     GetProjectResponse200ResultsWarehouseConnectionType0Type,
 )
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.get_project_response_200_results_warehouse_connection_type_0_start_of_week import (

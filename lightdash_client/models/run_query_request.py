@@ -1,22 +1,18 @@
-from typing import Any
-from typing import cast
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..types import UNSET
-from ..types import Unset
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.run_query_request_additional_metrics_item import RunQueryRequestAdditionalMetricsItem
+    from ..models.run_query_request_additional_metrics_item import (
+        RunQueryRequestAdditionalMetricsItem,
+    )
     from ..models.run_query_request_filters import RunQueryRequestFilters
     from ..models.run_query_request_sorts_item import RunQueryRequestSortsItem
-    from ..models.run_query_request_table_calculations_item import RunQueryRequestTableCalculationsItem
+    from ..models.run_query_request_table_calculations_item import (
+        RunQueryRequestTableCalculationsItem,
+    )
 
 
 T = TypeVar("T", bound="RunQueryRequest")
@@ -96,10 +92,14 @@ class RunQueryRequest:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.run_query_request_additional_metrics_item import RunQueryRequestAdditionalMetricsItem
+        from ..models.run_query_request_additional_metrics_item import (
+            RunQueryRequestAdditionalMetricsItem,
+        )
         from ..models.run_query_request_filters import RunQueryRequestFilters
         from ..models.run_query_request_sorts_item import RunQueryRequestSortsItem
-        from ..models.run_query_request_table_calculations_item import RunQueryRequestTableCalculationsItem
+        from ..models.run_query_request_table_calculations_item import (
+            RunQueryRequestTableCalculationsItem,
+        )
 
         d = src_dict.copy()
         table_calculations = []

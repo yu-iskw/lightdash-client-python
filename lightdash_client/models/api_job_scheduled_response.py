@@ -1,16 +1,13 @@
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
 from ..models.api_job_scheduled_response_status import ApiJobScheduledResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_job_scheduled_response_results import ApiJobScheduledResponseResults
+    from ..models.api_job_scheduled_response_results import (
+        ApiJobScheduledResponseResults,
+    )
 
 
 T = TypeVar("T", bound="ApiJobScheduledResponse")
@@ -46,7 +43,9 @@ class ApiJobScheduledResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_job_scheduled_response_results import ApiJobScheduledResponseResults
+        from ..models.api_job_scheduled_response_results import (
+            ApiJobScheduledResponseResults,
+        )
 
         d = src_dict.copy()
         results = ApiJobScheduledResponseResults.from_dict(d.pop("results"))
