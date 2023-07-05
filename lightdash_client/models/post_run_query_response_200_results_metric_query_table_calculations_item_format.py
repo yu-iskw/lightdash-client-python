@@ -7,6 +7,9 @@ from typing import Union
 
 import attr
 
+from ..models.post_run_query_response_200_results_metric_query_table_calculations_item_format_compact import (
+    PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
+)
 from ..models.post_run_query_response_200_results_metric_query_table_calculations_item_format_separator import (
     PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
 )
@@ -24,11 +27,19 @@ class PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat:
     """
     Attributes:
         type (PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType):
+        suffix (Union[Unset, str]):
+        prefix (Union[Unset, str]):
+        compact (Union[Unset, PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact]):
+        currency (Union[Unset, str]):
         separator (Union[Unset, PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator]):
         round_ (Union[Unset, float]):
     """
 
     type: PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType
+    suffix: Union[Unset, str] = UNSET
+    prefix: Union[Unset, str] = UNSET
+    compact: Union[Unset, PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact] = UNSET
+    currency: Union[Unset, str] = UNSET
     separator: Union[Unset, PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator] = UNSET
     round_: Union[Unset, float] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -36,6 +47,13 @@ class PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat:
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
+        suffix = self.suffix
+        prefix = self.prefix
+        compact: Union[Unset, str] = UNSET
+        if not isinstance(self.compact, Unset):
+            compact = self.compact.value
+
+        currency = self.currency
         separator: Union[Unset, str] = UNSET
         if not isinstance(self.separator, Unset):
             separator = self.separator.value
@@ -49,6 +67,14 @@ class PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat:
                 "type": type,
             }
         )
+        if suffix is not UNSET:
+            field_dict["suffix"] = suffix
+        if prefix is not UNSET:
+            field_dict["prefix"] = prefix
+        if compact is not UNSET:
+            field_dict["compact"] = compact
+        if currency is not UNSET:
+            field_dict["currency"] = currency
         if separator is not UNSET:
             field_dict["separator"] = separator
         if round_ is not UNSET:
@@ -61,6 +87,19 @@ class PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat:
         d = src_dict.copy()
         type = PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType(d.pop("type"))
 
+        suffix = d.pop("suffix", UNSET)
+
+        prefix = d.pop("prefix", UNSET)
+
+        _compact = d.pop("compact", UNSET)
+        compact: Union[Unset, PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact]
+        if isinstance(_compact, Unset):
+            compact = UNSET
+        else:
+            compact = PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact(_compact)
+
+        currency = d.pop("currency", UNSET)
+
         _separator = d.pop("separator", UNSET)
         separator: Union[Unset, PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator]
         if isinstance(_separator, Unset):
@@ -72,6 +111,10 @@ class PostRunQueryResponse200ResultsMetricQueryTableCalculationsItemFormat:
 
         post_run_query_response_200_results_metric_query_table_calculations_item_format = cls(
             type=type,
+            suffix=suffix,
+            prefix=prefix,
+            compact=compact,
+            currency=currency,
             separator=separator,
             round_=round_,
         )

@@ -23,18 +23,17 @@ class CreateSpace:
     """
     Attributes:
         name (str):
-        is_private (Union[Unset, bool]):
         access (Union[Unset, List['CreateSpaceAccessItem']]):
+        is_private (Union[Unset, bool]):
     """
 
     name: str
-    is_private: Union[Unset, bool] = UNSET
     access: Union[Unset, List["CreateSpaceAccessItem"]] = UNSET
+    is_private: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
-        is_private = self.is_private
         access: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.access, Unset):
             access = []
@@ -43,6 +42,8 @@ class CreateSpace:
 
                 access.append(access_item)
 
+        is_private = self.is_private
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -50,10 +51,10 @@ class CreateSpace:
                 "name": name,
             }
         )
-        if is_private is not UNSET:
-            field_dict["isPrivate"] = is_private
         if access is not UNSET:
             field_dict["access"] = access
+        if is_private is not UNSET:
+            field_dict["isPrivate"] = is_private
 
         return field_dict
 
@@ -64,8 +65,6 @@ class CreateSpace:
         d = src_dict.copy()
         name = d.pop("name")
 
-        is_private = d.pop("isPrivate", UNSET)
-
         access = []
         _access = d.pop("access", UNSET)
         for access_item_data in _access or []:
@@ -73,10 +72,12 @@ class CreateSpace:
 
             access.append(access_item)
 
+        is_private = d.pop("isPrivate", UNSET)
+
         create_space = cls(
             name=name,
-            is_private=is_private,
             access=access,
+            is_private=is_private,
         )
 
         create_space.additional_properties = d

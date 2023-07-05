@@ -11,7 +11,7 @@ T = TypeVar("T", bound="CreateGroupInOrganizationJsonBody")
 
 @attr.s(auto_attribs=True)
 class CreateGroupInOrganizationJsonBody:
-    """From T, pick a set of properties whose keys are in the union K
+    """the new group details
 
     Attributes:
         name (str): A friendly name for the group

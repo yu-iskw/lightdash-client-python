@@ -1,6 +1,8 @@
 from typing import Any
 from typing import Dict
+from typing import List
 from typing import Type
+from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
 
@@ -15,6 +17,12 @@ from ..models.post_run_query_json_body_additional_metrics_item_compact_type_1 im
 from ..models.post_run_query_json_body_additional_metrics_item_type import PostRunQueryJsonBodyAdditionalMetricsItemType
 from ..types import UNSET
 from ..types import Unset
+
+if TYPE_CHECKING:
+    from ..models.post_run_query_json_body_additional_metrics_item_filters_item import (
+        PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem,
+    )
+
 
 T = TypeVar("T", bound="PostRunQueryJsonBodyAdditionalMetricsItem")
 
@@ -35,6 +43,9 @@ class PostRunQueryJsonBodyAdditionalMetricsItem:
             PostRunQueryJsonBodyAdditionalMetricsItemCompactType1, Unset]):
         format_ (Union[Unset, str]):
         index (Union[Unset, float]):
+        filters (Union[Unset, List['PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem']]):
+        base_dimension_name (Union[Unset, str]):
+        uuid (Union[Unset, None, str]):
     """
 
     type: PostRunQueryJsonBodyAdditionalMetricsItemType
@@ -52,6 +63,9 @@ class PostRunQueryJsonBodyAdditionalMetricsItem:
     ] = UNSET
     format_: Union[Unset, str] = UNSET
     index: Union[Unset, float] = UNSET
+    filters: Union[Unset, List["PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem"]] = UNSET
+    base_dimension_name: Union[Unset, str] = UNSET
+    uuid: Union[Unset, None, str] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
@@ -79,6 +93,16 @@ class PostRunQueryJsonBodyAdditionalMetricsItem:
 
         format_ = self.format_
         index = self.index
+        filters: Union[Unset, List[Dict[str, Any]]] = UNSET
+        if not isinstance(self.filters, Unset):
+            filters = []
+            for filters_item_data in self.filters:
+                filters_item = filters_item_data.to_dict()
+
+                filters.append(filters_item)
+
+        base_dimension_name = self.base_dimension_name
+        uuid = self.uuid
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(
@@ -103,11 +127,21 @@ class PostRunQueryJsonBodyAdditionalMetricsItem:
             field_dict["format"] = format_
         if index is not UNSET:
             field_dict["index"] = index
+        if filters is not UNSET:
+            field_dict["filters"] = filters
+        if base_dimension_name is not UNSET:
+            field_dict["baseDimensionName"] = base_dimension_name
+        if uuid is not UNSET:
+            field_dict["uuid"] = uuid
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.post_run_query_json_body_additional_metrics_item_filters_item import (
+            PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem,
+        )
+
         d = src_dict.copy()
         type = PostRunQueryJsonBodyAdditionalMetricsItemType(d.pop("type"))
 
@@ -164,6 +198,17 @@ class PostRunQueryJsonBodyAdditionalMetricsItem:
 
         index = d.pop("index", UNSET)
 
+        filters = []
+        _filters = d.pop("filters", UNSET)
+        for filters_item_data in _filters or []:
+            filters_item = PostRunQueryJsonBodyAdditionalMetricsItemFiltersItem.from_dict(filters_item_data)
+
+            filters.append(filters_item)
+
+        base_dimension_name = d.pop("baseDimensionName", UNSET)
+
+        uuid = d.pop("uuid", UNSET)
+
         post_run_query_json_body_additional_metrics_item = cls(
             type=type,
             sql=sql,
@@ -176,6 +221,9 @@ class PostRunQueryJsonBodyAdditionalMetricsItem:
             compact=compact,
             format_=format_,
             index=index,
+            filters=filters,
+            base_dimension_name=base_dimension_name,
+            uuid=uuid,
         )
 
         return post_run_query_json_body_additional_metrics_item

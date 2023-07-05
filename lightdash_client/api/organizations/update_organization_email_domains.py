@@ -60,11 +60,10 @@ def sync_detailed(
     client: Client,
     json_body: UpdateOrganizationEmailDomainsJsonBody,
 ) -> Response[UpdateOrganizationEmailDomainsResponse200]:
-    """Gets the allowed email domains for the current user's organization
+    """Updates the allowed email domains for the current user's organization
 
     Args:
-        json_body (UpdateOrganizationEmailDomainsJsonBody): Construct a type with the properties
-            of T except for those in type K.
+        json_body (UpdateOrganizationEmailDomainsJsonBody): the new allowed email domains
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -92,11 +91,10 @@ def sync(
     client: Client,
     json_body: UpdateOrganizationEmailDomainsJsonBody,
 ) -> Optional[UpdateOrganizationEmailDomainsResponse200]:
-    """Gets the allowed email domains for the current user's organization
+    """Updates the allowed email domains for the current user's organization
 
     Args:
-        json_body (UpdateOrganizationEmailDomainsJsonBody): Construct a type with the properties
-            of T except for those in type K.
+        json_body (UpdateOrganizationEmailDomainsJsonBody): the new allowed email domains
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,11 +115,10 @@ async def asyncio_detailed(
     client: Client,
     json_body: UpdateOrganizationEmailDomainsJsonBody,
 ) -> Response[UpdateOrganizationEmailDomainsResponse200]:
-    """Gets the allowed email domains for the current user's organization
+    """Updates the allowed email domains for the current user's organization
 
     Args:
-        json_body (UpdateOrganizationEmailDomainsJsonBody): Construct a type with the properties
-            of T except for those in type K.
+        json_body (UpdateOrganizationEmailDomainsJsonBody): the new allowed email domains
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -147,11 +144,10 @@ async def asyncio(
     client: Client,
     json_body: UpdateOrganizationEmailDomainsJsonBody,
 ) -> Optional[UpdateOrganizationEmailDomainsResponse200]:
-    """Gets the allowed email domains for the current user's organization
+    """Updates the allowed email domains for the current user's organization
 
     Args:
-        json_body (UpdateOrganizationEmailDomainsJsonBody): Construct a type with the properties
-            of T except for those in type K.
+        json_body (UpdateOrganizationEmailDomainsJsonBody): the new allowed email domains
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

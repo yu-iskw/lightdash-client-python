@@ -6,5 +6,3 @@ __all__ = (
     "AuthenticatedClient",
     "Client",
 )
-
-__version__ = "0.621.0"

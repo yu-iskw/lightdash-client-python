@@ -1,6 +1,8 @@
 from typing import Any
 from typing import Dict
+from typing import List
 from typing import Type
+from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
 
@@ -17,6 +19,12 @@ from ..models.post_chart_results_response_200_results_metric_query_additional_me
 )
 from ..types import UNSET
 from ..types import Unset
+
+if TYPE_CHECKING:
+    from ..models.post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item import (
+        PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
+    )
+
 
 T = TypeVar("T", bound="PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem")
 
@@ -37,6 +45,9 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
             PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1, Unset]):
         format_ (Union[Unset, str]):
         index (Union[Unset, float]):
+        filters (Union[Unset, List['PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem']]):
+        base_dimension_name (Union[Unset, str]):
+        uuid (Union[Unset, None, str]):
     """
 
     type: PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType
@@ -54,6 +65,9 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
     ] = UNSET
     format_: Union[Unset, str] = UNSET
     index: Union[Unset, float] = UNSET
+    filters: Union[Unset, List["PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem"]] = UNSET
+    base_dimension_name: Union[Unset, str] = UNSET
+    uuid: Union[Unset, None, str] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
@@ -81,6 +95,16 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
 
         format_ = self.format_
         index = self.index
+        filters: Union[Unset, List[Dict[str, Any]]] = UNSET
+        if not isinstance(self.filters, Unset):
+            filters = []
+            for filters_item_data in self.filters:
+                filters_item = filters_item_data.to_dict()
+
+                filters.append(filters_item)
+
+        base_dimension_name = self.base_dimension_name
+        uuid = self.uuid
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(
@@ -105,11 +129,21 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
             field_dict["format"] = format_
         if index is not UNSET:
             field_dict["index"] = index
+        if filters is not UNSET:
+            field_dict["filters"] = filters
+        if base_dimension_name is not UNSET:
+            field_dict["baseDimensionName"] = base_dimension_name
+        if uuid is not UNSET:
+            field_dict["uuid"] = uuid
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item import (
+            PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
+        )
+
         d = src_dict.copy()
         type = PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType(d.pop("type"))
 
@@ -172,6 +206,19 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
 
         index = d.pop("index", UNSET)
 
+        filters = []
+        _filters = d.pop("filters", UNSET)
+        for filters_item_data in _filters or []:
+            filters_item = PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem.from_dict(
+                filters_item_data
+            )
+
+            filters.append(filters_item)
+
+        base_dimension_name = d.pop("baseDimensionName", UNSET)
+
+        uuid = d.pop("uuid", UNSET)
+
         post_chart_results_response_200_results_metric_query_additional_metrics_item = cls(
             type=type,
             sql=sql,
@@ -184,6 +231,9 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
             compact=compact,
             format_=format_,
             index=index,
+            filters=filters,
+            base_dimension_name=base_dimension_name,
+            uuid=uuid,
         )
 
         return post_chart_results_response_200_results_metric_query_additional_metrics_item

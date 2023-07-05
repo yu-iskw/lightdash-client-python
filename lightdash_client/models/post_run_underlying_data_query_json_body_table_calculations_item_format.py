@@ -7,6 +7,9 @@ from typing import Union
 
 import attr
 
+from ..models.post_run_underlying_data_query_json_body_table_calculations_item_format_compact import (
+    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact,
+)
 from ..models.post_run_underlying_data_query_json_body_table_calculations_item_format_separator import (
     PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator,
 )
@@ -24,11 +27,19 @@ class PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat:
     """
     Attributes:
         type (PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType):
+        suffix (Union[Unset, str]):
+        prefix (Union[Unset, str]):
+        compact (Union[Unset, PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact]):
+        currency (Union[Unset, str]):
         separator (Union[Unset, PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator]):
         round_ (Union[Unset, float]):
     """
 
     type: PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType
+    suffix: Union[Unset, str] = UNSET
+    prefix: Union[Unset, str] = UNSET
+    compact: Union[Unset, PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact] = UNSET
+    currency: Union[Unset, str] = UNSET
     separator: Union[Unset, PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator] = UNSET
     round_: Union[Unset, float] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -36,6 +47,13 @@ class PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat:
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
+        suffix = self.suffix
+        prefix = self.prefix
+        compact: Union[Unset, str] = UNSET
+        if not isinstance(self.compact, Unset):
+            compact = self.compact.value
+
+        currency = self.currency
         separator: Union[Unset, str] = UNSET
         if not isinstance(self.separator, Unset):
             separator = self.separator.value
@@ -49,6 +67,14 @@ class PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat:
                 "type": type,
             }
         )
+        if suffix is not UNSET:
+            field_dict["suffix"] = suffix
+        if prefix is not UNSET:
+            field_dict["prefix"] = prefix
+        if compact is not UNSET:
+            field_dict["compact"] = compact
+        if currency is not UNSET:
+            field_dict["currency"] = currency
         if separator is not UNSET:
             field_dict["separator"] = separator
         if round_ is not UNSET:
@@ -61,6 +87,19 @@ class PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat:
         d = src_dict.copy()
         type = PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType(d.pop("type"))
 
+        suffix = d.pop("suffix", UNSET)
+
+        prefix = d.pop("prefix", UNSET)
+
+        _compact = d.pop("compact", UNSET)
+        compact: Union[Unset, PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact]
+        if isinstance(_compact, Unset):
+            compact = UNSET
+        else:
+            compact = PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact(_compact)
+
+        currency = d.pop("currency", UNSET)
+
         _separator = d.pop("separator", UNSET)
         separator: Union[Unset, PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator]
         if isinstance(_separator, Unset):
@@ -72,6 +111,10 @@ class PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat:
 
         post_run_underlying_data_query_json_body_table_calculations_item_format = cls(
             type=type,
+            suffix=suffix,
+            prefix=prefix,
+            compact=compact,
+            currency=currency,
             separator=separator,
             round_=round_,
         )

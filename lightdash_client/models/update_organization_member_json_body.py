@@ -3,13 +3,10 @@ from typing import Dict
 from typing import List
 from typing import Type
 from typing import TypeVar
-from typing import Union
 
 import attr
 
 from ..models.update_organization_member_json_body_role import UpdateOrganizationMemberJsonBodyRole
-from ..types import UNSET
-from ..types import Unset
 
 T = TypeVar("T", bound="UpdateOrganizationMemberJsonBody")
 
@@ -19,34 +16,29 @@ class UpdateOrganizationMemberJsonBody:
     """the new membership profile
 
     Attributes:
-        role (Union[Unset, UpdateOrganizationMemberJsonBodyRole]): The role of the user in the organization
+        role (UpdateOrganizationMemberJsonBodyRole):
     """
 
-    role: Union[Unset, UpdateOrganizationMemberJsonBodyRole] = UNSET
+    role: UpdateOrganizationMemberJsonBodyRole
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        role: Union[Unset, str] = UNSET
-        if not isinstance(self.role, Unset):
-            role = self.role.value
+        role = self.role.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update({})
-        if role is not UNSET:
-            field_dict["role"] = role
+        field_dict.update(
+            {
+                "role": role,
+            }
+        )
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        _role = d.pop("role", UNSET)
-        role: Union[Unset, UpdateOrganizationMemberJsonBodyRole]
-        if isinstance(_role, Unset):
-            role = UNSET
-        else:
-            role = UpdateOrganizationMemberJsonBodyRole(_role)
+        role = UpdateOrganizationMemberJsonBodyRole(d.pop("role"))
 
         update_organization_member_json_body = cls(
             role=role,
