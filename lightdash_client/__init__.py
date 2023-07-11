@@ -6,4 +6,4 @@ __all__ = (
     "Client",
 )
 
-__version__ = "0.640.1"
+__version__ = "0.651.2"
