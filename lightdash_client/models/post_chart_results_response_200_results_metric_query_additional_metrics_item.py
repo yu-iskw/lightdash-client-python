@@ -8,6 +8,9 @@ from ..models.post_chart_results_response_200_results_metric_query_additional_me
 from ..models.post_chart_results_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
     PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
 )
+from ..models.post_chart_results_response_200_results_metric_query_additional_metrics_item_format import (
+    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat,
+)
 from ..models.post_chart_results_response_200_results_metric_query_additional_metrics_item_type import (
     PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType,
 )
@@ -36,7 +39,7 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
         round_ (Union[Unset, float]):
         compact (Union[PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0,
             PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1, Unset]):
-        format_ (Union[Unset, str]):
+        format_ (Union[Unset, PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat]):
         index (Union[Unset, float]):
         filters (Union[Unset, List['PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem']]):
         base_dimension_name (Union[Unset, str]):
@@ -56,7 +59,7 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
         PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
         Unset,
     ] = UNSET
-    format_: Union[Unset, str] = UNSET
+    format_: Union[Unset, PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat] = UNSET
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
@@ -86,7 +89,10 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
             if not isinstance(self.compact, Unset):
                 compact = self.compact.value
 
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
+
         index = self.index
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
@@ -195,7 +201,12 @@ class PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem:
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
-        format_ = d.pop("format", UNSET)
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat(_format_)
 
         index = d.pop("index", UNSET)
 

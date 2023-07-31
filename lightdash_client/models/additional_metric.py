@@ -4,6 +4,7 @@ import attr
 
 from ..models.additional_metric_compact_type_0 import AdditionalMetricCompactType0
 from ..models.additional_metric_compact_type_1 import AdditionalMetricCompactType1
+from ..models.additional_metric_format import AdditionalMetricFormat
 from ..models.additional_metric_type import AdditionalMetricType
 from ..types import UNSET, Unset
 
@@ -27,7 +28,7 @@ class AdditionalMetric:
         hidden (Union[Unset, bool]):
         round_ (Union[Unset, float]):
         compact (Union[AdditionalMetricCompactType0, AdditionalMetricCompactType1, Unset]):
-        format_ (Union[Unset, str]):
+        format_ (Union[Unset, AdditionalMetricFormat]):
         index (Union[Unset, float]):
         filters (Union[Unset, List['AdditionalMetricFiltersItem']]):
         base_dimension_name (Union[Unset, str]):
@@ -43,7 +44,7 @@ class AdditionalMetric:
     hidden: Union[Unset, bool] = UNSET
     round_: Union[Unset, float] = UNSET
     compact: Union[AdditionalMetricCompactType0, AdditionalMetricCompactType1, Unset] = UNSET
-    format_: Union[Unset, str] = UNSET
+    format_: Union[Unset, AdditionalMetricFormat] = UNSET
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["AdditionalMetricFiltersItem"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
@@ -73,7 +74,10 @@ class AdditionalMetric:
             if not isinstance(self.compact, Unset):
                 compact = self.compact.value
 
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
+
         index = self.index
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
@@ -168,7 +172,12 @@ class AdditionalMetric:
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
-        format_ = d.pop("format", UNSET)
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, AdditionalMetricFormat]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = AdditionalMetricFormat(_format_)
 
         index = d.pop("index", UNSET)
 
