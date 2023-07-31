@@ -8,6 +8,9 @@ from ..models.metric_query_response_additional_metrics_item_compact_type_0 impor
 from ..models.metric_query_response_additional_metrics_item_compact_type_1 import (
     MetricQueryResponseAdditionalMetricsItemCompactType1,
 )
+from ..models.metric_query_response_additional_metrics_item_format import (
+    MetricQueryResponseAdditionalMetricsItemFormat,
+)
 from ..models.metric_query_response_additional_metrics_item_type import (
     MetricQueryResponseAdditionalMetricsItemType,
 )
@@ -36,7 +39,7 @@ class MetricQueryResponseAdditionalMetricsItem:
         round_ (Union[Unset, float]):
         compact (Union[MetricQueryResponseAdditionalMetricsItemCompactType0,
             MetricQueryResponseAdditionalMetricsItemCompactType1, Unset]):
-        format_ (Union[Unset, str]):
+        format_ (Union[Unset, MetricQueryResponseAdditionalMetricsItemFormat]):
         index (Union[Unset, float]):
         filters (Union[Unset, List['MetricQueryResponseAdditionalMetricsItemFiltersItem']]):
         base_dimension_name (Union[Unset, str]):
@@ -56,7 +59,7 @@ class MetricQueryResponseAdditionalMetricsItem:
         MetricQueryResponseAdditionalMetricsItemCompactType1,
         Unset,
     ] = UNSET
-    format_: Union[Unset, str] = UNSET
+    format_: Union[Unset, MetricQueryResponseAdditionalMetricsItemFormat] = UNSET
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["MetricQueryResponseAdditionalMetricsItemFiltersItem"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
@@ -86,7 +89,10 @@ class MetricQueryResponseAdditionalMetricsItem:
             if not isinstance(self.compact, Unset):
                 compact = self.compact.value
 
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
+
         index = self.index
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
@@ -189,7 +195,12 @@ class MetricQueryResponseAdditionalMetricsItem:
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
-        format_ = d.pop("format", UNSET)
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, MetricQueryResponseAdditionalMetricsItemFormat]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = MetricQueryResponseAdditionalMetricsItemFormat(_format_)
 
         index = d.pop("index", UNSET)
 

@@ -8,6 +8,9 @@ from ..models.api_run_query_response_results_metric_query_additional_metrics_ite
 from ..models.api_run_query_response_results_metric_query_additional_metrics_item_compact_type_1 import (
     ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1,
 )
+from ..models.api_run_query_response_results_metric_query_additional_metrics_item_format import (
+    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat,
+)
 from ..models.api_run_query_response_results_metric_query_additional_metrics_item_type import (
     ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemType,
 )
@@ -36,7 +39,7 @@ class ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem:
         round_ (Union[Unset, float]):
         compact (Union[ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType0,
             ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1, Unset]):
-        format_ (Union[Unset, str]):
+        format_ (Union[Unset, ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat]):
         index (Union[Unset, float]):
         filters (Union[Unset, List['ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItem']]):
         base_dimension_name (Union[Unset, str]):
@@ -56,7 +59,7 @@ class ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem:
         ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1,
         Unset,
     ] = UNSET
-    format_: Union[Unset, str] = UNSET
+    format_: Union[Unset, ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat] = UNSET
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItem"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
@@ -86,7 +89,10 @@ class ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem:
             if not isinstance(self.compact, Unset):
                 compact = self.compact.value
 
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
+
         index = self.index
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
@@ -191,7 +197,12 @@ class ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem:
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
-        format_ = d.pop("format", UNSET)
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat(_format_)
 
         index = d.pop("index", UNSET)
 

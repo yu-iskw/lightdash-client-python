@@ -8,6 +8,9 @@ from ..models.run_query_request_additional_metrics_item_compact_type_0 import (
 from ..models.run_query_request_additional_metrics_item_compact_type_1 import (
     RunQueryRequestAdditionalMetricsItemCompactType1,
 )
+from ..models.run_query_request_additional_metrics_item_format import (
+    RunQueryRequestAdditionalMetricsItemFormat,
+)
 from ..models.run_query_request_additional_metrics_item_type import (
     RunQueryRequestAdditionalMetricsItemType,
 )
@@ -36,7 +39,7 @@ class RunQueryRequestAdditionalMetricsItem:
         round_ (Union[Unset, float]):
         compact (Union[RunQueryRequestAdditionalMetricsItemCompactType0,
             RunQueryRequestAdditionalMetricsItemCompactType1, Unset]):
-        format_ (Union[Unset, str]):
+        format_ (Union[Unset, RunQueryRequestAdditionalMetricsItemFormat]):
         index (Union[Unset, float]):
         filters (Union[Unset, List['RunQueryRequestAdditionalMetricsItemFiltersItem']]):
         base_dimension_name (Union[Unset, str]):
@@ -54,7 +57,7 @@ class RunQueryRequestAdditionalMetricsItem:
     compact: Union[
         RunQueryRequestAdditionalMetricsItemCompactType0, RunQueryRequestAdditionalMetricsItemCompactType1, Unset
     ] = UNSET
-    format_: Union[Unset, str] = UNSET
+    format_: Union[Unset, RunQueryRequestAdditionalMetricsItemFormat] = UNSET
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["RunQueryRequestAdditionalMetricsItemFiltersItem"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
@@ -84,7 +87,10 @@ class RunQueryRequestAdditionalMetricsItem:
             if not isinstance(self.compact, Unset):
                 compact = self.compact.value
 
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
+
         index = self.index
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
@@ -185,7 +191,12 @@ class RunQueryRequestAdditionalMetricsItem:
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
-        format_ = d.pop("format", UNSET)
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, RunQueryRequestAdditionalMetricsItemFormat]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = RunQueryRequestAdditionalMetricsItemFormat(_format_)
 
         index = d.pop("index", UNSET)
 

@@ -8,6 +8,9 @@ from ..models.post_run_underlying_data_query_json_body_additional_metrics_item_c
 from ..models.post_run_underlying_data_query_json_body_additional_metrics_item_compact_type_1 import (
     PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1,
 )
+from ..models.post_run_underlying_data_query_json_body_additional_metrics_item_format import (
+    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat,
+)
 from ..models.post_run_underlying_data_query_json_body_additional_metrics_item_type import (
     PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemType,
 )
@@ -36,7 +39,7 @@ class PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem:
         round_ (Union[Unset, float]):
         compact (Union[PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType0,
             PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1, Unset]):
-        format_ (Union[Unset, str]):
+        format_ (Union[Unset, PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat]):
         index (Union[Unset, float]):
         filters (Union[Unset, List['PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItem']]):
         base_dimension_name (Union[Unset, str]):
@@ -56,7 +59,7 @@ class PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem:
         PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1,
         Unset,
     ] = UNSET
-    format_: Union[Unset, str] = UNSET
+    format_: Union[Unset, PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat] = UNSET
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItem"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
@@ -86,7 +89,10 @@ class PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem:
             if not isinstance(self.compact, Unset):
                 compact = self.compact.value
 
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
+
         index = self.index
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
@@ -191,7 +197,12 @@ class PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem:
 
         compact = _parse_compact(d.pop("compact", UNSET))
 
-        format_ = d.pop("format", UNSET)
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat(_format_)
 
         index = d.pop("index", UNSET)
 
