@@ -929,6 +929,12 @@
         ],
         "type": "object"
       },
+      "UUID": {
+        "type": "string",
+        "format": "uuid",
+        "description": "Stringified UUIDv4.\nSee [RFC 4112](https://tools.ietf.org/html/rfc4122)",
+        "pattern": "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}"
+      },
       "OrganizationMemberProfileUpdate": {
         "properties": {
           "role": {
@@ -7196,7 +7202,7 @@
         ],
         "type": "object"
       },
-      "Pick_Space.organizationUuid-or-projectUuid-or-uuid-or-name-or-isPrivate_": {
+      "Pick_Space.organizationUuid-or-projectUuid-or-uuid-or-name-or-isPrivate-or-pinnedListUuid-or-pinnedListOrder_": {
         "properties": {
           "name": {
             "type": "string"
@@ -7210,6 +7216,15 @@
           "projectUuid": {
             "type": "string"
           },
+          "pinnedListUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "pinnedListOrder": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "isPrivate": {
             "type": "boolean"
           }
@@ -7219,6 +7234,8 @@
           "organizationUuid",
           "uuid",
           "projectUuid",
+          "pinnedListUuid",
+          "pinnedListOrder",
           "isPrivate"
         ],
         "type": "object",
@@ -7240,6 +7257,15 @@
               "projectUuid": {
                 "type": "string"
               },
+              "pinnedListUuid": {
+                "type": "string",
+                "nullable": true
+              },
+              "pinnedListOrder": {
+                "type": "number",
+                "format": "double",
+                "nullable": true
+              },
               "isPrivate": {
                 "type": "boolean"
               }
@@ -7249,6 +7275,8 @@
               "organizationUuid",
               "uuid",
               "projectUuid",
+              "pinnedListUuid",
+              "pinnedListOrder",
               "isPrivate"
             ],
             "type": "object",
@@ -7256,6 +7284,14 @@
           },
           {
             "properties": {
+              "dashboardCount": {
+                "type": "number",
+                "format": "double"
+              },
+              "chartCount": {
+                "type": "number",
+                "format": "double"
+              },
               "access": {
                 "items": {
                   "type": "string"
@@ -7264,6 +7300,8 @@
               }
             },
             "required": [
+              "dashboardCount",
+              "chartCount",
               "access"
             ],
             "type": "object"
@@ -7289,6 +7327,15 @@
                     "projectUuid": {
                       "type": "string"
                     },
+                    "pinnedListUuid": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "pinnedListOrder": {
+                      "type": "number",
+                      "format": "double",
+                      "nullable": true
+                    },
                     "isPrivate": {
                       "type": "boolean"
                     }
@@ -7298,6 +7345,8 @@
                     "organizationUuid",
                     "uuid",
                     "projectUuid",
+                    "pinnedListUuid",
+                    "pinnedListOrder",
                     "isPrivate"
                   ],
                   "type": "object",
@@ -7305,6 +7354,14 @@
                 },
                 {
                   "properties": {
+                    "dashboardCount": {
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "chartCount": {
+                      "type": "number",
+                      "format": "double"
+                    },
                     "access": {
                       "items": {
                         "type": "string"
@@ -7313,6 +7370,8 @@
                     }
                   },
                   "required": [
+                    "dashboardCount",
+                    "chartCount",
                     "access"
                   ],
                   "type": "object"
@@ -7481,6 +7540,38 @@
         },
         "required": [
           "role"
+        ],
+        "type": "object"
+      },
+      "Record_string._type-DimensionType--__": {
+        "properties": {},
+        "type": "object",
+        "description": "Construct a type with a set of properties K of type T"
+      },
+      "Record_string.unknown_": {
+        "properties": {},
+        "type": "object",
+        "description": "Construct a type with a set of properties K of type T"
+      },
+      "ApiSqlQueryResults": {
+        "properties": {
+          "rows": {
+            "items": {
+              "properties": {},
+              "type": "object",
+              "description": "Construct a type with a set of properties K of type T"
+            },
+            "type": "array"
+          },
+          "fields": {
+            "properties": {},
+            "type": "object",
+            "description": "Construct a type with a set of properties K of type T"
+          }
+        },
+        "required": [
+          "rows",
+          "fields"
         ],
         "type": "object"
       },
@@ -7807,6 +7898,18 @@
           }
         ]
       },
+      "Format": {
+        "enum": [
+          "km",
+          "mi",
+          "usd",
+          "gbp",
+          "eur",
+          "id",
+          "percent"
+        ],
+        "type": "string"
+      },
       "ConditionalOperator": {
         "enum": [
           "isNull",
@@ -7943,6 +8046,15 @@
             ]
           },
           "format": {
+            "enum": [
+              "km",
+              "mi",
+              "usd",
+              "gbp",
+              "eur",
+              "id",
+              "percent"
+            ],
             "type": "string"
           },
           "table": {
@@ -8092,6 +8204,15 @@
                   ]
                 },
                 "format": {
+                  "enum": [
+                    "km",
+                    "mi",
+                    "usd",
+                    "gbp",
+                    "eur",
+                    "id",
+                    "percent"
+                  ],
                   "type": "string"
                 },
                 "table": {
@@ -8448,6 +8569,15 @@
                           ]
                         },
                         "format": {
+                          "enum": [
+                            "km",
+                            "mi",
+                            "usd",
+                            "gbp",
+                            "eur",
+                            "id",
+                            "percent"
+                          ],
                           "type": "string"
                         },
                         "table": {
@@ -8821,6 +8951,15 @@
                   ]
                 },
                 "format": {
+                  "enum": [
+                    "km",
+                    "mi",
+                    "usd",
+                    "gbp",
+                    "eur",
+                    "id",
+                    "percent"
+                  ],
                   "type": "string"
                 },
                 "table": {
@@ -12908,6 +13047,334 @@
         ],
         "type": "object"
       },
+      "UserAttributeValue": {
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "userUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "email",
+          "userUuid"
+        ],
+        "type": "object"
+      },
+      "UserAttribute": {
+        "properties": {
+          "users": {
+            "items": {
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "userUuid": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "email",
+                "userUuid"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "description": {
+            "type": "string"
+          },
+          "organizationUuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "users",
+          "organizationUuid",
+          "name",
+          "createdAt",
+          "uuid"
+        ],
+        "type": "object"
+      },
+      "ApiUserAttributesResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "properties": {
+                "users": {
+                  "items": {
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "userUuid": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "email",
+                      "userUuid"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "organizationUuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "uuid": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "users",
+                "organizationUuid",
+                "name",
+                "createdAt",
+                "uuid"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "ApiCreateUserAttributeResponse": {
+        "properties": {
+          "results": {
+            "properties": {
+              "users": {
+                "items": {
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "userUuid": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "email",
+                    "userUuid"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "description": {
+                "type": "string"
+              },
+              "organizationUuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "uuid": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "users",
+              "organizationUuid",
+              "name",
+              "createdAt",
+              "uuid"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_UserAttribute.Exclude_keyofUserAttribute.uuid-or-createdAt-or-organizationUuid-or-users__": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "Omit_UserAttribute.uuid-or-createdAt-or-organizationUuid-or-users_": {
+        "description": "Construct a type with the properties of T except for those in type K.",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "Pick_UserAttributeValue.Exclude_keyofUserAttributeValue.email__": {
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userUuid",
+          "value"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "Omit_UserAttributeValue.email_": {
+        "description": "Construct a type with the properties of T except for those in type K.",
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userUuid",
+          "value"
+        ],
+        "type": "object"
+      },
+      "CreateUserAttributeValue": {
+        "description": "Construct a type with the properties of T except for those in type K.",
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userUuid",
+          "value"
+        ],
+        "type": "object"
+      },
+      "CreateUserAttribute": {
+        "allOf": [
+          {
+            "description": "Construct a type with the properties of T except for those in type K.",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "users": {
+                "items": {
+                  "description": "Construct a type with the properties of T except for those in type K.",
+                  "properties": {
+                    "userUuid": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "userUuid",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "users"
+            ],
+            "type": "object"
+          }
+        ]
+      },
       "EmailOneTimePassword": {
         "properties": {
           "numberOfAttempts": {
@@ -14240,7 +14707,7 @@
   },
   "info": {
     "title": "Lightdash API",
-    "version": "0.651.2",
+    "version": "0.674.0",
     "description": "Open API documentation for all public Lightdash API endpoints",
     "license": {
       "name": "MIT"
@@ -16186,6 +16653,155 @@
       }
     },
     "/api/v1/org/users/{userUuid}": {
+      "get": {
+        "operationId": "GetOrganizationMemberByUuid",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "properties": {
+                        "isInviteExpired": {
+                          "type": "boolean",
+                          "description": "Whether the user's invite to the organization has expired"
+                        },
+                        "isActive": {
+                          "type": "boolean",
+                          "description": "Whether the user has accepted their invite to the organization"
+                        },
+                        "role": {
+                          "description": "The role of the user in the organization",
+                          "enum": [
+                            "member",
+                            "viewer",
+                            "interactive_viewer",
+                            "editor",
+                            "developer",
+                            "admin"
+                          ],
+                          "type": "string"
+                        },
+                        "organizationUuid": {
+                          "type": "string",
+                          "description": "Unique identifier for the organization the user is a member of"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "userUuid": {
+                          "type": "string",
+                          "description": "Unique identifier for the user",
+                          "format": "uuid"
+                        }
+                      },
+                      "required": [
+                        "isActive",
+                        "role",
+                        "organizationUuid",
+                        "email",
+                        "lastName",
+                        "firstName",
+                        "userUuid"
+                      ],
+                      "type": "object",
+                      "description": "Profile for a user's membership in an organization"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "data": {
+                          "description": "Optional data containing details of the error"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "A friendly message summarising the error"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Unique name for the type of error"
+                        },
+                        "statusCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP status code"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "statusCode"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "status"
+                  ],
+                  "type": "object",
+                  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get the member profile for a user in the current user's organization by uuid",
+        "tags": [
+          "Organizations"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "description": "the uuid of the user",
+            "in": "path",
+            "name": "userUuid",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Stringified UUIDv4.\nSee [RFC 4112](https://tools.ietf.org/html/rfc4122)",
+              "pattern": "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}"
+            }
+          }
+        ]
+      },
       "patch": {
         "operationId": "UpdateOrganizationMember",
         "responses": {
@@ -19147,6 +19763,15 @@
                               "projectUuid": {
                                 "type": "string"
                               },
+                              "pinnedListUuid": {
+                                "type": "string",
+                                "nullable": true
+                              },
+                              "pinnedListOrder": {
+                                "type": "number",
+                                "format": "double",
+                                "nullable": true
+                              },
                               "isPrivate": {
                                 "type": "boolean"
                               }
@@ -19156,6 +19781,8 @@
                               "organizationUuid",
                               "uuid",
                               "projectUuid",
+                              "pinnedListUuid",
+                              "pinnedListOrder",
                               "isPrivate"
                             ],
                             "type": "object",
@@ -19163,6 +19790,14 @@
                           },
                           {
                             "properties": {
+                              "dashboardCount": {
+                                "type": "number",
+                                "format": "double"
+                              },
+                              "chartCount": {
+                                "type": "number",
+                                "format": "double"
+                              },
                               "access": {
                                 "items": {
                                   "type": "string"
@@ -19171,6 +19806,8 @@
                               }
                             },
                             "required": [
+                              "dashboardCount",
+                              "chartCount",
                               "access"
                             ],
                             "type": "object"
@@ -20234,6 +20871,144 @@
         ]
       }
     },
+    "/api/v1/projects/{projectUuid}/sqlQuery": {
+      "post": {
+        "operationId": "RunSqlQuery",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "properties": {
+                        "rows": {
+                          "items": {
+                            "properties": {},
+                            "type": "object",
+                            "description": "Construct a type with a set of properties K of type T"
+                          },
+                          "type": "array"
+                        },
+                        "fields": {
+                          "properties": {},
+                          "type": "object",
+                          "description": "Construct a type with a set of properties K of type T"
+                        }
+                      },
+                      "required": [
+                        "rows",
+                        "fields"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "data": {
+                          "description": "Optional data containing details of the error"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "A friendly message summarising the error"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Unique name for the type of error"
+                        },
+                        "statusCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP status code"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "statusCode"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "status"
+                  ],
+                  "type": "object",
+                  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+                }
+              }
+            }
+          }
+        },
+        "description": "Run a raw sql query against the project's warehouse connection",
+        "tags": [
+          "Exploring",
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "description": "The uuid of the project to run the query against",
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The query to run",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "sql": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sql"
+                ],
+                "type": "object",
+                "description": "The query to run"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/projects/{projectUuid}/explores/{exploreId}/runUnderlyingDataQuery": {
       "post": {
         "operationId": "postRunUnderlyingDataQuery",
@@ -20315,6 +21090,15 @@
                                     ]
                                   },
                                   "format": {
+                                    "enum": [
+                                      "km",
+                                      "mi",
+                                      "usd",
+                                      "gbp",
+                                      "eur",
+                                      "id",
+                                      "percent"
+                                    ],
                                     "type": "string"
                                   },
                                   "table": {
@@ -20772,6 +21556,15 @@
                           ]
                         },
                         "format": {
+                          "enum": [
+                            "km",
+                            "mi",
+                            "usd",
+                            "gbp",
+                            "eur",
+                            "id",
+                            "percent"
+                          ],
                           "type": "string"
                         },
                         "table": {
@@ -20992,7 +21785,7 @@
     },
     "/api/v1/projects/{projectUuid}/explores/{exploreId}/runQuery": {
       "post": {
-        "operationId": "postRunQuery",
+        "operationId": "RunMetricQuery",
         "responses": {
           "200": {
             "description": "Success",
@@ -21071,6 +21864,15 @@
                                     ]
                                   },
                                   "format": {
+                                    "enum": [
+                                      "km",
+                                      "mi",
+                                      "usd",
+                                      "gbp",
+                                      "eur",
+                                      "id",
+                                      "percent"
+                                    ],
                                     "type": "string"
                                   },
                                   "table": {
@@ -21528,6 +22330,15 @@
                           ]
                         },
                         "format": {
+                          "enum": [
+                            "km",
+                            "mi",
+                            "usd",
+                            "gbp",
+                            "eur",
+                            "id",
+                            "percent"
+                          ],
                           "type": "string"
                         },
                         "table": {
@@ -21827,6 +22638,15 @@
                                     ]
                                   },
                                   "format": {
+                                    "enum": [
+                                      "km",
+                                      "mi",
+                                      "usd",
+                                      "gbp",
+                                      "eur",
+                                      "id",
+                                      "percent"
+                                    ],
                                     "type": "string"
                                   },
                                   "table": {
@@ -25650,6 +26470,625 @@
         ],
         "security": [],
         "parameters": []
+      }
+    },
+    "/api/v1/org/attributes": {
+      "get": {
+        "operationId": "getUserAttributes",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "users": {
+                            "items": {
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "userUuid": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "email",
+                                "userUuid"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "organizationUuid": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "uuid": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "users",
+                          "organizationUuid",
+                          "name",
+                          "createdAt",
+                          "uuid"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "data": {
+                          "description": "Optional data containing details of the error"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "A friendly message summarising the error"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Unique name for the type of error"
+                        },
+                        "statusCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP status code"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "statusCode"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "status"
+                  ],
+                  "type": "object",
+                  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get all user attributes",
+        "tags": [
+          "User attributes"
+        ],
+        "security": [],
+        "parameters": []
+      },
+      "post": {
+        "operationId": "createUserAttribute",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "properties": {
+                        "users": {
+                          "items": {
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "email": {
+                                "type": "string"
+                              },
+                              "userUuid": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "value",
+                              "email",
+                              "userUuid"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "organizationUuid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "users",
+                        "organizationUuid",
+                        "name",
+                        "createdAt",
+                        "uuid"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "data": {
+                          "description": "Optional data containing details of the error"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "A friendly message summarising the error"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Unique name for the type of error"
+                        },
+                        "statusCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP status code"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "statusCode"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "status"
+                  ],
+                  "type": "object",
+                  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+                }
+              }
+            }
+          }
+        },
+        "description": "Creates new user attribute",
+        "tags": [
+          "User attributes"
+        ],
+        "security": [],
+        "parameters": [],
+        "requestBody": {
+          "description": "the user attribute to create",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "the user attribute to create",
+                "allOf": [
+                  {
+                    "description": "Construct a type with the properties of T except for those in type K.",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "properties": {
+                      "users": {
+                        "items": {
+                          "description": "Construct a type with the properties of T except for those in type K.",
+                          "properties": {
+                            "userUuid": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "userUuid",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "users"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/org/attributes/{userAttributeUuid}": {
+      "put": {
+        "operationId": "updateUserAttribute",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "properties": {
+                        "users": {
+                          "items": {
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "email": {
+                                "type": "string"
+                              },
+                              "userUuid": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "value",
+                              "email",
+                              "userUuid"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "organizationUuid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "users",
+                        "organizationUuid",
+                        "name",
+                        "createdAt",
+                        "uuid"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "data": {
+                          "description": "Optional data containing details of the error"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "A friendly message summarising the error"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Unique name for the type of error"
+                        },
+                        "statusCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP status code"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "statusCode"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "status"
+                  ],
+                  "type": "object",
+                  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+                }
+              }
+            }
+          }
+        },
+        "description": "Updates a user attribute",
+        "tags": [
+          "User attributes"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "description": "the UUID for the group to add the user to",
+            "in": "path",
+            "name": "userAttributeUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the user attribute to update",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "the user attribute to update",
+                "allOf": [
+                  {
+                    "description": "Construct a type with the properties of T except for those in type K.",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "properties": {
+                      "users": {
+                        "items": {
+                          "description": "Construct a type with the properties of T except for those in type K.",
+                          "properties": {
+                            "userUuid": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "userUuid",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "users"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "removeUserAttribute",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {},
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "data": {
+                          "description": "Optional data containing details of the error"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "A friendly message summarising the error"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Unique name for the type of error"
+                        },
+                        "statusCode": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "HTTP status code"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "statusCode"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "status"
+                  ],
+                  "type": "object",
+                  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+                }
+              }
+            }
+          }
+        },
+        "description": "Remove a user attribute",
+        "tags": [
+          "User attributes"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "description": "the user attribute UUID to remove",
+            "in": "path",
+            "name": "userAttributeUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/api/v1/user/me/email/otp": {
