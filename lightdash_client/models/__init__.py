@@ -85,6 +85,14 @@ from .api_email_status_response_status import ApiEmailStatusResponseStatus
 from .api_error_payload import ApiErrorPayload
 from .api_error_payload_error import ApiErrorPayloadError
 from .api_error_payload_status import ApiErrorPayloadStatus
+from .api_gdrive_access_token_response import ApiGdriveAccessTokenResponse
+from .api_gdrive_access_token_response_status import ApiGdriveAccessTokenResponseStatus
+from .api_get_project_member_response import ApiGetProjectMemberResponse
+from .api_get_project_member_response_results import ApiGetProjectMemberResponseResults
+from .api_get_project_member_response_results_role import (
+    ApiGetProjectMemberResponseResultsRole,
+)
+from .api_get_project_member_response_status import ApiGetProjectMemberResponseStatus
 from .api_group_list_response import ApiGroupListResponse
 from .api_group_list_response_results_item import ApiGroupListResponseResultsItem
 from .api_group_list_response_status import ApiGroupListResponseStatus
@@ -261,6 +269,9 @@ from .api_project_response_results_dbt_connection_type_6_environment_item import
 )
 from .api_project_response_results_dbt_connection_type_6_type import (
     ApiProjectResponseResultsDbtConnectionType6Type,
+)
+from .api_project_response_results_dbt_version import (
+    ApiProjectResponseResultsDbtVersion,
 )
 from .api_project_response_results_type import ApiProjectResponseResultsType
 from .api_project_response_results_warehouse_connection_type_0 import (
@@ -546,6 +557,7 @@ from .chart_scheduler_options_type_0_limit_type_1 import (
     ChartSchedulerOptionsType0LimitType1,
 )
 from .chart_scheduler_options_type_1 import ChartSchedulerOptionsType1
+from .chart_scheduler_options_type_2 import ChartSchedulerOptionsType2
 from .chart_summary import ChartSummary
 from .chart_summary_chart_type import ChartSummaryChartType
 from .chart_type import ChartType
@@ -662,6 +674,7 @@ from .dashboard_scheduler_options_type_0_limit_type_1 import (
     DashboardSchedulerOptionsType0LimitType1,
 )
 from .dashboard_scheduler_options_type_1 import DashboardSchedulerOptionsType1
+from .dashboard_scheduler_options_type_2 import DashboardSchedulerOptionsType2
 from .databricks_credentials import DatabricksCredentials
 from .databricks_credentials_start_of_week import DatabricksCredentialsStartOfWeek
 from .databricks_credentials_type import DatabricksCredentialsType
@@ -778,6 +791,8 @@ from .filters_dimensions_type_1 import FiltersDimensionsType1
 from .filters_metrics_type_0 import FiltersMetricsType0
 from .filters_metrics_type_1 import FiltersMetricsType1
 from .format_ import Format
+from .get_access_token_response_200 import GetAccessTokenResponse200
+from .get_access_token_response_200_status import GetAccessTokenResponse200Status
 from .get_csv_url_response_200 import GetCsvUrlResponse200
 from .get_csv_url_response_200_results import GetCsvUrlResponse200Results
 from .get_csv_url_response_200_status import GetCsvUrlResponse200Status
@@ -927,6 +942,16 @@ from .get_project_access_list_response_200_results_item_role import (
 from .get_project_access_list_response_200_status import (
     GetProjectAccessListResponse200Status,
 )
+from .get_project_member_access_response_200 import GetProjectMemberAccessResponse200
+from .get_project_member_access_response_200_results import (
+    GetProjectMemberAccessResponse200Results,
+)
+from .get_project_member_access_response_200_results_role import (
+    GetProjectMemberAccessResponse200ResultsRole,
+)
+from .get_project_member_access_response_200_status import (
+    GetProjectMemberAccessResponse200Status,
+)
 from .get_project_response_200 import GetProjectResponse200
 from .get_project_response_200_results import GetProjectResponse200Results
 from .get_project_response_200_results_dbt_connection_type_0 import (
@@ -988,6 +1013,9 @@ from .get_project_response_200_results_dbt_connection_type_6_environment_item im
 )
 from .get_project_response_200_results_dbt_connection_type_6_type import (
     GetProjectResponse200ResultsDbtConnectionType6Type,
+)
+from .get_project_response_200_results_dbt_version import (
+    GetProjectResponse200ResultsDbtVersion,
 )
 from .get_project_response_200_results_type import GetProjectResponse200ResultsType
 from .get_project_response_200_results_warehouse_connection_type_0 import (
@@ -1396,9 +1424,6 @@ from .omit_create_trino_credentials_sensitive_credentials_field_names_start_of_w
 from .omit_create_trino_credentials_sensitive_credentials_field_names_type import (
     OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesType,
 )
-from .omit_user_attribute_uuid_or_created_at_or_organization_uuid_or_users import (
-    OmitUserAttributeUuidOrCreatedAtOrOrganizationUuidOrUsers,
-)
 from .omit_user_attribute_value_email import OmitUserAttributeValueEmail
 from .omit_validation_response_base_name import OmitValidationResponseBaseName
 from .omit_validation_response_base_name_error_type import (
@@ -1532,8 +1557,8 @@ from .pick_organization_name import PickOrganizationName
 from .pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
     PickResourceViewItemAtDataUuidOrPinnedListOrder,
 )
-from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid import (
-    PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid,
+from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name import (
+    PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName,
 )
 from .pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order import (
     PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder,
@@ -1561,9 +1586,7 @@ from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or
     PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem,
 )
 from .pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
-from .pick_user_attribute_exclude_keyof_user_attribute_uuid_or_created_at_or_organization_uuid_or_users import (
-    PickUserAttributeExcludeKeyofUserAttributeUuidOrCreatedAtOrOrganizationUuidOrUsers,
-)
+from .pick_user_attribute_name_or_description import PickUserAttributeNameOrDescription
 from .pick_user_attribute_value_exclude_keyof_user_attribute_value_email import (
     PickUserAttributeValueExcludeKeyofUserAttributeValueEmail,
 )
@@ -1824,6 +1847,7 @@ from .project_dbt_connection_type_6_environment_item import (
     ProjectDbtConnectionType6EnvironmentItem,
 )
 from .project_dbt_connection_type_6_type import ProjectDbtConnectionType6Type
+from .project_dbt_version import ProjectDbtVersion
 from .project_member_profile import ProjectMemberProfile
 from .project_member_profile_role import ProjectMemberProfileRole
 from .project_member_role import ProjectMemberRole
@@ -2100,10 +2124,12 @@ from .scheduler_base_options_type_0_limit_type_1 import (
     SchedulerBaseOptionsType0LimitType1,
 )
 from .scheduler_base_options_type_1 import SchedulerBaseOptionsType1
+from .scheduler_base_options_type_2 import SchedulerBaseOptionsType2
 from .scheduler_csv_options import SchedulerCsvOptions
 from .scheduler_csv_options_limit_type_1 import SchedulerCsvOptionsLimitType1
 from .scheduler_email_target import SchedulerEmailTarget
 from .scheduler_format import SchedulerFormat
+from .scheduler_gsheets_options import SchedulerGsheetsOptions
 from .scheduler_image_options import SchedulerImageOptions
 from .scheduler_job_status import SchedulerJobStatus
 from .scheduler_log import SchedulerLog
@@ -2114,6 +2140,7 @@ from .scheduler_log_task import SchedulerLogTask
 from .scheduler_options_type_0 import SchedulerOptionsType0
 from .scheduler_options_type_0_limit_type_1 import SchedulerOptionsType0LimitType1
 from .scheduler_options_type_1 import SchedulerOptionsType1
+from .scheduler_options_type_2 import SchedulerOptionsType2
 from .scheduler_slack_target import SchedulerSlackTarget
 from .scheduler_type_0_format import SchedulerType0Format
 from .scheduler_type_0_options_type_0 import SchedulerType0OptionsType0
@@ -2121,12 +2148,14 @@ from .scheduler_type_0_options_type_0_limit_type_1 import (
     SchedulerType0OptionsType0LimitType1,
 )
 from .scheduler_type_0_options_type_1 import SchedulerType0OptionsType1
+from .scheduler_type_0_options_type_2 import SchedulerType0OptionsType2
 from .scheduler_type_1_format import SchedulerType1Format
 from .scheduler_type_1_options_type_0 import SchedulerType1OptionsType0
 from .scheduler_type_1_options_type_0_limit_type_1 import (
     SchedulerType1OptionsType0LimitType1,
 )
 from .scheduler_type_1_options_type_1 import SchedulerType1OptionsType1
+from .scheduler_type_1_options_type_2 import SchedulerType1OptionsType2
 from .scheduler_with_logs import SchedulerWithLogs
 from .scheduler_with_logs_charts_item import SchedulerWithLogsChartsItem
 from .scheduler_with_logs_dashboards_item import SchedulerWithLogsDashboardsItem
@@ -2175,6 +2204,7 @@ from .space_query_validation_errors_item import SpaceQueryValidationErrorsItem
 from .space_share import SpaceShare
 from .space_share_role import SpaceShareRole
 from .space_summary import SpaceSummary
+from .supported_dbt_versions import SupportedDbtVersions
 from .table_calculation_format_compact import TableCalculationFormatCompact
 from .table_calculation_format_separator import TableCalculationFormatSeparator
 from .table_calculation_format_type import TableCalculationFormatType
@@ -2548,6 +2578,12 @@ __all__ = (
     "ApiErrorPayload",
     "ApiErrorPayloadError",
     "ApiErrorPayloadStatus",
+    "ApiGdriveAccessTokenResponse",
+    "ApiGdriveAccessTokenResponseStatus",
+    "ApiGetProjectMemberResponse",
+    "ApiGetProjectMemberResponseResults",
+    "ApiGetProjectMemberResponseResultsRole",
+    "ApiGetProjectMemberResponseStatus",
     "ApiGroupListResponse",
     "ApiGroupListResponseResultsItem",
     "ApiGroupListResponseStatus",
@@ -2631,6 +2667,7 @@ __all__ = (
     "ApiProjectResponseResultsDbtConnectionType6",
     "ApiProjectResponseResultsDbtConnectionType6EnvironmentItem",
     "ApiProjectResponseResultsDbtConnectionType6Type",
+    "ApiProjectResponseResultsDbtVersion",
     "ApiProjectResponseResultsType",
     "ApiProjectResponseResultsWarehouseConnectionType0",
     "ApiProjectResponseResultsWarehouseConnectionType0StartOfWeek",
@@ -2757,6 +2794,7 @@ __all__ = (
     "ChartSchedulerOptionsType0",
     "ChartSchedulerOptionsType0LimitType1",
     "ChartSchedulerOptionsType1",
+    "ChartSchedulerOptionsType2",
     "ChartSummary",
     "ChartSummaryChartType",
     "ChartType",
@@ -2821,6 +2859,7 @@ __all__ = (
     "DashboardSchedulerOptionsType0",
     "DashboardSchedulerOptionsType0LimitType1",
     "DashboardSchedulerOptionsType1",
+    "DashboardSchedulerOptionsType2",
     "DatabricksCredentials",
     "DatabricksCredentialsStartOfWeek",
     "DatabricksCredentialsType",
@@ -2901,6 +2940,8 @@ __all__ = (
     "FiltersMetricsType0",
     "FiltersMetricsType1",
     "Format",
+    "GetAccessTokenResponse200",
+    "GetAccessTokenResponse200Status",
     "GetCsvUrlResponse200",
     "GetCsvUrlResponse200Results",
     "GetCsvUrlResponse200Status",
@@ -2960,6 +3001,10 @@ __all__ = (
     "GetProjectAccessListResponse200ResultsItem",
     "GetProjectAccessListResponse200ResultsItemRole",
     "GetProjectAccessListResponse200Status",
+    "GetProjectMemberAccessResponse200",
+    "GetProjectMemberAccessResponse200Results",
+    "GetProjectMemberAccessResponse200ResultsRole",
+    "GetProjectMemberAccessResponse200Status",
     "GetProjectResponse200",
     "GetProjectResponse200Results",
     "GetProjectResponse200ResultsDbtConnectionType0",
@@ -2982,6 +3027,7 @@ __all__ = (
     "GetProjectResponse200ResultsDbtConnectionType6",
     "GetProjectResponse200ResultsDbtConnectionType6EnvironmentItem",
     "GetProjectResponse200ResultsDbtConnectionType6Type",
+    "GetProjectResponse200ResultsDbtVersion",
     "GetProjectResponse200ResultsType",
     "GetProjectResponse200ResultsWarehouseConnectionType0",
     "GetProjectResponse200ResultsWarehouseConnectionType0StartOfWeek",
@@ -3143,7 +3189,6 @@ __all__ = (
     "OmitCreateTrinoCredentialsSensitiveCredentialsFieldNames",
     "OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
     "OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitUserAttributeUuidOrCreatedAtOrOrganizationUuidOrUsers",
     "OmitUserAttributeValueEmail",
     "OmitValidationResponseBaseName",
     "OmitValidationResponseBaseNameErrorType",
@@ -3199,7 +3244,7 @@ __all__ = (
     "PickGroupName",
     "PickOrganizationName",
     "PickResourceViewItemAtDataUuidOrPinnedListOrder",
-    "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid",
+    "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName",
     "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder",
     "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser",
     "PickShareUrlPathOrParams",
@@ -3210,7 +3255,7 @@ __all__ = (
     "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser",
     "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem",
     "PickSshKeyPairPublicKey",
-    "PickUserAttributeExcludeKeyofUserAttributeUuidOrCreatedAtOrOrganizationUuidOrUsers",
+    "PickUserAttributeNameOrDescription",
     "PickUserAttributeValueExcludeKeyofUserAttributeValueEmail",
     "PickValidationResponseBaseExcludeKeyofValidationResponseBaseName",
     "PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType",
@@ -3317,6 +3362,7 @@ __all__ = (
     "ProjectDbtConnectionType6",
     "ProjectDbtConnectionType6EnvironmentItem",
     "ProjectDbtConnectionType6Type",
+    "ProjectDbtVersion",
     "ProjectMemberProfile",
     "ProjectMemberProfileRole",
     "ProjectMemberRole",
@@ -3445,10 +3491,12 @@ __all__ = (
     "SchedulerBaseOptionsType0",
     "SchedulerBaseOptionsType0LimitType1",
     "SchedulerBaseOptionsType1",
+    "SchedulerBaseOptionsType2",
     "SchedulerCsvOptions",
     "SchedulerCsvOptionsLimitType1",
     "SchedulerEmailTarget",
     "SchedulerFormat",
+    "SchedulerGsheetsOptions",
     "SchedulerImageOptions",
     "SchedulerJobStatus",
     "SchedulerLog",
@@ -3459,15 +3507,18 @@ __all__ = (
     "SchedulerOptionsType0",
     "SchedulerOptionsType0LimitType1",
     "SchedulerOptionsType1",
+    "SchedulerOptionsType2",
     "SchedulerSlackTarget",
     "SchedulerType0Format",
     "SchedulerType0OptionsType0",
     "SchedulerType0OptionsType0LimitType1",
     "SchedulerType0OptionsType1",
+    "SchedulerType0OptionsType2",
     "SchedulerType1Format",
     "SchedulerType1OptionsType0",
     "SchedulerType1OptionsType0LimitType1",
     "SchedulerType1OptionsType1",
+    "SchedulerType1OptionsType2",
     "SchedulerWithLogs",
     "SchedulerWithLogsChartsItem",
     "SchedulerWithLogsDashboardsItem",
@@ -3506,6 +3557,7 @@ __all__ = (
     "SpaceShare",
     "SpaceShareRole",
     "SpaceSummary",
+    "SupportedDbtVersions",
     "TableCalculationFormatCompact",
     "TableCalculationFormatSeparator",
     "TableCalculationFormatType",

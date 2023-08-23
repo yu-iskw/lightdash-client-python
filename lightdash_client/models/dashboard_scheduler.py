@@ -13,6 +13,9 @@ if TYPE_CHECKING:
     from ..models.dashboard_scheduler_options_type_1 import (
         DashboardSchedulerOptionsType1,
     )
+    from ..models.dashboard_scheduler_options_type_2 import (
+        DashboardSchedulerOptionsType2,
+    )
 
 
 T = TypeVar("T", bound="DashboardScheduler")
@@ -22,7 +25,8 @@ T = TypeVar("T", bound="DashboardScheduler")
 class DashboardScheduler:
     """
     Attributes:
-        options (Union['DashboardSchedulerOptionsType0', 'DashboardSchedulerOptionsType1']):
+        options (Union['DashboardSchedulerOptionsType0', 'DashboardSchedulerOptionsType1',
+            'DashboardSchedulerOptionsType2']):
         dashboard_uuid (str):
         saved_chart_uuid (None):  Default: None.
         cron (str):
@@ -34,7 +38,7 @@ class DashboardScheduler:
         scheduler_uuid (str):
     """
 
-    options: Union["DashboardSchedulerOptionsType0", "DashboardSchedulerOptionsType1"]
+    options: Union["DashboardSchedulerOptionsType0", "DashboardSchedulerOptionsType1", "DashboardSchedulerOptionsType2"]
     dashboard_uuid: str
     cron: str
     format_: DashboardSchedulerFormat
@@ -50,10 +54,16 @@ class DashboardScheduler:
         from ..models.dashboard_scheduler_options_type_0 import (
             DashboardSchedulerOptionsType0,
         )
+        from ..models.dashboard_scheduler_options_type_1 import (
+            DashboardSchedulerOptionsType1,
+        )
 
         options: Dict[str, Any]
 
         if isinstance(self.options, DashboardSchedulerOptionsType0):
+            options = self.options.to_dict()
+
+        elif isinstance(self.options, DashboardSchedulerOptionsType1):
             options = self.options.to_dict()
 
         else:
@@ -99,10 +109,17 @@ class DashboardScheduler:
         from ..models.dashboard_scheduler_options_type_1 import (
             DashboardSchedulerOptionsType1,
         )
+        from ..models.dashboard_scheduler_options_type_2 import (
+            DashboardSchedulerOptionsType2,
+        )
 
         d = src_dict.copy()
 
-        def _parse_options(data: object) -> Union["DashboardSchedulerOptionsType0", "DashboardSchedulerOptionsType1"]:
+        def _parse_options(
+            data: object,
+        ) -> Union[
+            "DashboardSchedulerOptionsType0", "DashboardSchedulerOptionsType1", "DashboardSchedulerOptionsType2"
+        ]:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
@@ -111,11 +128,19 @@ class DashboardScheduler:
                 return options_type_0
             except:  # noqa: E722
                 pass
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                options_type_1 = DashboardSchedulerOptionsType1.from_dict(data)
+
+                return options_type_1
+            except:  # noqa: E722
+                pass
             if not isinstance(data, dict):
                 raise TypeError()
-            options_type_1 = DashboardSchedulerOptionsType1.from_dict(data)
+            options_type_2 = DashboardSchedulerOptionsType2.from_dict(data)
 
-            return options_type_1
+            return options_type_2
 
         options = _parse_options(d.pop("options"))
 

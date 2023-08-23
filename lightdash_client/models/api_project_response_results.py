@@ -2,6 +2,9 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.api_project_response_results_dbt_version import (
+    ApiProjectResponseResultsDbtVersion,
+)
 from ..models.api_project_response_results_type import ApiProjectResponseResultsType
 from ..types import UNSET, Unset
 
@@ -54,6 +57,7 @@ T = TypeVar("T", bound="ApiProjectResponseResults")
 class ApiProjectResponseResults:
     """
     Attributes:
+        dbt_version (ApiProjectResponseResultsDbtVersion):
         dbt_connection (Union['ApiProjectResponseResultsDbtConnectionType0',
             'ApiProjectResponseResultsDbtConnectionType1', 'ApiProjectResponseResultsDbtConnectionType2',
             'ApiProjectResponseResultsDbtConnectionType3', 'ApiProjectResponseResultsDbtConnectionType4',
@@ -70,6 +74,7 @@ class ApiProjectResponseResults:
             'ApiProjectResponseResultsWarehouseConnectionType5', Unset]):
     """
 
+    dbt_version: ApiProjectResponseResultsDbtVersion
     dbt_connection: Union[
         "ApiProjectResponseResultsDbtConnectionType0",
         "ApiProjectResponseResultsDbtConnectionType1",
@@ -130,6 +135,8 @@ class ApiProjectResponseResults:
         from ..models.api_project_response_results_warehouse_connection_type_4 import (
             ApiProjectResponseResultsWarehouseConnectionType4,
         )
+
+        dbt_version = self.dbt_version.value
 
         dbt_connection: Dict[str, Any]
 
@@ -199,6 +206,7 @@ class ApiProjectResponseResults:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "dbtVersion": dbt_version,
                 "dbtConnection": dbt_connection,
                 "type": type,
                 "name": name,
@@ -258,6 +266,7 @@ class ApiProjectResponseResults:
         )
 
         d = src_dict.copy()
+        dbt_version = ApiProjectResponseResultsDbtVersion(d.pop("dbtVersion"))
 
         def _parse_dbt_connection(
             data: object,
@@ -442,6 +451,7 @@ class ApiProjectResponseResults:
         warehouse_connection = _parse_warehouse_connection(d.pop("warehouseConnection", UNSET))
 
         api_project_response_results = cls(
+            dbt_version=dbt_version,
             dbt_connection=dbt_connection,
             type=type,
             name=name,

@@ -169,6 +169,20 @@
                 "required": ["results", "status"],
                 "type": "object"
             },
+            "ApiGdriveAccessTokenResponse": {
+                "properties": {
+                    "results": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["ok"],
+                        "nullable": false
+                    }
+                },
+                "required": ["results", "status"],
+                "type": "object"
+            },
             "Group": {
                 "properties": {
                     "organizationUuid": {
@@ -1772,8 +1786,15 @@
                     }
                 ]
             },
+            "SupportedDbtVersions": {
+                "enum": ["v1.4", "v1.5"],
+                "type": "string"
+            },
             "Project": {
                 "properties": {
+                    "dbtVersion": {
+                        "$ref": "#/components/schemas/SupportedDbtVersions"
+                    },
                     "copiedFromProjectUuid": {
                         "type": "string"
                     },
@@ -1800,6 +1821,7 @@
                     }
                 },
                 "required": [
+                    "dbtVersion",
                     "dbtConnection",
                     "type",
                     "name",
@@ -1822,7 +1844,7 @@
                 "required": ["results", "status"],
                 "type": "object"
             },
-            "Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid_": {
+            "Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName_": {
                 "properties": {
                     "name": {
                         "type": "string"
@@ -1848,6 +1870,14 @@
                     },
                     "spaceName": {
                         "type": "string"
+                    },
+                    "dashboardUuid": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dashboardName": {
+                        "type": "string",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -1857,7 +1887,9 @@
                     "projectUuid",
                     "spaceUuid",
                     "pinnedListUuid",
-                    "spaceName"
+                    "spaceName",
+                    "dashboardUuid",
+                    "dashboardName"
                 ],
                 "type": "object",
                 "description": "From T, pick a set of properties whose keys are in the union K"
@@ -1869,7 +1901,7 @@
             "ChartSummary": {
                 "allOf": [
                     {
-                        "$ref": "#/components/schemas/Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid_"
+                        "$ref": "#/components/schemas/Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName_"
                     },
                     {
                         "properties": {
@@ -2029,6 +2061,20 @@
                             "$ref": "#/components/schemas/ProjectMemberProfile"
                         },
                         "type": "array"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["ok"],
+                        "nullable": false
+                    }
+                },
+                "required": ["results", "status"],
+                "type": "object"
+            },
+            "ApiGetProjectMemberResponse": {
+                "properties": {
+                    "results": {
+                        "$ref": "#/components/schemas/ProjectMemberProfile"
                     },
                     "status": {
                         "type": "string",
@@ -2296,7 +2342,10 @@
                         "required": ["fieldRef"],
                         "type": "object"
                     },
-                    "settings": {}
+                    "settings": {},
+                    "disabled": {
+                        "type": "boolean"
+                    }
                 },
                 "required": ["operator", "id", "target"],
                 "type": "object",
@@ -2490,7 +2539,7 @@
                 "type": "object"
             },
             "SchedulerFormat": {
-                "enum": ["csv", "image"],
+                "enum": ["csv", "image", "gsheets"],
                 "type": "string"
             },
             "SchedulerCsvOptions": {
@@ -2518,6 +2567,29 @@
                 "properties": {},
                 "type": "object"
             },
+            "SchedulerGsheetsOptions": {
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "gdriveOrganizationName": {
+                        "type": "string"
+                    },
+                    "gdriveName": {
+                        "type": "string"
+                    },
+                    "gdriveId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "gdriveOrganizationName",
+                    "gdriveName",
+                    "gdriveId"
+                ],
+                "type": "object"
+            },
             "SchedulerOptions": {
                 "anyOf": [
                     {
@@ -2525,6 +2597,9 @@
                     },
                     {
                         "$ref": "#/components/schemas/SchedulerImageOptions"
+                    },
+                    {
+                        "$ref": "#/components/schemas/SchedulerGsheetsOptions"
                     }
                 ]
             },
@@ -3435,7 +3510,7 @@
                 "required": ["results", "status"],
                 "type": "object"
             },
-            "Pick_UserAttribute.Exclude_keyofUserAttribute.uuid-or-createdAt-or-organizationUuid-or-users__": {
+            "Pick_UserAttribute.name-or-description_": {
                 "properties": {
                     "name": {
                         "type": "string"
@@ -3447,10 +3522,6 @@
                 "required": ["name"],
                 "type": "object",
                 "description": "From T, pick a set of properties whose keys are in the union K"
-            },
-            "Omit_UserAttribute.uuid-or-createdAt-or-organizationUuid-or-users_": {
-                "$ref": "#/components/schemas/Pick_UserAttribute.Exclude_keyofUserAttribute.uuid-or-createdAt-or-organizationUuid-or-users__",
-                "description": "Construct a type with the properties of T except for those in type K."
             },
             "Pick_UserAttributeValue.Exclude_keyofUserAttributeValue.email__": {
                 "properties": {
@@ -3475,7 +3546,7 @@
             "CreateUserAttribute": {
                 "allOf": [
                     {
-                        "$ref": "#/components/schemas/Omit_UserAttribute.uuid-or-createdAt-or-organizationUuid-or-users_"
+                        "$ref": "#/components/schemas/Pick_UserAttribute.name-or-description_"
                     },
                     {
                         "properties": {
@@ -3866,7 +3937,7 @@
     },
     "info": {
         "title": "Lightdash API",
-        "version": "0.674.0",
+        "version": "0.737.0",
         "description": "Open API documentation for all public Lightdash API endpoints",
         "license": {
             "name": "MIT"
@@ -4076,6 +4147,37 @@
                         }
                     }
                 ]
+            }
+        },
+        "/api/v1/gdrive/get-access-token": {
+            "get": {
+                "operationId": "getAccessToken",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiGdriveAccessTokenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiErrorPayload"
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Get access token for google drive",
+                "tags": ["Integrations"],
+                "security": [],
+                "parameters": []
             }
         },
         "/api/v1/groups/{groupUuid}": {
@@ -5209,6 +5311,54 @@
                         }
                     }
                 }
+            }
+        },
+        "/api/v1/projects/{projectUuid}/user/${userUuid}": {
+            "get": {
+                "operationId": "GetProjectMemberAccess",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiGetProjectMemberResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiErrorPayload"
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Get a project member's access for a project.\n\nNOTE:\nWe don't use the API on the frontend. Instead, we can call the API\nso that we make sure of the user's access to the project.",
+                "tags": ["Roles & Permissions", "Projects"],
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "projectUuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "userUuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
             }
         },
         "/api/v1/projects/{projectUuid}/access/{userUuid}": {

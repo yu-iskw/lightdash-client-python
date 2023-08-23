@@ -6,12 +6,12 @@ from ..types import UNSET, Unset
 
 T = TypeVar(
     "T",
-    bound="PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid",
+    bound="PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName",
 )
 
 
 @attr.s(auto_attribs=True)
-class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuid:
+class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
@@ -23,6 +23,8 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
         space_name (str):
         description (Union[Unset, str]):
         pinned_list_uuid (Optional[str]):
+        dashboard_uuid (Optional[str]):
+        dashboard_name (Optional[str]):
     """
 
     name: str
@@ -32,6 +34,8 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
     space_uuid: str
     space_name: str
     pinned_list_uuid: Optional[str]
+    dashboard_uuid: Optional[str]
+    dashboard_name: Optional[str]
     description: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -44,6 +48,8 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
         space_name = self.space_name
         description = self.description
         pinned_list_uuid = self.pinned_list_uuid
+        dashboard_uuid = self.dashboard_uuid
+        dashboard_name = self.dashboard_name
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -56,6 +62,8 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
                 "spaceUuid": space_uuid,
                 "spaceName": space_name,
                 "pinnedListUuid": pinned_list_uuid,
+                "dashboardUuid": dashboard_uuid,
+                "dashboardName": dashboard_name,
             }
         )
         if description is not UNSET:
@@ -82,7 +90,11 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
 
         pinned_list_uuid = d.pop("pinnedListUuid")
 
-        pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid = cls(
+        dashboard_uuid = d.pop("dashboardUuid")
+
+        dashboard_name = d.pop("dashboardName")
+
+        pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name = cls(
             name=name,
             organization_uuid=organization_uuid,
             uuid=uuid,
@@ -91,12 +103,14 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
             space_name=space_name,
             description=description,
             pinned_list_uuid=pinned_list_uuid,
+            dashboard_uuid=dashboard_uuid,
+            dashboard_name=dashboard_name,
         )
 
-        pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid.additional_properties = (
+        pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name.additional_properties = (
             d
         )
-        return pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid
+        return pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name
 
     @property
     def additional_keys(self) -> List[str]:
