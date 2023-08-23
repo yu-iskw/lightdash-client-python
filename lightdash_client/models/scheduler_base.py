@@ -9,6 +9,7 @@ from ..models.scheduler_base_format import SchedulerBaseFormat
 if TYPE_CHECKING:
     from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
     from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
+    from ..models.scheduler_base_options_type_2 import SchedulerBaseOptionsType2
 
 
 T = TypeVar("T", bound="SchedulerBase")
@@ -18,7 +19,7 @@ T = TypeVar("T", bound="SchedulerBase")
 class SchedulerBase:
     """
     Attributes:
-        options (Union['SchedulerBaseOptionsType0', 'SchedulerBaseOptionsType1']):
+        options (Union['SchedulerBaseOptionsType0', 'SchedulerBaseOptionsType1', 'SchedulerBaseOptionsType2']):
         cron (str):
         format_ (SchedulerBaseFormat):
         created_by (str):
@@ -30,7 +31,7 @@ class SchedulerBase:
         saved_chart_uuid (Optional[str]):
     """
 
-    options: Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1"]
+    options: Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1", "SchedulerBaseOptionsType2"]
     cron: str
     format_: SchedulerBaseFormat
     created_by: str
@@ -44,10 +45,14 @@ class SchedulerBase:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
+        from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
 
         options: Dict[str, Any]
 
         if isinstance(self.options, SchedulerBaseOptionsType0):
+            options = self.options.to_dict()
+
+        elif isinstance(self.options, SchedulerBaseOptionsType1):
             options = self.options.to_dict()
 
         else:
@@ -89,10 +94,13 @@ class SchedulerBase:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
         from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
+        from ..models.scheduler_base_options_type_2 import SchedulerBaseOptionsType2
 
         d = src_dict.copy()
 
-        def _parse_options(data: object) -> Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1"]:
+        def _parse_options(
+            data: object,
+        ) -> Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1", "SchedulerBaseOptionsType2"]:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
@@ -101,11 +109,19 @@ class SchedulerBase:
                 return options_type_0
             except:  # noqa: E722
                 pass
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                options_type_1 = SchedulerBaseOptionsType1.from_dict(data)
+
+                return options_type_1
+            except:  # noqa: E722
+                pass
             if not isinstance(data, dict):
                 raise TypeError()
-            options_type_1 = SchedulerBaseOptionsType1.from_dict(data)
+            options_type_2 = SchedulerBaseOptionsType2.from_dict(data)
 
-            return options_type_1
+            return options_type_2
 
         options = _parse_options(d.pop("options"))
 

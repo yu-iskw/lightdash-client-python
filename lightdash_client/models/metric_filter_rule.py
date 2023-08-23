@@ -21,6 +21,7 @@ class MetricFilterRule:
         target (MetricFilterRuleTarget):
         values (Union[Unset, List[Any]]):
         settings (Union[Unset, Any]):
+        disabled (Union[Unset, bool]):
     """
 
     operator: MetricFilterRuleOperator
@@ -28,6 +29,7 @@ class MetricFilterRule:
     target: "MetricFilterRuleTarget"
     values: Union[Unset, List[Any]] = UNSET
     settings: Union[Unset, Any] = UNSET
+    disabled: Union[Unset, bool] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
         operator = self.operator.value
@@ -40,6 +42,7 @@ class MetricFilterRule:
             values = self.values
 
         settings = self.settings
+        disabled = self.disabled
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(
@@ -53,6 +56,8 @@ class MetricFilterRule:
             field_dict["values"] = values
         if settings is not UNSET:
             field_dict["settings"] = settings
+        if disabled is not UNSET:
+            field_dict["disabled"] = disabled
 
         return field_dict
 
@@ -71,12 +76,15 @@ class MetricFilterRule:
 
         settings = d.pop("settings", UNSET)
 
+        disabled = d.pop("disabled", UNSET)
+
         metric_filter_rule = cls(
             operator=operator,
             id=id,
             target=target,
             values=values,
             settings=settings,
+            disabled=disabled,
         )
 
         return metric_filter_rule

@@ -2,6 +2,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.project_dbt_version import ProjectDbtVersion
 from ..models.project_type import ProjectType
 from ..types import UNSET, Unset
 
@@ -40,6 +41,7 @@ T = TypeVar("T", bound="Project")
 class Project:
     """
     Attributes:
+        dbt_version (ProjectDbtVersion):
         dbt_connection (Union['ProjectDbtConnectionType0', 'ProjectDbtConnectionType1', 'ProjectDbtConnectionType2',
             'ProjectDbtConnectionType3', 'ProjectDbtConnectionType4', 'ProjectDbtConnectionType5',
             'ProjectDbtConnectionType6']):
@@ -54,6 +56,7 @@ class Project:
             'ProjectWarehouseConnectionType5', Unset]):
     """
 
+    dbt_version: ProjectDbtVersion
     dbt_connection: Union[
         "ProjectDbtConnectionType0",
         "ProjectDbtConnectionType1",
@@ -102,6 +105,8 @@ class Project:
         from ..models.project_warehouse_connection_type_4 import (
             ProjectWarehouseConnectionType4,
         )
+
+        dbt_version = self.dbt_version.value
 
         dbt_connection: Dict[str, Any]
 
@@ -171,6 +176,7 @@ class Project:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "dbtVersion": dbt_version,
                 "dbtConnection": dbt_connection,
                 "type": type,
                 "name": name,
@@ -216,6 +222,7 @@ class Project:
         )
 
         d = src_dict.copy()
+        dbt_version = ProjectDbtVersion(d.pop("dbtVersion"))
 
         def _parse_dbt_connection(
             data: object,
@@ -398,6 +405,7 @@ class Project:
         warehouse_connection = _parse_warehouse_connection(d.pop("warehouseConnection", UNSET))
 
         project = cls(
+            dbt_version=dbt_version,
             dbt_connection=dbt_connection,
             type=type,
             name=name,

@@ -2,6 +2,9 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.get_project_response_200_results_dbt_version import (
+    GetProjectResponse200ResultsDbtVersion,
+)
 from ..models.get_project_response_200_results_type import (
     GetProjectResponse200ResultsType,
 )
@@ -56,6 +59,7 @@ T = TypeVar("T", bound="GetProjectResponse200Results")
 class GetProjectResponse200Results:
     """
     Attributes:
+        dbt_version (GetProjectResponse200ResultsDbtVersion):
         dbt_connection (Union['GetProjectResponse200ResultsDbtConnectionType0',
             'GetProjectResponse200ResultsDbtConnectionType1', 'GetProjectResponse200ResultsDbtConnectionType2',
             'GetProjectResponse200ResultsDbtConnectionType3', 'GetProjectResponse200ResultsDbtConnectionType4',
@@ -72,6 +76,7 @@ class GetProjectResponse200Results:
             'GetProjectResponse200ResultsWarehouseConnectionType5', Unset]):
     """
 
+    dbt_version: GetProjectResponse200ResultsDbtVersion
     dbt_connection: Union[
         "GetProjectResponse200ResultsDbtConnectionType0",
         "GetProjectResponse200ResultsDbtConnectionType1",
@@ -132,6 +137,8 @@ class GetProjectResponse200Results:
         from ..models.get_project_response_200_results_warehouse_connection_type_4 import (
             GetProjectResponse200ResultsWarehouseConnectionType4,
         )
+
+        dbt_version = self.dbt_version.value
 
         dbt_connection: Dict[str, Any]
 
@@ -201,6 +208,7 @@ class GetProjectResponse200Results:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "dbtVersion": dbt_version,
                 "dbtConnection": dbt_connection,
                 "type": type,
                 "name": name,
@@ -260,6 +268,7 @@ class GetProjectResponse200Results:
         )
 
         d = src_dict.copy()
+        dbt_version = GetProjectResponse200ResultsDbtVersion(d.pop("dbtVersion"))
 
         def _parse_dbt_connection(
             data: object,
@@ -444,6 +453,7 @@ class GetProjectResponse200Results:
         warehouse_connection = _parse_warehouse_connection(d.pop("warehouseConnection", UNSET))
 
         get_project_response_200_results = cls(
+            dbt_version=dbt_version,
             dbt_connection=dbt_connection,
             type=type,
             name=name,

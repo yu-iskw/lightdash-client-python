@@ -9,6 +9,7 @@ from ..models.chart_scheduler_format import ChartSchedulerFormat
 if TYPE_CHECKING:
     from ..models.chart_scheduler_options_type_0 import ChartSchedulerOptionsType0
     from ..models.chart_scheduler_options_type_1 import ChartSchedulerOptionsType1
+    from ..models.chart_scheduler_options_type_2 import ChartSchedulerOptionsType2
 
 
 T = TypeVar("T", bound="ChartScheduler")
@@ -18,7 +19,7 @@ T = TypeVar("T", bound="ChartScheduler")
 class ChartScheduler:
     """
     Attributes:
-        options (Union['ChartSchedulerOptionsType0', 'ChartSchedulerOptionsType1']):
+        options (Union['ChartSchedulerOptionsType0', 'ChartSchedulerOptionsType1', 'ChartSchedulerOptionsType2']):
         dashboard_uuid (None):  Default: None.
         saved_chart_uuid (str):
         cron (str):
@@ -30,7 +31,7 @@ class ChartScheduler:
         scheduler_uuid (str):
     """
 
-    options: Union["ChartSchedulerOptionsType0", "ChartSchedulerOptionsType1"]
+    options: Union["ChartSchedulerOptionsType0", "ChartSchedulerOptionsType1", "ChartSchedulerOptionsType2"]
     saved_chart_uuid: str
     cron: str
     format_: ChartSchedulerFormat
@@ -44,10 +45,14 @@ class ChartScheduler:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.chart_scheduler_options_type_0 import ChartSchedulerOptionsType0
+        from ..models.chart_scheduler_options_type_1 import ChartSchedulerOptionsType1
 
         options: Dict[str, Any]
 
         if isinstance(self.options, ChartSchedulerOptionsType0):
+            options = self.options.to_dict()
+
+        elif isinstance(self.options, ChartSchedulerOptionsType1):
             options = self.options.to_dict()
 
         else:
@@ -89,10 +94,13 @@ class ChartScheduler:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.chart_scheduler_options_type_0 import ChartSchedulerOptionsType0
         from ..models.chart_scheduler_options_type_1 import ChartSchedulerOptionsType1
+        from ..models.chart_scheduler_options_type_2 import ChartSchedulerOptionsType2
 
         d = src_dict.copy()
 
-        def _parse_options(data: object) -> Union["ChartSchedulerOptionsType0", "ChartSchedulerOptionsType1"]:
+        def _parse_options(
+            data: object,
+        ) -> Union["ChartSchedulerOptionsType0", "ChartSchedulerOptionsType1", "ChartSchedulerOptionsType2"]:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
@@ -101,11 +109,19 @@ class ChartScheduler:
                 return options_type_0
             except:  # noqa: E722
                 pass
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                options_type_1 = ChartSchedulerOptionsType1.from_dict(data)
+
+                return options_type_1
+            except:  # noqa: E722
+                pass
             if not isinstance(data, dict):
                 raise TypeError()
-            options_type_1 = ChartSchedulerOptionsType1.from_dict(data)
+            options_type_2 = ChartSchedulerOptionsType2.from_dict(data)
 
-            return options_type_1
+            return options_type_2
 
         options = _parse_options(d.pop("options"))
 

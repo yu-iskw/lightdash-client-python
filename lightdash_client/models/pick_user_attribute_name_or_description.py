@@ -4,11 +4,11 @@ import attr
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="PickUserAttributeExcludeKeyofUserAttributeUuidOrCreatedAtOrOrganizationUuidOrUsers")
+T = TypeVar("T", bound="PickUserAttributeNameOrDescription")
 
 
 @attr.s(auto_attribs=True)
-class PickUserAttributeExcludeKeyofUserAttributeUuidOrCreatedAtOrOrganizationUuidOrUsers:
+class PickUserAttributeNameOrDescription:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
@@ -43,15 +43,13 @@ class PickUserAttributeExcludeKeyofUserAttributeUuidOrCreatedAtOrOrganizationUui
 
         description = d.pop("description", UNSET)
 
-        pick_user_attribute_exclude_keyof_user_attribute_uuid_or_created_at_or_organization_uuid_or_users = cls(
+        pick_user_attribute_name_or_description = cls(
             name=name,
             description=description,
         )
 
-        pick_user_attribute_exclude_keyof_user_attribute_uuid_or_created_at_or_organization_uuid_or_users.additional_properties = (
-            d
-        )
-        return pick_user_attribute_exclude_keyof_user_attribute_uuid_or_created_at_or_organization_uuid_or_users
+        pick_user_attribute_name_or_description.additional_properties = d
+        return pick_user_attribute_name_or_description
 
     @property
     def additional_keys(self) -> List[str]:

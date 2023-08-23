@@ -22,6 +22,8 @@ class ApiChartSummaryListResponseResultsItem:
         space_name (str):
         description (Union[Unset, str]):
         pinned_list_uuid (Optional[str]):
+        dashboard_uuid (Optional[str]):
+        dashboard_name (Optional[str]):
         chart_type (Union[Unset, ApiChartSummaryListResponseResultsItemChartType]):
     """
 
@@ -32,6 +34,8 @@ class ApiChartSummaryListResponseResultsItem:
     space_uuid: str
     space_name: str
     pinned_list_uuid: Optional[str]
+    dashboard_uuid: Optional[str]
+    dashboard_name: Optional[str]
     description: Union[Unset, str] = UNSET
     chart_type: Union[Unset, ApiChartSummaryListResponseResultsItemChartType] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -45,6 +49,8 @@ class ApiChartSummaryListResponseResultsItem:
         space_name = self.space_name
         description = self.description
         pinned_list_uuid = self.pinned_list_uuid
+        dashboard_uuid = self.dashboard_uuid
+        dashboard_name = self.dashboard_name
         chart_type: Union[Unset, str] = UNSET
         if not isinstance(self.chart_type, Unset):
             chart_type = self.chart_type.value
@@ -60,6 +66,8 @@ class ApiChartSummaryListResponseResultsItem:
                 "spaceUuid": space_uuid,
                 "spaceName": space_name,
                 "pinnedListUuid": pinned_list_uuid,
+                "dashboardUuid": dashboard_uuid,
+                "dashboardName": dashboard_name,
             }
         )
         if description is not UNSET:
@@ -88,6 +96,10 @@ class ApiChartSummaryListResponseResultsItem:
 
         pinned_list_uuid = d.pop("pinnedListUuid")
 
+        dashboard_uuid = d.pop("dashboardUuid")
+
+        dashboard_name = d.pop("dashboardName")
+
         _chart_type = d.pop("chartType", UNSET)
         chart_type: Union[Unset, ApiChartSummaryListResponseResultsItemChartType]
         if isinstance(_chart_type, Unset):
@@ -104,6 +116,8 @@ class ApiChartSummaryListResponseResultsItem:
             space_name=space_name,
             description=description,
             pinned_list_uuid=pinned_list_uuid,
+            dashboard_uuid=dashboard_uuid,
+            dashboard_name=dashboard_name,
             chart_type=chart_type,
         )
 
