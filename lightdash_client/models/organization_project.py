@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.organization_project_type import OrganizationProjectType
+from ..models.project_type import ProjectType
 
 T = TypeVar("T", bound="OrganizationProject")
 
@@ -12,12 +12,12 @@ class OrganizationProject:
     """Summary of a project under an organization
 
     Attributes:
-        type (OrganizationProjectType):
+        type (ProjectType):
         name (str):
         project_uuid (str): The unique identifier of the project
     """
 
-    type: OrganizationProjectType
+    type: ProjectType
     name: str
     project_uuid: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -43,7 +43,7 @@ class OrganizationProject:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        type = OrganizationProjectType(d.pop("type"))
+        type = ProjectType(d.pop("type"))
 
         name = d.pop("name")
 

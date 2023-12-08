@@ -5,12 +5,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.update_project_access_for_user_json_body import (
-    UpdateProjectAccessForUserJsonBody,
-)
-from ...models.update_project_access_for_user_response_200 import (
-    UpdateProjectAccessForUserResponse200,
-)
+from ...models.api_success_empty import ApiSuccessEmpty
+from ...models.update_project_member import UpdateProjectMember
 from ...types import Response
 
 
@@ -19,7 +15,7 @@ def _get_kwargs(
     user_uuid: str,
     *,
     client: Client,
-    json_body: UpdateProjectAccessForUserJsonBody,
+    json_body: UpdateProjectMember,
 ) -> Dict[str, Any]:
     url = "{}/api/v1/projects/{projectUuid}/access/{userUuid}".format(
         client.base_url, projectUuid=project_uuid, userUuid=user_uuid
@@ -41,9 +37,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[UpdateProjectAccessForUserResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = UpdateProjectAccessForUserResponse200.from_dict(response.json())
+        response_200 = ApiSuccessEmpty.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -52,7 +48,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Upd
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[UpdateProjectAccessForUserResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -66,21 +62,21 @@ def sync_detailed(
     user_uuid: str,
     *,
     client: Client,
-    json_body: UpdateProjectAccessForUserJsonBody,
-) -> Response[UpdateProjectAccessForUserResponse200]:
+    json_body: UpdateProjectMember,
+) -> Response[ApiSuccessEmpty]:
     """Update a user's access to a project
 
     Args:
         project_uuid (str):
         user_uuid (str):
-        json_body (UpdateProjectAccessForUserJsonBody):
+        json_body (UpdateProjectMember):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[UpdateProjectAccessForUserResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -103,21 +99,21 @@ def sync(
     user_uuid: str,
     *,
     client: Client,
-    json_body: UpdateProjectAccessForUserJsonBody,
-) -> Optional[UpdateProjectAccessForUserResponse200]:
+    json_body: UpdateProjectMember,
+) -> Optional[ApiSuccessEmpty]:
     """Update a user's access to a project
 
     Args:
         project_uuid (str):
         user_uuid (str):
-        json_body (UpdateProjectAccessForUserJsonBody):
+        json_body (UpdateProjectMember):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        UpdateProjectAccessForUserResponse200
+        ApiSuccessEmpty
     """
 
     return sync_detailed(
@@ -133,21 +129,21 @@ async def asyncio_detailed(
     user_uuid: str,
     *,
     client: Client,
-    json_body: UpdateProjectAccessForUserJsonBody,
-) -> Response[UpdateProjectAccessForUserResponse200]:
+    json_body: UpdateProjectMember,
+) -> Response[ApiSuccessEmpty]:
     """Update a user's access to a project
 
     Args:
         project_uuid (str):
         user_uuid (str):
-        json_body (UpdateProjectAccessForUserJsonBody):
+        json_body (UpdateProjectMember):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[UpdateProjectAccessForUserResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -168,21 +164,21 @@ async def asyncio(
     user_uuid: str,
     *,
     client: Client,
-    json_body: UpdateProjectAccessForUserJsonBody,
-) -> Optional[UpdateProjectAccessForUserResponse200]:
+    json_body: UpdateProjectMember,
+) -> Optional[ApiSuccessEmpty]:
     """Update a user's access to a project
 
     Args:
         project_uuid (str):
         user_uuid (str):
-        json_body (UpdateProjectAccessForUserJsonBody):
+        json_body (UpdateProjectMember):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        UpdateProjectAccessForUserResponse200
+        ApiSuccessEmpty
     """
 
     return (

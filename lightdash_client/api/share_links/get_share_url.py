@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_share_url_response_200 import GetShareUrlResponse200
+from ...models.api_share_response import ApiShareResponse
 from ...types import Response
 
 
@@ -29,9 +29,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetShareUrlResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiShareResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetShareUrlResponse200.from_dict(response.json())
+        response_200 = ApiShareResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -40,7 +40,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetShareUrlResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiShareResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def sync_detailed(
     nano_id: str,
     *,
     client: Client,
-) -> Response[GetShareUrlResponse200]:
+) -> Response[ApiShareResponse]:
     """Get a share url from a short url id
 
     Args:
@@ -64,7 +64,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetShareUrlResponse200]
+        Response[ApiShareResponse]
     """
 
     kwargs = _get_kwargs(
@@ -84,7 +84,7 @@ def sync(
     nano_id: str,
     *,
     client: Client,
-) -> Optional[GetShareUrlResponse200]:
+) -> Optional[ApiShareResponse]:
     """Get a share url from a short url id
 
     Args:
@@ -95,7 +95,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetShareUrlResponse200
+        ApiShareResponse
     """
 
     return sync_detailed(
@@ -108,7 +108,7 @@ async def asyncio_detailed(
     nano_id: str,
     *,
     client: Client,
-) -> Response[GetShareUrlResponse200]:
+) -> Response[ApiShareResponse]:
     """Get a share url from a short url id
 
     Args:
@@ -119,7 +119,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetShareUrlResponse200]
+        Response[ApiShareResponse]
     """
 
     kwargs = _get_kwargs(
@@ -137,7 +137,7 @@ async def asyncio(
     nano_id: str,
     *,
     client: Client,
-) -> Optional[GetShareUrlResponse200]:
+) -> Optional[ApiShareResponse]:
     """Get a share url from a short url id
 
     Args:
@@ -148,7 +148,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetShareUrlResponse200
+        ApiShareResponse
     """
 
     return (

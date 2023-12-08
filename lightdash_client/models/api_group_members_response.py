@@ -5,9 +5,7 @@ import attr
 from ..models.api_group_members_response_status import ApiGroupMembersResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_group_members_response_results_item import (
-        ApiGroupMembersResponseResultsItem,
-    )
+    from ..models.group_member import GroupMember
 
 
 T = TypeVar("T", bound="ApiGroupMembersResponse")
@@ -17,11 +15,11 @@ T = TypeVar("T", bound="ApiGroupMembersResponse")
 class ApiGroupMembersResponse:
     """
     Attributes:
-        results (List['ApiGroupMembersResponseResultsItem']):
+        results (List['GroupMember']):
         status (ApiGroupMembersResponseStatus):
     """
 
-    results: List["ApiGroupMembersResponseResultsItem"]
+    results: List["GroupMember"]
     status: ApiGroupMembersResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -47,15 +45,13 @@ class ApiGroupMembersResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_group_members_response_results_item import (
-            ApiGroupMembersResponseResultsItem,
-        )
+        from ..models.group_member import GroupMember
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiGroupMembersResponseResultsItem.from_dict(results_item_data)
+            results_item = GroupMember.from_dict(results_item_data)
 
             results.append(results_item)
 

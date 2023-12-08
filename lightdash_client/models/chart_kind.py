@@ -4,6 +4,7 @@ from enum import Enum
 class ChartKind(str, Enum):
     AREA = "area"
     BIG_NUMBER = "big_number"
+    CUSTOM = "custom"
     HORIZONTAL_BAR = "horizontal_bar"
     LINE = "line"
     MIXED = "mixed"

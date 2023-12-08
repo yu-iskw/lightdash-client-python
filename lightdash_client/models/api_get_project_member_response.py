@@ -7,9 +7,7 @@ from ..models.api_get_project_member_response_status import (
 )
 
 if TYPE_CHECKING:
-    from ..models.api_get_project_member_response_results import (
-        ApiGetProjectMemberResponseResults,
-    )
+    from ..models.project_member_profile import ProjectMemberProfile
 
 
 T = TypeVar("T", bound="ApiGetProjectMemberResponse")
@@ -19,11 +17,11 @@ T = TypeVar("T", bound="ApiGetProjectMemberResponse")
 class ApiGetProjectMemberResponse:
     """
     Attributes:
-        results (ApiGetProjectMemberResponseResults):
+        results (ProjectMemberProfile):
         status (ApiGetProjectMemberResponseStatus):
     """
 
-    results: "ApiGetProjectMemberResponseResults"
+    results: "ProjectMemberProfile"
     status: ApiGetProjectMemberResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -45,12 +43,10 @@ class ApiGetProjectMemberResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_get_project_member_response_results import (
-            ApiGetProjectMemberResponseResults,
-        )
+        from ..models.project_member_profile import ProjectMemberProfile
 
         d = src_dict.copy()
-        results = ApiGetProjectMemberResponseResults.from_dict(d.pop("results"))
+        results = ProjectMemberProfile.from_dict(d.pop("results"))
 
         status = ApiGetProjectMemberResponseStatus(d.pop("status"))
 

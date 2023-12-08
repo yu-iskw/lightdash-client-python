@@ -7,9 +7,7 @@ from dateutil.parser import isoparse
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order_updated_by_user import (
-        PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
-    )
+    from ..models.updated_by_user import UpdatedByUser
 
 
 T = TypeVar(
@@ -28,8 +26,7 @@ class PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuid
         updated_at (datetime.datetime):
         space_uuid (str):
         description (Union[Unset, str]):
-        updated_by_user (Union[Unset, PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinned
-            ListUuidOrPinnedListOrderUpdatedByUser]):
+        updated_by_user (Union[Unset, UpdatedByUser]):
         pinned_list_uuid (Optional[str]):
         pinned_list_order (Optional[float]):
     """
@@ -41,10 +38,7 @@ class PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuid
     pinned_list_uuid: Optional[str]
     pinned_list_order: Optional[float]
     description: Union[Unset, str] = UNSET
-    updated_by_user: Union[
-        Unset,
-        "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser",
-    ] = UNSET
+    updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -82,9 +76,7 @@ class PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuid
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order_updated_by_user import (
-            PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
-        )
+        from ..models.updated_by_user import UpdatedByUser
 
         d = src_dict.copy()
         name = d.pop("name")
@@ -98,16 +90,11 @@ class PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuid
         description = d.pop("description", UNSET)
 
         _updated_by_user = d.pop("updatedByUser", UNSET)
-        updated_by_user: Union[
-            Unset,
-            PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
-        ]
+        updated_by_user: Union[Unset, UpdatedByUser]
         if isinstance(_updated_by_user, Unset):
             updated_by_user = UNSET
         else:
-            updated_by_user = PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser.from_dict(
-                _updated_by_user
-            )
+            updated_by_user = UpdatedByUser.from_dict(_updated_by_user)
 
         pinned_list_uuid = d.pop("pinnedListUuid")
 

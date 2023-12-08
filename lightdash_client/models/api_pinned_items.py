@@ -5,15 +5,9 @@ import attr
 from ..models.api_pinned_items_status import ApiPinnedItemsStatus
 
 if TYPE_CHECKING:
-    from ..models.api_pinned_items_results_item_type_0 import (
-        ApiPinnedItemsResultsItemType0,
-    )
-    from ..models.api_pinned_items_results_item_type_1 import (
-        ApiPinnedItemsResultsItemType1,
-    )
-    from ..models.api_pinned_items_results_item_type_2 import (
-        ApiPinnedItemsResultsItemType2,
-    )
+    from ..models.resource_view_chart_item import ResourceViewChartItem
+    from ..models.resource_view_dashboard_item import ResourceViewDashboardItem
+    from ..models.resource_view_space_item import ResourceViewSpaceItem
 
 
 T = TypeVar("T", bound="ApiPinnedItems")
@@ -23,39 +17,32 @@ T = TypeVar("T", bound="ApiPinnedItems")
 class ApiPinnedItems:
     """
     Attributes:
-        results (List[Union['ApiPinnedItemsResultsItemType0', 'ApiPinnedItemsResultsItemType1',
-            'ApiPinnedItemsResultsItemType2']]):
+        results (List[Union['ResourceViewChartItem', 'ResourceViewDashboardItem', 'ResourceViewSpaceItem']]):
         status (ApiPinnedItemsStatus):
     """
 
-    results: List[
-        Union["ApiPinnedItemsResultsItemType0", "ApiPinnedItemsResultsItemType1", "ApiPinnedItemsResultsItemType2"]
-    ]
+    results: List[Union["ResourceViewChartItem", "ResourceViewDashboardItem", "ResourceViewSpaceItem"]]
     status: ApiPinnedItemsStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.api_pinned_items_results_item_type_0 import (
-            ApiPinnedItemsResultsItemType0,
-        )
-        from ..models.api_pinned_items_results_item_type_1 import (
-            ApiPinnedItemsResultsItemType1,
-        )
+        from ..models.resource_view_chart_item import ResourceViewChartItem
+        from ..models.resource_view_dashboard_item import ResourceViewDashboardItem
 
         results = []
-        for results_item_data in self.results:
-            results_item: Dict[str, Any]
+        for componentsschemas_pinned_items_item_data in self.results:
+            componentsschemas_pinned_items_item: Dict[str, Any]
 
-            if isinstance(results_item_data, ApiPinnedItemsResultsItemType0):
-                results_item = results_item_data.to_dict()
+            if isinstance(componentsschemas_pinned_items_item_data, ResourceViewDashboardItem):
+                componentsschemas_pinned_items_item = componentsschemas_pinned_items_item_data.to_dict()
 
-            elif isinstance(results_item_data, ApiPinnedItemsResultsItemType1):
-                results_item = results_item_data.to_dict()
+            elif isinstance(componentsschemas_pinned_items_item_data, ResourceViewChartItem):
+                componentsschemas_pinned_items_item = componentsschemas_pinned_items_item_data.to_dict()
 
             else:
-                results_item = results_item_data.to_dict()
+                componentsschemas_pinned_items_item = componentsschemas_pinned_items_item_data.to_dict()
 
-            results.append(results_item)
+            results.append(componentsschemas_pinned_items_item)
 
         status = self.status.value
 
@@ -72,51 +59,45 @@ class ApiPinnedItems:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_pinned_items_results_item_type_0 import (
-            ApiPinnedItemsResultsItemType0,
-        )
-        from ..models.api_pinned_items_results_item_type_1 import (
-            ApiPinnedItemsResultsItemType1,
-        )
-        from ..models.api_pinned_items_results_item_type_2 import (
-            ApiPinnedItemsResultsItemType2,
-        )
+        from ..models.resource_view_chart_item import ResourceViewChartItem
+        from ..models.resource_view_dashboard_item import ResourceViewDashboardItem
+        from ..models.resource_view_space_item import ResourceViewSpaceItem
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
-        for results_item_data in _results:
+        for componentsschemas_pinned_items_item_data in _results:
 
-            def _parse_results_item(
+            def _parse_componentsschemas_pinned_items_item(
                 data: object,
-            ) -> Union[
-                "ApiPinnedItemsResultsItemType0", "ApiPinnedItemsResultsItemType1", "ApiPinnedItemsResultsItemType2"
-            ]:
+            ) -> Union["ResourceViewChartItem", "ResourceViewDashboardItem", "ResourceViewSpaceItem"]:
                 try:
                     if not isinstance(data, dict):
                         raise TypeError()
-                    results_item_type_0 = ApiPinnedItemsResultsItemType0.from_dict(data)
+                    componentsschemas_pinned_items_item_type_0 = ResourceViewDashboardItem.from_dict(data)
 
-                    return results_item_type_0
+                    return componentsschemas_pinned_items_item_type_0
                 except:  # noqa: E722
                     pass
                 try:
                     if not isinstance(data, dict):
                         raise TypeError()
-                    results_item_type_1 = ApiPinnedItemsResultsItemType1.from_dict(data)
+                    componentsschemas_pinned_items_item_type_1 = ResourceViewChartItem.from_dict(data)
 
-                    return results_item_type_1
+                    return componentsschemas_pinned_items_item_type_1
                 except:  # noqa: E722
                     pass
                 if not isinstance(data, dict):
                     raise TypeError()
-                results_item_type_2 = ApiPinnedItemsResultsItemType2.from_dict(data)
+                componentsschemas_pinned_items_item_type_2 = ResourceViewSpaceItem.from_dict(data)
 
-                return results_item_type_2
+                return componentsschemas_pinned_items_item_type_2
 
-            results_item = _parse_results_item(results_item_data)
+            componentsschemas_pinned_items_item = _parse_componentsschemas_pinned_items_item(
+                componentsschemas_pinned_items_item_data
+            )
 
-            results.append(results_item)
+            results.append(componentsschemas_pinned_items_item)
 
         status = ApiPinnedItemsStatus(d.pop("status"))
 

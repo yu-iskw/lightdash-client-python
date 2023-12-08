@@ -5,7 +5,6 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.update_scheduler_response_201 import UpdateSchedulerResponse201
 from ...types import Response
 
 
@@ -33,18 +32,14 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[UpdateSchedulerResponse201]:
-    if response.status_code == HTTPStatus.CREATED:
-        response_201 = UpdateSchedulerResponse201.from_dict(response.json())
-
-        return response_201
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Any]:
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[UpdateSchedulerResponse201]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[Any]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -58,7 +53,7 @@ def sync_detailed(
     *,
     client: Client,
     json_body: Any,
-) -> Response[UpdateSchedulerResponse201]:
+) -> Response[Any]:
     """Update a scheduler
 
     Args:
@@ -70,7 +65,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[UpdateSchedulerResponse201]
+        Response[Any]
     """
 
     kwargs = _get_kwargs(
@@ -87,39 +82,12 @@ def sync_detailed(
     return _build_response(client=client, response=response)
 
 
-def sync(
-    scheduler_uuid: str,
-    *,
-    client: Client,
-    json_body: Any,
-) -> Optional[UpdateSchedulerResponse201]:
-    """Update a scheduler
-
-    Args:
-        scheduler_uuid (str):
-        json_body (Any): the new scheduler data
-
-    Raises:
-        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
-        httpx.TimeoutException: If the request takes longer than Client.timeout.
-
-    Returns:
-        UpdateSchedulerResponse201
-    """
-
-    return sync_detailed(
-        scheduler_uuid=scheduler_uuid,
-        client=client,
-        json_body=json_body,
-    ).parsed
-
-
 async def asyncio_detailed(
     scheduler_uuid: str,
     *,
     client: Client,
     json_body: Any,
-) -> Response[UpdateSchedulerResponse201]:
+) -> Response[Any]:
     """Update a scheduler
 
     Args:
@@ -131,7 +99,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[UpdateSchedulerResponse201]
+        Response[Any]
     """
 
     kwargs = _get_kwargs(
@@ -144,32 +112,3 @@ async def asyncio_detailed(
         response = await _client.request(**kwargs)
 
     return _build_response(client=client, response=response)
-
-
-async def asyncio(
-    scheduler_uuid: str,
-    *,
-    client: Client,
-    json_body: Any,
-) -> Optional[UpdateSchedulerResponse201]:
-    """Update a scheduler
-
-    Args:
-        scheduler_uuid (str):
-        json_body (Any): the new scheduler data
-
-    Raises:
-        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
-        httpx.TimeoutException: If the request takes longer than Client.timeout.
-
-    Returns:
-        UpdateSchedulerResponse201
-    """
-
-    return (
-        await asyncio_detailed(
-            scheduler_uuid=scheduler_uuid,
-            client=client,
-            json_body=json_body,
-        )
-    ).parsed

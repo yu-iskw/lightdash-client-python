@@ -4,8 +4,8 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.validation_response_base_error_type import ValidationResponseBaseErrorType
-from ..models.validation_response_base_source import ValidationResponseBaseSource
+from ..models.validation_error_type import ValidationErrorType
+from ..models.validation_source_type import ValidationSourceType
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ValidationResponseBase")
@@ -16,22 +16,22 @@ class ValidationResponseBase:
     """
     Attributes:
         project_uuid (str):
-        error_type (ValidationResponseBaseErrorType):
+        error_type (ValidationErrorType):
         error (str):
         name (str):
         created_at (datetime.datetime):
         validation_id (float):
-        source (Union[Unset, ValidationResponseBaseSource]):
+        source (Union[Unset, ValidationSourceType]):
         space_uuid (Union[Unset, str]):
     """
 
     project_uuid: str
-    error_type: ValidationResponseBaseErrorType
+    error_type: ValidationErrorType
     error: str
     name: str
     created_at: datetime.datetime
     validation_id: float
-    source: Union[Unset, ValidationResponseBaseSource] = UNSET
+    source: Union[Unset, ValidationSourceType] = UNSET
     space_uuid: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -74,7 +74,7 @@ class ValidationResponseBase:
         d = src_dict.copy()
         project_uuid = d.pop("projectUuid")
 
-        error_type = ValidationResponseBaseErrorType(d.pop("errorType"))
+        error_type = ValidationErrorType(d.pop("errorType"))
 
         error = d.pop("error")
 
@@ -85,11 +85,11 @@ class ValidationResponseBase:
         validation_id = d.pop("validationId")
 
         _source = d.pop("source", UNSET)
-        source: Union[Unset, ValidationResponseBaseSource]
+        source: Union[Unset, ValidationSourceType]
         if isinstance(_source, Unset):
             source = UNSET
         else:
-            source = ValidationResponseBaseSource(_source)
+            source = ValidationSourceType(_source)
 
         space_uuid = d.pop("spaceUuid", UNSET)
 

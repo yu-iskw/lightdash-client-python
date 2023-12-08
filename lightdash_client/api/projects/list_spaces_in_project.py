@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.list_spaces_in_project_response_200 import ListSpacesInProjectResponse200
+from ...models.api_space_summary_list_response import ApiSpaceSummaryListResponse
 from ...types import Response
 
 
@@ -29,9 +29,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ListSpacesInProjectResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSpaceSummaryListResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ListSpacesInProjectResponse200.from_dict(response.json())
+        response_200 = ApiSpaceSummaryListResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -40,7 +40,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Lis
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ListSpacesInProjectResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSpaceSummaryListResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[ListSpacesInProjectResponse200]:
+) -> Response[ApiSpaceSummaryListResponse]:
     """List all spaces in a project
 
     Args:
@@ -64,7 +64,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ListSpacesInProjectResponse200]
+        Response[ApiSpaceSummaryListResponse]
     """
 
     kwargs = _get_kwargs(
@@ -84,7 +84,7 @@ def sync(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[ListSpacesInProjectResponse200]:
+) -> Optional[ApiSpaceSummaryListResponse]:
     """List all spaces in a project
 
     Args:
@@ -95,7 +95,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ListSpacesInProjectResponse200
+        ApiSpaceSummaryListResponse
     """
 
     return sync_detailed(
@@ -108,7 +108,7 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[ListSpacesInProjectResponse200]:
+) -> Response[ApiSpaceSummaryListResponse]:
     """List all spaces in a project
 
     Args:
@@ -119,7 +119,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ListSpacesInProjectResponse200]
+        Response[ApiSpaceSummaryListResponse]
     """
 
     kwargs = _get_kwargs(
@@ -137,7 +137,7 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[ListSpacesInProjectResponse200]:
+) -> Optional[ApiSpaceSummaryListResponse]:
     """List all spaces in a project
 
     Args:
@@ -148,7 +148,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ListSpacesInProjectResponse200
+        ApiSpaceSummaryListResponse
     """
 
     return (

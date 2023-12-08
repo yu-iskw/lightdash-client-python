@@ -1,17 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names_type import (
-    PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType,
-)
+from ..models.warehouse_types_redshift import WarehouseTypesREDSHIFT
+from ..models.week_day import WeekDay
 from ..types import UNSET, Unset
-
-if TYPE_CHECKING:
-    from ..models.pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names_start_of_week import (
-        PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-    )
-
 
 T = TypeVar(
     "T", bound="PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames"
@@ -23,14 +16,13 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        type (PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType):
+        type (WarehouseTypesREDSHIFT):
         schema (str):
         host (str):
         port (float):
         dbname (str):
         threads (Union[Unset, float]):
-        start_of_week (Union[Unset, None,
-            PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek]):
+        start_of_week (Union[Unset, None, WeekDay]):
         use_ssh_tunnel (Union[Unset, bool]):
         ssh_tunnel_host (Union[Unset, str]):
         ssh_tunnel_port (Union[Unset, float]):
@@ -41,17 +33,13 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
         ra_3_node (Union[Unset, bool]):
     """
 
-    type: PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType
+    type: WarehouseTypesREDSHIFT
     schema: str
     host: str
     port: float
     dbname: str
     threads: Union[Unset, float] = UNSET
-    start_of_week: Union[
-        Unset,
-        None,
-        "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    ] = UNSET
+    start_of_week: Union[Unset, None, WeekDay] = UNSET
     use_ssh_tunnel: Union[Unset, bool] = UNSET
     ssh_tunnel_host: Union[Unset, str] = UNSET
     ssh_tunnel_port: Union[Unset, float] = UNSET
@@ -70,9 +58,9 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
         port = self.port
         dbname = self.dbname
         threads = self.threads
-        start_of_week: Union[Unset, None, Dict[str, Any]] = UNSET
+        start_of_week: Union[Unset, None, int] = UNSET
         if not isinstance(self.start_of_week, Unset):
-            start_of_week = self.start_of_week.to_dict() if self.start_of_week else None
+            start_of_week = self.start_of_week.value if self.start_of_week else None
 
         use_ssh_tunnel = self.use_ssh_tunnel
         ssh_tunnel_host = self.ssh_tunnel_host
@@ -119,14 +107,8 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names_start_of_week import (
-            PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-        )
-
         d = src_dict.copy()
-        type = PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType(
-            d.pop("type")
-        )
+        type = WarehouseTypesREDSHIFT(d.pop("type"))
 
         schema = d.pop("schema")
 
@@ -139,19 +121,13 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
         threads = d.pop("threads", UNSET)
 
         _start_of_week = d.pop("startOfWeek", UNSET)
-        start_of_week: Union[
-            Unset,
-            None,
-            PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-        ]
+        start_of_week: Union[Unset, None, WeekDay]
         if _start_of_week is None:
             start_of_week = None
         elif isinstance(_start_of_week, Unset):
             start_of_week = UNSET
         else:
-            start_of_week = PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek.from_dict(
-                _start_of_week
-            )
+            start_of_week = WeekDay(_start_of_week)
 
         use_ssh_tunnel = d.pop("useSshTunnel", UNSET)
 

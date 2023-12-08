@@ -7,9 +7,7 @@ from ..models.api_user_allowed_organizations_response_status import (
 )
 
 if TYPE_CHECKING:
-    from ..models.api_user_allowed_organizations_response_results_item import (
-        ApiUserAllowedOrganizationsResponseResultsItem,
-    )
+    from ..models.user_allowed_organization import UserAllowedOrganization
 
 
 T = TypeVar("T", bound="ApiUserAllowedOrganizationsResponse")
@@ -19,11 +17,11 @@ T = TypeVar("T", bound="ApiUserAllowedOrganizationsResponse")
 class ApiUserAllowedOrganizationsResponse:
     """
     Attributes:
-        results (List['ApiUserAllowedOrganizationsResponseResultsItem']):
+        results (List['UserAllowedOrganization']):
         status (ApiUserAllowedOrganizationsResponseStatus):
     """
 
-    results: List["ApiUserAllowedOrganizationsResponseResultsItem"]
+    results: List["UserAllowedOrganization"]
     status: ApiUserAllowedOrganizationsResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -49,15 +47,13 @@ class ApiUserAllowedOrganizationsResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_user_allowed_organizations_response_results_item import (
-            ApiUserAllowedOrganizationsResponseResultsItem,
-        )
+        from ..models.user_allowed_organization import UserAllowedOrganization
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiUserAllowedOrganizationsResponseResultsItem.from_dict(results_item_data)
+            results_item = UserAllowedOrganization.from_dict(results_item_data)
 
             results.append(results_item)
 

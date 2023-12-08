@@ -1,14 +1,8 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
 from ..types import UNSET, Unset
-
-if TYPE_CHECKING:
-    from ..models.post_chart_results_json_body_filters import (
-        PostChartResultsJsonBodyFilters,
-    )
-
 
 T = TypeVar("T", bound="PostChartResultsJsonBody")
 
@@ -17,41 +11,30 @@ T = TypeVar("T", bound="PostChartResultsJsonBody")
 class PostChartResultsJsonBody:
     """
     Attributes:
-        filters (Union[Unset, PostChartResultsJsonBodyFilters]):
+        invalidate_cache (Union[Unset, bool]):
     """
 
-    filters: Union[Unset, "PostChartResultsJsonBodyFilters"] = UNSET
+    invalidate_cache: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        filters: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.filters, Unset):
-            filters = self.filters.to_dict()
+        invalidate_cache = self.invalidate_cache
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if filters is not UNSET:
-            field_dict["filters"] = filters
+        if invalidate_cache is not UNSET:
+            field_dict["invalidateCache"] = invalidate_cache
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.post_chart_results_json_body_filters import (
-            PostChartResultsJsonBodyFilters,
-        )
-
         d = src_dict.copy()
-        _filters = d.pop("filters", UNSET)
-        filters: Union[Unset, PostChartResultsJsonBodyFilters]
-        if isinstance(_filters, Unset):
-            filters = UNSET
-        else:
-            filters = PostChartResultsJsonBodyFilters.from_dict(_filters)
+        invalidate_cache = d.pop("invalidateCache", UNSET)
 
         post_chart_results_json_body = cls(
-            filters=filters,
+            invalidate_cache=invalidate_cache,
         )
 
         post_chart_results_json_body.additional_properties = d

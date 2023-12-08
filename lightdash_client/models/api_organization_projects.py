@@ -5,9 +5,7 @@ import attr
 from ..models.api_organization_projects_status import ApiOrganizationProjectsStatus
 
 if TYPE_CHECKING:
-    from ..models.api_organization_projects_results_item import (
-        ApiOrganizationProjectsResultsItem,
-    )
+    from ..models.organization_project import OrganizationProject
 
 
 T = TypeVar("T", bound="ApiOrganizationProjects")
@@ -18,11 +16,11 @@ class ApiOrganizationProjects:
     """List of projects in the current organization
 
     Attributes:
-        results (List['ApiOrganizationProjectsResultsItem']):
+        results (List['OrganizationProject']):
         status (ApiOrganizationProjectsStatus):
     """
 
-    results: List["ApiOrganizationProjectsResultsItem"]
+    results: List["OrganizationProject"]
     status: ApiOrganizationProjectsStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -48,15 +46,13 @@ class ApiOrganizationProjects:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_organization_projects_results_item import (
-            ApiOrganizationProjectsResultsItem,
-        )
+        from ..models.organization_project import OrganizationProject
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiOrganizationProjectsResultsItem.from_dict(results_item_data)
+            results_item = OrganizationProject.from_dict(results_item_data)
 
             results.append(results_item)
 

@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.join_organization_response_200 import JoinOrganizationResponse200
+from ...models.api_success_empty import ApiSuccessEmpty
 from ...types import Response
 
 
@@ -31,9 +31,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[JoinOrganizationResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = JoinOrganizationResponse200.from_dict(response.json())
+        response_200 = ApiSuccessEmpty.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -42,7 +42,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Joi
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[JoinOrganizationResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -55,7 +55,7 @@ def sync_detailed(
     organization_uuid: str,
     *,
     client: Client,
-) -> Response[JoinOrganizationResponse200]:
+) -> Response[ApiSuccessEmpty]:
     """Add the current user to an organization that accepts users with a verified email domain.
     This will fail if the organization email domain does not match the user's primary email domain.
 
@@ -67,7 +67,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[JoinOrganizationResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -87,7 +87,7 @@ def sync(
     organization_uuid: str,
     *,
     client: Client,
-) -> Optional[JoinOrganizationResponse200]:
+) -> Optional[ApiSuccessEmpty]:
     """Add the current user to an organization that accepts users with a verified email domain.
     This will fail if the organization email domain does not match the user's primary email domain.
 
@@ -99,7 +99,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        JoinOrganizationResponse200
+        ApiSuccessEmpty
     """
 
     return sync_detailed(
@@ -112,7 +112,7 @@ async def asyncio_detailed(
     organization_uuid: str,
     *,
     client: Client,
-) -> Response[JoinOrganizationResponse200]:
+) -> Response[ApiSuccessEmpty]:
     """Add the current user to an organization that accepts users with a verified email domain.
     This will fail if the organization email domain does not match the user's primary email domain.
 
@@ -124,7 +124,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[JoinOrganizationResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -142,7 +142,7 @@ async def asyncio(
     organization_uuid: str,
     *,
     client: Client,
-) -> Optional[JoinOrganizationResponse200]:
+) -> Optional[ApiSuccessEmpty]:
     """Add the current user to an organization that accepts users with a verified email domain.
     This will fail if the organization email domain does not match the user's primary email domain.
 
@@ -154,7 +154,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        JoinOrganizationResponse200
+        ApiSuccessEmpty
     """
 
     return (

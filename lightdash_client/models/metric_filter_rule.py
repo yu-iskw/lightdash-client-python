@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.metric_filter_rule_operator import MetricFilterRuleOperator
+from ..models.conditional_operator import ConditionalOperator
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -16,7 +16,7 @@ T = TypeVar("T", bound="MetricFilterRule")
 class MetricFilterRule:
     """
     Attributes:
-        operator (MetricFilterRuleOperator):
+        operator (ConditionalOperator):
         id (str):
         target (MetricFilterRuleTarget):
         values (Union[Unset, List[Any]]):
@@ -24,7 +24,7 @@ class MetricFilterRule:
         disabled (Union[Unset, bool]):
     """
 
-    operator: MetricFilterRuleOperator
+    operator: ConditionalOperator
     id: str
     target: "MetricFilterRuleTarget"
     values: Union[Unset, List[Any]] = UNSET
@@ -66,7 +66,7 @@ class MetricFilterRule:
         from ..models.metric_filter_rule_target import MetricFilterRuleTarget
 
         d = src_dict.copy()
-        operator = MetricFilterRuleOperator(d.pop("operator"))
+        operator = ConditionalOperator(d.pop("operator"))
 
         id = d.pop("id")
 

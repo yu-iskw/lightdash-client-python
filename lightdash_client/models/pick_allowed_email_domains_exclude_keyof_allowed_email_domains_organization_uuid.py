@@ -2,18 +2,12 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_0 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0,
+from ..models.organization_member_role_editor import OrganizationMemberRoleEDITOR
+from ..models.organization_member_role_interactiveviewer import (
+    OrganizationMemberRoleINTERACTIVEVIEWER,
 )
-from ..models.pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_1 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1,
-)
-from ..models.pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_2 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2,
-)
-from ..models.pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_3 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3,
-)
+from ..models.organization_member_role_member import OrganizationMemberRoleMEMBER
+from ..models.organization_member_role_viewer import OrganizationMemberRoleVIEWER
 
 if TYPE_CHECKING:
     from ..models.pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item import (
@@ -30,19 +24,17 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
 
     Attributes:
         email_domains (List[str]):
-        role (Union[PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0,
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1,
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2,
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3]):
+        role (Union[OrganizationMemberRoleEDITOR, OrganizationMemberRoleINTERACTIVEVIEWER, OrganizationMemberRoleMEMBER,
+            OrganizationMemberRoleVIEWER]):
         projects (List['PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem']):
     """
 
     email_domains: List[str]
     role: Union[
-        PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0,
-        PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1,
-        PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2,
-        PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3,
+        OrganizationMemberRoleEDITOR,
+        OrganizationMemberRoleINTERACTIVEVIEWER,
+        OrganizationMemberRoleMEMBER,
+        OrganizationMemberRoleVIEWER,
     ]
     projects: List["PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem"]
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -52,13 +44,13 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
 
         role: str
 
-        if isinstance(self.role, PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0):
+        if isinstance(self.role, OrganizationMemberRoleEDITOR):
             role = self.role.value
 
-        elif isinstance(self.role, PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1):
+        elif isinstance(self.role, OrganizationMemberRoleINTERACTIVEVIEWER):
             role = self.role.value
 
-        elif isinstance(self.role, PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2):
+        elif isinstance(self.role, OrganizationMemberRoleVIEWER):
             role = self.role.value
 
         else:
@@ -94,40 +86,40 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
         def _parse_role(
             data: object,
         ) -> Union[
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0,
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1,
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2,
-            PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3,
+            OrganizationMemberRoleEDITOR,
+            OrganizationMemberRoleINTERACTIVEVIEWER,
+            OrganizationMemberRoleMEMBER,
+            OrganizationMemberRoleVIEWER,
         ]:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                role_type_0 = PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0(data)
+                componentsschemas_allowed_email_domains_role_type_0 = OrganizationMemberRoleEDITOR(data)
 
-                return role_type_0
+                return componentsschemas_allowed_email_domains_role_type_0
             except:  # noqa: E722
                 pass
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                role_type_1 = PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1(data)
+                componentsschemas_allowed_email_domains_role_type_1 = OrganizationMemberRoleINTERACTIVEVIEWER(data)
 
-                return role_type_1
+                return componentsschemas_allowed_email_domains_role_type_1
             except:  # noqa: E722
                 pass
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                role_type_2 = PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2(data)
+                componentsschemas_allowed_email_domains_role_type_2 = OrganizationMemberRoleVIEWER(data)
 
-                return role_type_2
+                return componentsschemas_allowed_email_domains_role_type_2
             except:  # noqa: E722
                 pass
             if not isinstance(data, str):
                 raise TypeError()
-            role_type_3 = PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3(data)
+            componentsschemas_allowed_email_domains_role_type_3 = OrganizationMemberRoleMEMBER(data)
 
-            return role_type_3
+            return componentsschemas_allowed_email_domains_role_type_3
 
         role = _parse_role(d.pop("role"))
 

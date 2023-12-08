@@ -4,12 +4,13 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Unio
 import attr
 from dateutil.parser import isoparse
 
-from ..models.scheduler_base_format import SchedulerBaseFormat
+from ..models.scheduler_format import SchedulerFormat
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
-    from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
-    from ..models.scheduler_base_options_type_2 import SchedulerBaseOptionsType2
+    from ..models.scheduler_csv_options import SchedulerCsvOptions
+    from ..models.scheduler_gsheets_options import SchedulerGsheetsOptions
+    from ..models.scheduler_image_options import SchedulerImageOptions
 
 
 T = TypeVar("T", bound="SchedulerBase")
@@ -19,9 +20,9 @@ T = TypeVar("T", bound="SchedulerBase")
 class SchedulerBase:
     """
     Attributes:
-        options (Union['SchedulerBaseOptionsType0', 'SchedulerBaseOptionsType1', 'SchedulerBaseOptionsType2']):
+        options (Union['SchedulerCsvOptions', 'SchedulerGsheetsOptions', 'SchedulerImageOptions']):
         cron (str):
-        format_ (SchedulerBaseFormat):
+        format_ (SchedulerFormat):
         created_by (str):
         updated_at (datetime.datetime):
         created_at (datetime.datetime):
@@ -29,11 +30,12 @@ class SchedulerBase:
         scheduler_uuid (str):
         dashboard_uuid (Optional[str]):
         saved_chart_uuid (Optional[str]):
+        message (Union[Unset, str]):
     """
 
-    options: Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1", "SchedulerBaseOptionsType2"]
+    options: Union["SchedulerCsvOptions", "SchedulerGsheetsOptions", "SchedulerImageOptions"]
     cron: str
-    format_: SchedulerBaseFormat
+    format_: SchedulerFormat
     created_by: str
     updated_at: datetime.datetime
     created_at: datetime.datetime
@@ -41,18 +43,19 @@ class SchedulerBase:
     scheduler_uuid: str
     dashboard_uuid: Optional[str]
     saved_chart_uuid: Optional[str]
+    message: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
-        from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
+        from ..models.scheduler_csv_options import SchedulerCsvOptions
+        from ..models.scheduler_image_options import SchedulerImageOptions
 
         options: Dict[str, Any]
 
-        if isinstance(self.options, SchedulerBaseOptionsType0):
+        if isinstance(self.options, SchedulerCsvOptions):
             options = self.options.to_dict()
 
-        elif isinstance(self.options, SchedulerBaseOptionsType1):
+        elif isinstance(self.options, SchedulerImageOptions):
             options = self.options.to_dict()
 
         else:
@@ -70,6 +73,7 @@ class SchedulerBase:
         scheduler_uuid = self.scheduler_uuid
         dashboard_uuid = self.dashboard_uuid
         saved_chart_uuid = self.saved_chart_uuid
+        message = self.message
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -87,47 +91,49 @@ class SchedulerBase:
                 "savedChartUuid": saved_chart_uuid,
             }
         )
+        if message is not UNSET:
+            field_dict["message"] = message
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.scheduler_base_options_type_0 import SchedulerBaseOptionsType0
-        from ..models.scheduler_base_options_type_1 import SchedulerBaseOptionsType1
-        from ..models.scheduler_base_options_type_2 import SchedulerBaseOptionsType2
+        from ..models.scheduler_csv_options import SchedulerCsvOptions
+        from ..models.scheduler_gsheets_options import SchedulerGsheetsOptions
+        from ..models.scheduler_image_options import SchedulerImageOptions
 
         d = src_dict.copy()
 
         def _parse_options(
             data: object,
-        ) -> Union["SchedulerBaseOptionsType0", "SchedulerBaseOptionsType1", "SchedulerBaseOptionsType2"]:
+        ) -> Union["SchedulerCsvOptions", "SchedulerGsheetsOptions", "SchedulerImageOptions"]:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                options_type_0 = SchedulerBaseOptionsType0.from_dict(data)
+                componentsschemas_scheduler_options_type_0 = SchedulerCsvOptions.from_dict(data)
 
-                return options_type_0
+                return componentsschemas_scheduler_options_type_0
             except:  # noqa: E722
                 pass
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                options_type_1 = SchedulerBaseOptionsType1.from_dict(data)
+                componentsschemas_scheduler_options_type_1 = SchedulerImageOptions.from_dict(data)
 
-                return options_type_1
+                return componentsschemas_scheduler_options_type_1
             except:  # noqa: E722
                 pass
             if not isinstance(data, dict):
                 raise TypeError()
-            options_type_2 = SchedulerBaseOptionsType2.from_dict(data)
+            componentsschemas_scheduler_options_type_2 = SchedulerGsheetsOptions.from_dict(data)
 
-            return options_type_2
+            return componentsschemas_scheduler_options_type_2
 
         options = _parse_options(d.pop("options"))
 
         cron = d.pop("cron")
 
-        format_ = SchedulerBaseFormat(d.pop("format"))
+        format_ = SchedulerFormat(d.pop("format"))
 
         created_by = d.pop("createdBy")
 
@@ -143,6 +149,8 @@ class SchedulerBase:
 
         saved_chart_uuid = d.pop("savedChartUuid")
 
+        message = d.pop("message", UNSET)
+
         scheduler_base = cls(
             options=options,
             cron=cron,
@@ -154,6 +162,7 @@ class SchedulerBase:
             scheduler_uuid=scheduler_uuid,
             dashboard_uuid=dashboard_uuid,
             saved_chart_uuid=saved_chart_uuid,
+            message=message,
         )
 
         scheduler_base.additional_properties = d

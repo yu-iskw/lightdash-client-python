@@ -2,10 +2,12 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.allowed_email_domains_role_type_0 import AllowedEmailDomainsRoleType0
-from ..models.allowed_email_domains_role_type_1 import AllowedEmailDomainsRoleType1
-from ..models.allowed_email_domains_role_type_2 import AllowedEmailDomainsRoleType2
-from ..models.allowed_email_domains_role_type_3 import AllowedEmailDomainsRoleType3
+from ..models.organization_member_role_editor import OrganizationMemberRoleEDITOR
+from ..models.organization_member_role_interactiveviewer import (
+    OrganizationMemberRoleINTERACTIVEVIEWER,
+)
+from ..models.organization_member_role_member import OrganizationMemberRoleMEMBER
+from ..models.organization_member_role_viewer import OrganizationMemberRoleVIEWER
 
 if TYPE_CHECKING:
     from ..models.allowed_email_domains_projects_item import (
@@ -21,18 +23,18 @@ class AllowedEmailDomains:
     """
     Attributes:
         projects (List['AllowedEmailDomainsProjectsItem']):
-        role (Union[AllowedEmailDomainsRoleType0, AllowedEmailDomainsRoleType1, AllowedEmailDomainsRoleType2,
-            AllowedEmailDomainsRoleType3]):
+        role (Union[OrganizationMemberRoleEDITOR, OrganizationMemberRoleINTERACTIVEVIEWER, OrganizationMemberRoleMEMBER,
+            OrganizationMemberRoleVIEWER]):
         email_domains (List[str]):
         organization_uuid (str):
     """
 
     projects: List["AllowedEmailDomainsProjectsItem"]
     role: Union[
-        AllowedEmailDomainsRoleType0,
-        AllowedEmailDomainsRoleType1,
-        AllowedEmailDomainsRoleType2,
-        AllowedEmailDomainsRoleType3,
+        OrganizationMemberRoleEDITOR,
+        OrganizationMemberRoleINTERACTIVEVIEWER,
+        OrganizationMemberRoleMEMBER,
+        OrganizationMemberRoleVIEWER,
     ]
     email_domains: List[str]
     organization_uuid: str
@@ -47,13 +49,13 @@ class AllowedEmailDomains:
 
         role: str
 
-        if isinstance(self.role, AllowedEmailDomainsRoleType0):
+        if isinstance(self.role, OrganizationMemberRoleEDITOR):
             role = self.role.value
 
-        elif isinstance(self.role, AllowedEmailDomainsRoleType1):
+        elif isinstance(self.role, OrganizationMemberRoleINTERACTIVEVIEWER):
             role = self.role.value
 
-        elif isinstance(self.role, AllowedEmailDomainsRoleType2):
+        elif isinstance(self.role, OrganizationMemberRoleVIEWER):
             role = self.role.value
 
         else:
@@ -93,40 +95,40 @@ class AllowedEmailDomains:
         def _parse_role(
             data: object,
         ) -> Union[
-            AllowedEmailDomainsRoleType0,
-            AllowedEmailDomainsRoleType1,
-            AllowedEmailDomainsRoleType2,
-            AllowedEmailDomainsRoleType3,
+            OrganizationMemberRoleEDITOR,
+            OrganizationMemberRoleINTERACTIVEVIEWER,
+            OrganizationMemberRoleMEMBER,
+            OrganizationMemberRoleVIEWER,
         ]:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                role_type_0 = AllowedEmailDomainsRoleType0(data)
+                componentsschemas_allowed_email_domains_role_type_0 = OrganizationMemberRoleEDITOR(data)
 
-                return role_type_0
+                return componentsschemas_allowed_email_domains_role_type_0
             except:  # noqa: E722
                 pass
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                role_type_1 = AllowedEmailDomainsRoleType1(data)
+                componentsschemas_allowed_email_domains_role_type_1 = OrganizationMemberRoleINTERACTIVEVIEWER(data)
 
-                return role_type_1
+                return componentsschemas_allowed_email_domains_role_type_1
             except:  # noqa: E722
                 pass
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                role_type_2 = AllowedEmailDomainsRoleType2(data)
+                componentsschemas_allowed_email_domains_role_type_2 = OrganizationMemberRoleVIEWER(data)
 
-                return role_type_2
+                return componentsschemas_allowed_email_domains_role_type_2
             except:  # noqa: E722
                 pass
             if not isinstance(data, str):
                 raise TypeError()
-            role_type_3 = AllowedEmailDomainsRoleType3(data)
+            componentsschemas_allowed_email_domains_role_type_3 = OrganizationMemberRoleMEMBER(data)
 
-            return role_type_3
+            return componentsschemas_allowed_email_domains_role_type_3
 
         role = _parse_role(d.pop("role"))
 

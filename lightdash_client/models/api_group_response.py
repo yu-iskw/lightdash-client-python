@@ -5,7 +5,7 @@ import attr
 from ..models.api_group_response_status import ApiGroupResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_group_response_results import ApiGroupResponseResults
+    from ..models.group import Group
 
 
 T = TypeVar("T", bound="ApiGroupResponse")
@@ -15,11 +15,11 @@ T = TypeVar("T", bound="ApiGroupResponse")
 class ApiGroupResponse:
     """
     Attributes:
-        results (ApiGroupResponseResults):
+        results (Group):
         status (ApiGroupResponseStatus):
     """
 
-    results: "ApiGroupResponseResults"
+    results: "Group"
     status: ApiGroupResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -41,10 +41,10 @@ class ApiGroupResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_group_response_results import ApiGroupResponseResults
+        from ..models.group import Group
 
         d = src_dict.copy()
-        results = ApiGroupResponseResults.from_dict(d.pop("results"))
+        results = Group.from_dict(d.pop("results"))
 
         status = ApiGroupResponseStatus(d.pop("status"))
 

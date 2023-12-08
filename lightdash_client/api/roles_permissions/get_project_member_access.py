@@ -5,9 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_project_member_access_response_200 import (
-    GetProjectMemberAccessResponse200,
-)
+from ...models.api_get_project_member_response import ApiGetProjectMemberResponse
 from ...types import Response
 
 
@@ -17,7 +15,7 @@ def _get_kwargs(
     *,
     client: Client,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/projects/{projectUuid}/user/${userUuid}".format(
+    url = "{}/api/v1/projects/{projectUuid}/user/{userUuid}".format(
         client.base_url, projectUuid=project_uuid, userUuid=user_uuid
     )
 
@@ -34,9 +32,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetProjectMemberAccessResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiGetProjectMemberResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetProjectMemberAccessResponse200.from_dict(response.json())
+        response_200 = ApiGetProjectMemberResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +43,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetProjectMemberAccessResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiGetProjectMemberResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,8 +57,9 @@ def sync_detailed(
     user_uuid: str,
     *,
     client: Client,
-) -> Response[GetProjectMemberAccessResponse200]:
-    """Get a project member's access for a project.
+) -> Response[ApiGetProjectMemberResponse]:
+    """Get a project explicit member's access.
+    There may be users that have access to the project via their organization membership.
 
     NOTE:
     We don't use the API on the frontend. Instead, we can call the API
@@ -75,7 +74,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetProjectMemberAccessResponse200]
+        Response[ApiGetProjectMemberResponse]
     """
 
     kwargs = _get_kwargs(
@@ -97,8 +96,9 @@ def sync(
     user_uuid: str,
     *,
     client: Client,
-) -> Optional[GetProjectMemberAccessResponse200]:
-    """Get a project member's access for a project.
+) -> Optional[ApiGetProjectMemberResponse]:
+    """Get a project explicit member's access.
+    There may be users that have access to the project via their organization membership.
 
     NOTE:
     We don't use the API on the frontend. Instead, we can call the API
@@ -113,7 +113,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetProjectMemberAccessResponse200
+        ApiGetProjectMemberResponse
     """
 
     return sync_detailed(
@@ -128,8 +128,9 @@ async def asyncio_detailed(
     user_uuid: str,
     *,
     client: Client,
-) -> Response[GetProjectMemberAccessResponse200]:
-    """Get a project member's access for a project.
+) -> Response[ApiGetProjectMemberResponse]:
+    """Get a project explicit member's access.
+    There may be users that have access to the project via their organization membership.
 
     NOTE:
     We don't use the API on the frontend. Instead, we can call the API
@@ -144,7 +145,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetProjectMemberAccessResponse200]
+        Response[ApiGetProjectMemberResponse]
     """
 
     kwargs = _get_kwargs(
@@ -164,8 +165,9 @@ async def asyncio(
     user_uuid: str,
     *,
     client: Client,
-) -> Optional[GetProjectMemberAccessResponse200]:
-    """Get a project member's access for a project.
+) -> Optional[ApiGetProjectMemberResponse]:
+    """Get a project explicit member's access.
+    There may be users that have access to the project via their organization membership.
 
     NOTE:
     We don't use the API on the frontend. Instead, we can call the API
@@ -180,7 +182,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetProjectMemberAccessResponse200
+        ApiGetProjectMemberResponse
     """
 
     return (

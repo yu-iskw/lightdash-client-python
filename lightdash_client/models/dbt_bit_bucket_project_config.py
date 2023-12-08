@@ -2,13 +2,11 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.dbt_bit_bucket_project_config_type import DbtBitBucketProjectConfigType
+from ..models.dbt_project_type_bitbucket import DbtProjectTypeBITBUCKET
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dbt_bit_bucket_project_config_environment_item import (
-        DbtBitBucketProjectConfigEnvironmentItem,
-    )
+    from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
 
 
 T = TypeVar("T", bound="DbtBitBucketProjectConfig")
@@ -18,25 +16,25 @@ T = TypeVar("T", bound="DbtBitBucketProjectConfig")
 class DbtBitBucketProjectConfig:
     """
     Attributes:
-        type (DbtBitBucketProjectConfigType):
+        type (DbtProjectTypeBITBUCKET):
         username (str):
         personal_access_token (str):
         repository (str):
         branch (str):
         project_sub_path (str):
         target (Union[Unset, str]):
-        environment (Union[Unset, List['DbtBitBucketProjectConfigEnvironmentItem']]):
+        environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
         host_domain (Union[Unset, str]):
     """
 
-    type: DbtBitBucketProjectConfigType
+    type: DbtProjectTypeBITBUCKET
     username: str
     personal_access_token: str
     repository: str
     branch: str
     project_sub_path: str
     target: Union[Unset, str] = UNSET
-    environment: Union[Unset, List["DbtBitBucketProjectConfigEnvironmentItem"]] = UNSET
+    environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
     host_domain: Union[Unset, str] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,12 +78,12 @@ class DbtBitBucketProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_bit_bucket_project_config_environment_item import (
-            DbtBitBucketProjectConfigEnvironmentItem,
+        from ..models.dbt_project_environment_variable import (
+            DbtProjectEnvironmentVariable,
         )
 
         d = src_dict.copy()
-        type = DbtBitBucketProjectConfigType(d.pop("type"))
+        type = DbtProjectTypeBITBUCKET(d.pop("type"))
 
         username = d.pop("username")
 
@@ -102,7 +100,7 @@ class DbtBitBucketProjectConfig:
         environment = []
         _environment = d.pop("environment", UNSET)
         for environment_item_data in _environment or []:
-            environment_item = DbtBitBucketProjectConfigEnvironmentItem.from_dict(environment_item_data)
+            environment_item = DbtProjectEnvironmentVariable.from_dict(environment_item_data)
 
             environment.append(environment_item)
 

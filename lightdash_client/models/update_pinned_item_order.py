@@ -2,10 +2,12 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.update_pinned_item_order_type import UpdatePinnedItemOrderType
+from ..models.resource_view_item_type import ResourceViewItemType
 
 if TYPE_CHECKING:
-    from ..models.update_pinned_item_order_data import UpdatePinnedItemOrderData
+    from ..models.pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
+        PickResourceViewItemAtDataUuidOrPinnedListOrder,
+    )
 
 
 T = TypeVar("T", bound="UpdatePinnedItemOrder")
@@ -15,12 +17,13 @@ T = TypeVar("T", bound="UpdatePinnedItemOrder")
 class UpdatePinnedItemOrder:
     """
     Attributes:
-        data (UpdatePinnedItemOrderData): From T, pick a set of properties whose keys are in the union K
-        type (UpdatePinnedItemOrderType):
+        data (PickResourceViewItemAtDataUuidOrPinnedListOrder): From T, pick a set of properties whose keys are in the
+            union K
+        type (ResourceViewItemType):
     """
 
-    data: "UpdatePinnedItemOrderData"
-    type: UpdatePinnedItemOrderType
+    data: "PickResourceViewItemAtDataUuidOrPinnedListOrder"
+    type: ResourceViewItemType
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -41,12 +44,14 @@ class UpdatePinnedItemOrder:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.update_pinned_item_order_data import UpdatePinnedItemOrderData
+        from ..models.pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
+            PickResourceViewItemAtDataUuidOrPinnedListOrder,
+        )
 
         d = src_dict.copy()
-        data = UpdatePinnedItemOrderData.from_dict(d.pop("data"))
+        data = PickResourceViewItemAtDataUuidOrPinnedListOrder.from_dict(d.pop("data"))
 
-        type = UpdatePinnedItemOrderType(d.pop("type"))
+        type = ResourceViewItemType(d.pop("type"))
 
         update_pinned_item_order = cls(
             data=data,

@@ -5,8 +5,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.list_organization_email_domains_response_200 import (
-    ListOrganizationEmailDomainsResponse200,
+from ...models.api_organization_allowed_email_domains import (
+    ApiOrganizationAllowedEmailDomains,
 )
 from ...types import Response
 
@@ -30,9 +30,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ListOrganizationEmailDomainsResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiOrganizationAllowedEmailDomains]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ListOrganizationEmailDomainsResponse200.from_dict(response.json())
+        response_200 = ApiOrganizationAllowedEmailDomains.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -41,7 +41,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Lis
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ListOrganizationEmailDomainsResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiOrganizationAllowedEmailDomains]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Lis
 def sync_detailed(
     *,
     client: Client,
-) -> Response[ListOrganizationEmailDomainsResponse200]:
+) -> Response[ApiOrganizationAllowedEmailDomains]:
     """Gets the allowed email domains for the current user's organization
 
     Raises:
@@ -61,7 +61,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ListOrganizationEmailDomainsResponse200]
+        Response[ApiOrganizationAllowedEmailDomains]
     """
 
     kwargs = _get_kwargs(
@@ -79,7 +79,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-) -> Optional[ListOrganizationEmailDomainsResponse200]:
+) -> Optional[ApiOrganizationAllowedEmailDomains]:
     """Gets the allowed email domains for the current user's organization
 
     Raises:
@@ -87,7 +87,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ListOrganizationEmailDomainsResponse200
+        ApiOrganizationAllowedEmailDomains
     """
 
     return sync_detailed(
@@ -98,7 +98,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-) -> Response[ListOrganizationEmailDomainsResponse200]:
+) -> Response[ApiOrganizationAllowedEmailDomains]:
     """Gets the allowed email domains for the current user's organization
 
     Raises:
@@ -106,7 +106,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ListOrganizationEmailDomainsResponse200]
+        Response[ApiOrganizationAllowedEmailDomains]
     """
 
     kwargs = _get_kwargs(
@@ -122,7 +122,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-) -> Optional[ListOrganizationEmailDomainsResponse200]:
+) -> Optional[ApiOrganizationAllowedEmailDomains]:
     """Gets the allowed email domains for the current user's organization
 
     Raises:
@@ -130,7 +130,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ListOrganizationEmailDomainsResponse200
+        ApiOrganizationAllowedEmailDomains
     """
 
     return (
