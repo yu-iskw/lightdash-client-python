@@ -4,13 +4,13 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.scheduler_log_status import SchedulerLogStatus
+from ..models.scheduler_job_status import SchedulerJobStatus
 from ..models.scheduler_log_target_type import SchedulerLogTargetType
 from ..models.scheduler_log_task import SchedulerLogTask
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.scheduler_log_details import SchedulerLogDetails
+    from ..models.record_string_any import RecordStringAny
 
 
 T = TypeVar("T", bound="SchedulerLog")
@@ -20,24 +20,24 @@ T = TypeVar("T", bound="SchedulerLog")
 class SchedulerLog:
     """
     Attributes:
-        status (SchedulerLogStatus):
+        status (SchedulerJobStatus):
         created_at (datetime.datetime):
         scheduled_time (datetime.datetime):
         job_id (str):
         task (SchedulerLogTask):
-        details (Union[Unset, SchedulerLogDetails]): Construct a type with a set of properties K of type T
+        details (Union[Unset, RecordStringAny]): Construct a type with a set of properties K of type T
         target_type (Union[Unset, SchedulerLogTargetType]):
         target (Union[Unset, str]):
         job_group (Union[Unset, str]):
         scheduler_uuid (Union[Unset, str]):
     """
 
-    status: SchedulerLogStatus
+    status: SchedulerJobStatus
     created_at: datetime.datetime
     scheduled_time: datetime.datetime
     job_id: str
     task: SchedulerLogTask
-    details: Union[Unset, "SchedulerLogDetails"] = UNSET
+    details: Union[Unset, "RecordStringAny"] = UNSET
     target_type: Union[Unset, SchedulerLogTargetType] = UNSET
     target: Union[Unset, str] = UNSET
     job_group: Union[Unset, str] = UNSET
@@ -92,10 +92,10 @@ class SchedulerLog:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.scheduler_log_details import SchedulerLogDetails
+        from ..models.record_string_any import RecordStringAny
 
         d = src_dict.copy()
-        status = SchedulerLogStatus(d.pop("status"))
+        status = SchedulerJobStatus(d.pop("status"))
 
         created_at = isoparse(d.pop("createdAt"))
 
@@ -106,11 +106,11 @@ class SchedulerLog:
         task = SchedulerLogTask(d.pop("task"))
 
         _details = d.pop("details", UNSET)
-        details: Union[Unset, SchedulerLogDetails]
+        details: Union[Unset, RecordStringAny]
         if isinstance(_details, Unset):
             details = UNSET
         else:
-            details = SchedulerLogDetails.from_dict(_details)
+            details = RecordStringAny.from_dict(_details)
 
         _target_type = d.pop("targetType", UNSET)
         target_type: Union[Unset, SchedulerLogTargetType]

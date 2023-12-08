@@ -8,6 +8,8 @@ class SchedulerLogTask(str, Enum):
     SENDEMAILNOTIFICATION = "sendEmailNotification"
     SENDSLACKNOTIFICATION = "sendSlackNotification"
     TESTANDCOMPILEPROJECT = "testAndCompileProject"
+    UPLOADGSHEETFROMQUERY = "uploadGsheetFromQuery"
+    UPLOADGSHEETS = "uploadGsheets"
     VALIDATEPROJECT = "validateProject"
 
     def __str__(self) -> str:

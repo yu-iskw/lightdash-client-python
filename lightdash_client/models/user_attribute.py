@@ -1,5 +1,5 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union
 
 import attr
 from dateutil.parser import isoparse
@@ -7,7 +7,7 @@ from dateutil.parser import isoparse
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.user_attribute_users_item import UserAttributeUsersItem
+    from ..models.user_attribute_value import UserAttributeValue
 
 
 T = TypeVar("T", bound="UserAttribute")
@@ -17,19 +17,21 @@ T = TypeVar("T", bound="UserAttribute")
 class UserAttribute:
     """
     Attributes:
-        users (List['UserAttributeUsersItem']):
+        users (List['UserAttributeValue']):
         organization_uuid (str):
         name (str):
         created_at (datetime.datetime):
         uuid (str):
+        attribute_default (Optional[str]):
         description (Union[Unset, str]):
     """
 
-    users: List["UserAttributeUsersItem"]
+    users: List["UserAttributeValue"]
     organization_uuid: str
     name: str
     created_at: datetime.datetime
     uuid: str
+    attribute_default: Optional[str]
     description: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -45,6 +47,7 @@ class UserAttribute:
         created_at = self.created_at.isoformat()
 
         uuid = self.uuid
+        attribute_default = self.attribute_default
         description = self.description
 
         field_dict: Dict[str, Any] = {}
@@ -56,6 +59,7 @@ class UserAttribute:
                 "name": name,
                 "createdAt": created_at,
                 "uuid": uuid,
+                "attributeDefault": attribute_default,
             }
         )
         if description is not UNSET:
@@ -65,13 +69,13 @@ class UserAttribute:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.user_attribute_users_item import UserAttributeUsersItem
+        from ..models.user_attribute_value import UserAttributeValue
 
         d = src_dict.copy()
         users = []
         _users = d.pop("users")
         for users_item_data in _users:
-            users_item = UserAttributeUsersItem.from_dict(users_item_data)
+            users_item = UserAttributeValue.from_dict(users_item_data)
 
             users.append(users_item)
 
@@ -83,6 +87,8 @@ class UserAttribute:
 
         uuid = d.pop("uuid")
 
+        attribute_default = d.pop("attributeDefault")
+
         description = d.pop("description", UNSET)
 
         user_attribute = cls(
@@ -91,6 +97,7 @@ class UserAttribute:
             name=name,
             created_at=created_at,
             uuid=uuid,
+            attribute_default=attribute_default,
             description=description,
         )
 

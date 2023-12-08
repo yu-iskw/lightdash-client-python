@@ -7,9 +7,7 @@ from ..models.api_chart_summary_list_response_status import (
 )
 
 if TYPE_CHECKING:
-    from ..models.api_chart_summary_list_response_results_item import (
-        ApiChartSummaryListResponseResultsItem,
-    )
+    from ..models.chart_summary import ChartSummary
 
 
 T = TypeVar("T", bound="ApiChartSummaryListResponse")
@@ -19,11 +17,11 @@ T = TypeVar("T", bound="ApiChartSummaryListResponse")
 class ApiChartSummaryListResponse:
     """
     Attributes:
-        results (List['ApiChartSummaryListResponseResultsItem']):
+        results (List['ChartSummary']):
         status (ApiChartSummaryListResponseStatus):
     """
 
-    results: List["ApiChartSummaryListResponseResultsItem"]
+    results: List["ChartSummary"]
     status: ApiChartSummaryListResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -49,15 +47,13 @@ class ApiChartSummaryListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_chart_summary_list_response_results_item import (
-            ApiChartSummaryListResponseResultsItem,
-        )
+        from ..models.chart_summary import ChartSummary
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiChartSummaryListResponseResultsItem.from_dict(results_item_data)
+            results_item = ChartSummary.from_dict(results_item_data)
 
             results.append(results_item)
 

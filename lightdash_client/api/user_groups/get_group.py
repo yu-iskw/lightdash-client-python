@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_group_response_200 import GetGroupResponse200
+from ...models.api_group_response import ApiGroupResponse
 from ...types import Response
 
 
@@ -29,9 +29,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetGroupResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiGroupResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetGroupResponse200.from_dict(response.json())
+        response_200 = ApiGroupResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -40,7 +40,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetGroupResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiGroupResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def sync_detailed(
     group_uuid: str,
     *,
     client: Client,
-) -> Response[GetGroupResponse200]:
+) -> Response[ApiGroupResponse]:
     """Get group details
 
     Args:
@@ -64,7 +64,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetGroupResponse200]
+        Response[ApiGroupResponse]
     """
 
     kwargs = _get_kwargs(
@@ -84,7 +84,7 @@ def sync(
     group_uuid: str,
     *,
     client: Client,
-) -> Optional[GetGroupResponse200]:
+) -> Optional[ApiGroupResponse]:
     """Get group details
 
     Args:
@@ -95,7 +95,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetGroupResponse200
+        ApiGroupResponse
     """
 
     return sync_detailed(
@@ -108,7 +108,7 @@ async def asyncio_detailed(
     group_uuid: str,
     *,
     client: Client,
-) -> Response[GetGroupResponse200]:
+) -> Response[ApiGroupResponse]:
     """Get group details
 
     Args:
@@ -119,7 +119,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetGroupResponse200]
+        Response[ApiGroupResponse]
     """
 
     kwargs = _get_kwargs(
@@ -137,7 +137,7 @@ async def asyncio(
     group_uuid: str,
     *,
     client: Client,
-) -> Optional[GetGroupResponse200]:
+) -> Optional[ApiGroupResponse]:
     """Get group details
 
     Args:
@@ -148,7 +148,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetGroupResponse200
+        ApiGroupResponse
     """
 
     return (

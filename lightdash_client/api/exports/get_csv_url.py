@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_csv_url_response_200 import GetCsvUrlResponse200
+from ...models.api_csv_url_response import ApiCsvUrlResponse
 from ...types import Response
 
 
@@ -29,9 +29,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetCsvUrlResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiCsvUrlResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetCsvUrlResponse200.from_dict(response.json())
+        response_200 = ApiCsvUrlResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -40,7 +40,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetCsvUrlResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiCsvUrlResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def sync_detailed(
     job_id: str,
     *,
     client: Client,
-) -> Response[GetCsvUrlResponse200]:
+) -> Response[ApiCsvUrlResponse]:
     """Get a Csv
 
     Args:
@@ -64,7 +64,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetCsvUrlResponse200]
+        Response[ApiCsvUrlResponse]
     """
 
     kwargs = _get_kwargs(
@@ -84,7 +84,7 @@ def sync(
     job_id: str,
     *,
     client: Client,
-) -> Optional[GetCsvUrlResponse200]:
+) -> Optional[ApiCsvUrlResponse]:
     """Get a Csv
 
     Args:
@@ -95,7 +95,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetCsvUrlResponse200
+        ApiCsvUrlResponse
     """
 
     return sync_detailed(
@@ -108,7 +108,7 @@ async def asyncio_detailed(
     job_id: str,
     *,
     client: Client,
-) -> Response[GetCsvUrlResponse200]:
+) -> Response[ApiCsvUrlResponse]:
     """Get a Csv
 
     Args:
@@ -119,7 +119,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetCsvUrlResponse200]
+        Response[ApiCsvUrlResponse]
     """
 
     kwargs = _get_kwargs(
@@ -137,7 +137,7 @@ async def asyncio(
     job_id: str,
     *,
     client: Client,
-) -> Optional[GetCsvUrlResponse200]:
+) -> Optional[ApiCsvUrlResponse]:
     """Get a Csv
 
     Args:
@@ -148,7 +148,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetCsvUrlResponse200
+        ApiCsvUrlResponse
     """
 
     return (

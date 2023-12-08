@@ -5,8 +5,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
+from ...models.api_run_query_response import ApiRunQueryResponse
 from ...models.post_chart_results_json_body import PostChartResultsJsonBody
-from ...models.post_chart_results_response_200 import PostChartResultsResponse200
 from ...types import Response
 
 
@@ -34,9 +34,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[PostChartResultsResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiRunQueryResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = PostChartResultsResponse200.from_dict(response.json())
+        response_200 = ApiRunQueryResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Pos
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[PostChartResultsResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiRunQueryResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,7 +59,7 @@ def sync_detailed(
     *,
     client: Client,
     json_body: PostChartResultsJsonBody,
-) -> Response[PostChartResultsResponse200]:
+) -> Response[ApiRunQueryResponse]:
     """Run a query for a chart
 
     Args:
@@ -71,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[PostChartResultsResponse200]
+        Response[ApiRunQueryResponse]
     """
 
     kwargs = _get_kwargs(
@@ -93,7 +93,7 @@ def sync(
     *,
     client: Client,
     json_body: PostChartResultsJsonBody,
-) -> Optional[PostChartResultsResponse200]:
+) -> Optional[ApiRunQueryResponse]:
     """Run a query for a chart
 
     Args:
@@ -105,7 +105,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        PostChartResultsResponse200
+        ApiRunQueryResponse
     """
 
     return sync_detailed(
@@ -120,7 +120,7 @@ async def asyncio_detailed(
     *,
     client: Client,
     json_body: PostChartResultsJsonBody,
-) -> Response[PostChartResultsResponse200]:
+) -> Response[ApiRunQueryResponse]:
     """Run a query for a chart
 
     Args:
@@ -132,7 +132,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[PostChartResultsResponse200]
+        Response[ApiRunQueryResponse]
     """
 
     kwargs = _get_kwargs(
@@ -152,7 +152,7 @@ async def asyncio(
     *,
     client: Client,
     json_body: PostChartResultsJsonBody,
-) -> Optional[PostChartResultsResponse200]:
+) -> Optional[ApiRunQueryResponse]:
     """Run a query for a chart
 
     Args:
@@ -164,7 +164,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        PostChartResultsResponse200
+        ApiRunQueryResponse
     """
 
     return (

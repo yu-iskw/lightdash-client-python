@@ -7,9 +7,7 @@ from ..models.api_create_user_attribute_response_status import (
 )
 
 if TYPE_CHECKING:
-    from ..models.api_create_user_attribute_response_results import (
-        ApiCreateUserAttributeResponseResults,
-    )
+    from ..models.user_attribute import UserAttribute
 
 
 T = TypeVar("T", bound="ApiCreateUserAttributeResponse")
@@ -19,11 +17,11 @@ T = TypeVar("T", bound="ApiCreateUserAttributeResponse")
 class ApiCreateUserAttributeResponse:
     """
     Attributes:
-        results (ApiCreateUserAttributeResponseResults):
+        results (UserAttribute):
         status (ApiCreateUserAttributeResponseStatus):
     """
 
-    results: "ApiCreateUserAttributeResponseResults"
+    results: "UserAttribute"
     status: ApiCreateUserAttributeResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -45,12 +43,10 @@ class ApiCreateUserAttributeResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_create_user_attribute_response_results import (
-            ApiCreateUserAttributeResponseResults,
-        )
+        from ..models.user_attribute import UserAttribute
 
         d = src_dict.copy()
-        results = ApiCreateUserAttributeResponseResults.from_dict(d.pop("results"))
+        results = UserAttribute.from_dict(d.pop("results"))
 
         status = ApiCreateUserAttributeResponseStatus(d.pop("status"))
 

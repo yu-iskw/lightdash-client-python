@@ -5,9 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_latest_validation_results_response_200 import (
-    GetLatestValidationResultsResponse200,
-)
+from ...models.api_validate_response import ApiValidateResponse
 from ...types import UNSET, Response, Unset
 
 
@@ -41,9 +39,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetLatestValidationResultsResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiValidateResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetLatestValidationResultsResponse200.from_dict(response.json())
+        response_200 = ApiValidateResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -52,7 +50,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetLatestValidationResultsResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiValidateResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -67,7 +65,7 @@ def sync_detailed(
     client: Client,
     from_settings: Union[Unset, None, bool] = UNSET,
     job_id: Union[Unset, None, str] = UNSET,
-) -> Response[GetLatestValidationResultsResponse200]:
+) -> Response[ApiValidateResponse]:
     """Get validation results for a project. This will return the results of the latest validation job.
 
     Args:
@@ -80,7 +78,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetLatestValidationResultsResponse200]
+        Response[ApiValidateResponse]
     """
 
     kwargs = _get_kwargs(
@@ -104,7 +102,7 @@ def sync(
     client: Client,
     from_settings: Union[Unset, None, bool] = UNSET,
     job_id: Union[Unset, None, str] = UNSET,
-) -> Optional[GetLatestValidationResultsResponse200]:
+) -> Optional[ApiValidateResponse]:
     """Get validation results for a project. This will return the results of the latest validation job.
 
     Args:
@@ -117,7 +115,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetLatestValidationResultsResponse200
+        ApiValidateResponse
     """
 
     return sync_detailed(
@@ -134,7 +132,7 @@ async def asyncio_detailed(
     client: Client,
     from_settings: Union[Unset, None, bool] = UNSET,
     job_id: Union[Unset, None, str] = UNSET,
-) -> Response[GetLatestValidationResultsResponse200]:
+) -> Response[ApiValidateResponse]:
     """Get validation results for a project. This will return the results of the latest validation job.
 
     Args:
@@ -147,7 +145,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetLatestValidationResultsResponse200]
+        Response[ApiValidateResponse]
     """
 
     kwargs = _get_kwargs(
@@ -169,7 +167,7 @@ async def asyncio(
     client: Client,
     from_settings: Union[Unset, None, bool] = UNSET,
     job_id: Union[Unset, None, str] = UNSET,
-) -> Optional[GetLatestValidationResultsResponse200]:
+) -> Optional[ApiValidateResponse]:
     """Get validation results for a project. This will return the results of the latest validation job.
 
     Args:
@@ -182,7 +180,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetLatestValidationResultsResponse200
+        ApiValidateResponse
     """
 
     return (

@@ -1,27 +1,41 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
+
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="SchedulerImageOptions")
 
 
 @attr.s(auto_attribs=True)
 class SchedulerImageOptions:
-    """ """
+    """
+    Attributes:
+        with_pdf (Union[Unset, bool]):
+    """
 
+    with_pdf: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        with_pdf = self.with_pdf
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
+        if with_pdf is not UNSET:
+            field_dict["withPdf"] = with_pdf
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        scheduler_image_options = cls()
+        with_pdf = d.pop("withPdf", UNSET)
+
+        scheduler_image_options = cls(
+            with_pdf=with_pdf,
+        )
 
         scheduler_image_options.additional_properties = d
         return scheduler_image_options

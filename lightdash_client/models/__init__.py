@@ -1,106 +1,47 @@
 """ Contains all the data models used in inputs/outputs """
 
+from .activate_user import ActivateUser
+from .activate_user_with_invite_code import ActivateUserWithInviteCode
 from .add_space_share import AddSpaceShare
-from .add_space_share_to_user_json_body import AddSpaceShareToUserJsonBody
-from .add_space_share_to_user_response_200 import AddSpaceShareToUserResponse200
-from .add_space_share_to_user_response_200_status import (
-    AddSpaceShareToUserResponse200Status,
-)
-from .add_user_to_group_response_200 import AddUserToGroupResponse200
-from .add_user_to_group_response_200_status import AddUserToGroupResponse200Status
 from .additional_metric import AdditionalMetric
-from .additional_metric_compact_type_0 import AdditionalMetricCompactType0
-from .additional_metric_compact_type_1 import AdditionalMetricCompactType1
-from .additional_metric_filters_item import AdditionalMetricFiltersItem
-from .additional_metric_filters_item_operator import AdditionalMetricFiltersItemOperator
-from .additional_metric_filters_item_target import AdditionalMetricFiltersItemTarget
-from .additional_metric_format import AdditionalMetricFormat
-from .additional_metric_type import AdditionalMetricType
-from .allowed_email_domain_projects_role_type_0 import (
-    AllowedEmailDomainProjectsRoleType0,
-)
-from .allowed_email_domain_projects_role_type_1 import (
-    AllowedEmailDomainProjectsRoleType1,
-)
-from .allowed_email_domain_projects_role_type_2 import (
-    AllowedEmailDomainProjectsRoleType2,
-)
 from .allowed_email_domains import AllowedEmailDomains
 from .allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
-from .allowed_email_domains_projects_item_role_type_0 import (
-    AllowedEmailDomainsProjectsItemRoleType0,
-)
-from .allowed_email_domains_projects_item_role_type_1 import (
-    AllowedEmailDomainsProjectsItemRoleType1,
-)
-from .allowed_email_domains_projects_item_role_type_2 import (
-    AllowedEmailDomainsProjectsItemRoleType2,
-)
-from .allowed_email_domains_role_type_0 import AllowedEmailDomainsRoleType0
-from .allowed_email_domains_role_type_1 import AllowedEmailDomainsRoleType1
-from .allowed_email_domains_role_type_2 import AllowedEmailDomainsRoleType2
-from .allowed_email_domains_role_type_3 import AllowedEmailDomainsRoleType3
+from .and_filter_group import AndFilterGroup
+from .api_calculate_total_response import ApiCalculateTotalResponse
+from .api_calculate_total_response_status import ApiCalculateTotalResponseStatus
 from .api_chart_summary_list_response import ApiChartSummaryListResponse
-from .api_chart_summary_list_response_results_item import (
-    ApiChartSummaryListResponseResultsItem,
-)
-from .api_chart_summary_list_response_results_item_chart_type import (
-    ApiChartSummaryListResponseResultsItemChartType,
-)
 from .api_chart_summary_list_response_status import ApiChartSummaryListResponseStatus
 from .api_create_user_attribute_response import ApiCreateUserAttributeResponse
-from .api_create_user_attribute_response_results import (
-    ApiCreateUserAttributeResponseResults,
-)
-from .api_create_user_attribute_response_results_users_item import (
-    ApiCreateUserAttributeResponseResultsUsersItem,
-)
 from .api_create_user_attribute_response_status import (
     ApiCreateUserAttributeResponseStatus,
 )
 from .api_csv_url_response import ApiCsvUrlResponse
 from .api_csv_url_response_results import ApiCsvUrlResponseResults
 from .api_csv_url_response_status import ApiCsvUrlResponseStatus
-from .api_dbt_cloud_integration_settings import ApiDbtCloudIntegrationSettings
-from .api_dbt_cloud_integration_settings_results import (
-    ApiDbtCloudIntegrationSettingsResults,
-)
-from .api_dbt_cloud_integration_settings_status import (
-    ApiDbtCloudIntegrationSettingsStatus,
-)
-from .api_dbt_cloud_metrics import ApiDbtCloudMetrics
-from .api_dbt_cloud_metrics_results import ApiDbtCloudMetricsResults
-from .api_dbt_cloud_metrics_results_metrics_item import (
-    ApiDbtCloudMetricsResultsMetricsItem,
-)
-from .api_dbt_cloud_metrics_status import ApiDbtCloudMetricsStatus
 from .api_dbt_cloud_settings_delete_success import ApiDbtCloudSettingsDeleteSuccess
 from .api_dbt_cloud_settings_delete_success_status import (
     ApiDbtCloudSettingsDeleteSuccessStatus,
 )
-from .api_email_status_response import ApiEmailStatusResponse
-from .api_email_status_response_results import ApiEmailStatusResponseResults
-from .api_email_status_response_results_otp import ApiEmailStatusResponseResultsOtp
 from .api_email_status_response_status import ApiEmailStatusResponseStatus
 from .api_error_payload import ApiErrorPayload
 from .api_error_payload_error import ApiErrorPayloadError
 from .api_error_payload_status import ApiErrorPayloadStatus
 from .api_gdrive_access_token_response import ApiGdriveAccessTokenResponse
 from .api_gdrive_access_token_response_status import ApiGdriveAccessTokenResponseStatus
-from .api_get_project_member_response import ApiGetProjectMemberResponse
-from .api_get_project_member_response_results import ApiGetProjectMemberResponseResults
-from .api_get_project_member_response_results_role import (
-    ApiGetProjectMemberResponseResultsRole,
+from .api_get_authenticated_user_response import ApiGetAuthenticatedUserResponse
+from .api_get_authenticated_user_response_status import (
+    ApiGetAuthenticatedUserResponseStatus,
 )
+from .api_get_chart_history_response_status import ApiGetChartHistoryResponseStatus
+from .api_get_chart_version_response import ApiGetChartVersionResponse
+from .api_get_chart_version_response_status import ApiGetChartVersionResponseStatus
+from .api_get_project_member_response import ApiGetProjectMemberResponse
 from .api_get_project_member_response_status import ApiGetProjectMemberResponseStatus
 from .api_group_list_response import ApiGroupListResponse
-from .api_group_list_response_results_item import ApiGroupListResponseResultsItem
 from .api_group_list_response_status import ApiGroupListResponseStatus
 from .api_group_members_response import ApiGroupMembersResponse
-from .api_group_members_response_results_item import ApiGroupMembersResponseResultsItem
 from .api_group_members_response_status import ApiGroupMembersResponseStatus
 from .api_group_response import ApiGroupResponse
-from .api_group_response_results import ApiGroupResponseResults
 from .api_group_response_status import ApiGroupResponseStatus
 from .api_job_scheduled_response import ApiJobScheduledResponse
 from .api_job_scheduled_response_results import ApiJobScheduledResponseResults
@@ -110,638 +51,116 @@ from .api_job_status_response_results import ApiJobStatusResponseResults
 from .api_job_status_response_status import ApiJobStatusResponseStatus
 from .api_organization import ApiOrganization
 from .api_organization_allowed_email_domains import ApiOrganizationAllowedEmailDomains
-from .api_organization_allowed_email_domains_results import (
-    ApiOrganizationAllowedEmailDomainsResults,
-)
-from .api_organization_allowed_email_domains_results_projects_item import (
-    ApiOrganizationAllowedEmailDomainsResultsProjectsItem,
-)
-from .api_organization_allowed_email_domains_results_projects_item_role_type_0 import (
-    ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType0,
-)
-from .api_organization_allowed_email_domains_results_projects_item_role_type_1 import (
-    ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType1,
-)
-from .api_organization_allowed_email_domains_results_projects_item_role_type_2 import (
-    ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType2,
-)
-from .api_organization_allowed_email_domains_results_role_type_0 import (
-    ApiOrganizationAllowedEmailDomainsResultsRoleType0,
-)
-from .api_organization_allowed_email_domains_results_role_type_1 import (
-    ApiOrganizationAllowedEmailDomainsResultsRoleType1,
-)
-from .api_organization_allowed_email_domains_results_role_type_2 import (
-    ApiOrganizationAllowedEmailDomainsResultsRoleType2,
-)
-from .api_organization_allowed_email_domains_results_role_type_3 import (
-    ApiOrganizationAllowedEmailDomainsResultsRoleType3,
-)
 from .api_organization_allowed_email_domains_status import (
     ApiOrganizationAllowedEmailDomainsStatus,
 )
 from .api_organization_member_profile import ApiOrganizationMemberProfile
-from .api_organization_member_profile_results import ApiOrganizationMemberProfileResults
-from .api_organization_member_profile_results_role import (
-    ApiOrganizationMemberProfileResultsRole,
-)
 from .api_organization_member_profile_status import ApiOrganizationMemberProfileStatus
 from .api_organization_member_profiles import ApiOrganizationMemberProfiles
-from .api_organization_member_profiles_results_item import (
-    ApiOrganizationMemberProfilesResultsItem,
-)
-from .api_organization_member_profiles_results_item_role import (
-    ApiOrganizationMemberProfilesResultsItemRole,
-)
 from .api_organization_member_profiles_status import ApiOrganizationMemberProfilesStatus
 from .api_organization_projects import ApiOrganizationProjects
-from .api_organization_projects_results_item import ApiOrganizationProjectsResultsItem
-from .api_organization_projects_results_item_type import (
-    ApiOrganizationProjectsResultsItemType,
-)
 from .api_organization_projects_status import ApiOrganizationProjectsStatus
-from .api_organization_results import ApiOrganizationResults
 from .api_organization_status import ApiOrganizationStatus
 from .api_pinned_items import ApiPinnedItems
-from .api_pinned_items_results_item_type_0 import ApiPinnedItemsResultsItemType0
-from .api_pinned_items_results_item_type_0_data import (
-    ApiPinnedItemsResultsItemType0Data,
-)
-from .api_pinned_items_results_item_type_0_data_updated_by_user import (
-    ApiPinnedItemsResultsItemType0DataUpdatedByUser,
-)
-from .api_pinned_items_results_item_type_0_data_validation_errors_item import (
-    ApiPinnedItemsResultsItemType0DataValidationErrorsItem,
-)
-from .api_pinned_items_results_item_type_0_type import (
-    ApiPinnedItemsResultsItemType0Type,
-)
-from .api_pinned_items_results_item_type_1 import ApiPinnedItemsResultsItemType1
-from .api_pinned_items_results_item_type_1_data import (
-    ApiPinnedItemsResultsItemType1Data,
-)
-from .api_pinned_items_results_item_type_1_data_chart_type import (
-    ApiPinnedItemsResultsItemType1DataChartType,
-)
-from .api_pinned_items_results_item_type_1_data_updated_by_user import (
-    ApiPinnedItemsResultsItemType1DataUpdatedByUser,
-)
-from .api_pinned_items_results_item_type_1_data_validation_errors_item import (
-    ApiPinnedItemsResultsItemType1DataValidationErrorsItem,
-)
-from .api_pinned_items_results_item_type_1_type import (
-    ApiPinnedItemsResultsItemType1Type,
-)
-from .api_pinned_items_results_item_type_2 import ApiPinnedItemsResultsItemType2
-from .api_pinned_items_results_item_type_2_data import (
-    ApiPinnedItemsResultsItemType2Data,
-)
-from .api_pinned_items_results_item_type_2_type import (
-    ApiPinnedItemsResultsItemType2Type,
-)
 from .api_pinned_items_status import ApiPinnedItemsStatus
 from .api_project_access_list_response import ApiProjectAccessListResponse
-from .api_project_access_list_response_results_item import (
-    ApiProjectAccessListResponseResultsItem,
-)
-from .api_project_access_list_response_results_item_role import (
-    ApiProjectAccessListResponseResultsItemRole,
-)
 from .api_project_access_list_response_status import ApiProjectAccessListResponseStatus
-from .api_project_response import ApiProjectResponse
-from .api_project_response_results import ApiProjectResponseResults
-from .api_project_response_results_dbt_connection_type_0 import (
-    ApiProjectResponseResultsDbtConnectionType0,
-)
-from .api_project_response_results_dbt_connection_type_0_environment_item import (
-    ApiProjectResponseResultsDbtConnectionType0EnvironmentItem,
-)
-from .api_project_response_results_dbt_connection_type_0_type import (
-    ApiProjectResponseResultsDbtConnectionType0Type,
-)
-from .api_project_response_results_dbt_connection_type_1 import (
-    ApiProjectResponseResultsDbtConnectionType1,
-)
-from .api_project_response_results_dbt_connection_type_1_type import (
-    ApiProjectResponseResultsDbtConnectionType1Type,
-)
-from .api_project_response_results_dbt_connection_type_2 import (
-    ApiProjectResponseResultsDbtConnectionType2,
-)
-from .api_project_response_results_dbt_connection_type_2_environment_item import (
-    ApiProjectResponseResultsDbtConnectionType2EnvironmentItem,
-)
-from .api_project_response_results_dbt_connection_type_2_type import (
-    ApiProjectResponseResultsDbtConnectionType2Type,
-)
-from .api_project_response_results_dbt_connection_type_3 import (
-    ApiProjectResponseResultsDbtConnectionType3,
-)
-from .api_project_response_results_dbt_connection_type_3_environment_item import (
-    ApiProjectResponseResultsDbtConnectionType3EnvironmentItem,
-)
-from .api_project_response_results_dbt_connection_type_3_type import (
-    ApiProjectResponseResultsDbtConnectionType3Type,
-)
-from .api_project_response_results_dbt_connection_type_4 import (
-    ApiProjectResponseResultsDbtConnectionType4,
-)
-from .api_project_response_results_dbt_connection_type_4_environment_item import (
-    ApiProjectResponseResultsDbtConnectionType4EnvironmentItem,
-)
-from .api_project_response_results_dbt_connection_type_4_type import (
-    ApiProjectResponseResultsDbtConnectionType4Type,
-)
-from .api_project_response_results_dbt_connection_type_5 import (
-    ApiProjectResponseResultsDbtConnectionType5,
-)
-from .api_project_response_results_dbt_connection_type_5_environment_item import (
-    ApiProjectResponseResultsDbtConnectionType5EnvironmentItem,
-)
-from .api_project_response_results_dbt_connection_type_5_type import (
-    ApiProjectResponseResultsDbtConnectionType5Type,
-)
-from .api_project_response_results_dbt_connection_type_6 import (
-    ApiProjectResponseResultsDbtConnectionType6,
-)
-from .api_project_response_results_dbt_connection_type_6_environment_item import (
-    ApiProjectResponseResultsDbtConnectionType6EnvironmentItem,
-)
-from .api_project_response_results_dbt_connection_type_6_type import (
-    ApiProjectResponseResultsDbtConnectionType6Type,
-)
-from .api_project_response_results_dbt_version import (
-    ApiProjectResponseResultsDbtVersion,
-)
-from .api_project_response_results_type import ApiProjectResponseResultsType
-from .api_project_response_results_warehouse_connection_type_0 import (
-    ApiProjectResponseResultsWarehouseConnectionType0,
-)
-from .api_project_response_results_warehouse_connection_type_0_start_of_week import (
-    ApiProjectResponseResultsWarehouseConnectionType0StartOfWeek,
-)
-from .api_project_response_results_warehouse_connection_type_0_type import (
-    ApiProjectResponseResultsWarehouseConnectionType0Type,
-)
-from .api_project_response_results_warehouse_connection_type_1 import (
-    ApiProjectResponseResultsWarehouseConnectionType1,
-)
-from .api_project_response_results_warehouse_connection_type_1_start_of_week import (
-    ApiProjectResponseResultsWarehouseConnectionType1StartOfWeek,
-)
-from .api_project_response_results_warehouse_connection_type_1_type import (
-    ApiProjectResponseResultsWarehouseConnectionType1Type,
-)
-from .api_project_response_results_warehouse_connection_type_2 import (
-    ApiProjectResponseResultsWarehouseConnectionType2,
-)
-from .api_project_response_results_warehouse_connection_type_2_start_of_week import (
-    ApiProjectResponseResultsWarehouseConnectionType2StartOfWeek,
-)
-from .api_project_response_results_warehouse_connection_type_2_type import (
-    ApiProjectResponseResultsWarehouseConnectionType2Type,
-)
-from .api_project_response_results_warehouse_connection_type_3 import (
-    ApiProjectResponseResultsWarehouseConnectionType3,
-)
-from .api_project_response_results_warehouse_connection_type_3_priority import (
-    ApiProjectResponseResultsWarehouseConnectionType3Priority,
-)
-from .api_project_response_results_warehouse_connection_type_3_start_of_week import (
-    ApiProjectResponseResultsWarehouseConnectionType3StartOfWeek,
-)
-from .api_project_response_results_warehouse_connection_type_3_type import (
-    ApiProjectResponseResultsWarehouseConnectionType3Type,
-)
-from .api_project_response_results_warehouse_connection_type_4 import (
-    ApiProjectResponseResultsWarehouseConnectionType4,
-)
-from .api_project_response_results_warehouse_connection_type_4_start_of_week import (
-    ApiProjectResponseResultsWarehouseConnectionType4StartOfWeek,
-)
-from .api_project_response_results_warehouse_connection_type_4_type import (
-    ApiProjectResponseResultsWarehouseConnectionType4Type,
-)
-from .api_project_response_results_warehouse_connection_type_5 import (
-    ApiProjectResponseResultsWarehouseConnectionType5,
-)
-from .api_project_response_results_warehouse_connection_type_5_start_of_week import (
-    ApiProjectResponseResultsWarehouseConnectionType5StartOfWeek,
-)
-from .api_project_response_results_warehouse_connection_type_5_type import (
-    ApiProjectResponseResultsWarehouseConnectionType5Type,
-)
 from .api_project_response_status import ApiProjectResponseStatus
+from .api_register_user_response import ApiRegisterUserResponse
+from .api_register_user_response_status import ApiRegisterUserResponseStatus
 from .api_run_query_response import ApiRunQueryResponse
 from .api_run_query_response_results import ApiRunQueryResponseResults
-from .api_run_query_response_results_metric_query import (
-    ApiRunQueryResponseResultsMetricQuery,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_compact_type_0 import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType0,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_compact_type_1 import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_filters_item import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItem,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_filters_item_operator import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_filters_item_target import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_format import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat,
-)
-from .api_run_query_response_results_metric_query_additional_metrics_item_type import (
-    ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemType,
-)
-from .api_run_query_response_results_metric_query_filters import (
-    ApiRunQueryResponseResultsMetricQueryFilters,
-)
-from .api_run_query_response_results_metric_query_filters_dimensions_type_0 import (
-    ApiRunQueryResponseResultsMetricQueryFiltersDimensionsType0,
-)
-from .api_run_query_response_results_metric_query_filters_dimensions_type_1 import (
-    ApiRunQueryResponseResultsMetricQueryFiltersDimensionsType1,
-)
-from .api_run_query_response_results_metric_query_filters_metrics_type_0 import (
-    ApiRunQueryResponseResultsMetricQueryFiltersMetricsType0,
-)
-from .api_run_query_response_results_metric_query_filters_metrics_type_1 import (
-    ApiRunQueryResponseResultsMetricQueryFiltersMetricsType1,
-)
-from .api_run_query_response_results_metric_query_sorts_item import (
-    ApiRunQueryResponseResultsMetricQuerySortsItem,
-)
-from .api_run_query_response_results_metric_query_table_calculations_item import (
-    ApiRunQueryResponseResultsMetricQueryTableCalculationsItem,
-)
-from .api_run_query_response_results_metric_query_table_calculations_item_format import (
-    ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormat,
-)
-from .api_run_query_response_results_metric_query_table_calculations_item_format_compact import (
-    ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatCompact,
-)
-from .api_run_query_response_results_metric_query_table_calculations_item_format_separator import (
-    ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatSeparator,
-)
-from .api_run_query_response_results_metric_query_table_calculations_item_format_type import (
-    ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatType,
-)
 from .api_run_query_response_status import ApiRunQueryResponseStatus
 from .api_scheduled_jobs_response import ApiScheduledJobsResponse
-from .api_scheduled_jobs_response_results_item import (
-    ApiScheduledJobsResponseResultsItem,
-)
 from .api_scheduled_jobs_response_status import ApiScheduledJobsResponseStatus
-from .api_scheduler_and_targets_response import ApiSchedulerAndTargetsResponse
-from .api_scheduler_and_targets_response_results import (
-    ApiSchedulerAndTargetsResponseResults,
-)
-from .api_scheduler_and_targets_response_results_targets_item_type_0 import (
-    ApiSchedulerAndTargetsResponseResultsTargetsItemType0,
-)
-from .api_scheduler_and_targets_response_results_targets_item_type_1 import (
-    ApiSchedulerAndTargetsResponseResultsTargetsItemType1,
-)
 from .api_scheduler_and_targets_response_status import (
     ApiSchedulerAndTargetsResponseStatus,
 )
-from .api_scheduler_logs_response import ApiSchedulerLogsResponse
-from .api_scheduler_logs_response_results import ApiSchedulerLogsResponseResults
-from .api_scheduler_logs_response_results_charts_item import (
-    ApiSchedulerLogsResponseResultsChartsItem,
-)
-from .api_scheduler_logs_response_results_dashboards_item import (
-    ApiSchedulerLogsResponseResultsDashboardsItem,
-)
-from .api_scheduler_logs_response_results_logs_item import (
-    ApiSchedulerLogsResponseResultsLogsItem,
-)
-from .api_scheduler_logs_response_results_logs_item_details import (
-    ApiSchedulerLogsResponseResultsLogsItemDetails,
-)
-from .api_scheduler_logs_response_results_logs_item_status import (
-    ApiSchedulerLogsResponseResultsLogsItemStatus,
-)
-from .api_scheduler_logs_response_results_logs_item_target_type import (
-    ApiSchedulerLogsResponseResultsLogsItemTargetType,
-)
-from .api_scheduler_logs_response_results_logs_item_task import (
-    ApiSchedulerLogsResponseResultsLogsItemTask,
-)
-from .api_scheduler_logs_response_results_schedulers_item import (
-    ApiSchedulerLogsResponseResultsSchedulersItem,
-)
-from .api_scheduler_logs_response_results_schedulers_item_targets_item_type_0 import (
-    ApiSchedulerLogsResponseResultsSchedulersItemTargetsItemType0,
-)
-from .api_scheduler_logs_response_results_schedulers_item_targets_item_type_1 import (
-    ApiSchedulerLogsResponseResultsSchedulersItemTargetsItemType1,
-)
-from .api_scheduler_logs_response_results_users_item import (
-    ApiSchedulerLogsResponseResultsUsersItem,
-)
 from .api_scheduler_logs_response_status import ApiSchedulerLogsResponseStatus
 from .api_share_response import ApiShareResponse
-from .api_share_response_results import ApiShareResponseResults
 from .api_share_response_status import ApiShareResponseStatus
 from .api_slack_channels_response import ApiSlackChannelsResponse
-from .api_slack_channels_response_results_item import (
-    ApiSlackChannelsResponseResultsItem,
-)
 from .api_slack_channels_response_status import ApiSlackChannelsResponseStatus
-from .api_space_response import ApiSpaceResponse
-from .api_space_response_results import ApiSpaceResponseResults
-from .api_space_response_results_access_item import ApiSpaceResponseResultsAccessItem
-from .api_space_response_results_access_item_role import (
-    ApiSpaceResponseResultsAccessItemRole,
-)
-from .api_space_response_results_dashboards_item import (
-    ApiSpaceResponseResultsDashboardsItem,
-)
-from .api_space_response_results_dashboards_item_updated_by_user import (
-    ApiSpaceResponseResultsDashboardsItemUpdatedByUser,
-)
-from .api_space_response_results_dashboards_item_validation_errors_item import (
-    ApiSpaceResponseResultsDashboardsItemValidationErrorsItem,
-)
-from .api_space_response_results_queries_item import ApiSpaceResponseResultsQueriesItem
-from .api_space_response_results_queries_item_chart_type import (
-    ApiSpaceResponseResultsQueriesItemChartType,
-)
-from .api_space_response_results_queries_item_updated_by_user import (
-    ApiSpaceResponseResultsQueriesItemUpdatedByUser,
-)
-from .api_space_response_results_queries_item_validation_errors_item import (
-    ApiSpaceResponseResultsQueriesItemValidationErrorsItem,
-)
 from .api_space_response_status import ApiSpaceResponseStatus
 from .api_space_summary_list_response import ApiSpaceSummaryListResponse
-from .api_space_summary_list_response_results_item import (
-    ApiSpaceSummaryListResponseResultsItem,
-)
 from .api_space_summary_list_response_status import ApiSpaceSummaryListResponseStatus
 from .api_sql_query_results import ApiSqlQueryResults
-from .api_sql_query_results_fields import ApiSqlQueryResultsFields
-from .api_sql_query_results_rows_item import ApiSqlQueryResultsRowsItem
 from .api_ssh_key_pair_response import ApiSshKeyPairResponse
-from .api_ssh_key_pair_response_results import ApiSshKeyPairResponseResults
 from .api_ssh_key_pair_response_status import ApiSshKeyPairResponseStatus
 from .api_success_empty import ApiSuccessEmpty
 from .api_success_empty_status import ApiSuccessEmptyStatus
+from .api_test_scheduler_response import ApiTestSchedulerResponse
+from .api_test_scheduler_response_status import ApiTestSchedulerResponseStatus
 from .api_user_allowed_organizations_response import ApiUserAllowedOrganizationsResponse
-from .api_user_allowed_organizations_response_results_item import (
-    ApiUserAllowedOrganizationsResponseResultsItem,
-)
 from .api_user_allowed_organizations_response_status import (
     ApiUserAllowedOrganizationsResponseStatus,
 )
 from .api_user_attributes_response import ApiUserAttributesResponse
-from .api_user_attributes_response_results_item import (
-    ApiUserAttributesResponseResultsItem,
-)
-from .api_user_attributes_response_results_item_users_item import (
-    ApiUserAttributesResponseResultsItemUsersItem,
-)
 from .api_user_attributes_response_status import ApiUserAttributesResponseStatus
 from .api_validate_response import ApiValidateResponse
-from .api_validate_response_results_item_type_0 import (
-    ApiValidateResponseResultsItemType0,
-)
-from .api_validate_response_results_item_type_0_chart_type import (
-    ApiValidateResponseResultsItemType0ChartType,
-)
-from .api_validate_response_results_item_type_0_error_type import (
-    ApiValidateResponseResultsItemType0ErrorType,
-)
-from .api_validate_response_results_item_type_0_source import (
-    ApiValidateResponseResultsItemType0Source,
-)
-from .api_validate_response_results_item_type_1 import (
-    ApiValidateResponseResultsItemType1,
-)
-from .api_validate_response_results_item_type_1_error_type import (
-    ApiValidateResponseResultsItemType1ErrorType,
-)
-from .api_validate_response_results_item_type_1_source import (
-    ApiValidateResponseResultsItemType1Source,
-)
-from .api_validate_response_results_item_type_2 import (
-    ApiValidateResponseResultsItemType2,
-)
-from .api_validate_response_results_item_type_2_error_type import (
-    ApiValidateResponseResultsItemType2ErrorType,
-)
-from .api_validate_response_results_item_type_2_source import (
-    ApiValidateResponseResultsItemType2Source,
-)
 from .api_validate_response_status import ApiValidateResponseStatus
 from .api_validation_dismiss_response import ApiValidationDismissResponse
 from .api_validation_dismiss_response_status import ApiValidationDismissResponseStatus
-from .bigquery_credentials import BigqueryCredentials
-from .bigquery_credentials_priority import BigqueryCredentialsPriority
-from .bigquery_credentials_start_of_week import BigqueryCredentialsStartOfWeek
-from .bigquery_credentials_type import BigqueryCredentialsType
+from .axis import Axis
+from .big_number import BigNumber
+from .big_number_config import BigNumberConfig
+from .bin_range import BinRange
+from .bin_type import BinType
+from .cache_metadata import CacheMetadata
+from .calculate_total_from_query import CalculateTotalFromQuery
+from .calculate_total_from_saved_chart_json_body import (
+    CalculateTotalFromSavedChartJsonBody,
+)
+from .cartesian_series_type import CartesianSeriesType
 from .chart_kind import ChartKind
-from .chart_scheduler import ChartScheduler
-from .chart_scheduler_format import ChartSchedulerFormat
-from .chart_scheduler_options_type_0 import ChartSchedulerOptionsType0
-from .chart_scheduler_options_type_0_limit_type_1 import (
-    ChartSchedulerOptionsType0LimitType1,
-)
-from .chart_scheduler_options_type_1 import ChartSchedulerOptionsType1
-from .chart_scheduler_options_type_2 import ChartSchedulerOptionsType2
 from .chart_summary import ChartSummary
-from .chart_summary_chart_type import ChartSummaryChartType
 from .chart_type import ChartType
+from .chart_type_bignumber import ChartTypeBIGNUMBER
+from .chart_type_cartesian import ChartTypeCARTESIAN
+from .chart_type_custom import ChartTypeCUSTOM
+from .chart_type_pie import ChartTypePIE
+from .chart_type_table import ChartTypeTABLE
+from .chart_version import ChartVersion
 from .compact import Compact
-from .compact_or_alias_type_0 import CompactOrAliasType0
 from .compact_or_alias_type_1 import CompactOrAliasType1
+from .comparison_format_types import ComparisonFormatTypes
+from .conditional_formatting_config_with_color_range import (
+    ConditionalFormattingConfigWithColorRange,
+)
+from .conditional_formatting_config_with_color_range_color import (
+    ConditionalFormattingConfigWithColorRangeColor,
+)
+from .conditional_formatting_config_with_color_range_color_steps import (
+    ConditionalFormattingConfigWithColorRangeColorSteps,
+)
+from .conditional_formatting_config_with_single_color import (
+    ConditionalFormattingConfigWithSingleColor,
+)
+from .conditional_formatting_with_conditional_operator import (
+    ConditionalFormattingWithConditionalOperator,
+)
+from .conditional_formatting_with_range import ConditionalFormattingWithRange
 from .conditional_operator import ConditionalOperator
-from .create_email_one_time_passcode_response_200 import (
-    CreateEmailOneTimePasscodeResponse200,
+from .conditional_rule_conditional_operator_number import (
+    ConditionalRuleConditionalOperatorNumber,
 )
-from .create_email_one_time_passcode_response_200_results import (
-    CreateEmailOneTimePasscodeResponse200Results,
-)
-from .create_email_one_time_passcode_response_200_results_otp import (
-    CreateEmailOneTimePasscodeResponse200ResultsOtp,
-)
-from .create_email_one_time_passcode_response_200_status import (
-    CreateEmailOneTimePasscodeResponse200Status,
-)
-from .create_group_in_organization_json_body import CreateGroupInOrganizationJsonBody
-from .create_group_in_organization_response_200 import (
-    CreateGroupInOrganizationResponse200,
-)
-from .create_group_in_organization_response_200_results import (
-    CreateGroupInOrganizationResponse200Results,
-)
-from .create_group_in_organization_response_200_status import (
-    CreateGroupInOrganizationResponse200Status,
-)
-from .create_organization import CreateOrganization
-from .create_organization_json_body import CreateOrganizationJsonBody
-from .create_organization_response_200 import CreateOrganizationResponse200
-from .create_organization_response_200_status import CreateOrganizationResponse200Status
 from .create_project_member import CreateProjectMember
-from .create_project_member_role import CreateProjectMemberRole
-from .create_share_url import CreateShareUrl
-from .create_share_url_json_body import CreateShareUrlJsonBody
-from .create_share_url_response_201 import CreateShareUrlResponse201
-from .create_share_url_response_201_results import CreateShareUrlResponse201Results
-from .create_share_url_response_201_status import CreateShareUrlResponse201Status
 from .create_space import CreateSpace
-from .create_space_access_item import CreateSpaceAccessItem
-from .create_space_access_item_role import CreateSpaceAccessItemRole
-from .create_space_in_project_json_body import CreateSpaceInProjectJsonBody
-from .create_space_in_project_json_body_access_item import (
-    CreateSpaceInProjectJsonBodyAccessItem,
-)
-from .create_space_in_project_json_body_access_item_role import (
-    CreateSpaceInProjectJsonBodyAccessItemRole,
-)
-from .create_space_in_project_response_200 import CreateSpaceInProjectResponse200
-from .create_space_in_project_response_200_results import (
-    CreateSpaceInProjectResponse200Results,
-)
-from .create_space_in_project_response_200_results_access_item import (
-    CreateSpaceInProjectResponse200ResultsAccessItem,
-)
-from .create_space_in_project_response_200_results_access_item_role import (
-    CreateSpaceInProjectResponse200ResultsAccessItemRole,
-)
-from .create_space_in_project_response_200_results_dashboards_item import (
-    CreateSpaceInProjectResponse200ResultsDashboardsItem,
-)
-from .create_space_in_project_response_200_results_dashboards_item_updated_by_user import (
-    CreateSpaceInProjectResponse200ResultsDashboardsItemUpdatedByUser,
-)
-from .create_space_in_project_response_200_results_dashboards_item_validation_errors_item import (
-    CreateSpaceInProjectResponse200ResultsDashboardsItemValidationErrorsItem,
-)
-from .create_space_in_project_response_200_results_queries_item import (
-    CreateSpaceInProjectResponse200ResultsQueriesItem,
-)
-from .create_space_in_project_response_200_results_queries_item_chart_type import (
-    CreateSpaceInProjectResponse200ResultsQueriesItemChartType,
-)
-from .create_space_in_project_response_200_results_queries_item_updated_by_user import (
-    CreateSpaceInProjectResponse200ResultsQueriesItemUpdatedByUser,
-)
-from .create_space_in_project_response_200_results_queries_item_validation_errors_item import (
-    CreateSpaceInProjectResponse200ResultsQueriesItemValidationErrorsItem,
-)
-from .create_space_in_project_response_200_status import (
-    CreateSpaceInProjectResponse200Status,
-)
-from .create_ssh_key_pair_response_201 import CreateSshKeyPairResponse201
-from .create_ssh_key_pair_response_201_results import CreateSshKeyPairResponse201Results
-from .create_ssh_key_pair_response_201_status import CreateSshKeyPairResponse201Status
-from .create_user_attribute import CreateUserAttribute
-from .create_user_attribute_json_body import CreateUserAttributeJsonBody
-from .create_user_attribute_json_body_users_item import (
-    CreateUserAttributeJsonBodyUsersItem,
-)
-from .create_user_attribute_response_200 import CreateUserAttributeResponse200
-from .create_user_attribute_response_200_results import (
-    CreateUserAttributeResponse200Results,
-)
-from .create_user_attribute_response_200_results_users_item import (
-    CreateUserAttributeResponse200ResultsUsersItem,
-)
-from .create_user_attribute_response_200_status import (
-    CreateUserAttributeResponse200Status,
-)
-from .create_user_attribute_users_item import CreateUserAttributeUsersItem
-from .create_user_attribute_value import CreateUserAttributeValue
-from .dashboard_basic_details import DashboardBasicDetails
-from .dashboard_basic_details_updated_by_user import DashboardBasicDetailsUpdatedByUser
-from .dashboard_basic_details_validation_errors_item import (
-    DashboardBasicDetailsValidationErrorsItem,
-)
-from .dashboard_scheduler import DashboardScheduler
-from .dashboard_scheduler_format import DashboardSchedulerFormat
-from .dashboard_scheduler_options_type_0 import DashboardSchedulerOptionsType0
-from .dashboard_scheduler_options_type_0_limit_type_1 import (
-    DashboardSchedulerOptionsType0LimitType1,
-)
-from .dashboard_scheduler_options_type_1 import DashboardSchedulerOptionsType1
-from .dashboard_scheduler_options_type_2 import DashboardSchedulerOptionsType2
-from .databricks_credentials import DatabricksCredentials
-from .databricks_credentials_start_of_week import DatabricksCredentialsStartOfWeek
-from .databricks_credentials_type import DatabricksCredentialsType
+from .create_user_args import CreateUserArgs
+from .custom_dimension import CustomDimension
+from .custom_label import CustomLabel
+from .custom_vis import CustomVis
+from .custom_vis_config import CustomVisConfig
+from .dashboard_field_target import DashboardFieldTarget
+from .dashboard_filter_rule import DashboardFilterRule
+from .date_granularity import DateGranularity
 from .dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
-from .dbt_azure_dev_ops_project_config_environment_item import (
-    DbtAzureDevOpsProjectConfigEnvironmentItem,
-)
-from .dbt_azure_dev_ops_project_config_type import DbtAzureDevOpsProjectConfigType
 from .dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
-from .dbt_bit_bucket_project_config_environment_item import (
-    DbtBitBucketProjectConfigEnvironmentItem,
-)
-from .dbt_bit_bucket_project_config_type import DbtBitBucketProjectConfigType
 from .dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
-from .dbt_cloud_ide_project_config_type import DbtCloudIDEProjectConfigType
-from .dbt_cloud_integration import DbtCloudIntegration
-from .dbt_cloud_metadata_response_metrics import DbtCloudMetadataResponseMetrics
-from .dbt_cloud_metadata_response_metrics_metrics_item import (
-    DbtCloudMetadataResponseMetricsMetricsItem,
-)
-from .dbt_cloud_metric import DbtCloudMetric
 from .dbt_github_project_config import DbtGithubProjectConfig
-from .dbt_github_project_config_environment_item import (
-    DbtGithubProjectConfigEnvironmentItem,
-)
-from .dbt_github_project_config_type import DbtGithubProjectConfigType
 from .dbt_gitlab_project_config import DbtGitlabProjectConfig
-from .dbt_gitlab_project_config_environment_item import (
-    DbtGitlabProjectConfigEnvironmentItem,
-)
-from .dbt_gitlab_project_config_type import DbtGitlabProjectConfigType
 from .dbt_local_project_config import DbtLocalProjectConfig
-from .dbt_local_project_config_environment_item import (
-    DbtLocalProjectConfigEnvironmentItem,
-)
-from .dbt_local_project_config_type import DbtLocalProjectConfigType
 from .dbt_none_project_config import DbtNoneProjectConfig
-from .dbt_none_project_config_environment_item import (
-    DbtNoneProjectConfigEnvironmentItem,
-)
-from .dbt_none_project_config_type import DbtNoneProjectConfigType
-from .dbt_project_config_type_0_environment_item import (
-    DbtProjectConfigType0EnvironmentItem,
-)
-from .dbt_project_config_type_0_type import DbtProjectConfigType0Type
-from .dbt_project_config_type_1 import DbtProjectConfigType1
-from .dbt_project_config_type_1_type import DbtProjectConfigType1Type
-from .dbt_project_config_type_2_environment_item import (
-    DbtProjectConfigType2EnvironmentItem,
-)
-from .dbt_project_config_type_2_type import DbtProjectConfigType2Type
-from .dbt_project_config_type_3_environment_item import (
-    DbtProjectConfigType3EnvironmentItem,
-)
-from .dbt_project_config_type_3_type import DbtProjectConfigType3Type
-from .dbt_project_config_type_4_environment_item import (
-    DbtProjectConfigType4EnvironmentItem,
-)
-from .dbt_project_config_type_4_type import DbtProjectConfigType4Type
-from .dbt_project_config_type_5_environment_item import (
-    DbtProjectConfigType5EnvironmentItem,
-)
-from .dbt_project_config_type_5_type import DbtProjectConfigType5Type
-from .dbt_project_config_type_6_environment_item import (
-    DbtProjectConfigType6EnvironmentItem,
-)
-from .dbt_project_config_type_6_type import DbtProjectConfigType6Type
 from .dbt_project_environment_variable import DbtProjectEnvironmentVariable
 from .dbt_project_type import DbtProjectType
 from .dbt_project_type_azuredevops import DbtProjectTypeAZUREDEVOPS
@@ -751,692 +170,53 @@ from .dbt_project_type_dbtcloudide import DbtProjectTypeDBTCLOUDIDE
 from .dbt_project_type_github import DbtProjectTypeGITHUB
 from .dbt_project_type_gitlab import DbtProjectTypeGITLAB
 from .dbt_project_type_none import DbtProjectTypeNONE
-from .delete_dbt_cloud_integration_settings_response_200 import (
-    DeleteDbtCloudIntegrationSettingsResponse200,
-)
-from .delete_dbt_cloud_integration_settings_response_200_status import (
-    DeleteDbtCloudIntegrationSettingsResponse200Status,
-)
-from .delete_group_response_200 import DeleteGroupResponse200
-from .delete_group_response_200_status import DeleteGroupResponse200Status
-from .delete_me_response_200 import DeleteMeResponse200
-from .delete_me_response_200_status import DeleteMeResponse200Status
-from .delete_my_organization_response_200 import DeleteMyOrganizationResponse200
-from .delete_my_organization_response_200_status import (
-    DeleteMyOrganizationResponse200Status,
-)
-from .delete_organization_member_response_200 import DeleteOrganizationMemberResponse200
-from .delete_organization_member_response_200_status import (
-    DeleteOrganizationMemberResponse200Status,
-)
 from .delete_scheduler_response_201 import DeleteSchedulerResponse201
 from .delete_scheduler_response_201_status import DeleteSchedulerResponse201Status
-from .delete_space_response_204 import DeleteSpaceResponse204
-from .delete_space_response_204_status import DeleteSpaceResponse204Status
-from .delete_validation_dismiss_response_200 import DeleteValidationDismissResponse200
-from .delete_validation_dismiss_response_200_status import (
-    DeleteValidationDismissResponse200Status,
-)
+from .echarts_grid import EchartsGrid
+from .echarts_legend import EchartsLegend
+from .echarts_legend_align import EchartsLegendAlign
+from .echarts_legend_icon import EchartsLegendIcon
+from .echarts_legend_orient import EchartsLegendOrient
+from .echarts_legend_type import EchartsLegendType
 from .email_one_time_password import EmailOneTimePassword
 from .email_one_time_password_expiring import EmailOneTimePasswordExpiring
 from .email_status import EmailStatus
-from .email_status_expiring import EmailStatusExpiring
-from .email_status_expiring_otp import EmailStatusExpiringOtp
-from .email_status_otp import EmailStatusOtp
+from .field_target import FieldTarget
 from .filter_group_response_type_0 import FilterGroupResponseType0
 from .filter_group_response_type_1 import FilterGroupResponseType1
+from .filter_rule import FilterRule
+from .filter_rule_conditional_operator_tv_any import FilterRuleConditionalOperatorTVAny
 from .filters import Filters
-from .filters_dimensions_type_0 import FiltersDimensionsType0
-from .filters_dimensions_type_1 import FiltersDimensionsType1
-from .filters_metrics_type_0 import FiltersMetricsType0
-from .filters_metrics_type_1 import FiltersMetricsType1
+from .filters_response import FiltersResponse
 from .format_ import Format
-from .get_access_token_response_200 import GetAccessTokenResponse200
-from .get_access_token_response_200_status import GetAccessTokenResponse200Status
-from .get_csv_url_response_200 import GetCsvUrlResponse200
-from .get_csv_url_response_200_results import GetCsvUrlResponse200Results
-from .get_csv_url_response_200_status import GetCsvUrlResponse200Status
-from .get_dbt_cloud_integration_settings_response_200 import (
-    GetDbtCloudIntegrationSettingsResponse200,
-)
-from .get_dbt_cloud_integration_settings_response_200_results import (
-    GetDbtCloudIntegrationSettingsResponse200Results,
-)
-from .get_dbt_cloud_integration_settings_response_200_status import (
-    GetDbtCloudIntegrationSettingsResponse200Status,
-)
-from .get_dbt_cloud_metrics_response_200 import GetDbtCloudMetricsResponse200
-from .get_dbt_cloud_metrics_response_200_results import (
-    GetDbtCloudMetricsResponse200Results,
-)
-from .get_dbt_cloud_metrics_response_200_results_metrics_item import (
-    GetDbtCloudMetricsResponse200ResultsMetricsItem,
-)
-from .get_dbt_cloud_metrics_response_200_status import (
-    GetDbtCloudMetricsResponse200Status,
-)
-from .get_email_verification_status_response_200 import (
-    GetEmailVerificationStatusResponse200,
-)
-from .get_email_verification_status_response_200_results import (
-    GetEmailVerificationStatusResponse200Results,
-)
-from .get_email_verification_status_response_200_results_otp import (
-    GetEmailVerificationStatusResponse200ResultsOtp,
-)
-from .get_email_verification_status_response_200_status import (
-    GetEmailVerificationStatusResponse200Status,
-)
-from .get_group_members_response_200 import GetGroupMembersResponse200
-from .get_group_members_response_200_results_item import (
-    GetGroupMembersResponse200ResultsItem,
-)
-from .get_group_members_response_200_status import GetGroupMembersResponse200Status
-from .get_group_response_200 import GetGroupResponse200
-from .get_group_response_200_results import GetGroupResponse200Results
-from .get_group_response_200_status import GetGroupResponse200Status
-from .get_latest_validation_results_response_200 import (
-    GetLatestValidationResultsResponse200,
-)
-from .get_latest_validation_results_response_200_results_item_type_0 import (
-    GetLatestValidationResultsResponse200ResultsItemType0,
-)
-from .get_latest_validation_results_response_200_results_item_type_0_chart_type import (
-    GetLatestValidationResultsResponse200ResultsItemType0ChartType,
-)
-from .get_latest_validation_results_response_200_results_item_type_0_error_type import (
-    GetLatestValidationResultsResponse200ResultsItemType0ErrorType,
-)
-from .get_latest_validation_results_response_200_results_item_type_0_source import (
-    GetLatestValidationResultsResponse200ResultsItemType0Source,
-)
-from .get_latest_validation_results_response_200_results_item_type_1 import (
-    GetLatestValidationResultsResponse200ResultsItemType1,
-)
-from .get_latest_validation_results_response_200_results_item_type_1_error_type import (
-    GetLatestValidationResultsResponse200ResultsItemType1ErrorType,
-)
-from .get_latest_validation_results_response_200_results_item_type_1_source import (
-    GetLatestValidationResultsResponse200ResultsItemType1Source,
-)
-from .get_latest_validation_results_response_200_results_item_type_2 import (
-    GetLatestValidationResultsResponse200ResultsItemType2,
-)
-from .get_latest_validation_results_response_200_results_item_type_2_error_type import (
-    GetLatestValidationResultsResponse200ResultsItemType2ErrorType,
-)
-from .get_latest_validation_results_response_200_results_item_type_2_source import (
-    GetLatestValidationResultsResponse200ResultsItemType2Source,
-)
-from .get_latest_validation_results_response_200_status import (
-    GetLatestValidationResultsResponse200Status,
-)
-from .get_my_organization_response_200 import GetMyOrganizationResponse200
-from .get_my_organization_response_200_results import (
-    GetMyOrganizationResponse200Results,
-)
-from .get_my_organization_response_200_status import GetMyOrganizationResponse200Status
-from .get_organization_member_by_uuid_response_200 import (
-    GetOrganizationMemberByUuidResponse200,
-)
-from .get_organization_member_by_uuid_response_200_results import (
-    GetOrganizationMemberByUuidResponse200Results,
-)
-from .get_organization_member_by_uuid_response_200_results_role import (
-    GetOrganizationMemberByUuidResponse200ResultsRole,
-)
-from .get_organization_member_by_uuid_response_200_status import (
-    GetOrganizationMemberByUuidResponse200Status,
-)
-from .get_pinned_items_response_200 import GetPinnedItemsResponse200
-from .get_pinned_items_response_200_results_item_type_0 import (
-    GetPinnedItemsResponse200ResultsItemType0,
-)
-from .get_pinned_items_response_200_results_item_type_0_data import (
-    GetPinnedItemsResponse200ResultsItemType0Data,
-)
-from .get_pinned_items_response_200_results_item_type_0_data_updated_by_user import (
-    GetPinnedItemsResponse200ResultsItemType0DataUpdatedByUser,
-)
-from .get_pinned_items_response_200_results_item_type_0_data_validation_errors_item import (
-    GetPinnedItemsResponse200ResultsItemType0DataValidationErrorsItem,
-)
-from .get_pinned_items_response_200_results_item_type_0_type import (
-    GetPinnedItemsResponse200ResultsItemType0Type,
-)
-from .get_pinned_items_response_200_results_item_type_1 import (
-    GetPinnedItemsResponse200ResultsItemType1,
-)
-from .get_pinned_items_response_200_results_item_type_1_data import (
-    GetPinnedItemsResponse200ResultsItemType1Data,
-)
-from .get_pinned_items_response_200_results_item_type_1_data_chart_type import (
-    GetPinnedItemsResponse200ResultsItemType1DataChartType,
-)
-from .get_pinned_items_response_200_results_item_type_1_data_updated_by_user import (
-    GetPinnedItemsResponse200ResultsItemType1DataUpdatedByUser,
-)
-from .get_pinned_items_response_200_results_item_type_1_data_validation_errors_item import (
-    GetPinnedItemsResponse200ResultsItemType1DataValidationErrorsItem,
-)
-from .get_pinned_items_response_200_results_item_type_1_type import (
-    GetPinnedItemsResponse200ResultsItemType1Type,
-)
-from .get_pinned_items_response_200_results_item_type_2 import (
-    GetPinnedItemsResponse200ResultsItemType2,
-)
-from .get_pinned_items_response_200_results_item_type_2_data import (
-    GetPinnedItemsResponse200ResultsItemType2Data,
-)
-from .get_pinned_items_response_200_results_item_type_2_type import (
-    GetPinnedItemsResponse200ResultsItemType2Type,
-)
-from .get_pinned_items_response_200_status import GetPinnedItemsResponse200Status
-from .get_project_access_list_response_200 import GetProjectAccessListResponse200
-from .get_project_access_list_response_200_results_item import (
-    GetProjectAccessListResponse200ResultsItem,
-)
-from .get_project_access_list_response_200_results_item_role import (
-    GetProjectAccessListResponse200ResultsItemRole,
-)
-from .get_project_access_list_response_200_status import (
-    GetProjectAccessListResponse200Status,
-)
-from .get_project_member_access_response_200 import GetProjectMemberAccessResponse200
-from .get_project_member_access_response_200_results import (
-    GetProjectMemberAccessResponse200Results,
-)
-from .get_project_member_access_response_200_results_role import (
-    GetProjectMemberAccessResponse200ResultsRole,
-)
-from .get_project_member_access_response_200_status import (
-    GetProjectMemberAccessResponse200Status,
-)
-from .get_project_response_200 import GetProjectResponse200
-from .get_project_response_200_results import GetProjectResponse200Results
-from .get_project_response_200_results_dbt_connection_type_0 import (
-    GetProjectResponse200ResultsDbtConnectionType0,
-)
-from .get_project_response_200_results_dbt_connection_type_0_environment_item import (
-    GetProjectResponse200ResultsDbtConnectionType0EnvironmentItem,
-)
-from .get_project_response_200_results_dbt_connection_type_0_type import (
-    GetProjectResponse200ResultsDbtConnectionType0Type,
-)
-from .get_project_response_200_results_dbt_connection_type_1 import (
-    GetProjectResponse200ResultsDbtConnectionType1,
-)
-from .get_project_response_200_results_dbt_connection_type_1_type import (
-    GetProjectResponse200ResultsDbtConnectionType1Type,
-)
-from .get_project_response_200_results_dbt_connection_type_2 import (
-    GetProjectResponse200ResultsDbtConnectionType2,
-)
-from .get_project_response_200_results_dbt_connection_type_2_environment_item import (
-    GetProjectResponse200ResultsDbtConnectionType2EnvironmentItem,
-)
-from .get_project_response_200_results_dbt_connection_type_2_type import (
-    GetProjectResponse200ResultsDbtConnectionType2Type,
-)
-from .get_project_response_200_results_dbt_connection_type_3 import (
-    GetProjectResponse200ResultsDbtConnectionType3,
-)
-from .get_project_response_200_results_dbt_connection_type_3_environment_item import (
-    GetProjectResponse200ResultsDbtConnectionType3EnvironmentItem,
-)
-from .get_project_response_200_results_dbt_connection_type_3_type import (
-    GetProjectResponse200ResultsDbtConnectionType3Type,
-)
-from .get_project_response_200_results_dbt_connection_type_4 import (
-    GetProjectResponse200ResultsDbtConnectionType4,
-)
-from .get_project_response_200_results_dbt_connection_type_4_environment_item import (
-    GetProjectResponse200ResultsDbtConnectionType4EnvironmentItem,
-)
-from .get_project_response_200_results_dbt_connection_type_4_type import (
-    GetProjectResponse200ResultsDbtConnectionType4Type,
-)
-from .get_project_response_200_results_dbt_connection_type_5 import (
-    GetProjectResponse200ResultsDbtConnectionType5,
-)
-from .get_project_response_200_results_dbt_connection_type_5_environment_item import (
-    GetProjectResponse200ResultsDbtConnectionType5EnvironmentItem,
-)
-from .get_project_response_200_results_dbt_connection_type_5_type import (
-    GetProjectResponse200ResultsDbtConnectionType5Type,
-)
-from .get_project_response_200_results_dbt_connection_type_6 import (
-    GetProjectResponse200ResultsDbtConnectionType6,
-)
-from .get_project_response_200_results_dbt_connection_type_6_environment_item import (
-    GetProjectResponse200ResultsDbtConnectionType6EnvironmentItem,
-)
-from .get_project_response_200_results_dbt_connection_type_6_type import (
-    GetProjectResponse200ResultsDbtConnectionType6Type,
-)
-from .get_project_response_200_results_dbt_version import (
-    GetProjectResponse200ResultsDbtVersion,
-)
-from .get_project_response_200_results_type import GetProjectResponse200ResultsType
-from .get_project_response_200_results_warehouse_connection_type_0 import (
-    GetProjectResponse200ResultsWarehouseConnectionType0,
-)
-from .get_project_response_200_results_warehouse_connection_type_0_start_of_week import (
-    GetProjectResponse200ResultsWarehouseConnectionType0StartOfWeek,
-)
-from .get_project_response_200_results_warehouse_connection_type_0_type import (
-    GetProjectResponse200ResultsWarehouseConnectionType0Type,
-)
-from .get_project_response_200_results_warehouse_connection_type_1 import (
-    GetProjectResponse200ResultsWarehouseConnectionType1,
-)
-from .get_project_response_200_results_warehouse_connection_type_1_start_of_week import (
-    GetProjectResponse200ResultsWarehouseConnectionType1StartOfWeek,
-)
-from .get_project_response_200_results_warehouse_connection_type_1_type import (
-    GetProjectResponse200ResultsWarehouseConnectionType1Type,
-)
-from .get_project_response_200_results_warehouse_connection_type_2 import (
-    GetProjectResponse200ResultsWarehouseConnectionType2,
-)
-from .get_project_response_200_results_warehouse_connection_type_2_start_of_week import (
-    GetProjectResponse200ResultsWarehouseConnectionType2StartOfWeek,
-)
-from .get_project_response_200_results_warehouse_connection_type_2_type import (
-    GetProjectResponse200ResultsWarehouseConnectionType2Type,
-)
-from .get_project_response_200_results_warehouse_connection_type_3 import (
-    GetProjectResponse200ResultsWarehouseConnectionType3,
-)
-from .get_project_response_200_results_warehouse_connection_type_3_priority import (
-    GetProjectResponse200ResultsWarehouseConnectionType3Priority,
-)
-from .get_project_response_200_results_warehouse_connection_type_3_start_of_week import (
-    GetProjectResponse200ResultsWarehouseConnectionType3StartOfWeek,
-)
-from .get_project_response_200_results_warehouse_connection_type_3_type import (
-    GetProjectResponse200ResultsWarehouseConnectionType3Type,
-)
-from .get_project_response_200_results_warehouse_connection_type_4 import (
-    GetProjectResponse200ResultsWarehouseConnectionType4,
-)
-from .get_project_response_200_results_warehouse_connection_type_4_start_of_week import (
-    GetProjectResponse200ResultsWarehouseConnectionType4StartOfWeek,
-)
-from .get_project_response_200_results_warehouse_connection_type_4_type import (
-    GetProjectResponse200ResultsWarehouseConnectionType4Type,
-)
-from .get_project_response_200_results_warehouse_connection_type_5 import (
-    GetProjectResponse200ResultsWarehouseConnectionType5,
-)
-from .get_project_response_200_results_warehouse_connection_type_5_start_of_week import (
-    GetProjectResponse200ResultsWarehouseConnectionType5StartOfWeek,
-)
-from .get_project_response_200_results_warehouse_connection_type_5_type import (
-    GetProjectResponse200ResultsWarehouseConnectionType5Type,
-)
-from .get_project_response_200_status import GetProjectResponse200Status
-from .get_scheduled_jobs_response_200 import GetScheduledJobsResponse200
-from .get_scheduled_jobs_response_200_results_item import (
-    GetScheduledJobsResponse200ResultsItem,
-)
-from .get_scheduled_jobs_response_200_status import GetScheduledJobsResponse200Status
-from .get_scheduler_job_status_response_200 import GetSchedulerJobStatusResponse200
-from .get_scheduler_job_status_response_200_results import (
-    GetSchedulerJobStatusResponse200Results,
-)
-from .get_scheduler_job_status_response_200_status import (
-    GetSchedulerJobStatusResponse200Status,
-)
-from .get_scheduler_logs_response_200 import GetSchedulerLogsResponse200
-from .get_scheduler_logs_response_200_results import GetSchedulerLogsResponse200Results
-from .get_scheduler_logs_response_200_results_charts_item import (
-    GetSchedulerLogsResponse200ResultsChartsItem,
-)
-from .get_scheduler_logs_response_200_results_dashboards_item import (
-    GetSchedulerLogsResponse200ResultsDashboardsItem,
-)
-from .get_scheduler_logs_response_200_results_logs_item import (
-    GetSchedulerLogsResponse200ResultsLogsItem,
-)
-from .get_scheduler_logs_response_200_results_logs_item_details import (
-    GetSchedulerLogsResponse200ResultsLogsItemDetails,
-)
-from .get_scheduler_logs_response_200_results_logs_item_status import (
-    GetSchedulerLogsResponse200ResultsLogsItemStatus,
-)
-from .get_scheduler_logs_response_200_results_logs_item_target_type import (
-    GetSchedulerLogsResponse200ResultsLogsItemTargetType,
-)
-from .get_scheduler_logs_response_200_results_logs_item_task import (
-    GetSchedulerLogsResponse200ResultsLogsItemTask,
-)
-from .get_scheduler_logs_response_200_results_schedulers_item import (
-    GetSchedulerLogsResponse200ResultsSchedulersItem,
-)
-from .get_scheduler_logs_response_200_results_schedulers_item_targets_item_type_0 import (
-    GetSchedulerLogsResponse200ResultsSchedulersItemTargetsItemType0,
-)
-from .get_scheduler_logs_response_200_results_schedulers_item_targets_item_type_1 import (
-    GetSchedulerLogsResponse200ResultsSchedulersItemTargetsItemType1,
-)
-from .get_scheduler_logs_response_200_results_users_item import (
-    GetSchedulerLogsResponse200ResultsUsersItem,
-)
-from .get_scheduler_logs_response_200_status import GetSchedulerLogsResponse200Status
-from .get_scheduler_response_200 import GetSchedulerResponse200
-from .get_scheduler_response_200_results import GetSchedulerResponse200Results
-from .get_scheduler_response_200_results_targets_item_type_0 import (
-    GetSchedulerResponse200ResultsTargetsItemType0,
-)
-from .get_scheduler_response_200_results_targets_item_type_1 import (
-    GetSchedulerResponse200ResultsTargetsItemType1,
-)
-from .get_scheduler_response_200_status import GetSchedulerResponse200Status
-from .get_share_url_response_200 import GetShareUrlResponse200
-from .get_share_url_response_200_results import GetShareUrlResponse200Results
-from .get_share_url_response_200_status import GetShareUrlResponse200Status
-from .get_slack_channels_response_200 import GetSlackChannelsResponse200
-from .get_slack_channels_response_200_results_item import (
-    GetSlackChannelsResponse200ResultsItem,
-)
-from .get_slack_channels_response_200_status import GetSlackChannelsResponse200Status
-from .get_space_response_200 import GetSpaceResponse200
-from .get_space_response_200_results import GetSpaceResponse200Results
-from .get_space_response_200_results_access_item import (
-    GetSpaceResponse200ResultsAccessItem,
-)
-from .get_space_response_200_results_access_item_role import (
-    GetSpaceResponse200ResultsAccessItemRole,
-)
-from .get_space_response_200_results_dashboards_item import (
-    GetSpaceResponse200ResultsDashboardsItem,
-)
-from .get_space_response_200_results_dashboards_item_updated_by_user import (
-    GetSpaceResponse200ResultsDashboardsItemUpdatedByUser,
-)
-from .get_space_response_200_results_dashboards_item_validation_errors_item import (
-    GetSpaceResponse200ResultsDashboardsItemValidationErrorsItem,
-)
-from .get_space_response_200_results_queries_item import (
-    GetSpaceResponse200ResultsQueriesItem,
-)
-from .get_space_response_200_results_queries_item_chart_type import (
-    GetSpaceResponse200ResultsQueriesItemChartType,
-)
-from .get_space_response_200_results_queries_item_updated_by_user import (
-    GetSpaceResponse200ResultsQueriesItemUpdatedByUser,
-)
-from .get_space_response_200_results_queries_item_validation_errors_item import (
-    GetSpaceResponse200ResultsQueriesItemValidationErrorsItem,
-)
-from .get_space_response_200_status import GetSpaceResponse200Status
-from .get_user_attributes_response_200 import GetUserAttributesResponse200
-from .get_user_attributes_response_200_results_item import (
-    GetUserAttributesResponse200ResultsItem,
-)
-from .get_user_attributes_response_200_results_item_users_item import (
-    GetUserAttributesResponse200ResultsItemUsersItem,
-)
-from .get_user_attributes_response_200_status import GetUserAttributesResponse200Status
-from .grant_project_access_to_user_json_body import GrantProjectAccessToUserJsonBody
-from .grant_project_access_to_user_json_body_role import (
-    GrantProjectAccessToUserJsonBodyRole,
-)
-from .grant_project_access_to_user_response_200 import (
-    GrantProjectAccessToUserResponse200,
-)
-from .grant_project_access_to_user_response_200_status import (
-    GrantProjectAccessToUserResponse200Status,
+from .get_dbt_semantic_layer_data_json_body import GetDbtSemanticLayerDataJsonBody
+from .get_dbt_semantic_layer_data_json_body_operation_name import (
+    GetDbtSemanticLayerDataJsonBodyOperationName,
 )
 from .group import Group
 from .group_member import GroupMember
-from .join_organization_response_200 import JoinOrganizationResponse200
-from .join_organization_response_200_status import JoinOrganizationResponse200Status
-from .list_charts_in_project_response_200 import ListChartsInProjectResponse200
-from .list_charts_in_project_response_200_results_item import (
-    ListChartsInProjectResponse200ResultsItem,
-)
-from .list_charts_in_project_response_200_results_item_chart_type import (
-    ListChartsInProjectResponse200ResultsItemChartType,
-)
-from .list_charts_in_project_response_200_status import (
-    ListChartsInProjectResponse200Status,
-)
-from .list_groups_in_organization_response_200 import (
-    ListGroupsInOrganizationResponse200,
-)
-from .list_groups_in_organization_response_200_results_item import (
-    ListGroupsInOrganizationResponse200ResultsItem,
-)
-from .list_groups_in_organization_response_200_status import (
-    ListGroupsInOrganizationResponse200Status,
-)
-from .list_my_available_organizations_response_200 import (
-    ListMyAvailableOrganizationsResponse200,
-)
-from .list_my_available_organizations_response_200_results_item import (
-    ListMyAvailableOrganizationsResponse200ResultsItem,
-)
-from .list_my_available_organizations_response_200_status import (
-    ListMyAvailableOrganizationsResponse200Status,
-)
-from .list_organization_email_domains_response_200 import (
-    ListOrganizationEmailDomainsResponse200,
-)
-from .list_organization_email_domains_response_200_results import (
-    ListOrganizationEmailDomainsResponse200Results,
-)
-from .list_organization_email_domains_response_200_results_projects_item import (
-    ListOrganizationEmailDomainsResponse200ResultsProjectsItem,
-)
-from .list_organization_email_domains_response_200_results_projects_item_role_type_0 import (
-    ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0,
-)
-from .list_organization_email_domains_response_200_results_projects_item_role_type_1 import (
-    ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1,
-)
-from .list_organization_email_domains_response_200_results_projects_item_role_type_2 import (
-    ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2,
-)
-from .list_organization_email_domains_response_200_results_role_type_0 import (
-    ListOrganizationEmailDomainsResponse200ResultsRoleType0,
-)
-from .list_organization_email_domains_response_200_results_role_type_1 import (
-    ListOrganizationEmailDomainsResponse200ResultsRoleType1,
-)
-from .list_organization_email_domains_response_200_results_role_type_2 import (
-    ListOrganizationEmailDomainsResponse200ResultsRoleType2,
-)
-from .list_organization_email_domains_response_200_results_role_type_3 import (
-    ListOrganizationEmailDomainsResponse200ResultsRoleType3,
-)
-from .list_organization_email_domains_response_200_status import (
-    ListOrganizationEmailDomainsResponse200Status,
-)
-from .list_organization_members_response_200 import ListOrganizationMembersResponse200
-from .list_organization_members_response_200_results_item import (
-    ListOrganizationMembersResponse200ResultsItem,
-)
-from .list_organization_members_response_200_results_item_role import (
-    ListOrganizationMembersResponse200ResultsItemRole,
-)
-from .list_organization_members_response_200_status import (
-    ListOrganizationMembersResponse200Status,
-)
-from .list_organization_projects_response_200 import ListOrganizationProjectsResponse200
-from .list_organization_projects_response_200_results_item import (
-    ListOrganizationProjectsResponse200ResultsItem,
-)
-from .list_organization_projects_response_200_results_item_type import (
-    ListOrganizationProjectsResponse200ResultsItemType,
-)
-from .list_organization_projects_response_200_status import (
-    ListOrganizationProjectsResponse200Status,
-)
-from .list_spaces_in_project_response_200 import ListSpacesInProjectResponse200
-from .list_spaces_in_project_response_200_results_item import (
-    ListSpacesInProjectResponse200ResultsItem,
-)
-from .list_spaces_in_project_response_200_status import (
-    ListSpacesInProjectResponse200Status,
-)
+from .lightdash_user import LightdashUser
+from .mark_line import MarkLine
+from .mark_line_data import MarkLineData
+from .mark_line_data_label import MarkLineDataLabel
+from .mark_line_data_line_style import MarkLineDataLineStyle
+from .mark_line_label import MarkLineLabel
+from .mark_line_line_style import MarkLineLineStyle
 from .metric_filter_rule import MetricFilterRule
-from .metric_filter_rule_operator import MetricFilterRuleOperator
 from .metric_filter_rule_target import MetricFilterRuleTarget
+from .metric_query import MetricQuery
+from .metric_query_metadata import MetricQueryMetadata
+from .metric_query_request import MetricQueryRequest
+from .metric_query_request_filters import MetricQueryRequestFilters
+from .metric_query_request_metadata import MetricQueryRequestMetadata
 from .metric_query_response import MetricQueryResponse
-from .metric_query_response_additional_metrics_item import (
-    MetricQueryResponseAdditionalMetricsItem,
-)
-from .metric_query_response_additional_metrics_item_compact_type_0 import (
-    MetricQueryResponseAdditionalMetricsItemCompactType0,
-)
-from .metric_query_response_additional_metrics_item_compact_type_1 import (
-    MetricQueryResponseAdditionalMetricsItemCompactType1,
-)
-from .metric_query_response_additional_metrics_item_filters_item import (
-    MetricQueryResponseAdditionalMetricsItemFiltersItem,
-)
-from .metric_query_response_additional_metrics_item_filters_item_operator import (
-    MetricQueryResponseAdditionalMetricsItemFiltersItemOperator,
-)
-from .metric_query_response_additional_metrics_item_filters_item_target import (
-    MetricQueryResponseAdditionalMetricsItemFiltersItemTarget,
-)
-from .metric_query_response_additional_metrics_item_format import (
-    MetricQueryResponseAdditionalMetricsItemFormat,
-)
-from .metric_query_response_additional_metrics_item_type import (
-    MetricQueryResponseAdditionalMetricsItemType,
-)
-from .metric_query_response_filters import MetricQueryResponseFilters
-from .metric_query_response_filters_dimensions_type_0 import (
-    MetricQueryResponseFiltersDimensionsType0,
-)
-from .metric_query_response_filters_dimensions_type_1 import (
-    MetricQueryResponseFiltersDimensionsType1,
-)
-from .metric_query_response_filters_metrics_type_0 import (
-    MetricQueryResponseFiltersMetricsType0,
-)
-from .metric_query_response_filters_metrics_type_1 import (
-    MetricQueryResponseFiltersMetricsType1,
-)
-from .metric_query_response_sorts_item import MetricQueryResponseSortsItem
-from .metric_query_response_table_calculations_item import (
-    MetricQueryResponseTableCalculationsItem,
-)
-from .metric_query_response_table_calculations_item_format import (
-    MetricQueryResponseTableCalculationsItemFormat,
-)
-from .metric_query_response_table_calculations_item_format_compact import (
-    MetricQueryResponseTableCalculationsItemFormatCompact,
-)
-from .metric_query_response_table_calculations_item_format_separator import (
-    MetricQueryResponseTableCalculationsItemFormatSeparator,
-)
-from .metric_query_response_table_calculations_item_format_type import (
-    MetricQueryResponseTableCalculationsItemFormatType,
-)
+from .metric_query_response_metadata import MetricQueryResponseMetadata
 from .metric_type import MetricType
 from .number_separator import NumberSeparator
-from .omit_allowed_email_domains_organization_uuid import (
-    OmitAllowedEmailDomainsOrganizationUuid,
-)
-from .omit_allowed_email_domains_organization_uuid_projects_item import (
-    OmitAllowedEmailDomainsOrganizationUuidProjectsItem,
-)
-from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_0 import (
-    OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0,
-)
-from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_1 import (
-    OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1,
-)
-from .omit_allowed_email_domains_organization_uuid_projects_item_role_type_2 import (
-    OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2,
-)
-from .omit_allowed_email_domains_organization_uuid_role_type_0 import (
-    OmitAllowedEmailDomainsOrganizationUuidRoleType0,
-)
-from .omit_allowed_email_domains_organization_uuid_role_type_1 import (
-    OmitAllowedEmailDomainsOrganizationUuidRoleType1,
-)
-from .omit_allowed_email_domains_organization_uuid_role_type_2 import (
-    OmitAllowedEmailDomainsOrganizationUuidRoleType2,
-)
-from .omit_allowed_email_domains_organization_uuid_role_type_3 import (
-    OmitAllowedEmailDomainsOrganizationUuidRoleType3,
-)
-from .omit_create_bigquery_credentials_sensitive_credentials_field_names import (
-    OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
-)
-from .omit_create_bigquery_credentials_sensitive_credentials_field_names_priority import (
-    OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority,
-)
-from .omit_create_bigquery_credentials_sensitive_credentials_field_names_start_of_week import (
-    OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .omit_create_bigquery_credentials_sensitive_credentials_field_names_type import (
-    OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .omit_create_databricks_credentials_sensitive_credentials_field_names import (
-    OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNames,
-)
-from .omit_create_databricks_credentials_sensitive_credentials_field_names_start_of_week import (
-    OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .omit_create_databricks_credentials_sensitive_credentials_field_names_type import (
-    OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .omit_create_postgres_credentials_sensitive_credentials_field_names import (
-    OmitCreatePostgresCredentialsSensitiveCredentialsFieldNames,
-)
-from .omit_create_postgres_credentials_sensitive_credentials_field_names_start_of_week import (
-    OmitCreatePostgresCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .omit_create_postgres_credentials_sensitive_credentials_field_names_type import (
-    OmitCreatePostgresCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .omit_create_redshift_credentials_sensitive_credentials_field_names import (
-    OmitCreateRedshiftCredentialsSensitiveCredentialsFieldNames,
-)
-from .omit_create_redshift_credentials_sensitive_credentials_field_names_start_of_week import (
-    OmitCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .omit_create_redshift_credentials_sensitive_credentials_field_names_type import (
-    OmitCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .omit_create_snowflake_credentials_sensitive_credentials_field_names import (
-    OmitCreateSnowflakeCredentialsSensitiveCredentialsFieldNames,
-)
-from .omit_create_snowflake_credentials_sensitive_credentials_field_names_start_of_week import (
-    OmitCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .omit_create_snowflake_credentials_sensitive_credentials_field_names_type import (
-    OmitCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .omit_create_trino_credentials_sensitive_credentials_field_names import (
-    OmitCreateTrinoCredentialsSensitiveCredentialsFieldNames,
-)
-from .omit_create_trino_credentials_sensitive_credentials_field_names_start_of_week import (
-    OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .omit_create_trino_credentials_sensitive_credentials_field_names_type import (
-    OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .omit_user_attribute_value_email import OmitUserAttributeValueEmail
-from .omit_validation_response_base_name import OmitValidationResponseBaseName
-from .omit_validation_response_base_name_error_type import (
-    OmitValidationResponseBaseNameErrorType,
-)
-from .omit_validation_response_base_name_source import (
-    OmitValidationResponseBaseNameSource,
-)
+from .or_filter_group import OrFilterGroup
 from .organization import Organization
 from .organization_member_profile import OrganizationMemberProfile
-from .organization_member_profile_role import OrganizationMemberProfileRole
 from .organization_member_profile_update import OrganizationMemberProfileUpdate
-from .organization_member_profile_update_role import OrganizationMemberProfileUpdateRole
 from .organization_member_role import OrganizationMemberRole
 from .organization_member_role_editor import OrganizationMemberRoleEDITOR
 from .organization_member_role_interactiveviewer import (
@@ -1445,7 +225,8 @@ from .organization_member_role_interactiveviewer import (
 from .organization_member_role_member import OrganizationMemberRoleMEMBER
 from .organization_member_role_viewer import OrganizationMemberRoleVIEWER
 from .organization_project import OrganizationProject
-from .organization_project_type import OrganizationProjectType
+from .partial_complete_cartesian_chart_layout import PartialCompleteCartesianChartLayout
+from .partial_complete_e_charts_config import PartialCompleteEChartsConfig
 from .partial_omit_organization_organization_uuid_or_needs_project import (
     PartialOmitOrganizationOrganizationUuidOrNeedsProject,
 )
@@ -1455,47 +236,18 @@ from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organizatio
 from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item import (
     PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem,
 )
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item_role_type_0 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0,
+from .pick_chart_version_chart_uuid_or_version_uuid_or_created_at_or_created_by import (
+    PickChartVersionChartUuidOrVersionUuidOrCreatedAtOrCreatedBy,
 )
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item_role_type_1 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1,
-)
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item_role_type_2 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2,
-)
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_0 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0,
-)
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_1 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1,
-)
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_2 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2,
-)
-from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_role_type_3 import (
-    PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3,
-)
+from .pick_compiled_dimension_label_or_name import PickCompiledDimensionLabelOrName
 from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
     PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
 )
 from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_priority import (
     PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority,
 )
-from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_start_of_week import (
-    PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_type import (
-    PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType,
-)
 from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names import (
     PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames,
-)
-from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names_start_of_week import (
-    PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names_type import (
-    PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType,
 )
 from .pick_create_dbt_cloud_integration_metrics_job_id import (
     PickCreateDbtCloudIntegrationMetricsJobId,
@@ -1504,55 +256,22 @@ from .pick_create_group_name import PickCreateGroupName
 from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names import (
     PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames,
 )
-from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names_start_of_week import (
-    PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names_type import (
-    PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNamesType,
-)
 from .pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names import (
     PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames,
-)
-from .pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names_start_of_week import (
-    PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names_type import (
-    PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType,
 )
 from .pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names import (
     PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames,
 )
-from .pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names_start_of_week import (
-    PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names_type import (
-    PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType,
-)
 from .pick_create_trino_credentials_exclude_keyof_create_trino_credentials_sensitive_credentials_field_names import (
     PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames,
-)
-from .pick_create_trino_credentials_exclude_keyof_create_trino_credentials_sensitive_credentials_field_names_start_of_week import (
-    PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-)
-from .pick_create_trino_credentials_exclude_keyof_create_trino_credentials_sensitive_credentials_field_names_type import (
-    PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNamesType,
-)
-from .pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors import (
-    PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrors,
-)
-from .pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors_updated_by_user import (
-    PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser,
-)
-from .pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors_validation_errors_item import (
-    PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem,
 )
 from .pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order import (
     PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder,
 )
-from .pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_updated_by_user import (
-    PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
-)
 from .pick_group_name import PickGroupName
+from .pick_lightdash_user_user_uuid_or_first_name_or_last_name import (
+    PickLightdashUserUserUuidOrFirstNameOrLastName,
+)
 from .pick_organization_name import PickOrganizationName
 from .pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
     PickResourceViewItemAtDataUuidOrPinnedListOrder,
@@ -1563,9 +282,6 @@ from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_o
 from .pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order import (
     PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder,
 )
-from .pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order_updated_by_user import (
-    PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser,
-)
 from .pick_share_url_path_or_params import PickShareUrlPathOrParams
 from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order import (
     PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrder,
@@ -1573,558 +289,59 @@ from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private
 from .pick_space_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_organization_uuid import (
     PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid,
 )
-from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors import (
-    PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors,
-)
-from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_chart_type import (
-    PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsChartType,
-)
-from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_updated_by_user import (
-    PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser,
-)
-from .pick_space_query_uuid_or_name_or_chart_type_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_validation_errors_item import (
-    PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem,
-)
+from .pick_space_share_user_uuid import PickSpaceShareUserUuid
 from .pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
-from .pick_user_attribute_name_or_description import PickUserAttributeNameOrDescription
+from .pick_user_attribute_name_or_description_or_attribute_default import (
+    PickUserAttributeNameOrDescriptionOrAttributeDefault,
+)
 from .pick_user_attribute_value_exclude_keyof_user_attribute_value_email import (
     PickUserAttributeValueExcludeKeyofUserAttributeValueEmail,
 )
 from .pick_validation_response_base_exclude_keyof_validation_response_base_name import (
     PickValidationResponseBaseExcludeKeyofValidationResponseBaseName,
 )
-from .pick_validation_response_base_exclude_keyof_validation_response_base_name_error_type import (
-    PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType,
-)
-from .pick_validation_response_base_exclude_keyof_validation_response_base_name_source import (
-    PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource,
-)
 from .pick_validation_response_error_or_created_at_or_validation_id import (
     PickValidationResponseErrorOrCreatedAtOrValidationId,
 )
-from .pinned_items_item_type_0_data_updated_by_user import (
-    PinnedItemsItemType0DataUpdatedByUser,
-)
-from .pinned_items_item_type_0_data_validation_errors_item import (
-    PinnedItemsItemType0DataValidationErrorsItem,
-)
-from .pinned_items_item_type_0_type import PinnedItemsItemType0Type
-from .pinned_items_item_type_1_data_chart_type import PinnedItemsItemType1DataChartType
-from .pinned_items_item_type_1_data_updated_by_user import (
-    PinnedItemsItemType1DataUpdatedByUser,
-)
-from .pinned_items_item_type_1_data_validation_errors_item import (
-    PinnedItemsItemType1DataValidationErrorsItem,
-)
-from .pinned_items_item_type_1_type import PinnedItemsItemType1Type
-from .pinned_items_item_type_2_data import PinnedItemsItemType2Data
-from .pinned_items_item_type_2_type import PinnedItemsItemType2Type
+from .pie_chart import PieChart
+from .pie_chart_config import PieChartConfig
+from .pie_chart_legend_position import PieChartLegendPosition
+from .pie_chart_value_label import PieChartValueLabel
+from .pivot_reference import PivotReference
+from .pivot_value import PivotValue
 from .post_chart_results_json_body import PostChartResultsJsonBody
-from .post_chart_results_json_body_filters import PostChartResultsJsonBodyFilters
-from .post_chart_results_json_body_filters_dimensions_type_0 import (
-    PostChartResultsJsonBodyFiltersDimensionsType0,
-)
-from .post_chart_results_json_body_filters_dimensions_type_1 import (
-    PostChartResultsJsonBodyFiltersDimensionsType1,
-)
-from .post_chart_results_json_body_filters_metrics_type_0 import (
-    PostChartResultsJsonBodyFiltersMetricsType0,
-)
-from .post_chart_results_json_body_filters_metrics_type_1 import (
-    PostChartResultsJsonBodyFiltersMetricsType1,
-)
-from .post_chart_results_response_200 import PostChartResultsResponse200
-from .post_chart_results_response_200_results import PostChartResultsResponse200Results
-from .post_chart_results_response_200_results_metric_query import (
-    PostChartResultsResponse200ResultsMetricQuery,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_compact_type_0 import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item_operator import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_filters_item_target import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_format import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat,
-)
-from .post_chart_results_response_200_results_metric_query_additional_metrics_item_type import (
-    PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType,
-)
-from .post_chart_results_response_200_results_metric_query_filters import (
-    PostChartResultsResponse200ResultsMetricQueryFilters,
-)
-from .post_chart_results_response_200_results_metric_query_filters_dimensions_type_0 import (
-    PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType0,
-)
-from .post_chart_results_response_200_results_metric_query_filters_dimensions_type_1 import (
-    PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType1,
-)
-from .post_chart_results_response_200_results_metric_query_filters_metrics_type_0 import (
-    PostChartResultsResponse200ResultsMetricQueryFiltersMetricsType0,
-)
-from .post_chart_results_response_200_results_metric_query_filters_metrics_type_1 import (
-    PostChartResultsResponse200ResultsMetricQueryFiltersMetricsType1,
-)
-from .post_chart_results_response_200_results_metric_query_sorts_item import (
-    PostChartResultsResponse200ResultsMetricQuerySortsItem,
-)
-from .post_chart_results_response_200_results_metric_query_table_calculations_item import (
-    PostChartResultsResponse200ResultsMetricQueryTableCalculationsItem,
-)
-from .post_chart_results_response_200_results_metric_query_table_calculations_item_format import (
-    PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormat,
-)
-from .post_chart_results_response_200_results_metric_query_table_calculations_item_format_compact import (
-    PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
-)
-from .post_chart_results_response_200_results_metric_query_table_calculations_item_format_separator import (
-    PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
-)
-from .post_chart_results_response_200_results_metric_query_table_calculations_item_format_type import (
-    PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatType,
-)
-from .post_chart_results_response_200_status import PostChartResultsResponse200Status
-from .post_run_underlying_data_query_json_body import PostRunUnderlyingDataQueryJsonBody
-from .post_run_underlying_data_query_json_body_additional_metrics_item import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_compact_type_0 import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType0,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_compact_type_1 import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_item import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItem,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_item_operator import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemOperator,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_filters_item_target import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemTarget,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_format import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat,
-)
-from .post_run_underlying_data_query_json_body_additional_metrics_item_type import (
-    PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemType,
-)
-from .post_run_underlying_data_query_json_body_filters import (
-    PostRunUnderlyingDataQueryJsonBodyFilters,
-)
-from .post_run_underlying_data_query_json_body_sorts_item import (
-    PostRunUnderlyingDataQueryJsonBodySortsItem,
-)
-from .post_run_underlying_data_query_json_body_table_calculations_item import (
-    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItem,
-)
-from .post_run_underlying_data_query_json_body_table_calculations_item_format import (
-    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat,
-)
-from .post_run_underlying_data_query_json_body_table_calculations_item_format_compact import (
-    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact,
-)
-from .post_run_underlying_data_query_json_body_table_calculations_item_format_separator import (
-    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator,
-)
-from .post_run_underlying_data_query_json_body_table_calculations_item_format_type import (
-    PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType,
-)
-from .post_run_underlying_data_query_response_200 import (
-    PostRunUnderlyingDataQueryResponse200,
-)
-from .post_run_underlying_data_query_response_200_results import (
-    PostRunUnderlyingDataQueryResponse200Results,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQuery,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItem,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_compact_type_0 import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_filters_item import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_filters_item_operator import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_filters_item_target import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_format import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFormat,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_additional_metrics_item_type import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemType,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_filters import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFilters,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_filters_dimensions_type_0 import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersDimensionsType0,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_filters_dimensions_type_1 import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersDimensionsType1,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_filters_metrics_type_0 import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersMetricsType0,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_filters_metrics_type_1 import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersMetricsType1,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_sorts_item import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQuerySortsItem,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItem,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormat,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_compact import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_separator import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
-)
-from .post_run_underlying_data_query_response_200_results_metric_query_table_calculations_item_format_type import (
-    PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType,
-)
-from .post_run_underlying_data_query_response_200_status import (
-    PostRunUnderlyingDataQueryResponse200Status,
-)
-from .postgres_credentials import PostgresCredentials
-from .postgres_credentials_start_of_week import PostgresCredentialsStartOfWeek
-from .postgres_credentials_type import PostgresCredentialsType
-from .project import Project
-from .project_dbt_connection_type_0 import ProjectDbtConnectionType0
-from .project_dbt_connection_type_0_environment_item import (
-    ProjectDbtConnectionType0EnvironmentItem,
-)
-from .project_dbt_connection_type_0_type import ProjectDbtConnectionType0Type
-from .project_dbt_connection_type_1 import ProjectDbtConnectionType1
-from .project_dbt_connection_type_1_type import ProjectDbtConnectionType1Type
-from .project_dbt_connection_type_2 import ProjectDbtConnectionType2
-from .project_dbt_connection_type_2_environment_item import (
-    ProjectDbtConnectionType2EnvironmentItem,
-)
-from .project_dbt_connection_type_2_type import ProjectDbtConnectionType2Type
-from .project_dbt_connection_type_3 import ProjectDbtConnectionType3
-from .project_dbt_connection_type_3_environment_item import (
-    ProjectDbtConnectionType3EnvironmentItem,
-)
-from .project_dbt_connection_type_3_type import ProjectDbtConnectionType3Type
-from .project_dbt_connection_type_4 import ProjectDbtConnectionType4
-from .project_dbt_connection_type_4_environment_item import (
-    ProjectDbtConnectionType4EnvironmentItem,
-)
-from .project_dbt_connection_type_4_type import ProjectDbtConnectionType4Type
-from .project_dbt_connection_type_5 import ProjectDbtConnectionType5
-from .project_dbt_connection_type_5_environment_item import (
-    ProjectDbtConnectionType5EnvironmentItem,
-)
-from .project_dbt_connection_type_5_type import ProjectDbtConnectionType5Type
-from .project_dbt_connection_type_6 import ProjectDbtConnectionType6
-from .project_dbt_connection_type_6_environment_item import (
-    ProjectDbtConnectionType6EnvironmentItem,
-)
-from .project_dbt_connection_type_6_type import ProjectDbtConnectionType6Type
-from .project_dbt_version import ProjectDbtVersion
 from .project_member_profile import ProjectMemberProfile
-from .project_member_profile_role import ProjectMemberProfileRole
 from .project_member_role import ProjectMemberRole
 from .project_member_role_editor import ProjectMemberRoleEDITOR
 from .project_member_role_interactiveviewer import ProjectMemberRoleINTERACTIVEVIEWER
 from .project_member_role_viewer import ProjectMemberRoleVIEWER
 from .project_type import ProjectType
-from .project_warehouse_connection_type_0 import ProjectWarehouseConnectionType0
-from .project_warehouse_connection_type_0_start_of_week import (
-    ProjectWarehouseConnectionType0StartOfWeek,
-)
-from .project_warehouse_connection_type_0_type import (
-    ProjectWarehouseConnectionType0Type,
-)
-from .project_warehouse_connection_type_1 import ProjectWarehouseConnectionType1
-from .project_warehouse_connection_type_1_start_of_week import (
-    ProjectWarehouseConnectionType1StartOfWeek,
-)
-from .project_warehouse_connection_type_1_type import (
-    ProjectWarehouseConnectionType1Type,
-)
-from .project_warehouse_connection_type_2 import ProjectWarehouseConnectionType2
-from .project_warehouse_connection_type_2_start_of_week import (
-    ProjectWarehouseConnectionType2StartOfWeek,
-)
-from .project_warehouse_connection_type_2_type import (
-    ProjectWarehouseConnectionType2Type,
-)
-from .project_warehouse_connection_type_3 import ProjectWarehouseConnectionType3
-from .project_warehouse_connection_type_3_priority import (
-    ProjectWarehouseConnectionType3Priority,
-)
-from .project_warehouse_connection_type_3_start_of_week import (
-    ProjectWarehouseConnectionType3StartOfWeek,
-)
-from .project_warehouse_connection_type_3_type import (
-    ProjectWarehouseConnectionType3Type,
-)
-from .project_warehouse_connection_type_4 import ProjectWarehouseConnectionType4
-from .project_warehouse_connection_type_4_start_of_week import (
-    ProjectWarehouseConnectionType4StartOfWeek,
-)
-from .project_warehouse_connection_type_4_type import (
-    ProjectWarehouseConnectionType4Type,
-)
-from .project_warehouse_connection_type_5 import ProjectWarehouseConnectionType5
-from .project_warehouse_connection_type_5_start_of_week import (
-    ProjectWarehouseConnectionType5StartOfWeek,
-)
-from .project_warehouse_connection_type_5_type import (
-    ProjectWarehouseConnectionType5Type,
-)
 from .record_string_any import RecordStringAny
+from .record_string_column_properties import RecordStringColumnProperties
+from .record_string_dashboard_tile_target import RecordStringDashboardTileTarget
+from .record_string_item_or_additional_metric import RecordStringItemOrAdditionalMetric
+from .record_string_number import RecordStringNumber
+from .record_string_partial_pie_chart_value_options import (
+    RecordStringPartialPieChartValueOptions,
+)
+from .record_string_string import RecordStringString
 from .record_string_type_dimension_type import RecordStringTypeDimensionType
 from .record_string_unknown import RecordStringUnknown
-from .redshift_credentials import RedshiftCredentials
-from .redshift_credentials_start_of_week import RedshiftCredentialsStartOfWeek
-from .redshift_credentials_type import RedshiftCredentialsType
-from .remove_user_attribute_response_200 import RemoveUserAttributeResponse200
-from .remove_user_attribute_response_200_status import (
-    RemoveUserAttributeResponse200Status,
-)
-from .remove_user_from_group_response_200 import RemoveUserFromGroupResponse200
-from .remove_user_from_group_response_200_status import (
-    RemoveUserFromGroupResponse200Status,
-)
-from .resource_view_chart_item import ResourceViewChartItem
-from .resource_view_chart_item_data import ResourceViewChartItemData
-from .resource_view_chart_item_data_chart_type import ResourceViewChartItemDataChartType
-from .resource_view_chart_item_data_updated_by_user import (
-    ResourceViewChartItemDataUpdatedByUser,
-)
-from .resource_view_chart_item_data_validation_errors_item import (
-    ResourceViewChartItemDataValidationErrorsItem,
-)
-from .resource_view_chart_item_type import ResourceViewChartItemType
-from .resource_view_dashboard_item import ResourceViewDashboardItem
-from .resource_view_dashboard_item_data import ResourceViewDashboardItemData
-from .resource_view_dashboard_item_data_updated_by_user import (
-    ResourceViewDashboardItemDataUpdatedByUser,
-)
-from .resource_view_dashboard_item_data_validation_errors_item import (
-    ResourceViewDashboardItemDataValidationErrorsItem,
-)
-from .resource_view_dashboard_item_type import ResourceViewDashboardItemType
+from .resource_item_category import ResourceItemCategory
 from .resource_view_item_type import ResourceViewItemType
 from .resource_view_item_type_chart import ResourceViewItemTypeCHART
 from .resource_view_item_type_dashboard import ResourceViewItemTypeDASHBOARD
 from .resource_view_item_type_space import ResourceViewItemTypeSPACE
 from .resource_view_space_item import ResourceViewSpaceItem
 from .resource_view_space_item_data import ResourceViewSpaceItemData
-from .resource_view_space_item_type import ResourceViewSpaceItemType
-from .revoke_project_access_for_user_response_200 import (
-    RevokeProjectAccessForUserResponse200,
-)
-from .revoke_project_access_for_user_response_200_status import (
-    RevokeProjectAccessForUserResponse200Status,
-)
-from .revoke_space_access_for_user_response_200 import (
-    RevokeSpaceAccessForUserResponse200,
-)
-from .revoke_space_access_for_user_response_200_status import (
-    RevokeSpaceAccessForUserResponse200Status,
-)
-from .run_metric_query_json_body import RunMetricQueryJsonBody
-from .run_metric_query_json_body_additional_metrics_item import (
-    RunMetricQueryJsonBodyAdditionalMetricsItem,
-)
-from .run_metric_query_json_body_additional_metrics_item_compact_type_0 import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemCompactType0,
-)
-from .run_metric_query_json_body_additional_metrics_item_compact_type_1 import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemCompactType1,
-)
-from .run_metric_query_json_body_additional_metrics_item_filters_item import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemFiltersItem,
-)
-from .run_metric_query_json_body_additional_metrics_item_filters_item_operator import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemFiltersItemOperator,
-)
-from .run_metric_query_json_body_additional_metrics_item_filters_item_target import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemFiltersItemTarget,
-)
-from .run_metric_query_json_body_additional_metrics_item_format import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemFormat,
-)
-from .run_metric_query_json_body_additional_metrics_item_type import (
-    RunMetricQueryJsonBodyAdditionalMetricsItemType,
-)
-from .run_metric_query_json_body_filters import RunMetricQueryJsonBodyFilters
-from .run_metric_query_json_body_sorts_item import RunMetricQueryJsonBodySortsItem
-from .run_metric_query_json_body_table_calculations_item import (
-    RunMetricQueryJsonBodyTableCalculationsItem,
-)
-from .run_metric_query_json_body_table_calculations_item_format import (
-    RunMetricQueryJsonBodyTableCalculationsItemFormat,
-)
-from .run_metric_query_json_body_table_calculations_item_format_compact import (
-    RunMetricQueryJsonBodyTableCalculationsItemFormatCompact,
-)
-from .run_metric_query_json_body_table_calculations_item_format_separator import (
-    RunMetricQueryJsonBodyTableCalculationsItemFormatSeparator,
-)
-from .run_metric_query_json_body_table_calculations_item_format_type import (
-    RunMetricQueryJsonBodyTableCalculationsItemFormatType,
-)
-from .run_metric_query_response_200 import RunMetricQueryResponse200
-from .run_metric_query_response_200_results import RunMetricQueryResponse200Results
-from .run_metric_query_response_200_results_metric_query import (
-    RunMetricQueryResponse200ResultsMetricQuery,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItem,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_compact_type_0 import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_compact_type_1 import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_filters_item import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_filters_item_operator import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_filters_item_target import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_format import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFormat,
-)
-from .run_metric_query_response_200_results_metric_query_additional_metrics_item_type import (
-    RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemType,
-)
-from .run_metric_query_response_200_results_metric_query_filters import (
-    RunMetricQueryResponse200ResultsMetricQueryFilters,
-)
-from .run_metric_query_response_200_results_metric_query_filters_dimensions_type_0 import (
-    RunMetricQueryResponse200ResultsMetricQueryFiltersDimensionsType0,
-)
-from .run_metric_query_response_200_results_metric_query_filters_dimensions_type_1 import (
-    RunMetricQueryResponse200ResultsMetricQueryFiltersDimensionsType1,
-)
-from .run_metric_query_response_200_results_metric_query_filters_metrics_type_0 import (
-    RunMetricQueryResponse200ResultsMetricQueryFiltersMetricsType0,
-)
-from .run_metric_query_response_200_results_metric_query_filters_metrics_type_1 import (
-    RunMetricQueryResponse200ResultsMetricQueryFiltersMetricsType1,
-)
-from .run_metric_query_response_200_results_metric_query_sorts_item import (
-    RunMetricQueryResponse200ResultsMetricQuerySortsItem,
-)
-from .run_metric_query_response_200_results_metric_query_table_calculations_item import (
-    RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItem,
-)
-from .run_metric_query_response_200_results_metric_query_table_calculations_item_format import (
-    RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormat,
-)
-from .run_metric_query_response_200_results_metric_query_table_calculations_item_format_compact import (
-    RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact,
-)
-from .run_metric_query_response_200_results_metric_query_table_calculations_item_format_separator import (
-    RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator,
-)
-from .run_metric_query_response_200_results_metric_query_table_calculations_item_format_type import (
-    RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType,
-)
-from .run_metric_query_response_200_status import RunMetricQueryResponse200Status
-from .run_query_request import RunQueryRequest
-from .run_query_request_additional_metrics_item import (
-    RunQueryRequestAdditionalMetricsItem,
-)
-from .run_query_request_additional_metrics_item_compact_type_0 import (
-    RunQueryRequestAdditionalMetricsItemCompactType0,
-)
-from .run_query_request_additional_metrics_item_compact_type_1 import (
-    RunQueryRequestAdditionalMetricsItemCompactType1,
-)
-from .run_query_request_additional_metrics_item_filters_item import (
-    RunQueryRequestAdditionalMetricsItemFiltersItem,
-)
-from .run_query_request_additional_metrics_item_filters_item_operator import (
-    RunQueryRequestAdditionalMetricsItemFiltersItemOperator,
-)
-from .run_query_request_additional_metrics_item_filters_item_target import (
-    RunQueryRequestAdditionalMetricsItemFiltersItemTarget,
-)
-from .run_query_request_additional_metrics_item_format import (
-    RunQueryRequestAdditionalMetricsItemFormat,
-)
-from .run_query_request_additional_metrics_item_type import (
-    RunQueryRequestAdditionalMetricsItemType,
-)
-from .run_query_request_filters import RunQueryRequestFilters
-from .run_query_request_sorts_item import RunQueryRequestSortsItem
-from .run_query_request_table_calculations_item import (
-    RunQueryRequestTableCalculationsItem,
-)
-from .run_query_request_table_calculations_item_format import (
-    RunQueryRequestTableCalculationsItemFormat,
-)
-from .run_query_request_table_calculations_item_format_compact import (
-    RunQueryRequestTableCalculationsItemFormatCompact,
-)
-from .run_query_request_table_calculations_item_format_separator import (
-    RunQueryRequestTableCalculationsItemFormatSeparator,
-)
-from .run_query_request_table_calculations_item_format_type import (
-    RunQueryRequestTableCalculationsItemFormatType,
-)
 from .run_sql_query_json_body import RunSqlQueryJsonBody
 from .run_sql_query_response_200 import RunSqlQueryResponse200
-from .run_sql_query_response_200_results import RunSqlQueryResponse200Results
-from .run_sql_query_response_200_results_fields import (
-    RunSqlQueryResponse200ResultsFields,
-)
-from .run_sql_query_response_200_results_rows_item import (
-    RunSqlQueryResponse200ResultsRowsItem,
-)
 from .run_sql_query_response_200_status import RunSqlQueryResponse200Status
+from .saved_chart import SavedChart
+from .saved_chart_pivot_config import SavedChartPivotConfig
+from .saved_chart_table_config import SavedChartTableConfig
 from .scheduled_jobs import ScheduledJobs
-from .scheduler_and_targets import SchedulerAndTargets
-from .scheduler_and_targets_targets_item_type_0 import (
-    SchedulerAndTargetsTargetsItemType0,
-)
-from .scheduler_and_targets_targets_item_type_1 import (
-    SchedulerAndTargetsTargetsItemType1,
-)
 from .scheduler_base import SchedulerBase
-from .scheduler_base_format import SchedulerBaseFormat
-from .scheduler_base_options_type_0 import SchedulerBaseOptionsType0
-from .scheduler_base_options_type_0_limit_type_1 import (
-    SchedulerBaseOptionsType0LimitType1,
-)
-from .scheduler_base_options_type_1 import SchedulerBaseOptionsType1
-from .scheduler_base_options_type_2 import SchedulerBaseOptionsType2
 from .scheduler_csv_options import SchedulerCsvOptions
 from .scheduler_csv_options_limit_type_1 import SchedulerCsvOptionsLimitType1
 from .scheduler_email_target import SchedulerEmailTarget
@@ -2133,389 +350,41 @@ from .scheduler_gsheets_options import SchedulerGsheetsOptions
 from .scheduler_image_options import SchedulerImageOptions
 from .scheduler_job_status import SchedulerJobStatus
 from .scheduler_log import SchedulerLog
-from .scheduler_log_details import SchedulerLogDetails
-from .scheduler_log_status import SchedulerLogStatus
 from .scheduler_log_target_type import SchedulerLogTargetType
 from .scheduler_log_task import SchedulerLogTask
-from .scheduler_options_type_0 import SchedulerOptionsType0
-from .scheduler_options_type_0_limit_type_1 import SchedulerOptionsType0LimitType1
-from .scheduler_options_type_1 import SchedulerOptionsType1
-from .scheduler_options_type_2 import SchedulerOptionsType2
 from .scheduler_slack_target import SchedulerSlackTarget
-from .scheduler_type_0_format import SchedulerType0Format
-from .scheduler_type_0_options_type_0 import SchedulerType0OptionsType0
-from .scheduler_type_0_options_type_0_limit_type_1 import (
-    SchedulerType0OptionsType0LimitType1,
-)
-from .scheduler_type_0_options_type_1 import SchedulerType0OptionsType1
-from .scheduler_type_0_options_type_2 import SchedulerType0OptionsType2
-from .scheduler_type_1_format import SchedulerType1Format
-from .scheduler_type_1_options_type_0 import SchedulerType1OptionsType0
-from .scheduler_type_1_options_type_0_limit_type_1 import (
-    SchedulerType1OptionsType0LimitType1,
-)
-from .scheduler_type_1_options_type_1 import SchedulerType1OptionsType1
-from .scheduler_type_1_options_type_2 import SchedulerType1OptionsType2
-from .scheduler_with_logs import SchedulerWithLogs
-from .scheduler_with_logs_charts_item import SchedulerWithLogsChartsItem
-from .scheduler_with_logs_dashboards_item import SchedulerWithLogsDashboardsItem
-from .scheduler_with_logs_logs_item import SchedulerWithLogsLogsItem
-from .scheduler_with_logs_logs_item_details import SchedulerWithLogsLogsItemDetails
-from .scheduler_with_logs_logs_item_status import SchedulerWithLogsLogsItemStatus
-from .scheduler_with_logs_logs_item_target_type import (
-    SchedulerWithLogsLogsItemTargetType,
-)
-from .scheduler_with_logs_logs_item_task import SchedulerWithLogsLogsItemTask
-from .scheduler_with_logs_schedulers_item import SchedulerWithLogsSchedulersItem
-from .scheduler_with_logs_schedulers_item_targets_item_type_0 import (
-    SchedulerWithLogsSchedulersItemTargetsItemType0,
-)
-from .scheduler_with_logs_schedulers_item_targets_item_type_1 import (
-    SchedulerWithLogsSchedulersItemTargetsItemType1,
-)
-from .scheduler_with_logs_users_item import SchedulerWithLogsUsersItem
+from .series import Series
+from .series_area_style import SeriesAreaStyle
+from .series_encode import SeriesEncode
+from .series_label import SeriesLabel
+from .series_label_position import SeriesLabelPosition
+from .series_stack_label import SeriesStackLabel
 from .share_url import ShareUrl
 from .slack_channel import SlackChannel
-from .snowflake_credentials import SnowflakeCredentials
-from .snowflake_credentials_start_of_week import SnowflakeCredentialsStartOfWeek
-from .snowflake_credentials_type import SnowflakeCredentialsType
 from .sort_field import SortField
-from .space import Space
-from .space_access_item import SpaceAccessItem
-from .space_access_item_role import SpaceAccessItemRole
-from .space_dashboard import SpaceDashboard
-from .space_dashboard_updated_by_user import SpaceDashboardUpdatedByUser
-from .space_dashboard_validation_errors_item import SpaceDashboardValidationErrorsItem
-from .space_dashboards_item import SpaceDashboardsItem
-from .space_dashboards_item_updated_by_user import SpaceDashboardsItemUpdatedByUser
-from .space_dashboards_item_validation_errors_item import (
-    SpaceDashboardsItemValidationErrorsItem,
-)
-from .space_queries_item import SpaceQueriesItem
-from .space_queries_item_chart_type import SpaceQueriesItemChartType
-from .space_queries_item_updated_by_user import SpaceQueriesItemUpdatedByUser
-from .space_queries_item_validation_errors_item import (
-    SpaceQueriesItemValidationErrorsItem,
-)
-from .space_query import SpaceQuery
-from .space_query_chart_type import SpaceQueryChartType
-from .space_query_updated_by_user import SpaceQueryUpdatedByUser
-from .space_query_validation_errors_item import SpaceQueryValidationErrorsItem
 from .space_share import SpaceShare
-from .space_share_role import SpaceShareRole
 from .space_summary import SpaceSummary
 from .supported_dbt_versions import SupportedDbtVersions
-from .table_calculation_format_compact import TableCalculationFormatCompact
-from .table_calculation_format_separator import TableCalculationFormatSeparator
+from .table_calculation import TableCalculation
+from .table_calculation_format import TableCalculationFormat
 from .table_calculation_format_type import TableCalculationFormatType
-from .trino_credentials import TrinoCredentials
-from .trino_credentials_start_of_week import TrinoCredentialsStartOfWeek
-from .trino_credentials_type import TrinoCredentialsType
-from .update_allowed_email_domains import UpdateAllowedEmailDomains
-from .update_allowed_email_domains_projects_item import (
-    UpdateAllowedEmailDomainsProjectsItem,
-)
-from .update_allowed_email_domains_projects_item_role_type_0 import (
-    UpdateAllowedEmailDomainsProjectsItemRoleType0,
-)
-from .update_allowed_email_domains_projects_item_role_type_1 import (
-    UpdateAllowedEmailDomainsProjectsItemRoleType1,
-)
-from .update_allowed_email_domains_projects_item_role_type_2 import (
-    UpdateAllowedEmailDomainsProjectsItemRoleType2,
-)
-from .update_allowed_email_domains_role_type_0 import UpdateAllowedEmailDomainsRoleType0
-from .update_allowed_email_domains_role_type_1 import UpdateAllowedEmailDomainsRoleType1
-from .update_allowed_email_domains_role_type_2 import UpdateAllowedEmailDomainsRoleType2
-from .update_allowed_email_domains_role_type_3 import UpdateAllowedEmailDomainsRoleType3
-from .update_dbt_cloud_integration_settings_response_200 import (
-    UpdateDbtCloudIntegrationSettingsResponse200,
-)
-from .update_dbt_cloud_integration_settings_response_200_results import (
-    UpdateDbtCloudIntegrationSettingsResponse200Results,
-)
-from .update_dbt_cloud_integration_settings_response_200_status import (
-    UpdateDbtCloudIntegrationSettingsResponse200Status,
-)
-from .update_group import UpdateGroup
-from .update_group_json_body import UpdateGroupJsonBody
-from .update_group_response_200 import UpdateGroupResponse200
-from .update_group_response_200_results import UpdateGroupResponse200Results
-from .update_group_response_200_status import UpdateGroupResponse200Status
-from .update_my_organization_json_body import UpdateMyOrganizationJsonBody
-from .update_my_organization_response_200 import UpdateMyOrganizationResponse200
-from .update_my_organization_response_200_status import (
-    UpdateMyOrganizationResponse200Status,
-)
-from .update_organization import UpdateOrganization
-from .update_organization_email_domains_json_body import (
-    UpdateOrganizationEmailDomainsJsonBody,
-)
-from .update_organization_email_domains_json_body_projects_item import (
-    UpdateOrganizationEmailDomainsJsonBodyProjectsItem,
-)
-from .update_organization_email_domains_json_body_projects_item_role_type_0 import (
-    UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType0,
-)
-from .update_organization_email_domains_json_body_projects_item_role_type_1 import (
-    UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType1,
-)
-from .update_organization_email_domains_json_body_projects_item_role_type_2 import (
-    UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType2,
-)
-from .update_organization_email_domains_json_body_role_type_0 import (
-    UpdateOrganizationEmailDomainsJsonBodyRoleType0,
-)
-from .update_organization_email_domains_json_body_role_type_1 import (
-    UpdateOrganizationEmailDomainsJsonBodyRoleType1,
-)
-from .update_organization_email_domains_json_body_role_type_2 import (
-    UpdateOrganizationEmailDomainsJsonBodyRoleType2,
-)
-from .update_organization_email_domains_json_body_role_type_3 import (
-    UpdateOrganizationEmailDomainsJsonBodyRoleType3,
-)
-from .update_organization_email_domains_response_200 import (
-    UpdateOrganizationEmailDomainsResponse200,
-)
-from .update_organization_email_domains_response_200_results import (
-    UpdateOrganizationEmailDomainsResponse200Results,
-)
-from .update_organization_email_domains_response_200_results_projects_item import (
-    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItem,
-)
-from .update_organization_email_domains_response_200_results_projects_item_role_type_0 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0,
-)
-from .update_organization_email_domains_response_200_results_projects_item_role_type_1 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1,
-)
-from .update_organization_email_domains_response_200_results_projects_item_role_type_2 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2,
-)
-from .update_organization_email_domains_response_200_results_role_type_0 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsRoleType0,
-)
-from .update_organization_email_domains_response_200_results_role_type_1 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsRoleType1,
-)
-from .update_organization_email_domains_response_200_results_role_type_2 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsRoleType2,
-)
-from .update_organization_email_domains_response_200_results_role_type_3 import (
-    UpdateOrganizationEmailDomainsResponse200ResultsRoleType3,
-)
-from .update_organization_email_domains_response_200_status import (
-    UpdateOrganizationEmailDomainsResponse200Status,
-)
-from .update_organization_member_json_body import UpdateOrganizationMemberJsonBody
-from .update_organization_member_json_body_role import (
-    UpdateOrganizationMemberJsonBodyRole,
-)
-from .update_organization_member_response_200 import UpdateOrganizationMemberResponse200
-from .update_organization_member_response_200_results import (
-    UpdateOrganizationMemberResponse200Results,
-)
-from .update_organization_member_response_200_results_role import (
-    UpdateOrganizationMemberResponse200ResultsRole,
-)
-from .update_organization_member_response_200_status import (
-    UpdateOrganizationMemberResponse200Status,
-)
+from .table_chart import TableChart
+from .table_chart_config import TableChartConfig
 from .update_pinned_item_order import UpdatePinnedItemOrder
-from .update_pinned_item_order_data import UpdatePinnedItemOrderData
-from .update_pinned_item_order_type import UpdatePinnedItemOrderType
-from .update_pinned_items_order_json_body_item import UpdatePinnedItemsOrderJsonBodyItem
-from .update_pinned_items_order_json_body_item_data import (
-    UpdatePinnedItemsOrderJsonBodyItemData,
-)
-from .update_pinned_items_order_json_body_item_type import (
-    UpdatePinnedItemsOrderJsonBodyItemType,
-)
-from .update_pinned_items_order_response_200 import UpdatePinnedItemsOrderResponse200
-from .update_pinned_items_order_response_200_results_item_type_0 import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType0,
-)
-from .update_pinned_items_order_response_200_results_item_type_0_data import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType0Data,
-)
-from .update_pinned_items_order_response_200_results_item_type_0_data_updated_by_user import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType0DataUpdatedByUser,
-)
-from .update_pinned_items_order_response_200_results_item_type_0_data_validation_errors_item import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType0DataValidationErrorsItem,
-)
-from .update_pinned_items_order_response_200_results_item_type_0_type import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType0Type,
-)
-from .update_pinned_items_order_response_200_results_item_type_1 import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType1,
-)
-from .update_pinned_items_order_response_200_results_item_type_1_data import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType1Data,
-)
-from .update_pinned_items_order_response_200_results_item_type_1_data_chart_type import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType1DataChartType,
-)
-from .update_pinned_items_order_response_200_results_item_type_1_data_updated_by_user import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType1DataUpdatedByUser,
-)
-from .update_pinned_items_order_response_200_results_item_type_1_data_validation_errors_item import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType1DataValidationErrorsItem,
-)
-from .update_pinned_items_order_response_200_results_item_type_1_type import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType1Type,
-)
-from .update_pinned_items_order_response_200_results_item_type_2 import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType2,
-)
-from .update_pinned_items_order_response_200_results_item_type_2_data import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType2Data,
-)
-from .update_pinned_items_order_response_200_results_item_type_2_type import (
-    UpdatePinnedItemsOrderResponse200ResultsItemType2Type,
-)
-from .update_pinned_items_order_response_200_status import (
-    UpdatePinnedItemsOrderResponse200Status,
-)
-from .update_project_access_for_user_json_body import UpdateProjectAccessForUserJsonBody
-from .update_project_access_for_user_json_body_role import (
-    UpdateProjectAccessForUserJsonBodyRole,
-)
-from .update_project_access_for_user_response_200 import (
-    UpdateProjectAccessForUserResponse200,
-)
-from .update_project_access_for_user_response_200_status import (
-    UpdateProjectAccessForUserResponse200Status,
-)
 from .update_project_member import UpdateProjectMember
-from .update_project_member_role import UpdateProjectMemberRole
-from .update_scheduler_response_201 import UpdateSchedulerResponse201
-from .update_scheduler_response_201_results import UpdateSchedulerResponse201Results
-from .update_scheduler_response_201_results_targets_item_type_0 import (
-    UpdateSchedulerResponse201ResultsTargetsItemType0,
-)
-from .update_scheduler_response_201_results_targets_item_type_1 import (
-    UpdateSchedulerResponse201ResultsTargetsItemType1,
-)
-from .update_scheduler_response_201_status import UpdateSchedulerResponse201Status
 from .update_space import UpdateSpace
-from .update_space_json_body import UpdateSpaceJsonBody
-from .update_space_response_200 import UpdateSpaceResponse200
-from .update_space_response_200_results import UpdateSpaceResponse200Results
-from .update_space_response_200_results_access_item import (
-    UpdateSpaceResponse200ResultsAccessItem,
-)
-from .update_space_response_200_results_access_item_role import (
-    UpdateSpaceResponse200ResultsAccessItemRole,
-)
-from .update_space_response_200_results_dashboards_item import (
-    UpdateSpaceResponse200ResultsDashboardsItem,
-)
-from .update_space_response_200_results_dashboards_item_updated_by_user import (
-    UpdateSpaceResponse200ResultsDashboardsItemUpdatedByUser,
-)
-from .update_space_response_200_results_dashboards_item_validation_errors_item import (
-    UpdateSpaceResponse200ResultsDashboardsItemValidationErrorsItem,
-)
-from .update_space_response_200_results_queries_item import (
-    UpdateSpaceResponse200ResultsQueriesItem,
-)
-from .update_space_response_200_results_queries_item_chart_type import (
-    UpdateSpaceResponse200ResultsQueriesItemChartType,
-)
-from .update_space_response_200_results_queries_item_updated_by_user import (
-    UpdateSpaceResponse200ResultsQueriesItemUpdatedByUser,
-)
-from .update_space_response_200_results_queries_item_validation_errors_item import (
-    UpdateSpaceResponse200ResultsQueriesItemValidationErrorsItem,
-)
-from .update_space_response_200_status import UpdateSpaceResponse200Status
-from .update_user_attribute_json_body import UpdateUserAttributeJsonBody
-from .update_user_attribute_json_body_users_item import (
-    UpdateUserAttributeJsonBodyUsersItem,
-)
-from .update_user_attribute_response_200 import UpdateUserAttributeResponse200
-from .update_user_attribute_response_200_results import (
-    UpdateUserAttributeResponse200Results,
-)
-from .update_user_attribute_response_200_results_users_item import (
-    UpdateUserAttributeResponse200ResultsUsersItem,
-)
-from .update_user_attribute_response_200_status import (
-    UpdateUserAttributeResponse200Status,
-)
 from .updated_by_user import UpdatedByUser
+from .upload_metric_gsheet import UploadMetricGsheet
 from .user_allowed_organization import UserAllowedOrganization
 from .user_attribute import UserAttribute
-from .user_attribute_users_item import UserAttributeUsersItem
 from .user_attribute_value import UserAttributeValue
 from .validate_project_json_body import ValidateProjectJsonBody
-from .validate_project_response_200 import ValidateProjectResponse200
-from .validate_project_response_200_results import ValidateProjectResponse200Results
-from .validate_project_response_200_status import ValidateProjectResponse200Status
 from .validation_error_chart_response import ValidationErrorChartResponse
-from .validation_error_chart_response_chart_type import (
-    ValidationErrorChartResponseChartType,
-)
-from .validation_error_chart_response_error_type import (
-    ValidationErrorChartResponseErrorType,
-)
-from .validation_error_chart_response_source import ValidationErrorChartResponseSource
 from .validation_error_dashboard_response import ValidationErrorDashboardResponse
-from .validation_error_dashboard_response_error_type import (
-    ValidationErrorDashboardResponseErrorType,
-)
-from .validation_error_dashboard_response_source import (
-    ValidationErrorDashboardResponseSource,
-)
-from .validation_error_table_response import ValidationErrorTableResponse
-from .validation_error_table_response_error_type import (
-    ValidationErrorTableResponseErrorType,
-)
-from .validation_error_table_response_source import ValidationErrorTableResponseSource
 from .validation_error_type import ValidationErrorType
 from .validation_response_base import ValidationResponseBase
-from .validation_response_base_error_type import ValidationResponseBaseErrorType
-from .validation_response_base_source import ValidationResponseBaseSource
-from .validation_response_type_0 import ValidationResponseType0
-from .validation_response_type_0_chart_type import ValidationResponseType0ChartType
-from .validation_response_type_0_error_type import ValidationResponseType0ErrorType
-from .validation_response_type_0_source import ValidationResponseType0Source
-from .validation_response_type_1 import ValidationResponseType1
-from .validation_response_type_1_error_type import ValidationResponseType1ErrorType
-from .validation_response_type_1_source import ValidationResponseType1Source
-from .validation_response_type_2 import ValidationResponseType2
-from .validation_response_type_2_error_type import ValidationResponseType2ErrorType
-from .validation_response_type_2_source import ValidationResponseType2Source
 from .validation_source_type import ValidationSourceType
-from .validation_summary import ValidationSummary
 from .view_statistics import ViewStatistics
-from .warehouse_credentials_type_0_start_of_week import (
-    WarehouseCredentialsType0StartOfWeek,
-)
-from .warehouse_credentials_type_0_type import WarehouseCredentialsType0Type
-from .warehouse_credentials_type_1_start_of_week import (
-    WarehouseCredentialsType1StartOfWeek,
-)
-from .warehouse_credentials_type_1_type import WarehouseCredentialsType1Type
-from .warehouse_credentials_type_2_start_of_week import (
-    WarehouseCredentialsType2StartOfWeek,
-)
-from .warehouse_credentials_type_2_type import WarehouseCredentialsType2Type
-from .warehouse_credentials_type_3_priority import WarehouseCredentialsType3Priority
-from .warehouse_credentials_type_3_start_of_week import (
-    WarehouseCredentialsType3StartOfWeek,
-)
-from .warehouse_credentials_type_3_type import WarehouseCredentialsType3Type
-from .warehouse_credentials_type_4_start_of_week import (
-    WarehouseCredentialsType4StartOfWeek,
-)
-from .warehouse_credentials_type_4_type import WarehouseCredentialsType4Type
-from .warehouse_credentials_type_5_start_of_week import (
-    WarehouseCredentialsType5StartOfWeek,
-)
-from .warehouse_credentials_type_5_type import WarehouseCredentialsType5Type
 from .warehouse_types_bigquery import WarehouseTypesBIGQUERY
 from .warehouse_types_databricks import WarehouseTypesDATABRICKS
 from .warehouse_types_postgres import WarehouseTypesPOSTGRES
@@ -2525,73 +394,42 @@ from .warehouse_types_trino import WarehouseTypesTRINO
 from .week_day import WeekDay
 
 __all__ = (
+    "ActivateUser",
+    "ActivateUserWithInviteCode",
     "AdditionalMetric",
-    "AdditionalMetricCompactType0",
-    "AdditionalMetricCompactType1",
-    "AdditionalMetricFiltersItem",
-    "AdditionalMetricFiltersItemOperator",
-    "AdditionalMetricFiltersItemTarget",
-    "AdditionalMetricFormat",
-    "AdditionalMetricType",
     "AddSpaceShare",
-    "AddSpaceShareToUserJsonBody",
-    "AddSpaceShareToUserResponse200",
-    "AddSpaceShareToUserResponse200Status",
-    "AddUserToGroupResponse200",
-    "AddUserToGroupResponse200Status",
-    "AllowedEmailDomainProjectsRoleType0",
-    "AllowedEmailDomainProjectsRoleType1",
-    "AllowedEmailDomainProjectsRoleType2",
     "AllowedEmailDomains",
     "AllowedEmailDomainsProjectsItem",
-    "AllowedEmailDomainsProjectsItemRoleType0",
-    "AllowedEmailDomainsProjectsItemRoleType1",
-    "AllowedEmailDomainsProjectsItemRoleType2",
-    "AllowedEmailDomainsRoleType0",
-    "AllowedEmailDomainsRoleType1",
-    "AllowedEmailDomainsRoleType2",
-    "AllowedEmailDomainsRoleType3",
+    "AndFilterGroup",
+    "ApiCalculateTotalResponse",
+    "ApiCalculateTotalResponseStatus",
     "ApiChartSummaryListResponse",
-    "ApiChartSummaryListResponseResultsItem",
-    "ApiChartSummaryListResponseResultsItemChartType",
     "ApiChartSummaryListResponseStatus",
     "ApiCreateUserAttributeResponse",
-    "ApiCreateUserAttributeResponseResults",
-    "ApiCreateUserAttributeResponseResultsUsersItem",
     "ApiCreateUserAttributeResponseStatus",
     "ApiCsvUrlResponse",
     "ApiCsvUrlResponseResults",
     "ApiCsvUrlResponseStatus",
-    "ApiDbtCloudIntegrationSettings",
-    "ApiDbtCloudIntegrationSettingsResults",
-    "ApiDbtCloudIntegrationSettingsStatus",
-    "ApiDbtCloudMetrics",
-    "ApiDbtCloudMetricsResults",
-    "ApiDbtCloudMetricsResultsMetricsItem",
-    "ApiDbtCloudMetricsStatus",
     "ApiDbtCloudSettingsDeleteSuccess",
     "ApiDbtCloudSettingsDeleteSuccessStatus",
-    "ApiEmailStatusResponse",
-    "ApiEmailStatusResponseResults",
-    "ApiEmailStatusResponseResultsOtp",
     "ApiEmailStatusResponseStatus",
     "ApiErrorPayload",
     "ApiErrorPayloadError",
     "ApiErrorPayloadStatus",
     "ApiGdriveAccessTokenResponse",
     "ApiGdriveAccessTokenResponseStatus",
+    "ApiGetAuthenticatedUserResponse",
+    "ApiGetAuthenticatedUserResponseStatus",
+    "ApiGetChartHistoryResponseStatus",
+    "ApiGetChartVersionResponse",
+    "ApiGetChartVersionResponseStatus",
     "ApiGetProjectMemberResponse",
-    "ApiGetProjectMemberResponseResults",
-    "ApiGetProjectMemberResponseResultsRole",
     "ApiGetProjectMemberResponseStatus",
     "ApiGroupListResponse",
-    "ApiGroupListResponseResultsItem",
     "ApiGroupListResponseStatus",
     "ApiGroupMembersResponse",
-    "ApiGroupMembersResponseResultsItem",
     "ApiGroupMembersResponseStatus",
     "ApiGroupResponse",
-    "ApiGroupResponseResults",
     "ApiGroupResponseStatus",
     "ApiJobScheduledResponse",
     "ApiJobScheduledResponseResults",
@@ -2601,306 +439,96 @@ __all__ = (
     "ApiJobStatusResponseStatus",
     "ApiOrganization",
     "ApiOrganizationAllowedEmailDomains",
-    "ApiOrganizationAllowedEmailDomainsResults",
-    "ApiOrganizationAllowedEmailDomainsResultsProjectsItem",
-    "ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType0",
-    "ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType1",
-    "ApiOrganizationAllowedEmailDomainsResultsProjectsItemRoleType2",
-    "ApiOrganizationAllowedEmailDomainsResultsRoleType0",
-    "ApiOrganizationAllowedEmailDomainsResultsRoleType1",
-    "ApiOrganizationAllowedEmailDomainsResultsRoleType2",
-    "ApiOrganizationAllowedEmailDomainsResultsRoleType3",
     "ApiOrganizationAllowedEmailDomainsStatus",
     "ApiOrganizationMemberProfile",
-    "ApiOrganizationMemberProfileResults",
-    "ApiOrganizationMemberProfileResultsRole",
     "ApiOrganizationMemberProfiles",
-    "ApiOrganizationMemberProfilesResultsItem",
-    "ApiOrganizationMemberProfilesResultsItemRole",
     "ApiOrganizationMemberProfilesStatus",
     "ApiOrganizationMemberProfileStatus",
     "ApiOrganizationProjects",
-    "ApiOrganizationProjectsResultsItem",
-    "ApiOrganizationProjectsResultsItemType",
     "ApiOrganizationProjectsStatus",
-    "ApiOrganizationResults",
     "ApiOrganizationStatus",
     "ApiPinnedItems",
-    "ApiPinnedItemsResultsItemType0",
-    "ApiPinnedItemsResultsItemType0Data",
-    "ApiPinnedItemsResultsItemType0DataUpdatedByUser",
-    "ApiPinnedItemsResultsItemType0DataValidationErrorsItem",
-    "ApiPinnedItemsResultsItemType0Type",
-    "ApiPinnedItemsResultsItemType1",
-    "ApiPinnedItemsResultsItemType1Data",
-    "ApiPinnedItemsResultsItemType1DataChartType",
-    "ApiPinnedItemsResultsItemType1DataUpdatedByUser",
-    "ApiPinnedItemsResultsItemType1DataValidationErrorsItem",
-    "ApiPinnedItemsResultsItemType1Type",
-    "ApiPinnedItemsResultsItemType2",
-    "ApiPinnedItemsResultsItemType2Data",
-    "ApiPinnedItemsResultsItemType2Type",
     "ApiPinnedItemsStatus",
     "ApiProjectAccessListResponse",
-    "ApiProjectAccessListResponseResultsItem",
-    "ApiProjectAccessListResponseResultsItemRole",
     "ApiProjectAccessListResponseStatus",
-    "ApiProjectResponse",
-    "ApiProjectResponseResults",
-    "ApiProjectResponseResultsDbtConnectionType0",
-    "ApiProjectResponseResultsDbtConnectionType0EnvironmentItem",
-    "ApiProjectResponseResultsDbtConnectionType0Type",
-    "ApiProjectResponseResultsDbtConnectionType1",
-    "ApiProjectResponseResultsDbtConnectionType1Type",
-    "ApiProjectResponseResultsDbtConnectionType2",
-    "ApiProjectResponseResultsDbtConnectionType2EnvironmentItem",
-    "ApiProjectResponseResultsDbtConnectionType2Type",
-    "ApiProjectResponseResultsDbtConnectionType3",
-    "ApiProjectResponseResultsDbtConnectionType3EnvironmentItem",
-    "ApiProjectResponseResultsDbtConnectionType3Type",
-    "ApiProjectResponseResultsDbtConnectionType4",
-    "ApiProjectResponseResultsDbtConnectionType4EnvironmentItem",
-    "ApiProjectResponseResultsDbtConnectionType4Type",
-    "ApiProjectResponseResultsDbtConnectionType5",
-    "ApiProjectResponseResultsDbtConnectionType5EnvironmentItem",
-    "ApiProjectResponseResultsDbtConnectionType5Type",
-    "ApiProjectResponseResultsDbtConnectionType6",
-    "ApiProjectResponseResultsDbtConnectionType6EnvironmentItem",
-    "ApiProjectResponseResultsDbtConnectionType6Type",
-    "ApiProjectResponseResultsDbtVersion",
-    "ApiProjectResponseResultsType",
-    "ApiProjectResponseResultsWarehouseConnectionType0",
-    "ApiProjectResponseResultsWarehouseConnectionType0StartOfWeek",
-    "ApiProjectResponseResultsWarehouseConnectionType0Type",
-    "ApiProjectResponseResultsWarehouseConnectionType1",
-    "ApiProjectResponseResultsWarehouseConnectionType1StartOfWeek",
-    "ApiProjectResponseResultsWarehouseConnectionType1Type",
-    "ApiProjectResponseResultsWarehouseConnectionType2",
-    "ApiProjectResponseResultsWarehouseConnectionType2StartOfWeek",
-    "ApiProjectResponseResultsWarehouseConnectionType2Type",
-    "ApiProjectResponseResultsWarehouseConnectionType3",
-    "ApiProjectResponseResultsWarehouseConnectionType3Priority",
-    "ApiProjectResponseResultsWarehouseConnectionType3StartOfWeek",
-    "ApiProjectResponseResultsWarehouseConnectionType3Type",
-    "ApiProjectResponseResultsWarehouseConnectionType4",
-    "ApiProjectResponseResultsWarehouseConnectionType4StartOfWeek",
-    "ApiProjectResponseResultsWarehouseConnectionType4Type",
-    "ApiProjectResponseResultsWarehouseConnectionType5",
-    "ApiProjectResponseResultsWarehouseConnectionType5StartOfWeek",
-    "ApiProjectResponseResultsWarehouseConnectionType5Type",
     "ApiProjectResponseStatus",
+    "ApiRegisterUserResponse",
+    "ApiRegisterUserResponseStatus",
     "ApiRunQueryResponse",
     "ApiRunQueryResponseResults",
-    "ApiRunQueryResponseResultsMetricQuery",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItem",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType0",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemCompactType1",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItem",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemFormat",
-    "ApiRunQueryResponseResultsMetricQueryAdditionalMetricsItemType",
-    "ApiRunQueryResponseResultsMetricQueryFilters",
-    "ApiRunQueryResponseResultsMetricQueryFiltersDimensionsType0",
-    "ApiRunQueryResponseResultsMetricQueryFiltersDimensionsType1",
-    "ApiRunQueryResponseResultsMetricQueryFiltersMetricsType0",
-    "ApiRunQueryResponseResultsMetricQueryFiltersMetricsType1",
-    "ApiRunQueryResponseResultsMetricQuerySortsItem",
-    "ApiRunQueryResponseResultsMetricQueryTableCalculationsItem",
-    "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormat",
-    "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatCompact",
-    "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatSeparator",
-    "ApiRunQueryResponseResultsMetricQueryTableCalculationsItemFormatType",
     "ApiRunQueryResponseStatus",
     "ApiScheduledJobsResponse",
-    "ApiScheduledJobsResponseResultsItem",
     "ApiScheduledJobsResponseStatus",
-    "ApiSchedulerAndTargetsResponse",
-    "ApiSchedulerAndTargetsResponseResults",
-    "ApiSchedulerAndTargetsResponseResultsTargetsItemType0",
-    "ApiSchedulerAndTargetsResponseResultsTargetsItemType1",
     "ApiSchedulerAndTargetsResponseStatus",
-    "ApiSchedulerLogsResponse",
-    "ApiSchedulerLogsResponseResults",
-    "ApiSchedulerLogsResponseResultsChartsItem",
-    "ApiSchedulerLogsResponseResultsDashboardsItem",
-    "ApiSchedulerLogsResponseResultsLogsItem",
-    "ApiSchedulerLogsResponseResultsLogsItemDetails",
-    "ApiSchedulerLogsResponseResultsLogsItemStatus",
-    "ApiSchedulerLogsResponseResultsLogsItemTargetType",
-    "ApiSchedulerLogsResponseResultsLogsItemTask",
-    "ApiSchedulerLogsResponseResultsSchedulersItem",
-    "ApiSchedulerLogsResponseResultsSchedulersItemTargetsItemType0",
-    "ApiSchedulerLogsResponseResultsSchedulersItemTargetsItemType1",
-    "ApiSchedulerLogsResponseResultsUsersItem",
     "ApiSchedulerLogsResponseStatus",
     "ApiShareResponse",
-    "ApiShareResponseResults",
     "ApiShareResponseStatus",
     "ApiSlackChannelsResponse",
-    "ApiSlackChannelsResponseResultsItem",
     "ApiSlackChannelsResponseStatus",
-    "ApiSpaceResponse",
-    "ApiSpaceResponseResults",
-    "ApiSpaceResponseResultsAccessItem",
-    "ApiSpaceResponseResultsAccessItemRole",
-    "ApiSpaceResponseResultsDashboardsItem",
-    "ApiSpaceResponseResultsDashboardsItemUpdatedByUser",
-    "ApiSpaceResponseResultsDashboardsItemValidationErrorsItem",
-    "ApiSpaceResponseResultsQueriesItem",
-    "ApiSpaceResponseResultsQueriesItemChartType",
-    "ApiSpaceResponseResultsQueriesItemUpdatedByUser",
-    "ApiSpaceResponseResultsQueriesItemValidationErrorsItem",
     "ApiSpaceResponseStatus",
     "ApiSpaceSummaryListResponse",
-    "ApiSpaceSummaryListResponseResultsItem",
     "ApiSpaceSummaryListResponseStatus",
     "ApiSqlQueryResults",
-    "ApiSqlQueryResultsFields",
-    "ApiSqlQueryResultsRowsItem",
     "ApiSshKeyPairResponse",
-    "ApiSshKeyPairResponseResults",
     "ApiSshKeyPairResponseStatus",
     "ApiSuccessEmpty",
     "ApiSuccessEmptyStatus",
+    "ApiTestSchedulerResponse",
+    "ApiTestSchedulerResponseStatus",
     "ApiUserAllowedOrganizationsResponse",
-    "ApiUserAllowedOrganizationsResponseResultsItem",
     "ApiUserAllowedOrganizationsResponseStatus",
     "ApiUserAttributesResponse",
-    "ApiUserAttributesResponseResultsItem",
-    "ApiUserAttributesResponseResultsItemUsersItem",
     "ApiUserAttributesResponseStatus",
     "ApiValidateResponse",
-    "ApiValidateResponseResultsItemType0",
-    "ApiValidateResponseResultsItemType0ChartType",
-    "ApiValidateResponseResultsItemType0ErrorType",
-    "ApiValidateResponseResultsItemType0Source",
-    "ApiValidateResponseResultsItemType1",
-    "ApiValidateResponseResultsItemType1ErrorType",
-    "ApiValidateResponseResultsItemType1Source",
-    "ApiValidateResponseResultsItemType2",
-    "ApiValidateResponseResultsItemType2ErrorType",
-    "ApiValidateResponseResultsItemType2Source",
     "ApiValidateResponseStatus",
     "ApiValidationDismissResponse",
     "ApiValidationDismissResponseStatus",
-    "BigqueryCredentials",
-    "BigqueryCredentialsPriority",
-    "BigqueryCredentialsStartOfWeek",
-    "BigqueryCredentialsType",
+    "Axis",
+    "BigNumber",
+    "BigNumberConfig",
+    "BinRange",
+    "BinType",
+    "CacheMetadata",
+    "CalculateTotalFromQuery",
+    "CalculateTotalFromSavedChartJsonBody",
+    "CartesianSeriesType",
     "ChartKind",
-    "ChartScheduler",
-    "ChartSchedulerFormat",
-    "ChartSchedulerOptionsType0",
-    "ChartSchedulerOptionsType0LimitType1",
-    "ChartSchedulerOptionsType1",
-    "ChartSchedulerOptionsType2",
     "ChartSummary",
-    "ChartSummaryChartType",
     "ChartType",
+    "ChartTypeBIGNUMBER",
+    "ChartTypeCARTESIAN",
+    "ChartTypeCUSTOM",
+    "ChartTypePIE",
+    "ChartTypeTABLE",
+    "ChartVersion",
     "Compact",
-    "CompactOrAliasType0",
     "CompactOrAliasType1",
+    "ComparisonFormatTypes",
+    "ConditionalFormattingConfigWithColorRange",
+    "ConditionalFormattingConfigWithColorRangeColor",
+    "ConditionalFormattingConfigWithColorRangeColorSteps",
+    "ConditionalFormattingConfigWithSingleColor",
+    "ConditionalFormattingWithConditionalOperator",
+    "ConditionalFormattingWithRange",
     "ConditionalOperator",
-    "CreateEmailOneTimePasscodeResponse200",
-    "CreateEmailOneTimePasscodeResponse200Results",
-    "CreateEmailOneTimePasscodeResponse200ResultsOtp",
-    "CreateEmailOneTimePasscodeResponse200Status",
-    "CreateGroupInOrganizationJsonBody",
-    "CreateGroupInOrganizationResponse200",
-    "CreateGroupInOrganizationResponse200Results",
-    "CreateGroupInOrganizationResponse200Status",
-    "CreateOrganization",
-    "CreateOrganizationJsonBody",
-    "CreateOrganizationResponse200",
-    "CreateOrganizationResponse200Status",
+    "ConditionalRuleConditionalOperatorNumber",
     "CreateProjectMember",
-    "CreateProjectMemberRole",
-    "CreateShareUrl",
-    "CreateShareUrlJsonBody",
-    "CreateShareUrlResponse201",
-    "CreateShareUrlResponse201Results",
-    "CreateShareUrlResponse201Status",
     "CreateSpace",
-    "CreateSpaceAccessItem",
-    "CreateSpaceAccessItemRole",
-    "CreateSpaceInProjectJsonBody",
-    "CreateSpaceInProjectJsonBodyAccessItem",
-    "CreateSpaceInProjectJsonBodyAccessItemRole",
-    "CreateSpaceInProjectResponse200",
-    "CreateSpaceInProjectResponse200Results",
-    "CreateSpaceInProjectResponse200ResultsAccessItem",
-    "CreateSpaceInProjectResponse200ResultsAccessItemRole",
-    "CreateSpaceInProjectResponse200ResultsDashboardsItem",
-    "CreateSpaceInProjectResponse200ResultsDashboardsItemUpdatedByUser",
-    "CreateSpaceInProjectResponse200ResultsDashboardsItemValidationErrorsItem",
-    "CreateSpaceInProjectResponse200ResultsQueriesItem",
-    "CreateSpaceInProjectResponse200ResultsQueriesItemChartType",
-    "CreateSpaceInProjectResponse200ResultsQueriesItemUpdatedByUser",
-    "CreateSpaceInProjectResponse200ResultsQueriesItemValidationErrorsItem",
-    "CreateSpaceInProjectResponse200Status",
-    "CreateSshKeyPairResponse201",
-    "CreateSshKeyPairResponse201Results",
-    "CreateSshKeyPairResponse201Status",
-    "CreateUserAttribute",
-    "CreateUserAttributeJsonBody",
-    "CreateUserAttributeJsonBodyUsersItem",
-    "CreateUserAttributeResponse200",
-    "CreateUserAttributeResponse200Results",
-    "CreateUserAttributeResponse200ResultsUsersItem",
-    "CreateUserAttributeResponse200Status",
-    "CreateUserAttributeUsersItem",
-    "CreateUserAttributeValue",
-    "DashboardBasicDetails",
-    "DashboardBasicDetailsUpdatedByUser",
-    "DashboardBasicDetailsValidationErrorsItem",
-    "DashboardScheduler",
-    "DashboardSchedulerFormat",
-    "DashboardSchedulerOptionsType0",
-    "DashboardSchedulerOptionsType0LimitType1",
-    "DashboardSchedulerOptionsType1",
-    "DashboardSchedulerOptionsType2",
-    "DatabricksCredentials",
-    "DatabricksCredentialsStartOfWeek",
-    "DatabricksCredentialsType",
+    "CreateUserArgs",
+    "CustomDimension",
+    "CustomLabel",
+    "CustomVis",
+    "CustomVisConfig",
+    "DashboardFieldTarget",
+    "DashboardFilterRule",
+    "DateGranularity",
     "DbtAzureDevOpsProjectConfig",
-    "DbtAzureDevOpsProjectConfigEnvironmentItem",
-    "DbtAzureDevOpsProjectConfigType",
     "DbtBitBucketProjectConfig",
-    "DbtBitBucketProjectConfigEnvironmentItem",
-    "DbtBitBucketProjectConfigType",
     "DbtCloudIDEProjectConfig",
-    "DbtCloudIDEProjectConfigType",
-    "DbtCloudIntegration",
-    "DbtCloudMetadataResponseMetrics",
-    "DbtCloudMetadataResponseMetricsMetricsItem",
-    "DbtCloudMetric",
     "DbtGithubProjectConfig",
-    "DbtGithubProjectConfigEnvironmentItem",
-    "DbtGithubProjectConfigType",
     "DbtGitlabProjectConfig",
-    "DbtGitlabProjectConfigEnvironmentItem",
-    "DbtGitlabProjectConfigType",
     "DbtLocalProjectConfig",
-    "DbtLocalProjectConfigEnvironmentItem",
-    "DbtLocalProjectConfigType",
     "DbtNoneProjectConfig",
-    "DbtNoneProjectConfigEnvironmentItem",
-    "DbtNoneProjectConfigType",
-    "DbtProjectConfigType0EnvironmentItem",
-    "DbtProjectConfigType0Type",
-    "DbtProjectConfigType1",
-    "DbtProjectConfigType1Type",
-    "DbtProjectConfigType2EnvironmentItem",
-    "DbtProjectConfigType2Type",
-    "DbtProjectConfigType3EnvironmentItem",
-    "DbtProjectConfigType3Type",
-    "DbtProjectConfigType4EnvironmentItem",
-    "DbtProjectConfigType4Type",
-    "DbtProjectConfigType5EnvironmentItem",
-    "DbtProjectConfigType5Type",
-    "DbtProjectConfigType6EnvironmentItem",
-    "DbtProjectConfigType6Type",
     "DbtProjectEnvironmentVariable",
     "DbtProjectType",
     "DbtProjectTypeAZUREDEVOPS",
@@ -2910,588 +538,126 @@ __all__ = (
     "DbtProjectTypeGITHUB",
     "DbtProjectTypeGITLAB",
     "DbtProjectTypeNONE",
-    "DeleteDbtCloudIntegrationSettingsResponse200",
-    "DeleteDbtCloudIntegrationSettingsResponse200Status",
-    "DeleteGroupResponse200",
-    "DeleteGroupResponse200Status",
-    "DeleteMeResponse200",
-    "DeleteMeResponse200Status",
-    "DeleteMyOrganizationResponse200",
-    "DeleteMyOrganizationResponse200Status",
-    "DeleteOrganizationMemberResponse200",
-    "DeleteOrganizationMemberResponse200Status",
     "DeleteSchedulerResponse201",
     "DeleteSchedulerResponse201Status",
-    "DeleteSpaceResponse204",
-    "DeleteSpaceResponse204Status",
-    "DeleteValidationDismissResponse200",
-    "DeleteValidationDismissResponse200Status",
+    "EchartsGrid",
+    "EchartsLegend",
+    "EchartsLegendAlign",
+    "EchartsLegendIcon",
+    "EchartsLegendOrient",
+    "EchartsLegendType",
     "EmailOneTimePassword",
     "EmailOneTimePasswordExpiring",
     "EmailStatus",
-    "EmailStatusExpiring",
-    "EmailStatusExpiringOtp",
-    "EmailStatusOtp",
+    "FieldTarget",
     "FilterGroupResponseType0",
     "FilterGroupResponseType1",
+    "FilterRule",
+    "FilterRuleConditionalOperatorTVAny",
     "Filters",
-    "FiltersDimensionsType0",
-    "FiltersDimensionsType1",
-    "FiltersMetricsType0",
-    "FiltersMetricsType1",
+    "FiltersResponse",
     "Format",
-    "GetAccessTokenResponse200",
-    "GetAccessTokenResponse200Status",
-    "GetCsvUrlResponse200",
-    "GetCsvUrlResponse200Results",
-    "GetCsvUrlResponse200Status",
-    "GetDbtCloudIntegrationSettingsResponse200",
-    "GetDbtCloudIntegrationSettingsResponse200Results",
-    "GetDbtCloudIntegrationSettingsResponse200Status",
-    "GetDbtCloudMetricsResponse200",
-    "GetDbtCloudMetricsResponse200Results",
-    "GetDbtCloudMetricsResponse200ResultsMetricsItem",
-    "GetDbtCloudMetricsResponse200Status",
-    "GetEmailVerificationStatusResponse200",
-    "GetEmailVerificationStatusResponse200Results",
-    "GetEmailVerificationStatusResponse200ResultsOtp",
-    "GetEmailVerificationStatusResponse200Status",
-    "GetGroupMembersResponse200",
-    "GetGroupMembersResponse200ResultsItem",
-    "GetGroupMembersResponse200Status",
-    "GetGroupResponse200",
-    "GetGroupResponse200Results",
-    "GetGroupResponse200Status",
-    "GetLatestValidationResultsResponse200",
-    "GetLatestValidationResultsResponse200ResultsItemType0",
-    "GetLatestValidationResultsResponse200ResultsItemType0ChartType",
-    "GetLatestValidationResultsResponse200ResultsItemType0ErrorType",
-    "GetLatestValidationResultsResponse200ResultsItemType0Source",
-    "GetLatestValidationResultsResponse200ResultsItemType1",
-    "GetLatestValidationResultsResponse200ResultsItemType1ErrorType",
-    "GetLatestValidationResultsResponse200ResultsItemType1Source",
-    "GetLatestValidationResultsResponse200ResultsItemType2",
-    "GetLatestValidationResultsResponse200ResultsItemType2ErrorType",
-    "GetLatestValidationResultsResponse200ResultsItemType2Source",
-    "GetLatestValidationResultsResponse200Status",
-    "GetMyOrganizationResponse200",
-    "GetMyOrganizationResponse200Results",
-    "GetMyOrganizationResponse200Status",
-    "GetOrganizationMemberByUuidResponse200",
-    "GetOrganizationMemberByUuidResponse200Results",
-    "GetOrganizationMemberByUuidResponse200ResultsRole",
-    "GetOrganizationMemberByUuidResponse200Status",
-    "GetPinnedItemsResponse200",
-    "GetPinnedItemsResponse200ResultsItemType0",
-    "GetPinnedItemsResponse200ResultsItemType0Data",
-    "GetPinnedItemsResponse200ResultsItemType0DataUpdatedByUser",
-    "GetPinnedItemsResponse200ResultsItemType0DataValidationErrorsItem",
-    "GetPinnedItemsResponse200ResultsItemType0Type",
-    "GetPinnedItemsResponse200ResultsItemType1",
-    "GetPinnedItemsResponse200ResultsItemType1Data",
-    "GetPinnedItemsResponse200ResultsItemType1DataChartType",
-    "GetPinnedItemsResponse200ResultsItemType1DataUpdatedByUser",
-    "GetPinnedItemsResponse200ResultsItemType1DataValidationErrorsItem",
-    "GetPinnedItemsResponse200ResultsItemType1Type",
-    "GetPinnedItemsResponse200ResultsItemType2",
-    "GetPinnedItemsResponse200ResultsItemType2Data",
-    "GetPinnedItemsResponse200ResultsItemType2Type",
-    "GetPinnedItemsResponse200Status",
-    "GetProjectAccessListResponse200",
-    "GetProjectAccessListResponse200ResultsItem",
-    "GetProjectAccessListResponse200ResultsItemRole",
-    "GetProjectAccessListResponse200Status",
-    "GetProjectMemberAccessResponse200",
-    "GetProjectMemberAccessResponse200Results",
-    "GetProjectMemberAccessResponse200ResultsRole",
-    "GetProjectMemberAccessResponse200Status",
-    "GetProjectResponse200",
-    "GetProjectResponse200Results",
-    "GetProjectResponse200ResultsDbtConnectionType0",
-    "GetProjectResponse200ResultsDbtConnectionType0EnvironmentItem",
-    "GetProjectResponse200ResultsDbtConnectionType0Type",
-    "GetProjectResponse200ResultsDbtConnectionType1",
-    "GetProjectResponse200ResultsDbtConnectionType1Type",
-    "GetProjectResponse200ResultsDbtConnectionType2",
-    "GetProjectResponse200ResultsDbtConnectionType2EnvironmentItem",
-    "GetProjectResponse200ResultsDbtConnectionType2Type",
-    "GetProjectResponse200ResultsDbtConnectionType3",
-    "GetProjectResponse200ResultsDbtConnectionType3EnvironmentItem",
-    "GetProjectResponse200ResultsDbtConnectionType3Type",
-    "GetProjectResponse200ResultsDbtConnectionType4",
-    "GetProjectResponse200ResultsDbtConnectionType4EnvironmentItem",
-    "GetProjectResponse200ResultsDbtConnectionType4Type",
-    "GetProjectResponse200ResultsDbtConnectionType5",
-    "GetProjectResponse200ResultsDbtConnectionType5EnvironmentItem",
-    "GetProjectResponse200ResultsDbtConnectionType5Type",
-    "GetProjectResponse200ResultsDbtConnectionType6",
-    "GetProjectResponse200ResultsDbtConnectionType6EnvironmentItem",
-    "GetProjectResponse200ResultsDbtConnectionType6Type",
-    "GetProjectResponse200ResultsDbtVersion",
-    "GetProjectResponse200ResultsType",
-    "GetProjectResponse200ResultsWarehouseConnectionType0",
-    "GetProjectResponse200ResultsWarehouseConnectionType0StartOfWeek",
-    "GetProjectResponse200ResultsWarehouseConnectionType0Type",
-    "GetProjectResponse200ResultsWarehouseConnectionType1",
-    "GetProjectResponse200ResultsWarehouseConnectionType1StartOfWeek",
-    "GetProjectResponse200ResultsWarehouseConnectionType1Type",
-    "GetProjectResponse200ResultsWarehouseConnectionType2",
-    "GetProjectResponse200ResultsWarehouseConnectionType2StartOfWeek",
-    "GetProjectResponse200ResultsWarehouseConnectionType2Type",
-    "GetProjectResponse200ResultsWarehouseConnectionType3",
-    "GetProjectResponse200ResultsWarehouseConnectionType3Priority",
-    "GetProjectResponse200ResultsWarehouseConnectionType3StartOfWeek",
-    "GetProjectResponse200ResultsWarehouseConnectionType3Type",
-    "GetProjectResponse200ResultsWarehouseConnectionType4",
-    "GetProjectResponse200ResultsWarehouseConnectionType4StartOfWeek",
-    "GetProjectResponse200ResultsWarehouseConnectionType4Type",
-    "GetProjectResponse200ResultsWarehouseConnectionType5",
-    "GetProjectResponse200ResultsWarehouseConnectionType5StartOfWeek",
-    "GetProjectResponse200ResultsWarehouseConnectionType5Type",
-    "GetProjectResponse200Status",
-    "GetScheduledJobsResponse200",
-    "GetScheduledJobsResponse200ResultsItem",
-    "GetScheduledJobsResponse200Status",
-    "GetSchedulerJobStatusResponse200",
-    "GetSchedulerJobStatusResponse200Results",
-    "GetSchedulerJobStatusResponse200Status",
-    "GetSchedulerLogsResponse200",
-    "GetSchedulerLogsResponse200Results",
-    "GetSchedulerLogsResponse200ResultsChartsItem",
-    "GetSchedulerLogsResponse200ResultsDashboardsItem",
-    "GetSchedulerLogsResponse200ResultsLogsItem",
-    "GetSchedulerLogsResponse200ResultsLogsItemDetails",
-    "GetSchedulerLogsResponse200ResultsLogsItemStatus",
-    "GetSchedulerLogsResponse200ResultsLogsItemTargetType",
-    "GetSchedulerLogsResponse200ResultsLogsItemTask",
-    "GetSchedulerLogsResponse200ResultsSchedulersItem",
-    "GetSchedulerLogsResponse200ResultsSchedulersItemTargetsItemType0",
-    "GetSchedulerLogsResponse200ResultsSchedulersItemTargetsItemType1",
-    "GetSchedulerLogsResponse200ResultsUsersItem",
-    "GetSchedulerLogsResponse200Status",
-    "GetSchedulerResponse200",
-    "GetSchedulerResponse200Results",
-    "GetSchedulerResponse200ResultsTargetsItemType0",
-    "GetSchedulerResponse200ResultsTargetsItemType1",
-    "GetSchedulerResponse200Status",
-    "GetShareUrlResponse200",
-    "GetShareUrlResponse200Results",
-    "GetShareUrlResponse200Status",
-    "GetSlackChannelsResponse200",
-    "GetSlackChannelsResponse200ResultsItem",
-    "GetSlackChannelsResponse200Status",
-    "GetSpaceResponse200",
-    "GetSpaceResponse200Results",
-    "GetSpaceResponse200ResultsAccessItem",
-    "GetSpaceResponse200ResultsAccessItemRole",
-    "GetSpaceResponse200ResultsDashboardsItem",
-    "GetSpaceResponse200ResultsDashboardsItemUpdatedByUser",
-    "GetSpaceResponse200ResultsDashboardsItemValidationErrorsItem",
-    "GetSpaceResponse200ResultsQueriesItem",
-    "GetSpaceResponse200ResultsQueriesItemChartType",
-    "GetSpaceResponse200ResultsQueriesItemUpdatedByUser",
-    "GetSpaceResponse200ResultsQueriesItemValidationErrorsItem",
-    "GetSpaceResponse200Status",
-    "GetUserAttributesResponse200",
-    "GetUserAttributesResponse200ResultsItem",
-    "GetUserAttributesResponse200ResultsItemUsersItem",
-    "GetUserAttributesResponse200Status",
-    "GrantProjectAccessToUserJsonBody",
-    "GrantProjectAccessToUserJsonBodyRole",
-    "GrantProjectAccessToUserResponse200",
-    "GrantProjectAccessToUserResponse200Status",
+    "GetDbtSemanticLayerDataJsonBody",
+    "GetDbtSemanticLayerDataJsonBodyOperationName",
     "Group",
     "GroupMember",
-    "JoinOrganizationResponse200",
-    "JoinOrganizationResponse200Status",
-    "ListChartsInProjectResponse200",
-    "ListChartsInProjectResponse200ResultsItem",
-    "ListChartsInProjectResponse200ResultsItemChartType",
-    "ListChartsInProjectResponse200Status",
-    "ListGroupsInOrganizationResponse200",
-    "ListGroupsInOrganizationResponse200ResultsItem",
-    "ListGroupsInOrganizationResponse200Status",
-    "ListMyAvailableOrganizationsResponse200",
-    "ListMyAvailableOrganizationsResponse200ResultsItem",
-    "ListMyAvailableOrganizationsResponse200Status",
-    "ListOrganizationEmailDomainsResponse200",
-    "ListOrganizationEmailDomainsResponse200Results",
-    "ListOrganizationEmailDomainsResponse200ResultsProjectsItem",
-    "ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0",
-    "ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1",
-    "ListOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2",
-    "ListOrganizationEmailDomainsResponse200ResultsRoleType0",
-    "ListOrganizationEmailDomainsResponse200ResultsRoleType1",
-    "ListOrganizationEmailDomainsResponse200ResultsRoleType2",
-    "ListOrganizationEmailDomainsResponse200ResultsRoleType3",
-    "ListOrganizationEmailDomainsResponse200Status",
-    "ListOrganizationMembersResponse200",
-    "ListOrganizationMembersResponse200ResultsItem",
-    "ListOrganizationMembersResponse200ResultsItemRole",
-    "ListOrganizationMembersResponse200Status",
-    "ListOrganizationProjectsResponse200",
-    "ListOrganizationProjectsResponse200ResultsItem",
-    "ListOrganizationProjectsResponse200ResultsItemType",
-    "ListOrganizationProjectsResponse200Status",
-    "ListSpacesInProjectResponse200",
-    "ListSpacesInProjectResponse200ResultsItem",
-    "ListSpacesInProjectResponse200Status",
+    "LightdashUser",
+    "MarkLine",
+    "MarkLineData",
+    "MarkLineDataLabel",
+    "MarkLineDataLineStyle",
+    "MarkLineLabel",
+    "MarkLineLineStyle",
     "MetricFilterRule",
-    "MetricFilterRuleOperator",
     "MetricFilterRuleTarget",
+    "MetricQuery",
+    "MetricQueryMetadata",
+    "MetricQueryRequest",
+    "MetricQueryRequestFilters",
+    "MetricQueryRequestMetadata",
     "MetricQueryResponse",
-    "MetricQueryResponseAdditionalMetricsItem",
-    "MetricQueryResponseAdditionalMetricsItemCompactType0",
-    "MetricQueryResponseAdditionalMetricsItemCompactType1",
-    "MetricQueryResponseAdditionalMetricsItemFiltersItem",
-    "MetricQueryResponseAdditionalMetricsItemFiltersItemOperator",
-    "MetricQueryResponseAdditionalMetricsItemFiltersItemTarget",
-    "MetricQueryResponseAdditionalMetricsItemFormat",
-    "MetricQueryResponseAdditionalMetricsItemType",
-    "MetricQueryResponseFilters",
-    "MetricQueryResponseFiltersDimensionsType0",
-    "MetricQueryResponseFiltersDimensionsType1",
-    "MetricQueryResponseFiltersMetricsType0",
-    "MetricQueryResponseFiltersMetricsType1",
-    "MetricQueryResponseSortsItem",
-    "MetricQueryResponseTableCalculationsItem",
-    "MetricQueryResponseTableCalculationsItemFormat",
-    "MetricQueryResponseTableCalculationsItemFormatCompact",
-    "MetricQueryResponseTableCalculationsItemFormatSeparator",
-    "MetricQueryResponseTableCalculationsItemFormatType",
+    "MetricQueryResponseMetadata",
     "MetricType",
     "NumberSeparator",
-    "OmitAllowedEmailDomainsOrganizationUuid",
-    "OmitAllowedEmailDomainsOrganizationUuidProjectsItem",
-    "OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0",
-    "OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1",
-    "OmitAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2",
-    "OmitAllowedEmailDomainsOrganizationUuidRoleType0",
-    "OmitAllowedEmailDomainsOrganizationUuidRoleType1",
-    "OmitAllowedEmailDomainsOrganizationUuidRoleType2",
-    "OmitAllowedEmailDomainsOrganizationUuidRoleType3",
-    "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
-    "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority",
-    "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "OmitCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNames",
-    "OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "OmitCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitCreatePostgresCredentialsSensitiveCredentialsFieldNames",
-    "OmitCreatePostgresCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "OmitCreatePostgresCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitCreateRedshiftCredentialsSensitiveCredentialsFieldNames",
-    "OmitCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "OmitCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitCreateSnowflakeCredentialsSensitiveCredentialsFieldNames",
-    "OmitCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "OmitCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitCreateTrinoCredentialsSensitiveCredentialsFieldNames",
-    "OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "OmitCreateTrinoCredentialsSensitiveCredentialsFieldNamesType",
-    "OmitUserAttributeValueEmail",
-    "OmitValidationResponseBaseName",
-    "OmitValidationResponseBaseNameErrorType",
-    "OmitValidationResponseBaseNameSource",
+    "OrFilterGroup",
     "Organization",
     "OrganizationMemberProfile",
-    "OrganizationMemberProfileRole",
     "OrganizationMemberProfileUpdate",
-    "OrganizationMemberProfileUpdateRole",
     "OrganizationMemberRole",
     "OrganizationMemberRoleEDITOR",
     "OrganizationMemberRoleINTERACTIVEVIEWER",
     "OrganizationMemberRoleMEMBER",
     "OrganizationMemberRoleVIEWER",
     "OrganizationProject",
-    "OrganizationProjectType",
+    "PartialCompleteCartesianChartLayout",
+    "PartialCompleteEChartsConfig",
     "PartialOmitOrganizationOrganizationUuidOrNeedsProject",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType0",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType1",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItemRoleType2",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType0",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType1",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType2",
-    "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidRoleType3",
+    "PickChartVersionChartUuidOrVersionUuidOrCreatedAtOrCreatedBy",
+    "PickCompiledDimensionLabelOrName",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority",
-    "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType",
     "PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames",
-    "PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType",
     "PickCreateDbtCloudIntegrationMetricsJobId",
     "PickCreateGroupName",
     "PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames",
-    "PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNamesType",
     "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames",
-    "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNamesType",
     "PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames",
-    "PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNamesType",
     "PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames",
-    "PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    "PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNamesType",
-    "PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrors",
-    "PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser",
-    "PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem",
     "PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder",
-    "PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderUpdatedByUser",
     "PickGroupName",
+    "PickLightdashUserUserUuidOrFirstNameOrLastName",
     "PickOrganizationName",
     "PickResourceViewItemAtDataUuidOrPinnedListOrder",
     "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName",
     "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder",
-    "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrderUpdatedByUser",
     "PickShareUrlPathOrParams",
     "PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrder",
     "PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid",
-    "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors",
-    "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsChartType",
-    "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser",
-    "PickSpaceQueryUuidOrNameOrChartTypeOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem",
+    "PickSpaceShareUserUuid",
     "PickSshKeyPairPublicKey",
-    "PickUserAttributeNameOrDescription",
+    "PickUserAttributeNameOrDescriptionOrAttributeDefault",
     "PickUserAttributeValueExcludeKeyofUserAttributeValueEmail",
     "PickValidationResponseBaseExcludeKeyofValidationResponseBaseName",
-    "PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameErrorType",
-    "PickValidationResponseBaseExcludeKeyofValidationResponseBaseNameSource",
     "PickValidationResponseErrorOrCreatedAtOrValidationId",
-    "PinnedItemsItemType0DataUpdatedByUser",
-    "PinnedItemsItemType0DataValidationErrorsItem",
-    "PinnedItemsItemType0Type",
-    "PinnedItemsItemType1DataChartType",
-    "PinnedItemsItemType1DataUpdatedByUser",
-    "PinnedItemsItemType1DataValidationErrorsItem",
-    "PinnedItemsItemType1Type",
-    "PinnedItemsItemType2Data",
-    "PinnedItemsItemType2Type",
+    "PieChart",
+    "PieChartConfig",
+    "PieChartLegendPosition",
+    "PieChartValueLabel",
+    "PivotReference",
+    "PivotValue",
     "PostChartResultsJsonBody",
-    "PostChartResultsJsonBodyFilters",
-    "PostChartResultsJsonBodyFiltersDimensionsType0",
-    "PostChartResultsJsonBodyFiltersDimensionsType1",
-    "PostChartResultsJsonBodyFiltersMetricsType0",
-    "PostChartResultsJsonBodyFiltersMetricsType1",
-    "PostChartResultsResponse200",
-    "PostChartResultsResponse200Results",
-    "PostChartResultsResponse200ResultsMetricQuery",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItem",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemFormat",
-    "PostChartResultsResponse200ResultsMetricQueryAdditionalMetricsItemType",
-    "PostChartResultsResponse200ResultsMetricQueryFilters",
-    "PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType0",
-    "PostChartResultsResponse200ResultsMetricQueryFiltersDimensionsType1",
-    "PostChartResultsResponse200ResultsMetricQueryFiltersMetricsType0",
-    "PostChartResultsResponse200ResultsMetricQueryFiltersMetricsType1",
-    "PostChartResultsResponse200ResultsMetricQuerySortsItem",
-    "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItem",
-    "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormat",
-    "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatCompact",
-    "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator",
-    "PostChartResultsResponse200ResultsMetricQueryTableCalculationsItemFormatType",
-    "PostChartResultsResponse200Status",
-    "PostgresCredentials",
-    "PostgresCredentialsStartOfWeek",
-    "PostgresCredentialsType",
-    "PostRunUnderlyingDataQueryJsonBody",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItem",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType0",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemCompactType1",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItem",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemOperator",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFiltersItemTarget",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemFormat",
-    "PostRunUnderlyingDataQueryJsonBodyAdditionalMetricsItemType",
-    "PostRunUnderlyingDataQueryJsonBodyFilters",
-    "PostRunUnderlyingDataQueryJsonBodySortsItem",
-    "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItem",
-    "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormat",
-    "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatCompact",
-    "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatSeparator",
-    "PostRunUnderlyingDataQueryJsonBodyTableCalculationsItemFormatType",
-    "PostRunUnderlyingDataQueryResponse200",
-    "PostRunUnderlyingDataQueryResponse200Results",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQuery",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItem",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemFormat",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryAdditionalMetricsItemType",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFilters",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersDimensionsType0",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersDimensionsType1",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersMetricsType0",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryFiltersMetricsType1",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQuerySortsItem",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItem",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormat",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator",
-    "PostRunUnderlyingDataQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType",
-    "PostRunUnderlyingDataQueryResponse200Status",
-    "Project",
-    "ProjectDbtConnectionType0",
-    "ProjectDbtConnectionType0EnvironmentItem",
-    "ProjectDbtConnectionType0Type",
-    "ProjectDbtConnectionType1",
-    "ProjectDbtConnectionType1Type",
-    "ProjectDbtConnectionType2",
-    "ProjectDbtConnectionType2EnvironmentItem",
-    "ProjectDbtConnectionType2Type",
-    "ProjectDbtConnectionType3",
-    "ProjectDbtConnectionType3EnvironmentItem",
-    "ProjectDbtConnectionType3Type",
-    "ProjectDbtConnectionType4",
-    "ProjectDbtConnectionType4EnvironmentItem",
-    "ProjectDbtConnectionType4Type",
-    "ProjectDbtConnectionType5",
-    "ProjectDbtConnectionType5EnvironmentItem",
-    "ProjectDbtConnectionType5Type",
-    "ProjectDbtConnectionType6",
-    "ProjectDbtConnectionType6EnvironmentItem",
-    "ProjectDbtConnectionType6Type",
-    "ProjectDbtVersion",
     "ProjectMemberProfile",
-    "ProjectMemberProfileRole",
     "ProjectMemberRole",
     "ProjectMemberRoleEDITOR",
     "ProjectMemberRoleINTERACTIVEVIEWER",
     "ProjectMemberRoleVIEWER",
     "ProjectType",
-    "ProjectWarehouseConnectionType0",
-    "ProjectWarehouseConnectionType0StartOfWeek",
-    "ProjectWarehouseConnectionType0Type",
-    "ProjectWarehouseConnectionType1",
-    "ProjectWarehouseConnectionType1StartOfWeek",
-    "ProjectWarehouseConnectionType1Type",
-    "ProjectWarehouseConnectionType2",
-    "ProjectWarehouseConnectionType2StartOfWeek",
-    "ProjectWarehouseConnectionType2Type",
-    "ProjectWarehouseConnectionType3",
-    "ProjectWarehouseConnectionType3Priority",
-    "ProjectWarehouseConnectionType3StartOfWeek",
-    "ProjectWarehouseConnectionType3Type",
-    "ProjectWarehouseConnectionType4",
-    "ProjectWarehouseConnectionType4StartOfWeek",
-    "ProjectWarehouseConnectionType4Type",
-    "ProjectWarehouseConnectionType5",
-    "ProjectWarehouseConnectionType5StartOfWeek",
-    "ProjectWarehouseConnectionType5Type",
     "RecordStringAny",
+    "RecordStringColumnProperties",
+    "RecordStringDashboardTileTarget",
+    "RecordStringItemOrAdditionalMetric",
+    "RecordStringNumber",
+    "RecordStringPartialPieChartValueOptions",
+    "RecordStringString",
     "RecordStringTypeDimensionType",
     "RecordStringUnknown",
-    "RedshiftCredentials",
-    "RedshiftCredentialsStartOfWeek",
-    "RedshiftCredentialsType",
-    "RemoveUserAttributeResponse200",
-    "RemoveUserAttributeResponse200Status",
-    "RemoveUserFromGroupResponse200",
-    "RemoveUserFromGroupResponse200Status",
-    "ResourceViewChartItem",
-    "ResourceViewChartItemData",
-    "ResourceViewChartItemDataChartType",
-    "ResourceViewChartItemDataUpdatedByUser",
-    "ResourceViewChartItemDataValidationErrorsItem",
-    "ResourceViewChartItemType",
-    "ResourceViewDashboardItem",
-    "ResourceViewDashboardItemData",
-    "ResourceViewDashboardItemDataUpdatedByUser",
-    "ResourceViewDashboardItemDataValidationErrorsItem",
-    "ResourceViewDashboardItemType",
+    "ResourceItemCategory",
     "ResourceViewItemType",
     "ResourceViewItemTypeCHART",
     "ResourceViewItemTypeDASHBOARD",
     "ResourceViewItemTypeSPACE",
     "ResourceViewSpaceItem",
     "ResourceViewSpaceItemData",
-    "ResourceViewSpaceItemType",
-    "RevokeProjectAccessForUserResponse200",
-    "RevokeProjectAccessForUserResponse200Status",
-    "RevokeSpaceAccessForUserResponse200",
-    "RevokeSpaceAccessForUserResponse200Status",
-    "RunMetricQueryJsonBody",
-    "RunMetricQueryJsonBodyAdditionalMetricsItem",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemCompactType0",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemCompactType1",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemFiltersItem",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemFiltersItemOperator",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemFiltersItemTarget",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemFormat",
-    "RunMetricQueryJsonBodyAdditionalMetricsItemType",
-    "RunMetricQueryJsonBodyFilters",
-    "RunMetricQueryJsonBodySortsItem",
-    "RunMetricQueryJsonBodyTableCalculationsItem",
-    "RunMetricQueryJsonBodyTableCalculationsItemFormat",
-    "RunMetricQueryJsonBodyTableCalculationsItemFormatCompact",
-    "RunMetricQueryJsonBodyTableCalculationsItemFormatSeparator",
-    "RunMetricQueryJsonBodyTableCalculationsItemFormatType",
-    "RunMetricQueryResponse200",
-    "RunMetricQueryResponse200Results",
-    "RunMetricQueryResponse200ResultsMetricQuery",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItem",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType0",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemCompactType1",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItem",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemOperator",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFiltersItemTarget",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemFormat",
-    "RunMetricQueryResponse200ResultsMetricQueryAdditionalMetricsItemType",
-    "RunMetricQueryResponse200ResultsMetricQueryFilters",
-    "RunMetricQueryResponse200ResultsMetricQueryFiltersDimensionsType0",
-    "RunMetricQueryResponse200ResultsMetricQueryFiltersDimensionsType1",
-    "RunMetricQueryResponse200ResultsMetricQueryFiltersMetricsType0",
-    "RunMetricQueryResponse200ResultsMetricQueryFiltersMetricsType1",
-    "RunMetricQueryResponse200ResultsMetricQuerySortsItem",
-    "RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItem",
-    "RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormat",
-    "RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormatCompact",
-    "RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormatSeparator",
-    "RunMetricQueryResponse200ResultsMetricQueryTableCalculationsItemFormatType",
-    "RunMetricQueryResponse200Status",
-    "RunQueryRequest",
-    "RunQueryRequestAdditionalMetricsItem",
-    "RunQueryRequestAdditionalMetricsItemCompactType0",
-    "RunQueryRequestAdditionalMetricsItemCompactType1",
-    "RunQueryRequestAdditionalMetricsItemFiltersItem",
-    "RunQueryRequestAdditionalMetricsItemFiltersItemOperator",
-    "RunQueryRequestAdditionalMetricsItemFiltersItemTarget",
-    "RunQueryRequestAdditionalMetricsItemFormat",
-    "RunQueryRequestAdditionalMetricsItemType",
-    "RunQueryRequestFilters",
-    "RunQueryRequestSortsItem",
-    "RunQueryRequestTableCalculationsItem",
-    "RunQueryRequestTableCalculationsItemFormat",
-    "RunQueryRequestTableCalculationsItemFormatCompact",
-    "RunQueryRequestTableCalculationsItemFormatSeparator",
-    "RunQueryRequestTableCalculationsItemFormatType",
     "RunSqlQueryJsonBody",
     "RunSqlQueryResponse200",
-    "RunSqlQueryResponse200Results",
-    "RunSqlQueryResponse200ResultsFields",
-    "RunSqlQueryResponse200ResultsRowsItem",
     "RunSqlQueryResponse200Status",
+    "SavedChart",
+    "SavedChartPivotConfig",
+    "SavedChartTableConfig",
     "ScheduledJobs",
-    "SchedulerAndTargets",
-    "SchedulerAndTargetsTargetsItemType0",
-    "SchedulerAndTargetsTargetsItemType1",
     "SchedulerBase",
-    "SchedulerBaseFormat",
-    "SchedulerBaseOptionsType0",
-    "SchedulerBaseOptionsType0LimitType1",
-    "SchedulerBaseOptionsType1",
-    "SchedulerBaseOptionsType2",
     "SchedulerCsvOptions",
     "SchedulerCsvOptionsLimitType1",
     "SchedulerEmailTarget",
@@ -3500,219 +666,41 @@ __all__ = (
     "SchedulerImageOptions",
     "SchedulerJobStatus",
     "SchedulerLog",
-    "SchedulerLogDetails",
-    "SchedulerLogStatus",
     "SchedulerLogTargetType",
     "SchedulerLogTask",
-    "SchedulerOptionsType0",
-    "SchedulerOptionsType0LimitType1",
-    "SchedulerOptionsType1",
-    "SchedulerOptionsType2",
     "SchedulerSlackTarget",
-    "SchedulerType0Format",
-    "SchedulerType0OptionsType0",
-    "SchedulerType0OptionsType0LimitType1",
-    "SchedulerType0OptionsType1",
-    "SchedulerType0OptionsType2",
-    "SchedulerType1Format",
-    "SchedulerType1OptionsType0",
-    "SchedulerType1OptionsType0LimitType1",
-    "SchedulerType1OptionsType1",
-    "SchedulerType1OptionsType2",
-    "SchedulerWithLogs",
-    "SchedulerWithLogsChartsItem",
-    "SchedulerWithLogsDashboardsItem",
-    "SchedulerWithLogsLogsItem",
-    "SchedulerWithLogsLogsItemDetails",
-    "SchedulerWithLogsLogsItemStatus",
-    "SchedulerWithLogsLogsItemTargetType",
-    "SchedulerWithLogsLogsItemTask",
-    "SchedulerWithLogsSchedulersItem",
-    "SchedulerWithLogsSchedulersItemTargetsItemType0",
-    "SchedulerWithLogsSchedulersItemTargetsItemType1",
-    "SchedulerWithLogsUsersItem",
+    "Series",
+    "SeriesAreaStyle",
+    "SeriesEncode",
+    "SeriesLabel",
+    "SeriesLabelPosition",
+    "SeriesStackLabel",
     "ShareUrl",
     "SlackChannel",
-    "SnowflakeCredentials",
-    "SnowflakeCredentialsStartOfWeek",
-    "SnowflakeCredentialsType",
     "SortField",
-    "Space",
-    "SpaceAccessItem",
-    "SpaceAccessItemRole",
-    "SpaceDashboard",
-    "SpaceDashboardsItem",
-    "SpaceDashboardsItemUpdatedByUser",
-    "SpaceDashboardsItemValidationErrorsItem",
-    "SpaceDashboardUpdatedByUser",
-    "SpaceDashboardValidationErrorsItem",
-    "SpaceQueriesItem",
-    "SpaceQueriesItemChartType",
-    "SpaceQueriesItemUpdatedByUser",
-    "SpaceQueriesItemValidationErrorsItem",
-    "SpaceQuery",
-    "SpaceQueryChartType",
-    "SpaceQueryUpdatedByUser",
-    "SpaceQueryValidationErrorsItem",
     "SpaceShare",
-    "SpaceShareRole",
     "SpaceSummary",
     "SupportedDbtVersions",
-    "TableCalculationFormatCompact",
-    "TableCalculationFormatSeparator",
+    "TableCalculation",
+    "TableCalculationFormat",
     "TableCalculationFormatType",
-    "TrinoCredentials",
-    "TrinoCredentialsStartOfWeek",
-    "TrinoCredentialsType",
-    "UpdateAllowedEmailDomains",
-    "UpdateAllowedEmailDomainsProjectsItem",
-    "UpdateAllowedEmailDomainsProjectsItemRoleType0",
-    "UpdateAllowedEmailDomainsProjectsItemRoleType1",
-    "UpdateAllowedEmailDomainsProjectsItemRoleType2",
-    "UpdateAllowedEmailDomainsRoleType0",
-    "UpdateAllowedEmailDomainsRoleType1",
-    "UpdateAllowedEmailDomainsRoleType2",
-    "UpdateAllowedEmailDomainsRoleType3",
-    "UpdateDbtCloudIntegrationSettingsResponse200",
-    "UpdateDbtCloudIntegrationSettingsResponse200Results",
-    "UpdateDbtCloudIntegrationSettingsResponse200Status",
+    "TableChart",
+    "TableChartConfig",
     "UpdatedByUser",
-    "UpdateGroup",
-    "UpdateGroupJsonBody",
-    "UpdateGroupResponse200",
-    "UpdateGroupResponse200Results",
-    "UpdateGroupResponse200Status",
-    "UpdateMyOrganizationJsonBody",
-    "UpdateMyOrganizationResponse200",
-    "UpdateMyOrganizationResponse200Status",
-    "UpdateOrganization",
-    "UpdateOrganizationEmailDomainsJsonBody",
-    "UpdateOrganizationEmailDomainsJsonBodyProjectsItem",
-    "UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType0",
-    "UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType1",
-    "UpdateOrganizationEmailDomainsJsonBodyProjectsItemRoleType2",
-    "UpdateOrganizationEmailDomainsJsonBodyRoleType0",
-    "UpdateOrganizationEmailDomainsJsonBodyRoleType1",
-    "UpdateOrganizationEmailDomainsJsonBodyRoleType2",
-    "UpdateOrganizationEmailDomainsJsonBodyRoleType3",
-    "UpdateOrganizationEmailDomainsResponse200",
-    "UpdateOrganizationEmailDomainsResponse200Results",
-    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItem",
-    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType0",
-    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType1",
-    "UpdateOrganizationEmailDomainsResponse200ResultsProjectsItemRoleType2",
-    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType0",
-    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType1",
-    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType2",
-    "UpdateOrganizationEmailDomainsResponse200ResultsRoleType3",
-    "UpdateOrganizationEmailDomainsResponse200Status",
-    "UpdateOrganizationMemberJsonBody",
-    "UpdateOrganizationMemberJsonBodyRole",
-    "UpdateOrganizationMemberResponse200",
-    "UpdateOrganizationMemberResponse200Results",
-    "UpdateOrganizationMemberResponse200ResultsRole",
-    "UpdateOrganizationMemberResponse200Status",
     "UpdatePinnedItemOrder",
-    "UpdatePinnedItemOrderData",
-    "UpdatePinnedItemOrderType",
-    "UpdatePinnedItemsOrderJsonBodyItem",
-    "UpdatePinnedItemsOrderJsonBodyItemData",
-    "UpdatePinnedItemsOrderJsonBodyItemType",
-    "UpdatePinnedItemsOrderResponse200",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType0",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType0Data",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType0DataUpdatedByUser",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType0DataValidationErrorsItem",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType0Type",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType1",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType1Data",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType1DataChartType",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType1DataUpdatedByUser",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType1DataValidationErrorsItem",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType1Type",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType2",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType2Data",
-    "UpdatePinnedItemsOrderResponse200ResultsItemType2Type",
-    "UpdatePinnedItemsOrderResponse200Status",
-    "UpdateProjectAccessForUserJsonBody",
-    "UpdateProjectAccessForUserJsonBodyRole",
-    "UpdateProjectAccessForUserResponse200",
-    "UpdateProjectAccessForUserResponse200Status",
     "UpdateProjectMember",
-    "UpdateProjectMemberRole",
-    "UpdateSchedulerResponse201",
-    "UpdateSchedulerResponse201Results",
-    "UpdateSchedulerResponse201ResultsTargetsItemType0",
-    "UpdateSchedulerResponse201ResultsTargetsItemType1",
-    "UpdateSchedulerResponse201Status",
     "UpdateSpace",
-    "UpdateSpaceJsonBody",
-    "UpdateSpaceResponse200",
-    "UpdateSpaceResponse200Results",
-    "UpdateSpaceResponse200ResultsAccessItem",
-    "UpdateSpaceResponse200ResultsAccessItemRole",
-    "UpdateSpaceResponse200ResultsDashboardsItem",
-    "UpdateSpaceResponse200ResultsDashboardsItemUpdatedByUser",
-    "UpdateSpaceResponse200ResultsDashboardsItemValidationErrorsItem",
-    "UpdateSpaceResponse200ResultsQueriesItem",
-    "UpdateSpaceResponse200ResultsQueriesItemChartType",
-    "UpdateSpaceResponse200ResultsQueriesItemUpdatedByUser",
-    "UpdateSpaceResponse200ResultsQueriesItemValidationErrorsItem",
-    "UpdateSpaceResponse200Status",
-    "UpdateUserAttributeJsonBody",
-    "UpdateUserAttributeJsonBodyUsersItem",
-    "UpdateUserAttributeResponse200",
-    "UpdateUserAttributeResponse200Results",
-    "UpdateUserAttributeResponse200ResultsUsersItem",
-    "UpdateUserAttributeResponse200Status",
+    "UploadMetricGsheet",
     "UserAllowedOrganization",
     "UserAttribute",
-    "UserAttributeUsersItem",
     "UserAttributeValue",
     "ValidateProjectJsonBody",
-    "ValidateProjectResponse200",
-    "ValidateProjectResponse200Results",
-    "ValidateProjectResponse200Status",
     "ValidationErrorChartResponse",
-    "ValidationErrorChartResponseChartType",
-    "ValidationErrorChartResponseErrorType",
-    "ValidationErrorChartResponseSource",
     "ValidationErrorDashboardResponse",
-    "ValidationErrorDashboardResponseErrorType",
-    "ValidationErrorDashboardResponseSource",
-    "ValidationErrorTableResponse",
-    "ValidationErrorTableResponseErrorType",
-    "ValidationErrorTableResponseSource",
     "ValidationErrorType",
     "ValidationResponseBase",
-    "ValidationResponseBaseErrorType",
-    "ValidationResponseBaseSource",
-    "ValidationResponseType0",
-    "ValidationResponseType0ChartType",
-    "ValidationResponseType0ErrorType",
-    "ValidationResponseType0Source",
-    "ValidationResponseType1",
-    "ValidationResponseType1ErrorType",
-    "ValidationResponseType1Source",
-    "ValidationResponseType2",
-    "ValidationResponseType2ErrorType",
-    "ValidationResponseType2Source",
     "ValidationSourceType",
-    "ValidationSummary",
     "ViewStatistics",
-    "WarehouseCredentialsType0StartOfWeek",
-    "WarehouseCredentialsType0Type",
-    "WarehouseCredentialsType1StartOfWeek",
-    "WarehouseCredentialsType1Type",
-    "WarehouseCredentialsType2StartOfWeek",
-    "WarehouseCredentialsType2Type",
-    "WarehouseCredentialsType3Priority",
-    "WarehouseCredentialsType3StartOfWeek",
-    "WarehouseCredentialsType3Type",
-    "WarehouseCredentialsType4StartOfWeek",
-    "WarehouseCredentialsType4Type",
-    "WarehouseCredentialsType5StartOfWeek",
-    "WarehouseCredentialsType5Type",
     "WarehouseTypesBIGQUERY",
     "WarehouseTypesDATABRICKS",
     "WarehouseTypesPOSTGRES",

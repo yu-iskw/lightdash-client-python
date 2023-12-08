@@ -5,10 +5,8 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.add_space_share_to_user_json_body import AddSpaceShareToUserJsonBody
-from ...models.add_space_share_to_user_response_200 import (
-    AddSpaceShareToUserResponse200,
-)
+from ...models.add_space_share import AddSpaceShare
+from ...models.api_success_empty import ApiSuccessEmpty
 from ...types import Response
 
 
@@ -17,7 +15,7 @@ def _get_kwargs(
     space_uuid: str,
     *,
     client: Client,
-    json_body: AddSpaceShareToUserJsonBody,
+    json_body: AddSpaceShare,
 ) -> Dict[str, Any]:
     url = "{}/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share".format(
         client.base_url, projectUuid=project_uuid, spaceUuid=space_uuid
@@ -39,9 +37,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[AddSpaceShareToUserResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = AddSpaceShareToUserResponse200.from_dict(response.json())
+        response_200 = ApiSuccessEmpty.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -50,7 +48,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Add
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[AddSpaceShareToUserResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -64,21 +62,21 @@ def sync_detailed(
     space_uuid: str,
     *,
     client: Client,
-    json_body: AddSpaceShareToUserJsonBody,
-) -> Response[AddSpaceShareToUserResponse200]:
+    json_body: AddSpaceShare,
+) -> Response[ApiSuccessEmpty]:
     """Grant a user access to a space
 
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody):
+        json_body (AddSpaceShare):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[AddSpaceShareToUserResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -101,21 +99,21 @@ def sync(
     space_uuid: str,
     *,
     client: Client,
-    json_body: AddSpaceShareToUserJsonBody,
-) -> Optional[AddSpaceShareToUserResponse200]:
+    json_body: AddSpaceShare,
+) -> Optional[ApiSuccessEmpty]:
     """Grant a user access to a space
 
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody):
+        json_body (AddSpaceShare):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        AddSpaceShareToUserResponse200
+        ApiSuccessEmpty
     """
 
     return sync_detailed(
@@ -131,21 +129,21 @@ async def asyncio_detailed(
     space_uuid: str,
     *,
     client: Client,
-    json_body: AddSpaceShareToUserJsonBody,
-) -> Response[AddSpaceShareToUserResponse200]:
+    json_body: AddSpaceShare,
+) -> Response[ApiSuccessEmpty]:
     """Grant a user access to a space
 
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody):
+        json_body (AddSpaceShare):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[AddSpaceShareToUserResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -166,21 +164,21 @@ async def asyncio(
     space_uuid: str,
     *,
     client: Client,
-    json_body: AddSpaceShareToUserJsonBody,
-) -> Optional[AddSpaceShareToUserResponse200]:
+    json_body: AddSpaceShare,
+) -> Optional[ApiSuccessEmpty]:
     """Grant a user access to a space
 
     Args:
         project_uuid (str):
         space_uuid (str):
-        json_body (AddSpaceShareToUserJsonBody):
+        json_body (AddSpaceShare):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        AddSpaceShareToUserResponse200
+        ApiSuccessEmpty
     """
 
     return (

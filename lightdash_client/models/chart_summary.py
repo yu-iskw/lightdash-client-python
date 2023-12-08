@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Optional, Type, TypeVar, Union
 
 import attr
 
-from ..models.chart_summary_chart_type import ChartSummaryChartType
+from ..models.chart_type import ChartType
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ChartSummary")
@@ -22,7 +22,7 @@ class ChartSummary:
         pinned_list_uuid (Optional[str]):
         dashboard_uuid (Optional[str]):
         dashboard_name (Optional[str]):
-        chart_type (Union[Unset, ChartSummaryChartType]):
+        chart_type (Union[Unset, ChartType]):
     """
 
     name: str
@@ -35,7 +35,7 @@ class ChartSummary:
     dashboard_uuid: Optional[str]
     dashboard_name: Optional[str]
     description: Union[Unset, str] = UNSET
-    chart_type: Union[Unset, ChartSummaryChartType] = UNSET
+    chart_type: Union[Unset, ChartType] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -99,11 +99,11 @@ class ChartSummary:
         dashboard_name = d.pop("dashboardName")
 
         _chart_type = d.pop("chartType", UNSET)
-        chart_type: Union[Unset, ChartSummaryChartType]
+        chart_type: Union[Unset, ChartType]
         if isinstance(_chart_type, Unset):
             chart_type = UNSET
         else:
-            chart_type = ChartSummaryChartType(_chart_type)
+            chart_type = ChartType(_chart_type)
 
         chart_summary = cls(
             name=name,

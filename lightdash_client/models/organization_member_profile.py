@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.organization_member_profile_role import OrganizationMemberProfileRole
+from ..models.organization_member_role import OrganizationMemberRole
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="OrganizationMemberProfile")
@@ -14,7 +14,7 @@ class OrganizationMemberProfile:
 
     Attributes:
         is_active (bool): Whether the user has accepted their invite to the organization
-        role (OrganizationMemberProfileRole): The role of the user in the organization
+        role (OrganizationMemberRole):
         organization_uuid (str): Unique identifier for the organization the user is a member of
         email (str):
         last_name (str):
@@ -24,7 +24,7 @@ class OrganizationMemberProfile:
     """
 
     is_active: bool
-    role: OrganizationMemberProfileRole
+    role: OrganizationMemberRole
     organization_uuid: str
     email: str
     last_name: str
@@ -67,7 +67,7 @@ class OrganizationMemberProfile:
         d = src_dict.copy()
         is_active = d.pop("isActive")
 
-        role = OrganizationMemberProfileRole(d.pop("role"))
+        role = OrganizationMemberRole(d.pop("role"))
 
         organization_uuid = d.pop("organizationUuid")
 

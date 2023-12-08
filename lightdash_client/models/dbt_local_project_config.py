@@ -2,13 +2,11 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.dbt_local_project_config_type import DbtLocalProjectConfigType
+from ..models.dbt_project_type_dbt import DbtProjectTypeDBT
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dbt_local_project_config_environment_item import (
-        DbtLocalProjectConfigEnvironmentItem,
-    )
+    from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
 
 
 T = TypeVar("T", bound="DbtLocalProjectConfig")
@@ -18,16 +16,16 @@ T = TypeVar("T", bound="DbtLocalProjectConfig")
 class DbtLocalProjectConfig:
     """
     Attributes:
-        type (DbtLocalProjectConfigType):
+        type (DbtProjectTypeDBT):
         target (Union[Unset, str]):
-        environment (Union[Unset, List['DbtLocalProjectConfigEnvironmentItem']]):
+        environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
         profiles_dir (Union[Unset, str]):
         project_dir (Union[Unset, str]):
     """
 
-    type: DbtLocalProjectConfigType
+    type: DbtProjectTypeDBT
     target: Union[Unset, str] = UNSET
-    environment: Union[Unset, List["DbtLocalProjectConfigEnvironmentItem"]] = UNSET
+    environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
     profiles_dir: Union[Unset, str] = UNSET
     project_dir: Union[Unset, str] = UNSET
 
@@ -65,19 +63,19 @@ class DbtLocalProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_local_project_config_environment_item import (
-            DbtLocalProjectConfigEnvironmentItem,
+        from ..models.dbt_project_environment_variable import (
+            DbtProjectEnvironmentVariable,
         )
 
         d = src_dict.copy()
-        type = DbtLocalProjectConfigType(d.pop("type"))
+        type = DbtProjectTypeDBT(d.pop("type"))
 
         target = d.pop("target", UNSET)
 
         environment = []
         _environment = d.pop("environment", UNSET)
         for environment_item_data in _environment or []:
-            environment_item = DbtLocalProjectConfigEnvironmentItem.from_dict(environment_item_data)
+            environment_item = DbtProjectEnvironmentVariable.from_dict(environment_item_data)
 
             environment.append(environment_item)
 

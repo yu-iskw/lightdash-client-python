@@ -9,15 +9,18 @@ T = TypeVar("T", bound="ApiCsvUrlResponseResults")
 class ApiCsvUrlResponseResults:
     """
     Attributes:
+        truncated (bool):
         status (str):
         url (str):
     """
 
+    truncated: bool
     status: str
     url: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        truncated = self.truncated
         status = self.status
         url = self.url
 
@@ -25,6 +28,7 @@ class ApiCsvUrlResponseResults:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "truncated": truncated,
                 "status": status,
                 "url": url,
             }
@@ -35,11 +39,14 @@ class ApiCsvUrlResponseResults:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
+        truncated = d.pop("truncated")
+
         status = d.pop("status")
 
         url = d.pop("url")
 
         api_csv_url_response_results = cls(
+            truncated=truncated,
             status=status,
             url=url,
         )

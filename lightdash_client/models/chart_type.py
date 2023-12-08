@@ -4,6 +4,7 @@ from enum import Enum
 class ChartType(str, Enum):
     BIG_NUMBER = "big_number"
     CARTESIAN = "cartesian"
+    CUSTOM = "custom"
     PIE = "pie"
     TABLE = "table"
 

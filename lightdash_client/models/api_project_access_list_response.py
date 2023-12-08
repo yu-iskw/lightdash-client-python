@@ -7,9 +7,7 @@ from ..models.api_project_access_list_response_status import (
 )
 
 if TYPE_CHECKING:
-    from ..models.api_project_access_list_response_results_item import (
-        ApiProjectAccessListResponseResultsItem,
-    )
+    from ..models.project_member_profile import ProjectMemberProfile
 
 
 T = TypeVar("T", bound="ApiProjectAccessListResponse")
@@ -19,11 +17,11 @@ T = TypeVar("T", bound="ApiProjectAccessListResponse")
 class ApiProjectAccessListResponse:
     """
     Attributes:
-        results (List['ApiProjectAccessListResponseResultsItem']):
+        results (List['ProjectMemberProfile']):
         status (ApiProjectAccessListResponseStatus):
     """
 
-    results: List["ApiProjectAccessListResponseResultsItem"]
+    results: List["ProjectMemberProfile"]
     status: ApiProjectAccessListResponseStatus
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -49,15 +47,13 @@ class ApiProjectAccessListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_project_access_list_response_results_item import (
-            ApiProjectAccessListResponseResultsItem,
-        )
+        from ..models.project_member_profile import ProjectMemberProfile
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiProjectAccessListResponseResultsItem.from_dict(results_item_data)
+            results_item = ProjectMemberProfile.from_dict(results_item_data)
 
             results.append(results_item)
 

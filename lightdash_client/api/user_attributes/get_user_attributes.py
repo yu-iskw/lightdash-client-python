@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_user_attributes_response_200 import GetUserAttributesResponse200
+from ...models.api_user_attributes_response import ApiUserAttributesResponse
 from ...types import Response
 
 
@@ -28,9 +28,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetUserAttributesResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiUserAttributesResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetUserAttributesResponse200.from_dict(response.json())
+        response_200 = ApiUserAttributesResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -39,7 +39,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetUserAttributesResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiUserAttributesResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -51,7 +51,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Get
 def sync_detailed(
     *,
     client: Client,
-) -> Response[GetUserAttributesResponse200]:
+) -> Response[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -59,7 +59,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetUserAttributesResponse200]
+        Response[ApiUserAttributesResponse]
     """
 
     kwargs = _get_kwargs(
@@ -77,7 +77,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-) -> Optional[GetUserAttributesResponse200]:
+) -> Optional[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -85,7 +85,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetUserAttributesResponse200
+        ApiUserAttributesResponse
     """
 
     return sync_detailed(
@@ -96,7 +96,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-) -> Response[GetUserAttributesResponse200]:
+) -> Response[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -104,7 +104,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetUserAttributesResponse200]
+        Response[ApiUserAttributesResponse]
     """
 
     kwargs = _get_kwargs(
@@ -120,7 +120,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-) -> Optional[GetUserAttributesResponse200]:
+) -> Optional[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -128,7 +128,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetUserAttributesResponse200
+        ApiUserAttributesResponse
     """
 
     return (

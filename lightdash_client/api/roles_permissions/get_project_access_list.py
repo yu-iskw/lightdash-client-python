@@ -5,9 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.get_project_access_list_response_200 import (
-    GetProjectAccessListResponse200,
-)
+from ...models.api_project_access_list_response import ApiProjectAccessListResponse
 from ...types import Response
 
 
@@ -31,9 +29,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetProjectAccessListResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiProjectAccessListResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetProjectAccessListResponse200.from_dict(response.json())
+        response_200 = ApiProjectAccessListResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -42,7 +40,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetProjectAccessListResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiProjectAccessListResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -55,7 +53,7 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[GetProjectAccessListResponse200]:
+) -> Response[ApiProjectAccessListResponse]:
     """Get access list for a project. This is a list of users that have been explictly granted access to
     the project.
     There may be other users that have access to the project via their organization membership.
@@ -68,7 +66,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetProjectAccessListResponse200]
+        Response[ApiProjectAccessListResponse]
     """
 
     kwargs = _get_kwargs(
@@ -88,7 +86,7 @@ def sync(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[GetProjectAccessListResponse200]:
+) -> Optional[ApiProjectAccessListResponse]:
     """Get access list for a project. This is a list of users that have been explictly granted access to
     the project.
     There may be other users that have access to the project via their organization membership.
@@ -101,7 +99,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetProjectAccessListResponse200
+        ApiProjectAccessListResponse
     """
 
     return sync_detailed(
@@ -114,7 +112,7 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Client,
-) -> Response[GetProjectAccessListResponse200]:
+) -> Response[ApiProjectAccessListResponse]:
     """Get access list for a project. This is a list of users that have been explictly granted access to
     the project.
     There may be other users that have access to the project via their organization membership.
@@ -127,7 +125,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetProjectAccessListResponse200]
+        Response[ApiProjectAccessListResponse]
     """
 
     kwargs = _get_kwargs(
@@ -145,7 +143,7 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Client,
-) -> Optional[GetProjectAccessListResponse200]:
+) -> Optional[ApiProjectAccessListResponse]:
     """Get access list for a project. This is a list of users that have been explictly granted access to
     the project.
     There may be other users that have access to the project via their organization membership.
@@ -158,7 +156,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetProjectAccessListResponse200
+        ApiProjectAccessListResponse
     """
 
     return (

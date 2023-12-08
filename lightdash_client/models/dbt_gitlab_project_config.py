@@ -2,13 +2,11 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.dbt_gitlab_project_config_type import DbtGitlabProjectConfigType
+from ..models.dbt_project_type_gitlab import DbtProjectTypeGITLAB
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dbt_gitlab_project_config_environment_item import (
-        DbtGitlabProjectConfigEnvironmentItem,
-    )
+    from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
 
 
 T = TypeVar("T", bound="DbtGitlabProjectConfig")
@@ -18,23 +16,23 @@ T = TypeVar("T", bound="DbtGitlabProjectConfig")
 class DbtGitlabProjectConfig:
     """
     Attributes:
-        type (DbtGitlabProjectConfigType):
+        type (DbtProjectTypeGITLAB):
         personal_access_token (str):
         repository (str):
         branch (str):
         project_sub_path (str):
         target (Union[Unset, str]):
-        environment (Union[Unset, List['DbtGitlabProjectConfigEnvironmentItem']]):
+        environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
         host_domain (Union[Unset, str]):
     """
 
-    type: DbtGitlabProjectConfigType
+    type: DbtProjectTypeGITLAB
     personal_access_token: str
     repository: str
     branch: str
     project_sub_path: str
     target: Union[Unset, str] = UNSET
-    environment: Union[Unset, List["DbtGitlabProjectConfigEnvironmentItem"]] = UNSET
+    environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
     host_domain: Union[Unset, str] = UNSET
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,12 +74,12 @@ class DbtGitlabProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_gitlab_project_config_environment_item import (
-            DbtGitlabProjectConfigEnvironmentItem,
+        from ..models.dbt_project_environment_variable import (
+            DbtProjectEnvironmentVariable,
         )
 
         d = src_dict.copy()
-        type = DbtGitlabProjectConfigType(d.pop("type"))
+        type = DbtProjectTypeGITLAB(d.pop("type"))
 
         personal_access_token = d.pop("personal_access_token")
 
@@ -96,7 +94,7 @@ class DbtGitlabProjectConfig:
         environment = []
         _environment = d.pop("environment", UNSET)
         for environment_item_data in _environment or []:
-            environment_item = DbtGitlabProjectConfigEnvironmentItem.from_dict(environment_item_data)
+            environment_item = DbtProjectEnvironmentVariable.from_dict(environment_item_data)
 
             environment.append(environment_item)
 

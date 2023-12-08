@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.remove_user_attribute_response_200 import RemoveUserAttributeResponse200
+from ...models.api_success_empty import ApiSuccessEmpty
 from ...types import Response
 
 
@@ -29,9 +29,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[RemoveUserAttributeResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiSuccessEmpty]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = RemoveUserAttributeResponse200.from_dict(response.json())
+        response_200 = ApiSuccessEmpty.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -40,7 +40,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Rem
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[RemoveUserAttributeResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiSuccessEmpty]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +53,7 @@ def sync_detailed(
     user_attribute_uuid: str,
     *,
     client: Client,
-) -> Response[RemoveUserAttributeResponse200]:
+) -> Response[ApiSuccessEmpty]:
     """Remove a user attribute
 
     Args:
@@ -64,7 +64,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[RemoveUserAttributeResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -84,7 +84,7 @@ def sync(
     user_attribute_uuid: str,
     *,
     client: Client,
-) -> Optional[RemoveUserAttributeResponse200]:
+) -> Optional[ApiSuccessEmpty]:
     """Remove a user attribute
 
     Args:
@@ -95,7 +95,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        RemoveUserAttributeResponse200
+        ApiSuccessEmpty
     """
 
     return sync_detailed(
@@ -108,7 +108,7 @@ async def asyncio_detailed(
     user_attribute_uuid: str,
     *,
     client: Client,
-) -> Response[RemoveUserAttributeResponse200]:
+) -> Response[ApiSuccessEmpty]:
     """Remove a user attribute
 
     Args:
@@ -119,7 +119,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[RemoveUserAttributeResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
@@ -137,7 +137,7 @@ async def asyncio(
     user_attribute_uuid: str,
     *,
     client: Client,
-) -> Optional[RemoveUserAttributeResponse200]:
+) -> Optional[ApiSuccessEmpty]:
     """Remove a user attribute
 
     Args:
@@ -148,7 +148,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        RemoveUserAttributeResponse200
+        ApiSuccessEmpty
     """
 
     return (

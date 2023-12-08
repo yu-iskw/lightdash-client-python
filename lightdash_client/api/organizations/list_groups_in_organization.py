@@ -5,9 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import Client
-from ...models.list_groups_in_organization_response_200 import (
-    ListGroupsInOrganizationResponse200,
-)
+from ...models.api_group_list_response import ApiGroupListResponse
 from ...types import Response
 
 
@@ -30,9 +28,9 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ListGroupsInOrganizationResponse200]:
+def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiGroupListResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ListGroupsInOrganizationResponse200.from_dict(response.json())
+        response_200 = ApiGroupListResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -41,7 +39,7 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Lis
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ListGroupsInOrganizationResponse200]:
+def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiGroupListResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -53,7 +51,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Lis
 def sync_detailed(
     *,
     client: Client,
-) -> Response[ListGroupsInOrganizationResponse200]:
+) -> Response[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Raises:
@@ -61,7 +59,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ListGroupsInOrganizationResponse200]
+        Response[ApiGroupListResponse]
     """
 
     kwargs = _get_kwargs(
@@ -79,7 +77,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-) -> Optional[ListGroupsInOrganizationResponse200]:
+) -> Optional[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Raises:
@@ -87,7 +85,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ListGroupsInOrganizationResponse200
+        ApiGroupListResponse
     """
 
     return sync_detailed(
@@ -98,7 +96,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-) -> Response[ListGroupsInOrganizationResponse200]:
+) -> Response[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Raises:
@@ -106,7 +104,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ListGroupsInOrganizationResponse200]
+        Response[ApiGroupListResponse]
     """
 
     kwargs = _get_kwargs(
@@ -122,7 +120,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-) -> Optional[ListGroupsInOrganizationResponse200]:
+) -> Optional[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Raises:
@@ -130,7 +128,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ListGroupsInOrganizationResponse200
+        ApiGroupListResponse
     """
 
     return (

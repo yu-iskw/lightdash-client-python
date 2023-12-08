@@ -3,8 +3,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 import attr
 
 if TYPE_CHECKING:
-    from ..models.api_sql_query_results_fields import ApiSqlQueryResultsFields
-    from ..models.api_sql_query_results_rows_item import ApiSqlQueryResultsRowsItem
+    from ..models.record_string_type_dimension_type import RecordStringTypeDimensionType
+    from ..models.record_string_unknown import RecordStringUnknown
 
 
 T = TypeVar("T", bound="ApiSqlQueryResults")
@@ -14,12 +14,12 @@ T = TypeVar("T", bound="ApiSqlQueryResults")
 class ApiSqlQueryResults:
     """
     Attributes:
-        rows (List['ApiSqlQueryResultsRowsItem']):
-        fields (ApiSqlQueryResultsFields): Construct a type with a set of properties K of type T
+        rows (List['RecordStringUnknown']):
+        fields (RecordStringTypeDimensionType): Construct a type with a set of properties K of type T
     """
 
-    rows: List["ApiSqlQueryResultsRowsItem"]
-    fields: "ApiSqlQueryResultsFields"
+    rows: List["RecordStringUnknown"]
+    fields: "RecordStringTypeDimensionType"
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -44,18 +44,20 @@ class ApiSqlQueryResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_sql_query_results_fields import ApiSqlQueryResultsFields
-        from ..models.api_sql_query_results_rows_item import ApiSqlQueryResultsRowsItem
+        from ..models.record_string_type_dimension_type import (
+            RecordStringTypeDimensionType,
+        )
+        from ..models.record_string_unknown import RecordStringUnknown
 
         d = src_dict.copy()
         rows = []
         _rows = d.pop("rows")
         for rows_item_data in _rows:
-            rows_item = ApiSqlQueryResultsRowsItem.from_dict(rows_item_data)
+            rows_item = RecordStringUnknown.from_dict(rows_item_data)
 
             rows.append(rows_item)
 
-        fields = ApiSqlQueryResultsFields.from_dict(d.pop("fields"))
+        fields = RecordStringTypeDimensionType.from_dict(d.pop("fields"))
 
         api_sql_query_results = cls(
             rows=rows,

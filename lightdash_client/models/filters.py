@@ -5,10 +5,8 @@ import attr
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.filters_dimensions_type_0 import FiltersDimensionsType0
-    from ..models.filters_dimensions_type_1 import FiltersDimensionsType1
-    from ..models.filters_metrics_type_0 import FiltersMetricsType0
-    from ..models.filters_metrics_type_1 import FiltersMetricsType1
+    from ..models.and_filter_group import AndFilterGroup
+    from ..models.or_filter_group import OrFilterGroup
 
 
 T = TypeVar("T", bound="Filters")
@@ -18,49 +16,54 @@ T = TypeVar("T", bound="Filters")
 class Filters:
     """
     Attributes:
-        metrics (Union['FiltersMetricsType0', 'FiltersMetricsType1', Unset]):
-        dimensions (Union['FiltersDimensionsType0', 'FiltersDimensionsType1', Unset]):
+        table_calculations (Union['AndFilterGroup', 'OrFilterGroup', Unset]):
+        metrics (Union['AndFilterGroup', 'OrFilterGroup', Unset]):
+        dimensions (Union['AndFilterGroup', 'OrFilterGroup', Unset]):
     """
 
-    metrics: Union["FiltersMetricsType0", "FiltersMetricsType1", Unset] = UNSET
-    dimensions: Union["FiltersDimensionsType0", "FiltersDimensionsType1", Unset] = UNSET
+    table_calculations: Union["AndFilterGroup", "OrFilterGroup", Unset] = UNSET
+    metrics: Union["AndFilterGroup", "OrFilterGroup", Unset] = UNSET
+    dimensions: Union["AndFilterGroup", "OrFilterGroup", Unset] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.filters_dimensions_type_0 import FiltersDimensionsType0
-        from ..models.filters_metrics_type_0 import FiltersMetricsType0
+        from ..models.or_filter_group import OrFilterGroup
+
+        table_calculations: Union[Dict[str, Any], Unset]
+        if isinstance(self.table_calculations, Unset):
+            table_calculations = UNSET
+
+        elif isinstance(self.table_calculations, OrFilterGroup):
+            table_calculations = self.table_calculations.to_dict()
+
+        else:
+            table_calculations = self.table_calculations.to_dict()
 
         metrics: Union[Dict[str, Any], Unset]
         if isinstance(self.metrics, Unset):
             metrics = UNSET
 
-        elif isinstance(self.metrics, FiltersMetricsType0):
-            metrics = UNSET
-            if not isinstance(self.metrics, Unset):
-                metrics = self.metrics.to_dict()
+        elif isinstance(self.metrics, OrFilterGroup):
+            metrics = self.metrics.to_dict()
 
         else:
-            metrics = UNSET
-            if not isinstance(self.metrics, Unset):
-                metrics = self.metrics.to_dict()
+            metrics = self.metrics.to_dict()
 
         dimensions: Union[Dict[str, Any], Unset]
         if isinstance(self.dimensions, Unset):
             dimensions = UNSET
 
-        elif isinstance(self.dimensions, FiltersDimensionsType0):
-            dimensions = UNSET
-            if not isinstance(self.dimensions, Unset):
-                dimensions = self.dimensions.to_dict()
+        elif isinstance(self.dimensions, OrFilterGroup):
+            dimensions = self.dimensions.to_dict()
 
         else:
-            dimensions = UNSET
-            if not isinstance(self.dimensions, Unset):
-                dimensions = self.dimensions.to_dict()
+            dimensions = self.dimensions.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
+        if table_calculations is not UNSET:
+            field_dict["tableCalculations"] = table_calculations
         if metrics is not UNSET:
             field_dict["metrics"] = metrics
         if dimensions is not UNSET:
@@ -70,72 +73,70 @@ class Filters:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.filters_dimensions_type_0 import FiltersDimensionsType0
-        from ..models.filters_dimensions_type_1 import FiltersDimensionsType1
-        from ..models.filters_metrics_type_0 import FiltersMetricsType0
-        from ..models.filters_metrics_type_1 import FiltersMetricsType1
+        from ..models.and_filter_group import AndFilterGroup
+        from ..models.or_filter_group import OrFilterGroup
 
         d = src_dict.copy()
 
-        def _parse_metrics(data: object) -> Union["FiltersMetricsType0", "FiltersMetricsType1", Unset]:
+        def _parse_table_calculations(data: object) -> Union["AndFilterGroup", "OrFilterGroup", Unset]:
             if isinstance(data, Unset):
                 return data
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                _metrics_type_0 = data
-                metrics_type_0: Union[Unset, FiltersMetricsType0]
-                if isinstance(_metrics_type_0, Unset):
-                    metrics_type_0 = UNSET
-                else:
-                    metrics_type_0 = FiltersMetricsType0.from_dict(_metrics_type_0)
+                componentsschemas_filter_group_type_0 = OrFilterGroup.from_dict(data)
 
-                return metrics_type_0
+                return componentsschemas_filter_group_type_0
             except:  # noqa: E722
                 pass
             if not isinstance(data, dict):
                 raise TypeError()
-            _metrics_type_1 = data
-            metrics_type_1: Union[Unset, FiltersMetricsType1]
-            if isinstance(_metrics_type_1, Unset):
-                metrics_type_1 = UNSET
-            else:
-                metrics_type_1 = FiltersMetricsType1.from_dict(_metrics_type_1)
+            componentsschemas_filter_group_type_1 = AndFilterGroup.from_dict(data)
 
-            return metrics_type_1
+            return componentsschemas_filter_group_type_1
+
+        table_calculations = _parse_table_calculations(d.pop("tableCalculations", UNSET))
+
+        def _parse_metrics(data: object) -> Union["AndFilterGroup", "OrFilterGroup", Unset]:
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_filter_group_type_0 = OrFilterGroup.from_dict(data)
+
+                return componentsschemas_filter_group_type_0
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            componentsschemas_filter_group_type_1 = AndFilterGroup.from_dict(data)
+
+            return componentsschemas_filter_group_type_1
 
         metrics = _parse_metrics(d.pop("metrics", UNSET))
 
-        def _parse_dimensions(data: object) -> Union["FiltersDimensionsType0", "FiltersDimensionsType1", Unset]:
+        def _parse_dimensions(data: object) -> Union["AndFilterGroup", "OrFilterGroup", Unset]:
             if isinstance(data, Unset):
                 return data
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                _dimensions_type_0 = data
-                dimensions_type_0: Union[Unset, FiltersDimensionsType0]
-                if isinstance(_dimensions_type_0, Unset):
-                    dimensions_type_0 = UNSET
-                else:
-                    dimensions_type_0 = FiltersDimensionsType0.from_dict(_dimensions_type_0)
+                componentsschemas_filter_group_type_0 = OrFilterGroup.from_dict(data)
 
-                return dimensions_type_0
+                return componentsschemas_filter_group_type_0
             except:  # noqa: E722
                 pass
             if not isinstance(data, dict):
                 raise TypeError()
-            _dimensions_type_1 = data
-            dimensions_type_1: Union[Unset, FiltersDimensionsType1]
-            if isinstance(_dimensions_type_1, Unset):
-                dimensions_type_1 = UNSET
-            else:
-                dimensions_type_1 = FiltersDimensionsType1.from_dict(_dimensions_type_1)
+            componentsschemas_filter_group_type_1 = AndFilterGroup.from_dict(data)
 
-            return dimensions_type_1
+            return componentsschemas_filter_group_type_1
 
         dimensions = _parse_dimensions(d.pop("dimensions", UNSET))
 
         filters = cls(
+            table_calculations=table_calculations,
             metrics=metrics,
             dimensions=dimensions,
         )
