@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PivotReference")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PivotReference:
     """
     Attributes:
@@ -21,16 +22,16 @@ class PivotReference:
 
     field: str
     pivot_values: Union[Unset, List["PivotValue"]] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         field = self.field
+
         pivot_values: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.pivot_values, Unset):
             pivot_values = []
             for pivot_values_item_data in self.pivot_values:
                 pivot_values_item = pivot_values_item_data.to_dict()
-
                 pivot_values.append(pivot_values_item)
 
         field_dict: Dict[str, Any] = {}

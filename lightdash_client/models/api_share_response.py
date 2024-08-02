@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_share_response_status import ApiShareResponseStatus
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ApiShareResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiShareResponse:
     """
     Attributes:
@@ -23,7 +24,7 @@ class ApiShareResponse:
 
     results: "ShareUrl"
     status: ApiShareResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()

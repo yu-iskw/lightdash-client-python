@@ -1,11 +1,12 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 T = TypeVar("T", bound="MarkLineDataLineStyle")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class MarkLineDataLineStyle:
     """
     Attributes:
@@ -13,7 +14,7 @@ class MarkLineDataLineStyle:
     """
 
     color: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         color = self.color

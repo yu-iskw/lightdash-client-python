@@ -1,6 +1,7 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.compact import Compact
 from ..models.compact_or_alias_type_1 import CompactOrAliasType1
@@ -9,13 +10,14 @@ from ..models.metric_type import MetricType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.custom_format import CustomFormat
     from ..models.metric_filter_rule import MetricFilterRule
 
 
 T = TypeVar("T", bound="AdditionalMetric")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class AdditionalMetric:
     """
     Attributes:
@@ -32,8 +34,9 @@ class AdditionalMetric:
         index (Union[Unset, float]):
         filters (Union[Unset, List['MetricFilterRule']]):
         base_dimension_name (Union[Unset, str]):
-        uuid (Union[Unset, None, str]):
+        uuid (Union[None, Unset, str]):
         percentile (Union[Unset, float]):
+        format_options (Union[Unset, CustomFormat]):
     """
 
     type: MetricType
@@ -49,26 +52,33 @@ class AdditionalMetric:
     index: Union[Unset, float] = UNSET
     filters: Union[Unset, List["MetricFilterRule"]] = UNSET
     base_dimension_name: Union[Unset, str] = UNSET
-    uuid: Union[Unset, None, str] = UNSET
+    uuid: Union[None, Unset, str] = UNSET
     percentile: Union[Unset, float] = UNSET
+    format_options: Union[Unset, "CustomFormat"] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
         sql = self.sql
+
         table = self.table
+
         name = self.name
+
         label = self.label
+
         description = self.description
+
         hidden = self.hidden
+
         round_ = self.round_
+
         compact: Union[Unset, str]
         if isinstance(self.compact, Unset):
             compact = UNSET
-
         elif isinstance(self.compact, Compact):
             compact = self.compact.value
-
         else:
             compact = self.compact.value
 
@@ -77,19 +87,30 @@ class AdditionalMetric:
             format_ = self.format_.value
 
         index = self.index
+
         filters: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.filters, Unset):
             filters = []
             for filters_item_data in self.filters:
                 filters_item = filters_item_data.to_dict()
-
                 filters.append(filters_item)
 
         base_dimension_name = self.base_dimension_name
-        uuid = self.uuid
+
+        uuid: Union[None, Unset, str]
+        if isinstance(self.uuid, Unset):
+            uuid = UNSET
+        else:
+            uuid = self.uuid
+
         percentile = self.percentile
 
+        format_options: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.format_options, Unset):
+            format_options = self.format_options.to_dict()
+
         field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "type": type,
@@ -120,11 +141,14 @@ class AdditionalMetric:
             field_dict["uuid"] = uuid
         if percentile is not UNSET:
             field_dict["percentile"] = percentile
+        if format_options is not UNSET:
+            field_dict["formatOptions"] = format_options
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.custom_format import CustomFormat
         from ..models.metric_filter_rule import MetricFilterRule
 
         d = src_dict.copy()
@@ -181,9 +205,23 @@ class AdditionalMetric:
 
         base_dimension_name = d.pop("baseDimensionName", UNSET)
 
-        uuid = d.pop("uuid", UNSET)
+        def _parse_uuid(data: object) -> Union[None, Unset, str]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, str], data)
+
+        uuid = _parse_uuid(d.pop("uuid", UNSET))
 
         percentile = d.pop("percentile", UNSET)
+
+        _format_options = d.pop("formatOptions", UNSET)
+        format_options: Union[Unset, CustomFormat]
+        if isinstance(_format_options, Unset):
+            format_options = UNSET
+        else:
+            format_options = CustomFormat.from_dict(_format_options)
 
         additional_metric = cls(
             type=type,
@@ -201,6 +239,24 @@ class AdditionalMetric:
             base_dimension_name=base_dimension_name,
             uuid=uuid,
             percentile=percentile,
+            format_options=format_options,
         )
 
+        additional_metric.additional_properties = d
         return additional_metric
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

@@ -1,33 +1,35 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 T = TypeVar("T", bound="PickCompiledDimensionLabelOrName")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickCompiledDimensionLabelOrName:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        label (str):
         name (str):
+        label (str):
     """
 
-    label: str
     name: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    label: str
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        label = self.label
         name = self.name
+
+        label = self.label
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "label": label,
                 "name": name,
+                "label": label,
             }
         )
 
@@ -36,13 +38,13 @@ class PickCompiledDimensionLabelOrName:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        label = d.pop("label")
-
         name = d.pop("name")
 
+        label = d.pop("label")
+
         pick_compiled_dimension_label_or_name = cls(
-            label=label,
             name=name,
+            label=label,
         )
 
         pick_compiled_dimension_label_or_name.additional_properties = d

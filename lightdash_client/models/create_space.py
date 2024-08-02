@@ -1,38 +1,39 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.pick_space_share_user_uuid import PickSpaceShareUserUuid
+    from ..models.pick_space_share_user_uuid_or_role import PickSpaceShareUserUuidOrRole
 
 
 T = TypeVar("T", bound="CreateSpace")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class CreateSpace:
     """
     Attributes:
         name (str):
-        access (Union[Unset, List['PickSpaceShareUserUuid']]):
+        access (Union[Unset, List['PickSpaceShareUserUuidOrRole']]):
         is_private (Union[Unset, bool]):
     """
 
     name: str
-    access: Union[Unset, List["PickSpaceShareUserUuid"]] = UNSET
+    access: Union[Unset, List["PickSpaceShareUserUuidOrRole"]] = UNSET
     is_private: Union[Unset, bool] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         access: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.access, Unset):
             access = []
             for access_item_data in self.access:
                 access_item = access_item_data.to_dict()
-
                 access.append(access_item)
 
         is_private = self.is_private
@@ -53,7 +54,9 @@ class CreateSpace:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_space_share_user_uuid import PickSpaceShareUserUuid
+        from ..models.pick_space_share_user_uuid_or_role import (
+            PickSpaceShareUserUuidOrRole,
+        )
 
         d = src_dict.copy()
         name = d.pop("name")
@@ -61,7 +64,7 @@ class CreateSpace:
         access = []
         _access = d.pop("access", UNSET)
         for access_item_data in _access or []:
-            access_item = PickSpaceShareUserUuid.from_dict(access_item_data)
+            access_item = PickSpaceShareUserUuidOrRole.from_dict(access_item_data)
 
             access.append(access_item)
 

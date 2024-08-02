@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.conditional_operator import ConditionalOperator
 from ..types import UNSET, Unset
@@ -15,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="DashboardFilterRule")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class DashboardFilterRule:
     """
     Attributes:
@@ -25,6 +26,7 @@ class DashboardFilterRule:
         values (Union[Unset, List[Any]]):
         settings (Union[Unset, Any]):
         disabled (Union[Unset, bool]):
+        required (Union[Unset, bool]):
         label (Union[Unset, str]):
         tile_targets (Union[Unset, RecordStringDashboardTileTarget]): Construct a type with a set of properties K of
             type T
@@ -36,14 +38,16 @@ class DashboardFilterRule:
     values: Union[Unset, List[Any]] = UNSET
     settings: Union[Unset, Any] = UNSET
     disabled: Union[Unset, bool] = UNSET
+    required: Union[Unset, bool] = UNSET
     label: Union[Unset, str] = UNSET
     tile_targets: Union[Unset, "RecordStringDashboardTileTarget"] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         operator = self.operator.value
 
         id = self.id
+
         target = self.target.to_dict()
 
         values: Union[Unset, List[Any]] = UNSET
@@ -51,8 +55,13 @@ class DashboardFilterRule:
             values = self.values
 
         settings = self.settings
+
         disabled = self.disabled
+
+        required = self.required
+
         label = self.label
+
         tile_targets: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.tile_targets, Unset):
             tile_targets = self.tile_targets.to_dict()
@@ -72,6 +81,8 @@ class DashboardFilterRule:
             field_dict["settings"] = settings
         if disabled is not UNSET:
             field_dict["disabled"] = disabled
+        if required is not UNSET:
+            field_dict["required"] = required
         if label is not UNSET:
             field_dict["label"] = label
         if tile_targets is not UNSET:
@@ -99,6 +110,8 @@ class DashboardFilterRule:
 
         disabled = d.pop("disabled", UNSET)
 
+        required = d.pop("required", UNSET)
+
         label = d.pop("label", UNSET)
 
         _tile_targets = d.pop("tileTargets", UNSET)
@@ -115,6 +128,7 @@ class DashboardFilterRule:
             values=values,
             settings=settings,
             disabled=disabled,
+            required=required,
             label=label,
             tile_targets=tile_targets,
         )

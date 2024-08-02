@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_pinned_items_status import ApiPinnedItemsStatus
 
@@ -13,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ApiPinnedItems")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiPinnedItems:
     """
     Attributes:
@@ -23,7 +24,7 @@ class ApiPinnedItems:
 
     results: List[Union["ResourceViewChartItem", "ResourceViewDashboardItem", "ResourceViewSpaceItem"]]
     status: ApiPinnedItemsStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.resource_view_chart_item import ResourceViewChartItem
@@ -32,13 +33,10 @@ class ApiPinnedItems:
         results = []
         for componentsschemas_pinned_items_item_data in self.results:
             componentsschemas_pinned_items_item: Dict[str, Any]
-
             if isinstance(componentsschemas_pinned_items_item_data, ResourceViewDashboardItem):
                 componentsschemas_pinned_items_item = componentsschemas_pinned_items_item_data.to_dict()
-
             elif isinstance(componentsschemas_pinned_items_item_data, ResourceViewChartItem):
                 componentsschemas_pinned_items_item = componentsschemas_pinned_items_item_data.to_dict()
-
             else:
                 componentsschemas_pinned_items_item = componentsschemas_pinned_items_item_data.to_dict()
 

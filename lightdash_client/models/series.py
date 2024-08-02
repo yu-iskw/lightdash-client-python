@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.cartesian_series_type import CartesianSeriesType
 from ..types import UNSET, Unset
@@ -16,7 +17,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="Series")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class Series:
     """
     Attributes:
@@ -48,7 +49,7 @@ class Series:
     name: Union[Unset, str] = UNSET
     stack_label: Union[Unset, "SeriesStackLabel"] = UNSET
     stack: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
@@ -60,19 +61,25 @@ class Series:
             mark_line = self.mark_line.to_dict()
 
         smooth = self.smooth
+
         show_symbol = self.show_symbol
+
         area_style: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.area_style, Unset):
             area_style = self.area_style.to_dict()
 
         hidden = self.hidden
+
         label: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.label, Unset):
             label = self.label.to_dict()
 
         y_axis_index = self.y_axis_index
+
         color = self.color
+
         name = self.name
+
         stack_label: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.stack_label, Unset):
             stack_label = self.stack_label.to_dict()

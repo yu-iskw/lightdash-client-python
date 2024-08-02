@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
@@ -17,7 +18,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="TableChart")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class TableChart:
     """
     Attributes:
@@ -25,6 +26,7 @@ class TableChart:
         conditional_formattings (Union[Unset, List[Union['ConditionalFormattingConfigWithColorRange',
             'ConditionalFormattingConfigWithSingleColor']]]):
         columns (Union[Unset, RecordStringColumnProperties]): Construct a type with a set of properties K of type T
+        show_subtotals (Union[Unset, bool]):
         show_results_total (Union[Unset, bool]):
         hide_row_numbers (Union[Unset, bool]):
         show_table_names (Union[Unset, bool]):
@@ -37,12 +39,13 @@ class TableChart:
         Unset, List[Union["ConditionalFormattingConfigWithColorRange", "ConditionalFormattingConfigWithSingleColor"]]
     ] = UNSET
     columns: Union[Unset, "RecordStringColumnProperties"] = UNSET
+    show_subtotals: Union[Unset, bool] = UNSET
     show_results_total: Union[Unset, bool] = UNSET
     hide_row_numbers: Union[Unset, bool] = UNSET
     show_table_names: Union[Unset, bool] = UNSET
     show_row_calculation: Union[Unset, bool] = UNSET
     show_column_calculation: Union[Unset, bool] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.conditional_formatting_config_with_single_color import (
@@ -50,15 +53,14 @@ class TableChart:
         )
 
         metrics_as_rows = self.metrics_as_rows
+
         conditional_formattings: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.conditional_formattings, Unset):
             conditional_formattings = []
             for conditional_formattings_item_data in self.conditional_formattings:
                 conditional_formattings_item: Dict[str, Any]
-
                 if isinstance(conditional_formattings_item_data, ConditionalFormattingConfigWithSingleColor):
                     conditional_formattings_item = conditional_formattings_item_data.to_dict()
-
                 else:
                     conditional_formattings_item = conditional_formattings_item_data.to_dict()
 
@@ -68,10 +70,16 @@ class TableChart:
         if not isinstance(self.columns, Unset):
             columns = self.columns.to_dict()
 
+        show_subtotals = self.show_subtotals
+
         show_results_total = self.show_results_total
+
         hide_row_numbers = self.hide_row_numbers
+
         show_table_names = self.show_table_names
+
         show_row_calculation = self.show_row_calculation
+
         show_column_calculation = self.show_column_calculation
 
         field_dict: Dict[str, Any] = {}
@@ -83,6 +91,8 @@ class TableChart:
             field_dict["conditionalFormattings"] = conditional_formattings
         if columns is not UNSET:
             field_dict["columns"] = columns
+        if show_subtotals is not UNSET:
+            field_dict["showSubtotals"] = show_subtotals
         if show_results_total is not UNSET:
             field_dict["showResultsTotal"] = show_results_total
         if hide_row_numbers is not UNSET:
@@ -147,6 +157,8 @@ class TableChart:
         else:
             columns = RecordStringColumnProperties.from_dict(_columns)
 
+        show_subtotals = d.pop("showSubtotals", UNSET)
+
         show_results_total = d.pop("showResultsTotal", UNSET)
 
         hide_row_numbers = d.pop("hideRowNumbers", UNSET)
@@ -161,6 +173,7 @@ class TableChart:
             metrics_as_rows=metrics_as_rows,
             conditional_formattings=conditional_formattings,
             columns=columns,
+            show_subtotals=show_subtotals,
             show_results_total=show_results_total,
             hide_row_numbers=hide_row_numbers,
             show_table_names=show_table_names,

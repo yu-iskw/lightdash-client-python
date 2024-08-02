@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.project_member_role import ProjectMemberRole
 
 T = TypeVar("T", bound="ProjectMemberProfile")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ProjectMemberProfile:
     """
     Attributes:
@@ -25,15 +26,19 @@ class ProjectMemberProfile:
     role: ProjectMemberRole
     project_uuid: str
     user_uuid: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         last_name = self.last_name
+
         first_name = self.first_name
+
         email = self.email
+
         role = self.role.value
 
         project_uuid = self.project_uuid
+
         user_uuid = self.user_uuid
 
         field_dict: Dict[str, Any] = {}

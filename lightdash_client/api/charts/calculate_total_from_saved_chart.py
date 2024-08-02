@@ -1,13 +1,13 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
+from ...client import AuthenticatedClient, Client
 from ...models.api_calculate_total_response import ApiCalculateTotalResponse
-from ...models.calculate_total_from_saved_chart_json_body import (
-    CalculateTotalFromSavedChartJsonBody,
+from ...models.calculate_total_from_saved_chart_body import (
+    CalculateTotalFromSavedChartBody,
 )
 from ...types import Response
 
@@ -15,28 +15,27 @@ from ...types import Response
 def _get_kwargs(
     chart_uuid: str,
     *,
-    client: Client,
-    json_body: CalculateTotalFromSavedChartJsonBody,
+    body: CalculateTotalFromSavedChartBody,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/saved/{chartUuid}/calculate-total".format(client.base_url, chartUuid=chart_uuid)
+    headers: Dict[str, Any] = {}
 
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
-        "json": json_json_body,
+        "url": f"/api/v1/saved/{chart_uuid}/calculate-total",
     }
 
+    _body = body.to_dict()
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiCalculateTotalResponse]:
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
+
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiCalculateTotalResponse]:
     if response.status_code == HTTPStatus.OK:
         response_200 = ApiCalculateTotalResponse.from_dict(response.json())
 
@@ -47,7 +46,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiCalculateTotalResponse]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiCalculateTotalResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -59,14 +60,14 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     chart_uuid: str,
     *,
-    client: Client,
-    json_body: CalculateTotalFromSavedChartJsonBody,
+    client: Union[AuthenticatedClient, Client],
+    body: CalculateTotalFromSavedChartBody,
 ) -> Response[ApiCalculateTotalResponse]:
     """Calculate metric totals from a saved chart
 
     Args:
         chart_uuid (str):
-        json_body (CalculateTotalFromSavedChartJsonBody):
+        body (CalculateTotalFromSavedChartBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -78,12 +79,10 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         chart_uuid=chart_uuid,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -93,14 +92,14 @@ def sync_detailed(
 def sync(
     chart_uuid: str,
     *,
-    client: Client,
-    json_body: CalculateTotalFromSavedChartJsonBody,
+    client: Union[AuthenticatedClient, Client],
+    body: CalculateTotalFromSavedChartBody,
 ) -> Optional[ApiCalculateTotalResponse]:
     """Calculate metric totals from a saved chart
 
     Args:
         chart_uuid (str):
-        json_body (CalculateTotalFromSavedChartJsonBody):
+        body (CalculateTotalFromSavedChartBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,21 +112,21 @@ def sync(
     return sync_detailed(
         chart_uuid=chart_uuid,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     chart_uuid: str,
     *,
-    client: Client,
-    json_body: CalculateTotalFromSavedChartJsonBody,
+    client: Union[AuthenticatedClient, Client],
+    body: CalculateTotalFromSavedChartBody,
 ) -> Response[ApiCalculateTotalResponse]:
     """Calculate metric totals from a saved chart
 
     Args:
         chart_uuid (str):
-        json_body (CalculateTotalFromSavedChartJsonBody):
+        body (CalculateTotalFromSavedChartBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,12 +138,10 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         chart_uuid=chart_uuid,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -152,14 +149,14 @@ async def asyncio_detailed(
 async def asyncio(
     chart_uuid: str,
     *,
-    client: Client,
-    json_body: CalculateTotalFromSavedChartJsonBody,
+    client: Union[AuthenticatedClient, Client],
+    body: CalculateTotalFromSavedChartBody,
 ) -> Optional[ApiCalculateTotalResponse]:
     """Calculate metric totals from a saved chart
 
     Args:
         chart_uuid (str):
-        json_body (CalculateTotalFromSavedChartJsonBody):
+        body (CalculateTotalFromSavedChartBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,6 +170,6 @@ async def asyncio(
         await asyncio_detailed(
             chart_uuid=chart_uuid,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

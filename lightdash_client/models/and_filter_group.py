@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.filter_rule import FilterRule
@@ -10,17 +11,17 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AndFilterGroup")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class AndFilterGroup:
     """
     Attributes:
-        and_ (List[Union['FilterRule', Union['AndFilterGroup', 'OrFilterGroup']]]):
+        and_ (List[Union['AndFilterGroup', 'FilterRule', 'OrFilterGroup']]):
         id (str):
     """
 
-    and_: List[Union["FilterRule", Union["AndFilterGroup", "OrFilterGroup"]]]
+    and_: List[Union["AndFilterGroup", "FilterRule", "OrFilterGroup"]]
     id: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.or_filter_group import OrFilterGroup
@@ -28,14 +29,10 @@ class AndFilterGroup:
         and_ = []
         for and_item_data in self.and_:
             and_item: Dict[str, Any]
-
-            if isinstance(and_item_data, Union["AndFilterGroup", "OrFilterGroup"]):
-                if isinstance(and_item_data, OrFilterGroup):
-                    and_item = and_item_data.to_dict()
-
-                else:
-                    and_item = and_item_data.to_dict()
-
+            if isinstance(and_item_data, OrFilterGroup):
+                and_item = and_item_data.to_dict()
+            elif isinstance(and_item_data, AndFilterGroup):
+                and_item = and_item_data.to_dict()
             else:
                 and_item = and_item_data.to_dict()
 
@@ -64,27 +61,23 @@ class AndFilterGroup:
         _and_ = d.pop("and")
         for and_item_data in _and_:
 
-            def _parse_and_item(data: object) -> Union["FilterRule", Union["AndFilterGroup", "OrFilterGroup"]]:
-                def _parse_componentsschemas_filter_group_item_type_0(
-                    data: object,
-                ) -> Union["AndFilterGroup", "OrFilterGroup"]:
-                    try:
-                        if not isinstance(data, dict):
-                            raise TypeError()
-                        componentsschemas_filter_group_type_0 = OrFilterGroup.from_dict(data)
+            def _parse_and_item(data: object) -> Union["AndFilterGroup", "FilterRule", "OrFilterGroup"]:
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    componentsschemas_filter_group_type_0 = OrFilterGroup.from_dict(data)
 
-                        return componentsschemas_filter_group_type_0
-                    except:  # noqa: E722
-                        pass
+                    return componentsschemas_filter_group_type_0
+                except:  # noqa: E722
+                    pass
+                try:
                     if not isinstance(data, dict):
                         raise TypeError()
                     componentsschemas_filter_group_type_1 = AndFilterGroup.from_dict(data)
 
                     return componentsschemas_filter_group_type_1
-
-                componentsschemas_filter_group_item_type_0 = _parse_componentsschemas_filter_group_item_type_0(data)
-
-                return componentsschemas_filter_group_item_type_0
+                except:  # noqa: E722
+                    pass
                 if not isinstance(data, dict):
                     raise TypeError()
                 componentsschemas_filter_group_item_type_1 = FilterRule.from_dict(data)

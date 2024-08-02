@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ShareUrl")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ShareUrl:
     """A ShareUrl maps a short shareable id to a full URL
     in the Lightdash UI. This allows very long URLs
@@ -32,16 +33,23 @@ class ShareUrl:
     share_url: Union[Unset, str] = UNSET
     organization_uuid: Union[Unset, str] = UNSET
     created_by_user_uuid: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         params = self.params
+
         path = self.path
+
         nanoid = self.nanoid
+
         host = self.host
+
         url = self.url
+
         share_url = self.share_url
+
         organization_uuid = self.organization_uuid
+
         created_by_user_uuid = self.created_by_user_uuid
 
         field_dict: Dict[str, Any] = {}

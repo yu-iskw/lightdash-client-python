@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.run_sql_query_response_200_status import RunSqlQueryResponse200Status
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="RunSqlQueryResponse200")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class RunSqlQueryResponse200:
     """
     Attributes:
@@ -21,7 +22,7 @@ class RunSqlQueryResponse200:
 
     results: "ApiSqlQueryResults"
     status: RunSqlQueryResponse200Status
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()

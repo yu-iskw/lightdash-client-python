@@ -5,6 +5,7 @@ class ChartType(str, Enum):
     BIG_NUMBER = "big_number"
     CARTESIAN = "cartesian"
     CUSTOM = "custom"
+    FUNNEL = "funnel"
     PIE = "pie"
     TABLE = "table"
 

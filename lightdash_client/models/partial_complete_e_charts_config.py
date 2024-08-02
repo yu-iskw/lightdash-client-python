@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
@@ -14,7 +15,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PartialCompleteEChartsConfig")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PartialCompleteEChartsConfig:
     """Make all properties in T optional
 
@@ -31,7 +32,7 @@ class PartialCompleteEChartsConfig:
     series: Union[Unset, List["Series"]] = UNSET
     x_axis: Union[Unset, List["Axis"]] = UNSET
     y_axis: Union[Unset, List["Axis"]] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         legend: Union[Unset, Dict[str, Any]] = UNSET
@@ -47,7 +48,6 @@ class PartialCompleteEChartsConfig:
             series = []
             for series_item_data in self.series:
                 series_item = series_item_data.to_dict()
-
                 series.append(series_item)
 
         x_axis: Union[Unset, List[Dict[str, Any]]] = UNSET
@@ -55,7 +55,6 @@ class PartialCompleteEChartsConfig:
             x_axis = []
             for x_axis_item_data in self.x_axis:
                 x_axis_item = x_axis_item_data.to_dict()
-
                 x_axis.append(x_axis_item)
 
         y_axis: Union[Unset, List[Dict[str, Any]]] = UNSET
@@ -63,7 +62,6 @@ class PartialCompleteEChartsConfig:
             y_axis = []
             for y_axis_item_data in self.y_axis:
                 y_axis_item = y_axis_item_data.to_dict()
-
                 y_axis.append(y_axis_item)
 
         field_dict: Dict[str, Any] = {}

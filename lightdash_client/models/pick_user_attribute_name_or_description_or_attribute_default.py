@@ -1,31 +1,35 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="PickUserAttributeNameOrDescriptionOrAttributeDefault")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickUserAttributeNameOrDescriptionOrAttributeDefault:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
         name (str):
+        attribute_default (Union[None, str]):
         description (Union[Unset, str]):
-        attribute_default (Optional[str]):
     """
 
     name: str
-    attribute_default: Optional[str]
+    attribute_default: Union[None, str]
     description: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
-        description = self.description
+
+        attribute_default: Union[None, str]
         attribute_default = self.attribute_default
+
+        description = self.description
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -45,14 +49,19 @@ class PickUserAttributeNameOrDescriptionOrAttributeDefault:
         d = src_dict.copy()
         name = d.pop("name")
 
-        description = d.pop("description", UNSET)
+        def _parse_attribute_default(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
 
-        attribute_default = d.pop("attributeDefault")
+        attribute_default = _parse_attribute_default(d.pop("attributeDefault"))
+
+        description = d.pop("description", UNSET)
 
         pick_user_attribute_name_or_description_or_attribute_default = cls(
             name=name,
-            description=description,
             attribute_default=attribute_default,
+            description=description,
         )
 
         pick_user_attribute_name_or_description_or_attribute_default.additional_properties = d

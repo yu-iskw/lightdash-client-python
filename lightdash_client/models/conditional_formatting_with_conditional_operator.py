@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.conditional_operator import ConditionalOperator
 
 T = TypeVar("T", bound="ConditionalFormattingWithConditionalOperator")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ConditionalFormattingWithConditionalOperator:
     """
     Attributes:
@@ -19,12 +20,13 @@ class ConditionalFormattingWithConditionalOperator:
     operator: ConditionalOperator
     id: str
     values: List[float]
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         operator = self.operator.value
 
         id = self.id
+
         values = self.values
 
         field_dict: Dict[str, Any] = {}

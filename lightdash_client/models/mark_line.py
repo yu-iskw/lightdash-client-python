@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
@@ -13,7 +14,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="MarkLine")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class MarkLine:
     """
     Attributes:
@@ -27,13 +28,12 @@ class MarkLine:
     label: Union[Unset, "MarkLineLabel"] = UNSET
     line_style: Union[Unset, "MarkLineLineStyle"] = UNSET
     symbol: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         data = []
         for data_item_data in self.data:
             data_item = data_item_data.to_dict()
-
             data.append(data_item)
 
         label: Union[Unset, Dict[str, Any]] = UNSET

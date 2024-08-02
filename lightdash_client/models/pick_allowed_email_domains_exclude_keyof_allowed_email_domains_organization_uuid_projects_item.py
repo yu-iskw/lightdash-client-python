@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.project_member_role_editor import ProjectMemberRoleEDITOR
 from ..models.project_member_role_interactiveviewer import (
@@ -11,7 +12,7 @@ from ..models.project_member_role_viewer import ProjectMemberRoleVIEWER
 T = TypeVar("T", bound="PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem:
     """
     Attributes:
@@ -21,17 +22,14 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProj
 
     role: Union[ProjectMemberRoleEDITOR, ProjectMemberRoleINTERACTIVEVIEWER, ProjectMemberRoleVIEWER]
     project_uuid: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         role: str
-
         if isinstance(self.role, ProjectMemberRoleEDITOR):
             role = self.role.value
-
         elif isinstance(self.role, ProjectMemberRoleINTERACTIVEVIEWER):
             role = self.role.value
-
         else:
             role = self.role.value
 
@@ -86,9 +84,7 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProj
             project_uuid=project_uuid,
         )
 
-        pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item.additional_properties = (
-            d
-        )
+        pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item.additional_properties = d
         return pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item
 
     @property

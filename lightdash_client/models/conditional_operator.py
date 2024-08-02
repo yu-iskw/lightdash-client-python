@@ -16,6 +16,7 @@ class ConditionalOperator(str, Enum):
     LESSTHAN = "lessThan"
     LESSTHANOREQUAL = "lessThanOrEqual"
     NOTEQUALS = "notEquals"
+    NOTINTHECURRENT = "notInTheCurrent"
     NOTINTHEPAST = "notInThePast"
     NOTNULL = "notNull"
     STARTSWITH = "startsWith"

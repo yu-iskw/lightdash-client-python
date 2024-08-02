@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_organization_projects_status import ApiOrganizationProjectsStatus
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ApiOrganizationProjects")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiOrganizationProjects:
     """List of projects in the current organization
 
@@ -22,13 +23,12 @@ class ApiOrganizationProjects:
 
     results: List["OrganizationProject"]
     status: ApiOrganizationProjectsStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = []
         for results_item_data in self.results:
             results_item = results_item_data.to_dict()
-
             results.append(results_item)
 
         status = self.status.value

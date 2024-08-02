@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.dbt_project_type_azuredevops import DbtProjectTypeAZUREDEVOPS
 from ..types import UNSET, Unset
@@ -12,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="DbtAzureDevOpsProjectConfig")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class DbtAzureDevOpsProjectConfig:
     """
     Attributes:
@@ -36,26 +37,34 @@ class DbtAzureDevOpsProjectConfig:
     project_sub_path: str
     target: Union[Unset, str] = UNSET
     environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
         personal_access_token = self.personal_access_token
+
         organization = self.organization
+
         project = self.project
+
         repository = self.repository
+
         branch = self.branch
+
         project_sub_path = self.project_sub_path
+
         target = self.target
+
         environment: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.environment, Unset):
             environment = []
             for environment_item_data in self.environment:
                 environment_item = environment_item_data.to_dict()
-
                 environment.append(environment_item)
 
         field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "type": type,
@@ -116,4 +125,21 @@ class DbtAzureDevOpsProjectConfig:
             environment=environment,
         )
 
+        dbt_azure_dev_ops_project_config.additional_properties = d
         return dbt_azure_dev_ops_project_config
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

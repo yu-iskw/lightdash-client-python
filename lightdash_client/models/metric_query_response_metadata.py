@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.pick_compiled_dimension_label_or_name import (
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="MetricQueryResponseMetadata")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class MetricQueryResponseMetadata:
     """
     Attributes:
@@ -20,7 +21,7 @@ class MetricQueryResponseMetadata:
     """
 
     has_a_date_dimension: "PickCompiledDimensionLabelOrName"
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         has_a_date_dimension = self.has_a_date_dimension.to_dict()

@@ -1,10 +1,10 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
+from ...client import AuthenticatedClient, Client
 from ...models.api_organization_member_profile import ApiOrganizationMemberProfile
 from ...models.organization_member_profile_update import OrganizationMemberProfileUpdate
 from ...types import Response
@@ -13,28 +13,27 @@ from ...types import Response
 def _get_kwargs(
     user_uuid: str,
     *,
-    client: Client,
-    json_body: OrganizationMemberProfileUpdate,
+    body: OrganizationMemberProfileUpdate,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/org/users/{userUuid}".format(client.base_url, userUuid=user_uuid)
+    headers: Dict[str, Any] = {}
 
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "patch",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
-        "json": json_json_body,
+        "url": f"/api/v1/org/users/{user_uuid}",
     }
 
+    _body = body.to_dict()
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiOrganizationMemberProfile]:
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
+
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiOrganizationMemberProfile]:
     if response.status_code == HTTPStatus.OK:
         response_200 = ApiOrganizationMemberProfile.from_dict(response.json())
 
@@ -45,7 +44,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiOrganizationMemberProfile]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiOrganizationMemberProfile]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -57,14 +58,14 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     user_uuid: str,
     *,
-    client: Client,
-    json_body: OrganizationMemberProfileUpdate,
+    client: Union[AuthenticatedClient, Client],
+    body: OrganizationMemberProfileUpdate,
 ) -> Response[ApiOrganizationMemberProfile]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        body (OrganizationMemberProfileUpdate):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -76,12 +77,10 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         user_uuid=user_uuid,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -91,14 +90,14 @@ def sync_detailed(
 def sync(
     user_uuid: str,
     *,
-    client: Client,
-    json_body: OrganizationMemberProfileUpdate,
+    client: Union[AuthenticatedClient, Client],
+    body: OrganizationMemberProfileUpdate,
 ) -> Optional[ApiOrganizationMemberProfile]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        body (OrganizationMemberProfileUpdate):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -111,21 +110,21 @@ def sync(
     return sync_detailed(
         user_uuid=user_uuid,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     user_uuid: str,
     *,
-    client: Client,
-    json_body: OrganizationMemberProfileUpdate,
+    client: Union[AuthenticatedClient, Client],
+    body: OrganizationMemberProfileUpdate,
 ) -> Response[ApiOrganizationMemberProfile]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        body (OrganizationMemberProfileUpdate):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -137,12 +136,10 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         user_uuid=user_uuid,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -150,14 +147,14 @@ async def asyncio_detailed(
 async def asyncio(
     user_uuid: str,
     *,
-    client: Client,
-    json_body: OrganizationMemberProfileUpdate,
+    client: Union[AuthenticatedClient, Client],
+    body: OrganizationMemberProfileUpdate,
 ) -> Optional[ApiOrganizationMemberProfile]:
     """Updates the membership profile for a user in the current user's organization
 
     Args:
         user_uuid (str):
-        json_body (OrganizationMemberProfileUpdate):
+        body (OrganizationMemberProfileUpdate):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -171,6 +168,6 @@ async def asyncio(
         await asyncio_detailed(
             user_uuid=user_uuid,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

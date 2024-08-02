@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="SeriesEncode")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class SeriesEncode:
     """
     Attributes:
@@ -25,7 +26,7 @@ class SeriesEncode:
     x_ref: "PivotReference"
     y: Union[Unset, str] = UNSET
     x: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         y_ref = self.y_ref.to_dict()
@@ -33,6 +34,7 @@ class SeriesEncode:
         x_ref = self.x_ref.to_dict()
 
         y = self.y
+
         x = self.x
 
         field_dict: Dict[str, Any] = {}

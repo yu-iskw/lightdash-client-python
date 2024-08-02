@@ -1,35 +1,28 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
+from ...client import AuthenticatedClient, Client
 from ...models.api_group_members_response import ApiGroupMembersResponse
 from ...types import Response
 
 
 def _get_kwargs(
     group_uuid: str,
-    *,
-    client: Client,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/groups/{groupUuid}/members".format(client.base_url, groupUuid=group_uuid)
-
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
+        "url": f"/api/v1/groups/{group_uuid}/members",
     }
 
+    return _kwargs
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiGroupMembersResponse]:
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiGroupMembersResponse]:
     if response.status_code == HTTPStatus.OK:
         response_200 = ApiGroupMembersResponse.from_dict(response.json())
 
@@ -40,7 +33,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiGroupMembersResponse]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiGroupMembersResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -52,7 +47,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     group_uuid: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Response[ApiGroupMembersResponse]:
     """View members of a group
 
@@ -69,11 +64,9 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         group_uuid=group_uuid,
-        client=client,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -83,7 +76,7 @@ def sync_detailed(
 def sync(
     group_uuid: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Optional[ApiGroupMembersResponse]:
     """View members of a group
 
@@ -107,7 +100,7 @@ def sync(
 async def asyncio_detailed(
     group_uuid: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Response[ApiGroupMembersResponse]:
     """View members of a group
 
@@ -124,11 +117,9 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         group_uuid=group_uuid,
-        client=client,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -136,7 +127,7 @@ async def asyncio_detailed(
 async def asyncio(
     group_uuid: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Optional[ApiGroupMembersResponse]:
     """View members of a group
 

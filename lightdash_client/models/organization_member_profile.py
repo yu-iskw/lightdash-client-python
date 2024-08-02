@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.organization_member_role import OrganizationMemberRole
 from ..types import UNSET, Unset
@@ -8,7 +9,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="OrganizationMemberProfile")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class OrganizationMemberProfile:
     """Profile for a user's membership in an organization
 
@@ -31,17 +32,23 @@ class OrganizationMemberProfile:
     first_name: str
     user_uuid: str
     is_invite_expired: Union[Unset, bool] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         is_active = self.is_active
+
         role = self.role.value
 
         organization_uuid = self.organization_uuid
+
         email = self.email
+
         last_name = self.last_name
+
         first_name = self.first_name
+
         user_uuid = self.user_uuid
+
         is_invite_expired = self.is_invite_expired
 
         field_dict: Dict[str, Any] = {}

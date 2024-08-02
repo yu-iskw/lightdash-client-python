@@ -1,35 +1,28 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
+from ...client import AuthenticatedClient, Client
 from ...models.api_job_status_response import ApiJobStatusResponse
 from ...types import Response
 
 
 def _get_kwargs(
     job_id: str,
-    *,
-    client: Client,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/schedulers/job/{jobId}/status".format(client.base_url, jobId=job_id)
-
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
+        "url": f"/api/v1/schedulers/job/{job_id}/status",
     }
 
+    return _kwargs
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[ApiJobStatusResponse]:
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiJobStatusResponse]:
     if response.status_code == HTTPStatus.OK:
         response_200 = ApiJobStatusResponse.from_dict(response.json())
 
@@ -40,7 +33,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Api
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[ApiJobStatusResponse]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiJobStatusResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -52,7 +47,7 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Api
 def sync_detailed(
     job_id: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Response[ApiJobStatusResponse]:
     """Get a generic job status
     This method can be used when polling from the frontend
@@ -70,11 +65,9 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         job_id=job_id,
-        client=client,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -84,7 +77,7 @@ def sync_detailed(
 def sync(
     job_id: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Optional[ApiJobStatusResponse]:
     """Get a generic job status
     This method can be used when polling from the frontend
@@ -109,7 +102,7 @@ def sync(
 async def asyncio_detailed(
     job_id: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Response[ApiJobStatusResponse]:
     """Get a generic job status
     This method can be used when polling from the frontend
@@ -127,11 +120,9 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         job_id=job_id,
-        client=client,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -139,7 +130,7 @@ async def asyncio_detailed(
 async def asyncio(
     job_id: str,
     *,
-    client: Client,
+    client: Union[AuthenticatedClient, Client],
 ) -> Optional[ApiJobStatusResponse]:
     """Get a generic job status
     This method can be used when polling from the frontend

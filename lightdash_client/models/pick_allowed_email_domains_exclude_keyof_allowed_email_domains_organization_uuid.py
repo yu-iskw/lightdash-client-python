@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.organization_member_role_editor import OrganizationMemberRoleEDITOR
 from ..models.organization_member_role_interactiveviewer import (
@@ -18,56 +19,51 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        email_domains (List[str]):
         role (Union[OrganizationMemberRoleEDITOR, OrganizationMemberRoleINTERACTIVEVIEWER, OrganizationMemberRoleMEMBER,
             OrganizationMemberRoleVIEWER]):
+        email_domains (List[str]):
         projects (List['PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem']):
     """
 
-    email_domains: List[str]
     role: Union[
         OrganizationMemberRoleEDITOR,
         OrganizationMemberRoleINTERACTIVEVIEWER,
         OrganizationMemberRoleMEMBER,
         OrganizationMemberRoleVIEWER,
     ]
+    email_domains: List[str]
     projects: List["PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem"]
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        email_domains = self.email_domains
-
         role: str
-
         if isinstance(self.role, OrganizationMemberRoleEDITOR):
             role = self.role.value
-
         elif isinstance(self.role, OrganizationMemberRoleINTERACTIVEVIEWER):
             role = self.role.value
-
         elif isinstance(self.role, OrganizationMemberRoleVIEWER):
             role = self.role.value
-
         else:
             role = self.role.value
+
+        email_domains = self.email_domains
 
         projects = []
         for projects_item_data in self.projects:
             projects_item = projects_item_data.to_dict()
-
             projects.append(projects_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "emailDomains": email_domains,
                 "role": role,
+                "emailDomains": email_domains,
                 "projects": projects,
             }
         )
@@ -81,7 +77,6 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
         )
 
         d = src_dict.copy()
-        email_domains = cast(List[str], d.pop("emailDomains"))
 
         def _parse_role(
             data: object,
@@ -123,6 +118,8 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
 
         role = _parse_role(d.pop("role"))
 
+        email_domains = cast(List[str], d.pop("emailDomains"))
+
         projects = []
         _projects = d.pop("projects")
         for projects_item_data in _projects:
@@ -135,8 +132,8 @@ class PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid:
             projects.append(projects_item)
 
         pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid = cls(
-            email_domains=email_domains,
             role=role,
+            email_domains=email_domains,
             projects=projects,
         )
 

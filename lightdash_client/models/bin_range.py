@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="BinRange")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class BinRange:
     """
     Attributes:
@@ -17,10 +18,11 @@ class BinRange:
 
     to: Union[Unset, float] = UNSET
     from_: Union[Unset, float] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         to = self.to
+
         from_ = self.from_
 
         field_dict: Dict[str, Any] = {}

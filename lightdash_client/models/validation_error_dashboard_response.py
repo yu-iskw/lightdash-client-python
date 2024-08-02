@@ -1,7 +1,8 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..models.validation_error_type import ValidationErrorType
@@ -11,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="ValidationErrorDashboardResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ValidationErrorDashboardResponse:
     """
     Attributes:
@@ -45,30 +46,39 @@ class ValidationErrorDashboardResponse:
     field_name: Union[Unset, str] = UNSET
     chart_name: Union[Unset, str] = UNSET
     dashboard_uuid: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         project_uuid = self.project_uuid
+
         error_type = self.error_type.value
 
         error = self.error
+
         name = self.name
+
         created_at = self.created_at.isoformat()
 
         validation_id = self.validation_id
+
         dashboard_views = self.dashboard_views
+
         source: Union[Unset, str] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.value
 
         space_uuid = self.space_uuid
+
         last_updated_at: Union[Unset, str] = UNSET
         if not isinstance(self.last_updated_at, Unset):
             last_updated_at = self.last_updated_at.isoformat()
 
         last_updated_by = self.last_updated_by
+
         field_name = self.field_name
+
         chart_name = self.chart_name
+
         dashboard_uuid = self.dashboard_uuid
 
         field_dict: Dict[str, Any] = {}

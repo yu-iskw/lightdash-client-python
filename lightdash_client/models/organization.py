@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="Organization")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class Organization:
     """Details of a user's Organization
 
@@ -24,13 +25,17 @@ class Organization:
     default_project_uuid: Union[Unset, str] = UNSET
     needs_project: Union[Unset, bool] = UNSET
     chart_colors: Union[Unset, List[str]] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         organization_uuid = self.organization_uuid
+
         default_project_uuid = self.default_project_uuid
+
         needs_project = self.needs_project
+
         chart_colors: Union[Unset, List[str]] = UNSET
         if not isinstance(self.chart_colors, Unset):
             chart_colors = self.chart_colors

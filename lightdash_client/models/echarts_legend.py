@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.echarts_legend_align import EchartsLegendAlign
 from ..models.echarts_legend_icon import EchartsLegendIcon
@@ -11,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="EchartsLegend")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class EchartsLegend:
     """
     Attributes:
@@ -39,7 +40,7 @@ class EchartsLegend:
     orient: Union[Unset, EchartsLegendOrient] = UNSET
     type: Union[Unset, EchartsLegendType] = UNSET
     show: Union[Unset, bool] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         icon: Union[Unset, str] = UNSET
@@ -51,11 +52,17 @@ class EchartsLegend:
             align = self.align.value
 
         height = self.height
+
         width = self.width
+
         left = self.left
+
         bottom = self.bottom
+
         right = self.right
+
         top = self.top
+
         orient: Union[Unset, str] = UNSET
         if not isinstance(self.orient, Unset):
             orient = self.orient.value

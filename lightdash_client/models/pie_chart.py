@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.pie_chart_legend_position import PieChartLegendPosition
 from ..models.pie_chart_value_label import PieChartValueLabel
@@ -10,16 +11,18 @@ if TYPE_CHECKING:
     from ..models.record_string_partial_pie_chart_value_options import (
         RecordStringPartialPieChartValueOptions,
     )
+    from ..models.record_string_series_metadata import RecordStringSeriesMetadata
     from ..models.record_string_string import RecordStringString
 
 
 T = TypeVar("T", bound="PieChart")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PieChart:
     """
     Attributes:
+        metadata (Union[Unset, RecordStringSeriesMetadata]): Construct a type with a set of properties K of type T
         legend_position (Union[Unset, PieChartLegendPosition]):
         show_legend (Union[Unset, bool]):
         group_sort_overrides (Union[Unset, List[str]]):
@@ -35,6 +38,7 @@ class PieChart:
         group_field_ids (Union[Unset, List[str]]):
     """
 
+    metadata: Union[Unset, "RecordStringSeriesMetadata"] = UNSET
     legend_position: Union[Unset, PieChartLegendPosition] = UNSET
     show_legend: Union[Unset, bool] = UNSET
     group_sort_overrides: Union[Unset, List[str]] = UNSET
@@ -47,14 +51,19 @@ class PieChart:
     is_donut: Union[Unset, bool] = UNSET
     metric_id: Union[Unset, str] = UNSET
     group_field_ids: Union[Unset, List[str]] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        metadata: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.metadata, Unset):
+            metadata = self.metadata.to_dict()
+
         legend_position: Union[Unset, str] = UNSET
         if not isinstance(self.legend_position, Unset):
             legend_position = self.legend_position.value
 
         show_legend = self.show_legend
+
         group_sort_overrides: Union[Unset, List[str]] = UNSET
         if not isinstance(self.group_sort_overrides, Unset):
             group_sort_overrides = self.group_sort_overrides
@@ -72,13 +81,17 @@ class PieChart:
             group_label_overrides = self.group_label_overrides.to_dict()
 
         show_percentage = self.show_percentage
+
         show_value = self.show_value
+
         value_label: Union[Unset, str] = UNSET
         if not isinstance(self.value_label, Unset):
             value_label = self.value_label.value
 
         is_donut = self.is_donut
+
         metric_id = self.metric_id
+
         group_field_ids: Union[Unset, List[str]] = UNSET
         if not isinstance(self.group_field_ids, Unset):
             group_field_ids = self.group_field_ids
@@ -86,6 +99,8 @@ class PieChart:
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
+        if metadata is not UNSET:
+            field_dict["metadata"] = metadata
         if legend_position is not UNSET:
             field_dict["legendPosition"] = legend_position
         if show_legend is not UNSET:
@@ -118,9 +133,17 @@ class PieChart:
         from ..models.record_string_partial_pie_chart_value_options import (
             RecordStringPartialPieChartValueOptions,
         )
+        from ..models.record_string_series_metadata import RecordStringSeriesMetadata
         from ..models.record_string_string import RecordStringString
 
         d = src_dict.copy()
+        _metadata = d.pop("metadata", UNSET)
+        metadata: Union[Unset, RecordStringSeriesMetadata]
+        if isinstance(_metadata, Unset):
+            metadata = UNSET
+        else:
+            metadata = RecordStringSeriesMetadata.from_dict(_metadata)
+
         _legend_position = d.pop("legendPosition", UNSET)
         legend_position: Union[Unset, PieChartLegendPosition]
         if isinstance(_legend_position, Unset):
@@ -173,6 +196,7 @@ class PieChart:
         group_field_ids = cast(List[str], d.pop("groupFieldIds", UNSET))
 
         pie_chart = cls(
+            metadata=metadata,
             legend_position=legend_position,
             show_legend=show_legend,
             group_sort_overrides=group_sort_overrides,

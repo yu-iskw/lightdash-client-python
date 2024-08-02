@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.compact import Compact
 from ..models.compact_or_alias_type_1 import CompactOrAliasType1
@@ -10,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="BigNumber")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class BigNumber:
     """
     Attributes:
@@ -32,25 +33,28 @@ class BigNumber:
     selected_field: Union[Unset, str] = UNSET
     style: Union[Compact, CompactOrAliasType1, Unset] = UNSET
     label: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         comparison_label = self.comparison_label
+
         flip_colors = self.flip_colors
+
         comparison_format: Union[Unset, str] = UNSET
         if not isinstance(self.comparison_format, Unset):
             comparison_format = self.comparison_format.value
 
         show_comparison = self.show_comparison
+
         show_big_number_label = self.show_big_number_label
+
         selected_field = self.selected_field
+
         style: Union[Unset, str]
         if isinstance(self.style, Unset):
             style = UNSET
-
         elif isinstance(self.style, Compact):
             style = self.style.value
-
         else:
             style = self.style.value
 

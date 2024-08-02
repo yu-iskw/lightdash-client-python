@@ -1,40 +1,54 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.custom_vis_spec import CustomVisSpec
+
 
 T = TypeVar("T", bound="CustomVis")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class CustomVis:
     """
     Attributes:
-        code (Union[Unset, str]):
+        spec (Union[Unset, CustomVisSpec]):
     """
 
-    code: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    spec: Union[Unset, "CustomVisSpec"] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        code = self.code
+        spec: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.spec, Unset):
+            spec = self.spec.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if code is not UNSET:
-            field_dict["code"] = code
+        if spec is not UNSET:
+            field_dict["spec"] = spec
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.custom_vis_spec import CustomVisSpec
+
         d = src_dict.copy()
-        code = d.pop("code", UNSET)
+        _spec = d.pop("spec", UNSET)
+        spec: Union[Unset, CustomVisSpec]
+        if isinstance(_spec, Unset):
+            spec = UNSET
+        else:
+            spec = CustomVisSpec.from_dict(_spec)
 
         custom_vis = cls(
-            code=code,
+            spec=spec,
         )
 
         custom_vis.additional_properties = d

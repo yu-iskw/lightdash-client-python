@@ -1,53 +1,41 @@
-from typing import Any, Dict, Type, TypeVar, Union, cast
+from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.dbt_project_type_dbtcloudide import DbtProjectTypeDBTCLOUDIDE
 
 T = TypeVar("T", bound="DbtCloudIDEProjectConfig")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class DbtCloudIDEProjectConfig:
     """
     Attributes:
         type (DbtProjectTypeDBTCLOUDIDE):
         api_key (str):
-        account_id (Union[float, str]):
-        environment_id (Union[float, str]):
-        project_id (Union[float, str]):
+        environment_id (str):
     """
 
     type: DbtProjectTypeDBTCLOUDIDE
     api_key: str
-    account_id: Union[float, str]
-    environment_id: Union[float, str]
-    project_id: Union[float, str]
+    environment_id: str
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
         api_key = self.api_key
-        account_id: Union[float, str]
-
-        account_id = self.account_id
-
-        environment_id: Union[float, str]
 
         environment_id = self.environment_id
 
-        project_id: Union[float, str]
-
-        project_id = self.project_id
-
         field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "type": type,
                 "api_key": api_key,
-                "account_id": account_id,
                 "environment_id": environment_id,
-                "project_id": project_id,
             }
         )
 
@@ -60,27 +48,29 @@ class DbtCloudIDEProjectConfig:
 
         api_key = d.pop("api_key")
 
-        def _parse_account_id(data: object) -> Union[float, str]:
-            return cast(Union[float, str], data)
-
-        account_id = _parse_account_id(d.pop("account_id"))
-
-        def _parse_environment_id(data: object) -> Union[float, str]:
-            return cast(Union[float, str], data)
-
-        environment_id = _parse_environment_id(d.pop("environment_id"))
-
-        def _parse_project_id(data: object) -> Union[float, str]:
-            return cast(Union[float, str], data)
-
-        project_id = _parse_project_id(d.pop("project_id"))
+        environment_id = d.pop("environment_id")
 
         dbt_cloud_ide_project_config = cls(
             type=type,
             api_key=api_key,
-            account_id=account_id,
             environment_id=environment_id,
-            project_id=project_id,
         )
 
+        dbt_cloud_ide_project_config.additional_properties = d
         return dbt_cloud_ide_project_config
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

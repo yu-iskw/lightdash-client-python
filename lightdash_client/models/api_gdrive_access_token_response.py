@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_gdrive_access_token_response_status import (
     ApiGdriveAccessTokenResponseStatus,
@@ -9,7 +10,7 @@ from ..models.api_gdrive_access_token_response_status import (
 T = TypeVar("T", bound="ApiGdriveAccessTokenResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiGdriveAccessTokenResponse:
     """
     Attributes:
@@ -19,10 +20,11 @@ class ApiGdriveAccessTokenResponse:
 
     results: str
     status: ApiGdriveAccessTokenResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results
+
         status = self.status.value
 
         field_dict: Dict[str, Any] = {}

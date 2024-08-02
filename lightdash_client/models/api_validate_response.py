@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_validate_response_status import ApiValidateResponseStatus
 
@@ -15,7 +16,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ApiValidateResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiValidateResponse:
     """
     Attributes:
@@ -28,7 +29,7 @@ class ApiValidateResponse:
         Union["ValidationErrorChartResponse", "ValidationErrorDashboardResponse", "ValidationErrorTableResponse"]
     ]
     status: ApiValidateResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.validation_error_chart_response import (
@@ -41,13 +42,10 @@ class ApiValidateResponse:
         results = []
         for results_item_data in self.results:
             results_item: Dict[str, Any]
-
             if isinstance(results_item_data, ValidationErrorChartResponse):
                 results_item = results_item_data.to_dict()
-
             elif isinstance(results_item_data, ValidationErrorDashboardResponse):
                 results_item = results_item_data.to_dict()
-
             else:
                 results_item = results_item_data.to_dict()
 

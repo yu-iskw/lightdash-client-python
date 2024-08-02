@@ -1,6 +1,7 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.conditional_formatting_config_with_color_range_color import (
@@ -15,26 +16,32 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ConditionalFormattingConfigWithColorRange")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ConditionalFormattingConfigWithColorRange:
     """
     Attributes:
         rule (ConditionalFormattingWithRange):
         color (ConditionalFormattingConfigWithColorRangeColor):
-        target (Optional[FieldTarget]):
+        target (Union['FieldTarget', None]):
     """
 
     rule: "ConditionalFormattingWithRange"
     color: "ConditionalFormattingConfigWithColorRangeColor"
-    target: Optional["FieldTarget"]
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    target: Union["FieldTarget", None]
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.field_target import FieldTarget
+
         rule = self.rule.to_dict()
 
         color = self.color.to_dict()
 
-        target = self.target.to_dict() if self.target else None
+        target: Union[Dict[str, Any], None]
+        if isinstance(self.target, FieldTarget):
+            target = self.target.to_dict()
+        else:
+            target = self.target
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -63,12 +70,20 @@ class ConditionalFormattingConfigWithColorRange:
 
         color = ConditionalFormattingConfigWithColorRangeColor.from_dict(d.pop("color"))
 
-        _target = d.pop("target")
-        target: Optional[FieldTarget]
-        if _target is None:
-            target = None
-        else:
-            target = FieldTarget.from_dict(_target)
+        def _parse_target(data: object) -> Union["FieldTarget", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                target_type_1 = FieldTarget.from_dict(data)
+
+                return target_type_1
+            except:  # noqa: E722
+                pass
+            return cast(Union["FieldTarget", None], data)
+
+        target = _parse_target(d.pop("target"))
 
         conditional_formatting_config_with_color_range = cls(
             rule=rule,

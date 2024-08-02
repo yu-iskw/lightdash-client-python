@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="PartialCompleteCartesianChartLayout")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PartialCompleteCartesianChartLayout:
     """Make all properties in T optional
 
@@ -24,16 +25,19 @@ class PartialCompleteCartesianChartLayout:
     flip_axes: Union[Unset, bool] = UNSET
     show_grid_x: Union[Unset, bool] = UNSET
     show_grid_y: Union[Unset, bool] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         x_field = self.x_field
+
         y_field: Union[Unset, List[str]] = UNSET
         if not isinstance(self.y_field, Unset):
             y_field = self.y_field
 
         flip_axes = self.flip_axes
+
         show_grid_x = self.show_grid_x
+
         show_grid_y = self.show_grid_y
 
         field_dict: Dict[str, Any] = {}

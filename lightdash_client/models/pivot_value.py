@@ -1,11 +1,12 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 T = TypeVar("T", bound="PivotValue")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PivotValue:
     """
     Attributes:
@@ -15,10 +16,11 @@ class PivotValue:
 
     value: Any
     field: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         value = self.value
+
         field = self.field
 
         field_dict: Dict[str, Any] = {}

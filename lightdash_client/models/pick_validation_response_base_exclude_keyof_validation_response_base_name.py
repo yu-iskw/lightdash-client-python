@@ -1,7 +1,8 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..models.validation_error_type import ValidationErrorType
@@ -11,7 +12,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="PickValidationResponseBaseExcludeKeyofValidationResponseBaseName")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickValidationResponseBaseExcludeKeyofValidationResponseBaseName:
     """From T, pick a set of properties whose keys are in the union K
 
@@ -32,17 +33,21 @@ class PickValidationResponseBaseExcludeKeyofValidationResponseBaseName:
     error_type: ValidationErrorType
     space_uuid: Union[Unset, str] = UNSET
     source: Union[Unset, ValidationSourceType] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         project_uuid = self.project_uuid
+
         validation_id = self.validation_id
+
         created_at = self.created_at.isoformat()
 
         error = self.error
+
         error_type = self.error_type.value
 
         space_uuid = self.space_uuid
+
         source: Union[Unset, str] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.value

@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.organization_member_role_editor import OrganizationMemberRoleEDITOR
 from ..models.organization_member_role_interactiveviewer import (
@@ -18,7 +19,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="AllowedEmailDomains")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class AllowedEmailDomains:
     """
     Attributes:
@@ -38,26 +39,21 @@ class AllowedEmailDomains:
     ]
     email_domains: List[str]
     organization_uuid: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         projects = []
         for projects_item_data in self.projects:
             projects_item = projects_item_data.to_dict()
-
             projects.append(projects_item)
 
         role: str
-
         if isinstance(self.role, OrganizationMemberRoleEDITOR):
             role = self.role.value
-
         elif isinstance(self.role, OrganizationMemberRoleINTERACTIVEVIEWER):
             role = self.role.value
-
         elif isinstance(self.role, OrganizationMemberRoleVIEWER):
             role = self.role.value
-
         else:
             role = self.role.value
 

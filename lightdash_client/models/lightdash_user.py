@@ -1,7 +1,8 @@
 import datetime
-from typing import Any, Dict, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..models.organization_member_role import OrganizationMemberRole
@@ -10,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="LightdashUser")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class LightdashUser:
     """
     Attributes:
@@ -40,18 +41,29 @@ class LightdashUser:
     organization_name: Union[Unset, str] = UNSET
     organization_created_at: Union[Unset, datetime.datetime] = UNSET
     role: Union[Unset, OrganizationMemberRole] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         user_uuid = self.user_uuid
+
         first_name = self.first_name
+
         last_name = self.last_name
+
         is_tracking_anonymized = self.is_tracking_anonymized
+
         is_marketing_opted_in = self.is_marketing_opted_in
+
         is_setup_complete = self.is_setup_complete
+
         is_active = self.is_active
+
         email = self.email
+
         organization_uuid = self.organization_uuid
+
         organization_name = self.organization_name
+
         organization_created_at: Union[Unset, str] = UNSET
         if not isinstance(self.organization_created_at, Unset):
             organization_created_at = self.organization_created_at.isoformat()
@@ -61,6 +73,7 @@ class LightdashUser:
             role = self.role.value
 
         field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "userUuid": user_uuid,
@@ -137,4 +150,21 @@ class LightdashUser:
             role=role,
         )
 
+        lightdash_user.additional_properties = d
         return lightdash_user
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

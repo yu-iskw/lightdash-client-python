@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.conditional_formatting_config_with_color_range_color_steps import (
     ConditionalFormattingConfigWithColorRangeColorSteps,
@@ -9,7 +10,7 @@ from ..models.conditional_formatting_config_with_color_range_color_steps import 
 T = TypeVar("T", bound="ConditionalFormattingConfigWithColorRangeColor")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ConditionalFormattingConfigWithColorRangeColor:
     """
     Attributes:
@@ -21,12 +22,13 @@ class ConditionalFormattingConfigWithColorRangeColor:
     steps: ConditionalFormattingConfigWithColorRangeColorSteps
     end: str
     start: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         steps = self.steps.value
 
         end = self.end
+
         start = self.start
 
         field_dict: Dict[str, Any] = {}

@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.metric_query_request import MetricQueryRequest
@@ -9,7 +10,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="CalculateTotalFromQuery")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class CalculateTotalFromQuery:
     """
     Attributes:
@@ -19,10 +20,11 @@ class CalculateTotalFromQuery:
 
     explore: str
     metric_query: "MetricQueryRequest"
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         explore = self.explore
+
         metric_query = self.metric_query.to_dict()
 
         field_dict: Dict[str, Any] = {}

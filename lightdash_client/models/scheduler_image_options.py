@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="SchedulerImageOptions")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class SchedulerImageOptions:
     """
     Attributes:
@@ -15,7 +16,7 @@ class SchedulerImageOptions:
     """
 
     with_pdf: Union[Unset, bool] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         with_pdf = self.with_pdf

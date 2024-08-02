@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ApiErrorPayloadError")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiErrorPayloadError:
     """
     Attributes:
@@ -21,12 +22,15 @@ class ApiErrorPayloadError:
     status_code: float
     data: Union[Unset, Any] = UNSET
     message: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         status_code = self.status_code
+
         data = self.data
+
         message = self.message
 
         field_dict: Dict[str, Any] = {}

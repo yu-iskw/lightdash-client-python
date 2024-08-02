@@ -1,16 +1,23 @@
-""" Contains all the data models used in inputs/outputs """
+"""Contains all the data models used in inputs/outputs"""
 
 from .activate_user import ActivateUser
 from .activate_user_with_invite_code import ActivateUserWithInviteCode
-from .add_space_share import AddSpaceShare
+from .add_space_group_access import AddSpaceGroupAccess
+from .add_space_user_access import AddSpaceUserAccess
 from .additional_metric import AdditionalMetric
 from .allowed_email_domains import AllowedEmailDomains
 from .allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
 from .and_filter_group import AndFilterGroup
 from .api_calculate_total_response import ApiCalculateTotalResponse
 from .api_calculate_total_response_status import ApiCalculateTotalResponseStatus
+from .api_chart_list_response import ApiChartListResponse
+from .api_chart_list_response_status import ApiChartListResponseStatus
 from .api_chart_summary_list_response import ApiChartSummaryListResponse
 from .api_chart_summary_list_response_status import ApiChartSummaryListResponseStatus
+from .api_create_comment import ApiCreateComment
+from .api_create_comment_status import ApiCreateCommentStatus
+from .api_create_project_group_access import ApiCreateProjectGroupAccess
+from .api_create_project_group_access_status import ApiCreateProjectGroupAccessStatus
 from .api_create_user_attribute_response import ApiCreateUserAttributeResponse
 from .api_create_user_attribute_response_status import (
     ApiCreateUserAttributeResponseStatus,
@@ -18,6 +25,10 @@ from .api_create_user_attribute_response_status import (
 from .api_csv_url_response import ApiCsvUrlResponse
 from .api_csv_url_response_results import ApiCsvUrlResponseResults
 from .api_csv_url_response_status import ApiCsvUrlResponseStatus
+from .api_dbt_cloud_integration_settings import ApiDbtCloudIntegrationSettings
+from .api_dbt_cloud_integration_settings_status import (
+    ApiDbtCloudIntegrationSettingsStatus,
+)
 from .api_dbt_cloud_settings_delete_success import ApiDbtCloudSettingsDeleteSuccess
 from .api_dbt_cloud_settings_delete_success_status import (
     ApiDbtCloudSettingsDeleteSuccessStatus,
@@ -32,9 +43,19 @@ from .api_get_authenticated_user_response import ApiGetAuthenticatedUserResponse
 from .api_get_authenticated_user_response_status import (
     ApiGetAuthenticatedUserResponseStatus,
 )
+from .api_get_chart_history_response import ApiGetChartHistoryResponse
 from .api_get_chart_history_response_status import ApiGetChartHistoryResponseStatus
 from .api_get_chart_version_response import ApiGetChartVersionResponse
 from .api_get_chart_version_response_status import ApiGetChartVersionResponseStatus
+from .api_get_comments import ApiGetComments
+from .api_get_comments_results import ApiGetCommentsResults
+from .api_get_comments_status import ApiGetCommentsStatus
+from .api_get_login_options_response import ApiGetLoginOptionsResponse
+from .api_get_login_options_response_status import ApiGetLoginOptionsResponseStatus
+from .api_get_notifications import ApiGetNotifications
+from .api_get_notifications_status import ApiGetNotificationsStatus
+from .api_get_project_group_accesses import ApiGetProjectGroupAccesses
+from .api_get_project_group_accesses_status import ApiGetProjectGroupAccessesStatus
 from .api_get_project_member_response import ApiGetProjectMemberResponse
 from .api_get_project_member_response_status import ApiGetProjectMemberResponseStatus
 from .api_group_list_response import ApiGroupListResponse
@@ -49,6 +70,10 @@ from .api_job_scheduled_response_status import ApiJobScheduledResponseStatus
 from .api_job_status_response import ApiJobStatusResponse
 from .api_job_status_response_results import ApiJobStatusResponseResults
 from .api_job_status_response_status import ApiJobStatusResponseStatus
+from .api_notification_resource_type import ApiNotificationResourceType
+from .api_notification_resource_type_dashboard_comments import (
+    ApiNotificationResourceTypeDashboardComments,
+)
 from .api_organization import ApiOrganization
 from .api_organization_allowed_email_domains import ApiOrganizationAllowedEmailDomains
 from .api_organization_allowed_email_domains_status import (
@@ -65,9 +90,18 @@ from .api_pinned_items import ApiPinnedItems
 from .api_pinned_items_status import ApiPinnedItemsStatus
 from .api_project_access_list_response import ApiProjectAccessListResponse
 from .api_project_access_list_response_status import ApiProjectAccessListResponseStatus
+from .api_project_response import ApiProjectResponse
 from .api_project_response_status import ApiProjectResponseStatus
+from .api_promote_chart_response import ApiPromoteChartResponse
+from .api_promote_chart_response_status import ApiPromoteChartResponseStatus
+from .api_promote_dashboard_response import ApiPromoteDashboardResponse
+from .api_promote_dashboard_response_status import ApiPromoteDashboardResponseStatus
+from .api_promotion_changes_response import ApiPromotionChangesResponse
+from .api_promotion_changes_response_status import ApiPromotionChangesResponseStatus
 from .api_register_user_response import ApiRegisterUserResponse
 from .api_register_user_response_status import ApiRegisterUserResponseStatus
+from .api_resolve_comment import ApiResolveComment
+from .api_resolve_comment_status import ApiResolveCommentStatus
 from .api_run_query_response import ApiRunQueryResponse
 from .api_run_query_response_results import ApiRunQueryResponseResults
 from .api_run_query_response_status import ApiRunQueryResponseStatus
@@ -81,6 +115,11 @@ from .api_share_response import ApiShareResponse
 from .api_share_response_status import ApiShareResponseStatus
 from .api_slack_channels_response import ApiSlackChannelsResponse
 from .api_slack_channels_response_status import ApiSlackChannelsResponseStatus
+from .api_slack_custom_settings_response import ApiSlackCustomSettingsResponse
+from .api_slack_custom_settings_response_status import (
+    ApiSlackCustomSettingsResponseStatus,
+)
+from .api_space_response import ApiSpaceResponse
 from .api_space_response_status import ApiSpaceResponseStatus
 from .api_space_summary_list_response import ApiSpaceSummaryListResponse
 from .api_space_summary_list_response_status import ApiSpaceSummaryListResponseStatus
@@ -90,7 +129,10 @@ from .api_ssh_key_pair_response_status import ApiSshKeyPairResponseStatus
 from .api_success_empty import ApiSuccessEmpty
 from .api_success_empty_status import ApiSuccessEmptyStatus
 from .api_test_scheduler_response import ApiTestSchedulerResponse
+from .api_test_scheduler_response_results import ApiTestSchedulerResponseResults
 from .api_test_scheduler_response_status import ApiTestSchedulerResponseStatus
+from .api_update_project_group_access import ApiUpdateProjectGroupAccess
+from .api_update_project_group_access_status import ApiUpdateProjectGroupAccessStatus
 from .api_user_allowed_organizations_response import ApiUserAllowedOrganizationsResponse
 from .api_user_allowed_organizations_response_status import (
     ApiUserAllowedOrganizationsResponseStatus,
@@ -108,22 +150,38 @@ from .bin_range import BinRange
 from .bin_type import BinType
 from .cache_metadata import CacheMetadata
 from .calculate_total_from_query import CalculateTotalFromQuery
-from .calculate_total_from_saved_chart_json_body import (
-    CalculateTotalFromSavedChartJsonBody,
-)
+from .calculate_total_from_saved_chart_body import CalculateTotalFromSavedChartBody
+from .cartesian_chart import CartesianChart
+from .cartesian_chart_config import CartesianChartConfig
 from .cartesian_series_type import CartesianSeriesType
+from .catalog_analytics import CatalogAnalytics
+from .catalog_field import CatalogField
+from .catalog_filter import CatalogFilter
+from .catalog_metadata import CatalogMetadata
+from .catalog_table import CatalogTable
+from .catalog_type import CatalogType
+from .catalog_type_field import CatalogTypeField
+from .catalog_type_table import CatalogTypeTable
+from .chart_history import ChartHistory
 from .chart_kind import ChartKind
 from .chart_summary import ChartSummary
 from .chart_type import ChartType
 from .chart_type_bignumber import ChartTypeBIGNUMBER
 from .chart_type_cartesian import ChartTypeCARTESIAN
 from .chart_type_custom import ChartTypeCUSTOM
+from .chart_type_funnel import ChartTypeFUNNEL
 from .chart_type_pie import ChartTypePIE
 from .chart_type_table import ChartTypeTABLE
 from .chart_version import ChartVersion
+from .comment import Comment
+from .comment_user import CommentUser
 from .compact import Compact
 from .compact_or_alias_type_1 import CompactOrAliasType1
 from .comparison_format_types import ComparisonFormatTypes
+from .compile_query_response_200 import CompileQueryResponse200
+from .compile_query_response_200_status import CompileQueryResponse200Status
+from .compiled_explore_join import CompiledExploreJoin
+from .compiled_table import CompiledTable
 from .conditional_formatting_config_with_color_range import (
     ConditionalFormattingConfigWithColorRange,
 )
@@ -144,15 +202,63 @@ from .conditional_operator import ConditionalOperator
 from .conditional_rule_conditional_operator_number import (
     ConditionalRuleConditionalOperatorNumber,
 )
+from .create_group import CreateGroup
 from .create_project_member import CreateProjectMember
+from .create_pull_request_for_chart_fields_body import (
+    CreatePullRequestForChartFieldsBody,
+)
+from .create_pull_request_for_chart_fields_body_quote_char import (
+    CreatePullRequestForChartFieldsBodyQuoteChar,
+)
+from .create_pull_request_for_chart_fields_response_200 import (
+    CreatePullRequestForChartFieldsResponse200,
+)
+from .create_pull_request_for_chart_fields_response_200_status import (
+    CreatePullRequestForChartFieldsResponse200Status,
+)
 from .create_space import CreateSpace
 from .create_user_args import CreateUserArgs
-from .custom_dimension import CustomDimension
+from .create_user_attribute import CreateUserAttribute
+from .create_warehouse_credentials_response_200 import (
+    CreateWarehouseCredentialsResponse200,
+)
+from .create_warehouse_credentials_response_200_status import (
+    CreateWarehouseCredentialsResponse200Status,
+)
+from .custom_bin_dimension import CustomBinDimension
+from .custom_dimension_type_bin import CustomDimensionTypeBIN
+from .custom_dimension_type_sql import CustomDimensionTypeSQL
+from .custom_format import CustomFormat
+from .custom_format_type import CustomFormatType
 from .custom_label import CustomLabel
+from .custom_sql_dimension import CustomSqlDimension
 from .custom_vis import CustomVis
 from .custom_vis_config import CustomVisConfig
+from .custom_vis_spec import CustomVisSpec
+from .dashboard_basic_details import DashboardBasicDetails
+from .dashboard_chart_tile import DashboardChartTile
+from .dashboard_chart_tile_properties import DashboardChartTileProperties
+from .dashboard_chart_tile_properties_properties import (
+    DashboardChartTilePropertiesProperties,
+)
 from .dashboard_field_target import DashboardFieldTarget
 from .dashboard_filter_rule import DashboardFilterRule
+from .dashboard_filters import DashboardFilters
+from .dashboard_loom_tile import DashboardLoomTile
+from .dashboard_loom_tile_properties import DashboardLoomTileProperties
+from .dashboard_loom_tile_properties_properties import (
+    DashboardLoomTilePropertiesProperties,
+)
+from .dashboard_markdown_tile import DashboardMarkdownTile
+from .dashboard_markdown_tile_properties import DashboardMarkdownTileProperties
+from .dashboard_markdown_tile_properties_properties import (
+    DashboardMarkdownTilePropertiesProperties,
+)
+from .dashboard_tab import DashboardTab
+from .dashboard_tile_types import DashboardTileTypes
+from .dashboard_tile_types_loom import DashboardTileTypesLOOM
+from .dashboard_tile_types_markdown import DashboardTileTypesMARKDOWN
+from .dashboard_tile_types_savedchart import DashboardTileTypesSAVEDCHART
 from .date_granularity import DateGranularity
 from .dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
 from .dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
@@ -160,9 +266,9 @@ from .dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
 from .dbt_github_project_config import DbtGithubProjectConfig
 from .dbt_gitlab_project_config import DbtGitlabProjectConfig
 from .dbt_local_project_config import DbtLocalProjectConfig
+from .dbt_model_join_type import DbtModelJoinType
 from .dbt_none_project_config import DbtNoneProjectConfig
 from .dbt_project_environment_variable import DbtProjectEnvironmentVariable
-from .dbt_project_type import DbtProjectType
 from .dbt_project_type_azuredevops import DbtProjectTypeAZUREDEVOPS
 from .dbt_project_type_bitbucket import DbtProjectTypeBITBUCKET
 from .dbt_project_type_dbt import DbtProjectTypeDBT
@@ -172,6 +278,18 @@ from .dbt_project_type_gitlab import DbtProjectTypeGITLAB
 from .dbt_project_type_none import DbtProjectTypeNONE
 from .delete_scheduler_response_201 import DeleteSchedulerResponse201
 from .delete_scheduler_response_201_status import DeleteSchedulerResponse201Status
+from .dimension_type import DimensionType
+from .download_csv_from_explore_body import DownloadCsvFromExploreBody
+from .download_csv_from_explore_body_custom_labels import (
+    DownloadCsvFromExploreBodyCustomLabels,
+)
+from .download_csv_from_explore_response_200 import DownloadCsvFromExploreResponse200
+from .download_csv_from_explore_response_200_results import (
+    DownloadCsvFromExploreResponse200Results,
+)
+from .download_csv_from_explore_response_200_status import (
+    DownloadCsvFromExploreResponse200Status,
+)
 from .echarts_grid import EchartsGrid
 from .echarts_legend import EchartsLegend
 from .echarts_legend_align import EchartsLegendAlign
@@ -181,7 +299,10 @@ from .echarts_legend_type import EchartsLegendType
 from .email_one_time_password import EmailOneTimePassword
 from .email_one_time_password_expiring import EmailOneTimePasswordExpiring
 from .email_status import EmailStatus
+from .explore import Explore
+from .explore_tables import ExploreTables
 from .field_target import FieldTarget
+from .field_type import FieldType
 from .filter_group_response_type_0 import FilterGroupResponseType0
 from .filter_group_response_type_1 import FilterGroupResponseType1
 from .filter_rule import FilterRule
@@ -189,16 +310,62 @@ from .filter_rule_conditional_operator_tv_any import FilterRuleConditionalOperat
 from .filters import Filters
 from .filters_response import FiltersResponse
 from .format_ import Format
-from .get_dbt_semantic_layer_data_json_body import GetDbtSemanticLayerDataJsonBody
-from .get_dbt_semantic_layer_data_json_body_operation_name import (
-    GetDbtSemanticLayerDataJsonBodyOperationName,
+from .funnel_chart import FunnelChart
+from .funnel_chart_config import FunnelChartConfig
+from .funnel_chart_data_input import FunnelChartDataInput
+from .get_analytics_field_response_200 import GetAnalyticsFieldResponse200
+from .get_analytics_field_response_200_status import GetAnalyticsFieldResponse200Status
+from .get_analytics_response_200 import GetAnalyticsResponse200
+from .get_analytics_response_200_status import GetAnalyticsResponse200Status
+from .get_catalog_response_200 import GetCatalogResponse200
+from .get_catalog_response_200_status import GetCatalogResponse200Status
+from .get_configuration_response_200 import GetConfigurationResponse200
+from .get_configuration_response_200_status import GetConfigurationResponse200Status
+from .get_custom_metrics_response_200 import GetCustomMetricsResponse200
+from .get_custom_metrics_response_200_results_item import (
+    GetCustomMetricsResponse200ResultsItem,
 )
+from .get_custom_metrics_response_200_status import GetCustomMetricsResponse200Status
+from .get_dbt_semantic_layer_data_body import GetDbtSemanticLayerDataBody
+from .get_dbt_semantic_layer_data_body_operation_name import (
+    GetDbtSemanticLayerDataBodyOperationName,
+)
+from .get_explore_response_200 import GetExploreResponse200
+from .get_explore_response_200_status import GetExploreResponse200Status
+from .get_github_list_repositories_response_200 import (
+    GetGithubListRepositoriesResponse200,
+)
+from .get_github_list_repositories_response_200_status import (
+    GetGithubListRepositoriesResponse200Status,
+)
+from .get_metadata_response_200 import GetMetadataResponse200
+from .get_metadata_response_200_status import GetMetadataResponse200Status
+from .get_user_warehouse_credentials_preference_response_200 import (
+    GetUserWarehouseCredentialsPreferenceResponse200,
+)
+from .get_user_warehouse_credentials_preference_response_200_status import (
+    GetUserWarehouseCredentialsPreferenceResponse200Status,
+)
+from .get_warehouse_credentials_response_200 import GetWarehouseCredentialsResponse200
+from .get_warehouse_credentials_response_200_status import (
+    GetWarehouseCredentialsResponse200Status,
+)
+from .git_integration_configuration import GitIntegrationConfiguration
+from .git_repo import GitRepo
 from .group import Group
+from .group_attribute_value import GroupAttributeValue
 from .group_member import GroupMember
+from .group_with_members import GroupWithMembers
+from .inline_error import InlineError
+from .inline_error_type import InlineErrorType
 from .lightdash_user import LightdashUser
+from .local_issuer_types import LocalIssuerTypes
+from .login_options import LoginOptions
 from .mark_line import MarkLine
 from .mark_line_data import MarkLineData
+from .mark_line_data_dynamic_value import MarkLineDataDynamicValue
 from .mark_line_data_label import MarkLineDataLabel
+from .mark_line_data_label_position import MarkLineDataLabelPosition
 from .mark_line_data_line_style import MarkLineDataLineStyle
 from .mark_line_label import MarkLineLabel
 from .mark_line_line_style import MarkLineLineStyle
@@ -212,8 +379,16 @@ from .metric_query_request_metadata import MetricQueryRequestMetadata
 from .metric_query_response import MetricQueryResponse
 from .metric_query_response_metadata import MetricQueryResponseMetadata
 from .metric_type import MetricType
+from .notification_base import NotificationBase
+from .notification_dashboard_comment import NotificationDashboardComment
+from .notification_dashboard_tile_comment_metadata import (
+    NotificationDashboardTileCommentMetadata,
+)
+from .notification_frequency import NotificationFrequency
 from .number_separator import NumberSeparator
+from .open_id_identity_issuer_type import OpenIdIdentityIssuerType
 from .or_filter_group import OrFilterGroup
+from .order_fields_by_strategy import OrderFieldsByStrategy
 from .organization import Organization
 from .organization_member_profile import OrganizationMemberProfile
 from .organization_member_profile_update import OrganizationMemberProfileUpdate
@@ -230,14 +405,21 @@ from .partial_complete_e_charts_config import PartialCompleteEChartsConfig
 from .partial_omit_organization_organization_uuid_or_needs_project import (
     PartialOmitOrganizationOrganizationUuidOrNeedsProject,
 )
+from .partial_summary_extra_fields import PartialSummaryExtraFields
 from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid import (
     PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid,
 )
 from .pick_allowed_email_domains_exclude_keyof_allowed_email_domains_organization_uuid_projects_item import (
     PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem,
 )
+from .pick_chart_summary_uuid_or_name_or_space_uuid_or_space_name_or_dashboard_name_or_dashboard_uuid_or_chart_kind import (
+    PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboardUuidOrChartKind,
+)
 from .pick_chart_version_chart_uuid_or_version_uuid_or_created_at_or_created_by import (
     PickChartVersionChartUuidOrVersionUuidOrCreatedAtOrCreatedBy,
+)
+from .pick_comment_text_or_reply_to_or_mentions_or_text_html import (
+    PickCommentTextOrReplyToOrMentionsOrTextHtml,
 )
 from .pick_compiled_dimension_label_or_name import PickCompiledDimensionLabelOrName
 from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
@@ -246,51 +428,112 @@ from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials
 from .pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_priority import (
     PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority,
 )
+from .pick_create_bigquery_credentials_type import PickCreateBigqueryCredentialsType
+from .pick_create_bigquery_credentials_type_or_keyfile_contents import (
+    PickCreateBigqueryCredentialsTypeOrKeyfileContents,
+)
 from .pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names import (
     PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames,
 )
+from .pick_create_databricks_credentials_type import PickCreateDatabricksCredentialsType
+from .pick_create_databricks_credentials_type_or_personal_access_token import (
+    PickCreateDatabricksCredentialsTypeOrPersonalAccessToken,
+)
+from .pick_create_db_project_group_access_role import PickCreateDBProjectGroupAccessRole
 from .pick_create_dbt_cloud_integration_metrics_job_id import (
     PickCreateDbtCloudIntegrationMetricsJobId,
 )
-from .pick_create_group_name import PickCreateGroupName
 from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names import (
     PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames,
+)
+from .pick_create_postgres_credentials_type_or_user_or_password import (
+    PickCreatePostgresCredentialsTypeOrUserOrPassword,
 )
 from .pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names import (
     PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames,
 )
+from .pick_create_redshift_credentials_or_create_postgres_credentials_or_create_snowflake_credentials_or_create_trino_credentials_type_or_user import (
+    PickCreateRedshiftCredentialsOrCreatePostgresCredentialsOrCreateSnowflakeCredentialsOrCreateTrinoCredentialsTypeOrUser,
+)
+from .pick_create_redshift_credentials_type_or_user_or_password import (
+    PickCreateRedshiftCredentialsTypeOrUserOrPassword,
+)
 from .pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names import (
     PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames,
+)
+from .pick_create_snowflake_credentials_type_or_user_or_password import (
+    PickCreateSnowflakeCredentialsTypeOrUserOrPassword,
 )
 from .pick_create_trino_credentials_exclude_keyof_create_trino_credentials_sensitive_credentials_field_names import (
     PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames,
 )
+from .pick_create_trino_credentials_type_or_user_or_password import (
+    PickCreateTrinoCredentialsTypeOrUserOrPassword,
+)
+from .pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors import (
+    PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrors,
+)
+from .pick_dashboard_exclude_keyof_dashboard_is_private_or_access import (
+    PickDashboardExcludeKeyofDashboardIsPrivateOrAccess,
+)
 from .pick_dashboard_uuid_or_name_or_description_or_updated_at_or_project_uuid_or_updated_by_user_or_organization_uuid_or_space_uuid_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order import (
     PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder,
 )
+from .pick_db_project_group_access_role import PickDBProjectGroupAccessRole
+from .pick_dimension_required_attributes import PickDimensionRequiredAttributes
+from .pick_explore_error_summary_explore_error_fields import (
+    PickExploreErrorSummaryExploreErrorFields,
+)
+from .pick_explore_join_table_or_sql_on_or_type_or_hidden_or_always import (
+    PickExploreJoinTableOrSqlOnOrTypeOrHiddenOrAlways,
+)
+from .pick_explore_summary_explore_fields import PickExploreSummaryExploreFields
+from .pick_field_name_or_label_or_field_type_or_table_label_or_description import (
+    PickFieldNameOrLabelOrFieldTypeOrTableLabelOrDescription,
+)
+from .pick_group_member_user_uuid import PickGroupMemberUserUuid
 from .pick_group_name import PickGroupName
 from .pick_lightdash_user_user_uuid_or_first_name_or_last_name import (
     PickLightdashUserUserUuidOrFirstNameOrLastName,
 )
+from .pick_notification_viewed import PickNotificationViewed
 from .pick_organization_name import PickOrganizationName
 from .pick_resource_view_item_at_data_uuid_or_pinned_list_order import (
     PickResourceViewItemAtDataUuidOrPinnedListOrder,
 )
+from .pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access import (
+    PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccess,
+)
+from .pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access_pivot_config import (
+    PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessPivotConfig,
+)
+from .pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access_table_config import (
+    PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessTableConfig,
+)
+from .pick_saved_chart_updated_at_or_updated_by_user_or_pinned_list_order import (
+    PickSavedChartUpdatedAtOrUpdatedByUserOrPinnedListOrder,
+)
 from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name import (
     PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName,
 )
-from .pick_saved_chart_uuid_or_name_or_updated_at_or_updated_by_user_or_description_or_space_uuid_or_pinned_list_uuid_or_pinned_list_order import (
-    PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder,
-)
 from .pick_share_url_path_or_params import PickShareUrlPathOrParams
-from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order import (
-    PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrder,
+from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_slug import (
+    PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrSlug,
 )
 from .pick_space_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_organization_uuid import (
     PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid,
 )
-from .pick_space_share_user_uuid import PickSpaceShareUserUuid
+from .pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors import (
+    PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors,
+)
+from .pick_space_share_user_uuid_or_role import PickSpaceShareUserUuidOrRole
+from .pick_space_summary_exclude_keyof_space_summary_user_access import (
+    PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess,
+)
 from .pick_ssh_key_pair_public_key import PickSshKeyPairPublicKey
+from .pick_table_base_name_or_label_or_group_label_or_description_or_required_attributes import (
+    PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes,
+)
 from .pick_user_attribute_name_or_description_or_attribute_default import (
     PickUserAttributeNameOrDescriptionOrAttributeDefault,
 )
@@ -309,32 +552,53 @@ from .pie_chart_legend_position import PieChartLegendPosition
 from .pie_chart_value_label import PieChartValueLabel
 from .pivot_reference import PivotReference
 from .pivot_value import PivotValue
-from .post_chart_results_json_body import PostChartResultsJsonBody
+from .post_chart_results_body import PostChartResultsBody
+from .project import Project
+from .project_group_access import ProjectGroupAccess
 from .project_member_profile import ProjectMemberProfile
 from .project_member_role import ProjectMemberRole
 from .project_member_role_editor import ProjectMemberRoleEDITOR
 from .project_member_role_interactiveviewer import ProjectMemberRoleINTERACTIVEVIEWER
 from .project_member_role_viewer import ProjectMemberRoleVIEWER
 from .project_type import ProjectType
+from .promoted_chart import PromotedChart
+from .promoted_dashboard import PromotedDashboard
+from .promotion_action import PromotionAction
+from .promotion_changes import PromotionChanges
+from .promotion_changes_charts_item import PromotionChangesChartsItem
+from .promotion_changes_dashboards_item import PromotionChangesDashboardsItem
+from .promotion_changes_spaces_item import PromotionChangesSpacesItem
+from .pull_request_created import PullRequestCreated
 from .record_string_any import RecordStringAny
 from .record_string_column_properties import RecordStringColumnProperties
+from .record_string_compiled_dimension import RecordStringCompiledDimension
+from .record_string_compiled_metric import RecordStringCompiledMetric
 from .record_string_dashboard_tile_target import RecordStringDashboardTileTarget
+from .record_string_group_type import RecordStringGroupType
 from .record_string_item_or_additional_metric import RecordStringItemOrAdditionalMetric
+from .record_string_lineage_node_dependency_array import (
+    RecordStringLineageNodeDependencyArray,
+)
 from .record_string_number import RecordStringNumber
 from .record_string_partial_pie_chart_value_options import (
     RecordStringPartialPieChartValueOptions,
 )
+from .record_string_series_metadata import RecordStringSeriesMetadata
 from .record_string_string import RecordStringString
+from .record_string_string_or_string_array import RecordStringStringOrStringArray
 from .record_string_type_dimension_type import RecordStringTypeDimensionType
 from .record_string_unknown import RecordStringUnknown
+from .required_create_dashboard_tile_base import RequiredCreateDashboardTileBase
 from .resource_item_category import ResourceItemCategory
+from .resource_view_chart_item import ResourceViewChartItem
+from .resource_view_dashboard_item import ResourceViewDashboardItem
 from .resource_view_item_type import ResourceViewItemType
 from .resource_view_item_type_chart import ResourceViewItemTypeCHART
 from .resource_view_item_type_dashboard import ResourceViewItemTypeDASHBOARD
 from .resource_view_item_type_space import ResourceViewItemTypeSPACE
 from .resource_view_space_item import ResourceViewSpaceItem
 from .resource_view_space_item_data import ResourceViewSpaceItemData
-from .run_sql_query_json_body import RunSqlQueryJsonBody
+from .run_sql_query_body import RunSqlQueryBody
 from .run_sql_query_response_200 import RunSqlQueryResponse200
 from .run_sql_query_response_200_status import RunSqlQueryResponse200Status
 from .saved_chart import SavedChart
@@ -360,31 +624,61 @@ from .series_label import SeriesLabel
 from .series_label_position import SeriesLabelPosition
 from .series_stack_label import SeriesStackLabel
 from .share_url import ShareUrl
+from .slack_app_custom_settings import SlackAppCustomSettings
 from .slack_channel import SlackChannel
+from .slack_channel_project_mapping import SlackChannelProjectMapping
 from .sort_field import SortField
+from .source import Source
+from .source_highlight import SourceHighlight
+from .source_position import SourcePosition
+from .source_range import SourceRange
+from .space import Space
+from .space_group import SpaceGroup
+from .space_member_role import SpaceMemberRole
+from .space_query import SpaceQuery
 from .space_share import SpaceShare
+from .space_share_inherited_from import SpaceShareInheritedFrom
 from .space_summary import SpaceSummary
+from .summary_extra_fields import SummaryExtraFields
+from .supported_dbt_adapter import SupportedDbtAdapter
 from .supported_dbt_versions import SupportedDbtVersions
+from .table_base import TableBase
 from .table_calculation import TableCalculation
-from .table_calculation_format import TableCalculationFormat
-from .table_calculation_format_type import TableCalculationFormatType
+from .table_calculation_type import TableCalculationType
 from .table_chart import TableChart
 from .table_chart_config import TableChartConfig
+from .threshold_operator import ThresholdOperator
+from .threshold_options import ThresholdOptions
+from .time_frames import TimeFrames
+from .update_group_with_members import UpdateGroupWithMembers
+from .update_metadata import UpdateMetadata
 from .update_pinned_item_order import UpdatePinnedItemOrder
 from .update_project_member import UpdateProjectMember
+from .update_scheduler_enabled_body import UpdateSchedulerEnabledBody
 from .update_space import UpdateSpace
+from .update_warehouse_credentials_response_200 import (
+    UpdateWarehouseCredentialsResponse200,
+)
+from .update_warehouse_credentials_response_200_status import (
+    UpdateWarehouseCredentialsResponse200Status,
+)
 from .updated_by_user import UpdatedByUser
 from .upload_metric_gsheet import UploadMetricGsheet
+from .upsert_user_warehouse_credentials import UpsertUserWarehouseCredentials
 from .user_allowed_organization import UserAllowedOrganization
 from .user_attribute import UserAttribute
 from .user_attribute_value import UserAttributeValue
-from .validate_project_json_body import ValidateProjectJsonBody
+from .user_warehouse_credentials import UserWarehouseCredentials
+from .validate_project_body import ValidateProjectBody
 from .validation_error_chart_response import ValidationErrorChartResponse
 from .validation_error_dashboard_response import ValidationErrorDashboardResponse
+from .validation_error_table_response import ValidationErrorTableResponse
 from .validation_error_type import ValidationErrorType
 from .validation_response_base import ValidationResponseBase
 from .validation_source_type import ValidationSourceType
+from .validation_target import ValidationTarget
 from .view_statistics import ViewStatistics
+from .warehouse_types import WarehouseTypes
 from .warehouse_types_bigquery import WarehouseTypesBIGQUERY
 from .warehouse_types_databricks import WarehouseTypesDATABRICKS
 from .warehouse_types_postgres import WarehouseTypesPOSTGRES
@@ -397,19 +691,28 @@ __all__ = (
     "ActivateUser",
     "ActivateUserWithInviteCode",
     "AdditionalMetric",
-    "AddSpaceShare",
+    "AddSpaceGroupAccess",
+    "AddSpaceUserAccess",
     "AllowedEmailDomains",
     "AllowedEmailDomainsProjectsItem",
     "AndFilterGroup",
     "ApiCalculateTotalResponse",
     "ApiCalculateTotalResponseStatus",
+    "ApiChartListResponse",
+    "ApiChartListResponseStatus",
     "ApiChartSummaryListResponse",
     "ApiChartSummaryListResponseStatus",
+    "ApiCreateComment",
+    "ApiCreateCommentStatus",
+    "ApiCreateProjectGroupAccess",
+    "ApiCreateProjectGroupAccessStatus",
     "ApiCreateUserAttributeResponse",
     "ApiCreateUserAttributeResponseStatus",
     "ApiCsvUrlResponse",
     "ApiCsvUrlResponseResults",
     "ApiCsvUrlResponseStatus",
+    "ApiDbtCloudIntegrationSettings",
+    "ApiDbtCloudIntegrationSettingsStatus",
     "ApiDbtCloudSettingsDeleteSuccess",
     "ApiDbtCloudSettingsDeleteSuccessStatus",
     "ApiEmailStatusResponseStatus",
@@ -420,9 +723,19 @@ __all__ = (
     "ApiGdriveAccessTokenResponseStatus",
     "ApiGetAuthenticatedUserResponse",
     "ApiGetAuthenticatedUserResponseStatus",
+    "ApiGetChartHistoryResponse",
     "ApiGetChartHistoryResponseStatus",
     "ApiGetChartVersionResponse",
     "ApiGetChartVersionResponseStatus",
+    "ApiGetComments",
+    "ApiGetCommentsResults",
+    "ApiGetCommentsStatus",
+    "ApiGetLoginOptionsResponse",
+    "ApiGetLoginOptionsResponseStatus",
+    "ApiGetNotifications",
+    "ApiGetNotificationsStatus",
+    "ApiGetProjectGroupAccesses",
+    "ApiGetProjectGroupAccessesStatus",
     "ApiGetProjectMemberResponse",
     "ApiGetProjectMemberResponseStatus",
     "ApiGroupListResponse",
@@ -437,6 +750,8 @@ __all__ = (
     "ApiJobStatusResponse",
     "ApiJobStatusResponseResults",
     "ApiJobStatusResponseStatus",
+    "ApiNotificationResourceType",
+    "ApiNotificationResourceTypeDashboardComments",
     "ApiOrganization",
     "ApiOrganizationAllowedEmailDomains",
     "ApiOrganizationAllowedEmailDomainsStatus",
@@ -451,9 +766,18 @@ __all__ = (
     "ApiPinnedItemsStatus",
     "ApiProjectAccessListResponse",
     "ApiProjectAccessListResponseStatus",
+    "ApiProjectResponse",
     "ApiProjectResponseStatus",
+    "ApiPromoteChartResponse",
+    "ApiPromoteChartResponseStatus",
+    "ApiPromoteDashboardResponse",
+    "ApiPromoteDashboardResponseStatus",
+    "ApiPromotionChangesResponse",
+    "ApiPromotionChangesResponseStatus",
     "ApiRegisterUserResponse",
     "ApiRegisterUserResponseStatus",
+    "ApiResolveComment",
+    "ApiResolveCommentStatus",
     "ApiRunQueryResponse",
     "ApiRunQueryResponseResults",
     "ApiRunQueryResponseStatus",
@@ -465,6 +789,9 @@ __all__ = (
     "ApiShareResponseStatus",
     "ApiSlackChannelsResponse",
     "ApiSlackChannelsResponseStatus",
+    "ApiSlackCustomSettingsResponse",
+    "ApiSlackCustomSettingsResponseStatus",
+    "ApiSpaceResponse",
     "ApiSpaceResponseStatus",
     "ApiSpaceSummaryListResponse",
     "ApiSpaceSummaryListResponseStatus",
@@ -474,7 +801,10 @@ __all__ = (
     "ApiSuccessEmpty",
     "ApiSuccessEmptyStatus",
     "ApiTestSchedulerResponse",
+    "ApiTestSchedulerResponseResults",
     "ApiTestSchedulerResponseStatus",
+    "ApiUpdateProjectGroupAccess",
+    "ApiUpdateProjectGroupAccessStatus",
     "ApiUserAllowedOrganizationsResponse",
     "ApiUserAllowedOrganizationsResponseStatus",
     "ApiUserAttributesResponse",
@@ -490,20 +820,38 @@ __all__ = (
     "BinType",
     "CacheMetadata",
     "CalculateTotalFromQuery",
-    "CalculateTotalFromSavedChartJsonBody",
+    "CalculateTotalFromSavedChartBody",
+    "CartesianChart",
+    "CartesianChartConfig",
     "CartesianSeriesType",
+    "CatalogAnalytics",
+    "CatalogField",
+    "CatalogFilter",
+    "CatalogMetadata",
+    "CatalogTable",
+    "CatalogType",
+    "CatalogTypeField",
+    "CatalogTypeTable",
+    "ChartHistory",
     "ChartKind",
     "ChartSummary",
     "ChartType",
     "ChartTypeBIGNUMBER",
     "ChartTypeCARTESIAN",
     "ChartTypeCUSTOM",
+    "ChartTypeFUNNEL",
     "ChartTypePIE",
     "ChartTypeTABLE",
     "ChartVersion",
+    "Comment",
+    "CommentUser",
     "Compact",
     "CompactOrAliasType1",
     "ComparisonFormatTypes",
+    "CompiledExploreJoin",
+    "CompiledTable",
+    "CompileQueryResponse200",
+    "CompileQueryResponse200Status",
     "ConditionalFormattingConfigWithColorRange",
     "ConditionalFormattingConfigWithColorRangeColor",
     "ConditionalFormattingConfigWithColorRangeColorSteps",
@@ -512,15 +860,45 @@ __all__ = (
     "ConditionalFormattingWithRange",
     "ConditionalOperator",
     "ConditionalRuleConditionalOperatorNumber",
+    "CreateGroup",
     "CreateProjectMember",
+    "CreatePullRequestForChartFieldsBody",
+    "CreatePullRequestForChartFieldsBodyQuoteChar",
+    "CreatePullRequestForChartFieldsResponse200",
+    "CreatePullRequestForChartFieldsResponse200Status",
     "CreateSpace",
     "CreateUserArgs",
-    "CustomDimension",
+    "CreateUserAttribute",
+    "CreateWarehouseCredentialsResponse200",
+    "CreateWarehouseCredentialsResponse200Status",
+    "CustomBinDimension",
+    "CustomDimensionTypeBIN",
+    "CustomDimensionTypeSQL",
+    "CustomFormat",
+    "CustomFormatType",
     "CustomLabel",
+    "CustomSqlDimension",
     "CustomVis",
     "CustomVisConfig",
+    "CustomVisSpec",
+    "DashboardBasicDetails",
+    "DashboardChartTile",
+    "DashboardChartTileProperties",
+    "DashboardChartTilePropertiesProperties",
     "DashboardFieldTarget",
     "DashboardFilterRule",
+    "DashboardFilters",
+    "DashboardLoomTile",
+    "DashboardLoomTileProperties",
+    "DashboardLoomTilePropertiesProperties",
+    "DashboardMarkdownTile",
+    "DashboardMarkdownTileProperties",
+    "DashboardMarkdownTilePropertiesProperties",
+    "DashboardTab",
+    "DashboardTileTypes",
+    "DashboardTileTypesLOOM",
+    "DashboardTileTypesMARKDOWN",
+    "DashboardTileTypesSAVEDCHART",
     "DateGranularity",
     "DbtAzureDevOpsProjectConfig",
     "DbtBitBucketProjectConfig",
@@ -528,9 +906,9 @@ __all__ = (
     "DbtGithubProjectConfig",
     "DbtGitlabProjectConfig",
     "DbtLocalProjectConfig",
+    "DbtModelJoinType",
     "DbtNoneProjectConfig",
     "DbtProjectEnvironmentVariable",
-    "DbtProjectType",
     "DbtProjectTypeAZUREDEVOPS",
     "DbtProjectTypeBITBUCKET",
     "DbtProjectTypeDBT",
@@ -540,6 +918,12 @@ __all__ = (
     "DbtProjectTypeNONE",
     "DeleteSchedulerResponse201",
     "DeleteSchedulerResponse201Status",
+    "DimensionType",
+    "DownloadCsvFromExploreBody",
+    "DownloadCsvFromExploreBodyCustomLabels",
+    "DownloadCsvFromExploreResponse200",
+    "DownloadCsvFromExploreResponse200Results",
+    "DownloadCsvFromExploreResponse200Status",
     "EchartsGrid",
     "EchartsLegend",
     "EchartsLegendAlign",
@@ -549,7 +933,10 @@ __all__ = (
     "EmailOneTimePassword",
     "EmailOneTimePasswordExpiring",
     "EmailStatus",
+    "Explore",
+    "ExploreTables",
     "FieldTarget",
+    "FieldType",
     "FilterGroupResponseType0",
     "FilterGroupResponseType1",
     "FilterRule",
@@ -557,14 +944,48 @@ __all__ = (
     "Filters",
     "FiltersResponse",
     "Format",
-    "GetDbtSemanticLayerDataJsonBody",
-    "GetDbtSemanticLayerDataJsonBodyOperationName",
+    "FunnelChart",
+    "FunnelChartConfig",
+    "FunnelChartDataInput",
+    "GetAnalyticsFieldResponse200",
+    "GetAnalyticsFieldResponse200Status",
+    "GetAnalyticsResponse200",
+    "GetAnalyticsResponse200Status",
+    "GetCatalogResponse200",
+    "GetCatalogResponse200Status",
+    "GetConfigurationResponse200",
+    "GetConfigurationResponse200Status",
+    "GetCustomMetricsResponse200",
+    "GetCustomMetricsResponse200ResultsItem",
+    "GetCustomMetricsResponse200Status",
+    "GetDbtSemanticLayerDataBody",
+    "GetDbtSemanticLayerDataBodyOperationName",
+    "GetExploreResponse200",
+    "GetExploreResponse200Status",
+    "GetGithubListRepositoriesResponse200",
+    "GetGithubListRepositoriesResponse200Status",
+    "GetMetadataResponse200",
+    "GetMetadataResponse200Status",
+    "GetUserWarehouseCredentialsPreferenceResponse200",
+    "GetUserWarehouseCredentialsPreferenceResponse200Status",
+    "GetWarehouseCredentialsResponse200",
+    "GetWarehouseCredentialsResponse200Status",
+    "GitIntegrationConfiguration",
+    "GitRepo",
     "Group",
+    "GroupAttributeValue",
     "GroupMember",
+    "GroupWithMembers",
+    "InlineError",
+    "InlineErrorType",
     "LightdashUser",
+    "LocalIssuerTypes",
+    "LoginOptions",
     "MarkLine",
     "MarkLineData",
+    "MarkLineDataDynamicValue",
     "MarkLineDataLabel",
+    "MarkLineDataLabelPosition",
     "MarkLineDataLineStyle",
     "MarkLineLabel",
     "MarkLineLineStyle",
@@ -578,7 +999,13 @@ __all__ = (
     "MetricQueryResponse",
     "MetricQueryResponseMetadata",
     "MetricType",
+    "NotificationBase",
+    "NotificationDashboardComment",
+    "NotificationDashboardTileCommentMetadata",
+    "NotificationFrequency",
     "NumberSeparator",
+    "OpenIdIdentityIssuerType",
+    "OrderFieldsByStrategy",
     "OrFilterGroup",
     "Organization",
     "OrganizationMemberProfile",
@@ -592,31 +1019,59 @@ __all__ = (
     "PartialCompleteCartesianChartLayout",
     "PartialCompleteEChartsConfig",
     "PartialOmitOrganizationOrganizationUuidOrNeedsProject",
+    "PartialSummaryExtraFields",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuid",
     "PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem",
+    "PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboardUuidOrChartKind",
     "PickChartVersionChartUuidOrVersionUuidOrCreatedAtOrCreatedBy",
+    "PickCommentTextOrReplyToOrMentionsOrTextHtml",
     "PickCompiledDimensionLabelOrName",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames",
     "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority",
+    "PickCreateBigqueryCredentialsType",
+    "PickCreateBigqueryCredentialsTypeOrKeyfileContents",
     "PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateDatabricksCredentialsType",
+    "PickCreateDatabricksCredentialsTypeOrPersonalAccessToken",
+    "PickCreateDBProjectGroupAccessRole",
     "PickCreateDbtCloudIntegrationMetricsJobId",
-    "PickCreateGroupName",
     "PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames",
+    "PickCreatePostgresCredentialsTypeOrUserOrPassword",
     "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateRedshiftCredentialsOrCreatePostgresCredentialsOrCreateSnowflakeCredentialsOrCreateTrinoCredentialsTypeOrUser",
+    "PickCreateRedshiftCredentialsTypeOrUserOrPassword",
     "PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateSnowflakeCredentialsTypeOrUserOrPassword",
     "PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames",
+    "PickCreateTrinoCredentialsTypeOrUserOrPassword",
+    "PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrors",
+    "PickDashboardExcludeKeyofDashboardIsPrivateOrAccess",
     "PickDashboardUuidOrNameOrDescriptionOrUpdatedAtOrProjectUuidOrUpdatedByUserOrOrganizationUuidOrSpaceUuidOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrder",
+    "PickDBProjectGroupAccessRole",
+    "PickDimensionRequiredAttributes",
+    "PickExploreErrorSummaryExploreErrorFields",
+    "PickExploreJoinTableOrSqlOnOrTypeOrHiddenOrAlways",
+    "PickExploreSummaryExploreFields",
+    "PickFieldNameOrLabelOrFieldTypeOrTableLabelOrDescription",
+    "PickGroupMemberUserUuid",
     "PickGroupName",
     "PickLightdashUserUserUuidOrFirstNameOrLastName",
+    "PickNotificationViewed",
     "PickOrganizationName",
     "PickResourceViewItemAtDataUuidOrPinnedListOrder",
+    "PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccess",
+    "PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessPivotConfig",
+    "PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessTableConfig",
+    "PickSavedChartUpdatedAtOrUpdatedByUserOrPinnedListOrder",
     "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName",
-    "PickSavedChartUuidOrNameOrUpdatedAtOrUpdatedByUserOrDescriptionOrSpaceUuidOrPinnedListUuidOrPinnedListOrder",
     "PickShareUrlPathOrParams",
-    "PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrder",
+    "PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrSlug",
     "PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid",
-    "PickSpaceShareUserUuid",
+    "PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors",
+    "PickSpaceShareUserUuidOrRole",
+    "PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess",
     "PickSshKeyPairPublicKey",
+    "PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes",
     "PickUserAttributeNameOrDescriptionOrAttributeDefault",
     "PickUserAttributeValueExcludeKeyofUserAttributeValueEmail",
     "PickValidationResponseBaseExcludeKeyofValidationResponseBaseName",
@@ -627,30 +1082,49 @@ __all__ = (
     "PieChartValueLabel",
     "PivotReference",
     "PivotValue",
-    "PostChartResultsJsonBody",
+    "PostChartResultsBody",
+    "Project",
+    "ProjectGroupAccess",
     "ProjectMemberProfile",
     "ProjectMemberRole",
     "ProjectMemberRoleEDITOR",
     "ProjectMemberRoleINTERACTIVEVIEWER",
     "ProjectMemberRoleVIEWER",
     "ProjectType",
+    "PromotedChart",
+    "PromotedDashboard",
+    "PromotionAction",
+    "PromotionChanges",
+    "PromotionChangesChartsItem",
+    "PromotionChangesDashboardsItem",
+    "PromotionChangesSpacesItem",
+    "PullRequestCreated",
     "RecordStringAny",
     "RecordStringColumnProperties",
+    "RecordStringCompiledDimension",
+    "RecordStringCompiledMetric",
     "RecordStringDashboardTileTarget",
+    "RecordStringGroupType",
     "RecordStringItemOrAdditionalMetric",
+    "RecordStringLineageNodeDependencyArray",
     "RecordStringNumber",
     "RecordStringPartialPieChartValueOptions",
+    "RecordStringSeriesMetadata",
     "RecordStringString",
+    "RecordStringStringOrStringArray",
     "RecordStringTypeDimensionType",
     "RecordStringUnknown",
+    "RequiredCreateDashboardTileBase",
     "ResourceItemCategory",
+    "ResourceViewChartItem",
+    "ResourceViewDashboardItem",
     "ResourceViewItemType",
     "ResourceViewItemTypeCHART",
     "ResourceViewItemTypeDASHBOARD",
     "ResourceViewItemTypeSPACE",
     "ResourceViewSpaceItem",
     "ResourceViewSpaceItemData",
-    "RunSqlQueryJsonBody",
+    "RunSqlQueryBody",
     "RunSqlQueryResponse200",
     "RunSqlQueryResponse200Status",
     "SavedChart",
@@ -676,31 +1150,57 @@ __all__ = (
     "SeriesLabelPosition",
     "SeriesStackLabel",
     "ShareUrl",
+    "SlackAppCustomSettings",
     "SlackChannel",
+    "SlackChannelProjectMapping",
     "SortField",
+    "Source",
+    "SourceHighlight",
+    "SourcePosition",
+    "SourceRange",
+    "Space",
+    "SpaceGroup",
+    "SpaceMemberRole",
+    "SpaceQuery",
     "SpaceShare",
+    "SpaceShareInheritedFrom",
     "SpaceSummary",
+    "SummaryExtraFields",
+    "SupportedDbtAdapter",
     "SupportedDbtVersions",
+    "TableBase",
     "TableCalculation",
-    "TableCalculationFormat",
-    "TableCalculationFormatType",
+    "TableCalculationType",
     "TableChart",
     "TableChartConfig",
+    "ThresholdOperator",
+    "ThresholdOptions",
+    "TimeFrames",
     "UpdatedByUser",
+    "UpdateGroupWithMembers",
+    "UpdateMetadata",
     "UpdatePinnedItemOrder",
     "UpdateProjectMember",
+    "UpdateSchedulerEnabledBody",
     "UpdateSpace",
+    "UpdateWarehouseCredentialsResponse200",
+    "UpdateWarehouseCredentialsResponse200Status",
     "UploadMetricGsheet",
+    "UpsertUserWarehouseCredentials",
     "UserAllowedOrganization",
     "UserAttribute",
     "UserAttributeValue",
-    "ValidateProjectJsonBody",
+    "UserWarehouseCredentials",
+    "ValidateProjectBody",
     "ValidationErrorChartResponse",
     "ValidationErrorDashboardResponse",
+    "ValidationErrorTableResponse",
     "ValidationErrorType",
     "ValidationResponseBase",
     "ValidationSourceType",
+    "ValidationTarget",
     "ViewStatistics",
+    "WarehouseTypes",
     "WarehouseTypesBIGQUERY",
     "WarehouseTypesDATABRICKS",
     "WarehouseTypesPOSTGRES",

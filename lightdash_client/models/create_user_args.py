@@ -1,11 +1,12 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 T = TypeVar("T", bound="CreateUserArgs")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class CreateUserArgs:
     """
     Attributes:
@@ -19,12 +20,15 @@ class CreateUserArgs:
     email: str
     last_name: str
     first_name: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         password = self.password
+
         email = self.email
+
         last_name = self.last_name
+
         first_name = self.first_name
 
         field_dict: Dict[str, Any] = {}

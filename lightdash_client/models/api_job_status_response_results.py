@@ -1,27 +1,45 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..models.scheduler_job_status import SchedulerJobStatus
+
+if TYPE_CHECKING:
+    from ..models.record_string_any import RecordStringAny
+
 
 T = TypeVar("T", bound="ApiJobStatusResponseResults")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiJobStatusResponseResults:
     """
     Attributes:
-        status (str):
+        details (Union['RecordStringAny', None]):
+        status (SchedulerJobStatus):
     """
 
-    status: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    details: Union["RecordStringAny", None]
+    status: SchedulerJobStatus
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        status = self.status
+        from ..models.record_string_any import RecordStringAny
+
+        details: Union[Dict[str, Any], None]
+        if isinstance(self.details, RecordStringAny):
+            details = self.details.to_dict()
+        else:
+            details = self.details
+
+        status = self.status.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "details": details,
                 "status": status,
             }
         )
@@ -30,10 +48,29 @@ class ApiJobStatusResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.record_string_any import RecordStringAny
+
         d = src_dict.copy()
-        status = d.pop("status")
+
+        def _parse_details(data: object) -> Union["RecordStringAny", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                details_type_1 = RecordStringAny.from_dict(data)
+
+                return details_type_1
+            except:  # noqa: E722
+                pass
+            return cast(Union["RecordStringAny", None], data)
+
+        details = _parse_details(d.pop("details"))
+
+        status = SchedulerJobStatus(d.pop("status"))
 
         api_job_status_response_results = cls(
+            details=details,
             status=status,
         )
 

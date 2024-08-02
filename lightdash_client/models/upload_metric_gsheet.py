@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
@@ -12,7 +13,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="UploadMetricGsheet")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class UploadMetricGsheet:
     """
     Attributes:
@@ -32,16 +33,19 @@ class UploadMetricGsheet:
     project_uuid: str
     hidden_fields: Union[Unset, List[str]] = UNSET
     custom_labels: Union[Unset, "CustomLabel"] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         column_order = self.column_order
 
         show_table_names = self.show_table_names
+
         metric_query = self.metric_query.to_dict()
 
         explore_id = self.explore_id
+
         project_uuid = self.project_uuid
+
         hidden_fields: Union[Unset, List[str]] = UNSET
         if not isinstance(self.hidden_fields, Unset):
             hidden_fields = self.hidden_fields
