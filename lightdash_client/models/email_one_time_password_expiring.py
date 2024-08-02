@@ -1,13 +1,14 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 T = TypeVar("T", bound="EmailOneTimePasswordExpiring")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class EmailOneTimePasswordExpiring:
     """
     Attributes:
@@ -23,14 +24,17 @@ class EmailOneTimePasswordExpiring:
     is_max_attempts: bool
     is_expired: bool
     expires_at: datetime.datetime
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         number_of_attempts = self.number_of_attempts
+
         created_at = self.created_at.isoformat()
 
         is_max_attempts = self.is_max_attempts
+
         is_expired = self.is_expired
+
         expires_at = self.expires_at.isoformat()
 
         field_dict: Dict[str, Any] = {}

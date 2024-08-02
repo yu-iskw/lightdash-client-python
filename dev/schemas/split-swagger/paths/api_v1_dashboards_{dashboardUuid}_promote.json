@@ -1,0 +1,43 @@
+{
+  "post": {
+    "operationId": "promoteDashboard",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiPromoteDashboardResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Promote dashboard to its upstream project",
+    "tags": [
+      "Dashboards"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "dashboardUuid for the dashboard to run",
+        "in": "path",
+        "name": "dashboardUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

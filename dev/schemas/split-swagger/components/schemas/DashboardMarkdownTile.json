@@ -1,0 +1,10 @@
+{
+  "allOf": [
+    {
+      "$ref": "./DashboardTileBase.json"
+    },
+    {
+      "$ref": "./DashboardMarkdownTileProperties.json"
+    }
+  ]
+}

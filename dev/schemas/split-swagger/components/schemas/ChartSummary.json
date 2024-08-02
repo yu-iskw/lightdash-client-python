@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName_.json"
+    },
+    {
+      "properties": {
+        "chartKind": {
+          "$ref": "./ChartKind.json"
+        },
+        "chartType": {
+          "$ref": "./ChartType.json"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

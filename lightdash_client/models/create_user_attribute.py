@@ -1,36 +1,52 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.create_user_attribute_users_item import CreateUserAttributeUsersItem
+    from ..models.group_attribute_value import GroupAttributeValue
+    from ..models.pick_user_attribute_value_exclude_keyof_user_attribute_value_email import (
+        PickUserAttributeValueExcludeKeyofUserAttributeValueEmail,
+    )
 
 
 T = TypeVar("T", bound="CreateUserAttribute")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class CreateUserAttribute:
     """
     Attributes:
         name (str):
-        users (List['CreateUserAttributeUsersItem']):
+        attribute_default (Union[None, str]):
+        groups (List['GroupAttributeValue']):
+        users (List['PickUserAttributeValueExcludeKeyofUserAttributeValueEmail']):
         description (Union[Unset, str]):
     """
 
     name: str
-    users: List["CreateUserAttributeUsersItem"]
+    attribute_default: Union[None, str]
+    groups: List["GroupAttributeValue"]
+    users: List["PickUserAttributeValueExcludeKeyofUserAttributeValueEmail"]
     description: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
+        attribute_default: Union[None, str]
+        attribute_default = self.attribute_default
+
+        groups = []
+        for groups_item_data in self.groups:
+            groups_item = groups_item_data.to_dict()
+            groups.append(groups_item)
+
         users = []
         for users_item_data in self.users:
             users_item = users_item_data.to_dict()
-
             users.append(users_item)
 
         description = self.description
@@ -40,6 +56,8 @@ class CreateUserAttribute:
         field_dict.update(
             {
                 "name": name,
+                "attributeDefault": attribute_default,
+                "groups": groups,
                 "users": users,
             }
         )
@@ -50,17 +68,32 @@ class CreateUserAttribute:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.create_user_attribute_users_item import (
-            CreateUserAttributeUsersItem,
+        from ..models.group_attribute_value import GroupAttributeValue
+        from ..models.pick_user_attribute_value_exclude_keyof_user_attribute_value_email import (
+            PickUserAttributeValueExcludeKeyofUserAttributeValueEmail,
         )
 
         d = src_dict.copy()
         name = d.pop("name")
 
+        def _parse_attribute_default(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        attribute_default = _parse_attribute_default(d.pop("attributeDefault"))
+
+        groups = []
+        _groups = d.pop("groups")
+        for groups_item_data in _groups:
+            groups_item = GroupAttributeValue.from_dict(groups_item_data)
+
+            groups.append(groups_item)
+
         users = []
         _users = d.pop("users")
         for users_item_data in _users:
-            users_item = CreateUserAttributeUsersItem.from_dict(users_item_data)
+            users_item = PickUserAttributeValueExcludeKeyofUserAttributeValueEmail.from_dict(users_item_data)
 
             users.append(users_item)
 
@@ -68,6 +101,8 @@ class CreateUserAttribute:
 
         create_user_attribute = cls(
             name=name,
+            attribute_default=attribute_default,
+            groups=groups,
             users=users,
             description=description,
         )

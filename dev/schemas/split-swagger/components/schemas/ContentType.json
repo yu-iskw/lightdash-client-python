@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "chart",
+    "dashboard"
+  ],
+  "type": "string"
+}

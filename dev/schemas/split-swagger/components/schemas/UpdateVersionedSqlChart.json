@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./SqlRunnerChartConfig.json"
+    },
+    "sql": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "config",
+    "sql"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "spaceUuid": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "spaceUuid",
+    "description",
+    "name"
+  ],
+  "type": "object"
+}

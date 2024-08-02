@@ -1,37 +1,35 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_project_access_list_response_status import (
     ApiProjectAccessListResponseStatus,
 )
 
 if TYPE_CHECKING:
-    from ..models.api_project_access_list_response_results_item import (
-        ApiProjectAccessListResponseResultsItem,
-    )
+    from ..models.project_member_profile import ProjectMemberProfile
 
 
 T = TypeVar("T", bound="ApiProjectAccessListResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiProjectAccessListResponse:
     """
     Attributes:
-        results (List['ApiProjectAccessListResponseResultsItem']):
+        results (List['ProjectMemberProfile']):
         status (ApiProjectAccessListResponseStatus):
     """
 
-    results: List["ApiProjectAccessListResponseResultsItem"]
+    results: List["ProjectMemberProfile"]
     status: ApiProjectAccessListResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = []
         for results_item_data in self.results:
             results_item = results_item_data.to_dict()
-
             results.append(results_item)
 
         status = self.status.value
@@ -49,15 +47,13 @@ class ApiProjectAccessListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_project_access_list_response_results_item import (
-            ApiProjectAccessListResponseResultsItem,
-        )
+        from ..models.project_member_profile import ProjectMemberProfile
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiProjectAccessListResponseResultsItem.from_dict(results_item_data)
+            results_item = ProjectMemberProfile.from_dict(results_item_data)
 
             results.append(results_item)
 

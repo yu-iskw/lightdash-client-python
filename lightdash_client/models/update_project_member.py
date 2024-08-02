@@ -1,21 +1,22 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
-from ..models.update_project_member_role import UpdateProjectMemberRole
+from ..models.project_member_role import ProjectMemberRole
 
 T = TypeVar("T", bound="UpdateProjectMember")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class UpdateProjectMember:
     """
     Attributes:
-        role (UpdateProjectMemberRole):
+        role (ProjectMemberRole):
     """
 
-    role: UpdateProjectMemberRole
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    role: ProjectMemberRole
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         role = self.role.value
@@ -33,7 +34,7 @@ class UpdateProjectMember:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        role = UpdateProjectMemberRole(d.pop("role"))
+        role = ProjectMemberRole(d.pop("role"))
 
         update_project_member = cls(
             role=role,

@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "databaseName": {
+      "type": "string"
+    },
+    "schemaName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "databaseName",
+    "schemaName"
+  ],
+  "type": "object"
+}

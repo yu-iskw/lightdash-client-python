@@ -1,25 +1,28 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 T = TypeVar("T", bound="PickResourceViewItemAtDataUuidOrPinnedListOrder")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickResourceViewItemAtDataUuidOrPinnedListOrder:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
         uuid (str):
-        pinned_list_order (Optional[float]):
+        pinned_list_order (Union[None, float]):
     """
 
     uuid: str
-    pinned_list_order: Optional[float]
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    pinned_list_order: Union[None, float]
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         uuid = self.uuid
+
+        pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
 
         field_dict: Dict[str, Any] = {}
@@ -38,7 +41,12 @@ class PickResourceViewItemAtDataUuidOrPinnedListOrder:
         d = src_dict.copy()
         uuid = d.pop("uuid")
 
-        pinned_list_order = d.pop("pinnedListOrder")
+        def _parse_pinned_list_order(data: object) -> Union[None, float]:
+            if data is None:
+                return data
+            return cast(Union[None, float], data)
+
+        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
         pick_resource_view_item_at_data_uuid_or_pinned_list_order = cls(
             uuid=uuid,

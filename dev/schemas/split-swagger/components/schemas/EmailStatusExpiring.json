@@ -1,0 +1,17 @@
+{
+  "allOf": [
+    {
+      "$ref": "./EmailStatus.json"
+    },
+    {
+      "properties": {
+        "otp": {
+          "$ref": "./EmailOneTimePasswordExpiring.json",
+          "description": "One time passcode information\nIf there is no active passcode, this will be undefined"
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "description": "Verification status of an email address"
+}

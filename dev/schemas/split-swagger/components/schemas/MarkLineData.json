@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "dynamicValue": {
+      "type": "string",
+      "enum": [
+        "average"
+      ],
+      "nullable": false
+    },
+    "label": {
+      "properties": {
+        "position": {
+          "type": "string",
+          "enum": [
+            "start",
+            "middle",
+            "end"
+          ]
+        },
+        "formatter": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lineStyle": {
+      "properties": {
+        "color": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "color"
+      ],
+      "type": "object"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "xAxis": {
+      "type": "string"
+    },
+    "yAxis": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "uuid"
+  ],
+  "type": "object"
+}

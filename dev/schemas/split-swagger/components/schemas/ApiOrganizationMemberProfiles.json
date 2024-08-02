@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "results": {
+      "items": {
+        "$ref": "./OrganizationMemberProfile.json"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

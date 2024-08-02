@@ -1,0 +1,82 @@
+{
+  "get": {
+    "operationId": "getCatalog",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "results": {
+                  "$ref": "../components/schemas/ApiCatalogResults.json"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ],
+                  "nullable": false
+                }
+              },
+              "required": [
+                "results",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get catalog items",
+    "tags": [
+      "Catalog"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "search",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "type",
+        "required": false,
+        "schema": {
+          "$ref": "../components/schemas/CatalogType.json"
+        }
+      },
+      {
+        "in": "query",
+        "name": "filter",
+        "required": false,
+        "schema": {
+          "$ref": "../components/schemas/CatalogFilter.json"
+        }
+      }
+    ]
+  }
+}

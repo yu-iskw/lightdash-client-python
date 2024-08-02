@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "details": {
+          "allOf": [
+            {
+              "$ref": "./Record_string.any_.json"
+            }
+          ],
+          "nullable": true
+        },
+        "status": {
+          "$ref": "./SchedulerJobStatus.json"
+        }
+      },
+      "required": [
+        "details",
+        "status"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "row",
+    "column"
+  ],
+  "type": "string"
+}

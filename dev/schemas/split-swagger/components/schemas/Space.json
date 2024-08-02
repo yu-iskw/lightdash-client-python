@@ -1,0 +1,70 @@
+{
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "pinnedListUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "groupsAccess": {
+      "items": {
+        "$ref": "./SpaceGroup.json"
+      },
+      "type": "array"
+    },
+    "access": {
+      "items": {
+        "$ref": "./SpaceShare.json"
+      },
+      "type": "array"
+    },
+    "dashboards": {
+      "items": {
+        "$ref": "./SpaceDashboard.json"
+      },
+      "type": "array"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "queries": {
+      "items": {
+        "$ref": "./SpaceQuery.json"
+      },
+      "type": "array"
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "pinnedListOrder",
+    "pinnedListUuid",
+    "groupsAccess",
+    "access",
+    "dashboards",
+    "projectUuid",
+    "queries",
+    "isPrivate",
+    "name",
+    "uuid",
+    "organizationUuid"
+  ],
+  "type": "object"
+}

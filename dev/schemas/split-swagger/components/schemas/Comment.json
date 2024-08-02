@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "mentions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "canRemove": {
+      "type": "boolean"
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "replies": {
+      "items": {
+        "$ref": "./Comment.json"
+      },
+      "type": "array"
+    },
+    "replyTo": {
+      "type": "string"
+    },
+    "user": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "textHtml": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "commentId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mentions",
+    "canRemove",
+    "resolved",
+    "user",
+    "createdAt",
+    "textHtml",
+    "text",
+    "commentId"
+  ],
+  "type": "object"
+}

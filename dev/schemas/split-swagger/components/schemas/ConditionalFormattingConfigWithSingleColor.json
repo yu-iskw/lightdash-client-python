@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "rules": {
+      "items": {
+        "$ref": "./ConditionalFormattingWithConditionalOperator.json"
+      },
+      "type": "array"
+    },
+    "color": {
+      "type": "string"
+    },
+    "target": {
+      "allOf": [
+        {
+          "$ref": "./FieldTarget.json"
+        }
+      ],
+      "nullable": true
+    }
+  },
+  "required": [
+    "rules",
+    "color",
+    "target"
+  ],
+  "type": "object"
+}

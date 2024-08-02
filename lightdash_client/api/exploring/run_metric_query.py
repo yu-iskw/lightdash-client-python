@@ -1,12 +1,12 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
-from ...models.run_metric_query_json_body import RunMetricQueryJsonBody
-from ...models.run_metric_query_response_200 import RunMetricQueryResponse200
+from ...client import AuthenticatedClient, Client
+from ...models.api_run_query_response import ApiRunQueryResponse
+from ...models.metric_query_request import MetricQueryRequest
 from ...types import Response
 
 
@@ -14,32 +14,29 @@ def _get_kwargs(
     project_uuid: str,
     explore_id: str,
     *,
-    client: Client,
-    json_body: RunMetricQueryJsonBody,
+    body: MetricQueryRequest,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/projects/{projectUuid}/explores/{exploreId}/runQuery".format(
-        client.base_url, projectUuid=project_uuid, exploreId=explore_id
-    )
+    headers: Dict[str, Any] = {}
 
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
-        "json": json_json_body,
+        "url": f"/api/v1/projects/{project_uuid}/explores/{explore_id}/runQuery",
     }
 
+    _body = body.to_dict()
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[RunMetricQueryResponse200]:
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
+
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiRunQueryResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = RunMetricQueryResponse200.from_dict(response.json())
+        response_200 = ApiRunQueryResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -48,7 +45,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Run
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[RunMetricQueryResponse200]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiRunQueryResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -61,33 +60,31 @@ def sync_detailed(
     project_uuid: str,
     explore_id: str,
     *,
-    client: Client,
-    json_body: RunMetricQueryJsonBody,
-) -> Response[RunMetricQueryResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: MetricQueryRequest,
+) -> Response[ApiRunQueryResponse]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunMetricQueryJsonBody): metricQuery for the chart to run
+        body (MetricQueryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[RunMetricQueryResponse200]
+        Response[ApiRunQueryResponse]
     """
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
         explore_id=explore_id,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -98,29 +95,29 @@ def sync(
     project_uuid: str,
     explore_id: str,
     *,
-    client: Client,
-    json_body: RunMetricQueryJsonBody,
-) -> Optional[RunMetricQueryResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: MetricQueryRequest,
+) -> Optional[ApiRunQueryResponse]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunMetricQueryJsonBody): metricQuery for the chart to run
+        body (MetricQueryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        RunMetricQueryResponse200
+        ApiRunQueryResponse
     """
 
     return sync_detailed(
         project_uuid=project_uuid,
         explore_id=explore_id,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
@@ -128,33 +125,31 @@ async def asyncio_detailed(
     project_uuid: str,
     explore_id: str,
     *,
-    client: Client,
-    json_body: RunMetricQueryJsonBody,
-) -> Response[RunMetricQueryResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: MetricQueryRequest,
+) -> Response[ApiRunQueryResponse]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunMetricQueryJsonBody): metricQuery for the chart to run
+        body (MetricQueryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[RunMetricQueryResponse200]
+        Response[ApiRunQueryResponse]
     """
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
         explore_id=explore_id,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -163,22 +158,22 @@ async def asyncio(
     project_uuid: str,
     explore_id: str,
     *,
-    client: Client,
-    json_body: RunMetricQueryJsonBody,
-) -> Optional[RunMetricQueryResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: MetricQueryRequest,
+) -> Optional[ApiRunQueryResponse]:
     """Run a query for explore
 
     Args:
         project_uuid (str):
         explore_id (str):
-        json_body (RunMetricQueryJsonBody): metricQuery for the chart to run
+        body (MetricQueryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        RunMetricQueryResponse200
+        ApiRunQueryResponse
     """
 
     return (
@@ -186,6 +181,6 @@ async def asyncio(
             project_uuid=project_uuid,
             explore_id=explore_id,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "otp": {
+      "$ref": "./EmailOneTimePassword.json"
+    },
+    "isVerified": {
+      "type": "boolean"
+    },
+    "email": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "isVerified",
+    "email"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "mostPopular",
+    "recentlyUpdated",
+    "pinned"
+  ],
+  "type": "string"
+}

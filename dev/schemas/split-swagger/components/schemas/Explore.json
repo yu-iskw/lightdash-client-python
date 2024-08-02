@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "sqlPath": {
+      "type": "string"
+    },
+    "ymlPath": {
+      "type": "string"
+    },
+    "warehouse": {
+      "type": "string"
+    },
+    "targetDatabase": {
+      "$ref": "./SupportedDbtAdapter.json"
+    },
+    "tables": {
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "./CompiledTable.json"
+      },
+      "type": "object"
+    },
+    "joinedTables": {
+      "items": {
+        "$ref": "./CompiledExploreJoin.json"
+      },
+      "type": "array"
+    },
+    "baseTable": {
+      "type": "string"
+    },
+    "groupLabel": {
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "targetDatabase",
+    "tables",
+    "joinedTables",
+    "baseTable",
+    "tags",
+    "label",
+    "name"
+  ],
+  "type": "object"
+}

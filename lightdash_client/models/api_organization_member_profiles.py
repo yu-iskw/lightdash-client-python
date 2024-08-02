@@ -1,37 +1,35 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_organization_member_profiles_status import (
     ApiOrganizationMemberProfilesStatus,
 )
 
 if TYPE_CHECKING:
-    from ..models.api_organization_member_profiles_results_item import (
-        ApiOrganizationMemberProfilesResultsItem,
-    )
+    from ..models.organization_member_profile import OrganizationMemberProfile
 
 
 T = TypeVar("T", bound="ApiOrganizationMemberProfiles")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiOrganizationMemberProfiles:
     """
     Attributes:
-        results (List['ApiOrganizationMemberProfilesResultsItem']):
+        results (List['OrganizationMemberProfile']):
         status (ApiOrganizationMemberProfilesStatus):
     """
 
-    results: List["ApiOrganizationMemberProfilesResultsItem"]
+    results: List["OrganizationMemberProfile"]
     status: ApiOrganizationMemberProfilesStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = []
         for results_item_data in self.results:
             results_item = results_item_data.to_dict()
-
             results.append(results_item)
 
         status = self.status.value
@@ -49,15 +47,13 @@ class ApiOrganizationMemberProfiles:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_organization_member_profiles_results_item import (
-            ApiOrganizationMemberProfilesResultsItem,
-        )
+        from ..models.organization_member_profile import OrganizationMemberProfile
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiOrganizationMemberProfilesResultsItem.from_dict(results_item_data)
+            results_item = OrganizationMemberProfile.from_dict(results_item_data)
 
             results.append(results_item)
 

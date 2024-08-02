@@ -1,33 +1,36 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.email_status_otp import EmailStatusOtp
+    from ..models.email_one_time_password import EmailOneTimePassword
 
 
 T = TypeVar("T", bound="EmailStatus")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class EmailStatus:
     """
     Attributes:
         is_verified (bool):
         email (str):
-        otp (Union[Unset, EmailStatusOtp]):
+        otp (Union[Unset, EmailOneTimePassword]):
     """
 
     is_verified: bool
     email: str
-    otp: Union[Unset, "EmailStatusOtp"] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    otp: Union[Unset, "EmailOneTimePassword"] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         is_verified = self.is_verified
+
         email = self.email
+
         otp: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.otp, Unset):
             otp = self.otp.to_dict()
@@ -47,7 +50,7 @@ class EmailStatus:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.email_status_otp import EmailStatusOtp
+        from ..models.email_one_time_password import EmailOneTimePassword
 
         d = src_dict.copy()
         is_verified = d.pop("isVerified")
@@ -55,11 +58,11 @@ class EmailStatus:
         email = d.pop("email")
 
         _otp = d.pop("otp", UNSET)
-        otp: Union[Unset, EmailStatusOtp]
+        otp: Union[Unset, EmailOneTimePassword]
         if isinstance(_otp, Unset):
             otp = UNSET
         else:
-            otp = EmailStatusOtp.from_dict(_otp)
+            otp = EmailOneTimePassword.from_dict(_otp)
 
         email_status = cls(
             is_verified=is_verified,

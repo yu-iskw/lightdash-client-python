@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "properties": {
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "hideTitle": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "title"
+      ],
+      "type": "object"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.LOOM.json"
+    }
+  },
+  "required": [
+    "properties",
+    "type"
+  ],
+  "type": "object"
+}

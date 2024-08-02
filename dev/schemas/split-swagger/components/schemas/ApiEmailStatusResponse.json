@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "results": {
+      "$ref": "./EmailStatusExpiring.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object",
+  "description": "Shows the current verification status of an email address"
+}

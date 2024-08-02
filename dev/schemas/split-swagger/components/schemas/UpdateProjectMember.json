@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "role": {
+      "$ref": "./ProjectMemberRole.json"
+    }
+  },
+  "required": [
+    "role"
+  ],
+  "type": "object"
+}

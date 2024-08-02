@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "km",
+    "mi",
+    "usd",
+    "gbp",
+    "eur",
+    "id",
+    "percent"
+  ],
+  "type": "string"
+}

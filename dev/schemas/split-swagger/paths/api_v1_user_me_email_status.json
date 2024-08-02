@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "GetEmailVerificationStatus",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiEmailStatusResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get the verification status for the current user's primary email",
+    "tags": [
+      "My Account"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the one-time passcode sent to the user's primary email",
+        "in": "query",
+        "name": "passcode",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

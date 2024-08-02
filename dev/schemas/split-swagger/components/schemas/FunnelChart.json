@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "metadata": {
+      "$ref": "./Record_string.SeriesMetadata_.json"
+    },
+    "fieldId": {
+      "type": "string"
+    },
+    "dataInput": {
+      "$ref": "./FunnelChartDataInput.json"
+    }
+  },
+  "type": "object"
+}

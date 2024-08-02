@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./InlineErrorType.json"
+    }
+  },
+  "required": [
+    "message",
+    "type"
+  ],
+  "type": "object"
+}

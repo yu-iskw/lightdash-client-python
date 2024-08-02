@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "password": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "password",
+    "lastName",
+    "firstName"
+  ],
+  "type": "object"
+}

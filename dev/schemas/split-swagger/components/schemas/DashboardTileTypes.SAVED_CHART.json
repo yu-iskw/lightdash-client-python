@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "saved_chart"
+  ],
+  "type": "string"
+}

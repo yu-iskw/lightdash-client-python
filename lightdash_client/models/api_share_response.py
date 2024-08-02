@@ -1,29 +1,30 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_share_response_status import ApiShareResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_share_response_results import ApiShareResponseResults
+    from ..models.share_url import ShareUrl
 
 
 T = TypeVar("T", bound="ApiShareResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiShareResponse:
     """
     Attributes:
-        results (ApiShareResponseResults): A ShareUrl maps a short shareable id to a full URL
+        results (ShareUrl): A ShareUrl maps a short shareable id to a full URL
             in the Lightdash UI. This allows very long URLs
             to be represented by short ids.
         status (ApiShareResponseStatus):
     """
 
-    results: "ApiShareResponseResults"
+    results: "ShareUrl"
     status: ApiShareResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -43,10 +44,10 @@ class ApiShareResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_share_response_results import ApiShareResponseResults
+        from ..models.share_url import ShareUrl
 
         d = src_dict.copy()
-        results = ApiShareResponseResults.from_dict(d.pop("results"))
+        results = ShareUrl.from_dict(d.pop("results"))
 
         status = ApiShareResponseStatus(d.pop("status"))
 

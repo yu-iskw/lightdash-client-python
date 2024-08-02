@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "organizationUuid": {
+      "type": "string",
+      "description": "The UUID of the organization that the group belongs to"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the group was created"
+    },
+    "name": {
+      "type": "string",
+      "description": "A friendly name for the group"
+    },
+    "uuid": {
+      "type": "string",
+      "description": "The group's UUID"
+    }
+  },
+  "required": [
+    "organizationUuid",
+    "createdAt",
+    "name",
+    "uuid"
+  ],
+  "type": "object"
+}

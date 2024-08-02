@@ -1,0 +1,6 @@
+{
+  "items": {
+    "$ref": "./Notification.json"
+  },
+  "type": "array"
+}

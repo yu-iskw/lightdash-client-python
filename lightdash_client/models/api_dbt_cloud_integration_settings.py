@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_dbt_cloud_integration_settings_status import (
     ApiDbtCloudIntegrationSettingsStatus,
@@ -8,26 +9,26 @@ from ..models.api_dbt_cloud_integration_settings_status import (
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_dbt_cloud_integration_settings_results import (
-        ApiDbtCloudIntegrationSettingsResults,
+    from ..models.pick_create_dbt_cloud_integration_metrics_job_id import (
+        PickCreateDbtCloudIntegrationMetricsJobId,
     )
 
 
 T = TypeVar("T", bound="ApiDbtCloudIntegrationSettings")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiDbtCloudIntegrationSettings:
     """
     Attributes:
         status (ApiDbtCloudIntegrationSettingsStatus):
-        results (Union[Unset, ApiDbtCloudIntegrationSettingsResults]): Configuration for a Lightdash integration with
-            dbt Cloud
+        results (Union[Unset, PickCreateDbtCloudIntegrationMetricsJobId]): From T, pick a set of properties whose keys
+            are in the union K
     """
 
     status: ApiDbtCloudIntegrationSettingsStatus
-    results: Union[Unset, "ApiDbtCloudIntegrationSettingsResults"] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    results: Union[Unset, "PickCreateDbtCloudIntegrationMetricsJobId"] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         status = self.status.value
@@ -50,19 +51,19 @@ class ApiDbtCloudIntegrationSettings:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_dbt_cloud_integration_settings_results import (
-            ApiDbtCloudIntegrationSettingsResults,
+        from ..models.pick_create_dbt_cloud_integration_metrics_job_id import (
+            PickCreateDbtCloudIntegrationMetricsJobId,
         )
 
         d = src_dict.copy()
         status = ApiDbtCloudIntegrationSettingsStatus(d.pop("status"))
 
         _results = d.pop("results", UNSET)
-        results: Union[Unset, ApiDbtCloudIntegrationSettingsResults]
+        results: Union[Unset, PickCreateDbtCloudIntegrationMetricsJobId]
         if isinstance(_results, Unset):
             results = UNSET
         else:
-            results = ApiDbtCloudIntegrationSettingsResults.from_dict(_results)
+            results = PickCreateDbtCloudIntegrationMetricsJobId.from_dict(_results)
 
         api_dbt_cloud_integration_settings = cls(
             status=status,

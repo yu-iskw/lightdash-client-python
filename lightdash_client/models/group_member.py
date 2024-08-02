@@ -1,11 +1,12 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 T = TypeVar("T", bound="GroupMember")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class GroupMember:
     """A summary for a Lightdash user within a group
 
@@ -20,12 +21,15 @@ class GroupMember:
     first_name: str
     email: str
     user_uuid: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         last_name = self.last_name
+
         first_name = self.first_name
+
         email = self.email
+
         user_uuid = self.user_uuid
 
         field_dict: Dict[str, Any] = {}

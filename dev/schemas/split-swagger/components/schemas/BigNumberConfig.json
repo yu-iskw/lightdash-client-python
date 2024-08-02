@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./BigNumber.json"
+    },
+    "type": {
+      "$ref": "./ChartType.BIG_NUMBER.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

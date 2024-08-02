@@ -1,41 +1,40 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
-from ...models.create_share_url_json_body import CreateShareUrlJsonBody
-from ...models.create_share_url_response_201 import CreateShareUrlResponse201
+from ...client import AuthenticatedClient, Client
+from ...models.api_share_response import ApiShareResponse
+from ...models.pick_share_url_path_or_params import PickShareUrlPathOrParams
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    client: Client,
-    json_body: CreateShareUrlJsonBody,
+    body: PickShareUrlPathOrParams,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/share".format(client.base_url)
+    headers: Dict[str, Any] = {}
 
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
-        "json": json_json_body,
+        "url": "/api/v1/share",
     }
 
+    _body = body.to_dict()
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[CreateShareUrlResponse201]:
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
+
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiShareResponse]:
     if response.status_code == HTTPStatus.CREATED:
-        response_201 = CreateShareUrlResponse201.from_dict(response.json())
+        response_201 = ApiShareResponse.from_dict(response.json())
 
         return response_201
     if client.raise_on_unexpected_status:
@@ -44,7 +43,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Cre
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[CreateShareUrlResponse201]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiShareResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -55,29 +56,28 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Cre
 
 def sync_detailed(
     *,
-    client: Client,
-    json_body: CreateShareUrlJsonBody,
-) -> Response[CreateShareUrlResponse201]:
+    client: Union[AuthenticatedClient, Client],
+    body: PickShareUrlPathOrParams,
+) -> Response[ApiShareResponse]:
     """Given a full URL generates a short url id that can be used for sharing
 
     Args:
-        json_body (CreateShareUrlJsonBody): a full URL used to generate a short url id
+        body (PickShareUrlPathOrParams): From T, pick a set of properties whose keys are in the
+            union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[CreateShareUrlResponse201]
+        Response[ApiShareResponse]
     """
 
     kwargs = _get_kwargs(
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -86,78 +86,79 @@ def sync_detailed(
 
 def sync(
     *,
-    client: Client,
-    json_body: CreateShareUrlJsonBody,
-) -> Optional[CreateShareUrlResponse201]:
+    client: Union[AuthenticatedClient, Client],
+    body: PickShareUrlPathOrParams,
+) -> Optional[ApiShareResponse]:
     """Given a full URL generates a short url id that can be used for sharing
 
     Args:
-        json_body (CreateShareUrlJsonBody): a full URL used to generate a short url id
+        body (PickShareUrlPathOrParams): From T, pick a set of properties whose keys are in the
+            union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        CreateShareUrlResponse201
+        ApiShareResponse
     """
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
-    client: Client,
-    json_body: CreateShareUrlJsonBody,
-) -> Response[CreateShareUrlResponse201]:
+    client: Union[AuthenticatedClient, Client],
+    body: PickShareUrlPathOrParams,
+) -> Response[ApiShareResponse]:
     """Given a full URL generates a short url id that can be used for sharing
 
     Args:
-        json_body (CreateShareUrlJsonBody): a full URL used to generate a short url id
+        body (PickShareUrlPathOrParams): From T, pick a set of properties whose keys are in the
+            union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[CreateShareUrlResponse201]
+        Response[ApiShareResponse]
     """
 
     kwargs = _get_kwargs(
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 async def asyncio(
     *,
-    client: Client,
-    json_body: CreateShareUrlJsonBody,
-) -> Optional[CreateShareUrlResponse201]:
+    client: Union[AuthenticatedClient, Client],
+    body: PickShareUrlPathOrParams,
+) -> Optional[ApiShareResponse]:
     """Given a full URL generates a short url id that can be used for sharing
 
     Args:
-        json_body (CreateShareUrlJsonBody): a full URL used to generate a short url id
+        body (PickShareUrlPathOrParams): From T, pick a set of properties whose keys are in the
+            union K
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        CreateShareUrlResponse201
+        ApiShareResponse
     """
 
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

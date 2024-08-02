@@ -1,0 +1,6 @@
+{
+  "items": {
+    "$ref": "./SummaryExplore.json"
+  },
+  "type": "array"
+}

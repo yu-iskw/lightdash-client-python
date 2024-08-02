@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "prUrl": {
+      "type": "string"
+    },
+    "prTitle": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "prUrl",
+    "prTitle"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "properties": {
+      "properties": {
+        "lastVersionChartKind": {
+          "allOf": [
+            {
+              "$ref": "./ChartKind.json"
+            }
+          ],
+          "nullable": true
+        },
+        "chartName": {
+          "type": "string",
+          "nullable": true
+        },
+        "belongsToDashboard": {
+          "type": "boolean"
+        },
+        "savedChartUuid": {
+          "type": "string",
+          "nullable": true
+        },
+        "hideTitle": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "savedChartUuid"
+      ],
+      "type": "object"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.SAVED_CHART.json"
+    }
+  },
+  "required": [
+    "properties",
+    "type"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./ActivateUserWithInviteCode.json"
+    },
+    {
+      "$ref": "./CreateUserArgs.json"
+    }
+  ]
+}

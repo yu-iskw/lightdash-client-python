@@ -1,0 +1,35 @@
+{
+  "allOf": [
+    {
+      "$ref": "./ValidationResponseBase.json"
+    },
+    {
+      "properties": {
+        "dashboardViews": {
+          "type": "number",
+          "format": "double"
+        },
+        "lastUpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "fieldName": {
+          "type": "string"
+        },
+        "chartName": {
+          "type": "string"
+        },
+        "dashboardUuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dashboardViews"
+      ],
+      "type": "object"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "character": {
+      "type": "number",
+      "format": "double"
+    },
+    "line": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "character",
+    "line"
+  ],
+  "type": "object"
+}

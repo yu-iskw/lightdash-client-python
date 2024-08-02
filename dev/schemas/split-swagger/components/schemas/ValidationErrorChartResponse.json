@@ -1,0 +1,38 @@
+{
+  "allOf": [
+    {
+      "$ref": "./ValidationResponseBase.json"
+    },
+    {
+      "properties": {
+        "chartName": {
+          "type": "string"
+        },
+        "chartViews": {
+          "type": "number",
+          "format": "double"
+        },
+        "lastUpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "fieldName": {
+          "type": "string"
+        },
+        "chartKind": {
+          "$ref": "./ChartKind.json"
+        },
+        "chartUuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chartViews"
+      ],
+      "type": "object"
+    }
+  ]
+}

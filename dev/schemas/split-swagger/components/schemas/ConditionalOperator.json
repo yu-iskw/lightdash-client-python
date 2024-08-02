@@ -1,0 +1,23 @@
+{
+  "enum": [
+    "isNull",
+    "notNull",
+    "equals",
+    "notEquals",
+    "startsWith",
+    "endsWith",
+    "include",
+    "doesNotInclude",
+    "lessThan",
+    "lessThanOrEqual",
+    "greaterThan",
+    "greaterThanOrEqual",
+    "inThePast",
+    "notInThePast",
+    "inTheNext",
+    "inTheCurrent",
+    "notInTheCurrent",
+    "inBetween"
+  ],
+  "type": "string"
+}

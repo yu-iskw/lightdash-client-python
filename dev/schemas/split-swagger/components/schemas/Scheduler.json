@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./ChartScheduler.json"
+    },
+    {
+      "$ref": "./DashboardScheduler.json"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "funnel"
+  ],
+  "type": "string"
+}

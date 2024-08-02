@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "bigquery"
+  ],
+  "type": "string"
+}

@@ -1,27 +1,28 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_space_response_status import ApiSpaceResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_space_response_results import ApiSpaceResponseResults
+    from ..models.space import Space
 
 
 T = TypeVar("T", bound="ApiSpaceResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiSpaceResponse:
     """
     Attributes:
-        results (ApiSpaceResponseResults):
+        results (Space):
         status (ApiSpaceResponseStatus):
     """
 
-    results: "ApiSpaceResponseResults"
+    results: "Space"
     status: ApiSpaceResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -41,10 +42,10 @@ class ApiSpaceResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_space_response_results import ApiSpaceResponseResults
+        from ..models.space import Space
 
         d = src_dict.copy()
-        results = ApiSpaceResponseResults.from_dict(d.pop("results"))
+        results = Space.from_dict(d.pop("results"))
 
         status = ApiSpaceResponseStatus(d.pop("status"))
 

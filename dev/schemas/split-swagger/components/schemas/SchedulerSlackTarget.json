@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "channel": {
+      "type": "string"
+    },
+    "schedulerUuid": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "schedulerSlackTargetUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "channel",
+    "schedulerUuid",
+    "updatedAt",
+    "createdAt",
+    "schedulerSlackTargetUuid"
+  ],
+  "type": "object"
+}

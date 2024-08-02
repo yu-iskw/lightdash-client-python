@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "history": {
+      "items": {
+        "$ref": "./ChartVersionSummary.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "history"
+  ],
+  "type": "object"
+}

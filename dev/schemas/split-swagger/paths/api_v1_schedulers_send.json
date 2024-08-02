@@ -1,0 +1,44 @@
+{
+  "post": {
+    "operationId": "sendScheduler",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiTestSchedulerResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Send a scheduler now before saving it",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "description": "the create scheduler data",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "description": "the create scheduler data"
+          }
+        }
+      }
+    }
+  }
+}

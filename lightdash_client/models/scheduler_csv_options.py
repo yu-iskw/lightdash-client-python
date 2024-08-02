@@ -1,13 +1,14 @@
 from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.scheduler_csv_options_limit_type_1 import SchedulerCsvOptionsLimitType1
 
 T = TypeVar("T", bound="SchedulerCsvOptions")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class SchedulerCsvOptions:
     """
     Attributes:
@@ -17,14 +18,12 @@ class SchedulerCsvOptions:
 
     limit: Union[SchedulerCsvOptionsLimitType1, float]
     formatted: bool
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         limit: Union[float, str]
-
         if isinstance(self.limit, SchedulerCsvOptionsLimitType1):
             limit = self.limit.value
-
         else:
             limit = self.limit
 

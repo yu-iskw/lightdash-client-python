@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.json"
+    },
+    "x": {
+      "type": "number",
+      "format": "double"
+    },
+    "y": {
+      "type": "number",
+      "format": "double"
+    },
+    "h": {
+      "type": "number",
+      "format": "double"
+    },
+    "w": {
+      "type": "number",
+      "format": "double"
+    },
+    "tabUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "uuid",
+    "type",
+    "x",
+    "y",
+    "h",
+    "w"
+  ],
+  "type": "object",
+  "description": "Make all properties in T required"
+}

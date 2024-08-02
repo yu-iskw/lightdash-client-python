@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "custom"
+  ],
+  "type": "string"
+}

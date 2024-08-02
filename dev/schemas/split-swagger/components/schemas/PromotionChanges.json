@@ -1,0 +1,64 @@
+{
+  "properties": {
+    "charts": {
+      "items": {
+        "properties": {
+          "data": {
+            "$ref": "./PromotedChart.json"
+          },
+          "action": {
+            "$ref": "./PromotionAction.json"
+          }
+        },
+        "required": [
+          "data",
+          "action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "dashboards": {
+      "items": {
+        "properties": {
+          "data": {
+            "$ref": "./PromotedDashboard.json"
+          },
+          "action": {
+            "$ref": "./PromotionAction.json"
+          }
+        },
+        "required": [
+          "data",
+          "action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "spaces": {
+      "items": {
+        "properties": {
+          "data": {
+            "$ref": "./PromotedSpace.json"
+          },
+          "action": {
+            "$ref": "./PromotionAction.json"
+          }
+        },
+        "required": [
+          "data",
+          "action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "charts",
+    "dashboards",
+    "spaces"
+  ],
+  "type": "object"
+}

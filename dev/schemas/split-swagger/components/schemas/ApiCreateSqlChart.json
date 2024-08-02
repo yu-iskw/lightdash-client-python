@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "savedSqlUuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "savedSqlUuid"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

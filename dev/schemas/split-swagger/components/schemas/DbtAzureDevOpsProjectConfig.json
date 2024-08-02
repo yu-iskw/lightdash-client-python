@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./DbtProjectType.AZURE_DEVOPS.json"
+    },
+    "target": {
+      "type": "string"
+    },
+    "environment": {
+      "items": {
+        "$ref": "./DbtProjectEnvironmentVariable.json"
+      },
+      "type": "array"
+    },
+    "personal_access_token": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "project_sub_path": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "personal_access_token",
+    "organization",
+    "project",
+    "repository",
+    "branch",
+    "project_sub_path"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "pagination": {
+      "allOf": [
+        {
+          "$ref": "./KnexPaginateArgs.json"
+        },
+        {
+          "properties": {
+            "totalPageCount": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "required": [
+            "totalPageCount"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "data": {
+      "items": {
+        "$ref": "./OrganizationMemberProfile.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "data"
+  ],
+  "type": "object"
+}

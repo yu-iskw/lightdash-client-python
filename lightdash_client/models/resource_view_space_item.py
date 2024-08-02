@@ -1,8 +1,9 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
-from ..models.resource_view_space_item_type import ResourceViewSpaceItemType
+from ..models.resource_view_item_type_space import ResourceViewItemTypeSPACE
 
 if TYPE_CHECKING:
     from ..models.resource_view_space_item_data import ResourceViewSpaceItemData
@@ -11,17 +12,17 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ResourceViewSpaceItem")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ResourceViewSpaceItem:
     """
     Attributes:
         data (ResourceViewSpaceItemData):
-        type (ResourceViewSpaceItemType):
+        type (ResourceViewItemTypeSPACE):
     """
 
     data: "ResourceViewSpaceItemData"
-    type: ResourceViewSpaceItemType
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    type: ResourceViewItemTypeSPACE
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         data = self.data.to_dict()
@@ -46,7 +47,7 @@ class ResourceViewSpaceItem:
         d = src_dict.copy()
         data = ResourceViewSpaceItemData.from_dict(d.pop("data"))
 
-        type = ResourceViewSpaceItemType(d.pop("type"))
+        type = ResourceViewItemTypeSPACE(d.pop("type"))
 
         resource_view_space_item = cls(
             data=data,

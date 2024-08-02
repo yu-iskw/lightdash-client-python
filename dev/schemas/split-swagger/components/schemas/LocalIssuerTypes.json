@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "email",
+    "apiToken"
+  ],
+  "type": "string"
+}

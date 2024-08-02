@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "value": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "userUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "value",
+    "email",
+    "userUuid"
+  ],
+  "type": "object"
+}

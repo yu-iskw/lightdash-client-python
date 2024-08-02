@@ -1,0 +1,24 @@
+{
+  "anyOf": [
+    {
+      "allOf": [
+        {
+          "$ref": "./Pick_Explore.SummaryExploreFields_.json"
+        },
+        {
+          "$ref": "./SummaryExtraFields.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "./Pick_ExploreError.SummaryExploreErrorFields_.json"
+        },
+        {
+          "$ref": "./Partial_SummaryExtraFields_.json"
+        }
+      ]
+    }
+  ]
+}

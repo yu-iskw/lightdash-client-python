@@ -1,0 +1,67 @@
+{
+  "patch": {
+    "operationId": "updatePinnedItemsOrder",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiPinnedItems.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update pinned items order",
+    "tags": [
+      "Content"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "project uuid",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the list uuid for the pinned items",
+        "in": "path",
+        "name": "pinnedListUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "the new order of the pinned items",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "items": {
+              "$ref": "../components/schemas/UpdatePinnedItemOrder.json"
+            },
+            "type": "array",
+            "description": "the new order of the pinned items"
+          }
+        }
+      }
+    }
+  }
+}

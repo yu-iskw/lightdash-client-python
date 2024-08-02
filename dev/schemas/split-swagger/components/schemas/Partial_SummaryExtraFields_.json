@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "schemaName": {
+      "type": "string"
+    },
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

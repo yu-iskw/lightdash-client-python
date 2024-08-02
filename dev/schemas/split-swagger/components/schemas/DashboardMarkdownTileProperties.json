@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "properties": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content",
+        "title"
+      ],
+      "type": "object"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.MARKDOWN.json"
+    }
+  },
+  "required": [
+    "properties",
+    "type"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,4 @@
+{
+  "$ref": "./Pick_CreateDbtCloudIntegration.metricsJobId_.json",
+  "description": "Configuration for a Lightdash integration with dbt Cloud"
+}

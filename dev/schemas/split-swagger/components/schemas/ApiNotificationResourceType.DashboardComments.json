@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "dashboardComments"
+  ],
+  "type": "string"
+}

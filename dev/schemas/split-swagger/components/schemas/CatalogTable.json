@@ -1,0 +1,39 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_TableBase.name-or-label-or-groupLabel-or-description-or-requiredAttributes_.json"
+    },
+    {
+      "properties": {
+        "joinedTables": {
+          "items": {
+            "$ref": "./CompiledExploreJoin.json"
+          },
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "groupLabel": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "./CatalogType.Table.json"
+        },
+        "errors": {
+          "items": {
+            "$ref": "./InlineError.json"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    }
+  ]
+}

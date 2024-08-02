@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "get",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGetChartHistoryResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get chart version history from last 30 days",
+    "tags": [
+      "Charts"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "chartUuid for the chart",
+        "in": "path",
+        "name": "chartUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

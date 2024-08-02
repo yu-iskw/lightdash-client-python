@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./CustomVis.json"
+    },
+    "type": {
+      "$ref": "./ChartType.CUSTOM.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

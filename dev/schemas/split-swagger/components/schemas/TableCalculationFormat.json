@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "suffix": {
+      "type": "string"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "compact": {
+      "$ref": "./Compact.json"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "separator": {
+      "$ref": "./NumberSeparator.json"
+    },
+    "round": {
+      "type": "number",
+      "format": "double"
+    },
+    "type": {
+      "$ref": "./TableCalculationFormatType.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

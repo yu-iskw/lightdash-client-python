@@ -1,35 +1,33 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_user_attributes_response_status import ApiUserAttributesResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_user_attributes_response_results_item import (
-        ApiUserAttributesResponseResultsItem,
-    )
+    from ..models.user_attribute import UserAttribute
 
 
 T = TypeVar("T", bound="ApiUserAttributesResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiUserAttributesResponse:
     """
     Attributes:
-        results (List['ApiUserAttributesResponseResultsItem']):
+        results (List['UserAttribute']):
         status (ApiUserAttributesResponseStatus):
     """
 
-    results: List["ApiUserAttributesResponseResultsItem"]
+    results: List["UserAttribute"]
     status: ApiUserAttributesResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = []
         for results_item_data in self.results:
             results_item = results_item_data.to_dict()
-
             results.append(results_item)
 
         status = self.status.value
@@ -47,15 +45,13 @@ class ApiUserAttributesResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_user_attributes_response_results_item import (
-            ApiUserAttributesResponseResultsItem,
-        )
+        from ..models.user_attribute import UserAttribute
 
         d = src_dict.copy()
         results = []
         _results = d.pop("results")
         for results_item_data in _results:
-            results_item = ApiUserAttributesResponseResultsItem.from_dict(results_item_data)
+            results_item = UserAttribute.from_dict(results_item_data)
 
             results.append(results_item)
 

@@ -1,28 +1,30 @@
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
-from ..models.create_project_member_role import CreateProjectMemberRole
+from ..models.project_member_role import ProjectMemberRole
 
 T = TypeVar("T", bound="CreateProjectMember")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class CreateProjectMember:
     """
     Attributes:
         send_email (bool):
-        role (CreateProjectMemberRole):
+        role (ProjectMemberRole):
         email (str):
     """
 
     send_email: bool
-    role: CreateProjectMemberRole
+    role: ProjectMemberRole
     email: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         send_email = self.send_email
+
         role = self.role.value
 
         email = self.email
@@ -44,7 +46,7 @@ class CreateProjectMember:
         d = src_dict.copy()
         send_email = d.pop("sendEmail")
 
-        role = CreateProjectMemberRole(d.pop("role"))
+        role = ProjectMemberRole(d.pop("role"))
 
         email = d.pop("email")
 

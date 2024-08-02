@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "getGroupMembers",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGroupMembersResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "View members of a group",
+    "tags": [
+      "User Groups"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the UUID for the group to view the members of",
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

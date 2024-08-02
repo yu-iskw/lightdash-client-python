@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "postgres"
+  ],
+  "type": "string"
+}

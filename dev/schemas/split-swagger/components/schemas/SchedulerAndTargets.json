@@ -1,0 +1,28 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Scheduler.json"
+    },
+    {
+      "properties": {
+        "targets": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "./SchedulerSlackTarget.json"
+              },
+              {
+                "$ref": "./SchedulerEmailTarget.json"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "targets"
+      ],
+      "type": "object"
+    }
+  ]
+}

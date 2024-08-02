@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "and": {
+      "items": {
+        "$ref": "./FilterGroupItem.json"
+      },
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "and",
+    "id"
+  ],
+  "type": "object"
+}

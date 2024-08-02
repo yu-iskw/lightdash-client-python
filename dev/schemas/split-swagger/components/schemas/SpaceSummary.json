@@ -1,0 +1,34 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_Space.organizationUuid-or-projectUuid-or-uuid-or-name-or-isPrivate-or-pinnedListUuid-or-pinnedListOrder-or-slug_.json"
+    },
+    {
+      "properties": {
+        "dashboardCount": {
+          "type": "number",
+          "format": "double"
+        },
+        "chartCount": {
+          "type": "number",
+          "format": "double"
+        },
+        "access": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "userAccess": {
+          "$ref": "./SpaceShare.json"
+        }
+      },
+      "required": [
+        "dashboardCount",
+        "chartCount",
+        "access"
+      ],
+      "type": "object"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "get": {
+    "operationId": "getGithubListRepositories",
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "results": {
+                  "items": {
+                    "$ref": "../components/schemas/GitRepo.json"
+                  },
+                  "type": "array"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ],
+                  "nullable": false
+                }
+              },
+              "required": [
+                "results",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "security": [],
+    "parameters": []
+  }
+}

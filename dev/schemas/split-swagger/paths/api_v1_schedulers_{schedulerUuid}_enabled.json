@@ -1,0 +1,63 @@
+{
+  "patch": {
+    "operationId": "updateSchedulerEnabled",
+    "responses": {
+      "201": {
+        "description": "Updated",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSchedulerAndTargetsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Set scheduler enabled",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the scheduler to update",
+        "in": "path",
+        "name": "schedulerUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "the enabled flag",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "enabled"
+            ],
+            "type": "object",
+            "description": "the enabled flag"
+          }
+        }
+      }
+    }
+  }
+}

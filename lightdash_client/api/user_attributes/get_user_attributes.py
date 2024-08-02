@@ -1,36 +1,28 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
-from ...models.get_user_attributes_response_200 import GetUserAttributesResponse200
+from ...client import AuthenticatedClient, Client
+from ...models.api_user_attributes_response import ApiUserAttributesResponse
 from ...types import Response
 
 
-def _get_kwargs(
-    *,
-    client: Client,
-) -> Dict[str, Any]:
-    url = "{}/api/v1/org/attributes".format(client.base_url)
-
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    return {
+def _get_kwargs() -> Dict[str, Any]:
+    _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
+        "url": "/api/v1/org/attributes",
     }
 
+    return _kwargs
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[GetUserAttributesResponse200]:
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiUserAttributesResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = GetUserAttributesResponse200.from_dict(response.json())
+        response_200 = ApiUserAttributesResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -39,7 +31,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Get
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[GetUserAttributesResponse200]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiUserAttributesResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -50,8 +44,8 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Get
 
 def sync_detailed(
     *,
-    client: Client,
-) -> Response[GetUserAttributesResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Response[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -59,15 +53,12 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetUserAttributesResponse200]
+        Response[ApiUserAttributesResponse]
     """
 
-    kwargs = _get_kwargs(
-        client=client,
-    )
+    kwargs = _get_kwargs()
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -76,8 +67,8 @@ def sync_detailed(
 
 def sync(
     *,
-    client: Client,
-) -> Optional[GetUserAttributesResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Optional[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -85,7 +76,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetUserAttributesResponse200
+        ApiUserAttributesResponse
     """
 
     return sync_detailed(
@@ -95,8 +86,8 @@ def sync(
 
 async def asyncio_detailed(
     *,
-    client: Client,
-) -> Response[GetUserAttributesResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Response[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -104,23 +95,20 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GetUserAttributesResponse200]
+        Response[ApiUserAttributesResponse]
     """
 
-    kwargs = _get_kwargs(
-        client=client,
-    )
+    kwargs = _get_kwargs()
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 async def asyncio(
     *,
-    client: Client,
-) -> Optional[GetUserAttributesResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Optional[ApiUserAttributesResponse]:
     """Get all user attributes
 
     Raises:
@@ -128,7 +116,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GetUserAttributesResponse200
+        ApiUserAttributesResponse
     """
 
     return (

@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "spaceUuid": {
+      "type": "string"
+    },
+    "config": {
+      "$ref": "./SqlRunnerChartConfig.json"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "spaceUuid",
+    "config",
+    "sql",
+    "description",
+    "name"
+  ],
+  "type": "object"
+}

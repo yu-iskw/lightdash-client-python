@@ -1,0 +1,24 @@
+{
+  "allOf": [
+    {
+      "$ref": "./ChartSummary.json"
+    },
+    {
+      "$ref": "./Pick_SavedChart.updatedAt-or-updatedByUser-or-pinnedListOrder_.json"
+    },
+    {
+      "$ref": "./ViewStatistics.json"
+    },
+    {
+      "properties": {
+        "validationErrors": {
+          "items": {
+            "$ref": "./ValidationSummary.json"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

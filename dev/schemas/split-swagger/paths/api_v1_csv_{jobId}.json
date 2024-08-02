@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "getCsvUrl",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiCsvUrlResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get a Csv",
+    "tags": [
+      "Exports"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the jobId for the CSV",
+        "in": "path",
+        "name": "jobId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

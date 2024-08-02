@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./FilterRule_ConditionalOperator.T.V.any_.json"
+    },
+    {
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "tileTargets": {
+          "$ref": "./Record_string.DashboardTileTarget_.json"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

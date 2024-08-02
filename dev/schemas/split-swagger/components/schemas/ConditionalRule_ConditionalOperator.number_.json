@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "values": {
+      "items": {
+        "type": "number",
+        "format": "double"
+      },
+      "type": "array"
+    },
+    "operator": {
+      "$ref": "./ConditionalOperator.json"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "operator",
+    "id"
+  ],
+  "type": "object"
+}

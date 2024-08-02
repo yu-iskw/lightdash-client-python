@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "getShareUrl",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiShareResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get a share url from a short url id",
+    "tags": [
+      "Share links"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the short id for the share url",
+        "in": "path",
+        "name": "nanoId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedByUser": {
+      "$ref": "./UpdatedByUser.json"
+    },
+    "spaceUuid": {
+      "type": "string"
+    },
+    "pinnedListUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  },
+  "required": [
+    "name",
+    "uuid",
+    "updatedAt",
+    "spaceUuid",
+    "pinnedListUuid",
+    "pinnedListOrder"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

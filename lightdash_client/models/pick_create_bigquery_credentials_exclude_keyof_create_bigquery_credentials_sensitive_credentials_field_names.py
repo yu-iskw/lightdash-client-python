@@ -1,37 +1,31 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_priority import (
     PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority,
 )
-from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_type import (
-    PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType,
-)
+from ..models.warehouse_types_bigquery import WarehouseTypesBIGQUERY
+from ..models.week_day import WeekDay
 from ..types import UNSET, Unset
-
-if TYPE_CHECKING:
-    from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_start_of_week import (
-        PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-    )
-
 
 T = TypeVar(
     "T", bound="PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames"
 )
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        type (PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType):
+        type (WarehouseTypesBIGQUERY):
         project (str):
         dataset (str):
+        require_user_credentials (Union[Unset, bool]):
         threads (Union[Unset, float]):
-        start_of_week (Union[Unset, None,
-            PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek]):
+        start_of_week (Union[None, Unset, WeekDay]):
         timeout_seconds (Union[Unset, float]):
         priority (Union[Unset,
             PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority]):
@@ -40,15 +34,12 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
         maximum_bytes_billed (Union[Unset, float]):
     """
 
-    type: PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType
+    type: WarehouseTypesBIGQUERY
     project: str
     dataset: str
+    require_user_credentials: Union[Unset, bool] = UNSET
     threads: Union[Unset, float] = UNSET
-    start_of_week: Union[
-        Unset,
-        None,
-        "PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    ] = UNSET
+    start_of_week: Union[None, Unset, WeekDay] = UNSET
     timeout_seconds: Union[Unset, float] = UNSET
     priority: Union[
         Unset, PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesPriority
@@ -56,25 +47,37 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
     retries: Union[Unset, float] = UNSET
     location: Union[Unset, str] = UNSET
     maximum_bytes_billed: Union[Unset, float] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
         project = self.project
+
         dataset = self.dataset
+
+        require_user_credentials = self.require_user_credentials
+
         threads = self.threads
-        start_of_week: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.start_of_week, Unset):
-            start_of_week = self.start_of_week.to_dict() if self.start_of_week else None
+
+        start_of_week: Union[None, Unset, int]
+        if isinstance(self.start_of_week, Unset):
+            start_of_week = UNSET
+        elif isinstance(self.start_of_week, WeekDay):
+            start_of_week = self.start_of_week.value
+        else:
+            start_of_week = self.start_of_week
 
         timeout_seconds = self.timeout_seconds
+
         priority: Union[Unset, str] = UNSET
         if not isinstance(self.priority, Unset):
             priority = self.priority.value
 
         retries = self.retries
+
         location = self.location
+
         maximum_bytes_billed = self.maximum_bytes_billed
 
         field_dict: Dict[str, Any] = {}
@@ -86,6 +89,8 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
                 "dataset": dataset,
             }
         )
+        if require_user_credentials is not UNSET:
+            field_dict["requireUserCredentials"] = require_user_credentials
         if threads is not UNSET:
             field_dict["threads"] = threads
         if start_of_week is not UNSET:
@@ -105,35 +110,33 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names_start_of_week import (
-            PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-        )
-
         d = src_dict.copy()
-        type = PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesType(
-            d.pop("type")
-        )
+        type = WarehouseTypesBIGQUERY(d.pop("type"))
 
         project = d.pop("project")
 
         dataset = d.pop("dataset")
 
+        require_user_credentials = d.pop("requireUserCredentials", UNSET)
+
         threads = d.pop("threads", UNSET)
 
-        _start_of_week = d.pop("startOfWeek", UNSET)
-        start_of_week: Union[
-            Unset,
-            None,
-            PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-        ]
-        if _start_of_week is None:
-            start_of_week = None
-        elif isinstance(_start_of_week, Unset):
-            start_of_week = UNSET
-        else:
-            start_of_week = PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNamesStartOfWeek.from_dict(
-                _start_of_week
-            )
+        def _parse_start_of_week(data: object) -> Union[None, Unset, WeekDay]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, int):
+                    raise TypeError()
+                start_of_week_type_1 = WeekDay(data)
+
+                return start_of_week_type_1
+            except:  # noqa: E722
+                pass
+            return cast(Union[None, Unset, WeekDay], data)
+
+        start_of_week = _parse_start_of_week(d.pop("startOfWeek", UNSET))
 
         timeout_seconds = d.pop("timeoutSeconds", UNSET)
 
@@ -160,6 +163,7 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
                 type=type,
                 project=project,
                 dataset=dataset,
+                require_user_credentials=require_user_credentials,
                 threads=threads,
                 start_of_week=start_of_week,
                 timeout_seconds=timeout_seconds,
@@ -170,9 +174,7 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
             )
         )
 
-        pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names.additional_properties = (
-            d
-        )
+        pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names.additional_properties = d
         return (
             pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names
         )

@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "getScheduledJobs",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiScheduledJobsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get scheduled jobs",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the scheduler to update",
+        "in": "path",
+        "name": "schedulerUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

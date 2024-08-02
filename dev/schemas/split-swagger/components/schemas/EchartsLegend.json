@@ -1,0 +1,61 @@
+{
+  "properties": {
+    "icon": {
+      "type": "string",
+      "enum": [
+        "circle",
+        "rect",
+        "roundRect",
+        "triangle",
+        "diamond",
+        "pin",
+        "arrow",
+        "none"
+      ]
+    },
+    "align": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "left",
+        "right"
+      ]
+    },
+    "height": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
+    },
+    "left": {
+      "type": "string"
+    },
+    "bottom": {
+      "type": "string"
+    },
+    "right": {
+      "type": "string"
+    },
+    "top": {
+      "type": "string"
+    },
+    "orient": {
+      "type": "string",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "plain",
+        "scroll"
+      ]
+    },
+    "show": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

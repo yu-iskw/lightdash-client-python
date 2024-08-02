@@ -1,0 +1,11 @@
+{
+  "enum": [
+    "cartesian",
+    "table",
+    "big_number",
+    "pie",
+    "funnel",
+    "custom"
+  ],
+  "type": "string"
+}

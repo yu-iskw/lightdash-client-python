@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "dbtVersion": {
+      "$ref": "./SupportedDbtVersions.json"
+    },
+    "upstreamProjectUuid": {
+      "type": "string"
+    },
+    "pinnedListUuid": {
+      "type": "string"
+    },
+    "warehouseConnection": {
+      "$ref": "./WarehouseCredentials.json"
+    },
+    "dbtConnection": {
+      "$ref": "./DbtProjectConfig.json"
+    },
+    "type": {
+      "$ref": "./ProjectType.json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dbtVersion",
+    "dbtConnection",
+    "type",
+    "name",
+    "projectUuid",
+    "organizationUuid"
+  ],
+  "type": "object"
+}

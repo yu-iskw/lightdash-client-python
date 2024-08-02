@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "role": {
+      "$ref": "./OrganizationMemberRole.json"
+    }
+  },
+  "required": [
+    "role"
+  ],
+  "type": "object"
+}

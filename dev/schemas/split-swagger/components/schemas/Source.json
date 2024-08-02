@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "content": {
+      "type": "string"
+    },
+    "highlight": {
+      "properties": {
+        "end": {
+          "$ref": "./SourcePosition.json"
+        },
+        "start": {
+          "$ref": "./SourcePosition.json"
+        }
+      },
+      "required": [
+        "end",
+        "start"
+      ],
+      "type": "object"
+    },
+    "range": {
+      "properties": {
+        "end": {
+          "$ref": "./SourcePosition.json"
+        },
+        "start": {
+          "$ref": "./SourcePosition.json"
+        }
+      },
+      "required": [
+        "end",
+        "start"
+      ],
+      "type": "object"
+    },
+    "path": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "content",
+    "range",
+    "path"
+  ],
+  "type": "object"
+}

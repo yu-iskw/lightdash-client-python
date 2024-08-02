@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "fieldId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "fieldId"
+  ],
+  "type": "object"
+}

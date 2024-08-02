@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "rotate": {
+      "type": "number",
+      "format": "double"
+    },
+    "inverse": {
+      "type": "boolean"
+    },
+    "maxOffset": {
+      "type": "string"
+    },
+    "minOffset": {
+      "type": "string"
+    },
+    "max": {
+      "type": "string"
+    },
+    "min": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

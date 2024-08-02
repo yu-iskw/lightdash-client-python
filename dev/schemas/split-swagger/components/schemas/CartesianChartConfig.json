@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./CartesianChart.json"
+    },
+    "type": {
+      "$ref": "./ChartType.CARTESIAN.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

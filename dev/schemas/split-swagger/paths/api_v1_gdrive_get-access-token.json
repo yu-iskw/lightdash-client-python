@@ -1,0 +1,33 @@
+{
+  "get": {
+    "operationId": "getAccessToken",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGdriveAccessTokenResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get access token for google drive",
+    "tags": [
+      "Integrations"
+    ],
+    "security": [],
+    "parameters": []
+  }
+}

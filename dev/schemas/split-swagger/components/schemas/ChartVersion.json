@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "chart": {
+      "$ref": "./SavedChart.json"
+    },
+    "createdBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "versionUuid": {
+      "type": "string"
+    },
+    "chartUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "chart",
+    "createdBy",
+    "createdAt",
+    "versionUuid",
+    "chartUuid"
+  ],
+  "type": "object"
+}

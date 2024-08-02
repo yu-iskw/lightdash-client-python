@@ -1,61 +1,51 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_validate_response_status import ApiValidateResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_validate_response_results_item_type_0 import (
-        ApiValidateResponseResultsItemType0,
+    from ..models.validation_error_chart_response import ValidationErrorChartResponse
+    from ..models.validation_error_dashboard_response import (
+        ValidationErrorDashboardResponse,
     )
-    from ..models.api_validate_response_results_item_type_1 import (
-        ApiValidateResponseResultsItemType1,
-    )
-    from ..models.api_validate_response_results_item_type_2 import (
-        ApiValidateResponseResultsItemType2,
-    )
+    from ..models.validation_error_table_response import ValidationErrorTableResponse
 
 
 T = TypeVar("T", bound="ApiValidateResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiValidateResponse:
     """
     Attributes:
-        results (List[Union['ApiValidateResponseResultsItemType0', 'ApiValidateResponseResultsItemType1',
-            'ApiValidateResponseResultsItemType2']]):
+        results (List[Union['ValidationErrorChartResponse', 'ValidationErrorDashboardResponse',
+            'ValidationErrorTableResponse']]):
         status (ApiValidateResponseStatus):
     """
 
     results: List[
-        Union[
-            "ApiValidateResponseResultsItemType0",
-            "ApiValidateResponseResultsItemType1",
-            "ApiValidateResponseResultsItemType2",
-        ]
+        Union["ValidationErrorChartResponse", "ValidationErrorDashboardResponse", "ValidationErrorTableResponse"]
     ]
     status: ApiValidateResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.api_validate_response_results_item_type_0 import (
-            ApiValidateResponseResultsItemType0,
+        from ..models.validation_error_chart_response import (
+            ValidationErrorChartResponse,
         )
-        from ..models.api_validate_response_results_item_type_1 import (
-            ApiValidateResponseResultsItemType1,
+        from ..models.validation_error_dashboard_response import (
+            ValidationErrorDashboardResponse,
         )
 
         results = []
         for results_item_data in self.results:
             results_item: Dict[str, Any]
-
-            if isinstance(results_item_data, ApiValidateResponseResultsItemType0):
+            if isinstance(results_item_data, ValidationErrorChartResponse):
                 results_item = results_item_data.to_dict()
-
-            elif isinstance(results_item_data, ApiValidateResponseResultsItemType1):
+            elif isinstance(results_item_data, ValidationErrorDashboardResponse):
                 results_item = results_item_data.to_dict()
-
             else:
                 results_item = results_item_data.to_dict()
 
@@ -76,14 +66,14 @@ class ApiValidateResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_validate_response_results_item_type_0 import (
-            ApiValidateResponseResultsItemType0,
+        from ..models.validation_error_chart_response import (
+            ValidationErrorChartResponse,
         )
-        from ..models.api_validate_response_results_item_type_1 import (
-            ApiValidateResponseResultsItemType1,
+        from ..models.validation_error_dashboard_response import (
+            ValidationErrorDashboardResponse,
         )
-        from ..models.api_validate_response_results_item_type_2 import (
-            ApiValidateResponseResultsItemType2,
+        from ..models.validation_error_table_response import (
+            ValidationErrorTableResponse,
         )
 
         d = src_dict.copy()
@@ -94,31 +84,29 @@ class ApiValidateResponse:
             def _parse_results_item(
                 data: object,
             ) -> Union[
-                "ApiValidateResponseResultsItemType0",
-                "ApiValidateResponseResultsItemType1",
-                "ApiValidateResponseResultsItemType2",
+                "ValidationErrorChartResponse", "ValidationErrorDashboardResponse", "ValidationErrorTableResponse"
             ]:
                 try:
                     if not isinstance(data, dict):
                         raise TypeError()
-                    results_item_type_0 = ApiValidateResponseResultsItemType0.from_dict(data)
+                    componentsschemas_validation_response_type_0 = ValidationErrorChartResponse.from_dict(data)
 
-                    return results_item_type_0
+                    return componentsschemas_validation_response_type_0
                 except:  # noqa: E722
                     pass
                 try:
                     if not isinstance(data, dict):
                         raise TypeError()
-                    results_item_type_1 = ApiValidateResponseResultsItemType1.from_dict(data)
+                    componentsschemas_validation_response_type_1 = ValidationErrorDashboardResponse.from_dict(data)
 
-                    return results_item_type_1
+                    return componentsschemas_validation_response_type_1
                 except:  # noqa: E722
                     pass
                 if not isinstance(data, dict):
                     raise TypeError()
-                results_item_type_2 = ApiValidateResponseResultsItemType2.from_dict(data)
+                componentsschemas_validation_response_type_2 = ValidationErrorTableResponse.from_dict(data)
 
-                return results_item_type_2
+                return componentsschemas_validation_response_type_2
 
             results_item = _parse_results_item(results_item_data)
 

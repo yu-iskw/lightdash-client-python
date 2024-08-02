@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "password": {
+      "type": "string"
+    },
+    "email": {
+      "$ref": "./Email.json"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "password",
+    "email",
+    "lastName",
+    "firstName"
+  ],
+  "type": "object"
+}

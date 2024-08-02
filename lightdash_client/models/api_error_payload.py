@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_error_payload_status import ApiErrorPayloadStatus
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ApiErrorPayload")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiErrorPayload:
     """The Error object is returned from the api any time there is an error.
     The message contains
@@ -23,7 +24,7 @@ class ApiErrorPayload:
 
     error: "ApiErrorPayloadError"
     status: ApiErrorPayloadStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         error = self.error.to_dict()

@@ -1,0 +1,119 @@
+{
+  "get": {
+    "operationId": "GetMyOrganization",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiOrganization.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get the current user's organization",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": []
+  },
+  "put": {
+    "operationId": "CreateOrganization",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Creates a new organization, the current user becomes the Admin of the new organization.\nThis is only available to users that are not already in an organization.",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "description": "the new organization settings",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/CreateOrganization.json",
+            "description": "the new organization settings"
+          }
+        }
+      }
+    }
+  },
+  "patch": {
+    "operationId": "UpdateMyOrganization",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update the current user's organization",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "description": "the new organization settings",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UpdateOrganization.json",
+            "description": "the new organization settings"
+          }
+        }
+      }
+    }
+  }
+}

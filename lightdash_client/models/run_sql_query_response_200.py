@@ -1,29 +1,28 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.run_sql_query_response_200_status import RunSqlQueryResponse200Status
 
 if TYPE_CHECKING:
-    from ..models.run_sql_query_response_200_results import (
-        RunSqlQueryResponse200Results,
-    )
+    from ..models.api_sql_query_results import ApiSqlQueryResults
 
 
 T = TypeVar("T", bound="RunSqlQueryResponse200")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class RunSqlQueryResponse200:
     """
     Attributes:
-        results (RunSqlQueryResponse200Results):
+        results (ApiSqlQueryResults):
         status (RunSqlQueryResponse200Status):
     """
 
-    results: "RunSqlQueryResponse200Results"
+    results: "ApiSqlQueryResults"
     status: RunSqlQueryResponse200Status
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -43,12 +42,10 @@ class RunSqlQueryResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.run_sql_query_response_200_results import (
-            RunSqlQueryResponse200Results,
-        )
+        from ..models.api_sql_query_results import ApiSqlQueryResults
 
         d = src_dict.copy()
-        results = RunSqlQueryResponse200Results.from_dict(d.pop("results"))
+        results = ApiSqlQueryResults.from_dict(d.pop("results"))
 
         status = RunSqlQueryResponse200Status(d.pop("status"))
 

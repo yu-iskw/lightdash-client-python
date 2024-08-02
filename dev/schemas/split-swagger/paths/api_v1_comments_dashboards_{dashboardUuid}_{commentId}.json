@@ -1,0 +1,102 @@
+{
+  "patch": {
+    "operationId": "resolveComment",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiResolveComment.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Resolves a comment on a dashboard",
+    "tags": [
+      "Comments"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the uuid of the dashboard",
+        "in": "path",
+        "name": "dashboardUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the uuid of the comment",
+        "in": "path",
+        "name": "commentId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "delete": {
+    "operationId": "deleteComment",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiResolveComment.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Deletes a comment on a dashboard",
+    "tags": [
+      "Comments"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the uuid of the dashboard",
+        "in": "path",
+        "name": "dashboardUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the uuid of the comment",
+        "in": "path",
+        "name": "commentId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

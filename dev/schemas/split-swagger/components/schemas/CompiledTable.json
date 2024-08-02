@@ -1,0 +1,29 @@
+{
+  "allOf": [
+    {
+      "$ref": "./TableBase.json"
+    },
+    {
+      "properties": {
+        "source": {
+          "$ref": "./Source.json"
+        },
+        "lineageGraph": {
+          "$ref": "./LineageGraph.json"
+        },
+        "metrics": {
+          "$ref": "./Record_string.CompiledMetric_.json"
+        },
+        "dimensions": {
+          "$ref": "./Record_string.CompiledDimension_.json"
+        }
+      },
+      "required": [
+        "lineageGraph",
+        "metrics",
+        "dimensions"
+      ],
+      "type": "object"
+    }
+  ]
+}

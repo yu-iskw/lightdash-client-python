@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "gdriveOrganizationName": {
+      "type": "string"
+    },
+    "gdriveName": {
+      "type": "string"
+    },
+    "gdriveId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "url",
+    "gdriveOrganizationName",
+    "gdriveName",
+    "gdriveId"
+  ],
+  "type": "object"
+}

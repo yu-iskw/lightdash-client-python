@@ -1,0 +1,18 @@
+{
+  "enum": [
+    "percentile",
+    "average",
+    "count",
+    "count_distinct",
+    "sum",
+    "min",
+    "max",
+    "number",
+    "median",
+    "string",
+    "date",
+    "timestamp",
+    "boolean"
+  ],
+  "type": "string"
+}

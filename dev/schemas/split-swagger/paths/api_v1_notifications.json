@@ -1,0 +1,42 @@
+{
+  "get": {
+    "operationId": "getNotifications",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGetNotifications.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Gets notifications for a user based on the type",
+    "tags": [
+      "Notifications"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "query",
+        "name": "type",
+        "required": true,
+        "schema": {
+          "$ref": "../components/schemas/ApiNotificationResourceType.json"
+        }
+      }
+    ]
+  }
+}

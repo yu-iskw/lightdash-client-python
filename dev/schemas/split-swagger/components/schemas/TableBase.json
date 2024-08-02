@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "groupDetails": {
+      "$ref": "./Record_string.GroupType_.json"
+    },
+    "requiredAttributes": {
+      "$ref": "./Record_string.string-or-string-Array_.json"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "requiredFilters": {
+      "items": {
+        "$ref": "./MetricFilterRule.json"
+      },
+      "type": "array"
+    },
+    "sqlWhere": {
+      "type": "string"
+    },
+    "groupLabel": {
+      "type": "string"
+    },
+    "orderFieldsBy": {
+      "$ref": "./OrderFieldsByStrategy.json"
+    },
+    "sqlTable": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "string"
+    },
+    "database": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "originalName": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sqlTable",
+    "schema",
+    "database",
+    "label",
+    "name"
+  ],
+  "type": "object"
+}

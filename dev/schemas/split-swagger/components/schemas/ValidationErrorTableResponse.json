@@ -1,0 +1,15 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Omit_ValidationResponseBase.name_.json"
+    },
+    {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

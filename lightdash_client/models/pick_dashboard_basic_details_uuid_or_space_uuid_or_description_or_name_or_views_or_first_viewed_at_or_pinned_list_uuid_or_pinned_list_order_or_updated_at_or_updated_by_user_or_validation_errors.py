@@ -1,18 +1,17 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors_updated_by_user import (
-        PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser,
+    from ..models.pick_validation_response_error_or_created_at_or_validation_id import (
+        PickValidationResponseErrorOrCreatedAtOrValidationId,
     )
-    from ..models.pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors_validation_errors_item import (
-        PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem,
-    )
+    from ..models.updated_by_user import UpdatedByUser
 
 
 T = TypeVar(
@@ -21,77 +20,71 @@ T = TypeVar(
 )
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrors:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
         name (str):
         uuid (str):
-        updated_at (datetime.datetime):
         space_uuid (str):
+        pinned_list_uuid (Union[None, str]):
+        updated_at (datetime.datetime):
         views (float):
-        description (Union[Unset, str]):
-        updated_by_user (Union[Unset, PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtO
-            rPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser]):
         first_viewed_at (Union[None, datetime.datetime, str]):
-        pinned_list_uuid (Optional[str]):
-        pinned_list_order (Optional[float]):
-        validation_errors (Union[Unset, List['PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstV
-            iewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem']]):
+        pinned_list_order (Union[None, float]):
+        description (Union[Unset, str]):
+        updated_by_user (Union[Unset, UpdatedByUser]):
+        validation_errors (Union[Unset, List['PickValidationResponseErrorOrCreatedAtOrValidationId']]):
     """
 
     name: str
     uuid: str
-    updated_at: datetime.datetime
     space_uuid: str
+    pinned_list_uuid: Union[None, str]
+    updated_at: datetime.datetime
     views: float
     first_viewed_at: Union[None, datetime.datetime, str]
-    pinned_list_uuid: Optional[str]
-    pinned_list_order: Optional[float]
+    pinned_list_order: Union[None, float]
     description: Union[Unset, str] = UNSET
-    updated_by_user: Union[
-        Unset,
-        "PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser",
-    ] = UNSET
-    validation_errors: Union[
-        Unset,
-        List[
-            "PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem"
-        ],
-    ] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
+    validation_errors: Union[Unset, List["PickValidationResponseErrorOrCreatedAtOrValidationId"]] = UNSET
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         uuid = self.uuid
-        updated_at = self.updated_at.isoformat()
 
         space_uuid = self.space_uuid
+
+        pinned_list_uuid: Union[None, str]
+        pinned_list_uuid = self.pinned_list_uuid
+
+        updated_at = self.updated_at.isoformat()
+
         views = self.views
+
+        first_viewed_at: Union[None, str]
+        if isinstance(self.first_viewed_at, datetime.datetime):
+            first_viewed_at = self.first_viewed_at.isoformat()
+        else:
+            first_viewed_at = self.first_viewed_at
+
+        pinned_list_order: Union[None, float]
+        pinned_list_order = self.pinned_list_order
+
         description = self.description
+
         updated_by_user: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.updated_by_user, Unset):
             updated_by_user = self.updated_by_user.to_dict()
 
-        first_viewed_at: Union[None, str]
-        if self.first_viewed_at is None:
-            first_viewed_at = None
-
-        elif isinstance(self.first_viewed_at, datetime.datetime):
-            first_viewed_at = self.first_viewed_at.isoformat()
-
-        else:
-            first_viewed_at = self.first_viewed_at
-
-        pinned_list_uuid = self.pinned_list_uuid
-        pinned_list_order = self.pinned_list_order
         validation_errors: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.validation_errors, Unset):
             validation_errors = []
             for validation_errors_item_data in self.validation_errors:
                 validation_errors_item = validation_errors_item_data.to_dict()
-
                 validation_errors.append(validation_errors_item)
 
         field_dict: Dict[str, Any] = {}
@@ -100,11 +93,11 @@ class PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstV
             {
                 "name": name,
                 "uuid": uuid,
-                "updatedAt": updated_at,
                 "spaceUuid": space_uuid,
+                "pinnedListUuid": pinned_list_uuid,
+                "updatedAt": updated_at,
                 "views": views,
                 "firstViewedAt": first_viewed_at,
-                "pinnedListUuid": pinned_list_uuid,
                 "pinnedListOrder": pinned_list_order,
             }
         )
@@ -119,37 +112,28 @@ class PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstV
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors_updated_by_user import (
-            PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser,
+        from ..models.pick_validation_response_error_or_created_at_or_validation_id import (
+            PickValidationResponseErrorOrCreatedAtOrValidationId,
         )
-        from ..models.pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors_validation_errors_item import (
-            PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem,
-        )
+        from ..models.updated_by_user import UpdatedByUser
 
         d = src_dict.copy()
         name = d.pop("name")
 
         uuid = d.pop("uuid")
 
-        updated_at = isoparse(d.pop("updatedAt"))
-
         space_uuid = d.pop("spaceUuid")
 
+        def _parse_pinned_list_uuid(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
+
+        updated_at = isoparse(d.pop("updatedAt"))
+
         views = d.pop("views")
-
-        description = d.pop("description", UNSET)
-
-        _updated_by_user = d.pop("updatedByUser", UNSET)
-        updated_by_user: Union[
-            Unset,
-            PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser,
-        ]
-        if isinstance(_updated_by_user, Unset):
-            updated_by_user = UNSET
-        else:
-            updated_by_user = PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsUpdatedByUser.from_dict(
-                _updated_by_user
-            )
 
         def _parse_first_viewed_at(data: object) -> Union[None, datetime.datetime, str]:
             if data is None:
@@ -166,14 +150,26 @@ class PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstV
 
         first_viewed_at = _parse_first_viewed_at(d.pop("firstViewedAt"))
 
-        pinned_list_uuid = d.pop("pinnedListUuid")
+        def _parse_pinned_list_order(data: object) -> Union[None, float]:
+            if data is None:
+                return data
+            return cast(Union[None, float], data)
 
-        pinned_list_order = d.pop("pinnedListOrder")
+        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
+
+        description = d.pop("description", UNSET)
+
+        _updated_by_user = d.pop("updatedByUser", UNSET)
+        updated_by_user: Union[Unset, UpdatedByUser]
+        if isinstance(_updated_by_user, Unset):
+            updated_by_user = UNSET
+        else:
+            updated_by_user = UpdatedByUser.from_dict(_updated_by_user)
 
         validation_errors = []
         _validation_errors = d.pop("validationErrors", UNSET)
         for validation_errors_item_data in _validation_errors or []:
-            validation_errors_item = PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrorsValidationErrorsItem.from_dict(
+            validation_errors_item = PickValidationResponseErrorOrCreatedAtOrValidationId.from_dict(
                 validation_errors_item_data
             )
 
@@ -182,20 +178,18 @@ class PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstV
         pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors = cls(
             name=name,
             uuid=uuid,
-            updated_at=updated_at,
             space_uuid=space_uuid,
+            pinned_list_uuid=pinned_list_uuid,
+            updated_at=updated_at,
             views=views,
+            first_viewed_at=first_viewed_at,
+            pinned_list_order=pinned_list_order,
             description=description,
             updated_by_user=updated_by_user,
-            first_viewed_at=first_viewed_at,
-            pinned_list_uuid=pinned_list_uuid,
-            pinned_list_order=pinned_list_order,
             validation_errors=validation_errors,
         )
 
-        pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors.additional_properties = (
-            d
-        )
+        pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors.additional_properties = d
         return pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors
 
     @property

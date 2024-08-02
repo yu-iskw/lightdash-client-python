@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "promoteDashboardDiff",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiPromotionChangesResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get diff from dashboard to promote",
+    "tags": [
+      "Dashboards"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "dashboardUuid for the dashboard to check diff",
+        "in": "path",
+        "name": "dashboardUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

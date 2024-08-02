@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "dbt",
+    "dbt_cloud_ide",
+    "github",
+    "gitlab",
+    "bitbucket",
+    "azure_devops",
+    "none"
+  ],
+  "type": "string"
+}

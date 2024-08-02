@@ -1,27 +1,28 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_organization_status import ApiOrganizationStatus
 
 if TYPE_CHECKING:
-    from ..models.api_organization_results import ApiOrganizationResults
+    from ..models.organization import Organization
 
 
 T = TypeVar("T", bound="ApiOrganization")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiOrganization:
     """
     Attributes:
-        results (ApiOrganizationResults): Details of a user's Organization
+        results (Organization): Details of a user's Organization
         status (ApiOrganizationStatus):
     """
 
-    results: "ApiOrganizationResults"
+    results: "Organization"
     status: ApiOrganizationStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -41,10 +42,10 @@ class ApiOrganization:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_organization_results import ApiOrganizationResults
+        from ..models.organization import Organization
 
         d = src_dict.copy()
-        results = ApiOrganizationResults.from_dict(d.pop("results"))
+        results = Organization.from_dict(d.pop("results"))
 
         status = ApiOrganizationStatus(d.pop("status"))
 

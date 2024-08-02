@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "recipient": {
+      "type": "string"
+    },
+    "schedulerUuid": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "schedulerEmailTargetUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "recipient",
+    "schedulerUuid",
+    "updatedAt",
+    "createdAt",
+    "schedulerEmailTargetUuid"
+  ],
+  "type": "object"
+}

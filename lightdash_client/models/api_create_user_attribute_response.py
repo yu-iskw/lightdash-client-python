@@ -1,31 +1,30 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_create_user_attribute_response_status import (
     ApiCreateUserAttributeResponseStatus,
 )
 
 if TYPE_CHECKING:
-    from ..models.api_create_user_attribute_response_results import (
-        ApiCreateUserAttributeResponseResults,
-    )
+    from ..models.user_attribute import UserAttribute
 
 
 T = TypeVar("T", bound="ApiCreateUserAttributeResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiCreateUserAttributeResponse:
     """
     Attributes:
-        results (ApiCreateUserAttributeResponseResults):
+        results (UserAttribute):
         status (ApiCreateUserAttributeResponseStatus):
     """
 
-    results: "ApiCreateUserAttributeResponseResults"
+    results: "UserAttribute"
     status: ApiCreateUserAttributeResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -45,12 +44,10 @@ class ApiCreateUserAttributeResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_create_user_attribute_response_results import (
-            ApiCreateUserAttributeResponseResults,
-        )
+        from ..models.user_attribute import UserAttribute
 
         d = src_dict.copy()
-        results = ApiCreateUserAttributeResponseResults.from_dict(d.pop("results"))
+        results = UserAttribute.from_dict(d.pop("results"))
 
         status = ApiCreateUserAttributeResponseStatus(d.pop("status"))
 

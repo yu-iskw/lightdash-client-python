@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "csv",
+    "image",
+    "gsheets"
+  ],
+  "type": "string"
+}

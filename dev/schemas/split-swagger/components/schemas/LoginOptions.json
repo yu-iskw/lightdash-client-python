@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "redirectUri": {
+      "type": "string"
+    },
+    "forceRedirect": {
+      "type": "boolean"
+    },
+    "showOptions": {
+      "items": {
+        "$ref": "./LoginOptionTypes.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "showOptions"
+  ],
+  "type": "object"
+}

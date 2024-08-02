@@ -1,0 +1,16 @@
+{
+  "enum": [
+    "line",
+    "horizontal_bar",
+    "vertical_bar",
+    "scatter",
+    "area",
+    "mixed",
+    "pie",
+    "table",
+    "big_number",
+    "funnel",
+    "custom"
+  ],
+  "type": "string"
+}

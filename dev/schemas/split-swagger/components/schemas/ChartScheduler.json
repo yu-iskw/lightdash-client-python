@@ -1,0 +1,26 @@
+{
+  "allOf": [
+    {
+      "$ref": "./SchedulerBase.json"
+    },
+    {
+      "properties": {
+        "dashboardUuid": {
+          "type": "number",
+          "enum": [
+            null
+          ],
+          "nullable": true
+        },
+        "savedChartUuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dashboardUuid",
+        "savedChartUuid"
+      ],
+      "type": "object"
+    }
+  ]
+}

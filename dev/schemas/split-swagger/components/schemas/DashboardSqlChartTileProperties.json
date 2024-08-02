@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "properties": {
+      "properties": {
+        "hideTitle": {
+          "type": "boolean"
+        },
+        "chartName": {
+          "type": "string"
+        },
+        "savedSqlUuid": {
+          "type": "string",
+          "nullable": true
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chartName",
+        "savedSqlUuid"
+      ],
+      "type": "object"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.SQL_CHART.json"
+    }
+  },
+  "required": [
+    "properties",
+    "type"
+  ],
+  "type": "object"
+}

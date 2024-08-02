@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "role": {
+      "$ref": "./ProjectMemberRole.json"
+    },
+    "groupUuid": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "role",
+    "groupUuid",
+    "projectUuid"
+  ],
+  "type": "object"
+}

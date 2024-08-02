@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_dbt_cloud_settings_delete_success_status import (
     ApiDbtCloudSettingsDeleteSuccessStatus,
@@ -10,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="ApiDbtCloudSettingsDeleteSuccess")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiDbtCloudSettingsDeleteSuccess:
     """
     Attributes:
@@ -20,7 +21,7 @@ class ApiDbtCloudSettingsDeleteSuccess:
 
     status: ApiDbtCloudSettingsDeleteSuccessStatus
     results: Union[Unset, Any] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         status = self.status.value

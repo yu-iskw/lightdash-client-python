@@ -1,32 +1,29 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
-from ..models.validation_error_dashboard_response_error_type import (
-    ValidationErrorDashboardResponseErrorType,
-)
-from ..models.validation_error_dashboard_response_source import (
-    ValidationErrorDashboardResponseSource,
-)
+from ..models.validation_error_type import ValidationErrorType
+from ..models.validation_source_type import ValidationSourceType
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ValidationErrorDashboardResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ValidationErrorDashboardResponse:
     """
     Attributes:
         project_uuid (str):
-        error_type (ValidationErrorDashboardResponseErrorType):
+        error_type (ValidationErrorType):
         error (str):
         name (str):
         created_at (datetime.datetime):
         validation_id (float):
         dashboard_views (float):
-        source (Union[Unset, ValidationErrorDashboardResponseSource]):
+        source (Union[Unset, ValidationSourceType]):
         space_uuid (Union[Unset, str]):
         last_updated_at (Union[Unset, datetime.datetime]):
         last_updated_by (Union[Unset, str]):
@@ -36,43 +33,52 @@ class ValidationErrorDashboardResponse:
     """
 
     project_uuid: str
-    error_type: ValidationErrorDashboardResponseErrorType
+    error_type: ValidationErrorType
     error: str
     name: str
     created_at: datetime.datetime
     validation_id: float
     dashboard_views: float
-    source: Union[Unset, ValidationErrorDashboardResponseSource] = UNSET
+    source: Union[Unset, ValidationSourceType] = UNSET
     space_uuid: Union[Unset, str] = UNSET
     last_updated_at: Union[Unset, datetime.datetime] = UNSET
     last_updated_by: Union[Unset, str] = UNSET
     field_name: Union[Unset, str] = UNSET
     chart_name: Union[Unset, str] = UNSET
     dashboard_uuid: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         project_uuid = self.project_uuid
+
         error_type = self.error_type.value
 
         error = self.error
+
         name = self.name
+
         created_at = self.created_at.isoformat()
 
         validation_id = self.validation_id
+
         dashboard_views = self.dashboard_views
+
         source: Union[Unset, str] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.value
 
         space_uuid = self.space_uuid
+
         last_updated_at: Union[Unset, str] = UNSET
         if not isinstance(self.last_updated_at, Unset):
             last_updated_at = self.last_updated_at.isoformat()
 
         last_updated_by = self.last_updated_by
+
         field_name = self.field_name
+
         chart_name = self.chart_name
+
         dashboard_uuid = self.dashboard_uuid
 
         field_dict: Dict[str, Any] = {}
@@ -110,7 +116,7 @@ class ValidationErrorDashboardResponse:
         d = src_dict.copy()
         project_uuid = d.pop("projectUuid")
 
-        error_type = ValidationErrorDashboardResponseErrorType(d.pop("errorType"))
+        error_type = ValidationErrorType(d.pop("errorType"))
 
         error = d.pop("error")
 
@@ -123,11 +129,11 @@ class ValidationErrorDashboardResponse:
         dashboard_views = d.pop("dashboardViews")
 
         _source = d.pop("source", UNSET)
-        source: Union[Unset, ValidationErrorDashboardResponseSource]
+        source: Union[Unset, ValidationSourceType]
         if isinstance(_source, Unset):
             source = UNSET
         else:
-            source = ValidationErrorDashboardResponseSource(_source)
+            source = ValidationSourceType(_source)
 
         space_uuid = d.pop("spaceUuid", UNSET)
 

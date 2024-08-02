@@ -1,0 +1,62 @@
+{
+  "delete": {
+    "operationId": "RevokeGroupSpaceAccess",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Remove a group's access to a space",
+    "tags": [
+      "Roles & Permissions",
+      "Spaces"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the space's parent project",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "The uuid of the space to update",
+        "in": "path",
+        "name": "spaceUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "The uuid of the group to revoke access from",
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

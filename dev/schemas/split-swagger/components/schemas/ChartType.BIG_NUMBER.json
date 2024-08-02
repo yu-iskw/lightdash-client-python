@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "big_number"
+  ],
+  "type": "string"
+}

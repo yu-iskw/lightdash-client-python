@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "number",
+    "string",
+    "date",
+    "timestamp",
+    "boolean"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "tables",
+    "dimensions",
+    "metrics"
+  ],
+  "type": "string"
+}

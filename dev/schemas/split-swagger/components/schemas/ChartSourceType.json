@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "dbt_explore",
+    "sql"
+  ],
+  "type": "string"
+}

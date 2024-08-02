@@ -1,36 +1,28 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
-from ...models.create_ssh_key_pair_response_201 import CreateSshKeyPairResponse201
+from ...client import AuthenticatedClient, Client
+from ...models.api_ssh_key_pair_response import ApiSshKeyPairResponse
 from ...types import Response
 
 
-def _get_kwargs(
-    *,
-    client: Client,
-) -> Dict[str, Any]:
-    url = "{}/api/v1/ssh/key-pairs".format(client.base_url)
-
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    return {
+def _get_kwargs() -> Dict[str, Any]:
+    _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
+        "url": "/api/v1/ssh/key-pairs",
     }
 
+    return _kwargs
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[CreateSshKeyPairResponse201]:
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiSshKeyPairResponse]:
     if response.status_code == HTTPStatus.CREATED:
-        response_201 = CreateSshKeyPairResponse201.from_dict(response.json())
+        response_201 = ApiSshKeyPairResponse.from_dict(response.json())
 
         return response_201
     if client.raise_on_unexpected_status:
@@ -39,7 +31,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Cre
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[CreateSshKeyPairResponse201]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiSshKeyPairResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -50,23 +44,20 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Cre
 
 def sync_detailed(
     *,
-    client: Client,
-) -> Response[CreateSshKeyPairResponse201]:
+    client: Union[AuthenticatedClient, Client],
+) -> Response[ApiSshKeyPairResponse]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[CreateSshKeyPairResponse201]
+        Response[ApiSshKeyPairResponse]
     """
 
-    kwargs = _get_kwargs(
-        client=client,
-    )
+    kwargs = _get_kwargs()
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -75,15 +66,15 @@ def sync_detailed(
 
 def sync(
     *,
-    client: Client,
-) -> Optional[CreateSshKeyPairResponse201]:
+    client: Union[AuthenticatedClient, Client],
+) -> Optional[ApiSshKeyPairResponse]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        CreateSshKeyPairResponse201
+        ApiSshKeyPairResponse
     """
 
     return sync_detailed(
@@ -93,38 +84,35 @@ def sync(
 
 async def asyncio_detailed(
     *,
-    client: Client,
-) -> Response[CreateSshKeyPairResponse201]:
+    client: Union[AuthenticatedClient, Client],
+) -> Response[ApiSshKeyPairResponse]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[CreateSshKeyPairResponse201]
+        Response[ApiSshKeyPairResponse]
     """
 
-    kwargs = _get_kwargs(
-        client=client,
-    )
+    kwargs = _get_kwargs()
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
 
 async def asyncio(
     *,
-    client: Client,
-) -> Optional[CreateSshKeyPairResponse201]:
+    client: Union[AuthenticatedClient, Client],
+) -> Optional[ApiSshKeyPairResponse]:
     """
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        CreateSshKeyPairResponse201
+        ApiSshKeyPairResponse
     """
 
     return (

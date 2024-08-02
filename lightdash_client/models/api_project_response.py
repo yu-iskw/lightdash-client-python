@@ -1,27 +1,28 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_project_response_status import ApiProjectResponseStatus
 
 if TYPE_CHECKING:
-    from ..models.api_project_response_results import ApiProjectResponseResults
+    from ..models.project import Project
 
 
 T = TypeVar("T", bound="ApiProjectResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiProjectResponse:
     """
     Attributes:
-        results (ApiProjectResponseResults):
+        results (Project):
         status (ApiProjectResponseStatus):
     """
 
-    results: "ApiProjectResponseResults"
+    results: "Project"
     status: ApiProjectResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -41,10 +42,10 @@ class ApiProjectResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_project_response_results import ApiProjectResponseResults
+        from ..models.project import Project
 
         d = src_dict.copy()
-        results = ApiProjectResponseResults.from_dict(d.pop("results"))
+        results = Project.from_dict(d.pop("results"))
 
         status = ApiProjectResponseStatus(d.pop("status"))
 

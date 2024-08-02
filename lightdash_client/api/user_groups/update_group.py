@@ -1,42 +1,41 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
-from ...models.update_group_json_body import UpdateGroupJsonBody
-from ...models.update_group_response_200 import UpdateGroupResponse200
+from ...client import AuthenticatedClient, Client
+from ...models.api_group_response import ApiGroupResponse
+from ...models.update_group_with_members import UpdateGroupWithMembers
 from ...types import Response
 
 
 def _get_kwargs(
     group_uuid: str,
     *,
-    client: Client,
-    json_body: UpdateGroupJsonBody,
+    body: UpdateGroupWithMembers,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/groups/{groupUuid}".format(client.base_url, groupUuid=group_uuid)
+    headers: Dict[str, Any] = {}
 
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "patch",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
-        "json": json_json_body,
+        "url": f"/api/v1/groups/{group_uuid}",
     }
 
+    _body = body.to_dict()
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[UpdateGroupResponse200]:
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
+
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiGroupResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = UpdateGroupResponse200.from_dict(response.json())
+        response_200 = ApiGroupResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +44,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Upd
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[UpdateGroupResponse200]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiGroupResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -57,32 +58,29 @@ def _build_response(*, client: Client, response: httpx.Response) -> Response[Upd
 def sync_detailed(
     group_uuid: str,
     *,
-    client: Client,
-    json_body: UpdateGroupJsonBody,
-) -> Response[UpdateGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: UpdateGroupWithMembers,
+) -> Response[ApiGroupResponse]:
     """Update a group
 
     Args:
         group_uuid (str):
-        json_body (UpdateGroupJsonBody): From T, pick a set of properties whose keys are in the
-            union K
+        body (UpdateGroupWithMembers):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[UpdateGroupResponse200]
+        Response[ApiGroupResponse]
     """
 
     kwargs = _get_kwargs(
         group_uuid=group_uuid,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -92,60 +90,56 @@ def sync_detailed(
 def sync(
     group_uuid: str,
     *,
-    client: Client,
-    json_body: UpdateGroupJsonBody,
-) -> Optional[UpdateGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: UpdateGroupWithMembers,
+) -> Optional[ApiGroupResponse]:
     """Update a group
 
     Args:
         group_uuid (str):
-        json_body (UpdateGroupJsonBody): From T, pick a set of properties whose keys are in the
-            union K
+        body (UpdateGroupWithMembers):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        UpdateGroupResponse200
+        ApiGroupResponse
     """
 
     return sync_detailed(
         group_uuid=group_uuid,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     group_uuid: str,
     *,
-    client: Client,
-    json_body: UpdateGroupJsonBody,
-) -> Response[UpdateGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: UpdateGroupWithMembers,
+) -> Response[ApiGroupResponse]:
     """Update a group
 
     Args:
         group_uuid (str):
-        json_body (UpdateGroupJsonBody): From T, pick a set of properties whose keys are in the
-            union K
+        body (UpdateGroupWithMembers):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[UpdateGroupResponse200]
+        Response[ApiGroupResponse]
     """
 
     kwargs = _get_kwargs(
         group_uuid=group_uuid,
-        client=client,
-        json_body=json_body,
+        body=body,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -153,28 +147,27 @@ async def asyncio_detailed(
 async def asyncio(
     group_uuid: str,
     *,
-    client: Client,
-    json_body: UpdateGroupJsonBody,
-) -> Optional[UpdateGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+    body: UpdateGroupWithMembers,
+) -> Optional[ApiGroupResponse]:
     """Update a group
 
     Args:
         group_uuid (str):
-        json_body (UpdateGroupJsonBody): From T, pick a set of properties whose keys are in the
-            union K
+        body (UpdateGroupWithMembers):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        UpdateGroupResponse200
+        ApiGroupResponse
     """
 
     return (
         await asyncio_detailed(
             group_uuid=group_uuid,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

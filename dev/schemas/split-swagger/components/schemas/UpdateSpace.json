@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "isPrivate",
+    "name"
+  ],
+  "type": "object"
+}

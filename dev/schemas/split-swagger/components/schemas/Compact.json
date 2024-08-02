@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "thousands",
+    "millions",
+    "billions",
+    "trillions"
+  ],
+  "type": "string"
+}

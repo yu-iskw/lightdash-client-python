@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "access": {
+      "items": {
+        "$ref": "./Pick_SpaceShare.userUuid-or-role_.json"
+      },
+      "type": "array"
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./TableChart.json"
+    },
+    "type": {
+      "$ref": "./ChartType.TABLE.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

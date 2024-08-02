@@ -1,0 +1,30 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Group.json"
+    },
+    {
+      "properties": {
+        "memberUuids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "members": {
+          "items": {
+            "$ref": "./GroupMember.json"
+          },
+          "type": "array",
+          "description": "A list of the group's members."
+        }
+      },
+      "required": [
+        "memberUuids",
+        "members"
+      ],
+      "type": "object"
+    }
+  ],
+  "description": "Details for a group including a list of the group's members."
+}

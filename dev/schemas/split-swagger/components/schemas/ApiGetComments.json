@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "results": {
+      "properties": {},
+      "additionalProperties": {
+        "items": {
+          "$ref": "./Comment.json"
+        },
+        "type": "array"
+      },
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

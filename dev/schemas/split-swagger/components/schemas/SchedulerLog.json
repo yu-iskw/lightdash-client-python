@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "details": {
+      "$ref": "./Record_string.any_.json"
+    },
+    "targetType": {
+      "type": "string",
+      "enum": [
+        "email",
+        "slack",
+        "gsheets"
+      ]
+    },
+    "target": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "./SchedulerJobStatus.json"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scheduledTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "jobGroup": {
+      "type": "string"
+    },
+    "jobId": {
+      "type": "string"
+    },
+    "schedulerUuid": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string",
+      "enum": [
+        "handleScheduledDelivery",
+        "sendEmailNotification",
+        "sendSlackNotification",
+        "uploadGsheets",
+        "downloadCsv",
+        "uploadGsheetFromQuery",
+        "compileProject",
+        "testAndCompileProject",
+        "validateProject"
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "createdAt",
+    "scheduledTime",
+    "jobId",
+    "task"
+  ],
+  "type": "object"
+}

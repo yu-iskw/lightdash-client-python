@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "results": {
+      "items": {
+        "$ref": "./OrganizationProject.json"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object",
+  "description": "List of projects in the current organization"
+}

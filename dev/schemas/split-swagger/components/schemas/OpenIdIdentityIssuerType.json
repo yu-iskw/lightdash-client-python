@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "google",
+    "okta",
+    "oneLogin",
+    "azuread",
+    "oidc"
+  ],
+  "type": "string"
+}

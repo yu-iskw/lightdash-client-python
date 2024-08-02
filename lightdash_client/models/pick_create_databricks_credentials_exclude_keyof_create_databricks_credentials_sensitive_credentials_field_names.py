@@ -1,58 +1,58 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
-from ..models.pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names_type import (
-    PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType,
-)
+from ..models.warehouse_types_databricks import WarehouseTypesDATABRICKS
+from ..models.week_day import WeekDay
 from ..types import UNSET, Unset
-
-if TYPE_CHECKING:
-    from ..models.pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names_start_of_week import (
-        PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-    )
-
 
 T = TypeVar(
     "T", bound="PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames"
 )
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNames:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        type (PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType):
+        type (WarehouseTypesDATABRICKS):
         database (str):
         server_host_name (str):
         http_path (str):
-        start_of_week (Union[Unset, None, PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiv
-            eCredentialsFieldNamesStartOfWeek]):
+        require_user_credentials (Union[Unset, bool]):
+        start_of_week (Union[None, Unset, WeekDay]):
         catalog (Union[Unset, str]):
     """
 
-    type: PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType
+    type: WarehouseTypesDATABRICKS
     database: str
     server_host_name: str
     http_path: str
-    start_of_week: Union[
-        Unset,
-        None,
-        "PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek",
-    ] = UNSET
+    require_user_credentials: Union[Unset, bool] = UNSET
+    start_of_week: Union[None, Unset, WeekDay] = UNSET
     catalog: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
         database = self.database
+
         server_host_name = self.server_host_name
+
         http_path = self.http_path
-        start_of_week: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.start_of_week, Unset):
-            start_of_week = self.start_of_week.to_dict() if self.start_of_week else None
+
+        require_user_credentials = self.require_user_credentials
+
+        start_of_week: Union[None, Unset, int]
+        if isinstance(self.start_of_week, Unset):
+            start_of_week = UNSET
+        elif isinstance(self.start_of_week, WeekDay):
+            start_of_week = self.start_of_week.value
+        else:
+            start_of_week = self.start_of_week
 
         catalog = self.catalog
 
@@ -66,6 +66,8 @@ class PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSens
                 "httpPath": http_path,
             }
         )
+        if require_user_credentials is not UNSET:
+            field_dict["requireUserCredentials"] = require_user_credentials
         if start_of_week is not UNSET:
             field_dict["startOfWeek"] = start_of_week
         if catalog is not UNSET:
@@ -75,14 +77,8 @@ class PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSens
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names_start_of_week import (
-            PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-        )
-
         d = src_dict.copy()
-        type = PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesType(
-            d.pop("type")
-        )
+        type = WarehouseTypesDATABRICKS(d.pop("type"))
 
         database = d.pop("database")
 
@@ -90,20 +86,24 @@ class PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSens
 
         http_path = d.pop("httpPath")
 
-        _start_of_week = d.pop("startOfWeek", UNSET)
-        start_of_week: Union[
-            Unset,
-            None,
-            PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek,
-        ]
-        if _start_of_week is None:
-            start_of_week = None
-        elif isinstance(_start_of_week, Unset):
-            start_of_week = UNSET
-        else:
-            start_of_week = PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSensitiveCredentialsFieldNamesStartOfWeek.from_dict(
-                _start_of_week
-            )
+        require_user_credentials = d.pop("requireUserCredentials", UNSET)
+
+        def _parse_start_of_week(data: object) -> Union[None, Unset, WeekDay]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, int):
+                    raise TypeError()
+                start_of_week_type_1 = WeekDay(data)
+
+                return start_of_week_type_1
+            except:  # noqa: E722
+                pass
+            return cast(Union[None, Unset, WeekDay], data)
+
+        start_of_week = _parse_start_of_week(d.pop("startOfWeek", UNSET))
 
         catalog = d.pop("catalog", UNSET)
 
@@ -112,13 +112,12 @@ class PickCreateDatabricksCredentialsExcludeKeyofCreateDatabricksCredentialsSens
             database=database,
             server_host_name=server_host_name,
             http_path=http_path,
+            require_user_credentials=require_user_credentials,
             start_of_week=start_of_week,
             catalog=catalog,
         )
 
-        pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names.additional_properties = (
-            d
-        )
+        pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names.additional_properties = d
         return pick_create_databricks_credentials_exclude_keyof_create_databricks_credentials_sensitive_credentials_field_names
 
     @property

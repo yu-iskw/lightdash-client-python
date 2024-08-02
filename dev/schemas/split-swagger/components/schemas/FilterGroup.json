@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./OrFilterGroup.json"
+    },
+    {
+      "$ref": "./AndFilterGroup.json"
+    }
+  ]
+}

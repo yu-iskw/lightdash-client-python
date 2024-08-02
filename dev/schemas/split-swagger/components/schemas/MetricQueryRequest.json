@@ -1,0 +1,86 @@
+{
+  "properties": {
+    "timezone": {
+      "type": "string"
+    },
+    "metadata": {
+      "properties": {
+        "hasADateDimension": {
+          "$ref": "./Pick_CompiledDimension.label-or-name_.json"
+        }
+      },
+      "required": [
+        "hasADateDimension"
+      ],
+      "type": "object"
+    },
+    "granularity": {
+      "$ref": "./DateGranularity.json"
+    },
+    "customDimensions": {
+      "items": {
+        "$ref": "./CustomDimension.json"
+      },
+      "type": "array"
+    },
+    "csvLimit": {
+      "type": "number",
+      "format": "double"
+    },
+    "additionalMetrics": {
+      "items": {
+        "$ref": "./AdditionalMetric.json"
+      },
+      "type": "array"
+    },
+    "tableCalculations": {
+      "items": {
+        "$ref": "./TableCalculation.json"
+      },
+      "type": "array"
+    },
+    "limit": {
+      "type": "number",
+      "format": "double"
+    },
+    "sorts": {
+      "items": {
+        "$ref": "./SortField.json"
+      },
+      "type": "array"
+    },
+    "filters": {
+      "properties": {
+        "tableCalculations": {},
+        "metrics": {},
+        "dimensions": {}
+      },
+      "type": "object"
+    },
+    "metrics": {
+      "items": {
+        "$ref": "./FieldId.json"
+      },
+      "type": "array"
+    },
+    "dimensions": {
+      "items": {
+        "$ref": "./FieldId.json"
+      },
+      "type": "array"
+    },
+    "exploreName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tableCalculations",
+    "limit",
+    "sorts",
+    "filters",
+    "metrics",
+    "dimensions",
+    "exploreName"
+  ],
+  "type": "object"
+}

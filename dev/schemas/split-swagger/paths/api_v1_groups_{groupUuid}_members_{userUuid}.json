@@ -1,0 +1,102 @@
+{
+  "put": {
+    "operationId": "addUserToGroup",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Add a Lightdash user to a group",
+    "tags": [
+      "User Groups"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the UUID for the group to add the user to",
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the UUID for the user to add to the group",
+        "in": "path",
+        "name": "userUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "delete": {
+    "operationId": "removeUserFromGroup",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Remove a user from a group",
+    "tags": [
+      "User Groups"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the UUID for the group to remove the user from",
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the UUID for the user to remove from the group",
+        "in": "path",
+        "name": "userUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

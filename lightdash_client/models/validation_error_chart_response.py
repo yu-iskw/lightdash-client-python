@@ -1,86 +1,90 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
-from ..models.validation_error_chart_response_chart_type import (
-    ValidationErrorChartResponseChartType,
-)
-from ..models.validation_error_chart_response_error_type import (
-    ValidationErrorChartResponseErrorType,
-)
-from ..models.validation_error_chart_response_source import (
-    ValidationErrorChartResponseSource,
-)
+from ..models.chart_kind import ChartKind
+from ..models.validation_error_type import ValidationErrorType
+from ..models.validation_source_type import ValidationSourceType
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ValidationErrorChartResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ValidationErrorChartResponse:
     """
     Attributes:
         project_uuid (str):
-        error_type (ValidationErrorChartResponseErrorType):
+        error_type (ValidationErrorType):
         error (str):
         name (str):
         created_at (datetime.datetime):
         validation_id (float):
         chart_views (float):
-        source (Union[Unset, ValidationErrorChartResponseSource]):
+        source (Union[Unset, ValidationSourceType]):
         space_uuid (Union[Unset, str]):
         chart_name (Union[Unset, str]):
         last_updated_at (Union[Unset, datetime.datetime]):
         last_updated_by (Union[Unset, str]):
         field_name (Union[Unset, str]):
-        chart_type (Union[Unset, ValidationErrorChartResponseChartType]):
+        chart_kind (Union[Unset, ChartKind]):
         chart_uuid (Union[Unset, str]):
     """
 
     project_uuid: str
-    error_type: ValidationErrorChartResponseErrorType
+    error_type: ValidationErrorType
     error: str
     name: str
     created_at: datetime.datetime
     validation_id: float
     chart_views: float
-    source: Union[Unset, ValidationErrorChartResponseSource] = UNSET
+    source: Union[Unset, ValidationSourceType] = UNSET
     space_uuid: Union[Unset, str] = UNSET
     chart_name: Union[Unset, str] = UNSET
     last_updated_at: Union[Unset, datetime.datetime] = UNSET
     last_updated_by: Union[Unset, str] = UNSET
     field_name: Union[Unset, str] = UNSET
-    chart_type: Union[Unset, ValidationErrorChartResponseChartType] = UNSET
+    chart_kind: Union[Unset, ChartKind] = UNSET
     chart_uuid: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         project_uuid = self.project_uuid
+
         error_type = self.error_type.value
 
         error = self.error
+
         name = self.name
+
         created_at = self.created_at.isoformat()
 
         validation_id = self.validation_id
+
         chart_views = self.chart_views
+
         source: Union[Unset, str] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.value
 
         space_uuid = self.space_uuid
+
         chart_name = self.chart_name
+
         last_updated_at: Union[Unset, str] = UNSET
         if not isinstance(self.last_updated_at, Unset):
             last_updated_at = self.last_updated_at.isoformat()
 
         last_updated_by = self.last_updated_by
+
         field_name = self.field_name
-        chart_type: Union[Unset, str] = UNSET
-        if not isinstance(self.chart_type, Unset):
-            chart_type = self.chart_type.value
+
+        chart_kind: Union[Unset, str] = UNSET
+        if not isinstance(self.chart_kind, Unset):
+            chart_kind = self.chart_kind.value
 
         chart_uuid = self.chart_uuid
 
@@ -109,8 +113,8 @@ class ValidationErrorChartResponse:
             field_dict["lastUpdatedBy"] = last_updated_by
         if field_name is not UNSET:
             field_dict["fieldName"] = field_name
-        if chart_type is not UNSET:
-            field_dict["chartType"] = chart_type
+        if chart_kind is not UNSET:
+            field_dict["chartKind"] = chart_kind
         if chart_uuid is not UNSET:
             field_dict["chartUuid"] = chart_uuid
 
@@ -121,7 +125,7 @@ class ValidationErrorChartResponse:
         d = src_dict.copy()
         project_uuid = d.pop("projectUuid")
 
-        error_type = ValidationErrorChartResponseErrorType(d.pop("errorType"))
+        error_type = ValidationErrorType(d.pop("errorType"))
 
         error = d.pop("error")
 
@@ -134,11 +138,11 @@ class ValidationErrorChartResponse:
         chart_views = d.pop("chartViews")
 
         _source = d.pop("source", UNSET)
-        source: Union[Unset, ValidationErrorChartResponseSource]
+        source: Union[Unset, ValidationSourceType]
         if isinstance(_source, Unset):
             source = UNSET
         else:
-            source = ValidationErrorChartResponseSource(_source)
+            source = ValidationSourceType(_source)
 
         space_uuid = d.pop("spaceUuid", UNSET)
 
@@ -155,12 +159,12 @@ class ValidationErrorChartResponse:
 
         field_name = d.pop("fieldName", UNSET)
 
-        _chart_type = d.pop("chartType", UNSET)
-        chart_type: Union[Unset, ValidationErrorChartResponseChartType]
-        if isinstance(_chart_type, Unset):
-            chart_type = UNSET
+        _chart_kind = d.pop("chartKind", UNSET)
+        chart_kind: Union[Unset, ChartKind]
+        if isinstance(_chart_kind, Unset):
+            chart_kind = UNSET
         else:
-            chart_type = ValidationErrorChartResponseChartType(_chart_type)
+            chart_kind = ChartKind(_chart_kind)
 
         chart_uuid = d.pop("chartUuid", UNSET)
 
@@ -178,7 +182,7 @@ class ValidationErrorChartResponse:
             last_updated_at=last_updated_at,
             last_updated_by=last_updated_by,
             field_name=field_name,
-            chart_type=chart_type,
+            chart_kind=chart_kind,
             chart_uuid=chart_uuid,
         )
 

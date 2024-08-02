@@ -1,0 +1,126 @@
+{
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "access": {
+      "items": {
+        "$ref": "./SpaceShare.json"
+      },
+      "type": "array"
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "colorPalette": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dashboardName": {
+      "type": "string",
+      "nullable": true
+    },
+    "dashboardUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "pinnedListUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "spaceName": {
+      "type": "string"
+    },
+    "spaceUuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    },
+    "updatedByUser": {
+      "$ref": "./UpdatedByUser.json"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tableConfig": {
+      "properties": {
+        "columnOrder": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "columnOrder"
+      ],
+      "type": "object"
+    },
+    "chartConfig": {
+      "$ref": "./ChartConfig.json"
+    },
+    "pivotConfig": {
+      "properties": {
+        "columns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns"
+      ],
+      "type": "object"
+    },
+    "metricQuery": {
+      "$ref": "./MetricQuery.json"
+    },
+    "tableName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "access",
+    "isPrivate",
+    "colorPalette",
+    "dashboardName",
+    "dashboardUuid",
+    "pinnedListOrder",
+    "pinnedListUuid",
+    "spaceName",
+    "spaceUuid",
+    "organizationUuid",
+    "updatedAt",
+    "tableConfig",
+    "chartConfig",
+    "metricQuery",
+    "tableName",
+    "name",
+    "projectUuid",
+    "uuid"
+  ],
+  "type": "object"
+}

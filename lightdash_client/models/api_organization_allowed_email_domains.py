@@ -1,31 +1,30 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_organization_allowed_email_domains_status import (
     ApiOrganizationAllowedEmailDomainsStatus,
 )
 
 if TYPE_CHECKING:
-    from ..models.api_organization_allowed_email_domains_results import (
-        ApiOrganizationAllowedEmailDomainsResults,
-    )
+    from ..models.allowed_email_domains import AllowedEmailDomains
 
 
 T = TypeVar("T", bound="ApiOrganizationAllowedEmailDomains")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiOrganizationAllowedEmailDomains:
     """
     Attributes:
-        results (ApiOrganizationAllowedEmailDomainsResults):
+        results (AllowedEmailDomains):
         status (ApiOrganizationAllowedEmailDomainsStatus):
     """
 
-    results: "ApiOrganizationAllowedEmailDomainsResults"
+    results: "AllowedEmailDomains"
     status: ApiOrganizationAllowedEmailDomainsStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -45,12 +44,10 @@ class ApiOrganizationAllowedEmailDomains:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_organization_allowed_email_domains_results import (
-            ApiOrganizationAllowedEmailDomainsResults,
-        )
+        from ..models.allowed_email_domains import AllowedEmailDomains
 
         d = src_dict.copy()
-        results = ApiOrganizationAllowedEmailDomainsResults.from_dict(d.pop("results"))
+        results = AllowedEmailDomains.from_dict(d.pop("results"))
 
         status = ApiOrganizationAllowedEmailDomainsStatus(d.pop("status"))
 

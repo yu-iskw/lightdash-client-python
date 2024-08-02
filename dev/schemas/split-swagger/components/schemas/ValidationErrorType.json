@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "chart",
+    "sorting",
+    "filter",
+    "metric",
+    "model",
+    "dimension",
+    "custom metric"
+  ],
+  "type": "string"
+}

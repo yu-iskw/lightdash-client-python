@@ -14,6 +14,7 @@ class MetricType(str, Enum):
     PERCENTILE = "percentile"
     STRING = "string"
     SUM = "sum"
+    TIMESTAMP = "timestamp"
 
     def __str__(self) -> str:
         return str(self.value)

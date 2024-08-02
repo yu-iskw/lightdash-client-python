@@ -1,0 +1,69 @@
+{
+  "post": {
+    "operationId": "GetDbtSemanticLayerData",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {}
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get DbtSemanticLayer data",
+    "tags": [
+      "DbtSemanticLayer"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the projectId",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "graphql query",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "operationName": {
+                "type": "string",
+                "enum": [
+                  "GetFields",
+                  "CreateQuery",
+                  "GetQueryResults"
+                ]
+              },
+              "query": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object",
+            "description": "graphql query"
+          }
+        }
+      }
+    }
+  }
+}

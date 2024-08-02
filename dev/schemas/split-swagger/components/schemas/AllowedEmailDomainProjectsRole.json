@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./ProjectMemberRole.EDITOR.json"
+    },
+    {
+      "$ref": "./ProjectMemberRole.INTERACTIVE_VIEWER.json"
+    },
+    {
+      "$ref": "./ProjectMemberRole.VIEWER.json"
+    }
+  ]
+}

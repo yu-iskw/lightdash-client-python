@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "interactive_viewer"
+  ],
+  "type": "string"
+}

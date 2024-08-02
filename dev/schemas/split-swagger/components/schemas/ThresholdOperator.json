@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "greaterThan",
+    "lessThan",
+    "increasedBy",
+    "decreasedBy"
+  ],
+  "type": "string"
+}

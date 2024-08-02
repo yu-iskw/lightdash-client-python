@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "getSchedulerJobStatus",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiJobStatusResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get a generic job status\nThis method can be used when polling from the frontend",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the jobId for the status to check",
+        "in": "path",
+        "name": "jobId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

@@ -1,31 +1,30 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_get_project_member_response_status import (
     ApiGetProjectMemberResponseStatus,
 )
 
 if TYPE_CHECKING:
-    from ..models.api_get_project_member_response_results import (
-        ApiGetProjectMemberResponseResults,
-    )
+    from ..models.project_member_profile import ProjectMemberProfile
 
 
 T = TypeVar("T", bound="ApiGetProjectMemberResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiGetProjectMemberResponse:
     """
     Attributes:
-        results (ApiGetProjectMemberResponseResults):
+        results (ProjectMemberProfile):
         status (ApiGetProjectMemberResponseStatus):
     """
 
-    results: "ApiGetProjectMemberResponseResults"
+    results: "ProjectMemberProfile"
     status: ApiGetProjectMemberResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()
@@ -45,12 +44,10 @@ class ApiGetProjectMemberResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_get_project_member_response_results import (
-            ApiGetProjectMemberResponseResults,
-        )
+        from ..models.project_member_profile import ProjectMemberProfile
 
         d = src_dict.copy()
-        results = ApiGetProjectMemberResponseResults.from_dict(d.pop("results"))
+        results = ProjectMemberProfile.from_dict(d.pop("results"))
 
         status = ApiGetProjectMemberResponseStatus(d.pop("status"))
 

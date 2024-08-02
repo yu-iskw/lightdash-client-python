@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "azure_devops"
+  ],
+  "type": "string"
+}

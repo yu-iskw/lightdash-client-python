@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "pie"
+  ],
+  "type": "string"
+}

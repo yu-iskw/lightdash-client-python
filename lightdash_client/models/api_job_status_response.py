@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.api_job_status_response_status import ApiJobStatusResponseStatus
 
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound="ApiJobStatusResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ApiJobStatusResponse:
     """
     Attributes:
@@ -21,7 +22,7 @@ class ApiJobStatusResponse:
 
     results: "ApiJobStatusResponseResults"
     status: ApiJobStatusResponseStatus
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         results = self.results.to_dict()

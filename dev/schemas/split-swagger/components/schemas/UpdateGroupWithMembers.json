@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "members": {
+      "items": {
+        "$ref": "./Pick_GroupMember.userUuid_.json"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

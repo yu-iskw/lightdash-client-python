@@ -1,0 +1,45 @@
+{
+  "post": {
+    "operationId": "CreateShareUrl",
+    "responses": {
+      "201": {
+        "description": "Created",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiShareResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Given a full URL generates a short url id that can be used for sharing",
+    "tags": [
+      "Share links"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "description": "a full URL used to generate a short url id",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/CreateShareUrl.json",
+            "description": "a full URL used to generate a short url id"
+          }
+        }
+      }
+    }
+  }
+}

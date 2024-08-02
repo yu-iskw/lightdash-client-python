@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "spaceUuid": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "validationId": {
+      "type": "number",
+      "format": "double"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "error": {
+      "type": "string"
+    },
+    "errorType": {
+      "$ref": "./ValidationErrorType.json"
+    },
+    "source": {
+      "$ref": "./ValidationSourceType.json"
+    }
+  },
+  "required": [
+    "projectUuid",
+    "validationId",
+    "createdAt",
+    "error",
+    "errorType"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

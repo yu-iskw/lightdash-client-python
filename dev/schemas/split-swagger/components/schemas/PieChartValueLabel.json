@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "enum": [
+    "hidden",
+    "inside",
+    "outside"
+  ],
+  "nullable": false
+}

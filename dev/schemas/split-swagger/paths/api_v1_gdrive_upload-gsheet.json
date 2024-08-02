@@ -1,0 +1,43 @@
+{
+  "post": {
+    "operationId": "uploadGsheet",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiJobScheduledResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Upload results from query to Google Sheet",
+    "tags": [
+      "Integrations"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UploadMetricGsheet.json"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "properties": {
+    "contentType": {
+      "$ref": "./ContentType.DASHBOARD.json"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "properties": {
+        "lastName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lastName",
+        "firstName",
+        "uuid"
+      ],
+      "type": "object",
+      "nullable": true
+    },
+    "lastUpdatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "lastUpdatedBy": {
+      "properties": {
+        "lastName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lastName",
+        "firstName",
+        "uuid"
+      ],
+      "type": "object",
+      "nullable": true
+    },
+    "project": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "type": "object"
+    },
+    "organization": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "type": "object"
+    },
+    "space": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "type": "object"
+    },
+    "pinnedList": {
+      "properties": {
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "nullable": true
+    },
+    "views": {
+      "type": "number",
+      "format": "double"
+    },
+    "firstViewedAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    }
+  },
+  "required": [
+    "contentType",
+    "uuid",
+    "slug",
+    "name",
+    "description",
+    "createdAt",
+    "createdBy",
+    "lastUpdatedAt",
+    "lastUpdatedBy",
+    "project",
+    "organization",
+    "space",
+    "pinnedList",
+    "views",
+    "firstViewedAt"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

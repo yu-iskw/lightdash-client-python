@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "spaceRole": {
+      "$ref": "./SpaceMemberRole.json"
+    },
+    "groupUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "spaceRole",
+    "groupUuid"
+  ],
+  "type": "object"
+}

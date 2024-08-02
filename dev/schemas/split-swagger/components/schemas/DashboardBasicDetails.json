@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_Dashboard.uuid-or-name-or-description-or-updatedAt-or-projectUuid-or-updatedByUser-or-organizationUuid-or-spaceUuid-or-views-or-firstViewedAt-or-pinnedListUuid-or-pinnedListOrder_.json"
+    },
+    {
+      "properties": {
+        "validationErrors": {
+          "items": {
+            "$ref": "./ValidationSummary.json"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./Compact.json"
+    },
+    {
+      "type": "string",
+      "enum": [
+        "K",
+        "thousand",
+        "M",
+        "million",
+        "B",
+        "billion",
+        "T",
+        "trillion"
+      ]
+    }
+  ]
+}

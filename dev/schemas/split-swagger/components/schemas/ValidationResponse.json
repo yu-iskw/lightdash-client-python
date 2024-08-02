@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./ValidationErrorChartResponse.json"
+    },
+    {
+      "$ref": "./ValidationErrorDashboardResponse.json"
+    },
+    {
+      "$ref": "./ValidationErrorTableResponse.json"
+    }
+  ]
+}

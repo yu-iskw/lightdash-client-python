@@ -1,40 +1,31 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ... import errors
-from ...client import Client
-from ...models.add_user_to_group_response_200 import AddUserToGroupResponse200
+from ...client import AuthenticatedClient, Client
+from ...models.api_success_empty import ApiSuccessEmpty
 from ...types import Response
 
 
 def _get_kwargs(
     group_uuid: str,
     user_uuid: str,
-    *,
-    client: Client,
 ) -> Dict[str, Any]:
-    url = "{}/api/v1/groups/{groupUuid}/members/{userUuid}".format(
-        client.base_url, groupUuid=group_uuid, userUuid=user_uuid
-    )
-
-    headers: Dict[str, str] = client.get_headers()
-    cookies: Dict[str, Any] = client.get_cookies()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "put",
-        "url": url,
-        "headers": headers,
-        "cookies": cookies,
-        "timeout": client.get_timeout(),
-        "follow_redirects": client.follow_redirects,
+        "url": f"/api/v1/groups/{group_uuid}/members/{user_uuid}",
     }
 
+    return _kwargs
 
-def _parse_response(*, client: Client, response: httpx.Response) -> Optional[AddUserToGroupResponse200]:
+
+def _parse_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Optional[ApiSuccessEmpty]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = AddUserToGroupResponse200.from_dict(response.json())
+        response_200 = ApiSuccessEmpty.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -43,7 +34,9 @@ def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Add
         return None
 
 
-def _build_response(*, client: Client, response: httpx.Response) -> Response[AddUserToGroupResponse200]:
+def _build_response(
+    *, client: Union[AuthenticatedClient, Client], response: httpx.Response
+) -> Response[ApiSuccessEmpty]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -56,8 +49,8 @@ def sync_detailed(
     group_uuid: str,
     user_uuid: str,
     *,
-    client: Client,
-) -> Response[AddUserToGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Response[ApiSuccessEmpty]:
     """Add a Lightdash user to a group
 
     Args:
@@ -69,17 +62,15 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[AddUserToGroupResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
         group_uuid=group_uuid,
         user_uuid=user_uuid,
-        client=client,
     )
 
-    response = httpx.request(
-        verify=client.verify_ssl,
+    response = client.get_httpx_client().request(
         **kwargs,
     )
 
@@ -90,8 +81,8 @@ def sync(
     group_uuid: str,
     user_uuid: str,
     *,
-    client: Client,
-) -> Optional[AddUserToGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Optional[ApiSuccessEmpty]:
     """Add a Lightdash user to a group
 
     Args:
@@ -103,7 +94,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        AddUserToGroupResponse200
+        ApiSuccessEmpty
     """
 
     return sync_detailed(
@@ -117,8 +108,8 @@ async def asyncio_detailed(
     group_uuid: str,
     user_uuid: str,
     *,
-    client: Client,
-) -> Response[AddUserToGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Response[ApiSuccessEmpty]:
     """Add a Lightdash user to a group
 
     Args:
@@ -130,17 +121,15 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[AddUserToGroupResponse200]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
         group_uuid=group_uuid,
         user_uuid=user_uuid,
-        client=client,
     )
 
-    async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.request(**kwargs)
+    response = await client.get_async_httpx_client().request(**kwargs)
 
     return _build_response(client=client, response=response)
 
@@ -149,8 +138,8 @@ async def asyncio(
     group_uuid: str,
     user_uuid: str,
     *,
-    client: Client,
-) -> Optional[AddUserToGroupResponse200]:
+    client: Union[AuthenticatedClient, Client],
+) -> Optional[ApiSuccessEmpty]:
     """Add a Lightdash user to a group
 
     Args:
@@ -162,7 +151,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        AddUserToGroupResponse200
+        ApiSuccessEmpty
     """
 
     return (

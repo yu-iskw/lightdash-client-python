@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 
 from ..models.delete_scheduler_response_201_status import (
     DeleteSchedulerResponse201Status,
@@ -10,7 +11,7 @@ from ..types import UNSET, Unset
 T = TypeVar("T", bound="DeleteSchedulerResponse201")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class DeleteSchedulerResponse201:
     """
     Attributes:
@@ -20,7 +21,7 @@ class DeleteSchedulerResponse201:
 
     status: DeleteSchedulerResponse201Status
     results: Union[Unset, Any] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         status = self.status.value

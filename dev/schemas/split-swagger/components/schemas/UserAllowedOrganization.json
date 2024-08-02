@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "membersCount": {
+      "type": "number",
+      "format": "double"
+    },
+    "name": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "membersCount",
+    "name",
+    "organizationUuid"
+  ],
+  "type": "object"
+}

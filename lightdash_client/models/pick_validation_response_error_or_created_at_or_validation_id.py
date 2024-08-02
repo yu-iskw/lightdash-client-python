@@ -1,13 +1,14 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 T = TypeVar("T", bound="PickValidationResponseErrorOrCreatedAtOrValidationId")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class PickValidationResponseErrorOrCreatedAtOrValidationId:
     """From T, pick a set of properties whose keys are in the union K
 
@@ -20,10 +21,11 @@ class PickValidationResponseErrorOrCreatedAtOrValidationId:
     validation_id: float
     created_at: datetime.datetime
     error: str
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         validation_id = self.validation_id
+
         created_at = self.created_at.isoformat()
 
         error = self.error

@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "results": {
+      "$ref": "./LightdashUser.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object",
+  "description": "Shows the authenticated user"
+}

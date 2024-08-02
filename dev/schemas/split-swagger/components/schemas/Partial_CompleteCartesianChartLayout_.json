@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "xField": {
+      "type": "string"
+    },
+    "yField": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "flipAxes": {
+      "type": "boolean"
+    },
+    "showGridX": {
+      "type": "boolean"
+    },
+    "showGridY": {
+      "type": "boolean"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "rule": {
+      "$ref": "./ConditionalFormattingWithRange.json"
+    },
+    "color": {
+      "properties": {
+        "steps": {
+          "type": "number",
+          "enum": [
+            5
+          ],
+          "nullable": false
+        },
+        "end": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "steps",
+        "end",
+        "start"
+      ],
+      "type": "object"
+    },
+    "target": {
+      "allOf": [
+        {
+          "$ref": "./FieldTarget.json"
+        }
+      ],
+      "nullable": true
+    }
+  },
+  "required": [
+    "rule",
+    "color",
+    "target"
+  ],
+  "type": "object"
+}

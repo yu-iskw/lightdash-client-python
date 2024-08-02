@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "dashboardUuid": {
+      "type": "string"
+    },
+    "dashboardName": {
+      "type": "string"
+    },
+    "dashboardTileUuid": {
+      "type": "string"
+    },
+    "dashboardTileName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dashboardUuid",
+    "dashboardName",
+    "dashboardTileUuid",
+    "dashboardTileName"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

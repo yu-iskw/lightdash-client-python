@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./DbtProjectType.BITBUCKET.json"
+    },
+    "target": {
+      "type": "string"
+    },
+    "environment": {
+      "items": {
+        "$ref": "./DbtProjectEnvironmentVariable.json"
+      },
+      "type": "array"
+    },
+    "username": {
+      "type": "string"
+    },
+    "personal_access_token": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "project_sub_path": {
+      "type": "string"
+    },
+    "host_domain": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "username",
+    "personal_access_token",
+    "repository",
+    "branch",
+    "project_sub_path"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

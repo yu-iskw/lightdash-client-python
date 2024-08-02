@@ -1,21 +1,18 @@
 import datetime
 from typing import Any, Dict, List, Type, TypeVar, Union
 
-import attr
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
-from ..models.validation_error_table_response_error_type import (
-    ValidationErrorTableResponseErrorType,
-)
-from ..models.validation_error_table_response_source import (
-    ValidationErrorTableResponseSource,
-)
+from ..models.validation_error_type import ValidationErrorType
+from ..models.validation_source_type import ValidationSourceType
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ValidationErrorTableResponse")
 
 
-@attr.s(auto_attribs=True)
+@_attrs_define
 class ValidationErrorTableResponse:
     """
     Attributes:
@@ -23,9 +20,9 @@ class ValidationErrorTableResponse:
         validation_id (float):
         created_at (datetime.datetime):
         error (str):
-        error_type (ValidationErrorTableResponseErrorType):
+        error_type (ValidationErrorType):
         space_uuid (Union[Unset, str]):
-        source (Union[Unset, ValidationErrorTableResponseSource]):
+        source (Union[Unset, ValidationSourceType]):
         name (Union[Unset, str]):
     """
 
@@ -33,21 +30,25 @@ class ValidationErrorTableResponse:
     validation_id: float
     created_at: datetime.datetime
     error: str
-    error_type: ValidationErrorTableResponseErrorType
+    error_type: ValidationErrorType
     space_uuid: Union[Unset, str] = UNSET
-    source: Union[Unset, ValidationErrorTableResponseSource] = UNSET
+    source: Union[Unset, ValidationSourceType] = UNSET
     name: Union[Unset, str] = UNSET
-    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+    additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         project_uuid = self.project_uuid
+
         validation_id = self.validation_id
+
         created_at = self.created_at.isoformat()
 
         error = self.error
+
         error_type = self.error_type.value
 
         space_uuid = self.space_uuid
+
         source: Union[Unset, str] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.value
@@ -85,16 +86,16 @@ class ValidationErrorTableResponse:
 
         error = d.pop("error")
 
-        error_type = ValidationErrorTableResponseErrorType(d.pop("errorType"))
+        error_type = ValidationErrorType(d.pop("errorType"))
 
         space_uuid = d.pop("spaceUuid", UNSET)
 
         _source = d.pop("source", UNSET)
-        source: Union[Unset, ValidationErrorTableResponseSource]
+        source: Union[Unset, ValidationSourceType]
         if isinstance(_source, Unset):
             source = UNSET
         else:
-            source = ValidationErrorTableResponseSource(_source)
+            source = ValidationSourceType(_source)
 
         name = d.pop("name", UNSET)
 

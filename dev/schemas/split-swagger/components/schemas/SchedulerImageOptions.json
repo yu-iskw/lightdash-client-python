@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "withPdf": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

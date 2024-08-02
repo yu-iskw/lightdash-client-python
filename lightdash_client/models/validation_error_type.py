@@ -3,6 +3,7 @@ from enum import Enum
 
 class ValidationErrorType(str, Enum):
     CHART = "chart"
+    CUSTOM_METRIC = "custom metric"
     DIMENSION = "dimension"
     FILTER = "filter"
     METRIC = "metric"
