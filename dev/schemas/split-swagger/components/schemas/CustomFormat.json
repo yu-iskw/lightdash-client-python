@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./CustomFormatType.json"
+    },
+    "round": {
+      "type": "number",
+      "format": "double"
+    },
+    "separator": {
+      "$ref": "./NumberSeparator.json"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "compact": {
+      "$ref": "./CompactOrAlias.json"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "suffix": {
+      "type": "string"
+    },
+    "timeInterval": {
+      "$ref": "./TimeFrames.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

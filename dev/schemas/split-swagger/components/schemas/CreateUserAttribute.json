@@ -1,0 +1,28 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_UserAttribute.name-or-description-or-attributeDefault_.json"
+    },
+    {
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "./CreateGroupAttributeValue.json"
+          },
+          "type": "array"
+        },
+        "users": {
+          "items": {
+            "$ref": "./CreateUserAttributeValue.json"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "groups",
+        "users"
+      ],
+      "type": "object"
+    }
+  ]
+}

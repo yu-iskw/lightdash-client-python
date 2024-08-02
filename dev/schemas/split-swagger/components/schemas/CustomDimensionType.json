@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "bin",
+    "sql"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "limit": {
+      "anyOf": [
+        {
+          "type": "number",
+          "format": "double"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "table",
+            "all"
+          ]
+        }
+      ]
+    },
+    "formatted": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "limit",
+    "formatted"
+  ],
+  "type": "object"
+}

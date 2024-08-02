@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "role": {
+      "$ref": "./ProjectMemberRole.json"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "userUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "lastName",
+    "firstName",
+    "email",
+    "role",
+    "projectUuid",
+    "userUuid"
+  ],
+  "type": "object"
+}

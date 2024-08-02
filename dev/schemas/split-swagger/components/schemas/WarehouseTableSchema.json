@@ -1,0 +1,7 @@
+{
+  "properties": {},
+  "additionalProperties": {
+    "$ref": "./DimensionType.json"
+  },
+  "type": "object"
+}

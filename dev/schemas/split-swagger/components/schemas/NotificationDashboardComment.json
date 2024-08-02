@@ -1,0 +1,21 @@
+{
+  "allOf": [
+    {
+      "$ref": "./NotificationBase.json"
+    },
+    {
+      "properties": {
+        "metadata": {
+          "$ref": "./NotificationDashboardTileCommentMetadata.json"
+        },
+        "resourceType": {
+          "$ref": "./ApiNotificationResourceType.DashboardComments.json"
+        }
+      },
+      "required": [
+        "resourceType"
+      ],
+      "type": "object"
+    }
+  ]
+}

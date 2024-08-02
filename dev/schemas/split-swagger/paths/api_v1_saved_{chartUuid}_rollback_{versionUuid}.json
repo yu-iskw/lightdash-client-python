@@ -1,0 +1,52 @@
+{
+  "post": {
+    "operationId": "postChartVersionRollback",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Rollback chart to version",
+    "tags": [
+      "Charts"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "chartUuid for the chart to run",
+        "in": "path",
+        "name": "chartUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "versionUuid for the chart version",
+        "in": "path",
+        "name": "versionUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

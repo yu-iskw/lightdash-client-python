@@ -1,0 +1,38 @@
+{
+  "properties": {
+    "role": {
+      "$ref": "./AllowedEmailDomainsRole.json"
+    },
+    "emailDomains": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "projects": {
+      "items": {
+        "properties": {
+          "role": {
+            "$ref": "./AllowedEmailDomainProjectsRole.json"
+          },
+          "projectUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "role",
+          "projectUuid"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "role",
+    "emailDomains",
+    "projects"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

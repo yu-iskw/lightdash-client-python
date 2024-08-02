@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "results": {
+      "$ref": "./ProjectGroupAccess.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

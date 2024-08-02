@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "saved_chart",
+    "markdown",
+    "loom"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "The URL path of the full URL"
+    },
+    "params": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "path",
+    "params"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

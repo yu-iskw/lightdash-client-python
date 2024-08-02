@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "versionedData": {
+      "$ref": "./UpdateVersionedSqlChart.json"
+    },
+    "unversionedData": {
+      "$ref": "./UpdateUnversionedSqlChart.json"
+    }
+  },
+  "type": "object"
+}

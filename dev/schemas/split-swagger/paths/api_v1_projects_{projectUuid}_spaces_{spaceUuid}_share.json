@@ -1,0 +1,62 @@
+{
+  "post": {
+    "operationId": "AddSpaceUserAccess",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Grant a user access to a space",
+    "tags": [
+      "Roles & Permissions",
+      "Spaces"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the space's parent project",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "path",
+        "name": "spaceUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/AddSpaceUserAccess.json"
+          }
+        }
+      }
+    }
+  }
+}

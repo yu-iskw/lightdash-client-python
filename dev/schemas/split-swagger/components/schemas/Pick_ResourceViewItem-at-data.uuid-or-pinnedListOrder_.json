@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  },
+  "required": [
+    "uuid",
+    "pinnedListOrder"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "table": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./CustomDimensionType.SQL.json"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "dimensionType": {
+      "$ref": "./DimensionType.json"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "table",
+    "type",
+    "sql",
+    "dimensionType"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

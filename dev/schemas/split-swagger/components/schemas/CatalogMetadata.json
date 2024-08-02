@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "joinedTables": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "fields": {
+      "items": {
+        "$ref": "./CatalogField.json"
+      },
+      "type": "array"
+    },
+    "source": {
+      "type": "string"
+    },
+    "modelName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "joinedTables",
+    "fields",
+    "modelName",
+    "name"
+  ],
+  "type": "object"
+}

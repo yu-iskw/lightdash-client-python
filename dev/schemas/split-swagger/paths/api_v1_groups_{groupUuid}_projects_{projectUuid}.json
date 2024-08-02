@@ -1,0 +1,166 @@
+{
+  "post": {
+    "operationId": "addProjectAccessToGroup",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiCreateProjectGroupAccess.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Add project access to a group",
+    "tags": [
+      "User Groups"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/Pick_CreateDBProjectGroupAccess.role_.json"
+          }
+        }
+      }
+    }
+  },
+  "patch": {
+    "operationId": "updateProjectAccessForGroup",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiUpdateProjectGroupAccess.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update project access for a group",
+    "tags": [
+      "User Groups"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UpdateDBProjectGroupAccess.json"
+          }
+        }
+      }
+    }
+  },
+  "delete": {
+    "operationId": "removeProjectAccessFromGroup",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Remove project access from a group",
+    "tags": [
+      "User Groups"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "groupUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

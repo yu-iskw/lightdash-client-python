@@ -1,0 +1,67 @@
+{
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./MetricType.json"
+    },
+    "description": {
+      "type": "string"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "round": {
+      "type": "number",
+      "format": "double"
+    },
+    "compact": {
+      "$ref": "./CompactOrAlias.json"
+    },
+    "format": {
+      "$ref": "./Format.json"
+    },
+    "table": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "index": {
+      "type": "number",
+      "format": "double"
+    },
+    "filters": {
+      "items": {
+        "$ref": "./MetricFilterRule.json"
+      },
+      "type": "array"
+    },
+    "baseDimensionName": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "percentile": {
+      "type": "number",
+      "format": "double"
+    },
+    "formatOptions": {
+      "$ref": "./CustomFormat.json"
+    }
+  },
+  "required": [
+    "type",
+    "sql",
+    "table",
+    "name"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

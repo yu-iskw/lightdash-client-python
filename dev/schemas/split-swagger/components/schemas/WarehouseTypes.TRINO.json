@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "trino"
+  ],
+  "type": "string"
+}

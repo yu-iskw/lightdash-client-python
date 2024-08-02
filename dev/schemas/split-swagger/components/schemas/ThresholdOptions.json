@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "value": {
+      "type": "number",
+      "format": "double"
+    },
+    "fieldId": {
+      "type": "string"
+    },
+    "operator": {
+      "$ref": "./ThresholdOperator.json"
+    }
+  },
+  "required": [
+    "value",
+    "fieldId",
+    "operator"
+  ],
+  "type": "object"
+}

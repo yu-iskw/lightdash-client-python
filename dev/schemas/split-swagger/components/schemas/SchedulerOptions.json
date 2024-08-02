@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./SchedulerCsvOptions.json"
+    },
+    {
+      "$ref": "./SchedulerImageOptions.json"
+    },
+    {
+      "$ref": "./SchedulerGsheetsOptions.json"
+    }
+  ]
+}

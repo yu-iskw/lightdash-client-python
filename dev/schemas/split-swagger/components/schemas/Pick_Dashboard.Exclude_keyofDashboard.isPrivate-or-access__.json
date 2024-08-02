@@ -1,0 +1,99 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "spaceName": {
+      "type": "string"
+    },
+    "spaceUuid": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    },
+    "pinnedListUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "dashboardVersionId": {
+      "type": "number",
+      "format": "double"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tiles": {
+      "items": {
+        "$ref": "./DashboardTile.json"
+      },
+      "type": "array"
+    },
+    "filters": {
+      "$ref": "./DashboardFilters.json"
+    },
+    "updatedByUser": {
+      "$ref": "./UpdatedByUser.json"
+    },
+    "views": {
+      "type": "number",
+      "format": "double"
+    },
+    "firstViewedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "nullable": true
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "tabs": {
+      "items": {
+        "$ref": "./DashboardTab.json"
+      },
+      "type": "array"
+    },
+    "slug": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "uuid",
+    "spaceName",
+    "spaceUuid",
+    "projectUuid",
+    "organizationUuid",
+    "pinnedListUuid",
+    "dashboardVersionId",
+    "updatedAt",
+    "tiles",
+    "filters",
+    "views",
+    "firstViewedAt",
+    "pinnedListOrder",
+    "tabs",
+    "slug"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

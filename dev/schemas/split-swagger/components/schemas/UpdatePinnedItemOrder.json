@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "data": {
+      "$ref": "./Pick_ResourceViewItem-at-data.uuid-or-pinnedListOrder_.json"
+    },
+    "type": {
+      "$ref": "./ResourceViewItemType.json"
+    }
+  },
+  "required": [
+    "data",
+    "type"
+  ],
+  "type": "object"
+}

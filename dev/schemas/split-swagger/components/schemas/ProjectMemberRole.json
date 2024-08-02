@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "viewer",
+    "interactive_viewer",
+    "editor",
+    "developer",
+    "admin"
+  ],
+  "type": "string"
+}

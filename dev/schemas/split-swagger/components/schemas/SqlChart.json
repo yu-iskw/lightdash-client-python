@@ -1,0 +1,85 @@
+{
+  "properties": {
+    "organization": {
+      "$ref": "./Pick_Organization.organizationUuid_.json"
+    },
+    "project": {
+      "$ref": "./Pick_Project.projectUuid_.json"
+    },
+    "dashboard": {
+      "allOf": [
+        {
+          "$ref": "./Pick_Dashboard.uuid-or-name_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "space": {
+      "$ref": "./Pick_Space.uuid-or-name_.json"
+    },
+    "lastUpdatedBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "lastUpdatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "chartKind": {
+      "$ref": "./ChartKind.json"
+    },
+    "config": {
+      "$ref": "./SqlRunnerChartConfig.json"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "savedSqlUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "organization",
+    "project",
+    "dashboard",
+    "space",
+    "lastUpdatedBy",
+    "lastUpdatedAt",
+    "createdBy",
+    "createdAt",
+    "chartKind",
+    "config",
+    "sql",
+    "slug",
+    "description",
+    "name",
+    "savedSqlUuid"
+  ],
+  "type": "object"
+}

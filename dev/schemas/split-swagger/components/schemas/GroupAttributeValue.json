@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "value": {
+      "type": "string"
+    },
+    "groupUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "value",
+    "groupUuid"
+  ],
+  "type": "object"
+}

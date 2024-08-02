@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "scheduled",
+    "started",
+    "completed",
+    "error"
+  ],
+  "type": "string"
+}

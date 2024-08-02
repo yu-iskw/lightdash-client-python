@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "legend": {
+      "$ref": "./EchartsLegend.json"
+    },
+    "grid": {
+      "$ref": "./EchartsGrid.json"
+    },
+    "series": {
+      "items": {
+        "$ref": "./Series.json"
+      },
+      "type": "array"
+    },
+    "xAxis": {
+      "items": {
+        "$ref": "./Axis.json"
+      },
+      "type": "array"
+    },
+    "yAxis": {
+      "items": {
+        "$ref": "./Axis.json"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

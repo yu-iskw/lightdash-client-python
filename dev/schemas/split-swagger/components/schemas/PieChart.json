@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "metadata": {
+      "$ref": "./Record_string.SeriesMetadata_.json"
+    },
+    "legendPosition": {
+      "$ref": "./PieChartLegendPosition.json"
+    },
+    "showLegend": {
+      "type": "boolean"
+    },
+    "groupSortOverrides": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "groupValueOptionOverrides": {
+      "$ref": "./Record_string.Partial_PieChartValueOptions__.json"
+    },
+    "groupColorOverrides": {
+      "$ref": "./Record_string.string_.json"
+    },
+    "groupLabelOverrides": {
+      "$ref": "./Record_string.string_.json"
+    },
+    "showPercentage": {
+      "type": "boolean"
+    },
+    "showValue": {
+      "type": "boolean"
+    },
+    "valueLabel": {
+      "$ref": "./PieChartValueLabel.json"
+    },
+    "isDonut": {
+      "type": "boolean"
+    },
+    "metricId": {
+      "type": "string"
+    },
+    "groupFieldIds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

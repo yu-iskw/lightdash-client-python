@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "rows": {
+      "items": {
+        "$ref": "./Record_string.unknown_.json"
+      },
+      "type": "array"
+    },
+    "fields": {
+      "$ref": "./Record_string._type-DimensionType--__.json"
+    }
+  },
+  "required": [
+    "rows",
+    "fields"
+  ],
+  "type": "object"
+}

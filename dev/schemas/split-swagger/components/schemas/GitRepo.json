@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "ownerLogin": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ownerLogin",
+    "fullName",
+    "name"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./ChartKind.json"
+    },
+    "metadata": {
+      "properties": {
+        "version": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "version"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "type",
+    "metadata"
+  ],
+  "type": "object"
+}

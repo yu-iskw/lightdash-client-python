@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "results": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "./Group.json"
+          },
+          "type": "array"
+        },
+        {
+          "items": {
+            "$ref": "./GroupWithMembers.json"
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "or": {
+          "items": {},
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "or",
+        "id"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "and": {
+          "items": {},
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "and",
+        "id"
+      ],
+      "type": "object"
+    }
+  ]
+}

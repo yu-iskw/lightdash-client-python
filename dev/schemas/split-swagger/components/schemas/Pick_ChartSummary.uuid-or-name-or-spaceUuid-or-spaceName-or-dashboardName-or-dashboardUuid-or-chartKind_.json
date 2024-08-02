@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "spaceName": {
+      "type": "string"
+    },
+    "spaceUuid": {
+      "type": "string"
+    },
+    "dashboardUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "dashboardName": {
+      "type": "string",
+      "nullable": true
+    },
+    "chartKind": {
+      "$ref": "./ChartKind.json"
+    }
+  },
+  "required": [
+    "name",
+    "uuid",
+    "spaceName",
+    "spaceUuid",
+    "dashboardUuid",
+    "dashboardName"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

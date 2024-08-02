@@ -1,0 +1,36 @@
+{
+  "allOf": [
+    {
+      "$ref": "./SchedulerBase.json"
+    },
+    {
+      "properties": {
+        "customViewportWidth": {
+          "type": "number",
+          "format": "double"
+        },
+        "filters": {
+          "items": {
+            "$ref": "./SchedulerFilterRule.json"
+          },
+          "type": "array"
+        },
+        "dashboardUuid": {
+          "type": "string"
+        },
+        "savedChartUuid": {
+          "type": "number",
+          "enum": [
+            null
+          ],
+          "nullable": true
+        }
+      },
+      "required": [
+        "dashboardUuid",
+        "savedChartUuid"
+      ],
+      "type": "object"
+    }
+  ]
+}

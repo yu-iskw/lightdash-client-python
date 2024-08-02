@@ -1,0 +1,80 @@
+{
+  "post": {
+    "operationId": "RunSqlQuery",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "results": {
+                  "$ref": "../components/schemas/ApiSqlQueryResults.json"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ],
+                  "nullable": false
+                }
+              },
+              "required": [
+                "results",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Run a raw sql query against the project's warehouse connection",
+    "tags": [
+      "Exploring",
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the project to run the query against",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "The query to run",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "sql": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sql"
+            ],
+            "type": "object",
+            "description": "The query to run"
+          }
+        }
+      }
+    }
+  }
+}

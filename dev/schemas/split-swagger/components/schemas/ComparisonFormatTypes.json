@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "raw",
+    "percentage"
+  ],
+  "type": "string"
+}

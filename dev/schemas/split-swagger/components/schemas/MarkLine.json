@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "label": {
+      "properties": {
+        "formatter": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lineStyle": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number",
+          "format": "double"
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "width",
+        "color"
+      ],
+      "type": "object"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "data": {
+      "items": {
+        "$ref": "./MarkLineData.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "data"
+  ],
+  "type": "object"
+}

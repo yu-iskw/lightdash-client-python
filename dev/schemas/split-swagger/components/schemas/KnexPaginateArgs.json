@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "page": {
+      "type": "number",
+      "format": "double"
+    },
+    "pageSize": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "page",
+    "pageSize"
+  ],
+  "type": "object"
+}

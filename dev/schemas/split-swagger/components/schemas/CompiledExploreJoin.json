@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_ExploreJoin.table-or-sqlOn-or-type-or-hidden-or-always_.json"
+    },
+    {
+      "properties": {
+        "compiledSqlOn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "compiledSqlOn"
+      ],
+      "type": "object"
+    }
+  ]
+}

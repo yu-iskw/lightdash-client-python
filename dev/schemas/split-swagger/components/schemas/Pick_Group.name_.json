@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "A friendly name for the group"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

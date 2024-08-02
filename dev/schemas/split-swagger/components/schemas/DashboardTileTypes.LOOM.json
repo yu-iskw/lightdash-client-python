@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "loom"
+  ],
+  "type": "string"
+}

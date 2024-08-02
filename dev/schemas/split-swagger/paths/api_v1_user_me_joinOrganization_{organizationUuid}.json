@@ -1,0 +1,43 @@
+{
+  "post": {
+    "operationId": "JoinOrganization",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Add the current user to an organization that accepts users with a verified email domain.\nThis will fail if the organization email domain does not match the user's primary email domain.",
+    "tags": [
+      "My Account"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the uuid of the organization to join",
+        "in": "path",
+        "name": "organizationUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

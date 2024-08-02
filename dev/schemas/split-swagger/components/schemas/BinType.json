@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "fixed_number",
+    "fixed_width",
+    "custom_range"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,15 @@
+{
+  "properties": {},
+  "additionalProperties": {
+    "properties": {},
+    "additionalProperties": {
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "./WarehouseTableSchema.json"
+      },
+      "type": "object"
+    },
+    "type": "object"
+  },
+  "type": "object"
+}

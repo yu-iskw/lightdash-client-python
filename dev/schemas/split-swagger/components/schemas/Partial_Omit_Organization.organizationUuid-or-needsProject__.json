@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the organization"
+    },
+    "chartColors": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "description": "The default color palette for all projects in the organization"
+    },
+    "defaultProjectUuid": {
+      "type": "string",
+      "description": "The project a user sees when they first log in to the organization"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

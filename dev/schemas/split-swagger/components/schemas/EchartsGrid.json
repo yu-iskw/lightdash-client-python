@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "height": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
+    },
+    "left": {
+      "type": "string"
+    },
+    "bottom": {
+      "type": "string"
+    },
+    "right": {
+      "type": "string"
+    },
+    "top": {
+      "type": "string"
+    },
+    "containLabel": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

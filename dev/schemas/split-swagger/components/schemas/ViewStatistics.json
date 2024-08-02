@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "firstViewedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "nullable": true
+    },
+    "views": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "firstViewedAt",
+    "views"
+  ],
+  "type": "object"
+}

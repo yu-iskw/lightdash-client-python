@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "truncated": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "truncated",
+        "status",
+        "url"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

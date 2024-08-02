@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "viewer",
+    "editor",
+    "admin"
+  ],
+  "type": "string"
+}

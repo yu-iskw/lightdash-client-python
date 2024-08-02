@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "to": {
+      "type": "number",
+      "format": "double"
+    },
+    "from": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "type": "object"
+}

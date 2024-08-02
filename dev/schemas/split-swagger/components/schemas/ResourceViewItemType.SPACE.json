@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "space"
+  ],
+  "type": "string"
+}

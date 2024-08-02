@@ -1,0 +1,43 @@
+{
+  "put": {
+    "operationId": "UpdateCustomSettings",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSlackCustomSettingsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update slack notification channel to send notifications to scheduled jobs fail",
+    "tags": [
+      "Integrations"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/SlackAppCustomSettings.json"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "sendEmail": {
+      "type": "boolean"
+    },
+    "role": {
+      "$ref": "./ProjectMemberRole.json"
+    },
+    "email": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sendEmail",
+    "role",
+    "email"
+  ],
+  "type": "object"
+}

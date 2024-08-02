@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "gitlab"
+  ],
+  "type": "string"
+}

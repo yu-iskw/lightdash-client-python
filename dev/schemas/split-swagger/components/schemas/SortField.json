@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "descending": {
+      "type": "boolean"
+    },
+    "fieldId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "descending",
+    "fieldId"
+  ],
+  "type": "object"
+}

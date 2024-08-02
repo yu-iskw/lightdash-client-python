@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "metadata": {
+      "$ref": "./Record_string.SeriesMetadata_.json"
+    },
+    "eChartsConfig": {
+      "$ref": "./EChartsConfig.json"
+    },
+    "layout": {
+      "$ref": "./CartesianChartLayout.json"
+    }
+  },
+  "required": [
+    "eChartsConfig",
+    "layout"
+  ],
+  "type": "object"
+}

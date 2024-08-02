@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "line",
+    "bar",
+    "scatter",
+    "area"
+  ],
+  "type": "string"
+}

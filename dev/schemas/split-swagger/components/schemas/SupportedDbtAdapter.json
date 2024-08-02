@@ -1,0 +1,11 @@
+{
+  "enum": [
+    "bigquery",
+    "databricks",
+    "snowflake",
+    "redshift",
+    "postgres",
+    "trino"
+  ],
+  "type": "string"
+}

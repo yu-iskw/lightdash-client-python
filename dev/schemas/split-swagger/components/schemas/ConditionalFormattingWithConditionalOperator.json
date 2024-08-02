@@ -1,0 +1,22 @@
+{
+  "allOf": [
+    {
+      "$ref": "./ConditionalRule_ConditionalOperator.number_.json"
+    },
+    {
+      "properties": {
+        "values": {
+          "items": {
+            "type": "number",
+            "format": "double"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "type": "object"
+    }
+  ]
+}

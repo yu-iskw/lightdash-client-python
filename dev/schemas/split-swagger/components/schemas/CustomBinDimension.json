@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "table": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./CustomDimensionType.BIN.json"
+    },
+    "dimensionId": {
+      "$ref": "./FieldId.json"
+    },
+    "binType": {
+      "$ref": "./BinType.json"
+    },
+    "binNumber": {
+      "type": "number",
+      "format": "double"
+    },
+    "binWidth": {
+      "type": "number",
+      "format": "double"
+    },
+    "customRange": {
+      "items": {
+        "$ref": "./BinRange.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "table",
+    "type",
+    "dimensionId",
+    "binType"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

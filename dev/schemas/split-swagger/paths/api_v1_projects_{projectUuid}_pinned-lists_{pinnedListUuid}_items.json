@@ -1,0 +1,52 @@
+{
+  "get": {
+    "operationId": "getPinnedItems",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiPinnedItems.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get pinned items",
+    "tags": [
+      "Content"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "project uuid",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the list uuid for the pinned items",
+        "in": "path",
+        "name": "pinnedListUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "cacheHit": {
+      "type": "boolean"
+    },
+    "cacheUpdatedTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "cacheHit"
+  ],
+  "type": "object"
+}

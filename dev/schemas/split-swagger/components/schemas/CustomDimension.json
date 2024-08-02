@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./CustomBinDimension.json"
+    },
+    {
+      "$ref": "./CustomSqlDimension.json"
+    }
+  ]
+}

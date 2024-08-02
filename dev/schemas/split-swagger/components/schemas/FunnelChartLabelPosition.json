@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "inside",
+    "left",
+    "right",
+    "hidden"
+  ],
+  "type": "string"
+}

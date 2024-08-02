@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "default",
+    "percent",
+    "currency",
+    "number",
+    "id",
+    "date",
+    "timestamp"
+  ],
+  "type": "string"
+}

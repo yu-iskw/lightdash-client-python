@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "tableCalculations": {
+      "$ref": "./FilterGroupResponse.json"
+    },
+    "metrics": {
+      "$ref": "./FilterGroupResponse.json"
+    },
+    "dimensions": {
+      "$ref": "./FilterGroupResponse.json"
+    }
+  },
+  "type": "object"
+}

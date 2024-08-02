@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "isInviteExpired": {
+      "type": "boolean",
+      "description": "Whether the user's invite to the organization has expired"
+    },
+    "isActive": {
+      "type": "boolean",
+      "description": "Whether the user has accepted their invite to the organization"
+    },
+    "role": {
+      "$ref": "./OrganizationMemberRole.json",
+      "description": "The role of the user in the organization"
+    },
+    "organizationUuid": {
+      "type": "string",
+      "description": "Unique identifier for the organization the user is a member of"
+    },
+    "email": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "userUuid": {
+      "type": "string",
+      "description": "Unique identifier for the user",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "isActive",
+    "role",
+    "organizationUuid",
+    "email",
+    "lastName",
+    "firstName",
+    "userUuid"
+  ],
+  "type": "object",
+  "description": "Profile for a user's membership in an organization"
+}

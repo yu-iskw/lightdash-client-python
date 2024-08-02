@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "validationId": {
+      "type": "number",
+      "format": "double"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "error": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "validationId",
+    "createdAt",
+    "error"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

@@ -1,0 +1,43 @@
+{
+  "post": {
+    "operationId": "promoteChart",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiPromoteChartResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Promote chart to its upstream project",
+    "tags": [
+      "Charts"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "chartUuid for the chart to run",
+        "in": "path",
+        "name": "chartUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

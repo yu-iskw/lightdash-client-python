@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "member"
+  ],
+  "type": "string"
+}

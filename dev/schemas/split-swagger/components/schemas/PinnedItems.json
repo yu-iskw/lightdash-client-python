@@ -1,0 +1,16 @@
+{
+  "items": {
+    "anyOf": [
+      {
+        "$ref": "./ResourceViewDashboardItem.json"
+      },
+      {
+        "$ref": "./ResourceViewChartItem.json"
+      },
+      {
+        "$ref": "./ResourceViewSpaceItem.json"
+      }
+    ]
+  },
+  "type": "array"
+}

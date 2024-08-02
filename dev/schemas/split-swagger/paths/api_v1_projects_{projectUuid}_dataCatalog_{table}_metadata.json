@@ -1,0 +1,67 @@
+{
+  "get": {
+    "operationId": "getMetadata",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "results": {
+                  "$ref": "../components/schemas/ApiCatalogMetadataResults.json"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ],
+                  "nullable": false
+                }
+              },
+              "required": [
+                "results",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get catalog metadata for tables",
+    "tags": [
+      "Catalog"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "Table name to get metadata for",
+        "in": "path",
+        "name": "table",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

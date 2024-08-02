@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "values": {
+      "items": {},
+      "type": "array"
+    },
+    "operator": {
+      "$ref": "./ConditionalOperator.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "target": {
+      "properties": {
+        "fieldRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fieldRef"
+      ],
+      "type": "object"
+    },
+    "settings": {},
+    "disabled": {
+      "type": "boolean"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "operator",
+    "id",
+    "target"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "category": {
+      "$ref": "./ResourceItemCategory.json"
+    },
+    "data": {
+      "$ref": "./Pick_DashboardBasicDetails.uuid-or-spaceUuid-or-description-or-name-or-views-or-firstViewedAt-or-pinnedListUuid-or-pinnedListOrder-or-updatedAt-or-updatedByUser-or-validationErrors_.json"
+    },
+    "type": {
+      "$ref": "./ResourceViewItemType.DASHBOARD.json"
+    }
+  },
+  "required": [
+    "data",
+    "type"
+  ],
+  "type": "object"
+}

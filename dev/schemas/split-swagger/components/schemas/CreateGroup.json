@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_Group.name_.json"
+    },
+    {
+      "properties": {
+        "members": {
+          "items": {
+            "$ref": "./Pick_GroupMember.userUuid_.json"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

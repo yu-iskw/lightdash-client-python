@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "hiddenFields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "customLabels": {
+      "$ref": "./CustomLabel.json"
+    },
+    "columnOrder": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "showTableNames": {
+      "type": "boolean"
+    },
+    "metricQuery": {
+      "$ref": "./MetricQueryResponse.json"
+    },
+    "exploreId": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "columnOrder",
+    "showTableNames",
+    "metricQuery",
+    "exploreId",
+    "projectUuid"
+  ],
+  "type": "object"
+}

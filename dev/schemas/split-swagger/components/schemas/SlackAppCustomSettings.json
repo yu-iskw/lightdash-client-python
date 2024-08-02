@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "slackChannelProjectMappings": {
+      "items": {
+        "$ref": "./SlackChannelProjectMapping.json"
+      },
+      "type": "array"
+    },
+    "appProfilePhotoUrl": {
+      "type": "string",
+      "nullable": true
+    },
+    "notificationChannel": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "appProfilePhotoUrl",
+    "notificationChannel"
+  ],
+  "type": "object"
+}

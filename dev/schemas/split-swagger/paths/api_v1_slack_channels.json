@@ -1,0 +1,33 @@
+{
+  "get": {
+    "operationId": "getSlackChannels",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSlackChannelsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get slack channels",
+    "tags": [
+      "Integrations"
+    ],
+    "security": [],
+    "parameters": []
+  }
+}

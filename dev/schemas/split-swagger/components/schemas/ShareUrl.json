@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "host": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "shareUrl": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "createdByUserUuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "params": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string",
+      "description": "The URL path of the full URL"
+    },
+    "nanoid": {
+      "type": "string",
+      "description": "Unique shareable id"
+    }
+  },
+  "required": [
+    "params",
+    "path",
+    "nanoid"
+  ],
+  "type": "object",
+  "description": "A ShareUrl maps a short shareable id to a full URL\nin the Lightdash UI. This allows very long URLs\nto be represented by short ids."
+}

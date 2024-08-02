@@ -1,0 +1,64 @@
+{
+  "post": {
+    "operationId": "RunMetricQuery",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiRunQueryResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Run a query for explore",
+    "tags": [
+      "Exploring"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the project",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "table name",
+        "in": "path",
+        "name": "exploreId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "metricQuery for the chart to run",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/MetricQueryRequest.json",
+            "description": "metricQuery for the chart to run"
+          }
+        }
+      }
+    }
+  }
+}

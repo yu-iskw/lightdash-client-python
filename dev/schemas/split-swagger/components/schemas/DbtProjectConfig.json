@@ -1,0 +1,25 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./DbtLocalProjectConfig.json"
+    },
+    {
+      "$ref": "./DbtCloudIDEProjectConfig.json"
+    },
+    {
+      "$ref": "./DbtGithubProjectConfig.json"
+    },
+    {
+      "$ref": "./DbtBitBucketProjectConfig.json"
+    },
+    {
+      "$ref": "./DbtGitlabProjectConfig.json"
+    },
+    {
+      "$ref": "./DbtAzureDevOpsProjectConfig.json"
+    },
+    {
+      "$ref": "./DbtNoneProjectConfig.json"
+    }
+  ]
+}

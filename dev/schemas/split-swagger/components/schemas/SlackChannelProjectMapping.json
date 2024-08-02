@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "slackChannelId": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slackChannelId",
+    "projectUuid"
+  ],
+  "type": "object"
+}

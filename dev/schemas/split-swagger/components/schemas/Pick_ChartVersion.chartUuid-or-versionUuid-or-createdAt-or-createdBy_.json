@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "chartUuid": {
+      "type": "string"
+    },
+    "versionUuid": {
+      "type": "string"
+    },
+    "createdBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    }
+  },
+  "required": [
+    "createdAt",
+    "chartUuid",
+    "versionUuid",
+    "createdBy"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

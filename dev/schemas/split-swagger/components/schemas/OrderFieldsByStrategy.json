@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "LABEL",
+    "INDEX"
+  ],
+  "type": "string"
+}

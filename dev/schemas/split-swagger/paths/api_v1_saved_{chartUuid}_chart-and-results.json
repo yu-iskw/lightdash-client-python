@@ -1,0 +1,77 @@
+{
+  "post": {
+    "operationId": "postChartResults",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiRunQueryResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Charts"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "chartUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "autoRefresh": {
+                "type": "boolean"
+              },
+              "granularity": {
+                "$ref": "../components/schemas/DateGranularity.json"
+              },
+              "dashboardUuid": {
+                "type": "string"
+              },
+              "dashboardSorts": {
+                "items": {
+                  "$ref": "../components/schemas/SortField.json"
+                },
+                "type": "array"
+              },
+              "invalidateCache": {
+                "type": "boolean"
+              },
+              "dashboardFilters": {}
+            },
+            "required": [
+              "dashboardUuid",
+              "dashboardSorts",
+              "dashboardFilters"
+            ],
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

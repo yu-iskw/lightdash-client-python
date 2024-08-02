@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./TableCalculationType.json"
+    },
+    "format": {
+      "$ref": "./CustomFormat.json"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "index": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "sql",
+    "displayName",
+    "name"
+  ],
+  "type": "object"
+}

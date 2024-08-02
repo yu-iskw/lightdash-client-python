@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "none"
+  ],
+  "type": "string"
+}

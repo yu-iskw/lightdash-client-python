@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./FunnelChart.json"
+    },
+    "type": {
+      "$ref": "./ChartType.FUNNEL.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

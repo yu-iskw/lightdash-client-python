@@ -1,0 +1,74 @@
+{
+  "get": {
+    "operationId": "GetAuthenticatedUser",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGetAuthenticatedUserResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get authenticated user",
+    "tags": [
+      "My Account"
+    ],
+    "security": [],
+    "parameters": []
+  },
+  "post": {
+    "operationId": "RegisterUser",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiRegisterUserResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Register user",
+    "tags": [
+      "My Account"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/RegisterOrActivateUser.json"
+          }
+        }
+      }
+    }
+  }
+}

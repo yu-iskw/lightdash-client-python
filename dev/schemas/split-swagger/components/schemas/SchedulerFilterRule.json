@@ -1,0 +1,13 @@
+{
+  "allOf": [
+    {
+      "$ref": "./DashboardFilterRule.json"
+    },
+    {
+      "properties": {
+        "tileTargets": {}
+      },
+      "type": "object"
+    }
+  ]
+}

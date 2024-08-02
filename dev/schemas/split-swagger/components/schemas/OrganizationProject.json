@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "requireUserCredentials": {
+      "type": "boolean"
+    },
+    "warehouseType": {
+      "$ref": "./WarehouseTypes.json"
+    },
+    "type": {
+      "$ref": "./ProjectType.json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string",
+      "description": "The unique identifier of the project",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "requireUserCredentials",
+    "warehouseType",
+    "type",
+    "name",
+    "projectUuid"
+  ],
+  "type": "object",
+  "description": "Summary of a project under an organization"
+}

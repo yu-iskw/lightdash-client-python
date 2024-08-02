@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "tableCalculations": {
+      "items": {
+        "$ref": "./DashboardFilterRule.json"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "items": {
+        "$ref": "./DashboardFilterRule.json"
+      },
+      "type": "array"
+    },
+    "dimensions": {
+      "items": {
+        "$ref": "./DashboardFilterRule.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "tableCalculations",
+    "metrics",
+    "dimensions"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "lastName": {
+      "type": "string",
+      "description": "The user's last name"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "The user's first name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Primary email address for the user"
+    },
+    "userUuid": {
+      "type": "string",
+      "description": "Unique id for the user",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "lastName",
+    "firstName",
+    "email",
+    "userUuid"
+  ],
+  "type": "object",
+  "description": "A summary for a Lightdash user within a group"
+}

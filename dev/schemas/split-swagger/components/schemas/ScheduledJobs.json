@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id",
+    "date"
+  ],
+  "type": "object"
+}

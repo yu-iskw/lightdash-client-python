@@ -1,0 +1,32 @@
+{
+  "post": {
+    "operationId": "createSshKeyPair",
+    "responses": {
+      "201": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSshKeyPairResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "SSH Keypairs"
+    ],
+    "security": [],
+    "parameters": []
+  }
+}

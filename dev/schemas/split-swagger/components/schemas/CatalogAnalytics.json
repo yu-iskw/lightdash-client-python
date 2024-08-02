@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "charts": {
+      "items": {
+        "$ref": "./Pick_ChartSummary.uuid-or-name-or-spaceUuid-or-spaceName-or-dashboardName-or-dashboardUuid-or-chartKind_.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "charts"
+  ],
+  "type": "object"
+}

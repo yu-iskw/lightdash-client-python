@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "fields": {
+          "$ref": "./Record_string.Item-or-AdditionalMetric_.json"
+        },
+        "rows": {
+          "items": {},
+          "type": "array"
+        },
+        "cacheMetadata": {
+          "$ref": "./CacheMetadata.json"
+        },
+        "metricQuery": {
+          "$ref": "./MetricQueryResponse.json"
+        }
+      },
+      "required": [
+        "rows",
+        "cacheMetadata",
+        "metricQuery"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

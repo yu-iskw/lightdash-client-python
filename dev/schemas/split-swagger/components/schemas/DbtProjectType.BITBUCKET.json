@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "bitbucket"
+  ],
+  "type": "string"
+}

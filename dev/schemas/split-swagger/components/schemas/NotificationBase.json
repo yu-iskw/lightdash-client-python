@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "resourceUuid": {
+      "type": "string"
+    },
+    "viewed": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notificationId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "viewed",
+    "createdAt",
+    "notificationId"
+  ],
+  "type": "object"
+}

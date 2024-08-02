@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "type": "object"
+}

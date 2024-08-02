@@ -1,0 +1,163 @@
+{
+  "get": {
+    "operationId": "GetSpace",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSpaceResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get details for a space in a project",
+    "tags": [
+      "Spaces"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the space's parent project",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "The uuid of the space to get",
+        "in": "path",
+        "name": "spaceUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "delete": {
+    "operationId": "DeleteSpace",
+    "responses": {
+      "204": {
+        "description": "Deleted",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Delete a space from a project",
+    "tags": [
+      "Spaces"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the space's parent project",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "The uuid of the space to delete",
+        "in": "path",
+        "name": "spaceUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "patch": {
+    "operationId": "UpdateSpace",
+    "responses": {
+      "200": {
+        "description": "Updated",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSpaceResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update a space in a project",
+    "tags": [
+      "Roles & Permissions",
+      "Spaces"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the space's parent project",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "The uuid of the space to update",
+        "in": "path",
+        "name": "spaceUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UpdateSpace.json"
+          }
+        }
+      }
+    }
+  }
+}

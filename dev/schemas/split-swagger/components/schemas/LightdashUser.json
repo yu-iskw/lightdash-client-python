@@ -1,0 +1,52 @@
+{
+  "properties": {
+    "userUuid": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    },
+    "organizationName": {
+      "type": "string"
+    },
+    "organizationCreatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "isTrackingAnonymized": {
+      "type": "boolean"
+    },
+    "isMarketingOptedIn": {
+      "type": "boolean"
+    },
+    "isSetupComplete": {
+      "type": "boolean"
+    },
+    "role": {
+      "$ref": "./OrganizationMemberRole.json"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "userUuid",
+    "firstName",
+    "lastName",
+    "isTrackingAnonymized",
+    "isMarketingOptedIn",
+    "isSetupComplete",
+    "isActive"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

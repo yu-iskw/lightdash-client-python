@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "Day",
+    "Week",
+    "Month",
+    "Quarter",
+    "Year"
+  ],
+  "type": "string"
+}

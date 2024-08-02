@@ -1,0 +1,76 @@
+{
+  "get": {
+    "operationId": "ListOrganizationEmailDomains",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiOrganizationAllowedEmailDomains.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Gets the allowed email domains for the current user's organization",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": []
+  },
+  "patch": {
+    "operationId": "UpdateOrganizationEmailDomains",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiOrganizationAllowedEmailDomains.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Updates the allowed email domains for the current user's organization",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "description": "the new allowed email domains",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UpdateAllowedEmailDomains.json",
+            "description": "the new allowed email domains"
+          }
+        }
+      }
+    }
+  }
+}

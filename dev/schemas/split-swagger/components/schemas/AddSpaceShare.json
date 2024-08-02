@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "userUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "userUuid"
+  ],
+  "type": "object"
+}

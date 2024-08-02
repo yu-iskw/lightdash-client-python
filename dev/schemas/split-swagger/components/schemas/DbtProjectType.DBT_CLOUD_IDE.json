@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "dbt_cloud_ide"
+  ],
+  "type": "string"
+}

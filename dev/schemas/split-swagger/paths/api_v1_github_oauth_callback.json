@@ -1,0 +1,50 @@
+{
+  "get": {
+    "operationId": "githubOauthCallback",
+    "responses": {
+      "204": {
+        "description": "No content"
+      }
+    },
+    "description": "Callback URL for GitHub App Authorization also used for GitHub App Installation with combined Authorization",
+    "security": [],
+    "parameters": [
+      {
+        "description": "authorization code from GitHub",
+        "in": "query",
+        "name": "code",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "oauth state parameter",
+        "in": "query",
+        "name": "state",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "installation id from GitHub",
+        "in": "query",
+        "name": "installation_id",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "setup action from GitHub",
+        "in": "query",
+        "name": "setup_action",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

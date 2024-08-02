@@ -1,0 +1,4 @@
+{
+  "$ref": "./Pick_ShareUrl.path-or-params_.json",
+  "description": "Contains the detail of a full URL to generate a short URL id"
+}

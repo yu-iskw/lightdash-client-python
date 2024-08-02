@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "no changes",
+    "create",
+    "update",
+    "delete"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./DbtProjectType.DBT.json"
+    },
+    "target": {
+      "type": "string"
+    },
+    "environment": {
+      "items": {
+        "$ref": "./DbtProjectEnvironmentVariable.json"
+      },
+      "type": "array"
+    },
+    "profiles_dir": {
+      "type": "string"
+    },
+    "project_dir": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

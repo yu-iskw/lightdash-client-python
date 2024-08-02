@@ -1,0 +1,22 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./BigNumberConfig.json"
+    },
+    {
+      "$ref": "./CartesianChartConfig.json"
+    },
+    {
+      "$ref": "./CustomVisConfig.json"
+    },
+    {
+      "$ref": "./PieChartConfig.json"
+    },
+    {
+      "$ref": "./FunnelChartConfig.json"
+    },
+    {
+      "$ref": "./TableChartConfig.json"
+    }
+  ]
+}

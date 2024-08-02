@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./DashboardChartTile.json"
+    },
+    {
+      "$ref": "./DashboardMarkdownTile.json"
+    },
+    {
+      "$ref": "./DashboardLoomTile.json"
+    }
+  ]
+}

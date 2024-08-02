@@ -1,0 +1,43 @@
+{
+  "get": {
+    "operationId": "getComments",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGetComments.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Gets all comments for a dashboard",
+    "tags": [
+      "Comments"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the uuid of the dashboard",
+        "in": "path",
+        "name": "dashboardUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "inheritedFrom": {
+      "type": "string",
+      "enum": [
+        "organization",
+        "project",
+        "group",
+        "space_group"
+      ]
+    },
+    "inheritedRole": {
+      "anyOf": [
+        {
+          "$ref": "./OrganizationMemberRole.json"
+        },
+        {
+          "$ref": "./ProjectMemberRole.json"
+        }
+      ]
+    },
+    "hasDirectAccess": {
+      "type": "boolean"
+    },
+    "role": {
+      "$ref": "./SpaceMemberRole.json"
+    },
+    "email": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "userUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "hasDirectAccess",
+    "role",
+    "email",
+    "lastName",
+    "firstName",
+    "userUuid"
+  ],
+  "type": "object"
+}

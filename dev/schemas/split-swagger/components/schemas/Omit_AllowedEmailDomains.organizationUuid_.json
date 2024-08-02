@@ -1,0 +1,4 @@
+{
+  "$ref": "./Pick_AllowedEmailDomains.Exclude_keyofAllowedEmailDomains.organizationUuid__.json",
+  "description": "Construct a type with the properties of T except for those in type K."
+}

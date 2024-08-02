@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "horizontal",
+    "vertical"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "spec": {
+      "additionalProperties": true,
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

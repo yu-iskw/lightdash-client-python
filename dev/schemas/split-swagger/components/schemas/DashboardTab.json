@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "order": {
+      "type": "number",
+      "format": "double"
+    },
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "order",
+    "name",
+    "uuid"
+  ],
+  "type": "object"
+}

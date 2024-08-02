@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "config": {
+      "$ref": "./PieChart.json"
+    },
+    "type": {
+      "$ref": "./ChartType.PIE.json"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

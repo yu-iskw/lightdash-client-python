@@ -1,0 +1,88 @@
+{
+  "properties": {
+    "markLine": {
+      "$ref": "./MarkLine.json"
+    },
+    "smooth": {
+      "type": "boolean"
+    },
+    "showSymbol": {
+      "type": "boolean"
+    },
+    "areaStyle": {
+      "properties": {},
+      "type": "object"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "label": {
+      "properties": {
+        "position": {
+          "type": "string",
+          "enum": [
+            "left",
+            "top",
+            "right",
+            "bottom",
+            "inside"
+          ]
+        },
+        "show": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "yAxisIndex": {
+      "type": "number",
+      "format": "double"
+    },
+    "color": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "stackLabel": {
+      "properties": {
+        "show": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "stack": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./CartesianSeriesType.json"
+    },
+    "encode": {
+      "properties": {
+        "y": {
+          "type": "string"
+        },
+        "x": {
+          "type": "string"
+        },
+        "yRef": {
+          "$ref": "./PivotReference.json"
+        },
+        "xRef": {
+          "$ref": "./PivotReference.json"
+        }
+      },
+      "required": [
+        "yRef",
+        "xRef"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "type",
+    "encode"
+  ],
+  "type": "object"
+}

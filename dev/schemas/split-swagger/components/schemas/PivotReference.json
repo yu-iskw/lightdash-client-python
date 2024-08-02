@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "pivotValues": {
+      "items": {
+        "$ref": "./PivotValue.json"
+      },
+      "type": "array"
+    },
+    "field": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "field"
+  ],
+  "type": "object"
+}

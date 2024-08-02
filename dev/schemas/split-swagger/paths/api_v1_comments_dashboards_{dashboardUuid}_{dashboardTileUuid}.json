@@ -1,0 +1,64 @@
+{
+  "post": {
+    "operationId": "createComment",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiCreateComment.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Creates a comment on a dashboard tile",
+    "tags": [
+      "Comments"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the uuid of the dashboard",
+        "in": "path",
+        "name": "dashboardUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "the uuid of the dashboard tile",
+        "in": "path",
+        "name": "dashboardTileUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "the comment to create",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/Pick_Comment.text-or-replyTo-or-mentions-or-textHtml_.json",
+            "description": "the comment to create"
+          }
+        }
+      }
+    }
+  }
+}

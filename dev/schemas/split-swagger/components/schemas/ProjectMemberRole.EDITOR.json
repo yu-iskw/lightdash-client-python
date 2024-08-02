@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "editor"
+  ],
+  "type": "string"
+}

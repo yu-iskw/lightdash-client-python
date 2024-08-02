@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "explore": {
+      "type": "string"
+    },
+    "metricQuery": {
+      "$ref": "./MetricQueryRequest.json"
+    }
+  },
+  "required": [
+    "explore",
+    "metricQuery"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "category": {
+      "$ref": "./ResourceItemCategory.json"
+    },
+    "data": {
+      "$ref": "./Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors_.json"
+    },
+    "type": {
+      "$ref": "./ResourceViewItemType.CHART.json"
+    }
+  },
+  "required": [
+    "data",
+    "type"
+  ],
+  "type": "object"
+}

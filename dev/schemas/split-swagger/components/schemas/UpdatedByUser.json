@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "userUuid": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "userUuid",
+    "firstName",
+    "lastName"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

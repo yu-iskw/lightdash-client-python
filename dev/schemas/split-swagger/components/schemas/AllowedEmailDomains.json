@@ -1,0 +1,41 @@
+{
+  "properties": {
+    "projects": {
+      "items": {
+        "properties": {
+          "role": {
+            "$ref": "./AllowedEmailDomainProjectsRole.json"
+          },
+          "projectUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "role",
+          "projectUuid"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "role": {
+      "$ref": "./AllowedEmailDomainsRole.json"
+    },
+    "emailDomains": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "organizationUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "projects",
+    "role",
+    "emailDomains",
+    "organizationUuid"
+  ],
+  "type": "object"
+}

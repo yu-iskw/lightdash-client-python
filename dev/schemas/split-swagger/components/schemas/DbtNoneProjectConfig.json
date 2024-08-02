@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./DbtProjectType.NONE.json"
+    },
+    "target": {
+      "type": "string"
+    },
+    "environment": {
+      "items": {
+        "$ref": "./DbtProjectEnvironmentVariable.json"
+      },
+      "type": "array"
+    },
+    "hideRefreshButton": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

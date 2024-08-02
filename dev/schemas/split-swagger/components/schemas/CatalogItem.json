@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./CatalogField.json"
+    },
+    {
+      "$ref": "./CatalogTable.json"
+    }
+  ]
+}

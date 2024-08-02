@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "error": {
+      "properties": {
+        "data": {
+          "description": "Optional data containing details of the error"
+        },
+        "message": {
+          "type": "string",
+          "description": "A friendly message summarising the error"
+        },
+        "name": {
+          "type": "string",
+          "description": "Unique name for the type of error"
+        },
+        "statusCode": {
+          "type": "number",
+          "format": "integer",
+          "description": "HTTP status code"
+        }
+      },
+      "required": [
+        "name",
+        "statusCode"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "error"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "error",
+    "status"
+  ],
+  "type": "object",
+  "description": "The Error object is returned from the api any time there is an error.\nThe message contains"
+}

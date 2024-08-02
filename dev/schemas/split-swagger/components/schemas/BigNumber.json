@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "comparisonLabel": {
+      "type": "string"
+    },
+    "flipColors": {
+      "type": "boolean"
+    },
+    "comparisonFormat": {
+      "$ref": "./ComparisonFormatTypes.json"
+    },
+    "showComparison": {
+      "type": "boolean"
+    },
+    "showBigNumberLabel": {
+      "type": "boolean"
+    },
+    "selectedField": {
+      "type": "string"
+    },
+    "style": {
+      "$ref": "./CompactOrAlias.json"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

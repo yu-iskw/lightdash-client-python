@@ -1,0 +1,149 @@
+{
+  "get": {
+    "operationId": "getScheduler",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSchedulerAndTargetsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get a scheduler",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the scheduler to update",
+        "in": "path",
+        "name": "schedulerUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "patch": {
+    "operationId": "updateScheduler",
+    "responses": {
+      "201": {
+        "description": "Updated",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSchedulerAndTargetsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update a scheduler",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the scheduler to update",
+        "in": "path",
+        "name": "schedulerUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "the new scheduler data",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "description": "the new scheduler data"
+          }
+        }
+      }
+    }
+  },
+  "delete": {
+    "operationId": "deleteScheduler",
+    "responses": {
+      "201": {
+        "description": "Deleted",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "results": {},
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ],
+                  "nullable": false
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Delete a scheduler",
+    "tags": [
+      "Schedulers"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the scheduler to delete",
+        "in": "path",
+        "name": "schedulerUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

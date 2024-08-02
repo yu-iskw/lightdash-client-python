@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "METADATA_PARSE_ERROR",
+    "NO_DIMENSIONS_FOUND"
+  ],
+  "type": "string"
+}

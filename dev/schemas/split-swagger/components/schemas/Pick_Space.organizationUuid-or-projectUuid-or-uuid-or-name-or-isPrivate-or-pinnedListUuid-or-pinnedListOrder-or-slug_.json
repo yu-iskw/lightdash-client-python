@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    },
+    "pinnedListUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "slug": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "uuid",
+    "projectUuid",
+    "organizationUuid",
+    "pinnedListUuid",
+    "isPrivate",
+    "pinnedListOrder",
+    "slug"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

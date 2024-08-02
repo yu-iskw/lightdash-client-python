@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "logs": {
+      "items": {
+        "$ref": "./SchedulerLog.json"
+      },
+      "type": "array"
+    },
+    "dashboards": {
+      "items": {
+        "properties": {
+          "dashboardUuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dashboardUuid",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "charts": {
+      "items": {
+        "properties": {
+          "savedChartUuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "savedChartUuid",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "users": {
+      "items": {
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userUuid",
+          "lastName",
+          "firstName"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schedulers": {
+      "items": {
+        "$ref": "./SchedulerAndTargets.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "logs",
+    "dashboards",
+    "charts",
+    "users",
+    "schedulers"
+  ],
+  "type": "object"
+}

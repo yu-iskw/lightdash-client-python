@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "fieldType": {
+      "$ref": "./FieldType.json"
+    },
+    "tableLabel": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "label",
+    "fieldType",
+    "tableLabel"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

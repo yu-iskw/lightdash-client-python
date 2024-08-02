@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "attributeDefault": {
+      "type": "string",
+      "nullable": true
+    },
+    "groups": {
+      "items": {
+        "$ref": "./GroupAttributeValue.json"
+      },
+      "type": "array"
+    },
+    "users": {
+      "items": {
+        "$ref": "./UserAttributeValue.json"
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "attributeDefault",
+    "groups",
+    "users",
+    "organizationUuid",
+    "name",
+    "createdAt",
+    "uuid"
+  ],
+  "type": "object"
+}

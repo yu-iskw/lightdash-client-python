@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "table": {
+      "type": "string"
+    },
+    "sqlOn": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./DbtModelJoinType.json"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "always": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "table",
+    "sqlOn"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

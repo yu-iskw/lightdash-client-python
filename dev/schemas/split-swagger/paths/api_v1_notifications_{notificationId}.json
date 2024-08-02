@@ -1,0 +1,53 @@
+{
+  "patch": {
+    "operationId": "updateNotification",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Update notification",
+    "tags": [
+      "Notifications"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the id of the notification",
+        "in": "path",
+        "name": "notificationId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/ApiNotificationUpdateParams.json"
+          }
+        }
+      }
+    }
+  }
+}

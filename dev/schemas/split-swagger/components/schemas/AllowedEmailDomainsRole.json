@@ -1,0 +1,16 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./OrganizationMemberRole.EDITOR.json"
+    },
+    {
+      "$ref": "./OrganizationMemberRole.INTERACTIVE_VIEWER.json"
+    },
+    {
+      "$ref": "./OrganizationMemberRole.VIEWER.json"
+    },
+    {
+      "$ref": "./OrganizationMemberRole.MEMBER.json"
+    }
+  ]
+}

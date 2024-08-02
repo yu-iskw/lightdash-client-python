@@ -1,0 +1,37 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_Field.name-or-label-or-fieldType-or-tableLabel-or-description_.json"
+    },
+    {
+      "$ref": "./Pick_Dimension.requiredAttributes_.json"
+    },
+    {
+      "properties": {
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tableGroupLabel": {
+          "type": "string"
+        },
+        "tableName": {
+          "type": "string"
+        },
+        "basicType": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "./CatalogType.Field.json"
+        }
+      },
+      "required": [
+        "tableName",
+        "type"
+      ],
+      "type": "object"
+    }
+  ]
+}

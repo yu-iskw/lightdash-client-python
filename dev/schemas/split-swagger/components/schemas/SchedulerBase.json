@@ -1,0 +1,67 @@
+{
+  "properties": {
+    "notificationFrequency": {
+      "$ref": "./NotificationFrequency.json"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "thresholds": {
+      "items": {
+        "$ref": "./ThresholdOptions.json"
+      },
+      "type": "array"
+    },
+    "options": {
+      "$ref": "./SchedulerOptions.json"
+    },
+    "dashboardUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "savedChartUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "cron": {
+      "type": "string"
+    },
+    "format": {
+      "$ref": "./SchedulerFormat.json"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "message": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "schedulerUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "enabled",
+    "options",
+    "dashboardUuid",
+    "savedChartUuid",
+    "cron",
+    "format",
+    "createdBy",
+    "updatedAt",
+    "createdAt",
+    "name",
+    "schedulerUuid"
+  ],
+  "type": "object"
+}

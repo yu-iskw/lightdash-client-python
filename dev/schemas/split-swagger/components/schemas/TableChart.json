@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "metricsAsRows": {
+      "type": "boolean"
+    },
+    "conditionalFormattings": {
+      "items": {
+        "$ref": "./ConditionalFormattingConfig.json"
+      },
+      "type": "array"
+    },
+    "columns": {
+      "$ref": "./Record_string.ColumnProperties_.json"
+    },
+    "showSubtotals": {
+      "type": "boolean"
+    },
+    "showResultsTotal": {
+      "type": "boolean"
+    },
+    "hideRowNumbers": {
+      "type": "boolean"
+    },
+    "showTableNames": {
+      "type": "boolean"
+    },
+    "showRowCalculation": {
+      "type": "boolean"
+    },
+    "showColumnCalculation": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

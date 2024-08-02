@@ -1,0 +1,126 @@
+{
+  "post": {
+    "operationId": "ValidateProject",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiJobScheduledResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Validate content inside a project. This will start a validation job and return the job id.\n\nValidation jobs scan all charts and dashboards inside a project to find any broken references\nto metrics or dimensions that aren't available. Results are available after the job is completed.",
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the projectId for the validation",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "description": "the compiled explores to validate against an existing project, this is used in the CLI to validate a project without creating a preview",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "validationTargets": {
+                "items": {
+                  "$ref": "../components/schemas/ValidationTarget.json"
+                },
+                "type": "array"
+              },
+              "explores": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object",
+            "description": "the compiled explores to validate against an existing project, this is used in the CLI to validate a project without creating a preview"
+          }
+        }
+      }
+    }
+  },
+  "get": {
+    "operationId": "GetLatestValidationResults",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiValidateResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get validation results for a project. This will return the results of the latest validation job.",
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "the projectId for the validation",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "description": "boolean to know if this request is made from the settings page, for analytics",
+        "in": "query",
+        "name": "fromSettings",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      {
+        "description": "optional jobId to get results for a specific job, used on CLI",
+        "in": "query",
+        "name": "jobId",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

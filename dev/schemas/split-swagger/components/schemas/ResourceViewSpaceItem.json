@@ -1,0 +1,48 @@
+{
+  "properties": {
+    "data": {
+      "allOf": [
+        {
+          "$ref": "./Pick_Space.projectUuid-or-uuid-or-name-or-isPrivate-or-pinnedListUuid-or-pinnedListOrder-or-organizationUuid_.json"
+        },
+        {
+          "properties": {
+            "chartCount": {
+              "type": "number",
+              "format": "double"
+            },
+            "dashboardCount": {
+              "type": "number",
+              "format": "double"
+            },
+            "accessListLength": {
+              "type": "number",
+              "format": "double"
+            },
+            "access": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "chartCount",
+            "dashboardCount",
+            "accessListLength",
+            "access"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "type": {
+      "$ref": "./ResourceViewItemType.SPACE.json"
+    }
+  },
+  "required": [
+    "data",
+    "type"
+  ],
+  "type": "object"
+}

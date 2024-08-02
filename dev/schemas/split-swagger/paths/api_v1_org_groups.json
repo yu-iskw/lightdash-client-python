@@ -1,0 +1,87 @@
+{
+  "post": {
+    "operationId": "CreateGroupInOrganization",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGroupResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Creates a new group in the current user's organization",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "description": "the new group details",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/CreateGroup.json",
+            "description": "the new group details"
+          }
+        }
+      }
+    }
+  },
+  "get": {
+    "operationId": "ListGroupsInOrganization",
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGroupListResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Gets all the groups in the current user's organization",
+    "tags": [
+      "Organizations"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "number of members to include",
+        "in": "query",
+        "name": "includeMembers",
+        "required": false,
+        "schema": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    ]
+  }
+}
