@@ -2,12 +2,6 @@ name: Test python
 
 on:
   pull_request:
-    paths:
-      - .github/workflows/test.yml
-      - 'pyproject.toml'
-      - 'lightdash_client/**/*.py'
-      - 'tests/**/*.py'
-      - 'pylintrc'
   push:
     branches:
       - main
@@ -17,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
       fail-fast: false
 
     defaults:
@@ -25,12 +19,12 @@ jobs:
         shell: bash
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         id: cache
         with:
           path: ${{ env.pythonLocation }}
