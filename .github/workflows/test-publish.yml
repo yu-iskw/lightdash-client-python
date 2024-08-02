@@ -68,11 +68,10 @@ jobs:
           python-version: "${{ matrix.python-version }}"
       - name: Install packages
         run: |
-          python3 -m pip install -U pip~=23.1.0
+          python3 -m pip install -U pip~=24.2.0
           python3 -m pip install \
             --index-url https://test.pypi.org/simple/ \
             --force-reinstall \
-            --use-feature=2020-resolver \
             -U lightdash-client-python=="${{ github.event.inputs.package_version }}"
       - name: Test pacakge
         run: |
