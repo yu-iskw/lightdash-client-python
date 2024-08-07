@@ -1,6 +1,6 @@
 {
   "post": {
-    "operationId": "CreatePullRequestForChartFields",
+    "operationId": "CreatePullRequestForCustomMetrics",
     "responses": {
       "200": {
         "description": "Success",
