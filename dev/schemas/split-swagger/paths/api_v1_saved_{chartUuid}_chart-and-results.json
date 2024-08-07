@@ -1,6 +1,6 @@
 {
   "post": {
-    "operationId": "postChartResults",
+    "operationId": "PostDashboardTile",
     "responses": {
       "200": {
         "description": "Success",

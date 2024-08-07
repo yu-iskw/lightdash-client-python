@@ -1,6 +1,6 @@
 {
   "get": {
-    "operationId": "get",
+    "operationId": "GetChartHistory",
     "responses": {
       "200": {
         "description": "Success",

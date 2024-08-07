@@ -1,6 +1,6 @@
 {
   "post": {
-    "operationId": "postChartResults",
+    "operationId": "PostChartResults",
     "responses": {
       "200": {
         "description": "Success",

@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "userAccess": {
+      "$ref": "./SpaceShare.json"
+    }
+  },
+  "required": [
+    "name",
+    "uuid",
+    "isPrivate"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

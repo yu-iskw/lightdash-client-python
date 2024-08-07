@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Lightdash API",
-    "version": "0.1200.0",
+    "version": "0.1202.16",
     "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
@@ -1419,7 +1419,7 @@
     },
     "/api/v1/projects/{projectUuid}/git-integration/pull-requests/custom-metrics": {
       "post": {
-        "operationId": "CreatePullRequestForChartFields",
+        "operationId": "CreatePullRequestForCustomMetrics",
         "responses": {
           "200": {
             "description": "Success",
@@ -3923,7 +3923,7 @@
     },
     "/api/v1/saved/{chartUuid}/results": {
       "post": {
-        "operationId": "postChartResults",
+        "operationId": "PostChartResults",
         "responses": {
           "200": {
             "description": "Success",
@@ -3981,7 +3981,7 @@
     },
     "/api/v1/saved/{chartUuid}/chart-and-results": {
       "post": {
-        "operationId": "postChartResults",
+        "operationId": "PostDashboardTile",
         "responses": {
           "200": {
             "description": "Success",
@@ -4058,7 +4058,7 @@
     },
     "/api/v1/saved/{chartUuid}/history": {
       "get": {
-        "operationId": "get",
+        "operationId": "GetChartHistory",
         "responses": {
           "200": {
             "description": "Success",
@@ -4101,7 +4101,7 @@
     },
     "/api/v1/saved/{chartUuid}/version/{versionUuid}": {
       "get": {
-        "operationId": "get",
+        "operationId": "GetChartVersion",
         "responses": {
           "200": {
             "description": "Success",

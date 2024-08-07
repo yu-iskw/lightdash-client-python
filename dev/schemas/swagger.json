@@ -3002,6 +3002,9 @@
                     },
                     {
                         "properties": {
+                            "uncompiledSqlWhere": {
+                                "type": "string"
+                            },
                             "source": {
                                 "$ref": "#/components/schemas/Source"
                             },
@@ -6921,7 +6924,7 @@
                         "nullable": false
                     }
                 },
-                "required": ["results", "status"],
+                "required": ["status"],
                 "type": "object"
             },
             "ApiSlackCustomSettingsResponse": {
@@ -7301,16 +7304,22 @@
                 "required": ["type", "metadata"],
                 "type": "object"
             },
-            "Pick_Space.uuid-or-name_": {
+            "Pick_SpaceSummary.uuid-or-name-or-isPrivate-or-userAccess_": {
                 "properties": {
                     "name": {
                         "type": "string"
                     },
                     "uuid": {
                         "type": "string"
+                    },
+                    "isPrivate": {
+                        "type": "boolean"
+                    },
+                    "userAccess": {
+                        "$ref": "#/components/schemas/SpaceShare"
                     }
                 },
-                "required": ["name", "uuid"],
+                "required": ["name", "uuid", "isPrivate"],
                 "type": "object",
                 "description": "From T, pick a set of properties whose keys are in the union K"
             },
@@ -7366,7 +7375,7 @@
                         "nullable": true
                     },
                     "space": {
-                        "$ref": "#/components/schemas/Pick_Space.uuid-or-name_"
+                        "$ref": "#/components/schemas/Pick_SpaceSummary.uuid-or-name-or-isPrivate-or-userAccess_"
                     },
                     "lastUpdatedBy": {
                         "allOf": [
@@ -8811,7 +8820,7 @@
     },
     "info": {
         "title": "Lightdash API",
-        "version": "0.1200.0",
+        "version": "0.1202.16",
         "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
         "license": {
             "name": "MIT"
@@ -10100,7 +10109,7 @@
         },
         "/api/v1/projects/{projectUuid}/git-integration/pull-requests/custom-metrics": {
             "post": {
-                "operationId": "CreatePullRequestForChartFields",
+                "operationId": "CreatePullRequestForCustomMetrics",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -12469,7 +12478,7 @@
         },
         "/api/v1/saved/{chartUuid}/results": {
             "post": {
-                "operationId": "postChartResults",
+                "operationId": "PostChartResults",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -12525,7 +12534,7 @@
         },
         "/api/v1/saved/{chartUuid}/chart-and-results": {
             "post": {
-                "operationId": "postChartResults",
+                "operationId": "PostDashboardTile",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -12600,7 +12609,7 @@
         },
         "/api/v1/saved/{chartUuid}/history": {
             "get": {
-                "operationId": "get",
+                "operationId": "GetChartHistory",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -12641,7 +12650,7 @@
         },
         "/api/v1/saved/{chartUuid}/version/{versionUuid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "GetChartVersion",
                 "responses": {
                     "200": {
                         "description": "Success",
