@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "time",
+    "number",
+    "string",
+    "boolean"
+  ],
+  "type": "string"
+}

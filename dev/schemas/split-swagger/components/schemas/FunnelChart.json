@@ -1,5 +1,31 @@
 {
   "properties": {
+    "legendPosition": {
+      "$ref": "./FunnelChartLegendPosition.json"
+    },
+    "showLegend": {
+      "type": "boolean"
+    },
+    "labels": {
+      "properties": {
+        "showPercentage": {
+          "type": "boolean"
+        },
+        "showValue": {
+          "type": "boolean"
+        },
+        "position": {
+          "$ref": "./FunnelChartLabelPosition.json"
+        }
+      },
+      "type": "object"
+    },
+    "colorOverrides": {
+      "$ref": "./Record_string.string_.json"
+    },
+    "labelOverrides": {
+      "$ref": "./Record_string.string_.json"
+    },
     "metadata": {
       "$ref": "./Record_string.SeriesMetadata_.json"
     },

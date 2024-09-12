@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "dimensions": {
+      "items": {
+        "$ref": "./Pick_SemanticLayerField.name_.json"
+      },
+      "type": "array"
+    },
+    "timeDimensions": {
+      "items": {
+        "$ref": "./Pick_SemanticLayerTimeDimension.name-or-granularity_.json"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "items": {
+        "$ref": "./Pick_SemanticLayerField.name_.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "dimensions",
+    "timeDimensions",
+    "metrics"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

@@ -1,7 +1,11 @@
 {
   "properties": {
     "config": {
-      "$ref": "./SqlRunnerChartConfig.json"
+      "$ref": "./VizChartConfig.json"
+    },
+    "limit": {
+      "type": "number",
+      "format": "double"
     },
     "sql": {
       "type": "string"
@@ -9,6 +13,7 @@
   },
   "required": [
     "config",
+    "limit",
     "sql"
   ],
   "type": "object"

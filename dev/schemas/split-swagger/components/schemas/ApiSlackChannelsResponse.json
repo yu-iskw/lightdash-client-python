@@ -15,7 +15,6 @@
     }
   },
   "required": [
-    "results",
     "status"
   ],
   "type": "object"

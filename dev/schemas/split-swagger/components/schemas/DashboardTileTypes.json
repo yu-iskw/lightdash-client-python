@@ -1,6 +1,7 @@
 {
   "enum": [
     "saved_chart",
+    "sql_chart",
     "markdown",
     "loom"
   ],

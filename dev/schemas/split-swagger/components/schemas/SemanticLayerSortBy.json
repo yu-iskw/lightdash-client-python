@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_SemanticLayerField.name-or-kind_.json"
+    },
+    {
+      "properties": {
+        "direction": {
+          "$ref": "./SemanticLayerSortByDirection.json"
+        }
+      },
+      "required": [
+        "direction"
+      ],
+      "type": "object"
+    }
+  ]
+}

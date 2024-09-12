@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "availableOperators": {
+      "items": {
+        "$ref": "./SemanticLayerStringFilterOperator.json"
+      },
+      "type": "array"
+    },
+    "availableGranularities": {
+      "items": {
+        "$ref": "./SemanticLayerTimeGranularity.json"
+      },
+      "type": "array"
+    },
+    "aggType": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    },
+    "kind": {
+      "$ref": "./FieldType.json"
+    },
+    "type": {
+      "$ref": "./SemanticLayerFieldType.json"
+    },
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "availableOperators",
+    "availableGranularities",
+    "visible",
+    "kind",
+    "type",
+    "label",
+    "name"
+  ],
+  "type": "object"
+}

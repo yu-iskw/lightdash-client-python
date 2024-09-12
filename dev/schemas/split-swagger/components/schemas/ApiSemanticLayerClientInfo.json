@@ -1,19 +1,20 @@
 {
   "properties": {
-    "results": {
-      "$ref": "./KnexPaginatedData_OrganizationMemberProfile-Array_.json"
-    },
     "status": {
       "type": "string",
       "enum": [
         "ok"
       ],
       "nullable": false
+    },
+    "results": {
+      "$ref": "./SemanticLayerClientInfo.json"
     }
   },
   "required": [
-    "results",
-    "status"
+    "status",
+    "results"
   ],
-  "type": "object"
+  "type": "object",
+  "additionalProperties": true
 }

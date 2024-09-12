@@ -1,0 +1,24 @@
+{
+  "allOf": [
+    {
+      "$ref": "./VizBaseConfig.json"
+    },
+    {
+      "properties": {
+        "display": {
+          "$ref": "./VizPieChartDisplay.json"
+        },
+        "fieldConfig": {
+          "$ref": "./VizChartLayout.json"
+        },
+        "type": {
+          "$ref": "./ChartKind.PIE.json"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    }
+  ]
+}

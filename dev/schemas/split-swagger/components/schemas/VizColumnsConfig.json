@@ -1,0 +1,7 @@
+{
+  "properties": {},
+  "additionalProperties": {
+    "$ref": "./VizColumnConfig.json"
+  },
+  "type": "object"
+}

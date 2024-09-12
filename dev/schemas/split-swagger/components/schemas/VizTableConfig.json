@@ -1,0 +1,22 @@
+{
+  "allOf": [
+    {
+      "$ref": "./VizBaseConfig.json"
+    },
+    {
+      "properties": {
+        "columns": {
+          "$ref": "./VizColumnsConfig.json"
+        },
+        "type": {
+          "$ref": "./ChartKind.TABLE.json"
+        }
+      },
+      "required": [
+        "columns",
+        "type"
+      ],
+      "type": "object"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "groupByColumns": {
+      "items": {
+        "properties": {
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "valuesColumns": {
+      "items": {
+        "properties": {
+          "aggregation": {
+            "$ref": "./VizAggregationOptions.json"
+          },
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "aggregation",
+          "reference"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "indexColumn": {
+      "$ref": "./PivotIndexColum.json"
+    }
+  },
+  "required": [
+    "valuesColumns",
+    "indexColumn"
+  ],
+  "type": "object"
+}

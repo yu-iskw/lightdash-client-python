@@ -1,9 +1,0 @@
-{
-  "enum": [
-    "default",
-    "percent",
-    "currency",
-    "number"
-  ],
-  "type": "string"
-}

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Lightdash API",
-    "version": "0.1202.16",
+    "version": "0.1249.0",
     "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
@@ -6065,7 +6065,7 @@
             }
           }
         },
-        "description": "Get login options for email",
+        "description": "Get login options",
         "tags": [
           "My Account"
         ],
@@ -6074,7 +6074,7 @@
           {
             "in": "query",
             "name": "email",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -6586,6 +6586,12 @@
       },
       "CatalogMetadata": {
         "properties": {
+          "fieldType": {
+            "$ref": "#/components/schemas/FieldType"
+          },
+          "tableLabel": {
+            "type": "string"
+          },
           "joinedTables": {
             "items": {
               "type": "string"
@@ -6604,6 +6610,9 @@
           "modelName": {
             "type": "string"
           },
+          "label": {
+            "type": "string"
+          },
           "description": {
             "type": "string"
           },
@@ -6615,6 +6624,7 @@
           "joinedTables",
           "fields",
           "modelName",
+          "label",
           "name"
         ],
         "type": "object"
@@ -6870,6 +6880,7 @@
       "DashboardTileTypes": {
         "enum": [
           "saved_chart",
+          "sql_chart",
           "markdown",
           "loom"
         ],
@@ -7064,6 +7075,56 @@
           }
         ]
       },
+      "DashboardTileTypes.SQL_CHART": {
+        "enum": [
+          "sql_chart"
+        ],
+        "type": "string"
+      },
+      "DashboardSqlChartTileProperties": {
+        "properties": {
+          "properties": {
+            "properties": {
+              "hideTitle": {
+                "type": "boolean"
+              },
+              "chartName": {
+                "type": "string"
+              },
+              "savedSqlUuid": {
+                "type": "string",
+                "nullable": true
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chartName",
+              "savedSqlUuid"
+            ],
+            "type": "object"
+          },
+          "type": {
+            "$ref": "#/components/schemas/DashboardTileTypes.SQL_CHART"
+          }
+        },
+        "required": [
+          "properties",
+          "type"
+        ],
+        "type": "object"
+      },
+      "DashboardSqlChartTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Required_CreateDashboardTileBase_"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardSqlChartTileProperties"
+          }
+        ]
+      },
       "DashboardTile": {
         "anyOf": [
           {
@@ -7074,6 +7135,9 @@
           },
           {
             "$ref": "#/components/schemas/DashboardLoomTile"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardSqlChartTile"
           }
         ]
       },
@@ -7264,6 +7328,9 @@
             "type": "string",
             "nullable": true
           },
+          "slug": {
+            "type": "string"
+          },
           "dashboardVersionId": {
             "type": "number",
             "format": "double"
@@ -7310,9 +7377,6 @@
               "$ref": "#/components/schemas/DashboardTab"
             },
             "type": "array"
-          },
-          "slug": {
-            "type": "string"
           }
         },
         "required": [
@@ -7323,6 +7387,7 @@
           "projectUuid",
           "organizationUuid",
           "pinnedListUuid",
+          "slug",
           "dashboardVersionId",
           "updatedAt",
           "tiles",
@@ -7330,8 +7395,7 @@
           "views",
           "firstViewedAt",
           "pinnedListOrder",
-          "tabs",
-          "slug"
+          "tabs"
         ],
         "type": "object",
         "description": "From T, pick a set of properties whose keys are in the union K"
@@ -8618,6 +8682,22 @@
         ],
         "type": "object"
       },
+      "FunnelChartLegendPosition": {
+        "enum": [
+          "horizontal",
+          "vertical"
+        ],
+        "type": "string"
+      },
+      "FunnelChartLabelPosition": {
+        "enum": [
+          "inside",
+          "left",
+          "right",
+          "hidden"
+        ],
+        "type": "string"
+      },
       "FunnelChartDataInput": {
         "enum": [
           "row",
@@ -8627,6 +8707,32 @@
       },
       "FunnelChart": {
         "properties": {
+          "legendPosition": {
+            "$ref": "#/components/schemas/FunnelChartLegendPosition"
+          },
+          "showLegend": {
+            "type": "boolean"
+          },
+          "labels": {
+            "properties": {
+              "showPercentage": {
+                "type": "boolean"
+              },
+              "showValue": {
+                "type": "boolean"
+              },
+              "position": {
+                "$ref": "#/components/schemas/FunnelChartLabelPosition"
+              }
+            },
+            "type": "object"
+          },
+          "colorOverrides": {
+            "$ref": "#/components/schemas/Record_string.string_"
+          },
+          "labelOverrides": {
+            "$ref": "#/components/schemas/Record_string.string_"
+          },
           "metadata": {
             "$ref": "#/components/schemas/Record_string.SeriesMetadata_"
           },
@@ -8918,6 +9024,9 @@
             "type": "string",
             "nullable": true
           },
+          "slug": {
+            "type": "string"
+          },
           "updatedAt": {
             "type": "string",
             "format": "date-time"
@@ -8929,9 +9038,6 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "slug": {
-            "type": "string"
           },
           "tableName": {
             "type": "string"
@@ -8987,9 +9093,9 @@
           "pinnedListUuid",
           "dashboardUuid",
           "dashboardName",
+          "slug",
           "updatedAt",
           "pinnedListOrder",
-          "slug",
           "tableName",
           "metricQuery",
           "chartConfig",
@@ -9066,6 +9172,9 @@
             "type": "string",
             "nullable": true
           },
+          "slug": {
+            "type": "string"
+          },
           "isPrivate": {
             "type": "boolean"
           },
@@ -9079,9 +9188,6 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "slug": {
-            "type": "string"
           },
           "chartCount": {
             "type": "number",
@@ -9098,10 +9204,10 @@
           "projectUuid",
           "organizationUuid",
           "pinnedListUuid",
+          "slug",
           "isPrivate",
           "access",
           "pinnedListOrder",
-          "slug",
           "chartCount",
           "dashboardCount"
         ],
@@ -9541,6 +9647,9 @@
           },
           {
             "properties": {
+              "uncompiledSqlWhere": {
+                "type": "string"
+              },
               "source": {
                 "$ref": "#/components/schemas/Source"
               },
@@ -10416,6 +10525,23 @@
         "type": "object",
         "description": "List of projects in the current organization"
       },
+      "KnexPaginateArgs": {
+        "properties": {
+          "page": {
+            "type": "number",
+            "format": "double"
+          },
+          "pageSize": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "page",
+          "pageSize"
+        ],
+        "type": "object"
+      },
       "OrganizationMemberRole": {
         "enum": [
           "member",
@@ -10472,13 +10598,43 @@
         "type": "object",
         "description": "Profile for a user's membership in an organization"
       },
-      "ApiOrganizationMemberProfiles": {
+      "KnexPaginatedData_OrganizationMemberProfile-Array_": {
         "properties": {
-          "results": {
+          "pagination": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KnexPaginateArgs"
+              },
+              {
+                "properties": {
+                  "totalPageCount": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "required": [
+                  "totalPageCount"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "data": {
             "items": {
               "$ref": "#/components/schemas/OrganizationMemberProfile"
             },
             "type": "array"
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "type": "object"
+      },
+      "ApiOrganizationMemberProfiles": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/KnexPaginatedData_OrganizationMemberProfile-Array_"
           },
           "status": {
             "type": "string",
@@ -10893,7 +11049,7 @@
         ],
         "type": "string"
       },
-      "Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors_": {
+      "Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors-or-slug_": {
         "properties": {
           "name": {
             "type": "string"
@@ -10910,6 +11066,9 @@
           "pinnedListUuid": {
             "type": "string",
             "nullable": true
+          },
+          "slug": {
+            "type": "string"
           },
           "chartKind": {
             "$ref": "#/components/schemas/ChartKind"
@@ -10957,6 +11116,7 @@
           "uuid",
           "spaceUuid",
           "pinnedListUuid",
+          "slug",
           "updatedAt",
           "views",
           "firstViewedAt",
@@ -10964,6 +11124,13 @@
         ],
         "type": "object",
         "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "ChartSourceType": {
+        "enum": [
+          "dbt_explore",
+          "sql"
+        ],
+        "type": "string"
       },
       "ResourceViewItemType.CHART": {
         "enum": [
@@ -10977,7 +11144,19 @@
             "$ref": "#/components/schemas/ResourceItemCategory"
           },
           "data": {
-            "$ref": "#/components/schemas/Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors_"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors-or-slug_"
+              },
+              {
+                "properties": {
+                  "source": {
+                    "$ref": "#/components/schemas/ChartSourceType"
+                  }
+                },
+                "type": "object"
+              }
+            ]
           },
           "type": {
             "$ref": "#/components/schemas/ResourceViewItemType.CHART"
@@ -11232,6 +11411,9 @@
           },
           "quotedIdentifiersIgnoreCase": {
             "type": "boolean"
+          },
+          "override": {
+            "type": "string"
           }
         },
         "required": [
@@ -11452,6 +11634,9 @@
           "maximumBytesBilled": {
             "type": "number",
             "format": "double"
+          },
+          "executionProject": {
+            "type": "string"
           }
         },
         "required": [
@@ -11959,7 +12144,7 @@
         ],
         "type": "object"
       },
-      "Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName_": {
+      "Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName-or-slug_": {
         "properties": {
           "name": {
             "type": "string"
@@ -11993,6 +12178,9 @@
           "dashboardName": {
             "type": "string",
             "nullable": true
+          },
+          "slug": {
+            "type": "string"
           }
         },
         "required": [
@@ -12004,7 +12192,8 @@
           "organizationUuid",
           "pinnedListUuid",
           "dashboardUuid",
-          "dashboardName"
+          "dashboardName",
+          "slug"
         ],
         "type": "object",
         "description": "From T, pick a set of properties whose keys are in the union K"
@@ -12012,10 +12201,13 @@
       "ChartSummary": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName_"
+            "$ref": "#/components/schemas/Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName-or-slug_"
           },
           {
             "properties": {
+              "source": {
+                "$ref": "#/components/schemas/ChartSourceType"
+              },
               "chartKind": {
                 "$ref": "#/components/schemas/ChartKind"
               },
@@ -12160,6 +12352,9 @@
             "type": "string",
             "nullable": true
           },
+          "slug": {
+            "type": "string"
+          },
           "isPrivate": {
             "type": "boolean"
           },
@@ -12167,9 +12362,6 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "slug": {
-            "type": "string"
           }
         },
         "required": [
@@ -12178,9 +12370,9 @@
           "projectUuid",
           "organizationUuid",
           "pinnedListUuid",
+          "slug",
           "isPrivate",
-          "pinnedListOrder",
-          "slug"
+          "pinnedListOrder"
         ],
         "type": "object",
         "description": "From T, pick a set of properties whose keys are in the union K"
@@ -12213,6 +12405,9 @@
                 "$ref": "#/components/schemas/ProjectMemberRole"
               }
             ]
+          },
+          "projectRole": {
+            "$ref": "#/components/schemas/ProjectMemberRole"
           },
           "hasDirectAccess": {
             "type": "boolean"
@@ -13308,7 +13503,10 @@
               "uploadGsheetFromQuery",
               "compileProject",
               "testAndCompileProject",
-              "validateProject"
+              "validateProject",
+              "sqlRunner",
+              "sqlRunnerPivotQuery",
+              "semanticLayer"
             ]
           }
         },
@@ -14002,7 +14200,6 @@
           }
         },
         "required": [
-          "results",
           "status"
         ],
         "type": "object"

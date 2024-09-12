@@ -1,10 +1,13 @@
 {
   "allOf": [
     {
-      "$ref": "./Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName_.json"
+      "$ref": "./Pick_SavedChart.uuid-or-name-or-description-or-spaceName-or-spaceUuid-or-projectUuid-or-organizationUuid-or-pinnedListUuid-or-dashboardUuid-or-dashboardName-or-slug_.json"
     },
     {
       "properties": {
+        "source": {
+          "$ref": "./ChartSourceType.json"
+        },
         "chartKind": {
           "$ref": "./ChartKind.json"
         },

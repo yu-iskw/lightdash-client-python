@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "IS",
+    "IS NOT"
+  ],
+  "type": "string"
+}

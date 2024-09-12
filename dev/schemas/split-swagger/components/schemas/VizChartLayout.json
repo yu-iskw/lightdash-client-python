@@ -1,0 +1,54 @@
+{
+  "properties": {
+    "groupBy": {
+      "items": {
+        "properties": {
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "y": {
+      "items": {
+        "properties": {
+          "aggregation": {
+            "$ref": "./VizAggregationOptions.json"
+          },
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "x": {
+      "properties": {
+        "type": {
+          "$ref": "./VizIndexType.json"
+        },
+        "reference": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "reference"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "y"
+  ],
+  "type": "object"
+}

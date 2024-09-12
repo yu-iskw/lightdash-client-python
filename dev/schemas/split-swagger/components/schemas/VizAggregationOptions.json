@@ -1,0 +1,11 @@
+{
+  "enum": [
+    "sum",
+    "count",
+    "avg",
+    "min",
+    "max",
+    "any"
+  ],
+  "type": "string"
+}

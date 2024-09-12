@@ -1,0 +1,25 @@
+{
+  "allOf": [
+    {
+      "$ref": "./SemanticLayerFilterBase.json"
+    },
+    {
+      "properties": {
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "operator": {
+          "$ref": "./SemanticLayerStringFilterOperator.json"
+        }
+      },
+      "required": [
+        "values",
+        "operator"
+      ],
+      "type": "object"
+    }
+  ]
+}

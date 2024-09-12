@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "features": {
+      "properties": {
+        "views": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "views"
+      ],
+      "type": "object"
+    },
+    "config": {
+      "properties": {
+        "maxQueryLimit": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "maxQueryLimit"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "name",
+    "features",
+    "config"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

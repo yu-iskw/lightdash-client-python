@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "vertical_bar"
+  ],
+  "type": "string"
+}
