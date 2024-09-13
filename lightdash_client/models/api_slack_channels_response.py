@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.api_slack_channels_response_status import ApiSlackChannelsResponseStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.slack_channel import SlackChannel
@@ -16,30 +17,33 @@ T = TypeVar("T", bound="ApiSlackChannelsResponse")
 class ApiSlackChannelsResponse:
     """
     Attributes:
-        results (List['SlackChannel']):
         status (ApiSlackChannelsResponseStatus):
+        results (Union[Unset, List['SlackChannel']]):
     """
 
-    results: List["SlackChannel"]
     status: ApiSlackChannelsResponseStatus
+    results: Union[Unset, List["SlackChannel"]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        results = []
-        for results_item_data in self.results:
-            results_item = results_item_data.to_dict()
-            results.append(results_item)
-
         status = self.status.value
+
+        results: Union[Unset, List[Dict[str, Any]]] = UNSET
+        if not isinstance(self.results, Unset):
+            results = []
+            for results_item_data in self.results:
+                results_item = results_item_data.to_dict()
+                results.append(results_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "results": results,
                 "status": status,
             }
         )
+        if results is not UNSET:
+            field_dict["results"] = results
 
         return field_dict
 
@@ -48,18 +52,18 @@ class ApiSlackChannelsResponse:
         from ..models.slack_channel import SlackChannel
 
         d = src_dict.copy()
+        status = ApiSlackChannelsResponseStatus(d.pop("status"))
+
         results = []
-        _results = d.pop("results")
-        for results_item_data in _results:
+        _results = d.pop("results", UNSET)
+        for results_item_data in _results or []:
             results_item = SlackChannel.from_dict(results_item_data)
 
             results.append(results_item)
 
-        status = ApiSlackChannelsResponseStatus(d.pop("status"))
-
         api_slack_channels_response = cls(
-            results=results,
             status=status,
+            results=results,
         )
 
         api_slack_channels_response.additional_properties = d

@@ -8,7 +8,9 @@ from ..models.api_organization_member_profiles_status import (
 )
 
 if TYPE_CHECKING:
-    from ..models.organization_member_profile import OrganizationMemberProfile
+    from ..models.knex_paginated_data_organization_member_profile_array import (
+        KnexPaginatedDataOrganizationMemberProfileArray,
+    )
 
 
 T = TypeVar("T", bound="ApiOrganizationMemberProfiles")
@@ -18,19 +20,16 @@ T = TypeVar("T", bound="ApiOrganizationMemberProfiles")
 class ApiOrganizationMemberProfiles:
     """
     Attributes:
-        results (List['OrganizationMemberProfile']):
+        results (KnexPaginatedDataOrganizationMemberProfileArray):
         status (ApiOrganizationMemberProfilesStatus):
     """
 
-    results: List["OrganizationMemberProfile"]
+    results: "KnexPaginatedDataOrganizationMemberProfileArray"
     status: ApiOrganizationMemberProfilesStatus
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        results = []
-        for results_item_data in self.results:
-            results_item = results_item_data.to_dict()
-            results.append(results_item)
+        results = self.results.to_dict()
 
         status = self.status.value
 
@@ -47,15 +46,12 @@ class ApiOrganizationMemberProfiles:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.organization_member_profile import OrganizationMemberProfile
+        from ..models.knex_paginated_data_organization_member_profile_array import (
+            KnexPaginatedDataOrganizationMemberProfileArray,
+        )
 
         d = src_dict.copy()
-        results = []
-        _results = d.pop("results")
-        for results_item_data in _results:
-            results_item = OrganizationMemberProfile.from_dict(results_item_data)
-
-            results.append(results_item)
+        results = KnexPaginatedDataOrganizationMemberProfileArray.from_dict(d.pop("results"))
 
         status = ApiOrganizationMemberProfilesStatus(d.pop("status"))
 

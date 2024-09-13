@@ -30,6 +30,7 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
         access_url (Union[Unset, str]):
         start_of_week (Union[None, Unset, WeekDay]):
         quoted_identifiers_ignore_case (Union[Unset, bool]):
+        override (Union[Unset, str]):
     """
 
     type: WarehouseTypesSNOWFLAKE
@@ -45,6 +46,7 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
     access_url: Union[Unset, str] = UNSET
     start_of_week: Union[None, Unset, WeekDay] = UNSET
     quoted_identifiers_ignore_case: Union[Unset, bool] = UNSET
+    override: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,6 +82,8 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
 
         quoted_identifiers_ignore_case = self.quoted_identifiers_ignore_case
 
+        override = self.override
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -107,6 +111,8 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
             field_dict["startOfWeek"] = start_of_week
         if quoted_identifiers_ignore_case is not UNSET:
             field_dict["quotedIdentifiersIgnoreCase"] = quoted_identifiers_ignore_case
+        if override is not UNSET:
+            field_dict["override"] = override
 
         return field_dict
 
@@ -154,6 +160,8 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
 
         quoted_identifiers_ignore_case = d.pop("quotedIdentifiersIgnoreCase", UNSET)
 
+        override = d.pop("override", UNSET)
+
         pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names = cls(
             type=type,
             warehouse=warehouse,
@@ -168,6 +176,7 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
             access_url=access_url,
             start_of_week=start_of_week,
             quoted_identifiers_ignore_case=quoted_identifiers_ignore_case,
+            override=override,
         )
 
         pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names.additional_properties = d

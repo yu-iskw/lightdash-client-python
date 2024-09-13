@@ -164,6 +164,7 @@ from .catalog_type_field import CatalogTypeField
 from .catalog_type_table import CatalogTypeTable
 from .chart_history import ChartHistory
 from .chart_kind import ChartKind
+from .chart_source_type import ChartSourceType
 from .chart_summary import ChartSummary
 from .chart_type import ChartType
 from .chart_type_bignumber import ChartTypeBIGNUMBER
@@ -204,17 +205,23 @@ from .conditional_rule_conditional_operator_number import (
 )
 from .create_group import CreateGroup
 from .create_project_member import CreateProjectMember
-from .create_pull_request_for_chart_fields_body import (
-    CreatePullRequestForChartFieldsBody,
-)
-from .create_pull_request_for_chart_fields_body_quote_char import (
-    CreatePullRequestForChartFieldsBodyQuoteChar,
-)
 from .create_pull_request_for_chart_fields_response_200 import (
     CreatePullRequestForChartFieldsResponse200,
 )
 from .create_pull_request_for_chart_fields_response_200_status import (
     CreatePullRequestForChartFieldsResponse200Status,
+)
+from .create_pull_request_for_custom_metrics_body import (
+    CreatePullRequestForCustomMetricsBody,
+)
+from .create_pull_request_for_custom_metrics_body_quote_char import (
+    CreatePullRequestForCustomMetricsBodyQuoteChar,
+)
+from .create_pull_request_for_custom_metrics_response_200 import (
+    CreatePullRequestForCustomMetricsResponse200,
+)
+from .create_pull_request_for_custom_metrics_response_200_status import (
+    CreatePullRequestForCustomMetricsResponse200Status,
 )
 from .create_space import CreateSpace
 from .create_user_args import CreateUserArgs
@@ -254,11 +261,17 @@ from .dashboard_markdown_tile_properties import DashboardMarkdownTileProperties
 from .dashboard_markdown_tile_properties_properties import (
     DashboardMarkdownTilePropertiesProperties,
 )
+from .dashboard_sql_chart_tile import DashboardSqlChartTile
+from .dashboard_sql_chart_tile_properties import DashboardSqlChartTileProperties
+from .dashboard_sql_chart_tile_properties_properties import (
+    DashboardSqlChartTilePropertiesProperties,
+)
 from .dashboard_tab import DashboardTab
 from .dashboard_tile_types import DashboardTileTypes
 from .dashboard_tile_types_loom import DashboardTileTypesLOOM
 from .dashboard_tile_types_markdown import DashboardTileTypesMARKDOWN
 from .dashboard_tile_types_savedchart import DashboardTileTypesSAVEDCHART
+from .dashboard_tile_types_sqlchart import DashboardTileTypesSQLCHART
 from .date_granularity import DateGranularity
 from .dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
 from .dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
@@ -313,6 +326,9 @@ from .format_ import Format
 from .funnel_chart import FunnelChart
 from .funnel_chart_config import FunnelChartConfig
 from .funnel_chart_data_input import FunnelChartDataInput
+from .funnel_chart_label_position import FunnelChartLabelPosition
+from .funnel_chart_labels import FunnelChartLabels
+from .funnel_chart_legend_position import FunnelChartLegendPosition
 from .get_analytics_field_response_200 import GetAnalyticsFieldResponse200
 from .get_analytics_field_response_200_status import GetAnalyticsFieldResponse200Status
 from .get_analytics_response_200 import GetAnalyticsResponse200
@@ -358,6 +374,13 @@ from .group_member import GroupMember
 from .group_with_members import GroupWithMembers
 from .inline_error import InlineError
 from .inline_error_type import InlineErrorType
+from .knex_paginate_args import KnexPaginateArgs
+from .knex_paginated_data_organization_member_profile_array import (
+    KnexPaginatedDataOrganizationMemberProfileArray,
+)
+from .knex_paginated_data_organization_member_profile_array_pagination import (
+    KnexPaginatedDataOrganizationMemberProfileArrayPagination,
+)
 from .lightdash_user import LightdashUser
 from .local_issuer_types import LocalIssuerTypes
 from .login_options import LoginOptions
@@ -513,8 +536,8 @@ from .pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access_table_conf
 from .pick_saved_chart_updated_at_or_updated_by_user_or_pinned_list_order import (
     PickSavedChartUpdatedAtOrUpdatedByUserOrPinnedListOrder,
 )
-from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name import (
-    PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName,
+from .pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name_or_slug import (
+    PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardNameOrSlug,
 )
 from .pick_share_url_path_or_params import PickShareUrlPathOrParams
 from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_slug import (
@@ -523,8 +546,8 @@ from .pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private
 from .pick_space_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_organization_uuid import (
     PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid,
 )
-from .pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors import (
-    PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors,
+from .pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_or_slug import (
+    PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsOrSlug,
 )
 from .pick_space_share_user_uuid_or_role import PickSpaceShareUserUuidOrRole
 from .pick_space_summary_exclude_keyof_space_summary_user_access import (
@@ -553,6 +576,7 @@ from .pie_chart_value_label import PieChartValueLabel
 from .pivot_reference import PivotReference
 from .pivot_value import PivotValue
 from .post_chart_results_body import PostChartResultsBody
+from .post_dashboard_tile_body import PostDashboardTileBody
 from .project import Project
 from .project_group_access import ProjectGroupAccess
 from .project_member_profile import ProjectMemberProfile
@@ -591,6 +615,7 @@ from .record_string_unknown import RecordStringUnknown
 from .required_create_dashboard_tile_base import RequiredCreateDashboardTileBase
 from .resource_item_category import ResourceItemCategory
 from .resource_view_chart_item import ResourceViewChartItem
+from .resource_view_chart_item_data import ResourceViewChartItemData
 from .resource_view_dashboard_item import ResourceViewDashboardItem
 from .resource_view_item_type import ResourceViewItemType
 from .resource_view_item_type_chart import ResourceViewItemTypeCHART
@@ -834,6 +859,7 @@ __all__ = (
     "CatalogTypeTable",
     "ChartHistory",
     "ChartKind",
+    "ChartSourceType",
     "ChartSummary",
     "ChartType",
     "ChartTypeBIGNUMBER",
@@ -862,10 +888,12 @@ __all__ = (
     "ConditionalRuleConditionalOperatorNumber",
     "CreateGroup",
     "CreateProjectMember",
-    "CreatePullRequestForChartFieldsBody",
-    "CreatePullRequestForChartFieldsBodyQuoteChar",
     "CreatePullRequestForChartFieldsResponse200",
     "CreatePullRequestForChartFieldsResponse200Status",
+    "CreatePullRequestForCustomMetricsBody",
+    "CreatePullRequestForCustomMetricsBodyQuoteChar",
+    "CreatePullRequestForCustomMetricsResponse200",
+    "CreatePullRequestForCustomMetricsResponse200Status",
     "CreateSpace",
     "CreateUserArgs",
     "CreateUserAttribute",
@@ -894,11 +922,15 @@ __all__ = (
     "DashboardMarkdownTile",
     "DashboardMarkdownTileProperties",
     "DashboardMarkdownTilePropertiesProperties",
+    "DashboardSqlChartTile",
+    "DashboardSqlChartTileProperties",
+    "DashboardSqlChartTilePropertiesProperties",
     "DashboardTab",
     "DashboardTileTypes",
     "DashboardTileTypesLOOM",
     "DashboardTileTypesMARKDOWN",
     "DashboardTileTypesSAVEDCHART",
+    "DashboardTileTypesSQLCHART",
     "DateGranularity",
     "DbtAzureDevOpsProjectConfig",
     "DbtBitBucketProjectConfig",
@@ -947,6 +979,9 @@ __all__ = (
     "FunnelChart",
     "FunnelChartConfig",
     "FunnelChartDataInput",
+    "FunnelChartLabelPosition",
+    "FunnelChartLabels",
+    "FunnelChartLegendPosition",
     "GetAnalyticsFieldResponse200",
     "GetAnalyticsFieldResponse200Status",
     "GetAnalyticsResponse200",
@@ -978,6 +1013,9 @@ __all__ = (
     "GroupWithMembers",
     "InlineError",
     "InlineErrorType",
+    "KnexPaginateArgs",
+    "KnexPaginatedDataOrganizationMemberProfileArray",
+    "KnexPaginatedDataOrganizationMemberProfileArrayPagination",
     "LightdashUser",
     "LocalIssuerTypes",
     "LoginOptions",
@@ -1063,11 +1101,11 @@ __all__ = (
     "PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessPivotConfig",
     "PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessTableConfig",
     "PickSavedChartUpdatedAtOrUpdatedByUserOrPinnedListOrder",
-    "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardName",
+    "PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOrOrganizationUuidOrPinnedListUuidOrDashboardUuidOrDashboardNameOrSlug",
     "PickShareUrlPathOrParams",
     "PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrSlug",
     "PickSpaceProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListUuidOrPinnedListOrderOrOrganizationUuid",
-    "PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors",
+    "PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsOrSlug",
     "PickSpaceShareUserUuidOrRole",
     "PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess",
     "PickSshKeyPairPublicKey",
@@ -1083,6 +1121,7 @@ __all__ = (
     "PivotReference",
     "PivotValue",
     "PostChartResultsBody",
+    "PostDashboardTileBody",
     "Project",
     "ProjectGroupAccess",
     "ProjectMemberProfile",
@@ -1117,6 +1156,7 @@ __all__ = (
     "RequiredCreateDashboardTileBase",
     "ResourceItemCategory",
     "ResourceViewChartItem",
+    "ResourceViewChartItemData",
     "ResourceViewDashboardItem",
     "ResourceViewItemType",
     "ResourceViewItemTypeCHART",

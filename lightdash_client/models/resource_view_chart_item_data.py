@@ -17,55 +17,45 @@ if TYPE_CHECKING:
     from ..models.updated_by_user import UpdatedByUser
 
 
-T = TypeVar("T", bound="SpaceQuery")
+T = TypeVar("T", bound="ResourceViewChartItemData")
 
 
 @_attrs_define
-class SpaceQuery:
+class ResourceViewChartItemData:
     """
     Attributes:
         name (str):
         uuid (str):
-        space_name (str):
         space_uuid (str):
-        project_uuid (str):
-        organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
-        dashboard_uuid (Union[None, str]):
-        dashboard_name (Union[None, str]):
         slug (str):
         updated_at (datetime.datetime):
-        pinned_list_order (Union[None, float]):
-        first_viewed_at (Union[None, datetime.datetime, str]):
         views (float):
+        first_viewed_at (Union[None, datetime.datetime, str]):
+        pinned_list_order (Union[None, float]):
         description (Union[Unset, str]):
-        source (Union[Unset, ChartSourceType]):
         chart_kind (Union[Unset, ChartKind]):
-        chart_type (Union[Unset, ChartType]):
         updated_by_user (Union[Unset, UpdatedByUser]):
         validation_errors (Union[Unset, List['PickValidationResponseErrorOrCreatedAtOrValidationId']]):
+        chart_type (Union[Unset, ChartType]):
+        source (Union[Unset, ChartSourceType]):
     """
 
     name: str
     uuid: str
-    space_name: str
     space_uuid: str
-    project_uuid: str
-    organization_uuid: str
     pinned_list_uuid: Union[None, str]
-    dashboard_uuid: Union[None, str]
-    dashboard_name: Union[None, str]
     slug: str
     updated_at: datetime.datetime
-    pinned_list_order: Union[None, float]
-    first_viewed_at: Union[None, datetime.datetime, str]
     views: float
+    first_viewed_at: Union[None, datetime.datetime, str]
+    pinned_list_order: Union[None, float]
     description: Union[Unset, str] = UNSET
-    source: Union[Unset, ChartSourceType] = UNSET
     chart_kind: Union[Unset, ChartKind] = UNSET
-    chart_type: Union[Unset, ChartType] = UNSET
     updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
     validation_errors: Union[Unset, List["PickValidationResponseErrorOrCreatedAtOrValidationId"]] = UNSET
+    chart_type: Union[Unset, ChartType] = UNSET
+    source: Union[Unset, ChartSourceType] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,29 +63,16 @@ class SpaceQuery:
 
         uuid = self.uuid
 
-        space_name = self.space_name
-
         space_uuid = self.space_uuid
-
-        project_uuid = self.project_uuid
-
-        organization_uuid = self.organization_uuid
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
-
-        dashboard_uuid: Union[None, str]
-        dashboard_uuid = self.dashboard_uuid
-
-        dashboard_name: Union[None, str]
-        dashboard_name = self.dashboard_name
 
         slug = self.slug
 
         updated_at = self.updated_at.isoformat()
 
-        pinned_list_order: Union[None, float]
-        pinned_list_order = self.pinned_list_order
+        views = self.views
 
         first_viewed_at: Union[None, str]
         if isinstance(self.first_viewed_at, datetime.datetime):
@@ -103,21 +80,14 @@ class SpaceQuery:
         else:
             first_viewed_at = self.first_viewed_at
 
-        views = self.views
+        pinned_list_order: Union[None, float]
+        pinned_list_order = self.pinned_list_order
 
         description = self.description
-
-        source: Union[Unset, str] = UNSET
-        if not isinstance(self.source, Unset):
-            source = self.source.value
 
         chart_kind: Union[Unset, str] = UNSET
         if not isinstance(self.chart_kind, Unset):
             chart_kind = self.chart_kind.value
-
-        chart_type: Union[Unset, str] = UNSET
-        if not isinstance(self.chart_type, Unset):
-            chart_type = self.chart_type.value
 
         updated_by_user: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.updated_by_user, Unset):
@@ -130,38 +100,41 @@ class SpaceQuery:
                 validation_errors_item = validation_errors_item_data.to_dict()
                 validation_errors.append(validation_errors_item)
 
+        chart_type: Union[Unset, str] = UNSET
+        if not isinstance(self.chart_type, Unset):
+            chart_type = self.chart_type.value
+
+        source: Union[Unset, str] = UNSET
+        if not isinstance(self.source, Unset):
+            source = self.source.value
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "name": name,
                 "uuid": uuid,
-                "spaceName": space_name,
                 "spaceUuid": space_uuid,
-                "projectUuid": project_uuid,
-                "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
-                "dashboardUuid": dashboard_uuid,
-                "dashboardName": dashboard_name,
                 "slug": slug,
                 "updatedAt": updated_at,
-                "pinnedListOrder": pinned_list_order,
-                "firstViewedAt": first_viewed_at,
                 "views": views,
+                "firstViewedAt": first_viewed_at,
+                "pinnedListOrder": pinned_list_order,
             }
         )
         if description is not UNSET:
             field_dict["description"] = description
-        if source is not UNSET:
-            field_dict["source"] = source
         if chart_kind is not UNSET:
             field_dict["chartKind"] = chart_kind
-        if chart_type is not UNSET:
-            field_dict["chartType"] = chart_type
         if updated_by_user is not UNSET:
             field_dict["updatedByUser"] = updated_by_user
         if validation_errors is not UNSET:
             field_dict["validationErrors"] = validation_errors
+        if chart_type is not UNSET:
+            field_dict["chartType"] = chart_type
+        if source is not UNSET:
+            field_dict["source"] = source
 
         return field_dict
 
@@ -177,13 +150,7 @@ class SpaceQuery:
 
         uuid = d.pop("uuid")
 
-        space_name = d.pop("spaceName")
-
         space_uuid = d.pop("spaceUuid")
-
-        project_uuid = d.pop("projectUuid")
-
-        organization_uuid = d.pop("organizationUuid")
 
         def _parse_pinned_list_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -192,30 +159,11 @@ class SpaceQuery:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
-        def _parse_dashboard_uuid(data: object) -> Union[None, str]:
-            if data is None:
-                return data
-            return cast(Union[None, str], data)
-
-        dashboard_uuid = _parse_dashboard_uuid(d.pop("dashboardUuid"))
-
-        def _parse_dashboard_name(data: object) -> Union[None, str]:
-            if data is None:
-                return data
-            return cast(Union[None, str], data)
-
-        dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
-
         slug = d.pop("slug")
 
         updated_at = isoparse(d.pop("updatedAt"))
 
-        def _parse_pinned_list_order(data: object) -> Union[None, float]:
-            if data is None:
-                return data
-            return cast(Union[None, float], data)
-
-        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
+        views = d.pop("views")
 
         def _parse_first_viewed_at(data: object) -> Union[None, datetime.datetime, str]:
             if data is None:
@@ -232,16 +180,14 @@ class SpaceQuery:
 
         first_viewed_at = _parse_first_viewed_at(d.pop("firstViewedAt"))
 
-        views = d.pop("views")
+        def _parse_pinned_list_order(data: object) -> Union[None, float]:
+            if data is None:
+                return data
+            return cast(Union[None, float], data)
+
+        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
         description = d.pop("description", UNSET)
-
-        _source = d.pop("source", UNSET)
-        source: Union[Unset, ChartSourceType]
-        if isinstance(_source, Unset):
-            source = UNSET
-        else:
-            source = ChartSourceType(_source)
 
         _chart_kind = d.pop("chartKind", UNSET)
         chart_kind: Union[Unset, ChartKind]
@@ -249,13 +195,6 @@ class SpaceQuery:
             chart_kind = UNSET
         else:
             chart_kind = ChartKind(_chart_kind)
-
-        _chart_type = d.pop("chartType", UNSET)
-        chart_type: Union[Unset, ChartType]
-        if isinstance(_chart_type, Unset):
-            chart_type = UNSET
-        else:
-            chart_type = ChartType(_chart_type)
 
         _updated_by_user = d.pop("updatedByUser", UNSET)
         updated_by_user: Union[Unset, UpdatedByUser]
@@ -273,31 +212,40 @@ class SpaceQuery:
 
             validation_errors.append(validation_errors_item)
 
-        space_query = cls(
+        _chart_type = d.pop("chartType", UNSET)
+        chart_type: Union[Unset, ChartType]
+        if isinstance(_chart_type, Unset):
+            chart_type = UNSET
+        else:
+            chart_type = ChartType(_chart_type)
+
+        _source = d.pop("source", UNSET)
+        source: Union[Unset, ChartSourceType]
+        if isinstance(_source, Unset):
+            source = UNSET
+        else:
+            source = ChartSourceType(_source)
+
+        resource_view_chart_item_data = cls(
             name=name,
             uuid=uuid,
-            space_name=space_name,
             space_uuid=space_uuid,
-            project_uuid=project_uuid,
-            organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
-            dashboard_uuid=dashboard_uuid,
-            dashboard_name=dashboard_name,
             slug=slug,
             updated_at=updated_at,
-            pinned_list_order=pinned_list_order,
-            first_viewed_at=first_viewed_at,
             views=views,
+            first_viewed_at=first_viewed_at,
+            pinned_list_order=pinned_list_order,
             description=description,
-            source=source,
             chart_kind=chart_kind,
-            chart_type=chart_type,
             updated_by_user=updated_by_user,
             validation_errors=validation_errors,
+            chart_type=chart_type,
+            source=source,
         )
 
-        space_query.additional_properties = d
-        return space_query
+        resource_view_chart_item_data.additional_properties = d
+        return resource_view_chart_item_data
 
     @property
     def additional_keys(self) -> List[str]:

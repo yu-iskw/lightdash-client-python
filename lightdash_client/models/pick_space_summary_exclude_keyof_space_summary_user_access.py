@@ -16,10 +16,10 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
         project_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        slug (str):
         is_private (bool):
         access (List[str]):
         pinned_list_order (Union[None, float]):
-        slug (str):
         chart_count (float):
         dashboard_count (float):
     """
@@ -29,10 +29,10 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
     project_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    slug: str
     is_private: bool
     access: List[str]
     pinned_list_order: Union[None, float]
-    slug: str
     chart_count: float
     dashboard_count: float
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -49,14 +49,14 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
+        slug = self.slug
+
         is_private = self.is_private
 
         access = self.access
 
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
-
-        slug = self.slug
 
         chart_count = self.chart_count
 
@@ -71,10 +71,10 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
                 "projectUuid": project_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "slug": slug,
                 "isPrivate": is_private,
                 "access": access,
                 "pinnedListOrder": pinned_list_order,
-                "slug": slug,
                 "chartCount": chart_count,
                 "dashboardCount": dashboard_count,
             }
@@ -100,6 +100,8 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
+        slug = d.pop("slug")
+
         is_private = d.pop("isPrivate")
 
         access = cast(List[str], d.pop("access"))
@@ -111,8 +113,6 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
-        slug = d.pop("slug")
-
         chart_count = d.pop("chartCount")
 
         dashboard_count = d.pop("dashboardCount")
@@ -123,10 +123,10 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
             project_uuid=project_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            slug=slug,
             is_private=is_private,
             access=access,
             pinned_list_order=pinned_list_order,
-            slug=slug,
             chart_count=chart_count,
             dashboard_count=dashboard_count,
         )

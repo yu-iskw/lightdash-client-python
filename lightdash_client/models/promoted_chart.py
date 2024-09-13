@@ -40,9 +40,9 @@ class PromotedChart:
         pinned_list_uuid (Union[None, str]):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
+        slug (str):
         updated_at (datetime.datetime):
         pinned_list_order (Union[None, float]):
-        slug (str):
         table_name (str):
         metric_query (MetricQuery):
         chart_config (Union['BigNumberConfig', 'CartesianChartConfig', 'CustomVisConfig', 'FunnelChartConfig',
@@ -65,9 +65,9 @@ class PromotedChart:
     pinned_list_uuid: Union[None, str]
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
+    slug: str
     updated_at: datetime.datetime
     pinned_list_order: Union[None, float]
-    slug: str
     table_name: str
     metric_query: "MetricQuery"
     chart_config: Union[
@@ -115,12 +115,12 @@ class PromotedChart:
         dashboard_name: Union[None, str]
         dashboard_name = self.dashboard_name
 
+        slug = self.slug
+
         updated_at = self.updated_at.isoformat()
 
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
-
-        slug = self.slug
 
         table_name = self.table_name
 
@@ -171,9 +171,9 @@ class PromotedChart:
                 "pinnedListUuid": pinned_list_uuid,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
+                "slug": slug,
                 "updatedAt": updated_at,
                 "pinnedListOrder": pinned_list_order,
-                "slug": slug,
                 "tableName": table_name,
                 "metricQuery": metric_query,
                 "chartConfig": chart_config,
@@ -243,6 +243,8 @@ class PromotedChart:
 
         dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
 
+        slug = d.pop("slug")
+
         updated_at = isoparse(d.pop("updatedAt"))
 
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
@@ -251,8 +253,6 @@ class PromotedChart:
             return cast(Union[None, float], data)
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
-
-        slug = d.pop("slug")
 
         table_name = d.pop("tableName")
 
@@ -350,9 +350,9 @@ class PromotedChart:
             pinned_list_uuid=pinned_list_uuid,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
+            slug=slug,
             updated_at=updated_at,
             pinned_list_order=pinned_list_order,
-            slug=slug,
             table_name=table_name,
             metric_query=metric_query,
             chart_config=chart_config,

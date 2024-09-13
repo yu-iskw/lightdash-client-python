@@ -18,12 +18,12 @@ if TYPE_CHECKING:
 
 T = TypeVar(
     "T",
-    bound="PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors",
+    bound="PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsOrSlug",
 )
 
 
 @_attrs_define
-class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors:
+class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrorsOrSlug:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
@@ -31,6 +31,7 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
         uuid (str):
         space_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        slug (str):
         updated_at (datetime.datetime):
         views (float):
         first_viewed_at (Union[None, datetime.datetime, str]):
@@ -46,6 +47,7 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
     uuid: str
     space_uuid: str
     pinned_list_uuid: Union[None, str]
+    slug: str
     updated_at: datetime.datetime
     views: float
     first_viewed_at: Union[None, datetime.datetime, str]
@@ -66,6 +68,8 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
+
+        slug = self.slug
 
         updated_at = self.updated_at.isoformat()
 
@@ -109,6 +113,7 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
                 "uuid": uuid,
                 "spaceUuid": space_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "slug": slug,
                 "updatedAt": updated_at,
                 "views": views,
                 "firstViewedAt": first_viewed_at,
@@ -148,6 +153,8 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
             return cast(Union[None, str], data)
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
+
+        slug = d.pop("slug")
 
         updated_at = isoparse(d.pop("updatedAt"))
 
@@ -207,11 +214,12 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
         else:
             chart_type = ChartType(_chart_type)
 
-        pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors = cls(
+        pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_or_slug = cls(
             name=name,
             uuid=uuid,
             space_uuid=space_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            slug=slug,
             updated_at=updated_at,
             views=views,
             first_viewed_at=first_viewed_at,
@@ -223,8 +231,8 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
             chart_type=chart_type,
         )
 
-        pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors.additional_properties = d
-        return pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors
+        pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_or_slug.additional_properties = d
+        return pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors_or_slug
 
     @property
     def additional_keys(self) -> List[str]:

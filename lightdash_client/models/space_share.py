@@ -24,6 +24,7 @@ class SpaceShare:
         user_uuid (str):
         inherited_from (Union[Unset, SpaceShareInheritedFrom]):
         inherited_role (Union[OrganizationMemberRole, ProjectMemberRole, Unset]):
+        project_role (Union[Unset, ProjectMemberRole]):
     """
 
     has_direct_access: bool
@@ -34,6 +35,7 @@ class SpaceShare:
     user_uuid: str
     inherited_from: Union[Unset, SpaceShareInheritedFrom] = UNSET
     inherited_role: Union[OrganizationMemberRole, ProjectMemberRole, Unset] = UNSET
+    project_role: Union[Unset, ProjectMemberRole] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -61,6 +63,10 @@ class SpaceShare:
         else:
             inherited_role = self.inherited_role.value
 
+        project_role: Union[Unset, str] = UNSET
+        if not isinstance(self.project_role, Unset):
+            project_role = self.project_role.value
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -77,6 +83,8 @@ class SpaceShare:
             field_dict["inheritedFrom"] = inherited_from
         if inherited_role is not UNSET:
             field_dict["inheritedRole"] = inherited_role
+        if project_role is not UNSET:
+            field_dict["projectRole"] = project_role
 
         return field_dict
 
@@ -121,6 +129,13 @@ class SpaceShare:
 
         inherited_role = _parse_inherited_role(d.pop("inheritedRole", UNSET))
 
+        _project_role = d.pop("projectRole", UNSET)
+        project_role: Union[Unset, ProjectMemberRole]
+        if isinstance(_project_role, Unset):
+            project_role = UNSET
+        else:
+            project_role = ProjectMemberRole(_project_role)
+
         space_share = cls(
             has_direct_access=has_direct_access,
             role=role,
@@ -130,6 +145,7 @@ class SpaceShare:
             user_uuid=user_uuid,
             inherited_from=inherited_from,
             inherited_role=inherited_role,
+            project_role=project_role,
         )
 
         space_share.additional_properties = d

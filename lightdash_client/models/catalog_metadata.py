@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.field_type import FieldType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -19,7 +20,10 @@ class CatalogMetadata:
         joined_tables (List[str]):
         fields (List['CatalogField']):
         model_name (str):
+        label (str):
         name (str):
+        field_type (Union[Unset, FieldType]):
+        table_label (Union[Unset, str]):
         source (Union[Unset, str]):
         description (Union[Unset, str]):
     """
@@ -27,7 +31,10 @@ class CatalogMetadata:
     joined_tables: List[str]
     fields: List["CatalogField"]
     model_name: str
+    label: str
     name: str
+    field_type: Union[Unset, FieldType] = UNSET
+    table_label: Union[Unset, str] = UNSET
     source: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -42,7 +49,15 @@ class CatalogMetadata:
 
         model_name = self.model_name
 
+        label = self.label
+
         name = self.name
+
+        field_type: Union[Unset, str] = UNSET
+        if not isinstance(self.field_type, Unset):
+            field_type = self.field_type.value
+
+        table_label = self.table_label
 
         source = self.source
 
@@ -55,9 +70,14 @@ class CatalogMetadata:
                 "joinedTables": joined_tables,
                 "fields": fields,
                 "modelName": model_name,
+                "label": label,
                 "name": name,
             }
         )
+        if field_type is not UNSET:
+            field_dict["fieldType"] = field_type
+        if table_label is not UNSET:
+            field_dict["tableLabel"] = table_label
         if source is not UNSET:
             field_dict["source"] = source
         if description is not UNSET:
@@ -81,7 +101,18 @@ class CatalogMetadata:
 
         model_name = d.pop("modelName")
 
+        label = d.pop("label")
+
         name = d.pop("name")
+
+        _field_type = d.pop("fieldType", UNSET)
+        field_type: Union[Unset, FieldType]
+        if isinstance(_field_type, Unset):
+            field_type = UNSET
+        else:
+            field_type = FieldType(_field_type)
+
+        table_label = d.pop("tableLabel", UNSET)
 
         source = d.pop("source", UNSET)
 
@@ -91,7 +122,10 @@ class CatalogMetadata:
             joined_tables=joined_tables,
             fields=fields,
             model_name=model_name,
+            label=label,
             name=name,
+            field_type=field_type,
+            table_label=table_label,
             source=source,
             description=description,
         )
