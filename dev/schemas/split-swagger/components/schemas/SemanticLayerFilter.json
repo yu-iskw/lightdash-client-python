@@ -1,0 +1,24 @@
+{
+  "allOf": [
+    {
+      "$ref": "./SemanticLayerFilterTypes.json"
+    },
+    {
+      "properties": {
+        "or": {
+          "items": {
+            "$ref": "./SemanticLayerFilter.json"
+          },
+          "type": "array"
+        },
+        "and": {
+          "items": {
+            "$ref": "./SemanticLayerFilter.json"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

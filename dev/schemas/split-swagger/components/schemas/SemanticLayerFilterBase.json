@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "fieldType": {
+      "$ref": "./SemanticLayerFieldType.json"
+    },
+    "fieldKind": {
+      "$ref": "./FieldType.json"
+    },
+    "field": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "fieldType",
+    "fieldKind",
+    "field",
+    "uuid"
+  ],
+  "type": "object"
+}

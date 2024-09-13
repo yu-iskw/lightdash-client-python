@@ -6,12 +6,12 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_get_login_options_response import ApiGetLoginOptionsResponse
-from ...types import UNSET, Response
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
     *,
-    email: str,
+    email: Union[Unset, str] = UNSET,
 ) -> Dict[str, Any]:
     params: Dict[str, Any] = {}
 
@@ -55,12 +55,12 @@ def _build_response(
 def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-    email: str,
+    email: Union[Unset, str] = UNSET,
 ) -> Response[ApiGetLoginOptionsResponse]:
-    """Get login options for email
+    """Get login options
 
     Args:
-        email (str):
+        email (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -84,12 +84,12 @@ def sync_detailed(
 def sync(
     *,
     client: Union[AuthenticatedClient, Client],
-    email: str,
+    email: Union[Unset, str] = UNSET,
 ) -> Optional[ApiGetLoginOptionsResponse]:
-    """Get login options for email
+    """Get login options
 
     Args:
-        email (str):
+        email (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -108,12 +108,12 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-    email: str,
+    email: Union[Unset, str] = UNSET,
 ) -> Response[ApiGetLoginOptionsResponse]:
-    """Get login options for email
+    """Get login options
 
     Args:
-        email (str):
+        email (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -135,12 +135,12 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
-    email: str,
+    email: Union[Unset, str] = UNSET,
 ) -> Optional[ApiGetLoginOptionsResponse]:
-    """Get login options for email
+    """Get login options
 
     Args:
-        email (str):
+        email (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

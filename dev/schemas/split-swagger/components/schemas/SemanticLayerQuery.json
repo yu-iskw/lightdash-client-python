@@ -1,0 +1,52 @@
+{
+  "properties": {
+    "filters": {
+      "items": {
+        "$ref": "./SemanticLayerFilter.json"
+      },
+      "type": "array"
+    },
+    "pivot": {
+      "$ref": "./SemanticLayerPivot.json"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "number",
+      "format": "double"
+    },
+    "sortBy": {
+      "items": {
+        "$ref": "./SemanticLayerSortBy.json"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "items": {
+        "$ref": "./Pick_SemanticLayerField.name_.json"
+      },
+      "type": "array"
+    },
+    "timeDimensions": {
+      "items": {
+        "$ref": "./Pick_SemanticLayerTimeDimension.name-or-granularity_.json"
+      },
+      "type": "array"
+    },
+    "dimensions": {
+      "items": {
+        "$ref": "./Pick_SemanticLayerField.name_.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "filters",
+    "sortBy",
+    "metrics",
+    "timeDimensions",
+    "dimensions"
+  ],
+  "type": "object"
+}

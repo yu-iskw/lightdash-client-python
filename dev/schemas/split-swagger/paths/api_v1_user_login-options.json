@@ -23,7 +23,7 @@
         }
       }
     },
-    "description": "Get login options for email",
+    "description": "Get login options",
     "tags": [
       "My Account"
     ],
@@ -32,7 +32,7 @@
       {
         "in": "query",
         "name": "email",
-        "required": true,
+        "required": false,
         "schema": {
           "type": "string"
         }

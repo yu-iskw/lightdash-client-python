@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "time",
+    "category"
+  ],
+  "type": "string"
+}

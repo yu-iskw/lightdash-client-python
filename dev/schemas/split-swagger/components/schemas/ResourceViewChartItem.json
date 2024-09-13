@@ -4,7 +4,19 @@
       "$ref": "./ResourceItemCategory.json"
     },
     "data": {
-      "$ref": "./Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors_.json"
+      "allOf": [
+        {
+          "$ref": "./Pick_SpaceQuery.uuid-or-name-or-chartType-or-chartKind-or-firstViewedAt-or-views-or-pinnedListUuid-or-pinnedListOrder-or-spaceUuid-or-description-or-updatedAt-or-updatedByUser-or-validationErrors-or-slug_.json"
+        },
+        {
+          "properties": {
+            "source": {
+              "$ref": "./ChartSourceType.json"
+            }
+          },
+          "type": "object"
+        }
+      ]
     },
     "type": {
       "$ref": "./ResourceViewItemType.CHART.json"

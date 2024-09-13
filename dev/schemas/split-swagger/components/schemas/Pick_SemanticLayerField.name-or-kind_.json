@@ -1,11 +1,15 @@
 {
   "properties": {
-    "userUuid": {
+    "name": {
       "type": "string"
+    },
+    "kind": {
+      "$ref": "./FieldType.json"
     }
   },
   "required": [
-    "userUuid"
+    "name",
+    "kind"
   ],
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"

@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    },
+    "results": {
+      "$ref": "./SemanticLayerClientInfo.json"
+    }
+  },
+  "required": [
+    "status",
+    "results"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

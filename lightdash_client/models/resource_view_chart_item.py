@@ -8,9 +8,7 @@ from ..models.resource_view_item_type_chart import ResourceViewItemTypeCHART
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors import (
-        PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors,
-    )
+    from ..models.resource_view_chart_item_data import ResourceViewChartItemData
 
 
 T = TypeVar("T", bound="ResourceViewChartItem")
@@ -20,14 +18,12 @@ T = TypeVar("T", bound="ResourceViewChartItem")
 class ResourceViewChartItem:
     """
     Attributes:
-        data (PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpa
-            ceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors): From T, pick a set of properties whose keys
-            are in the union K
+        data (ResourceViewChartItemData):
         type (ResourceViewItemTypeCHART):
         category (Union[Unset, ResourceItemCategory]):
     """
 
-    data: "PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors"
+    data: "ResourceViewChartItemData"
     type: ResourceViewItemTypeCHART
     category: Union[Unset, ResourceItemCategory] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -56,14 +52,10 @@ class ResourceViewChartItem:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_space_query_uuid_or_name_or_chart_type_or_chart_kind_or_first_viewed_at_or_views_or_pinned_list_uuid_or_pinned_list_order_or_space_uuid_or_description_or_updated_at_or_updated_by_user_or_validation_errors import (
-            PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors,
-        )
+        from ..models.resource_view_chart_item_data import ResourceViewChartItemData
 
         d = src_dict.copy()
-        data = PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinnedListUuidOrPinnedListOrderOrSpaceUuidOrDescriptionOrUpdatedAtOrUpdatedByUserOrValidationErrors.from_dict(
-            d.pop("data")
-        )
+        data = ResourceViewChartItemData.from_dict(d.pop("data"))
 
         type = ResourceViewItemTypeCHART(d.pop("type"))
 

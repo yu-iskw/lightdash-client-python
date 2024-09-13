@@ -1,5 +1,17 @@
 {
   "properties": {
+    "lastViewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "firstViewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "views": {
+      "type": "number",
+      "format": "double"
+    },
     "organization": {
       "$ref": "./Pick_Organization.organizationUuid_.json"
     },
@@ -15,7 +27,7 @@
       "nullable": true
     },
     "space": {
-      "$ref": "./Pick_Space.uuid-or-name_.json"
+      "$ref": "./Pick_SpaceSummary.uuid-or-name-or-isPrivate-or-userAccess_.json"
     },
     "lastUpdatedBy": {
       "allOf": [
@@ -45,7 +57,28 @@
       "$ref": "./ChartKind.json"
     },
     "config": {
-      "$ref": "./SqlRunnerChartConfig.json"
+      "allOf": [
+        {
+          "$ref": "./VizBaseConfig.json"
+        },
+        {
+          "anyOf": [
+            {
+              "$ref": "./VizCartesianChartConfig.json"
+            },
+            {
+              "$ref": "./VizPieChartConfig.json"
+            },
+            {
+              "$ref": "./VizTableConfig.json"
+            }
+          ]
+        }
+      ]
+    },
+    "limit": {
+      "type": "number",
+      "format": "double"
     },
     "sql": {
       "type": "string"
@@ -65,6 +98,9 @@
     }
   },
   "required": [
+    "lastViewedAt",
+    "firstViewedAt",
+    "views",
     "organization",
     "project",
     "dashboard",
@@ -75,6 +111,7 @@
     "createdAt",
     "chartKind",
     "config",
+    "limit",
     "sql",
     "slug",
     "description",

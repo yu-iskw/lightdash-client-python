@@ -1,8 +1,10 @@
 {
   "properties": {
     "name": {
-      "type": "string",
-      "description": "A friendly name for the group"
+      "type": "string"
+    },
+    "granularity": {
+      "$ref": "./SemanticLayerTimeGranularity.json"
     }
   },
   "required": [

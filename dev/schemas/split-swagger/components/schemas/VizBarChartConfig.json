@@ -1,0 +1,24 @@
+{
+  "allOf": [
+    {
+      "$ref": "./VizBaseConfig.json"
+    },
+    {
+      "properties": {
+        "display": {
+          "$ref": "./CartesianChartDisplay.json"
+        },
+        "fieldConfig": {
+          "$ref": "./VizChartLayout.json"
+        },
+        "type": {
+          "$ref": "./ChartKind.VERTICAL_BAR.json"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    }
+  ]
+}

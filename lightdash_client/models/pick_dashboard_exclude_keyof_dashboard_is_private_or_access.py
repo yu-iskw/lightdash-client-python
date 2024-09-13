@@ -12,6 +12,7 @@ if TYPE_CHECKING:
     from ..models.dashboard_filters import DashboardFilters
     from ..models.dashboard_loom_tile import DashboardLoomTile
     from ..models.dashboard_markdown_tile import DashboardMarkdownTile
+    from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
     from ..models.dashboard_tab import DashboardTab
     from ..models.updated_by_user import UpdatedByUser
 
@@ -31,15 +32,16 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
         project_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        slug (str):
         dashboard_version_id (float):
         updated_at (datetime.datetime):
-        tiles (List[Union['DashboardChartTile', 'DashboardLoomTile', 'DashboardMarkdownTile']]):
+        tiles (List[Union['DashboardChartTile', 'DashboardLoomTile', 'DashboardMarkdownTile',
+            'DashboardSqlChartTile']]):
         filters (DashboardFilters):
         views (float):
         first_viewed_at (Union[None, datetime.datetime, str]):
         pinned_list_order (Union[None, float]):
         tabs (List['DashboardTab']):
-        slug (str):
         description (Union[Unset, str]):
         updated_by_user (Union[Unset, UpdatedByUser]):
     """
@@ -51,21 +53,22 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
     project_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    slug: str
     dashboard_version_id: float
     updated_at: datetime.datetime
-    tiles: List[Union["DashboardChartTile", "DashboardLoomTile", "DashboardMarkdownTile"]]
+    tiles: List[Union["DashboardChartTile", "DashboardLoomTile", "DashboardMarkdownTile", "DashboardSqlChartTile"]]
     filters: "DashboardFilters"
     views: float
     first_viewed_at: Union[None, datetime.datetime, str]
     pinned_list_order: Union[None, float]
     tabs: List["DashboardTab"]
-    slug: str
     description: Union[Unset, str] = UNSET
     updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.dashboard_chart_tile import DashboardChartTile
+        from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
 
         name = self.name
@@ -83,6 +86,8 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
+        slug = self.slug
+
         dashboard_version_id = self.dashboard_version_id
 
         updated_at = self.updated_at.isoformat()
@@ -93,6 +98,8 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
             if isinstance(tiles_item_data, DashboardChartTile):
                 tiles_item = tiles_item_data.to_dict()
             elif isinstance(tiles_item_data, DashboardMarkdownTile):
+                tiles_item = tiles_item_data.to_dict()
+            elif isinstance(tiles_item_data, DashboardLoomTile):
                 tiles_item = tiles_item_data.to_dict()
             else:
                 tiles_item = tiles_item_data.to_dict()
@@ -117,8 +124,6 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
             tabs_item = tabs_item_data.to_dict()
             tabs.append(tabs_item)
 
-        slug = self.slug
-
         description = self.description
 
         updated_by_user: Union[Unset, Dict[str, Any]] = UNSET
@@ -136,6 +141,7 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
                 "projectUuid": project_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "slug": slug,
                 "dashboardVersionId": dashboard_version_id,
                 "updatedAt": updated_at,
                 "tiles": tiles,
@@ -144,7 +150,6 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
                 "firstViewedAt": first_viewed_at,
                 "pinnedListOrder": pinned_list_order,
                 "tabs": tabs,
-                "slug": slug,
             }
         )
         if description is not UNSET:
@@ -160,6 +165,7 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
+        from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
         from ..models.dashboard_tab import DashboardTab
         from ..models.updated_by_user import UpdatedByUser
 
@@ -183,6 +189,8 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
+        slug = d.pop("slug")
+
         dashboard_version_id = d.pop("dashboardVersionId")
 
         updated_at = isoparse(d.pop("updatedAt"))
@@ -193,7 +201,7 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
 
             def _parse_tiles_item(
                 data: object,
-            ) -> Union["DashboardChartTile", "DashboardLoomTile", "DashboardMarkdownTile"]:
+            ) -> Union["DashboardChartTile", "DashboardLoomTile", "DashboardMarkdownTile", "DashboardSqlChartTile"]:
                 try:
                     if not isinstance(data, dict):
                         raise TypeError()
@@ -210,11 +218,19 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
                     return componentsschemas_dashboard_tile_type_1
                 except:  # noqa: E722
                     pass
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    componentsschemas_dashboard_tile_type_2 = DashboardLoomTile.from_dict(data)
+
+                    return componentsschemas_dashboard_tile_type_2
+                except:  # noqa: E722
+                    pass
                 if not isinstance(data, dict):
                     raise TypeError()
-                componentsschemas_dashboard_tile_type_2 = DashboardLoomTile.from_dict(data)
+                componentsschemas_dashboard_tile_type_3 = DashboardSqlChartTile.from_dict(data)
 
-                return componentsschemas_dashboard_tile_type_2
+                return componentsschemas_dashboard_tile_type_3
 
             tiles_item = _parse_tiles_item(tiles_item_data)
 
@@ -253,8 +269,6 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
 
             tabs.append(tabs_item)
 
-        slug = d.pop("slug")
-
         description = d.pop("description", UNSET)
 
         _updated_by_user = d.pop("updatedByUser", UNSET)
@@ -272,6 +286,7 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
             project_uuid=project_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            slug=slug,
             dashboard_version_id=dashboard_version_id,
             updated_at=updated_at,
             tiles=tiles,
@@ -280,7 +295,6 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
             first_viewed_at=first_viewed_at,
             pinned_list_order=pinned_list_order,
             tabs=tabs,
-            slug=slug,
             description=description,
             updated_by_user=updated_by_user,
         )

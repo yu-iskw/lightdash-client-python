@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "values": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "index": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "values",
+    "index",
+    "on"
+  ],
+  "type": "object"
+}

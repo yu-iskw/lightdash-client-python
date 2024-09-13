@@ -16,6 +16,9 @@
       "type": "string",
       "nullable": true
     },
+    "slug": {
+      "type": "string"
+    },
     "isPrivate": {
       "type": "boolean"
     },
@@ -23,9 +26,6 @@
       "type": "number",
       "format": "double",
       "nullable": true
-    },
-    "slug": {
-      "type": "string"
     }
   },
   "required": [
@@ -34,9 +34,9 @@
     "projectUuid",
     "organizationUuid",
     "pinnedListUuid",
+    "slug",
     "isPrivate",
-    "pinnedListOrder",
-    "slug"
+    "pinnedListOrder"
   ],
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"

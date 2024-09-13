@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "visible": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "visible",
+    "label",
+    "name"
+  ],
+  "type": "object"
+}

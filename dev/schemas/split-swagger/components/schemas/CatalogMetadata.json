@@ -1,5 +1,11 @@
 {
   "properties": {
+    "fieldType": {
+      "$ref": "./FieldType.json"
+    },
+    "tableLabel": {
+      "type": "string"
+    },
     "joinedTables": {
       "items": {
         "type": "string"
@@ -18,6 +24,9 @@
     "modelName": {
       "type": "string"
     },
+    "label": {
+      "type": "string"
+    },
     "description": {
       "type": "string"
     },
@@ -29,6 +38,7 @@
     "joinedTables",
     "fields",
     "modelName",
+    "label",
     "name"
   ],
   "type": "object"

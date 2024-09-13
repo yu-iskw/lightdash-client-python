@@ -5,6 +5,9 @@
     },
     {
       "properties": {
+        "uncompiledSqlWhere": {
+          "type": "string"
+        },
         "source": {
           "$ref": "./Source.json"
         },

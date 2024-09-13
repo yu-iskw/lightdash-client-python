@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "isDonut": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

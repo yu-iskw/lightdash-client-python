@@ -45,7 +45,10 @@
         "uploadGsheetFromQuery",
         "compileProject",
         "testAndCompileProject",
-        "validateProject"
+        "validateProject",
+        "sqlRunner",
+        "sqlRunnerPivotQuery",
+        "semanticLayer"
       ]
     }
   },

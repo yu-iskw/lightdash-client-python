@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "ASC",
+    "DESC"
+  ],
+  "type": "string"
+}

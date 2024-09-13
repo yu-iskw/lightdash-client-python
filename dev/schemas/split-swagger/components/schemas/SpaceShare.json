@@ -19,6 +19,9 @@
         }
       ]
     },
+    "projectRole": {
+      "$ref": "./ProjectMemberRole.json"
+    },
     "hasDirectAccess": {
       "type": "boolean"
     },

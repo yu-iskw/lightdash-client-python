@@ -21,9 +21,9 @@ class SpaceSummary:
         project_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        slug (str):
         is_private (bool):
         pinned_list_order (Union[None, float]):
-        slug (str):
         dashboard_count (float):
         chart_count (float):
         access (List[str]):
@@ -35,9 +35,9 @@ class SpaceSummary:
     project_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    slug: str
     is_private: bool
     pinned_list_order: Union[None, float]
-    slug: str
     dashboard_count: float
     chart_count: float
     access: List[str]
@@ -56,12 +56,12 @@ class SpaceSummary:
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
+        slug = self.slug
+
         is_private = self.is_private
 
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
-
-        slug = self.slug
 
         dashboard_count = self.dashboard_count
 
@@ -82,9 +82,9 @@ class SpaceSummary:
                 "projectUuid": project_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "slug": slug,
                 "isPrivate": is_private,
                 "pinnedListOrder": pinned_list_order,
-                "slug": slug,
                 "dashboardCount": dashboard_count,
                 "chartCount": chart_count,
                 "access": access,
@@ -115,6 +115,8 @@ class SpaceSummary:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
+        slug = d.pop("slug")
+
         is_private = d.pop("isPrivate")
 
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
@@ -123,8 +125,6 @@ class SpaceSummary:
             return cast(Union[None, float], data)
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
-
-        slug = d.pop("slug")
 
         dashboard_count = d.pop("dashboardCount")
 
@@ -145,9 +145,9 @@ class SpaceSummary:
             project_uuid=project_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            slug=slug,
             is_private=is_private,
             pinned_list_order=pinned_list_order,
-            slug=slug,
             dashboard_count=dashboard_count,
             chart_count=chart_count,
             access=access,

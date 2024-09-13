@@ -1,0 +1,10 @@
+{
+  "allOf": [
+    {
+      "$ref": "./SqlRunnerBody.json"
+    },
+    {
+      "$ref": "./ApiSqlRunnerPivotQueryPayload.json"
+    }
+  ]
+}

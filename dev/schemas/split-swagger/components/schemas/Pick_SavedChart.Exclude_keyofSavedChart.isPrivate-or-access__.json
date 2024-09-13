@@ -33,6 +33,9 @@
       "type": "string",
       "nullable": true
     },
+    "slug": {
+      "type": "string"
+    },
     "updatedAt": {
       "type": "string",
       "format": "date-time"
@@ -44,9 +47,6 @@
       "type": "number",
       "format": "double",
       "nullable": true
-    },
-    "slug": {
-      "type": "string"
     },
     "tableName": {
       "type": "string"
@@ -102,9 +102,9 @@
     "pinnedListUuid",
     "dashboardUuid",
     "dashboardName",
+    "slug",
     "updatedAt",
     "pinnedListOrder",
-    "slug",
     "tableName",
     "metricQuery",
     "chartConfig",

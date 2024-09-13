@@ -16,6 +16,9 @@
       "type": "string",
       "nullable": true
     },
+    "slug": {
+      "type": "string"
+    },
     "isPrivate": {
       "type": "boolean"
     },
@@ -29,9 +32,6 @@
       "type": "number",
       "format": "double",
       "nullable": true
-    },
-    "slug": {
-      "type": "string"
     },
     "chartCount": {
       "type": "number",
@@ -48,10 +48,10 @@
     "projectUuid",
     "organizationUuid",
     "pinnedListUuid",
+    "slug",
     "isPrivate",
     "access",
     "pinnedListOrder",
-    "slug",
     "chartCount",
     "dashboardCount"
   ],

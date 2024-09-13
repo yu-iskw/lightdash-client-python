@@ -45,6 +45,7 @@ class CompiledTable:
         order_fields_by (Union[Unset, OrderFieldsByStrategy]):
         description (Union[Unset, str]):
         original_name (Union[Unset, str]):
+        uncompiled_sql_where (Union[Unset, str]):
         source (Union[Unset, Source]):
     """
 
@@ -65,6 +66,7 @@ class CompiledTable:
     order_fields_by: Union[Unset, OrderFieldsByStrategy] = UNSET
     description: Union[Unset, str] = UNSET
     original_name: Union[Unset, str] = UNSET
+    uncompiled_sql_where: Union[Unset, str] = UNSET
     source: Union[Unset, "Source"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -114,6 +116,8 @@ class CompiledTable:
 
         original_name = self.original_name
 
+        uncompiled_sql_where = self.uncompiled_sql_where
+
         source: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.to_dict()
@@ -150,6 +154,8 @@ class CompiledTable:
             field_dict["description"] = description
         if original_name is not UNSET:
             field_dict["originalName"] = original_name
+        if uncompiled_sql_where is not UNSET:
+            field_dict["uncompiledSqlWhere"] = uncompiled_sql_where
         if source is not UNSET:
             field_dict["source"] = source
 
@@ -226,6 +232,8 @@ class CompiledTable:
 
         original_name = d.pop("originalName", UNSET)
 
+        uncompiled_sql_where = d.pop("uncompiledSqlWhere", UNSET)
+
         _source = d.pop("source", UNSET)
         source: Union[Unset, Source]
         if isinstance(_source, Unset):
@@ -251,6 +259,7 @@ class CompiledTable:
             order_fields_by=order_fields_by,
             description=description,
             original_name=original_name,
+            uncompiled_sql_where=uncompiled_sql_where,
             source=source,
         )
 

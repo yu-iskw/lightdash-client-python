@@ -32,6 +32,7 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
         retries (Union[Unset, float]):
         location (Union[Unset, str]):
         maximum_bytes_billed (Union[Unset, float]):
+        execution_project (Union[Unset, str]):
     """
 
     type: WarehouseTypesBIGQUERY
@@ -47,6 +48,7 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
     retries: Union[Unset, float] = UNSET
     location: Union[Unset, str] = UNSET
     maximum_bytes_billed: Union[Unset, float] = UNSET
+    execution_project: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,6 +82,8 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
 
         maximum_bytes_billed = self.maximum_bytes_billed
 
+        execution_project = self.execution_project
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -105,6 +109,8 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
             field_dict["location"] = location
         if maximum_bytes_billed is not UNSET:
             field_dict["maximumBytesBilled"] = maximum_bytes_billed
+        if execution_project is not UNSET:
+            field_dict["executionProject"] = execution_project
 
         return field_dict
 
@@ -158,6 +164,8 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
 
         maximum_bytes_billed = d.pop("maximumBytesBilled", UNSET)
 
+        execution_project = d.pop("executionProject", UNSET)
+
         pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names = (
             cls(
                 type=type,
@@ -171,6 +179,7 @@ class PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiv
                 retries=retries,
                 location=location,
                 maximum_bytes_billed=maximum_bytes_billed,
+                execution_project=execution_project,
             )
         )
 

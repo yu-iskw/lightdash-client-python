@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "aggregation": {
+      "$ref": "./VizAggregationOptions.json"
+    },
+    "order": {
+      "type": "number",
+      "format": "double"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "label": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "frozen",
+    "label",
+    "reference",
+    "visible"
+  ],
+  "type": "object"
+}

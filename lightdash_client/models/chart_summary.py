@@ -4,6 +4,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.chart_kind import ChartKind
+from ..models.chart_source_type import ChartSourceType
 from ..models.chart_type import ChartType
 from ..types import UNSET, Unset
 
@@ -23,7 +24,9 @@ class ChartSummary:
         pinned_list_uuid (Union[None, str]):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
+        slug (str):
         description (Union[Unset, str]):
+        source (Union[Unset, ChartSourceType]):
         chart_kind (Union[Unset, ChartKind]):
         chart_type (Union[Unset, ChartType]):
     """
@@ -37,7 +40,9 @@ class ChartSummary:
     pinned_list_uuid: Union[None, str]
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
+    slug: str
     description: Union[Unset, str] = UNSET
+    source: Union[Unset, ChartSourceType] = UNSET
     chart_kind: Union[Unset, ChartKind] = UNSET
     chart_type: Union[Unset, ChartType] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -64,7 +69,13 @@ class ChartSummary:
         dashboard_name: Union[None, str]
         dashboard_name = self.dashboard_name
 
+        slug = self.slug
+
         description = self.description
+
+        source: Union[Unset, str] = UNSET
+        if not isinstance(self.source, Unset):
+            source = self.source.value
 
         chart_kind: Union[Unset, str] = UNSET
         if not isinstance(self.chart_kind, Unset):
@@ -87,10 +98,13 @@ class ChartSummary:
                 "pinnedListUuid": pinned_list_uuid,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
+                "slug": slug,
             }
         )
         if description is not UNSET:
             field_dict["description"] = description
+        if source is not UNSET:
+            field_dict["source"] = source
         if chart_kind is not UNSET:
             field_dict["chartKind"] = chart_kind
         if chart_type is not UNSET:
@@ -134,7 +148,16 @@ class ChartSummary:
 
         dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
 
+        slug = d.pop("slug")
+
         description = d.pop("description", UNSET)
+
+        _source = d.pop("source", UNSET)
+        source: Union[Unset, ChartSourceType]
+        if isinstance(_source, Unset):
+            source = UNSET
+        else:
+            source = ChartSourceType(_source)
 
         _chart_kind = d.pop("chartKind", UNSET)
         chart_kind: Union[Unset, ChartKind]
@@ -160,7 +183,9 @@ class ChartSummary:
             pinned_list_uuid=pinned_list_uuid,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
+            slug=slug,
             description=description,
+            source=source,
             chart_kind=chart_kind,
             chart_type=chart_type,
         )

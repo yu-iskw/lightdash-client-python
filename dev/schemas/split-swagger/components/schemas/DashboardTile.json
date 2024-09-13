@@ -8,6 +8,9 @@
     },
     {
       "$ref": "./DashboardLoomTile.json"
+    },
+    {
+      "$ref": "./DashboardSqlChartTile.json"
     }
   ]
 }

@@ -1,0 +1,87 @@
+{
+  "properties": {
+    "stack": {
+      "type": "boolean"
+    },
+    "legend": {
+      "properties": {
+        "align": {
+          "type": "string",
+          "enum": [
+            "start",
+            "center",
+            "end"
+          ]
+        },
+        "position": {
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ]
+        }
+      },
+      "required": [
+        "align",
+        "position"
+      ],
+      "type": "object"
+    },
+    "series": {
+      "properties": {},
+      "additionalProperties": {
+        "properties": {
+          "color": {
+            "type": "string"
+          },
+          "yAxisIndex": {
+            "type": "number",
+            "format": "double"
+          },
+          "format": {
+            "$ref": "./Format.json"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "yAxis": {
+      "items": {
+        "properties": {
+          "format": {
+            "$ref": "./Format.json"
+          },
+          "position": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "xAxis": {
+      "properties": {
+        "type": {
+          "$ref": "./VizIndexType.json"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

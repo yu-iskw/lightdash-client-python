@@ -6,6 +6,7 @@ from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..models.chart_kind import ChartKind
+from ..models.chart_source_type import ChartSourceType
 from ..models.chart_type import ChartType
 from ..types import UNSET, Unset
 
@@ -32,11 +33,13 @@ class SpaceQuery:
         pinned_list_uuid (Union[None, str]):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
+        slug (str):
         updated_at (datetime.datetime):
         pinned_list_order (Union[None, float]):
         first_viewed_at (Union[None, datetime.datetime, str]):
         views (float):
         description (Union[Unset, str]):
+        source (Union[Unset, ChartSourceType]):
         chart_kind (Union[Unset, ChartKind]):
         chart_type (Union[Unset, ChartType]):
         updated_by_user (Union[Unset, UpdatedByUser]):
@@ -52,11 +55,13 @@ class SpaceQuery:
     pinned_list_uuid: Union[None, str]
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
+    slug: str
     updated_at: datetime.datetime
     pinned_list_order: Union[None, float]
     first_viewed_at: Union[None, datetime.datetime, str]
     views: float
     description: Union[Unset, str] = UNSET
+    source: Union[Unset, ChartSourceType] = UNSET
     chart_kind: Union[Unset, ChartKind] = UNSET
     chart_type: Union[Unset, ChartType] = UNSET
     updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
@@ -85,6 +90,8 @@ class SpaceQuery:
         dashboard_name: Union[None, str]
         dashboard_name = self.dashboard_name
 
+        slug = self.slug
+
         updated_at = self.updated_at.isoformat()
 
         pinned_list_order: Union[None, float]
@@ -99,6 +106,10 @@ class SpaceQuery:
         views = self.views
 
         description = self.description
+
+        source: Union[Unset, str] = UNSET
+        if not isinstance(self.source, Unset):
+            source = self.source.value
 
         chart_kind: Union[Unset, str] = UNSET
         if not isinstance(self.chart_kind, Unset):
@@ -132,6 +143,7 @@ class SpaceQuery:
                 "pinnedListUuid": pinned_list_uuid,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
+                "slug": slug,
                 "updatedAt": updated_at,
                 "pinnedListOrder": pinned_list_order,
                 "firstViewedAt": first_viewed_at,
@@ -140,6 +152,8 @@ class SpaceQuery:
         )
         if description is not UNSET:
             field_dict["description"] = description
+        if source is not UNSET:
+            field_dict["source"] = source
         if chart_kind is not UNSET:
             field_dict["chartKind"] = chart_kind
         if chart_type is not UNSET:
@@ -192,6 +206,8 @@ class SpaceQuery:
 
         dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
 
+        slug = d.pop("slug")
+
         updated_at = isoparse(d.pop("updatedAt"))
 
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
@@ -219,6 +235,13 @@ class SpaceQuery:
         views = d.pop("views")
 
         description = d.pop("description", UNSET)
+
+        _source = d.pop("source", UNSET)
+        source: Union[Unset, ChartSourceType]
+        if isinstance(_source, Unset):
+            source = UNSET
+        else:
+            source = ChartSourceType(_source)
 
         _chart_kind = d.pop("chartKind", UNSET)
         chart_kind: Union[Unset, ChartKind]
@@ -260,11 +283,13 @@ class SpaceQuery:
             pinned_list_uuid=pinned_list_uuid,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
+            slug=slug,
             updated_at=updated_at,
             pinned_list_order=pinned_list_order,
             first_viewed_at=first_viewed_at,
             views=views,
             description=description,
+            source=source,
             chart_kind=chart_kind,
             chart_type=chart_type,
             updated_by_user=updated_by_user,
