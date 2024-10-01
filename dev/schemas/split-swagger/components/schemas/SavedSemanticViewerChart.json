@@ -1,0 +1,105 @@
+{
+  "properties": {
+    "lastViewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "firstViewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "views": {
+      "type": "number",
+      "format": "double"
+    },
+    "organization": {
+      "$ref": "./Pick_Organization.organizationUuid_.json"
+    },
+    "project": {
+      "$ref": "./Pick_Project.projectUuid_.json"
+    },
+    "dashboard": {
+      "allOf": [
+        {
+          "$ref": "./Pick_Dashboard.uuid-or-name_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "space": {
+      "$ref": "./Pick_SpaceSummary.uuid-or-name-or-isPrivate-or-userAccess_.json"
+    },
+    "lastUpdatedBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "lastUpdatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "chartKind": {
+      "$ref": "./ChartKind.json"
+    },
+    "semanticLayerQuery": {
+      "$ref": "./SemanticLayerQuery.json"
+    },
+    "semanticLayerView": {
+      "type": "string",
+      "nullable": true
+    },
+    "config": {
+      "$ref": "./AllVizChartConfig.json"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "savedSemanticViewerChartUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "lastViewedAt",
+    "firstViewedAt",
+    "views",
+    "organization",
+    "project",
+    "dashboard",
+    "space",
+    "lastUpdatedBy",
+    "lastUpdatedAt",
+    "createdBy",
+    "createdAt",
+    "chartKind",
+    "semanticLayerQuery",
+    "semanticLayerView",
+    "config",
+    "slug",
+    "description",
+    "name",
+    "savedSemanticViewerChartUuid"
+  ],
+  "type": "object"
+}

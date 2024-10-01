@@ -8,7 +8,12 @@
       "nullable": false
     },
     "results": {
-      "$ref": "./SemanticLayerClientInfo.json"
+      "allOf": [
+        {
+          "$ref": "./SemanticLayerClientInfo.json"
+        }
+      ],
+      "nullable": true
     }
   },
   "required": [

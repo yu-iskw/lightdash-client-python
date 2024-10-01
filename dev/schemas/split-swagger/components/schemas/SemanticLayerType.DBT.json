@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "DBT"
+  ],
+  "type": "string"
+}

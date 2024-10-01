@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "columns": {
+      "items": {
+        "$ref": "./VizColumn.json"
+      },
+      "type": "array"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "columns",
+    "sql",
+    "name"
+  ],
+  "type": "object"
+}

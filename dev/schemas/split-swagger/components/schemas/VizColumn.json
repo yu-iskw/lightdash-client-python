@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./DimensionType.json"
+    },
+    "reference": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "reference"
+  ],
+  "type": "object"
+}

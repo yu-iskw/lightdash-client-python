@@ -2,7 +2,7 @@
   "properties": {
     "availableOperators": {
       "items": {
-        "$ref": "./SemanticLayerStringFilterOperator.json"
+        "$ref": "./SemanticLayerFilterBaseOperator.json"
       },
       "type": "array"
     },

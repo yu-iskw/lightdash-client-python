@@ -2,6 +2,7 @@
   "enum": [
     "saved_chart",
     "sql_chart",
+    "semantic_viewer_chart",
     "markdown",
     "loom"
   ],

@@ -1,7 +1,7 @@
 {
   "properties": {
     "results": {
-      "$ref": "./DbtCloudIntegration.json"
+      "$ref": "./Pick_Explore.name_.json"
     },
     "status": {
       "type": "string",
@@ -12,6 +12,7 @@
     }
   },
   "required": [
+    "results",
     "status"
   ],
   "type": "object"

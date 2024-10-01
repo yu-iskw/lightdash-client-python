@@ -1,3 +1,10 @@
 {
-  "$ref": "./SemanticLayerStringFilter.json"
+  "anyOf": [
+    {
+      "$ref": "./SemanticLayerStringFilter.json"
+    },
+    {
+      "$ref": "./SemanticLayerTimeFilter.json"
+    }
+  ]
 }

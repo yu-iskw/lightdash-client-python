@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "savedSemanticViewerChartUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "savedSemanticViewerChartUuid"
+  ],
+  "type": "object"
+}

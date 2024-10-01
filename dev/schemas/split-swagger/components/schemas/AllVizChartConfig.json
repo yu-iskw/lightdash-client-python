@@ -1,0 +1,16 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./VizBarChartConfig.json"
+    },
+    {
+      "$ref": "./VizLineChartConfig.json"
+    },
+    {
+      "$ref": "./VizPieChartConfig.json"
+    },
+    {
+      "$ref": "./VizTableConfig.json"
+    }
+  ]
+}

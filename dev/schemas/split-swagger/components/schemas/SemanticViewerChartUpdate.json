@@ -1,0 +1,49 @@
+{
+  "properties": {
+    "versionedData": {
+      "properties": {
+        "chartKind": {
+          "$ref": "./ChartKind.json"
+        },
+        "config": {
+          "$ref": "./VizChartConfig.json"
+        },
+        "semanticLayerQuery": {
+          "$ref": "./SemanticLayerQuery.json"
+        },
+        "semanticLayerView": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "required": [
+        "chartKind",
+        "config",
+        "semanticLayerQuery",
+        "semanticLayerView"
+      ],
+      "type": "object"
+    },
+    "unversionedData": {
+      "properties": {
+        "spaceUuid": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "nullable": true
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "spaceUuid",
+        "description",
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

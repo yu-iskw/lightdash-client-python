@@ -6,7 +6,7 @@
     "fieldKind": {
       "$ref": "./FieldType.json"
     },
-    "field": {
+    "fieldRef": {
       "type": "string"
     },
     "uuid": {
@@ -16,7 +16,7 @@
   "required": [
     "fieldType",
     "fieldKind",
-    "field",
+    "fieldRef",
     "uuid"
   ],
   "type": "object"

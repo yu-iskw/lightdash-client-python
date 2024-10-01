@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "environmentId": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./SemanticLayerType.DBT.json"
+    }
+  },
+  "required": [
+    "token",
+    "domain",
+    "environmentId",
+    "type"
+  ],
+  "type": "object"
+}

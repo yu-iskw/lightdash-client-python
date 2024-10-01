@@ -6,16 +6,21 @@
     {
       "properties": {
         "values": {
-          "items": {
-            "type": "string"
+          "properties": {
+            "time": {
+              "type": "string"
+            }
           },
-          "type": "array"
+          "required": [
+            "time"
+          ],
+          "type": "object"
         },
         "operator": {
           "$ref": "./SemanticLayerFilterBaseOperator.json"
         },
         "fieldType": {
-          "$ref": "./SemanticLayerFieldType.STRING.json"
+          "$ref": "./SemanticLayerFieldType.TIME.json"
         }
       },
       "required": [
