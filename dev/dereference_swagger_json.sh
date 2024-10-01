@@ -20,6 +20,9 @@ while (($# > 0)); do
   fi
 done
 
+# Remove the split-swagger directory if it exists
+rm -fr "${SCRIPT_DIR:?}/schemas/split-swagger"
+
 # Split the swagger.json into multiple files to handle recursive references
 docker run --rm -v "${SCRIPT_DIR:?}/schemas:/spec" "${docker_image:?}" \
   split --outDir /spec/split-swagger /spec/swagger.json
