@@ -1,8 +1,8 @@
 from enum import Enum
 
 
-class ApiDbtCloudSettingsDeleteSuccessStatus(str, Enum):
-    OK = "ok"
+class SemanticLayerTypeDBT(str, Enum):
+    DBT = "DBT"
 
     def __str__(self) -> str:
         return str(self.value)

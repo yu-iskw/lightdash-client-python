@@ -3,28 +3,44 @@ from typing import Any, Dict, List, Type, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="PickCreateDbtCloudIntegrationMetricsJobId")
+from ..models.semantic_layer_type_dbt import SemanticLayerTypeDBT
+
+T = TypeVar("T", bound="DbtSemanticLayerConnection")
 
 
 @_attrs_define
-class PickCreateDbtCloudIntegrationMetricsJobId:
-    """From T, pick a set of properties whose keys are in the union K
-
+class DbtSemanticLayerConnection:
+    """
     Attributes:
-        metrics_job_id (str): Job id for a dbt cloud job containing a compiled dbt project with available dbt metrics
+        token (str):
+        domain (str):
+        environment_id (str):
+        type (SemanticLayerTypeDBT):
     """
 
-    metrics_job_id: str
+    token: str
+    domain: str
+    environment_id: str
+    type: SemanticLayerTypeDBT
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        metrics_job_id = self.metrics_job_id
+        token = self.token
+
+        domain = self.domain
+
+        environment_id = self.environment_id
+
+        type = self.type.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "metricsJobId": metrics_job_id,
+                "token": token,
+                "domain": domain,
+                "environmentId": environment_id,
+                "type": type,
             }
         )
 
@@ -33,14 +49,23 @@ class PickCreateDbtCloudIntegrationMetricsJobId:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        metrics_job_id = d.pop("metricsJobId")
+        token = d.pop("token")
 
-        pick_create_dbt_cloud_integration_metrics_job_id = cls(
-            metrics_job_id=metrics_job_id,
+        domain = d.pop("domain")
+
+        environment_id = d.pop("environmentId")
+
+        type = SemanticLayerTypeDBT(d.pop("type"))
+
+        dbt_semantic_layer_connection = cls(
+            token=token,
+            domain=domain,
+            environment_id=environment_id,
+            type=type,
         )
 
-        pick_create_dbt_cloud_integration_metrics_job_id.additional_properties = d
-        return pick_create_dbt_cloud_integration_metrics_job_id
+        dbt_semantic_layer_connection.additional_properties = d
+        return dbt_semantic_layer_connection
 
     @property
     def additional_keys(self) -> List[str]:

@@ -5,28 +5,42 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.api_dbt_cloud_settings_delete_success import (
-    ApiDbtCloudSettingsDeleteSuccess,
-)
+from ...models.api_success_empty import ApiSuccessEmpty
+from ...models.cube_semantic_layer_connection import CubeSemanticLayerConnection
+from ...models.dbt_semantic_layer_connection import DbtSemanticLayerConnection
 from ...types import Response
 
 
 def _get_kwargs(
     project_uuid: str,
+    *,
+    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
 ) -> Dict[str, Any]:
+    headers: Dict[str, Any] = {}
+
     _kwargs: Dict[str, Any] = {
-        "method": "delete",
-        "url": f"/api/v1/projects/{project_uuid}/integrations/dbt-cloud/settings",
+        "method": "patch",
+        "url": f"/api/v1/projects/{project_uuid}/semantic-layer-connection",
     }
 
+    _body: Dict[str, Any]
+    if isinstance(body, DbtSemanticLayerConnection):
+        _body = body.to_dict()
+    else:
+        _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
     return _kwargs
 
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[ApiDbtCloudSettingsDeleteSuccess]:
+) -> Optional[ApiSuccessEmpty]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiDbtCloudSettingsDeleteSuccess.from_dict(response.json())
+        response_200 = ApiSuccessEmpty.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -37,7 +51,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[ApiDbtCloudSettingsDeleteSuccess]:
+) -> Response[ApiSuccessEmpty]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -50,22 +64,24 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Response[ApiDbtCloudSettingsDeleteSuccess]:
-    """Remove the dbt Cloud integration settings for a project
-
+    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
+) -> Response[ApiSuccessEmpty]:
+    """
     Args:
         project_uuid (str):
+        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiDbtCloudSettingsDeleteSuccess]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -79,23 +95,25 @@ def sync(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Optional[ApiDbtCloudSettingsDeleteSuccess]:
-    """Remove the dbt Cloud integration settings for a project
-
+    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
+) -> Optional[ApiSuccessEmpty]:
+    """
     Args:
         project_uuid (str):
+        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiDbtCloudSettingsDeleteSuccess
+        ApiSuccessEmpty
     """
 
     return sync_detailed(
         project_uuid=project_uuid,
         client=client,
+        body=body,
     ).parsed
 
 
@@ -103,22 +121,24 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Response[ApiDbtCloudSettingsDeleteSuccess]:
-    """Remove the dbt Cloud integration settings for a project
-
+    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
+) -> Response[ApiSuccessEmpty]:
+    """
     Args:
         project_uuid (str):
+        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiDbtCloudSettingsDeleteSuccess]
+        Response[ApiSuccessEmpty]
     """
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -130,23 +150,25 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Optional[ApiDbtCloudSettingsDeleteSuccess]:
-    """Remove the dbt Cloud integration settings for a project
-
+    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
+) -> Optional[ApiSuccessEmpty]:
+    """
     Args:
         project_uuid (str):
+        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiDbtCloudSettingsDeleteSuccess
+        ApiSuccessEmpty
     """
 
     return (
         await asyncio_detailed(
             project_uuid=project_uuid,
             client=client,
+            body=body,
         )
     ).parsed
