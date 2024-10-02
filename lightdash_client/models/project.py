@@ -8,6 +8,7 @@ from ..models.supported_dbt_versions import SupportedDbtVersions
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.cube_semantic_layer_connection import CubeSemanticLayerConnection
     from ..models.dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
     from ..models.dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
     from ..models.dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
@@ -15,6 +16,7 @@ if TYPE_CHECKING:
     from ..models.dbt_gitlab_project_config import DbtGitlabProjectConfig
     from ..models.dbt_local_project_config import DbtLocalProjectConfig
     from ..models.dbt_none_project_config import DbtNoneProjectConfig
+    from ..models.dbt_semantic_layer_connection import DbtSemanticLayerConnection
     from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
         PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
     )
@@ -49,6 +51,7 @@ class Project:
         name (str):
         project_uuid (str):
         organization_uuid (str):
+        semantic_layer_connection (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection', Unset]):
         upstream_project_uuid (Union[Unset, str]):
         pinned_list_uuid (Union[Unset, str]):
         warehouse_connection
@@ -74,6 +77,7 @@ class Project:
     name: str
     project_uuid: str
     organization_uuid: str
+    semantic_layer_connection: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection", Unset] = UNSET
     upstream_project_uuid: Union[Unset, str] = UNSET
     pinned_list_uuid: Union[Unset, str] = UNSET
     warehouse_connection: Union[
@@ -96,6 +100,7 @@ class Project:
         from ..models.dbt_github_project_config import DbtGithubProjectConfig
         from ..models.dbt_gitlab_project_config import DbtGitlabProjectConfig
         from ..models.dbt_local_project_config import DbtLocalProjectConfig
+        from ..models.dbt_semantic_layer_connection import DbtSemanticLayerConnection
         from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
             PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
         )
@@ -137,6 +142,14 @@ class Project:
         project_uuid = self.project_uuid
 
         organization_uuid = self.organization_uuid
+
+        semantic_layer_connection: Union[Dict[str, Any], Unset]
+        if isinstance(self.semantic_layer_connection, Unset):
+            semantic_layer_connection = UNSET
+        elif isinstance(self.semantic_layer_connection, DbtSemanticLayerConnection):
+            semantic_layer_connection = self.semantic_layer_connection.to_dict()
+        else:
+            semantic_layer_connection = self.semantic_layer_connection.to_dict()
 
         upstream_project_uuid = self.upstream_project_uuid
 
@@ -185,6 +198,8 @@ class Project:
                 "organizationUuid": organization_uuid,
             }
         )
+        if semantic_layer_connection is not UNSET:
+            field_dict["semanticLayerConnection"] = semantic_layer_connection
         if upstream_project_uuid is not UNSET:
             field_dict["upstreamProjectUuid"] = upstream_project_uuid
         if pinned_list_uuid is not UNSET:
@@ -196,6 +211,7 @@ class Project:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.cube_semantic_layer_connection import CubeSemanticLayerConnection
         from ..models.dbt_azure_dev_ops_project_config import (
             DbtAzureDevOpsProjectConfig,
         )
@@ -205,6 +221,7 @@ class Project:
         from ..models.dbt_gitlab_project_config import DbtGitlabProjectConfig
         from ..models.dbt_local_project_config import DbtLocalProjectConfig
         from ..models.dbt_none_project_config import DbtNoneProjectConfig
+        from ..models.dbt_semantic_layer_connection import DbtSemanticLayerConnection
         from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
             PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
         )
@@ -302,6 +319,27 @@ class Project:
 
         organization_uuid = d.pop("organizationUuid")
 
+        def _parse_semantic_layer_connection(
+            data: object,
+        ) -> Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection", Unset]:
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_semantic_layer_connection_type_0 = DbtSemanticLayerConnection.from_dict(data)
+
+                return componentsschemas_semantic_layer_connection_type_0
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            componentsschemas_semantic_layer_connection_type_1 = CubeSemanticLayerConnection.from_dict(data)
+
+            return componentsschemas_semantic_layer_connection_type_1
+
+        semantic_layer_connection = _parse_semantic_layer_connection(d.pop("semanticLayerConnection", UNSET))
+
         upstream_project_uuid = d.pop("upstreamProjectUuid", UNSET)
 
         pinned_list_uuid = d.pop("pinnedListUuid", UNSET)
@@ -388,6 +426,7 @@ class Project:
             name=name,
             project_uuid=project_uuid,
             organization_uuid=organization_uuid,
+            semantic_layer_connection=semantic_layer_connection,
             upstream_project_uuid=upstream_project_uuid,
             pinned_list_uuid=pinned_list_uuid,
             warehouse_connection=warehouse_connection,

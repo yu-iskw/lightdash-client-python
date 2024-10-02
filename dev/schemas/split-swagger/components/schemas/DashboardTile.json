@@ -11,6 +11,9 @@
     },
     {
       "$ref": "./DashboardSqlChartTile.json"
+    },
+    {
+      "$ref": "./DashboardSemanticViewerChartTile.json"
     }
   ]
 }

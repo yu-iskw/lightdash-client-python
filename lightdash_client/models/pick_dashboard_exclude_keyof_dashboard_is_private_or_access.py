@@ -12,6 +12,9 @@ if TYPE_CHECKING:
     from ..models.dashboard_filters import DashboardFilters
     from ..models.dashboard_loom_tile import DashboardLoomTile
     from ..models.dashboard_markdown_tile import DashboardMarkdownTile
+    from ..models.dashboard_semantic_viewer_chart_tile import (
+        DashboardSemanticViewerChartTile,
+    )
     from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
     from ..models.dashboard_tab import DashboardTab
     from ..models.updated_by_user import UpdatedByUser
@@ -36,7 +39,7 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
         dashboard_version_id (float):
         updated_at (datetime.datetime):
         tiles (List[Union['DashboardChartTile', 'DashboardLoomTile', 'DashboardMarkdownTile',
-            'DashboardSqlChartTile']]):
+            'DashboardSemanticViewerChartTile', 'DashboardSqlChartTile']]):
         filters (DashboardFilters):
         views (float):
         first_viewed_at (Union[None, datetime.datetime, str]):
@@ -56,7 +59,15 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
     slug: str
     dashboard_version_id: float
     updated_at: datetime.datetime
-    tiles: List[Union["DashboardChartTile", "DashboardLoomTile", "DashboardMarkdownTile", "DashboardSqlChartTile"]]
+    tiles: List[
+        Union[
+            "DashboardChartTile",
+            "DashboardLoomTile",
+            "DashboardMarkdownTile",
+            "DashboardSemanticViewerChartTile",
+            "DashboardSqlChartTile",
+        ]
+    ]
     filters: "DashboardFilters"
     views: float
     first_viewed_at: Union[None, datetime.datetime, str]
@@ -70,6 +81,7 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
         from ..models.dashboard_chart_tile import DashboardChartTile
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
+        from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
 
         name = self.name
 
@@ -100,6 +112,8 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
             elif isinstance(tiles_item_data, DashboardMarkdownTile):
                 tiles_item = tiles_item_data.to_dict()
             elif isinstance(tiles_item_data, DashboardLoomTile):
+                tiles_item = tiles_item_data.to_dict()
+            elif isinstance(tiles_item_data, DashboardSqlChartTile):
                 tiles_item = tiles_item_data.to_dict()
             else:
                 tiles_item = tiles_item_data.to_dict()
@@ -165,6 +179,9 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
+        from ..models.dashboard_semantic_viewer_chart_tile import (
+            DashboardSemanticViewerChartTile,
+        )
         from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
         from ..models.dashboard_tab import DashboardTab
         from ..models.updated_by_user import UpdatedByUser
@@ -201,7 +218,13 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
 
             def _parse_tiles_item(
                 data: object,
-            ) -> Union["DashboardChartTile", "DashboardLoomTile", "DashboardMarkdownTile", "DashboardSqlChartTile"]:
+            ) -> Union[
+                "DashboardChartTile",
+                "DashboardLoomTile",
+                "DashboardMarkdownTile",
+                "DashboardSemanticViewerChartTile",
+                "DashboardSqlChartTile",
+            ]:
                 try:
                     if not isinstance(data, dict):
                         raise TypeError()
@@ -226,11 +249,19 @@ class PickDashboardExcludeKeyofDashboardIsPrivateOrAccess:
                     return componentsschemas_dashboard_tile_type_2
                 except:  # noqa: E722
                     pass
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    componentsschemas_dashboard_tile_type_3 = DashboardSqlChartTile.from_dict(data)
+
+                    return componentsschemas_dashboard_tile_type_3
+                except:  # noqa: E722
+                    pass
                 if not isinstance(data, dict):
                     raise TypeError()
-                componentsschemas_dashboard_tile_type_3 = DashboardSqlChartTile.from_dict(data)
+                componentsschemas_dashboard_tile_type_4 = DashboardSemanticViewerChartTile.from_dict(data)
 
-                return componentsschemas_dashboard_tile_type_3
+                return componentsschemas_dashboard_tile_type_4
 
             tiles_item = _parse_tiles_item(tiles_item_data)
 

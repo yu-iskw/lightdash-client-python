@@ -1,7 +1,7 @@
 {
   "properties": {
     "results": {
-      "$ref": "./WarehouseCatalog.json"
+      "$ref": "./SemanticViewerChartUpdateResult.json"
     },
     "status": {
       "type": "string",

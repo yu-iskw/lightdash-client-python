@@ -5,6 +5,12 @@
     },
     {
       "properties": {
+        "selectedTabs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "customViewportWidth": {
           "type": "number",
           "format": "double"

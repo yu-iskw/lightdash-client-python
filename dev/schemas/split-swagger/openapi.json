@@ -16,7 +16,7 @@
   },
   "info": {
     "title": "Lightdash API",
-    "version": "0.1249.0",
+    "version": "0.1286.0",
     "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
@@ -58,9 +58,6 @@
     },
     "/api/v1/dashboards/{dashboardUuid}/promoteDiff": {
       "$ref": "paths/api_v1_dashboards_{dashboardUuid}_promoteDiff.json"
-    },
-    "/api/v1/projects/{projectUuid}/integrations/dbt-cloud/settings": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_integrations_dbt-cloud_settings.json"
     },
     "/api/v1/projects/{projectUuid}/explores": {
       "$ref": "paths/api_v1_projects_{projectUuid}_explores.json"
@@ -112,9 +109,6 @@
     },
     "/api/v1/groups/{groupUuid}/projects/{projectUuid}": {
       "$ref": "paths/api_v1_groups_{groupUuid}_projects_{projectUuid}.json"
-    },
-    "/api/v1/projects/{projectUuid}/dbtsemanticlayer": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dbtsemanticlayer.json"
     },
     "/api/v1/notifications": {
       "$ref": "paths/api_v1_notifications.json"
@@ -193,6 +187,9 @@
     },
     "/api/v1/projects/{projectUuid}/metadata": {
       "$ref": "paths/api_v1_projects_{projectUuid}_metadata.json"
+    },
+    "/api/v1/projects/{projectUuid}/semantic-layer-connection": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_semantic-layer-connection.json"
     },
     "/api/v1/projects/{projectUuid}/explores/{exploreId}/runUnderlyingDataQuery": {
       "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_runUnderlyingDataQuery.json"

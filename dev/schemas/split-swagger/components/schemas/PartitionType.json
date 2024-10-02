@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "DATE",
+    "RANGE"
+  ],
+  "type": "string"
+}

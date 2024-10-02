@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "field": {
+      "type": "string"
+    },
+    "partitionType": {
+      "$ref": "./PartitionType.json"
+    }
+  },
+  "required": [
+    "field",
+    "partitionType"
+  ],
+  "type": "object"
+}

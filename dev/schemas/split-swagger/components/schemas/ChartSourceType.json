@@ -1,7 +1,8 @@
 {
   "enum": [
     "dbt_explore",
-    "sql"
+    "sql",
+    "semantic_layer"
   ],
   "type": "string"
 }

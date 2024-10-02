@@ -5,7 +5,12 @@
     "additionalProperties": {
       "properties": {},
       "additionalProperties": {
-        "$ref": "./WarehouseTableSchema.json"
+        "properties": {
+          "partitionColumn": {
+            "$ref": "./PartitionColumn.json"
+          }
+        },
+        "type": "object"
       },
       "type": "object"
     },

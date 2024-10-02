@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Lightdash API",
-    "version": "0.1249.0",
+    "version": "0.1286.0",
     "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
@@ -666,130 +666,6 @@
             "description": "dashboardUuid for the dashboard to check diff",
             "in": "path",
             "name": "dashboardUuid",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/api/v1/projects/{projectUuid}/integrations/dbt-cloud/settings": {
-      "get": {
-        "operationId": "getDbtCloudIntegrationSettings",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiDbtCloudIntegrationSettings"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorPayload"
-                }
-              }
-            }
-          }
-        },
-        "description": "Get the current dbt Cloud integration settings for a project",
-        "tags": [
-          "Integrations"
-        ],
-        "security": [],
-        "parameters": [
-          {
-            "description": "the uuid of the project",
-            "in": "path",
-            "name": "projectUuid",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "post": {
-        "operationId": "updateDbtCloudIntegrationSettings",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiDbtCloudIntegrationSettings"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorPayload"
-                }
-              }
-            }
-          }
-        },
-        "description": "Update the dbt Cloud integration settings for a project",
-        "tags": [
-          "Integrations"
-        ],
-        "security": [],
-        "parameters": [
-          {
-            "description": "the uuid of the project",
-            "in": "path",
-            "name": "projectUuid",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "delete": {
-        "operationId": "deleteDbtCloudIntegrationSettings",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiDbtCloudSettingsDeleteSuccess"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorPayload"
-                }
-              }
-            }
-          }
-        },
-        "description": "Remove the dbt Cloud integration settings for a project",
-        "tags": [
-          "Integrations"
-        ],
-        "security": [],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "projectUuid",
             "required": true,
             "schema": {
               "type": "string"
@@ -2041,75 +1917,6 @@
             }
           }
         ]
-      }
-    },
-    "/api/v1/projects/{projectUuid}/dbtsemanticlayer": {
-      "post": {
-        "operationId": "GetDbtSemanticLayerData",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorPayload"
-                }
-              }
-            }
-          }
-        },
-        "description": "Get DbtSemanticLayer data",
-        "tags": [
-          "DbtSemanticLayer"
-        ],
-        "security": [],
-        "parameters": [
-          {
-            "description": "the projectId",
-            "in": "path",
-            "name": "projectUuid",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "graphql query",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "operationName": {
-                    "type": "string",
-                    "enum": [
-                      "GetFields",
-                      "CreateQuery",
-                      "GetQueryResults"
-                    ]
-                  },
-                  "query": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "query"
-                ],
-                "type": "object",
-                "description": "graphql query"
-              }
-            }
-          }
-        }
       }
     },
     "/api/v1/notifications": {
@@ -3787,6 +3594,57 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateMetadata"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/semantic-layer-connection": {
+      "patch": {
+        "operationId": "updateProjectSemanticLayerConnection",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SemanticLayerConnection"
               }
             }
           }
@@ -6881,6 +6739,7 @@
         "enum": [
           "saved_chart",
           "sql_chart",
+          "semantic_viewer_chart",
           "markdown",
           "loom"
         ],
@@ -7125,6 +6984,56 @@
           }
         ]
       },
+      "DashboardTileTypes.SEMANTIC_VIEWER_CHART": {
+        "enum": [
+          "semantic_viewer_chart"
+        ],
+        "type": "string"
+      },
+      "DashboardSemanticViewerChartTileProperties": {
+        "properties": {
+          "properties": {
+            "properties": {
+              "hideTitle": {
+                "type": "boolean"
+              },
+              "chartName": {
+                "type": "string"
+              },
+              "savedSemanticViewerChartUuid": {
+                "type": "string",
+                "nullable": true
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chartName",
+              "savedSemanticViewerChartUuid"
+            ],
+            "type": "object"
+          },
+          "type": {
+            "$ref": "#/components/schemas/DashboardTileTypes.SEMANTIC_VIEWER_CHART"
+          }
+        },
+        "required": [
+          "properties",
+          "type"
+        ],
+        "type": "object"
+      },
+      "DashboardSemanticViewerChartTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Required_CreateDashboardTileBase_"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardSemanticViewerChartTileProperties"
+          }
+        ]
+      },
       "DashboardTile": {
         "anyOf": [
           {
@@ -7138,6 +7047,9 @@
           },
           {
             "$ref": "#/components/schemas/DashboardSqlChartTile"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardSemanticViewerChartTile"
           }
         ]
       },
@@ -9297,53 +9209,6 @@
         ],
         "type": "object"
       },
-      "Pick_CreateDbtCloudIntegration.metricsJobId_": {
-        "properties": {
-          "metricsJobId": {
-            "type": "string",
-            "description": "Job id for a dbt cloud job containing a compiled dbt project with available dbt metrics"
-          }
-        },
-        "required": [
-          "metricsJobId"
-        ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
-      },
-      "ApiDbtCloudIntegrationSettings": {
-        "properties": {
-          "results": {
-            "$ref": "#/components/schemas/Pick_CreateDbtCloudIntegration.metricsJobId_"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "ok"
-            ],
-            "nullable": false
-          }
-        },
-        "required": [
-          "status"
-        ],
-        "type": "object"
-      },
-      "ApiDbtCloudSettingsDeleteSuccess": {
-        "properties": {
-          "results": {},
-          "status": {
-            "type": "string",
-            "enum": [
-              "ok"
-            ],
-            "nullable": false
-          }
-        },
-        "required": [
-          "status"
-        ],
-        "type": "object"
-      },
       "Pick_Explore.SummaryExploreFields_": {
         "properties": {
           "name": {
@@ -11128,7 +10993,8 @@
       "ChartSourceType": {
         "enum": [
           "dbt_explore",
-          "sql"
+          "sql",
+          "semantic_layer"
         ],
         "type": "string"
       },
@@ -11336,6 +11202,70 @@
           "type"
         ],
         "type": "object"
+      },
+      "SemanticLayerType.DBT": {
+        "enum": [
+          "DBT"
+        ],
+        "type": "string"
+      },
+      "DbtSemanticLayerConnection": {
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/SemanticLayerType.DBT"
+          }
+        },
+        "required": [
+          "token",
+          "domain",
+          "environmentId",
+          "type"
+        ],
+        "type": "object"
+      },
+      "SemanticLayerType.CUBE": {
+        "enum": [
+          "CUBE"
+        ],
+        "type": "string"
+      },
+      "CubeSemanticLayerConnection": {
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/SemanticLayerType.CUBE"
+          }
+        },
+        "required": [
+          "token",
+          "domain",
+          "type"
+        ],
+        "type": "object"
+      },
+      "SemanticLayerConnection": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/DbtSemanticLayerConnection"
+          },
+          {
+            "$ref": "#/components/schemas/CubeSemanticLayerConnection"
+          }
+        ]
       },
       "SupportedDbtVersions": {
         "enum": [
@@ -12087,6 +12017,9 @@
       },
       "Project": {
         "properties": {
+          "semanticLayerConnection": {
+            "$ref": "#/components/schemas/SemanticLayerConnection"
+          },
           "dbtVersion": {
             "$ref": "#/components/schemas/SupportedDbtVersions"
           },
@@ -13747,6 +13680,12 @@
           },
           {
             "properties": {
+              "selectedTabs": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
               "customViewportWidth": {
                 "type": "number",
                 "format": "double"

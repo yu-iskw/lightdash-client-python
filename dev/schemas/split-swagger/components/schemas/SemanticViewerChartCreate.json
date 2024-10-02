@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "spaceUuid": {
+      "type": "string"
+    },
+    "config": {
+      "$ref": "./VizChartConfig.json"
+    },
+    "semanticLayerQuery": {
+      "$ref": "./SemanticLayerQuery.json"
+    },
+    "semanticLayerView": {
+      "type": "string",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "spaceUuid",
+    "config",
+    "semanticLayerQuery",
+    "semanticLayerView",
+    "description",
+    "name"
+  ],
+  "type": "object"
+}

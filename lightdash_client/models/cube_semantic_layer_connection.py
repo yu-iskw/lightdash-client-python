@@ -1,59 +1,63 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.api_dbt_cloud_settings_delete_success_status import (
-    ApiDbtCloudSettingsDeleteSuccessStatus,
-)
-from ..types import UNSET, Unset
+from ..models.semantic_layer_type_cube import SemanticLayerTypeCUBE
 
-T = TypeVar("T", bound="ApiDbtCloudSettingsDeleteSuccess")
+T = TypeVar("T", bound="CubeSemanticLayerConnection")
 
 
 @_attrs_define
-class ApiDbtCloudSettingsDeleteSuccess:
+class CubeSemanticLayerConnection:
     """
     Attributes:
-        status (ApiDbtCloudSettingsDeleteSuccessStatus):
-        results (Union[Unset, Any]):
+        token (str):
+        domain (str):
+        type (SemanticLayerTypeCUBE):
     """
 
-    status: ApiDbtCloudSettingsDeleteSuccessStatus
-    results: Union[Unset, Any] = UNSET
+    token: str
+    domain: str
+    type: SemanticLayerTypeCUBE
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        status = self.status.value
+        token = self.token
 
-        results = self.results
+        domain = self.domain
+
+        type = self.type.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "status": status,
+                "token": token,
+                "domain": domain,
+                "type": type,
             }
         )
-        if results is not UNSET:
-            field_dict["results"] = results
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        status = ApiDbtCloudSettingsDeleteSuccessStatus(d.pop("status"))
+        token = d.pop("token")
 
-        results = d.pop("results", UNSET)
+        domain = d.pop("domain")
 
-        api_dbt_cloud_settings_delete_success = cls(
-            status=status,
-            results=results,
+        type = SemanticLayerTypeCUBE(d.pop("type"))
+
+        cube_semantic_layer_connection = cls(
+            token=token,
+            domain=domain,
+            type=type,
         )
 
-        api_dbt_cloud_settings_delete_success.additional_properties = d
-        return api_dbt_cloud_settings_delete_success
+        cube_semantic_layer_connection.additional_properties = d
+        return cube_semantic_layer_connection
 
     @property
     def additional_keys(self) -> List[str]:

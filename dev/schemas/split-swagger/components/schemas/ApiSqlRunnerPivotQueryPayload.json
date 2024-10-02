@@ -1,5 +1,11 @@
 {
   "properties": {
+    "sortBy": {
+      "items": {
+        "$ref": "./VizSortBy.json"
+      },
+      "type": "array"
+    },
     "groupByColumns": {
       "items": {
         "properties": {

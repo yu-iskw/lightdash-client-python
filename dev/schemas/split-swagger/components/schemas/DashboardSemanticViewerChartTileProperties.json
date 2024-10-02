@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "properties": {
+      "properties": {
+        "hideTitle": {
+          "type": "boolean"
+        },
+        "chartName": {
+          "type": "string"
+        },
+        "savedSemanticViewerChartUuid": {
+          "type": "string",
+          "nullable": true
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chartName",
+        "savedSemanticViewerChartUuid"
+      ],
+      "type": "object"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.SEMANTIC_VIEWER_CHART.json"
+    }
+  },
+  "required": [
+    "properties",
+    "type"
+  ],
+  "type": "object"
+}

@@ -1,7 +1,6 @@
 {
   "enum": [
-    "IS",
-    "IS NOT"
+    "semantic_viewer_chart"
   ],
   "type": "string"
 }

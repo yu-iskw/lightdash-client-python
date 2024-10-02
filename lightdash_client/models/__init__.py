@@ -25,14 +25,6 @@ from .api_create_user_attribute_response_status import (
 from .api_csv_url_response import ApiCsvUrlResponse
 from .api_csv_url_response_results import ApiCsvUrlResponseResults
 from .api_csv_url_response_status import ApiCsvUrlResponseStatus
-from .api_dbt_cloud_integration_settings import ApiDbtCloudIntegrationSettings
-from .api_dbt_cloud_integration_settings_status import (
-    ApiDbtCloudIntegrationSettingsStatus,
-)
-from .api_dbt_cloud_settings_delete_success import ApiDbtCloudSettingsDeleteSuccess
-from .api_dbt_cloud_settings_delete_success_status import (
-    ApiDbtCloudSettingsDeleteSuccessStatus,
-)
 from .api_email_status_response_status import ApiEmailStatusResponseStatus
 from .api_error_payload import ApiErrorPayload
 from .api_error_payload_error import ApiErrorPayloadError
@@ -232,6 +224,7 @@ from .create_warehouse_credentials_response_200 import (
 from .create_warehouse_credentials_response_200_status import (
     CreateWarehouseCredentialsResponse200Status,
 )
+from .cube_semantic_layer_connection import CubeSemanticLayerConnection
 from .custom_bin_dimension import CustomBinDimension
 from .custom_dimension_type_bin import CustomDimensionTypeBIN
 from .custom_dimension_type_sql import CustomDimensionTypeSQL
@@ -261,6 +254,13 @@ from .dashboard_markdown_tile_properties import DashboardMarkdownTileProperties
 from .dashboard_markdown_tile_properties_properties import (
     DashboardMarkdownTilePropertiesProperties,
 )
+from .dashboard_semantic_viewer_chart_tile import DashboardSemanticViewerChartTile
+from .dashboard_semantic_viewer_chart_tile_properties import (
+    DashboardSemanticViewerChartTileProperties,
+)
+from .dashboard_semantic_viewer_chart_tile_properties_properties import (
+    DashboardSemanticViewerChartTilePropertiesProperties,
+)
 from .dashboard_sql_chart_tile import DashboardSqlChartTile
 from .dashboard_sql_chart_tile_properties import DashboardSqlChartTileProperties
 from .dashboard_sql_chart_tile_properties_properties import (
@@ -271,6 +271,9 @@ from .dashboard_tile_types import DashboardTileTypes
 from .dashboard_tile_types_loom import DashboardTileTypesLOOM
 from .dashboard_tile_types_markdown import DashboardTileTypesMARKDOWN
 from .dashboard_tile_types_savedchart import DashboardTileTypesSAVEDCHART
+from .dashboard_tile_types_semanticviewerchart import (
+    DashboardTileTypesSEMANTICVIEWERCHART,
+)
 from .dashboard_tile_types_sqlchart import DashboardTileTypesSQLCHART
 from .date_granularity import DateGranularity
 from .dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
@@ -289,6 +292,7 @@ from .dbt_project_type_dbtcloudide import DbtProjectTypeDBTCLOUDIDE
 from .dbt_project_type_github import DbtProjectTypeGITHUB
 from .dbt_project_type_gitlab import DbtProjectTypeGITLAB
 from .dbt_project_type_none import DbtProjectTypeNONE
+from .dbt_semantic_layer_connection import DbtSemanticLayerConnection
 from .delete_scheduler_response_201 import DeleteSchedulerResponse201
 from .delete_scheduler_response_201_status import DeleteSchedulerResponse201Status
 from .dimension_type import DimensionType
@@ -342,10 +346,6 @@ from .get_custom_metrics_response_200_results_item import (
     GetCustomMetricsResponse200ResultsItem,
 )
 from .get_custom_metrics_response_200_status import GetCustomMetricsResponse200Status
-from .get_dbt_semantic_layer_data_body import GetDbtSemanticLayerDataBody
-from .get_dbt_semantic_layer_data_body_operation_name import (
-    GetDbtSemanticLayerDataBodyOperationName,
-)
 from .get_explore_response_200 import GetExploreResponse200
 from .get_explore_response_200_status import GetExploreResponse200Status
 from .get_github_list_repositories_response_200 import (
@@ -463,9 +463,6 @@ from .pick_create_databricks_credentials_type_or_personal_access_token import (
     PickCreateDatabricksCredentialsTypeOrPersonalAccessToken,
 )
 from .pick_create_db_project_group_access_role import PickCreateDBProjectGroupAccessRole
-from .pick_create_dbt_cloud_integration_metrics_job_id import (
-    PickCreateDbtCloudIntegrationMetricsJobId,
-)
 from .pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names import (
     PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames,
 )
@@ -642,6 +639,8 @@ from .scheduler_log import SchedulerLog
 from .scheduler_log_target_type import SchedulerLogTargetType
 from .scheduler_log_task import SchedulerLogTask
 from .scheduler_slack_target import SchedulerSlackTarget
+from .semantic_layer_type_cube import SemanticLayerTypeCUBE
+from .semantic_layer_type_dbt import SemanticLayerTypeDBT
 from .series import Series
 from .series_area_style import SeriesAreaStyle
 from .series_encode import SeriesEncode
@@ -736,10 +735,6 @@ __all__ = (
     "ApiCsvUrlResponse",
     "ApiCsvUrlResponseResults",
     "ApiCsvUrlResponseStatus",
-    "ApiDbtCloudIntegrationSettings",
-    "ApiDbtCloudIntegrationSettingsStatus",
-    "ApiDbtCloudSettingsDeleteSuccess",
-    "ApiDbtCloudSettingsDeleteSuccessStatus",
     "ApiEmailStatusResponseStatus",
     "ApiErrorPayload",
     "ApiErrorPayloadError",
@@ -899,6 +894,7 @@ __all__ = (
     "CreateUserAttribute",
     "CreateWarehouseCredentialsResponse200",
     "CreateWarehouseCredentialsResponse200Status",
+    "CubeSemanticLayerConnection",
     "CustomBinDimension",
     "CustomDimensionTypeBIN",
     "CustomDimensionTypeSQL",
@@ -922,6 +918,9 @@ __all__ = (
     "DashboardMarkdownTile",
     "DashboardMarkdownTileProperties",
     "DashboardMarkdownTilePropertiesProperties",
+    "DashboardSemanticViewerChartTile",
+    "DashboardSemanticViewerChartTileProperties",
+    "DashboardSemanticViewerChartTilePropertiesProperties",
     "DashboardSqlChartTile",
     "DashboardSqlChartTileProperties",
     "DashboardSqlChartTilePropertiesProperties",
@@ -930,6 +929,7 @@ __all__ = (
     "DashboardTileTypesLOOM",
     "DashboardTileTypesMARKDOWN",
     "DashboardTileTypesSAVEDCHART",
+    "DashboardTileTypesSEMANTICVIEWERCHART",
     "DashboardTileTypesSQLCHART",
     "DateGranularity",
     "DbtAzureDevOpsProjectConfig",
@@ -948,6 +948,7 @@ __all__ = (
     "DbtProjectTypeGITHUB",
     "DbtProjectTypeGITLAB",
     "DbtProjectTypeNONE",
+    "DbtSemanticLayerConnection",
     "DeleteSchedulerResponse201",
     "DeleteSchedulerResponse201Status",
     "DimensionType",
@@ -993,8 +994,6 @@ __all__ = (
     "GetCustomMetricsResponse200",
     "GetCustomMetricsResponse200ResultsItem",
     "GetCustomMetricsResponse200Status",
-    "GetDbtSemanticLayerDataBody",
-    "GetDbtSemanticLayerDataBodyOperationName",
     "GetExploreResponse200",
     "GetExploreResponse200Status",
     "GetGithubListRepositoriesResponse200",
@@ -1072,7 +1071,6 @@ __all__ = (
     "PickCreateDatabricksCredentialsType",
     "PickCreateDatabricksCredentialsTypeOrPersonalAccessToken",
     "PickCreateDBProjectGroupAccessRole",
-    "PickCreateDbtCloudIntegrationMetricsJobId",
     "PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiveCredentialsFieldNames",
     "PickCreatePostgresCredentialsTypeOrUserOrPassword",
     "PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiveCredentialsFieldNames",
@@ -1183,6 +1181,8 @@ __all__ = (
     "SchedulerLogTargetType",
     "SchedulerLogTask",
     "SchedulerSlackTarget",
+    "SemanticLayerTypeCUBE",
+    "SemanticLayerTypeDBT",
     "Series",
     "SeriesAreaStyle",
     "SeriesEncode",

@@ -1,14 +1,5 @@
 {
   "properties": {
-    "filters": {
-      "items": {
-        "$ref": "./SemanticLayerFilter.json"
-      },
-      "type": "array"
-    },
-    "pivot": {
-      "$ref": "./SemanticLayerPivot.json"
-    },
     "timezone": {
       "type": "string"
     },
@@ -16,9 +7,18 @@
       "type": "number",
       "format": "double"
     },
+    "pivot": {
+      "$ref": "./SemanticLayerPivot.json"
+    },
     "sortBy": {
       "items": {
         "$ref": "./SemanticLayerSortBy.json"
+      },
+      "type": "array"
+    },
+    "filters": {
+      "items": {
+        "$ref": "./SemanticLayerFilter.json"
       },
       "type": "array"
     },
@@ -42,8 +42,8 @@
     }
   },
   "required": [
-    "filters",
     "sortBy",
+    "filters",
     "metrics",
     "timeDimensions",
     "dimensions"

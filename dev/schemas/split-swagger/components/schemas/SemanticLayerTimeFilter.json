@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./SemanticLayerExactTimeFilter.json"
+    },
+    {
+      "$ref": "./SemanticLayerRelativeTimeFilter.json"
+    }
+  ]
+}

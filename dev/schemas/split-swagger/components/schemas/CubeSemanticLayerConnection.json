@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./SemanticLayerType.CUBE.json"
+    }
+  },
+  "required": [
+    "token",
+    "domain",
+    "type"
+  ],
+  "type": "object"
+}

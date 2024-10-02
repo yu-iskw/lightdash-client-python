@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "direction": {
+      "$ref": "./SortByDirection.json"
+    },
+    "reference": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "direction",
+    "reference"
+  ],
+  "type": "object"
+}

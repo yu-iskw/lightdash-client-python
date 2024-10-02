@@ -1,5 +1,8 @@
 {
   "properties": {
+    "semanticLayerConnection": {
+      "$ref": "./SemanticLayerConnection.json"
+    },
     "dbtVersion": {
       "$ref": "./SupportedDbtVersions.json"
     },

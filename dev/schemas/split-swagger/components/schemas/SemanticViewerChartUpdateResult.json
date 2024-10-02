@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "savedSemanticViewerChartVersionUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "savedSemanticViewerChartUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "savedSemanticViewerChartVersionUuid",
+    "savedSemanticViewerChartUuid"
+  ],
+  "type": "object"
+}

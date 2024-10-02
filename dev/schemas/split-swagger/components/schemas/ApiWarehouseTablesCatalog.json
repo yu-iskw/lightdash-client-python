@@ -1,6 +1,8 @@
 {
   "properties": {
-    "results": {},
+    "results": {
+      "$ref": "./WarehouseTablesCatalog.json"
+    },
     "status": {
       "type": "string",
       "enum": [
@@ -10,6 +12,7 @@
     }
   },
   "required": [
+    "results",
     "status"
   ],
   "type": "object"
