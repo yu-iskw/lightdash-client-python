@@ -6,3 +6,7 @@ package_name_override: lightdash_client
 package_version_override: 0.2.0
 
 http_timeout: 30
+
+# Format code using the pre-commit hooks of ruff
+# SEE https://github.com/openapi-generators/openapi-python-client
+post_hooks: []

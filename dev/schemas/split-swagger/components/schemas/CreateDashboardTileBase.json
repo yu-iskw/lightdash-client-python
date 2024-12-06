@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "tabUuid": {
+      "type": "string"
+    },
+    "w": {
+      "type": "number",
+      "format": "double"
+    },
+    "h": {
+      "type": "number",
+      "format": "double"
+    },
+    "y": {
+      "type": "number",
+      "format": "double"
+    },
+    "x": {
+      "type": "number",
+      "format": "double"
+    },
+    "type": {
+      "$ref": "./DashboardTileTypes.json"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "w",
+    "h",
+    "y",
+    "x",
+    "type"
+  ],
+  "type": "object"
+}

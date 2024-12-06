@@ -1,0 +1,42 @@
+{
+  "get": {
+    "operationId": "getMetricsWithTimeDimensions",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiMetricsWithAssociatedTimeDimensionResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get metrics with time dimensions",
+    "tags": [
+      "Catalog"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

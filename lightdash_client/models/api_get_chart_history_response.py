@@ -1,11 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.api_get_chart_history_response_status import (
-    ApiGetChartHistoryResponseStatus,
-)
+from ..models.api_get_chart_history_response_status import ApiGetChartHistoryResponseStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.chart_history import ChartHistory
@@ -27,6 +26,8 @@ class ApiGetChartHistoryResponse:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.chart_history import ChartHistory
+
         results = self.results.to_dict()
 
         status = self.status.value

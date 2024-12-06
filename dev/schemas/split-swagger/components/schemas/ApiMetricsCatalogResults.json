@@ -1,0 +1,6 @@
+{
+  "items": {
+    "$ref": "./CatalogField.json"
+  },
+  "type": "array"
+}

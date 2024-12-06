@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./EmojiIcon.json"
+    },
+    {
+      "$ref": "./CustomIcon.json"
+    }
+  ]
+}

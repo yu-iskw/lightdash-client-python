@@ -1,0 +1,11 @@
+{
+  "enum": [
+    "hidden",
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "inside"
+  ],
+  "type": "string"
+}

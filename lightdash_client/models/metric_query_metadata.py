@@ -1,12 +1,12 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 if TYPE_CHECKING:
-    from ..models.pick_compiled_dimension_label_or_name import (
-        PickCompiledDimensionLabelOrName,
-    )
+    from ..models.pick_compiled_dimension_label_or_name import PickCompiledDimensionLabelOrName
 
 
 T = TypeVar("T", bound="MetricQueryMetadata")
@@ -24,6 +24,8 @@ class MetricQueryMetadata:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_compiled_dimension_label_or_name import PickCompiledDimensionLabelOrName
+
         has_a_date_dimension = self.has_a_date_dimension.to_dict()
 
         field_dict: Dict[str, Any] = {}
@@ -38,9 +40,7 @@ class MetricQueryMetadata:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_compiled_dimension_label_or_name import (
-            PickCompiledDimensionLabelOrName,
-        )
+        from ..models.pick_compiled_dimension_label_or_name import PickCompiledDimensionLabelOrName
 
         d = src_dict.copy()
         has_a_date_dimension = PickCompiledDimensionLabelOrName.from_dict(d.pop("hasADateDimension"))

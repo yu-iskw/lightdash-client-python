@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -7,7 +7,7 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.add_space_user_access import AddSpaceUserAccess
 from ...models.api_success_empty import ApiSuccessEmpty
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -20,7 +20,10 @@ def _get_kwargs(
 
     _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": f"/api/v1/projects/{project_uuid}/spaces/{space_uuid}/share",
+        "url": "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share".format(
+            projectUuid=project_uuid,
+            spaceUuid=space_uuid,
+        ),
     }
 
     _body = body.to_dict()

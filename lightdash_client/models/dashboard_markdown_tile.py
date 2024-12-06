@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -7,9 +7,7 @@ from ..models.dashboard_tile_types_markdown import DashboardTileTypesMARKDOWN
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dashboard_markdown_tile_properties_properties import (
-        DashboardMarkdownTilePropertiesProperties,
-    )
+    from ..models.dashboard_markdown_tile_properties_properties import DashboardMarkdownTilePropertiesProperties
 
 
 T = TypeVar("T", bound="DashboardMarkdownTile")
@@ -40,6 +38,8 @@ class DashboardMarkdownTile:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.dashboard_markdown_tile_properties_properties import DashboardMarkdownTilePropertiesProperties
+
         uuid = self.uuid
 
         type = self.type.value
@@ -76,9 +76,7 @@ class DashboardMarkdownTile:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dashboard_markdown_tile_properties_properties import (
-            DashboardMarkdownTilePropertiesProperties,
-        )
+        from ..models.dashboard_markdown_tile_properties_properties import DashboardMarkdownTilePropertiesProperties
 
         d = src_dict.copy()
         uuid = d.pop("uuid")

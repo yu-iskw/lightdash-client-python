@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,9 +9,7 @@ if TYPE_CHECKING:
     from ..models.additional_metric import AdditionalMetric
     from ..models.custom_bin_dimension import CustomBinDimension
     from ..models.custom_sql_dimension import CustomSqlDimension
-    from ..models.download_csv_from_explore_body_custom_labels import (
-        DownloadCsvFromExploreBodyCustomLabels,
-    )
+    from ..models.download_csv_from_explore_body_custom_labels import DownloadCsvFromExploreBodyCustomLabels
     from ..models.filters import Filters
     from ..models.metric_query_metadata import MetricQueryMetadata
     from ..models.sort_field import SortField
@@ -39,6 +37,7 @@ class DownloadCsvFromExploreBody:
         timezone (Union[Unset, str]):
         custom_dimensions (Union[Unset, List[Union['CustomBinDimension', 'CustomSqlDimension']]]):
         additional_metrics (Union[Unset, List['AdditionalMetric']]):
+        pivot_columns (Union[Unset, List[str]]):
         chart_name (Union[Unset, str]):
         hidden_fields (Union[Unset, List[str]]):
         custom_labels (Union[Unset, DownloadCsvFromExploreBodyCustomLabels]):
@@ -59,6 +58,7 @@ class DownloadCsvFromExploreBody:
     timezone: Union[Unset, str] = UNSET
     custom_dimensions: Union[Unset, List[Union["CustomBinDimension", "CustomSqlDimension"]]] = UNSET
     additional_metrics: Union[Unset, List["AdditionalMetric"]] = UNSET
+    pivot_columns: Union[Unset, List[str]] = UNSET
     chart_name: Union[Unset, str] = UNSET
     hidden_fields: Union[Unset, List[str]] = UNSET
     custom_labels: Union[Unset, "DownloadCsvFromExploreBodyCustomLabels"] = UNSET
@@ -66,7 +66,14 @@ class DownloadCsvFromExploreBody:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.additional_metric import AdditionalMetric
         from ..models.custom_bin_dimension import CustomBinDimension
+        from ..models.custom_sql_dimension import CustomSqlDimension
+        from ..models.download_csv_from_explore_body_custom_labels import DownloadCsvFromExploreBodyCustomLabels
+        from ..models.filters import Filters
+        from ..models.metric_query_metadata import MetricQueryMetadata
+        from ..models.sort_field import SortField
+        from ..models.table_calculation import TableCalculation
 
         table_calculations = []
         for table_calculations_item_data in self.table_calculations:
@@ -119,6 +126,10 @@ class DownloadCsvFromExploreBody:
                 additional_metrics_item = additional_metrics_item_data.to_dict()
                 additional_metrics.append(additional_metrics_item)
 
+        pivot_columns: Union[Unset, List[str]] = UNSET
+        if not isinstance(self.pivot_columns, Unset):
+            pivot_columns = self.pivot_columns
+
         chart_name = self.chart_name
 
         hidden_fields: Union[Unset, List[str]] = UNSET
@@ -159,6 +170,8 @@ class DownloadCsvFromExploreBody:
             field_dict["customDimensions"] = custom_dimensions
         if additional_metrics is not UNSET:
             field_dict["additionalMetrics"] = additional_metrics
+        if pivot_columns is not UNSET:
+            field_dict["pivotColumns"] = pivot_columns
         if chart_name is not UNSET:
             field_dict["chartName"] = chart_name
         if hidden_fields is not UNSET:
@@ -175,9 +188,7 @@ class DownloadCsvFromExploreBody:
         from ..models.additional_metric import AdditionalMetric
         from ..models.custom_bin_dimension import CustomBinDimension
         from ..models.custom_sql_dimension import CustomSqlDimension
-        from ..models.download_csv_from_explore_body_custom_labels import (
-            DownloadCsvFromExploreBodyCustomLabels,
-        )
+        from ..models.download_csv_from_explore_body_custom_labels import DownloadCsvFromExploreBodyCustomLabels
         from ..models.filters import Filters
         from ..models.metric_query_metadata import MetricQueryMetadata
         from ..models.sort_field import SortField
@@ -253,6 +264,8 @@ class DownloadCsvFromExploreBody:
 
             additional_metrics.append(additional_metrics_item)
 
+        pivot_columns = cast(List[str], d.pop("pivotColumns", UNSET))
+
         chart_name = d.pop("chartName", UNSET)
 
         hidden_fields = cast(List[str], d.pop("hiddenFields", UNSET))
@@ -288,6 +301,7 @@ class DownloadCsvFromExploreBody:
             timezone=timezone,
             custom_dimensions=custom_dimensions,
             additional_metrics=additional_metrics,
+            pivot_columns=pivot_columns,
             chart_name=chart_name,
             hidden_fields=hidden_fields,
             custom_labels=custom_labels,

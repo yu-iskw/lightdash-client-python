@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "results": {
+      "$ref": "./MetricWithAssociatedTimeDimension.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

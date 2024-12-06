@@ -1,0 +1,34 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_Dashboard.name-or-description-or-updatedAt-or-filters-or-tabs-or-slug_.json"
+    },
+    {
+      "properties": {
+        "downloadedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spaceSlug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number",
+          "format": "double"
+        },
+        "tiles": {
+          "items": {
+            "$ref": "./DashboardTileWithoutUuids.json"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "spaceSlug",
+        "version",
+        "tiles"
+      ],
+      "type": "object"
+    }
+  ]
+}

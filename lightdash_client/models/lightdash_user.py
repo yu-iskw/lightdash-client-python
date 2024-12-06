@@ -1,5 +1,5 @@
 import datetime
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -21,12 +21,15 @@ class LightdashUser:
         is_tracking_anonymized (bool):
         is_marketing_opted_in (bool):
         is_setup_complete (bool):
-        is_active (bool):
+        created_at (datetime.datetime):
+        updated_at (datetime.datetime):
+        is_active (bool): Whether the user can login
         email (Union[Unset, str]):
         organization_uuid (Union[Unset, str]):
         organization_name (Union[Unset, str]):
         organization_created_at (Union[Unset, datetime.datetime]):
         role (Union[Unset, OrganizationMemberRole]):
+        is_pending (Union[Unset, bool]): Whether the user doesn't have an authentication method (password or openId)
     """
 
     user_uuid: str
@@ -35,12 +38,15 @@ class LightdashUser:
     is_tracking_anonymized: bool
     is_marketing_opted_in: bool
     is_setup_complete: bool
+    created_at: datetime.datetime
+    updated_at: datetime.datetime
     is_active: bool
     email: Union[Unset, str] = UNSET
     organization_uuid: Union[Unset, str] = UNSET
     organization_name: Union[Unset, str] = UNSET
     organization_created_at: Union[Unset, datetime.datetime] = UNSET
     role: Union[Unset, OrganizationMemberRole] = UNSET
+    is_pending: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -55,6 +61,10 @@ class LightdashUser:
         is_marketing_opted_in = self.is_marketing_opted_in
 
         is_setup_complete = self.is_setup_complete
+
+        created_at = self.created_at.isoformat()
+
+        updated_at = self.updated_at.isoformat()
 
         is_active = self.is_active
 
@@ -72,6 +82,8 @@ class LightdashUser:
         if not isinstance(self.role, Unset):
             role = self.role.value
 
+        is_pending = self.is_pending
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -82,6 +94,8 @@ class LightdashUser:
                 "isTrackingAnonymized": is_tracking_anonymized,
                 "isMarketingOptedIn": is_marketing_opted_in,
                 "isSetupComplete": is_setup_complete,
+                "createdAt": created_at,
+                "updatedAt": updated_at,
                 "isActive": is_active,
             }
         )
@@ -95,6 +109,8 @@ class LightdashUser:
             field_dict["organizationCreatedAt"] = organization_created_at
         if role is not UNSET:
             field_dict["role"] = role
+        if is_pending is not UNSET:
+            field_dict["isPending"] = is_pending
 
         return field_dict
 
@@ -112,6 +128,10 @@ class LightdashUser:
         is_marketing_opted_in = d.pop("isMarketingOptedIn")
 
         is_setup_complete = d.pop("isSetupComplete")
+
+        created_at = isoparse(d.pop("createdAt"))
+
+        updated_at = isoparse(d.pop("updatedAt"))
 
         is_active = d.pop("isActive")
 
@@ -135,6 +155,8 @@ class LightdashUser:
         else:
             role = OrganizationMemberRole(_role)
 
+        is_pending = d.pop("isPending", UNSET)
+
         lightdash_user = cls(
             user_uuid=user_uuid,
             first_name=first_name,
@@ -142,12 +164,15 @@ class LightdashUser:
             is_tracking_anonymized=is_tracking_anonymized,
             is_marketing_opted_in=is_marketing_opted_in,
             is_setup_complete=is_setup_complete,
+            created_at=created_at,
+            updated_at=updated_at,
             is_active=is_active,
             email=email,
             organization_uuid=organization_uuid,
             organization_name=organization_name,
             organization_created_at=organization_created_at,
             role=role,
+            is_pending=is_pending,
         )
 
         lightdash_user.additional_properties = d

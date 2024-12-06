@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "projectUuid": {
+      "type": "string"
+    },
+    "createdByUserUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target": {
+      "$ref": "./CatalogMetricsTreeNode.json"
+    },
+    "source": {
+      "$ref": "./CatalogMetricsTreeNode.json"
+    }
+  },
+  "required": [
+    "projectUuid",
+    "createdByUserUuid",
+    "createdAt",
+    "target",
+    "source"
+  ],
+  "type": "object"
+}

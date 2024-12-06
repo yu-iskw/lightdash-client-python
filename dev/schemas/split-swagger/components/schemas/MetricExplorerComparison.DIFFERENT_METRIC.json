@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "different_metric"
+  ],
+  "type": "string"
+}

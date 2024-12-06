@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./SemanticLayerType.DBT.json"
+    },
+    "environmentId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

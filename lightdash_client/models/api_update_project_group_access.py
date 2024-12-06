@@ -1,11 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.api_update_project_group_access_status import (
-    ApiUpdateProjectGroupAccessStatus,
-)
+from ..models.api_update_project_group_access_status import ApiUpdateProjectGroupAccessStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.project_group_access import ProjectGroupAccess
@@ -27,6 +26,8 @@ class ApiUpdateProjectGroupAccess:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.project_group_access import ProjectGroupAccess
+
         results = self.results.to_dict()
 
         status = self.status.value

@@ -1,13 +1,13 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 if TYPE_CHECKING:
     from ..models.promotion_changes_charts_item import PromotionChangesChartsItem
-    from ..models.promotion_changes_dashboards_item import (
-        PromotionChangesDashboardsItem,
-    )
+    from ..models.promotion_changes_dashboards_item import PromotionChangesDashboardsItem
     from ..models.promotion_changes_spaces_item import PromotionChangesSpacesItem
 
 
@@ -29,6 +29,10 @@ class PromotionChanges:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.promotion_changes_charts_item import PromotionChangesChartsItem
+        from ..models.promotion_changes_dashboards_item import PromotionChangesDashboardsItem
+        from ..models.promotion_changes_spaces_item import PromotionChangesSpacesItem
+
         charts = []
         for charts_item_data in self.charts:
             charts_item = charts_item_data.to_dict()
@@ -59,9 +63,7 @@ class PromotionChanges:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.promotion_changes_charts_item import PromotionChangesChartsItem
-        from ..models.promotion_changes_dashboards_item import (
-            PromotionChangesDashboardsItem,
-        )
+        from ..models.promotion_changes_dashboards_item import PromotionChangesDashboardsItem
         from ..models.promotion_changes_spaces_item import PromotionChangesSpacesItem
 
         d = src_dict.copy()

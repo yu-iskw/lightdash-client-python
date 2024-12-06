@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "timestamp"
+  ],
+  "type": "string"
+}

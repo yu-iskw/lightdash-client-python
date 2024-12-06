@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -38,6 +38,8 @@ class DbtGitlabProjectConfig:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
+
         type = self.type.value
 
         personal_access_token = self.personal_access_token
@@ -81,9 +83,7 @@ class DbtGitlabProjectConfig:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dbt_project_environment_variable import (
-            DbtProjectEnvironmentVariable,
-        )
+        from ..models.dbt_project_environment_variable import DbtProjectEnvironmentVariable
 
         d = src_dict.copy()
         type = DbtProjectTypeGITLAB(d.pop("type"))

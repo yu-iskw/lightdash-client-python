@@ -1,12 +1,12 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.get_metadata_response_200 import GetMetadataResponse200
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -15,7 +15,10 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": f"/api/v1/projects/{project_uuid}/dataCatalog/{table}/metadata",
+        "url": "/api/v1/projects/{projectUuid}/dataCatalog/{table}/metadata".format(
+            projectUuid=project_uuid,
+            table=table,
+        ),
     }
 
     return _kwargs

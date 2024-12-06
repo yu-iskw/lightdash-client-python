@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "aggType": {
+      "$ref": "./VizAggregationOptions.json"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

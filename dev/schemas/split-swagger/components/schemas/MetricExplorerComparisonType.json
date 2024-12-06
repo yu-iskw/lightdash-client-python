@@ -1,0 +1,45 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "type": {
+          "$ref": "./MetricExplorerComparison.NONE.json"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "type": {
+          "$ref": "./MetricExplorerComparison.PREVIOUS_PERIOD.json"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "metricName": {
+          "type": "string"
+        },
+        "metricTable": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "./MetricExplorerComparison.DIFFERENT_METRIC.json"
+        }
+      },
+      "required": [
+        "metricName",
+        "metricTable",
+        "type"
+      ],
+      "type": "object"
+    }
+  ]
+}

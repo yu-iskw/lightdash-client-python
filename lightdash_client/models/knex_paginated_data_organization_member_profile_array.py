@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -28,6 +28,11 @@ class KnexPaginatedDataOrganizationMemberProfileArray:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.knex_paginated_data_organization_member_profile_array_pagination import (
+            KnexPaginatedDataOrganizationMemberProfileArrayPagination,
+        )
+        from ..models.organization_member_profile import OrganizationMemberProfile
+
         data = []
         for data_item_data in self.data:
             data_item = data_item_data.to_dict()

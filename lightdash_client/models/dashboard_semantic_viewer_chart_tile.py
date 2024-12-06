@@ -1,11 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.dashboard_tile_types_semanticviewerchart import (
-    DashboardTileTypesSEMANTICVIEWERCHART,
-)
+from ..models.dashboard_tile_types_semanticviewerchart import DashboardTileTypesSEMANTICVIEWERCHART
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -42,6 +40,10 @@ class DashboardSemanticViewerChartTile:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.dashboard_semantic_viewer_chart_tile_properties_properties import (
+            DashboardSemanticViewerChartTilePropertiesProperties,
+        )
+
         uuid = self.uuid
 
         type = self.type.value

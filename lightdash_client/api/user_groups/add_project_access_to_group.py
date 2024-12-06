@@ -1,15 +1,13 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_create_project_group_access import ApiCreateProjectGroupAccess
-from ...models.pick_create_db_project_group_access_role import (
-    PickCreateDBProjectGroupAccessRole,
-)
-from ...types import Response
+from ...models.pick_create_db_project_group_access_role import PickCreateDBProjectGroupAccessRole
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -22,7 +20,10 @@ def _get_kwargs(
 
     _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": f"/api/v1/groups/{group_uuid}/projects/{project_uuid}",
+        "url": "/api/v1/groups/{groupUuid}/projects/{projectUuid}".format(
+            groupUuid=group_uuid,
+            projectUuid=project_uuid,
+        ),
     }
 
     _body = body.to_dict()

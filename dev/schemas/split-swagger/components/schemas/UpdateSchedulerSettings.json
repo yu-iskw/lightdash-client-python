@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "schedulerTimezone": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schedulerTimezone"
+  ],
+  "type": "object"
+}

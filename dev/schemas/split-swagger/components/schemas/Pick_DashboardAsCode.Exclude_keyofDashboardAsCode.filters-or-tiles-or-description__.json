@@ -1,0 +1,41 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tabs": {
+      "items": {
+        "$ref": "./DashboardTab.json"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "number",
+      "format": "double"
+    },
+    "spaceSlug": {
+      "type": "string"
+    },
+    "downloadedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "name",
+    "slug",
+    "updatedAt",
+    "tabs",
+    "version",
+    "spaceSlug"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

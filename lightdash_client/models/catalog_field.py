@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,9 +8,10 @@ from ..models.field_type import FieldType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.record_string_string_or_string_array import (
-        RecordStringStringOrStringArray,
-    )
+    from ..models.custom_icon import CustomIcon
+    from ..models.emoji_icon import EmojiIcon
+    from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+    from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
 
 T = TypeVar("T", bound="CatalogField")
@@ -24,11 +25,15 @@ class CatalogField:
         label (str):
         field_type (FieldType):
         table_label (str):
+        icon (Union['CustomIcon', 'EmojiIcon', None]):
+        categories (List['PickTagNameOrColorOrTagUuid']):
         table_name (str):
         type (CatalogTypeField):
+        catalog_search_uuid (str):
         description (Union[Unset, str]):
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
+        chart_usage (Union[Unset, float]):
         tags (Union[Unset, List[str]]):
         table_group_label (Union[Unset, str]):
         basic_type (Union[Unset, str]):
@@ -38,16 +43,25 @@ class CatalogField:
     label: str
     field_type: FieldType
     table_label: str
+    icon: Union["CustomIcon", "EmojiIcon", None]
+    categories: List["PickTagNameOrColorOrTagUuid"]
     table_name: str
     type: CatalogTypeField
+    catalog_search_uuid: str
     description: Union[Unset, str] = UNSET
     required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
+    chart_usage: Union[Unset, float] = UNSET
     tags: Union[Unset, List[str]] = UNSET
     table_group_label: Union[Unset, str] = UNSET
     basic_type: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.custom_icon import CustomIcon
+        from ..models.emoji_icon import EmojiIcon
+        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
+
         name = self.name
 
         label = self.label
@@ -56,15 +70,32 @@ class CatalogField:
 
         table_label = self.table_label
 
+        icon: Union[Dict[str, Any], None]
+        if isinstance(self.icon, EmojiIcon):
+            icon = self.icon.to_dict()
+        elif isinstance(self.icon, CustomIcon):
+            icon = self.icon.to_dict()
+        else:
+            icon = self.icon
+
+        categories = []
+        for categories_item_data in self.categories:
+            categories_item = categories_item_data.to_dict()
+            categories.append(categories_item)
+
         table_name = self.table_name
 
         type = self.type.value
+
+        catalog_search_uuid = self.catalog_search_uuid
 
         description = self.description
 
         required_attributes: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.required_attributes, Unset):
             required_attributes = self.required_attributes.to_dict()
+
+        chart_usage = self.chart_usage
 
         tags: Union[Unset, List[str]] = UNSET
         if not isinstance(self.tags, Unset):
@@ -82,14 +113,19 @@ class CatalogField:
                 "label": label,
                 "fieldType": field_type,
                 "tableLabel": table_label,
+                "icon": icon,
+                "categories": categories,
                 "tableName": table_name,
                 "type": type,
+                "catalogSearchUuid": catalog_search_uuid,
             }
         )
         if description is not UNSET:
             field_dict["description"] = description
         if required_attributes is not UNSET:
             field_dict["requiredAttributes"] = required_attributes
+        if chart_usage is not UNSET:
+            field_dict["chartUsage"] = chart_usage
         if tags is not UNSET:
             field_dict["tags"] = tags
         if table_group_label is not UNSET:
@@ -101,9 +137,10 @@ class CatalogField:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.record_string_string_or_string_array import (
-            RecordStringStringOrStringArray,
-        )
+        from ..models.custom_icon import CustomIcon
+        from ..models.emoji_icon import EmojiIcon
+        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         d = src_dict.copy()
         name = d.pop("name")
@@ -114,9 +151,41 @@ class CatalogField:
 
         table_label = d.pop("tableLabel")
 
+        def _parse_icon(data: object) -> Union["CustomIcon", "EmojiIcon", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_catalog_item_icon_type_0 = EmojiIcon.from_dict(data)
+
+                return componentsschemas_catalog_item_icon_type_0
+            except:  # noqa: E722
+                pass
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_catalog_item_icon_type_1 = CustomIcon.from_dict(data)
+
+                return componentsschemas_catalog_item_icon_type_1
+            except:  # noqa: E722
+                pass
+            return cast(Union["CustomIcon", "EmojiIcon", None], data)
+
+        icon = _parse_icon(d.pop("icon"))
+
+        categories = []
+        _categories = d.pop("categories")
+        for categories_item_data in _categories:
+            categories_item = PickTagNameOrColorOrTagUuid.from_dict(categories_item_data)
+
+            categories.append(categories_item)
+
         table_name = d.pop("tableName")
 
         type = CatalogTypeField(d.pop("type"))
+
+        catalog_search_uuid = d.pop("catalogSearchUuid")
 
         description = d.pop("description", UNSET)
 
@@ -126,6 +195,8 @@ class CatalogField:
             required_attributes = UNSET
         else:
             required_attributes = RecordStringStringOrStringArray.from_dict(_required_attributes)
+
+        chart_usage = d.pop("chartUsage", UNSET)
 
         tags = cast(List[str], d.pop("tags", UNSET))
 
@@ -138,10 +209,14 @@ class CatalogField:
             label=label,
             field_type=field_type,
             table_label=table_label,
+            icon=icon,
+            categories=categories,
             table_name=table_name,
             type=type,
+            catalog_search_uuid=catalog_search_uuid,
             description=description,
             required_attributes=required_attributes,
+            chart_usage=chart_usage,
             tags=tags,
             table_group_label=table_group_label,
             basic_type=basic_type,

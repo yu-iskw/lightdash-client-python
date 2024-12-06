@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.api_pinned_items_status import ApiPinnedItemsStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.resource_view_chart_item import ResourceViewChartItem
@@ -29,6 +30,7 @@ class ApiPinnedItems:
     def to_dict(self) -> Dict[str, Any]:
         from ..models.resource_view_chart_item import ResourceViewChartItem
         from ..models.resource_view_dashboard_item import ResourceViewDashboardItem
+        from ..models.resource_view_space_item import ResourceViewSpaceItem
 
         results = []
         for componentsschemas_pinned_items_item_data in self.results:

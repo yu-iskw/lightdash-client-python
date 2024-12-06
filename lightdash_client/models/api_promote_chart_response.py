@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.api_promote_chart_response_status import ApiPromoteChartResponseStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access import (
@@ -28,6 +29,10 @@ class ApiPromoteChartResponse:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access import (
+            PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccess,
+        )
+
         results = self.results.to_dict()
 
         status = self.status.value

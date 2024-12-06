@@ -1,0 +1,111 @@
+{
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "access": {
+      "items": {
+        "$ref": "./SpaceShare.json"
+      },
+      "type": "array",
+      "nullable": true
+    },
+    "isPrivate": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "tabs": {
+      "items": {
+        "$ref": "./DashboardTab.json"
+      },
+      "type": "array"
+    },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "pinnedListUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "firstViewedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "nullable": true
+    },
+    "views": {
+      "type": "number",
+      "format": "double"
+    },
+    "spaceName": {
+      "type": "string"
+    },
+    "spaceUuid": {
+      "type": "string"
+    },
+    "updatedByUser": {
+      "$ref": "./UpdatedByUser.json"
+    },
+    "filters": {
+      "$ref": "./DashboardFilters.json"
+    },
+    "tiles": {
+      "items": {
+        "$ref": "./DashboardTile.json"
+      },
+      "type": "array"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "dashboardVersionId": {
+      "type": "number",
+      "format": "double"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "access",
+    "isPrivate",
+    "tabs",
+    "pinnedListOrder",
+    "pinnedListUuid",
+    "firstViewedAt",
+    "views",
+    "spaceName",
+    "spaceUuid",
+    "filters",
+    "tiles",
+    "updatedAt",
+    "name",
+    "uuid",
+    "dashboardVersionId",
+    "projectUuid",
+    "organizationUuid"
+  ],
+  "type": "object"
+}

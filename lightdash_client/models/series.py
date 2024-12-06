@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -52,6 +52,12 @@ class Series:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.mark_line import MarkLine
+        from ..models.series_area_style import SeriesAreaStyle
+        from ..models.series_encode import SeriesEncode
+        from ..models.series_label import SeriesLabel
+        from ..models.series_stack_label import SeriesStackLabel
+
         type = self.type.value
 
         encode = self.encode.to_dict()

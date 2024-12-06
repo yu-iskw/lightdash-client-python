@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -11,11 +11,20 @@ from ...types import UNSET, Response, Unset
 
 def _get_kwargs(
     *,
+    page: Union[Unset, float] = UNSET,
+    page_size: Union[Unset, float] = UNSET,
     include_members: Union[Unset, float] = UNSET,
+    search_query: Union[Unset, str] = UNSET,
 ) -> Dict[str, Any]:
     params: Dict[str, Any] = {}
 
+    params["page"] = page
+
+    params["pageSize"] = page_size
+
     params["includeMembers"] = include_members
+
+    params["searchQuery"] = search_query
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -55,12 +64,18 @@ def _build_response(
 def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
+    page: Union[Unset, float] = UNSET,
+    page_size: Union[Unset, float] = UNSET,
     include_members: Union[Unset, float] = UNSET,
+    search_query: Union[Unset, str] = UNSET,
 ) -> Response[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Args:
+        page (Union[Unset, float]):
+        page_size (Union[Unset, float]):
         include_members (Union[Unset, float]):
+        search_query (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -71,7 +86,10 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
+        page=page,
+        page_size=page_size,
         include_members=include_members,
+        search_query=search_query,
     )
 
     response = client.get_httpx_client().request(
@@ -84,12 +102,18 @@ def sync_detailed(
 def sync(
     *,
     client: Union[AuthenticatedClient, Client],
+    page: Union[Unset, float] = UNSET,
+    page_size: Union[Unset, float] = UNSET,
     include_members: Union[Unset, float] = UNSET,
+    search_query: Union[Unset, str] = UNSET,
 ) -> Optional[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Args:
+        page (Union[Unset, float]):
+        page_size (Union[Unset, float]):
         include_members (Union[Unset, float]):
+        search_query (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -101,19 +125,28 @@ def sync(
 
     return sync_detailed(
         client=client,
+        page=page,
+        page_size=page_size,
         include_members=include_members,
+        search_query=search_query,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
+    page: Union[Unset, float] = UNSET,
+    page_size: Union[Unset, float] = UNSET,
     include_members: Union[Unset, float] = UNSET,
+    search_query: Union[Unset, str] = UNSET,
 ) -> Response[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Args:
+        page (Union[Unset, float]):
+        page_size (Union[Unset, float]):
         include_members (Union[Unset, float]):
+        search_query (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -124,7 +157,10 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
+        page=page,
+        page_size=page_size,
         include_members=include_members,
+        search_query=search_query,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -135,12 +171,18 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
+    page: Union[Unset, float] = UNSET,
+    page_size: Union[Unset, float] = UNSET,
     include_members: Union[Unset, float] = UNSET,
+    search_query: Union[Unset, str] = UNSET,
 ) -> Optional[ApiGroupListResponse]:
     """Gets all the groups in the current user's organization
 
     Args:
+        page (Union[Unset, float]):
+        page_size (Union[Unset, float]):
         include_members (Union[Unset, float]):
+        search_query (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -153,6 +195,9 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
+            page=page,
+            page_size=page_size,
             include_members=include_members,
+            search_query=search_query,
         )
     ).parsed

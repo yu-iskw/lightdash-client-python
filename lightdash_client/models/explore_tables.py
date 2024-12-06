@@ -1,7 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.compiled_table import CompiledTable
@@ -17,6 +19,8 @@ class ExploreTables:
     additional_properties: Dict[str, "CompiledTable"] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.compiled_table import CompiledTable
+
         field_dict: Dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
             field_dict[prop_name] = prop.to_dict()
@@ -29,6 +33,15 @@ class ExploreTables:
 
         d = src_dict.copy()
         explore_tables = cls()
+
+        from ..models.default_time_dimension import DefaultTimeDimension
+        from ..models.metric_filter_rule import MetricFilterRule
+        from ..models.record_string_compiled_dimension import RecordStringCompiledDimension
+        from ..models.record_string_compiled_metric import RecordStringCompiledMetric
+        from ..models.record_string_group_type import RecordStringGroupType
+        from ..models.record_string_lineage_node_dependency_array import RecordStringLineageNodeDependencyArray
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
+        from ..models.source import Source
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():

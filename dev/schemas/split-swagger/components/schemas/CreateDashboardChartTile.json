@@ -1,0 +1,10 @@
+{
+  "allOf": [
+    {
+      "$ref": "./CreateDashboardTileBase.json"
+    },
+    {
+      "$ref": "./DashboardChartTileProperties.json"
+    }
+  ]
+}

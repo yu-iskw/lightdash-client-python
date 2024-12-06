@@ -1,0 +1,21 @@
+{
+  "allOf": [
+    {
+      "$ref": "./DashboardBasicDetails.json"
+    },
+    {
+      "properties": {
+        "tileTypes": {
+          "items": {
+            "$ref": "./DashboardTileTypes.json"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "tileTypes"
+      ],
+      "type": "object"
+    }
+  ]
+}

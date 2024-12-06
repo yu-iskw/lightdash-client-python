@@ -1,19 +1,16 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.organization_member_role_editor import OrganizationMemberRoleEDITOR
-from ..models.organization_member_role_interactiveviewer import (
-    OrganizationMemberRoleINTERACTIVEVIEWER,
-)
+from ..models.organization_member_role_interactiveviewer import OrganizationMemberRoleINTERACTIVEVIEWER
 from ..models.organization_member_role_member import OrganizationMemberRoleMEMBER
 from ..models.organization_member_role_viewer import OrganizationMemberRoleVIEWER
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.allowed_email_domains_projects_item import (
-        AllowedEmailDomainsProjectsItem,
-    )
+    from ..models.allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
 
 
 T = TypeVar("T", bound="AllowedEmailDomains")
@@ -42,6 +39,8 @@ class AllowedEmailDomains:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
+
         projects = []
         for projects_item_data in self.projects:
             projects_item = projects_item_data.to_dict()
@@ -76,9 +75,7 @@ class AllowedEmailDomains:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.allowed_email_domains_projects_item import (
-            AllowedEmailDomainsProjectsItem,
-        )
+        from ..models.allowed_email_domains_projects_item import AllowedEmailDomainsProjectsItem
 
         d = src_dict.copy()
         projects = []

@@ -1,7 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.pick_chart_summary_uuid_or_name_or_space_uuid_or_space_name_or_dashboard_name_or_dashboard_uuid_or_chart_kind import (
@@ -23,6 +25,10 @@ class CatalogAnalytics:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_chart_summary_uuid_or_name_or_space_uuid_or_space_name_or_dashboard_name_or_dashboard_uuid_or_chart_kind import (
+            PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboardUuidOrChartKind,
+        )
+
         charts = []
         for charts_item_data in self.charts:
             charts_item = charts_item_data.to_dict()

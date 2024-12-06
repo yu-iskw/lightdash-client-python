@@ -1,0 +1,40 @@
+{
+  "anyOf": [
+    {
+      "allOf": [
+        {
+          "$ref": "./Partial_DbtSemanticLayerConnection_.json"
+        },
+        {
+          "properties": {
+            "type": {
+              "$ref": "./SemanticLayerType.DBT.json"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "./Partial_CubeSemanticLayerConnection_.json"
+        },
+        {
+          "properties": {
+            "type": {
+              "$ref": "./SemanticLayerType.CUBE.json"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  ]
+}

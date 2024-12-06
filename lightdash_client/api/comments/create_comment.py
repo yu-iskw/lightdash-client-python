@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -9,7 +9,7 @@ from ...models.api_create_comment import ApiCreateComment
 from ...models.pick_comment_text_or_reply_to_or_mentions_or_text_html import (
     PickCommentTextOrReplyToOrMentionsOrTextHtml,
 )
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -22,7 +22,10 @@ def _get_kwargs(
 
     _kwargs: Dict[str, Any] = {
         "method": "post",
-        "url": f"/api/v1/comments/dashboards/{dashboard_uuid}/{dashboard_tile_uuid}",
+        "url": "/api/v1/comments/dashboards/{dashboardUuid}/{dashboardTileUuid}".format(
+            dashboardUuid=dashboard_uuid,
+            dashboardTileUuid=dashboard_tile_uuid,
+        ),
     }
 
     _body = body.to_dict()

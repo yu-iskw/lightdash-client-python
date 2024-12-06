@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,6 +27,8 @@ class CreateSpace:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_space_share_user_uuid_or_role import PickSpaceShareUserUuidOrRole
+
         name = self.name
 
         access: Union[Unset, List[Dict[str, Any]]] = UNSET
@@ -54,9 +56,7 @@ class CreateSpace:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_space_share_user_uuid_or_role import (
-            PickSpaceShareUserUuidOrRole,
-        )
+        from ..models.pick_space_share_user_uuid_or_role import PickSpaceShareUserUuidOrRole
 
         d = src_dict.copy()
         name = d.pop("name")

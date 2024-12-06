@@ -1,9 +1,10 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.space_member_role import SpaceMemberRole
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="SpaceGroup")
 

@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "dimension"
+  ],
+  "type": "string"
+}

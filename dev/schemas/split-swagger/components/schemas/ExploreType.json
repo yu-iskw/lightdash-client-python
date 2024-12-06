@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "virtual",
+    "default"
+  ],
+  "type": "string"
+}

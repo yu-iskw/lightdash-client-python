@@ -1,13 +1,12 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.project_member_role_editor import ProjectMemberRoleEDITOR
-from ..models.project_member_role_interactiveviewer import (
-    ProjectMemberRoleINTERACTIVEVIEWER,
-)
+from ..models.project_member_role_interactiveviewer import ProjectMemberRoleINTERACTIVEVIEWER
 from ..models.project_member_role_viewer import ProjectMemberRoleVIEWER
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="PickAllowedEmailDomainsExcludeKeyofAllowedEmailDomainsOrganizationUuidProjectsItem")
 

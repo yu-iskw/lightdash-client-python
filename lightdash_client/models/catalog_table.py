@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,10 +8,11 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.compiled_explore_join import CompiledExploreJoin
+    from ..models.custom_icon import CustomIcon
+    from ..models.emoji_icon import EmojiIcon
     from ..models.inline_error import InlineError
-    from ..models.record_string_string_or_string_array import (
-        RecordStringStringOrStringArray,
-    )
+    from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+    from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
 
 T = TypeVar("T", bound="CatalogTable")
@@ -23,11 +24,15 @@ class CatalogTable:
     Attributes:
         name (str):
         label (str):
+        icon (Union['CustomIcon', 'EmojiIcon', None]):
+        categories (List['PickTagNameOrColorOrTagUuid']):
         type (CatalogTypeTable):
+        catalog_search_uuid (str):
         description (Union[Unset, str]):
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
         group_label (Union[Unset, str]):
+        chart_usage (Union[Unset, float]):
         joined_tables (Union[Unset, List['CompiledExploreJoin']]):
         tags (Union[Unset, List[str]]):
         errors (Union[Unset, List['InlineError']]):
@@ -35,21 +40,47 @@ class CatalogTable:
 
     name: str
     label: str
+    icon: Union["CustomIcon", "EmojiIcon", None]
+    categories: List["PickTagNameOrColorOrTagUuid"]
     type: CatalogTypeTable
+    catalog_search_uuid: str
     description: Union[Unset, str] = UNSET
     required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     group_label: Union[Unset, str] = UNSET
+    chart_usage: Union[Unset, float] = UNSET
     joined_tables: Union[Unset, List["CompiledExploreJoin"]] = UNSET
     tags: Union[Unset, List[str]] = UNSET
     errors: Union[Unset, List["InlineError"]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.compiled_explore_join import CompiledExploreJoin
+        from ..models.custom_icon import CustomIcon
+        from ..models.emoji_icon import EmojiIcon
+        from ..models.inline_error import InlineError
+        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
+
         name = self.name
 
         label = self.label
 
+        icon: Union[Dict[str, Any], None]
+        if isinstance(self.icon, EmojiIcon):
+            icon = self.icon.to_dict()
+        elif isinstance(self.icon, CustomIcon):
+            icon = self.icon.to_dict()
+        else:
+            icon = self.icon
+
+        categories = []
+        for categories_item_data in self.categories:
+            categories_item = categories_item_data.to_dict()
+            categories.append(categories_item)
+
         type = self.type.value
+
+        catalog_search_uuid = self.catalog_search_uuid
 
         description = self.description
 
@@ -58,6 +89,8 @@ class CatalogTable:
             required_attributes = self.required_attributes.to_dict()
 
         group_label = self.group_label
+
+        chart_usage = self.chart_usage
 
         joined_tables: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.joined_tables, Unset):
@@ -83,7 +116,10 @@ class CatalogTable:
             {
                 "name": name,
                 "label": label,
+                "icon": icon,
+                "categories": categories,
                 "type": type,
+                "catalogSearchUuid": catalog_search_uuid,
             }
         )
         if description is not UNSET:
@@ -92,6 +128,8 @@ class CatalogTable:
             field_dict["requiredAttributes"] = required_attributes
         if group_label is not UNSET:
             field_dict["groupLabel"] = group_label
+        if chart_usage is not UNSET:
+            field_dict["chartUsage"] = chart_usage
         if joined_tables is not UNSET:
             field_dict["joinedTables"] = joined_tables
         if tags is not UNSET:
@@ -104,17 +142,50 @@ class CatalogTable:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.compiled_explore_join import CompiledExploreJoin
+        from ..models.custom_icon import CustomIcon
+        from ..models.emoji_icon import EmojiIcon
         from ..models.inline_error import InlineError
-        from ..models.record_string_string_or_string_array import (
-            RecordStringStringOrStringArray,
-        )
+        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         d = src_dict.copy()
         name = d.pop("name")
 
         label = d.pop("label")
 
+        def _parse_icon(data: object) -> Union["CustomIcon", "EmojiIcon", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_catalog_item_icon_type_0 = EmojiIcon.from_dict(data)
+
+                return componentsschemas_catalog_item_icon_type_0
+            except:  # noqa: E722
+                pass
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_catalog_item_icon_type_1 = CustomIcon.from_dict(data)
+
+                return componentsschemas_catalog_item_icon_type_1
+            except:  # noqa: E722
+                pass
+            return cast(Union["CustomIcon", "EmojiIcon", None], data)
+
+        icon = _parse_icon(d.pop("icon"))
+
+        categories = []
+        _categories = d.pop("categories")
+        for categories_item_data in _categories:
+            categories_item = PickTagNameOrColorOrTagUuid.from_dict(categories_item_data)
+
+            categories.append(categories_item)
+
         type = CatalogTypeTable(d.pop("type"))
+
+        catalog_search_uuid = d.pop("catalogSearchUuid")
 
         description = d.pop("description", UNSET)
 
@@ -126,6 +197,8 @@ class CatalogTable:
             required_attributes = RecordStringStringOrStringArray.from_dict(_required_attributes)
 
         group_label = d.pop("groupLabel", UNSET)
+
+        chart_usage = d.pop("chartUsage", UNSET)
 
         joined_tables = []
         _joined_tables = d.pop("joinedTables", UNSET)
@@ -146,10 +219,14 @@ class CatalogTable:
         catalog_table = cls(
             name=name,
             label=label,
+            icon=icon,
+            categories=categories,
             type=type,
+            catalog_search_uuid=catalog_search_uuid,
             description=description,
             required_attributes=required_attributes,
             group_label=group_label,
+            chart_usage=chart_usage,
             joined_tables=joined_tables,
             tags=tags,
             errors=errors,

@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "unicode": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "unicode"
+  ],
+  "type": "object"
+}

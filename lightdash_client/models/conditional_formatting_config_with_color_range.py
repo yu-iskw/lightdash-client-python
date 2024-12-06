@@ -1,15 +1,15 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.conditional_formatting_config_with_color_range_color import (
         ConditionalFormattingConfigWithColorRangeColor,
     )
-    from ..models.conditional_formatting_with_range import (
-        ConditionalFormattingWithRange,
-    )
+    from ..models.conditional_formatting_with_range import ConditionalFormattingWithRange
     from ..models.field_target import FieldTarget
 
 
@@ -31,6 +31,10 @@ class ConditionalFormattingConfigWithColorRange:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.conditional_formatting_config_with_color_range_color import (
+            ConditionalFormattingConfigWithColorRangeColor,
+        )
+        from ..models.conditional_formatting_with_range import ConditionalFormattingWithRange
         from ..models.field_target import FieldTarget
 
         rule = self.rule.to_dict()
@@ -60,9 +64,7 @@ class ConditionalFormattingConfigWithColorRange:
         from ..models.conditional_formatting_config_with_color_range_color import (
             ConditionalFormattingConfigWithColorRangeColor,
         )
-        from ..models.conditional_formatting_with_range import (
-            ConditionalFormattingWithRange,
-        )
+        from ..models.conditional_formatting_with_range import ConditionalFormattingWithRange
         from ..models.field_target import FieldTarget
 
         d = src_dict.copy()

@@ -1,38 +1,28 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_success_empty import ApiSuccessEmpty
-from ...models.cube_semantic_layer_connection import CubeSemanticLayerConnection
-from ...models.dbt_semantic_layer_connection import DbtSemanticLayerConnection
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
     project_uuid: str,
-    *,
-    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
+    source_catalog_search_uuid: str,
+    target_catalog_search_uuid: str,
 ) -> Dict[str, Any]:
-    headers: Dict[str, Any] = {}
-
     _kwargs: Dict[str, Any] = {
-        "method": "patch",
-        "url": f"/api/v1/projects/{project_uuid}/semantic-layer-connection",
+        "method": "delete",
+        "url": "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges/{sourceCatalogSearchUuid}/{targetCatalogSearchUuid}".format(
+            projectUuid=project_uuid,
+            sourceCatalogSearchUuid=source_catalog_search_uuid,
+            targetCatalogSearchUuid=target_catalog_search_uuid,
+        ),
     }
 
-    _body: Dict[str, Any]
-    if isinstance(body, DbtSemanticLayerConnection):
-        _body = body.to_dict()
-    else:
-        _body = body.to_dict()
-
-    _kwargs["json"] = _body
-    headers["Content-Type"] = "application/json"
-
-    _kwargs["headers"] = headers
     return _kwargs
 
 
@@ -62,14 +52,16 @@ def _build_response(
 
 def sync_detailed(
     project_uuid: str,
+    source_catalog_search_uuid: str,
+    target_catalog_search_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
 ) -> Response[ApiSuccessEmpty]:
     """
     Args:
         project_uuid (str):
-        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
+        source_catalog_search_uuid (str):
+        target_catalog_search_uuid (str):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -81,7 +73,8 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
-        body=body,
+        source_catalog_search_uuid=source_catalog_search_uuid,
+        target_catalog_search_uuid=target_catalog_search_uuid,
     )
 
     response = client.get_httpx_client().request(
@@ -93,14 +86,16 @@ def sync_detailed(
 
 def sync(
     project_uuid: str,
+    source_catalog_search_uuid: str,
+    target_catalog_search_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
 ) -> Optional[ApiSuccessEmpty]:
     """
     Args:
         project_uuid (str):
-        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
+        source_catalog_search_uuid (str):
+        target_catalog_search_uuid (str):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -112,21 +107,24 @@ def sync(
 
     return sync_detailed(
         project_uuid=project_uuid,
+        source_catalog_search_uuid=source_catalog_search_uuid,
+        target_catalog_search_uuid=target_catalog_search_uuid,
         client=client,
-        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     project_uuid: str,
+    source_catalog_search_uuid: str,
+    target_catalog_search_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
 ) -> Response[ApiSuccessEmpty]:
     """
     Args:
         project_uuid (str):
-        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
+        source_catalog_search_uuid (str):
+        target_catalog_search_uuid (str):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -138,7 +136,8 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
-        body=body,
+        source_catalog_search_uuid=source_catalog_search_uuid,
+        target_catalog_search_uuid=target_catalog_search_uuid,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -148,14 +147,16 @@ async def asyncio_detailed(
 
 async def asyncio(
     project_uuid: str,
+    source_catalog_search_uuid: str,
+    target_catalog_search_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
-    body: Union["CubeSemanticLayerConnection", "DbtSemanticLayerConnection"],
 ) -> Optional[ApiSuccessEmpty]:
     """
     Args:
         project_uuid (str):
-        body (Union['CubeSemanticLayerConnection', 'DbtSemanticLayerConnection']):
+        source_catalog_search_uuid (str):
+        target_catalog_search_uuid (str):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +169,8 @@ async def asyncio(
     return (
         await asyncio_detailed(
             project_uuid=project_uuid,
+            source_catalog_search_uuid=source_catalog_search_uuid,
+            target_catalog_search_uuid=target_catalog_search_uuid,
             client=client,
-            body=body,
         )
     ).parsed

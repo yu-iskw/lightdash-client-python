@@ -1,8 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.explore_type import ExploreType
 from ..models.supported_dbt_adapter import SupportedDbtAdapter
 from ..types import UNSET, Unset
 
@@ -25,6 +26,7 @@ class Explore:
         tags (List[str]):
         label (str):
         name (str):
+        type (Union[Unset, ExploreType]):
         sql_path (Union[Unset, str]):
         yml_path (Union[Unset, str]):
         warehouse (Union[Unset, str]):
@@ -38,6 +40,7 @@ class Explore:
     tags: List[str]
     label: str
     name: str
+    type: Union[Unset, ExploreType] = UNSET
     sql_path: Union[Unset, str] = UNSET
     yml_path: Union[Unset, str] = UNSET
     warehouse: Union[Unset, str] = UNSET
@@ -45,6 +48,9 @@ class Explore:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.compiled_explore_join import CompiledExploreJoin
+        from ..models.explore_tables import ExploreTables
+
         target_database = self.target_database.value
 
         tables = self.tables.to_dict()
@@ -61,6 +67,10 @@ class Explore:
         label = self.label
 
         name = self.name
+
+        type: Union[Unset, str] = UNSET
+        if not isinstance(self.type, Unset):
+            type = self.type.value
 
         sql_path = self.sql_path
 
@@ -83,6 +93,8 @@ class Explore:
                 "name": name,
             }
         )
+        if type is not UNSET:
+            field_dict["type"] = type
         if sql_path is not UNSET:
             field_dict["sqlPath"] = sql_path
         if yml_path is not UNSET:
@@ -119,6 +131,13 @@ class Explore:
 
         name = d.pop("name")
 
+        _type = d.pop("type", UNSET)
+        type: Union[Unset, ExploreType]
+        if isinstance(_type, Unset):
+            type = UNSET
+        else:
+            type = ExploreType(_type)
+
         sql_path = d.pop("sqlPath", UNSET)
 
         yml_path = d.pop("ymlPath", UNSET)
@@ -135,6 +154,7 @@ class Explore:
             tags=tags,
             label=label,
             name=name,
+            type=type,
             sql_path=sql_path,
             yml_path=yml_path,
             warehouse=warehouse,

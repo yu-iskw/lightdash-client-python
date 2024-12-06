@@ -1,10 +1,11 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.project_type import ProjectType
 from ..models.warehouse_types import WarehouseTypes
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="OrganizationProject")
 
@@ -16,6 +17,8 @@ class OrganizationProject:
     Attributes:
         require_user_credentials (bool):
         warehouse_type (WarehouseTypes):
+        upstream_project_uuid (Union[None, str]):
+        created_by_user_uuid (Union[None, str]):
         type (ProjectType):
         name (str):
         project_uuid (str): The unique identifier of the project
@@ -23,6 +26,8 @@ class OrganizationProject:
 
     require_user_credentials: bool
     warehouse_type: WarehouseTypes
+    upstream_project_uuid: Union[None, str]
+    created_by_user_uuid: Union[None, str]
     type: ProjectType
     name: str
     project_uuid: str
@@ -32,6 +37,12 @@ class OrganizationProject:
         require_user_credentials = self.require_user_credentials
 
         warehouse_type = self.warehouse_type.value
+
+        upstream_project_uuid: Union[None, str]
+        upstream_project_uuid = self.upstream_project_uuid
+
+        created_by_user_uuid: Union[None, str]
+        created_by_user_uuid = self.created_by_user_uuid
 
         type = self.type.value
 
@@ -45,6 +56,8 @@ class OrganizationProject:
             {
                 "requireUserCredentials": require_user_credentials,
                 "warehouseType": warehouse_type,
+                "upstreamProjectUuid": upstream_project_uuid,
+                "createdByUserUuid": created_by_user_uuid,
                 "type": type,
                 "name": name,
                 "projectUuid": project_uuid,
@@ -60,6 +73,20 @@ class OrganizationProject:
 
         warehouse_type = WarehouseTypes(d.pop("warehouseType"))
 
+        def _parse_upstream_project_uuid(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        upstream_project_uuid = _parse_upstream_project_uuid(d.pop("upstreamProjectUuid"))
+
+        def _parse_created_by_user_uuid(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        created_by_user_uuid = _parse_created_by_user_uuid(d.pop("createdByUserUuid"))
+
         type = ProjectType(d.pop("type"))
 
         name = d.pop("name")
@@ -69,6 +96,8 @@ class OrganizationProject:
         organization_project = cls(
             require_user_credentials=require_user_credentials,
             warehouse_type=warehouse_type,
+            upstream_project_uuid=upstream_project_uuid,
+            created_by_user_uuid=created_by_user_uuid,
             type=type,
             name=name,
             project_uuid=project_uuid,

@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "edges": {
+          "items": {
+            "$ref": "./CatalogMetricsTreeEdge.json"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "edges"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

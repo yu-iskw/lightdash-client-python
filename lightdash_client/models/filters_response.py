@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -29,6 +29,7 @@ class FiltersResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.filter_group_response_type_0 import FilterGroupResponseType0
+        from ..models.filter_group_response_type_1 import FilterGroupResponseType1
 
         table_calculations: Union[Dict[str, Any], Unset]
         if isinstance(self.table_calculations, Unset):

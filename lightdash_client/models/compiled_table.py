@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -7,16 +7,13 @@ from ..models.order_fields_by_strategy import OrderFieldsByStrategy
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.default_time_dimension import DefaultTimeDimension
     from ..models.metric_filter_rule import MetricFilterRule
     from ..models.record_string_compiled_dimension import RecordStringCompiledDimension
     from ..models.record_string_compiled_metric import RecordStringCompiledMetric
     from ..models.record_string_group_type import RecordStringGroupType
-    from ..models.record_string_lineage_node_dependency_array import (
-        RecordStringLineageNodeDependencyArray,
-    )
-    from ..models.record_string_string_or_string_array import (
-        RecordStringStringOrStringArray,
-    )
+    from ..models.record_string_lineage_node_dependency_array import RecordStringLineageNodeDependencyArray
+    from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
     from ..models.source import Source
 
 
@@ -35,6 +32,7 @@ class CompiledTable:
         lineage_graph (RecordStringLineageNodeDependencyArray): Construct a type with a set of properties K of type T
         metrics (RecordStringCompiledMetric): Construct a type with a set of properties K of type T
         dimensions (RecordStringCompiledDimension): Construct a type with a set of properties K of type T
+        default_time_dimension (Union[Unset, DefaultTimeDimension]):
         group_details (Union[Unset, RecordStringGroupType]): Construct a type with a set of properties K of type T
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
@@ -57,6 +55,7 @@ class CompiledTable:
     lineage_graph: "RecordStringLineageNodeDependencyArray"
     metrics: "RecordStringCompiledMetric"
     dimensions: "RecordStringCompiledDimension"
+    default_time_dimension: Union[Unset, "DefaultTimeDimension"] = UNSET
     group_details: Union[Unset, "RecordStringGroupType"] = UNSET
     required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     hidden: Union[Unset, bool] = UNSET
@@ -71,6 +70,15 @@ class CompiledTable:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.default_time_dimension import DefaultTimeDimension
+        from ..models.metric_filter_rule import MetricFilterRule
+        from ..models.record_string_compiled_dimension import RecordStringCompiledDimension
+        from ..models.record_string_compiled_metric import RecordStringCompiledMetric
+        from ..models.record_string_group_type import RecordStringGroupType
+        from ..models.record_string_lineage_node_dependency_array import RecordStringLineageNodeDependencyArray
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
+        from ..models.source import Source
+
         sql_table = self.sql_table
 
         schema = self.schema
@@ -86,6 +94,10 @@ class CompiledTable:
         metrics = self.metrics.to_dict()
 
         dimensions = self.dimensions.to_dict()
+
+        default_time_dimension: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.default_time_dimension, Unset):
+            default_time_dimension = self.default_time_dimension.to_dict()
 
         group_details: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.group_details, Unset):
@@ -136,6 +148,8 @@ class CompiledTable:
                 "dimensions": dimensions,
             }
         )
+        if default_time_dimension is not UNSET:
+            field_dict["defaultTimeDimension"] = default_time_dimension
         if group_details is not UNSET:
             field_dict["groupDetails"] = group_details
         if required_attributes is not UNSET:
@@ -163,18 +177,13 @@ class CompiledTable:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.default_time_dimension import DefaultTimeDimension
         from ..models.metric_filter_rule import MetricFilterRule
-        from ..models.record_string_compiled_dimension import (
-            RecordStringCompiledDimension,
-        )
+        from ..models.record_string_compiled_dimension import RecordStringCompiledDimension
         from ..models.record_string_compiled_metric import RecordStringCompiledMetric
         from ..models.record_string_group_type import RecordStringGroupType
-        from ..models.record_string_lineage_node_dependency_array import (
-            RecordStringLineageNodeDependencyArray,
-        )
-        from ..models.record_string_string_or_string_array import (
-            RecordStringStringOrStringArray,
-        )
+        from ..models.record_string_lineage_node_dependency_array import RecordStringLineageNodeDependencyArray
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
         from ..models.source import Source
 
         d = src_dict.copy()
@@ -193,6 +202,13 @@ class CompiledTable:
         metrics = RecordStringCompiledMetric.from_dict(d.pop("metrics"))
 
         dimensions = RecordStringCompiledDimension.from_dict(d.pop("dimensions"))
+
+        _default_time_dimension = d.pop("defaultTimeDimension", UNSET)
+        default_time_dimension: Union[Unset, DefaultTimeDimension]
+        if isinstance(_default_time_dimension, Unset):
+            default_time_dimension = UNSET
+        else:
+            default_time_dimension = DefaultTimeDimension.from_dict(_default_time_dimension)
 
         _group_details = d.pop("groupDetails", UNSET)
         group_details: Union[Unset, RecordStringGroupType]
@@ -250,6 +266,7 @@ class CompiledTable:
             lineage_graph=lineage_graph,
             metrics=metrics,
             dimensions=dimensions,
+            default_time_dimension=default_time_dimension,
             group_details=group_details,
             required_attributes=required_attributes,
             hidden=hidden,

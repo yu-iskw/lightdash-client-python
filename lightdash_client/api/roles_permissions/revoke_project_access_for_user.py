@@ -1,12 +1,12 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_success_empty import ApiSuccessEmpty
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -15,7 +15,10 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     _kwargs: Dict[str, Any] = {
         "method": "delete",
-        "url": f"/api/v1/projects/{project_uuid}/access/{user_uuid}",
+        "url": "/api/v1/projects/{projectUuid}/access/{userUuid}".format(
+            projectUuid=project_uuid,
+            userUuid=user_uuid,
+        ),
     }
 
     return _kwargs

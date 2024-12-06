@@ -1,12 +1,12 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_csv_url_response import ApiCsvUrlResponse
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -14,7 +14,9 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": f"/api/v1/csv/{job_id}",
+        "url": "/api/v1/csv/{jobId}".format(
+            jobId=job_id,
+        ),
     }
 
     return _kwargs

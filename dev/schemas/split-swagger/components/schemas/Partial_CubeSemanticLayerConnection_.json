@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./SemanticLayerType.CUBE.json"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

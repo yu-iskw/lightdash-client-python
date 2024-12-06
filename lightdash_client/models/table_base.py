@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -7,11 +7,10 @@ from ..models.order_fields_by_strategy import OrderFieldsByStrategy
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.default_time_dimension import DefaultTimeDimension
     from ..models.metric_filter_rule import MetricFilterRule
     from ..models.record_string_group_type import RecordStringGroupType
-    from ..models.record_string_string_or_string_array import (
-        RecordStringStringOrStringArray,
-    )
+    from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
 
 T = TypeVar("T", bound="TableBase")
@@ -26,6 +25,7 @@ class TableBase:
         database (str):
         label (str):
         name (str):
+        default_time_dimension (Union[Unset, DefaultTimeDimension]):
         group_details (Union[Unset, RecordStringGroupType]): Construct a type with a set of properties K of type T
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
@@ -43,6 +43,7 @@ class TableBase:
     database: str
     label: str
     name: str
+    default_time_dimension: Union[Unset, "DefaultTimeDimension"] = UNSET
     group_details: Union[Unset, "RecordStringGroupType"] = UNSET
     required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     hidden: Union[Unset, bool] = UNSET
@@ -55,6 +56,11 @@ class TableBase:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.default_time_dimension import DefaultTimeDimension
+        from ..models.metric_filter_rule import MetricFilterRule
+        from ..models.record_string_group_type import RecordStringGroupType
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
+
         sql_table = self.sql_table
 
         schema = self.schema
@@ -64,6 +70,10 @@ class TableBase:
         label = self.label
 
         name = self.name
+
+        default_time_dimension: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.default_time_dimension, Unset):
+            default_time_dimension = self.default_time_dimension.to_dict()
 
         group_details: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.group_details, Unset):
@@ -105,6 +115,8 @@ class TableBase:
                 "name": name,
             }
         )
+        if default_time_dimension is not UNSET:
+            field_dict["defaultTimeDimension"] = default_time_dimension
         if group_details is not UNSET:
             field_dict["groupDetails"] = group_details
         if required_attributes is not UNSET:
@@ -128,11 +140,10 @@ class TableBase:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.default_time_dimension import DefaultTimeDimension
         from ..models.metric_filter_rule import MetricFilterRule
         from ..models.record_string_group_type import RecordStringGroupType
-        from ..models.record_string_string_or_string_array import (
-            RecordStringStringOrStringArray,
-        )
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         d = src_dict.copy()
         sql_table = d.pop("sqlTable")
@@ -144,6 +155,13 @@ class TableBase:
         label = d.pop("label")
 
         name = d.pop("name")
+
+        _default_time_dimension = d.pop("defaultTimeDimension", UNSET)
+        default_time_dimension: Union[Unset, DefaultTimeDimension]
+        if isinstance(_default_time_dimension, Unset):
+            default_time_dimension = UNSET
+        else:
+            default_time_dimension = DefaultTimeDimension.from_dict(_default_time_dimension)
 
         _group_details = d.pop("groupDetails", UNSET)
         group_details: Union[Unset, RecordStringGroupType]
@@ -189,6 +207,7 @@ class TableBase:
             database=database,
             label=label,
             name=name,
+            default_time_dimension=default_time_dimension,
             group_details=group_details,
             required_attributes=required_attributes,
             hidden=hidden,

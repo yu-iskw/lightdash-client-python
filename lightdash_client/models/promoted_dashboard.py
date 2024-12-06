@@ -1,5 +1,5 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,9 +12,7 @@ if TYPE_CHECKING:
     from ..models.dashboard_filters import DashboardFilters
     from ..models.dashboard_loom_tile import DashboardLoomTile
     from ..models.dashboard_markdown_tile import DashboardMarkdownTile
-    from ..models.dashboard_semantic_viewer_chart_tile import (
-        DashboardSemanticViewerChartTile,
-    )
+    from ..models.dashboard_semantic_viewer_chart_tile import DashboardSemanticViewerChartTile
     from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
     from ..models.dashboard_tab import DashboardTab
     from ..models.updated_by_user import UpdatedByUser
@@ -80,9 +78,13 @@ class PromotedDashboard:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.dashboard_chart_tile import DashboardChartTile
+        from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
+        from ..models.dashboard_semantic_viewer_chart_tile import DashboardSemanticViewerChartTile
         from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
+        from ..models.dashboard_tab import DashboardTab
+        from ..models.updated_by_user import UpdatedByUser
 
         name = self.name
 
@@ -183,9 +185,7 @@ class PromotedDashboard:
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
-        from ..models.dashboard_semantic_viewer_chart_tile import (
-            DashboardSemanticViewerChartTile,
-        )
+        from ..models.dashboard_semantic_viewer_chart_tile import DashboardSemanticViewerChartTile
         from ..models.dashboard_sql_chart_tile import DashboardSqlChartTile
         from ..models.dashboard_tab import DashboardTab
         from ..models.updated_by_user import UpdatedByUser

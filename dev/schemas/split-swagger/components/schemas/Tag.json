@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "createdBy": {
+      "allOf": [
+        {
+          "$ref": "./Pick_LightdashUser.userUuid-or-firstName-or-lastName_.json"
+        }
+      ],
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "color": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "tagUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "createdBy",
+    "createdAt",
+    "color",
+    "name",
+    "projectUuid",
+    "tagUuid"
+  ],
+  "type": "object"
+}

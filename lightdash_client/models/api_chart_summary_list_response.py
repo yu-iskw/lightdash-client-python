@@ -1,11 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.api_chart_summary_list_response_status import (
-    ApiChartSummaryListResponseStatus,
-)
+from ..models.api_chart_summary_list_response_status import ApiChartSummaryListResponseStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.chart_summary import ChartSummary
@@ -27,6 +26,8 @@ class ApiChartSummaryListResponse:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.chart_summary import ChartSummary
+
         results = []
         for results_item_data in self.results:
             results_item = results_item_data.to_dict()

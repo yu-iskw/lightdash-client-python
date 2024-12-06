@@ -26,7 +26,6 @@ schema_json="${PROJECT_DIR}/dev/schemas/rebuilt-swagger.json"
 config_yaml="${PROJECT_DIR}/dev/openapi-python-client.yml"
 output_dir="${PROJECT_DIR}"
 meta="setup"
-skip_validate_spec=1
 while (($# > 0)); do
   if [[ "$1" == "--schema-json" ]]; then
     schema_json="${2:?}"
@@ -39,9 +38,6 @@ while (($# > 0)); do
     shift 2
   elif [[ "$1" == "--meta" ]]; then
     meta="${2:?}"
-    shift 2
-  elif [[ "$1" == "--skip-validate-spec" ]]; then
-    skip_validate_spec="${2:?}"
     shift 2
   else
     echo "ERROR: Unrecognized argument ${1}" >&2
@@ -60,10 +56,17 @@ openapi-python-client generate \
   --meta "${meta:?}" \
   "${options[@]}"
 
-ls -la "${temp_dir:?}/lightdash-client-python"
+# Check the generated project
+generated_project_dir="${temp_dir:?}/lightdash-client-python"
+ls -la "${generated_project_dir:?}"
+
+# Replace the default auth method from Bearer to ApiKey
+sed -i -e "s/Bearer/ApiKey/" "${generated_project_dir:?}/lightdash_client/client.py"
 
 # Copy the files
-cp -apR "${temp_dir:?}/lightdash-client-python/"* "${output_dir:?}"
+rsync -a -r --delete-after "${generated_project_dir:?}/lightdash_client/models/" "${output_dir:?}/lightdash_client/models/"
+rsync -a -r --delete-after "${generated_project_dir:?}/lightdash_client/api/" "${output_dir:?}/lightdash_client/api/"
+rsync -a -r --delete-after "${generated_project_dir:?}/lightdash_client/client.py" "${output_dir:?}/lightdash_client/client.py"
 
 # Remove the temporary directory
 rm -fr "${temp_dir:?}"

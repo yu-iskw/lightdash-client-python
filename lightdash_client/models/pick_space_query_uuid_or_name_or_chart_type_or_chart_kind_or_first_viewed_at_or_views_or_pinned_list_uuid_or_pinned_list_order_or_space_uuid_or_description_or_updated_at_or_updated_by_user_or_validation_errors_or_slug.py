@@ -1,5 +1,5 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -60,6 +60,11 @@ class PickSpaceQueryUuidOrNameOrChartTypeOrChartKindOrFirstViewedAtOrViewsOrPinn
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_validation_response_error_or_created_at_or_validation_id import (
+            PickValidationResponseErrorOrCreatedAtOrValidationId,
+        )
+        from ..models.updated_by_user import UpdatedByUser
+
         name = self.name
 
         uuid = self.uuid

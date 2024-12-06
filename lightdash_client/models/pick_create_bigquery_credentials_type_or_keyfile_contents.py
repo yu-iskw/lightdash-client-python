@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.warehouse_types_bigquery import WarehouseTypesBIGQUERY
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.record_string_string import RecordStringString
@@ -26,6 +27,8 @@ class PickCreateBigqueryCredentialsTypeOrKeyfileContents:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.record_string_string import RecordStringString
+
         type = self.type.value
 
         keyfile_contents = self.keyfile_contents.to_dict()

@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -33,6 +33,10 @@ class ResourceViewDashboardItem:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_dashboard_basic_details_uuid_or_space_uuid_or_description_or_name_or_views_or_first_viewed_at_or_pinned_list_uuid_or_pinned_list_order_or_updated_at_or_updated_by_user_or_validation_errors import (
+            PickDashboardBasicDetailsUuidOrSpaceUuidOrDescriptionOrNameOrViewsOrFirstViewedAtOrPinnedListUuidOrPinnedListOrderOrUpdatedAtOrUpdatedByUserOrValidationErrors,
+        )
+
         data = self.data.to_dict()
 
         type = self.type.value
