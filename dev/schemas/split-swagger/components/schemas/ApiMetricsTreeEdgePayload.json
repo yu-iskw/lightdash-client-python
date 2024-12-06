@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "targetCatalogSearchUuid": {
+      "type": "string"
+    },
+    "sourceCatalogSearchUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "targetCatalogSearchUuid",
+    "sourceCatalogSearchUuid"
+  ],
+  "type": "object"
+}

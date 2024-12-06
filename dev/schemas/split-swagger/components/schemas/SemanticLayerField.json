@@ -13,7 +13,7 @@
       "type": "array"
     },
     "aggType": {
-      "type": "string"
+      "$ref": "./VizAggregationOptions.json"
     },
     "visible": {
       "type": "boolean"

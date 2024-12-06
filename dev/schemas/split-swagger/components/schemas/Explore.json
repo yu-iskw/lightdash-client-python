@@ -1,5 +1,8 @@
 {
   "properties": {
+    "type": {
+      "$ref": "./ExploreType.json"
+    },
     "sqlPath": {
       "type": "string"
     },

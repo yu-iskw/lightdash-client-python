@@ -6,6 +6,14 @@
     "warehouseType": {
       "$ref": "./WarehouseTypes.json"
     },
+    "upstreamProjectUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "createdByUserUuid": {
+      "type": "string",
+      "nullable": true
+    },
     "type": {
       "$ref": "./ProjectType.json"
     },
@@ -21,6 +29,8 @@
   "required": [
     "requireUserCredentials",
     "warehouseType",
+    "upstreamProjectUuid",
+    "createdByUserUuid",
     "type",
     "name",
     "projectUuid"

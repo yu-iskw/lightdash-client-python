@@ -1,0 +1,90 @@
+{
+  "post": {
+    "operationId": "createTag",
+    "responses": {
+      "201": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiCreateTagResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/Pick_Tag.name-or-color_.json"
+          }
+        }
+      }
+    }
+  },
+  "get": {
+    "operationId": "getTags",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGetTagsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

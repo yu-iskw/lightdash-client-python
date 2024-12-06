@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "interval": {
+      "$ref": "./TimeFrames.json"
+    },
+    "field": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "interval",
+    "field"
+  ],
+  "type": "object"
+}

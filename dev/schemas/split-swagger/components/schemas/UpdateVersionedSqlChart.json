@@ -1,7 +1,7 @@
 {
   "properties": {
     "config": {
-      "$ref": "./VizChartConfig.json"
+      "$ref": "./AllVizChartConfig.json"
     },
     "limit": {
       "type": "number",

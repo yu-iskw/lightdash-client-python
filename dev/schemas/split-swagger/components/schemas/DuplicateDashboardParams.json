@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "dashboardDesc": {
+      "type": "string"
+    },
+    "dashboardName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dashboardDesc",
+    "dashboardName"
+  ],
+  "type": "object"
+}

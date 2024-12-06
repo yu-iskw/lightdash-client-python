@@ -6,7 +6,7 @@
     {
       "properties": {
         "direction": {
-          "$ref": "./SemanticLayerSortByDirection.json"
+          "$ref": "./SortByDirection.json"
         }
       },
       "required": [

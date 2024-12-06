@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "label",
+    "url"
+  ],
+  "type": "object"
+}

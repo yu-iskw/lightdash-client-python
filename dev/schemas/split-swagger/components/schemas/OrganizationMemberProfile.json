@@ -1,12 +1,16 @@
 {
   "properties": {
+    "isPending": {
+      "type": "boolean",
+      "description": "Whether the user doesn't have an authentication method (password or openId)"
+    },
     "isInviteExpired": {
       "type": "boolean",
       "description": "Whether the user's invite to the organization has expired"
     },
     "isActive": {
       "type": "boolean",
-      "description": "Whether the user has accepted their invite to the organization"
+      "description": "Whether the user can login"
     },
     "role": {
       "$ref": "./OrganizationMemberRole.json",
@@ -25,6 +29,14 @@
     "firstName": {
       "type": "string"
     },
+    "userUpdatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "userCreatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
     "userUuid": {
       "type": "string",
       "description": "Unique identifier for the user",
@@ -38,6 +50,8 @@
     "email",
     "lastName",
     "firstName",
+    "userUpdatedAt",
+    "userCreatedAt",
     "userUuid"
   ],
   "type": "object",

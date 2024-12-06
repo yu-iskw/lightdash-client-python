@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

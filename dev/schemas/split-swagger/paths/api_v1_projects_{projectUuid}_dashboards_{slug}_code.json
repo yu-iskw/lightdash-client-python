@@ -1,0 +1,78 @@
+{
+  "post": {
+    "operationId": "upsertDashboardAsCode",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiDashboardAsCodeUpsertResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "path",
+        "name": "slug",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "allOf": [
+              {
+                "$ref": "../components/schemas/Omit_DashboardAsCode.filters-or-tiles-or-description_.json"
+              },
+              {
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "tiles": {},
+                  "filters": {}
+                },
+                "required": [
+                  "tiles",
+                  "filters"
+                ],
+                "type": "object"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

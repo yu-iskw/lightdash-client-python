@@ -1,0 +1,27 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Pick_SavedChart.name-or-description-or-tableName-or-metricQuery-or-chartConfig-or-tableConfig-or-slug-or-dashboardUuid-or-updatedAt_.json"
+    },
+    {
+      "properties": {
+        "downloadedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spaceSlug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "spaceSlug",
+        "version"
+      ],
+      "type": "object"
+    }
+  ]
+}

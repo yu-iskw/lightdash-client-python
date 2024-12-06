@@ -1,5 +1,35 @@
 {
   "properties": {
+    "customMetrics": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "./Pick_SemanticLayerField.name-or-aggType_.json"
+          },
+          {
+            "properties": {
+              "baseDimension": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "filters": {
+      "items": {
+        "$ref": "./SemanticLayerFilter.json"
+      },
+      "type": "array"
+    },
+    "pivot": {
+      "$ref": "./SemanticLayerPivot.json"
+    },
     "timezone": {
       "type": "string"
     },
@@ -7,18 +37,9 @@
       "type": "number",
       "format": "double"
     },
-    "pivot": {
-      "$ref": "./SemanticLayerPivot.json"
-    },
     "sortBy": {
       "items": {
         "$ref": "./SemanticLayerSortBy.json"
-      },
-      "type": "array"
-    },
-    "filters": {
-      "items": {
-        "$ref": "./SemanticLayerFilter.json"
       },
       "type": "array"
     },
@@ -42,8 +63,8 @@
     }
   },
   "required": [
-    "sortBy",
     "filters",
+    "sortBy",
     "metrics",
     "timeDimensions",
     "dimensions"

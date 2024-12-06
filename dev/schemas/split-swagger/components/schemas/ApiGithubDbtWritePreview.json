@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "files": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "path": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "files",
+        "path",
+        "repo",
+        "url"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

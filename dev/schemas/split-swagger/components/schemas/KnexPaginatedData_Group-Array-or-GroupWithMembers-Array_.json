@@ -1,0 +1,48 @@
+{
+  "properties": {
+    "pagination": {
+      "allOf": [
+        {
+          "$ref": "./KnexPaginateArgs.json"
+        },
+        {
+          "properties": {
+            "totalResults": {
+              "type": "number",
+              "format": "double"
+            },
+            "totalPageCount": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "required": [
+            "totalResults",
+            "totalPageCount"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "data": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "./Group.json"
+          },
+          "type": "array"
+        },
+        {
+          "items": {
+            "$ref": "./GroupWithMembers.json"
+          },
+          "type": "array"
+        }
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ],
+  "type": "object"
+}

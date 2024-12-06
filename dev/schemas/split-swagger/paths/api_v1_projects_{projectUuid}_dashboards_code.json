@@ -1,0 +1,41 @@
+{
+  "get": {
+    "operationId": "getDashboardsAsCode",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiDashboardAsCodeListResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

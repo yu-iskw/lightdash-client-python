@@ -1,0 +1,58 @@
+{
+  "allOf": [
+    {
+      "$ref": "./CompiledMetric.json"
+    },
+    {
+      "properties": {
+        "availableTimeDimensions": {
+          "items": {
+            "allOf": [
+              {
+                "$ref": "./CompiledDimension.json"
+              },
+              {
+                "properties": {
+                  "type": {
+                    "anyOf": [
+                      {
+                        "$ref": "./DimensionType.DATE.json"
+                      },
+                      {
+                        "$ref": "./DimensionType.TIMESTAMP.json"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "timeDimension": {
+          "allOf": [
+            {
+              "$ref": "./DefaultTimeDimension.json"
+            },
+            {
+              "properties": {
+                "table": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "table"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

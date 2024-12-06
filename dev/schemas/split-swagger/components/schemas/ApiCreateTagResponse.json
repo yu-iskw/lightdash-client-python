@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "tagUuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tagUuid"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

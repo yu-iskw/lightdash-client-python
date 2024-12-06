@@ -43,12 +43,14 @@
         "uploadGsheets",
         "downloadCsv",
         "uploadGsheetFromQuery",
+        "createProjectWithCompile",
         "compileProject",
         "testAndCompileProject",
         "validateProject",
         "sqlRunner",
         "sqlRunnerPivotQuery",
-        "semanticLayer"
+        "semanticLayer",
+        "indexCatalog"
       ]
     }
   },

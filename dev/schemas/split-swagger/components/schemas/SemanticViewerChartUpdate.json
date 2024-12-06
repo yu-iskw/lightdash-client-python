@@ -6,7 +6,7 @@
           "$ref": "./ChartKind.json"
         },
         "config": {
-          "$ref": "./VizChartConfig.json"
+          "$ref": "./AllVizChartConfig.json"
         },
         "semanticLayerQuery": {
           "$ref": "./SemanticLayerQuery.json"

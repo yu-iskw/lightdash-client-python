@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "results": {
+      "$ref": "./KnexPaginatedData_ApiMetricsCatalogResults_.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

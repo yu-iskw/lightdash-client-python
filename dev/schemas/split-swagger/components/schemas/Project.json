@@ -1,5 +1,12 @@
 {
   "properties": {
+    "createdByUserUuid": {
+      "type": "string",
+      "nullable": true
+    },
+    "schedulerTimezone": {
+      "type": "string"
+    },
     "semanticLayerConnection": {
       "$ref": "./SemanticLayerConnection.json"
     },
@@ -32,6 +39,8 @@
     }
   },
   "required": [
+    "createdByUserUuid",
+    "schedulerTimezone",
     "dbtVersion",
     "dbtConnection",
     "type",

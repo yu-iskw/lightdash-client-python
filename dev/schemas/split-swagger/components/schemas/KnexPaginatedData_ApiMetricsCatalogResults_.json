@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "pagination": {
+      "allOf": [
+        {
+          "$ref": "./KnexPaginateArgs.json"
+        },
+        {
+          "properties": {
+            "totalResults": {
+              "type": "number",
+              "format": "double"
+            },
+            "totalPageCount": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "required": [
+            "totalResults",
+            "totalPageCount"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "data": {
+      "$ref": "./ApiMetricsCatalogResults.json"
+    }
+  },
+  "required": [
+    "data"
+  ],
+  "type": "object"
+}

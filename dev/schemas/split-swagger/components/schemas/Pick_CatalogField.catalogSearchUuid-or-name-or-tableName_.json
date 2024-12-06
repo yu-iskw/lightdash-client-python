@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "catalogSearchUuid": {
+      "type": "string"
+    },
+    "tableName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "catalogSearchUuid",
+    "tableName"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

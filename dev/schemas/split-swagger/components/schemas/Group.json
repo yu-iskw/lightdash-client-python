@@ -4,6 +4,21 @@
       "type": "string",
       "description": "The UUID of the organization that the group belongs to"
     },
+    "updatedByUserUuid": {
+      "type": "string",
+      "nullable": true,
+      "description": "The UUID of the user that last updated the group"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the group was last updated"
+    },
+    "createdByUserUuid": {
+      "type": "string",
+      "nullable": true,
+      "description": "The UUID of the user that created the group"
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -20,6 +35,9 @@
   },
   "required": [
     "organizationUuid",
+    "updatedByUserUuid",
+    "updatedAt",
+    "createdByUserUuid",
     "createdAt",
     "name",
     "uuid"

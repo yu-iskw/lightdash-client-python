@@ -1,0 +1,53 @@
+{
+  "properties": {
+    "tabs": {
+      "items": {
+        "$ref": "./DashboardTab.json"
+      },
+      "type": "array"
+    },
+    "spaceUuid": {
+      "type": "string"
+    },
+    "updatedByUser": {
+      "$ref": "./Pick_UpdatedByUser.userUuid_.json"
+    },
+    "filters": {
+      "$ref": "./DashboardFilters.json"
+    },
+    "tiles": {
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "./CreateDashboardChartTile.json"
+          },
+          {
+            "$ref": "./CreateDashboardMarkdownTile.json"
+          },
+          {
+            "$ref": "./CreateDashboardLoomTile.json"
+          },
+          {
+            "$ref": "./CreateDashboardSqlChartTile.json"
+          },
+          {
+            "$ref": "./CreateDashboardSemanticViewerChartTile.json"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tabs",
+    "tiles",
+    "name"
+  ],
+  "type": "object"
+}

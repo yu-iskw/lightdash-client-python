@@ -9,6 +9,9 @@
     "groupLabel": {
       "type": "string"
     },
+    "type": {
+      "$ref": "./ExploreType.json"
+    },
     "tags": {
       "items": {
         "type": "string"

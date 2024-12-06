@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "fields": {
+      "$ref": "./ItemsMap.json"
+    },
+    "comparisonRows": {
+      "items": {
+        "$ref": "./ResultRow.json"
+      },
+      "type": "array"
+    },
+    "rows": {
+      "items": {
+        "$ref": "./ResultRow.json"
+      },
+      "type": "array"
+    },
+    "metric": {
+      "$ref": "./MetricWithAssociatedTimeDimension.json"
+    }
+  },
+  "required": [
+    "fields",
+    "rows",
+    "metric"
+  ],
+  "type": "object"
+}

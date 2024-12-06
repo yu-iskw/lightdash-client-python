@@ -1,7 +1,10 @@
 {
   "properties": {
     "results": {
-      "$ref": "./Pick_Explore.name_.json"
+      "items": {
+        "$ref": "./DashboardAsCode.json"
+      },
+      "type": "array"
     },
     "status": {
       "type": "string",

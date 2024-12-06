@@ -1,0 +1,157 @@
+{
+  "get": {
+    "operationId": "getDashboards",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiGetDashboardsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "post": {
+    "operationId": "createDashboard",
+    "responses": {
+      "201": {
+        "description": "Created",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiCreateDashboardResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "duplicateFrom",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "anyOf": [
+              {
+                "$ref": "../components/schemas/DuplicateDashboardParams.json"
+              },
+              {
+                "$ref": "../components/schemas/CreateDashboard.json"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "patch": {
+    "operationId": "updateDashboards",
+    "responses": {
+      "200": {
+        "description": "Updated",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiUpdateDashboardsResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "items": {
+              "$ref": "../components/schemas/UpdateMultipleDashboards.json"
+            },
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

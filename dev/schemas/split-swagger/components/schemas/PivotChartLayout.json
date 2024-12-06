@@ -31,6 +31,7 @@
           }
         },
         "required": [
+          "aggregation",
           "reference"
         ],
         "type": "object"
