@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Lightdash API",
-    "version": "0.1286.0",
+    "version": "0.1398.0",
     "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
@@ -328,6 +328,551 @@
             "description": "Field name to get analytics for",
             "in": "path",
             "name": "field",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics": {
+      "get": {
+        "operationId": "getMetricsCatalog",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMetricsCatalog"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get metrics catalog",
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ApiSortDirection"
+            }
+          },
+          {
+            "in": "query",
+            "name": "categories",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/{tableName}/{metricName}": {
+      "get": {
+        "operationId": "getMetric",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetMetricPeek"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get metric by table and metric name",
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "tableName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "metricName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics-with-time-dimensions": {
+      "get": {
+        "operationId": "getMetricsWithTimeDimensions",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMetricsWithAssociatedTimeDimensionResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get metrics with time dimensions",
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories": {
+      "post": {
+        "operationId": "addCategoryToCatalogItem",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "catalogSearchUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tagUuid": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tagUuid"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories/{tagUuid}": {
+      "delete": {
+        "operationId": "removeCategoryFromCatalogItem",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {},
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "catalogSearchUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "tagUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/icon": {
+      "patch": {
+        "operationId": "updateCatalogItemIcon",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "catalogSearchUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "icon": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/CatalogItemIcon"
+                      }
+                    ],
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "icon"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree": {
+      "get": {
+        "operationId": "getMetricsTree",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetMetricsTree"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "metricUuids",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges": {
+      "post": {
+        "operationId": "createMetricsTreeEdge",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApiMetricsTreeEdgePayload"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges/{sourceCatalogSearchUuid}/{targetCatalogSearchUuid}": {
+      "delete": {
+        "operationId": "deleteMetricsTreeEdge",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "sourceCatalogSearchUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "targetCatalogSearchUuid",
             "required": true,
             "schema": {
               "type": "string"
@@ -1003,6 +1548,12 @@
                   },
                   {
                     "properties": {
+                      "pivotColumns": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
                       "chartName": {
                         "type": "string"
                       },
@@ -1919,6 +2470,106 @@
         ]
       }
     },
+    "/api/v1/projects/{projectUuid}/metricsExplorer/{explore}/{metric}/runMetricExplorerQuery": {
+      "post": {
+        "operationId": "runMetricExplorerQuery",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMetricsExplorerQueryResults"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Run a metrics explorer query",
+        "tags": [
+          "Metrics Explorer",
+          "Metrics",
+          "Explorer"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "description": "The project UUID",
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The explore name",
+            "in": "path",
+            "name": "explore",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The metric name",
+            "in": "path",
+            "name": "metric",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "comparison": {
+                    "$ref": "#/components/schemas/MetricExplorerComparisonType"
+                  },
+                  "timeDimensionOverride": {
+                    "$ref": "#/components/schemas/TimeDimensionConfig"
+                  }
+                },
+                "required": [
+                  "comparison"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/notifications": {
       "get": {
         "operationId": "getNotifications",
@@ -2274,6 +2925,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "filter users who can view this project",
+            "in": "query",
+            "name": "projectUuid",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ]
       }
@@ -2503,7 +3163,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiGroupResponse"
+                  "$ref": "#/components/schemas/ApiCreateGroupResponse"
                 }
               }
             }
@@ -2569,6 +3229,24 @@
         "security": [],
         "parameters": [
           {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
             "description": "number of members to include",
             "in": "query",
             "name": "includeMembers",
@@ -2576,6 +3254,14 @@
             "schema": {
               "format": "double",
               "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "searchQuery",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           }
         ]
@@ -2823,6 +3509,15 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "Whether to exclude charts that are saved in dashboards",
+            "in": "query",
+            "name": "excludeChartsSavedInDashboard",
+            "required": false,
+            "schema": {
+              "type": "boolean"
             }
           }
         ]
@@ -3644,7 +4339,748 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SemanticLayerConnection"
+                "$ref": "#/components/schemas/SemanticLayerConnectionUpdate"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteProjectSemanticLayerConnection",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dashboards": {
+      "get": {
+        "operationId": "getDashboards",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetDashboardsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createDashboard",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCreateDashboardResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "duplicateFrom",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/DuplicateDashboardParams"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateDashboard"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateDashboards",
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiUpdateDashboardsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/Pick_Dashboard.uuid-or-name-or-description-or-spaceUuid_"
+                },
+                "type": "array"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/createPreview": {
+      "post": {
+        "operationId": "createPreview",
+        "responses": {
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "copyContent": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "copyContent",
+                  "name"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/schedulerSettings": {
+      "patch": {
+        "operationId": "updateSchedulerSettings",
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSchedulerSettings"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/tags": {
+      "post": {
+        "operationId": "createTag",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCreateTagResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pick_Tag.name-or-color_"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTags",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGetTagsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/tags/{tagUuid}": {
+      "delete": {
+        "operationId": "deleteTag",
+        "responses": {
+          "204": {
+            "description": "Deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tagUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "updateTag",
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSuccessEmpty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tagUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Partial_Pick_DbTag.name-or-color__"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/charts/code": {
+      "get": {
+        "operationId": "getChartsAsCode",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiChartAsCodeListResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Charts as code",
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dashboards/code": {
+      "get": {
+        "operationId": "getDashboardsAsCode",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDashboardAsCodeListResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectUuid}/charts/{slug}/code": {
+      "post": {
+        "operationId": "upsertChartAsCode",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiChartAsCodeUpsertResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Pick_ChartAsCode.Exclude_keyofChartAsCode.metricQuery-or-chartConfig__"
+                  },
+                  {
+                    "properties": {
+                      "metricQuery": {},
+                      "chartConfig": {}
+                    },
+                    "required": [
+                      "metricQuery",
+                      "chartConfig"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectUuid}/dashboards/{slug}/code": {
+      "post": {
+        "operationId": "upsertDashboardAsCode",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDashboardAsCodeUpsertResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Pick_DashboardAsCode.Exclude_keyofDashboardAsCode.filters-or-tiles-or-description__"
+                  },
+                  {
+                    "properties": {
+                      "description": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "tiles": {},
+                      "filters": {}
+                    },
+                    "required": [
+                      "tiles",
+                      "filters"
+                    ],
+                    "type": "object"
+                  }
+                ]
               }
             }
           }
@@ -4258,6 +5694,100 @@
         ]
       }
     },
+    "/api/v1/saved/{chartUuid}/downloadCsv": {
+      "post": {
+        "operationId": "DownloadCsvFromSavedChart",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "properties": {
+                        "jobId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "jobId"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Download a CSV from a saved chart uuid",
+        "tags": [
+          "Charts"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chartUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "csvLimit": {
+                    "type": "number",
+                    "format": "double",
+                    "nullable": true
+                  },
+                  "onlyRaw": {
+                    "type": "boolean"
+                  },
+                  "tileUuid": {
+                    "type": "string"
+                  },
+                  "dashboardFilters": {}
+                },
+                "required": [
+                  "onlyRaw",
+                  "dashboardFilters"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/schedulers/{projectUuid}/logs": {
       "get": {
         "operationId": "getSchedulerLogs",
@@ -4760,7 +6290,16 @@
           "Integrations"
         ],
         "security": [],
-        "parameters": []
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/api/v1/slack/custom-settings": {
@@ -5940,6 +7479,83 @@
         ]
       }
     },
+    "/api/v1/user/me/personal-access-tokens/{personalAccessTokenUuid}/rotate": {
+      "patch": {
+        "operationId": "Rotate personal access token",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "$ref": "#/components/schemas/PersonalAccessTokenWithToken"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "nullable": false
+                    }
+                  },
+                  "required": [
+                    "results",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorPayload"
+                }
+              }
+            }
+          }
+        },
+        "description": "Rotate personal access token",
+        "tags": [
+          "My Account"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "personalAccessTokenUuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "expiresAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "expiresAt"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/projects/{projectUuid}/validate": {
       "post": {
         "operationId": "ValidateProject",
@@ -6239,6 +7855,58 @@
         "type": "object",
         "description": "From T, pick a set of properties whose keys are in the union K"
       },
+      "EmojiIcon": {
+        "properties": {
+          "unicode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "unicode"
+        ],
+        "type": "object"
+      },
+      "CustomIcon": {
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "CatalogItemIcon": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EmojiIcon"
+          },
+          {
+            "$ref": "#/components/schemas/CustomIcon"
+          }
+        ]
+      },
+      "Pick_Tag.name-or-color-or-tagUuid_": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "tagUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "color",
+          "tagUuid"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
       "CatalogType.Field": {
         "enum": [
           "field"
@@ -6255,6 +7923,24 @@
           },
           {
             "properties": {
+              "icon": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CatalogItemIcon"
+                  }
+                ],
+                "nullable": true
+              },
+              "chartUsage": {
+                "type": "number",
+                "format": "double"
+              },
+              "categories": {
+                "items": {
+                  "$ref": "#/components/schemas/Pick_Tag.name-or-color-or-tagUuid_"
+                },
+                "type": "array"
+              },
               "tags": {
                 "items": {
                   "type": "string"
@@ -6272,11 +7958,17 @@
               },
               "type": {
                 "$ref": "#/components/schemas/CatalogType.Field"
+              },
+              "catalogSearchUuid": {
+                "type": "string"
               }
             },
             "required": [
+              "icon",
+              "categories",
               "tableName",
-              "type"
+              "type",
+              "catalogSearchUuid"
             ],
             "type": "object"
           }
@@ -6394,9 +8086,27 @@
           },
           {
             "properties": {
+              "icon": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CatalogItemIcon"
+                  }
+                ],
+                "nullable": true
+              },
+              "chartUsage": {
+                "type": "number",
+                "format": "double"
+              },
               "joinedTables": {
                 "items": {
                   "$ref": "#/components/schemas/CompiledExploreJoin"
+                },
+                "type": "array"
+              },
+              "categories": {
+                "items": {
+                  "$ref": "#/components/schemas/Pick_Tag.name-or-color-or-tagUuid_"
                 },
                 "type": "array"
               },
@@ -6417,10 +8127,16 @@
                   "$ref": "#/components/schemas/InlineError"
                 },
                 "type": "array"
+              },
+              "catalogSearchUuid": {
+                "type": "string"
               }
             },
             "required": [
-              "type"
+              "icon",
+              "categories",
+              "type",
+              "catalogSearchUuid"
             ],
             "type": "object"
           }
@@ -6551,6 +8267,884 @@
         },
         "required": [
           "charts"
+        ],
+        "type": "object"
+      },
+      "ApiSortDirection": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ]
+      },
+      "KnexPaginateArgs": {
+        "properties": {
+          "page": {
+            "type": "number",
+            "format": "double"
+          },
+          "pageSize": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "page",
+          "pageSize"
+        ],
+        "type": "object"
+      },
+      "ApiMetricsCatalogResults": {
+        "items": {
+          "$ref": "#/components/schemas/CatalogField"
+        },
+        "type": "array"
+      },
+      "KnexPaginatedData_ApiMetricsCatalogResults_": {
+        "properties": {
+          "pagination": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KnexPaginateArgs"
+              },
+              {
+                "properties": {
+                  "totalResults": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "totalPageCount": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "required": [
+                  "totalResults",
+                  "totalPageCount"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "data": {
+            "$ref": "#/components/schemas/ApiMetricsCatalogResults"
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "type": "object"
+      },
+      "ApiMetricsCatalog": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/KnexPaginatedData_ApiMetricsCatalogResults_"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "FieldType.METRIC": {
+        "enum": [
+          "metric"
+        ],
+        "type": "string"
+      },
+      "MetricType": {
+        "enum": [
+          "percentile",
+          "average",
+          "count",
+          "count_distinct",
+          "sum",
+          "min",
+          "max",
+          "number",
+          "median",
+          "string",
+          "date",
+          "timestamp",
+          "boolean"
+        ],
+        "type": "string"
+      },
+      "SourcePosition": {
+        "properties": {
+          "character": {
+            "type": "number",
+            "format": "double"
+          },
+          "line": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "character",
+          "line"
+        ],
+        "type": "object"
+      },
+      "Source": {
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "highlight": {
+            "properties": {
+              "end": {
+                "$ref": "#/components/schemas/SourcePosition"
+              },
+              "start": {
+                "$ref": "#/components/schemas/SourcePosition"
+              }
+            },
+            "required": [
+              "end",
+              "start"
+            ],
+            "type": "object"
+          },
+          "range": {
+            "properties": {
+              "end": {
+                "$ref": "#/components/schemas/SourcePosition"
+              },
+              "start": {
+                "$ref": "#/components/schemas/SourcePosition"
+              }
+            },
+            "required": [
+              "end",
+              "start"
+            ],
+            "type": "object"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content",
+          "range",
+          "path"
+        ],
+        "type": "object"
+      },
+      "Compact": {
+        "enum": [
+          "thousands",
+          "millions",
+          "billions",
+          "trillions"
+        ],
+        "type": "string"
+      },
+      "CompactOrAlias": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Compact"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "K",
+              "thousand",
+              "M",
+              "million",
+              "B",
+              "billion",
+              "T",
+              "trillion"
+            ]
+          }
+        ]
+      },
+      "Format": {
+        "enum": [
+          "km",
+          "mi",
+          "usd",
+          "gbp",
+          "eur",
+          "id",
+          "percent"
+        ],
+        "type": "string"
+      },
+      "FieldUrl": {
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "type": "object"
+      },
+      "ConditionalOperator": {
+        "enum": [
+          "isNull",
+          "notNull",
+          "equals",
+          "notEquals",
+          "startsWith",
+          "endsWith",
+          "include",
+          "doesNotInclude",
+          "lessThan",
+          "lessThanOrEqual",
+          "greaterThan",
+          "greaterThanOrEqual",
+          "inThePast",
+          "notInThePast",
+          "inTheNext",
+          "inTheCurrent",
+          "notInTheCurrent",
+          "inBetween"
+        ],
+        "type": "string"
+      },
+      "MetricFilterRule": {
+        "properties": {
+          "values": {
+            "items": {},
+            "type": "array"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/ConditionalOperator"
+          },
+          "id": {
+            "type": "string"
+          },
+          "target": {
+            "properties": {
+              "fieldRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fieldRef"
+            ],
+            "type": "object"
+          },
+          "settings": {},
+          "disabled": {
+            "type": "boolean"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "operator",
+          "id",
+          "target"
+        ],
+        "type": "object",
+        "additionalProperties": true
+      },
+      "CustomFormatType": {
+        "enum": [
+          "default",
+          "percent",
+          "currency",
+          "number",
+          "id",
+          "date",
+          "timestamp"
+        ],
+        "type": "string"
+      },
+      "NumberSeparator": {
+        "enum": [
+          "default",
+          "commaPeriod",
+          "spacePeriod",
+          "periodComma",
+          "noSeparatorPeriod"
+        ],
+        "type": "string"
+      },
+      "TimeFrames": {
+        "enum": [
+          "RAW",
+          "YEAR",
+          "QUARTER",
+          "MONTH",
+          "WEEK",
+          "DAY",
+          "HOUR",
+          "MINUTE",
+          "SECOND",
+          "MILLISECOND",
+          "DAY_OF_WEEK_INDEX",
+          "DAY_OF_MONTH_NUM",
+          "DAY_OF_YEAR_NUM",
+          "WEEK_NUM",
+          "MONTH_NUM",
+          "QUARTER_NUM",
+          "YEAR_NUM",
+          "DAY_OF_WEEK_NAME",
+          "MONTH_NAME",
+          "QUARTER_NAME",
+          "HOUR_OF_DAY_NUM",
+          "MINUTE_OF_HOUR_NUM"
+        ],
+        "type": "string"
+      },
+      "CustomFormat": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CustomFormatType"
+          },
+          "round": {
+            "type": "number",
+            "format": "double"
+          },
+          "separator": {
+            "$ref": "#/components/schemas/NumberSeparator"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "compact": {
+            "$ref": "#/components/schemas/CompactOrAlias"
+          },
+          "prefix": {
+            "type": "string"
+          },
+          "suffix": {
+            "type": "string"
+          },
+          "timeInterval": {
+            "$ref": "#/components/schemas/TimeFrames"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "additionalProperties": true
+      },
+      "DefaultTimeDimension": {
+        "properties": {
+          "interval": {
+            "$ref": "#/components/schemas/TimeFrames"
+          },
+          "field": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "interval",
+          "field"
+        ],
+        "type": "object"
+      },
+      "Record_string.Record_string.string-or-string-Array__": {
+        "properties": {},
+        "type": "object",
+        "description": "Construct a type with a set of properties K of type T"
+      },
+      "CompiledMetric": {
+        "properties": {
+          "fieldType": {
+            "$ref": "#/components/schemas/FieldType.METRIC"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MetricType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "table": {
+            "type": "string"
+          },
+          "tableLabel": {
+            "type": "string"
+          },
+          "sql": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "compact": {
+            "$ref": "#/components/schemas/CompactOrAlias"
+          },
+          "round": {
+            "type": "number",
+            "format": "double"
+          },
+          "format": {
+            "$ref": "#/components/schemas/Format"
+          },
+          "groupLabel": {
+            "type": "string",
+            "deprecated": true
+          },
+          "groups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "urls": {
+            "items": {
+              "$ref": "#/components/schemas/FieldUrl"
+            },
+            "type": "array"
+          },
+          "index": {
+            "type": "number",
+            "format": "double"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "isAutoGenerated": {
+            "type": "boolean"
+          },
+          "showUnderlyingValues": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "filters": {
+            "items": {
+              "$ref": "#/components/schemas/MetricFilterRule"
+            },
+            "type": "array"
+          },
+          "percentile": {
+            "type": "number",
+            "format": "double"
+          },
+          "formatOptions": {
+            "$ref": "#/components/schemas/CustomFormat"
+          },
+          "dimensionReference": {
+            "type": "string"
+          },
+          "requiredAttributes": {
+            "$ref": "#/components/schemas/Record_string.string-or-string-Array_"
+          },
+          "defaultTimeDimension": {
+            "$ref": "#/components/schemas/DefaultTimeDimension"
+          },
+          "compiledSql": {
+            "type": "string"
+          },
+          "tablesReferences": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "tablesRequiredAttributes": {
+            "$ref": "#/components/schemas/Record_string.Record_string.string-or-string-Array__"
+          }
+        },
+        "required": [
+          "fieldType",
+          "type",
+          "name",
+          "label",
+          "table",
+          "tableLabel",
+          "sql",
+          "hidden",
+          "isAutoGenerated",
+          "compiledSql"
+        ],
+        "type": "object",
+        "additionalProperties": true
+      },
+      "FieldType.DIMENSION": {
+        "enum": [
+          "dimension"
+        ],
+        "type": "string"
+      },
+      "DimensionType": {
+        "enum": [
+          "string",
+          "number",
+          "timestamp",
+          "date",
+          "boolean"
+        ],
+        "type": "string"
+      },
+      "Record_string.string_": {
+        "properties": {},
+        "type": "object",
+        "description": "Construct a type with a set of properties K of type T"
+      },
+      "CompiledDimension": {
+        "properties": {
+          "fieldType": {
+            "$ref": "#/components/schemas/FieldType.DIMENSION"
+          },
+          "type": {
+            "$ref": "#/components/schemas/DimensionType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "table": {
+            "type": "string"
+          },
+          "tableLabel": {
+            "type": "string"
+          },
+          "sql": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "compact": {
+            "$ref": "#/components/schemas/CompactOrAlias"
+          },
+          "round": {
+            "type": "number",
+            "format": "double"
+          },
+          "format": {
+            "$ref": "#/components/schemas/Format"
+          },
+          "groupLabel": {
+            "type": "string",
+            "deprecated": true
+          },
+          "groups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "urls": {
+            "items": {
+              "$ref": "#/components/schemas/FieldUrl"
+            },
+            "type": "array"
+          },
+          "index": {
+            "type": "number",
+            "format": "double"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "group": {
+            "type": "string",
+            "deprecated": true
+          },
+          "requiredAttributes": {
+            "$ref": "#/components/schemas/Record_string.string-or-string-Array_"
+          },
+          "timeInterval": {
+            "$ref": "#/components/schemas/TimeFrames"
+          },
+          "timeIntervalBaseDimensionName": {
+            "type": "string"
+          },
+          "isAdditionalDimension": {
+            "type": "boolean"
+          },
+          "colors": {
+            "$ref": "#/components/schemas/Record_string.string_"
+          },
+          "isIntervalBase": {
+            "type": "boolean"
+          },
+          "compiledSql": {
+            "type": "string"
+          },
+          "tablesReferences": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "tablesRequiredAttributes": {
+            "$ref": "#/components/schemas/Record_string.Record_string.string-or-string-Array__"
+          }
+        },
+        "required": [
+          "fieldType",
+          "type",
+          "name",
+          "label",
+          "table",
+          "tableLabel",
+          "sql",
+          "hidden",
+          "compiledSql"
+        ],
+        "type": "object",
+        "additionalProperties": true
+      },
+      "DimensionType.DATE": {
+        "enum": [
+          "date"
+        ],
+        "type": "string"
+      },
+      "DimensionType.TIMESTAMP": {
+        "enum": [
+          "timestamp"
+        ],
+        "type": "string"
+      },
+      "MetricWithAssociatedTimeDimension": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CompiledMetric"
+          },
+          {
+            "properties": {
+              "availableTimeDimensions": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CompiledDimension"
+                    },
+                    {
+                      "properties": {
+                        "type": {
+                          "anyOf": [
+                            {
+                              "$ref": "#/components/schemas/DimensionType.DATE"
+                            },
+                            {
+                              "$ref": "#/components/schemas/DimensionType.TIMESTAMP"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              "timeDimension": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DefaultTimeDimension"
+                  },
+                  {
+                    "properties": {
+                      "table": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "table"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "ApiGetMetricPeek": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/MetricWithAssociatedTimeDimension"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "ApiMetricsWithAssociatedTimeDimensionResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/MetricWithAssociatedTimeDimension"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "ApiSuccessEmpty": {
+        "properties": {
+          "results": {},
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_CatalogField.catalogSearchUuid-or-name-or-tableName_": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "catalogSearchUuid": {
+            "type": "string"
+          },
+          "tableName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "catalogSearchUuid",
+          "tableName"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "CatalogMetricsTreeEdge": {
+        "properties": {
+          "projectUuid": {
+            "type": "string"
+          },
+          "createdByUserUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "target": {
+            "$ref": "#/components/schemas/Pick_CatalogField.catalogSearchUuid-or-name-or-tableName_"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Pick_CatalogField.catalogSearchUuid-or-name-or-tableName_"
+          }
+        },
+        "required": [
+          "projectUuid",
+          "createdByUserUuid",
+          "createdAt",
+          "target",
+          "source"
+        ],
+        "type": "object"
+      },
+      "ApiGetMetricsTree": {
+        "properties": {
+          "results": {
+            "properties": {
+              "edges": {
+                "items": {
+                  "$ref": "#/components/schemas/CatalogMetricsTreeEdge"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "edges"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "ApiMetricsTreeEdgePayload": {
+        "properties": {
+          "targetCatalogSearchUuid": {
+            "type": "string"
+          },
+          "sourceCatalogSearchUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "targetCatalogSearchUuid",
+          "sourceCatalogSearchUuid"
         ],
         "type": "object"
       },
@@ -6794,6 +9388,9 @@
         "properties": {
           "properties": {
             "properties": {
+              "chartSlug": {
+                "type": "string"
+              },
               "lastVersionChartKind": {
                 "allOf": [
                   {
@@ -6944,6 +9541,9 @@
         "properties": {
           "properties": {
             "properties": {
+              "chartSlug": {
+                "type": "string"
+              },
               "hideTitle": {
                 "type": "boolean"
               },
@@ -6994,6 +9594,9 @@
         "properties": {
           "properties": {
             "properties": {
+              "chartSlug": {
+                "type": "string"
+              },
               "hideTitle": {
                 "type": "boolean"
               },
@@ -7052,29 +9655,6 @@
             "$ref": "#/components/schemas/DashboardSemanticViewerChartTile"
           }
         ]
-      },
-      "ConditionalOperator": {
-        "enum": [
-          "isNull",
-          "notNull",
-          "equals",
-          "notEquals",
-          "startsWith",
-          "endsWith",
-          "include",
-          "doesNotInclude",
-          "lessThan",
-          "lessThanOrEqual",
-          "greaterThan",
-          "greaterThanOrEqual",
-          "inThePast",
-          "notInThePast",
-          "inTheNext",
-          "inTheCurrent",
-          "notInTheCurrent",
-          "inBetween"
-        ],
-        "type": "string"
       },
       "DashboardFieldTarget": {
         "properties": {
@@ -7429,16 +10009,6 @@
         ],
         "type": "string"
       },
-      "DimensionType": {
-        "enum": [
-          "string",
-          "number",
-          "timestamp",
-          "date",
-          "boolean"
-        ],
-        "type": "string"
-      },
       "CustomSqlDimension": {
         "properties": {
           "id": {
@@ -7480,187 +10050,6 @@
             "$ref": "#/components/schemas/CustomSqlDimension"
           }
         ]
-      },
-      "MetricType": {
-        "enum": [
-          "percentile",
-          "average",
-          "count",
-          "count_distinct",
-          "sum",
-          "min",
-          "max",
-          "number",
-          "median",
-          "string",
-          "date",
-          "timestamp",
-          "boolean"
-        ],
-        "type": "string"
-      },
-      "Compact": {
-        "enum": [
-          "thousands",
-          "millions",
-          "billions",
-          "trillions"
-        ],
-        "type": "string"
-      },
-      "CompactOrAlias": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/Compact"
-          },
-          {
-            "type": "string",
-            "enum": [
-              "K",
-              "thousand",
-              "M",
-              "million",
-              "B",
-              "billion",
-              "T",
-              "trillion"
-            ]
-          }
-        ]
-      },
-      "Format": {
-        "enum": [
-          "km",
-          "mi",
-          "usd",
-          "gbp",
-          "eur",
-          "id",
-          "percent"
-        ],
-        "type": "string"
-      },
-      "MetricFilterRule": {
-        "properties": {
-          "values": {
-            "items": {},
-            "type": "array"
-          },
-          "operator": {
-            "$ref": "#/components/schemas/ConditionalOperator"
-          },
-          "id": {
-            "type": "string"
-          },
-          "target": {
-            "properties": {
-              "fieldRef": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "fieldRef"
-            ],
-            "type": "object"
-          },
-          "settings": {},
-          "disabled": {
-            "type": "boolean"
-          },
-          "required": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "operator",
-          "id",
-          "target"
-        ],
-        "type": "object",
-        "additionalProperties": true
-      },
-      "CustomFormatType": {
-        "enum": [
-          "default",
-          "percent",
-          "currency",
-          "number",
-          "id",
-          "date",
-          "timestamp"
-        ],
-        "type": "string"
-      },
-      "NumberSeparator": {
-        "enum": [
-          "default",
-          "commaPeriod",
-          "spacePeriod",
-          "periodComma",
-          "noSeparatorPeriod"
-        ],
-        "type": "string"
-      },
-      "TimeFrames": {
-        "enum": [
-          "RAW",
-          "YEAR",
-          "QUARTER",
-          "MONTH",
-          "WEEK",
-          "DAY",
-          "HOUR",
-          "MINUTE",
-          "SECOND",
-          "MILLISECOND",
-          "DAY_OF_WEEK_INDEX",
-          "DAY_OF_MONTH_NUM",
-          "DAY_OF_YEAR_NUM",
-          "WEEK_NUM",
-          "MONTH_NUM",
-          "QUARTER_NUM",
-          "YEAR_NUM",
-          "DAY_OF_WEEK_NAME",
-          "MONTH_NAME",
-          "QUARTER_NAME",
-          "HOUR_OF_DAY_NUM",
-          "MINUTE_OF_HOUR_NUM"
-        ],
-        "type": "string"
-      },
-      "CustomFormat": {
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/CustomFormatType"
-          },
-          "round": {
-            "type": "number",
-            "format": "double"
-          },
-          "separator": {
-            "$ref": "#/components/schemas/NumberSeparator"
-          },
-          "currency": {
-            "type": "string"
-          },
-          "compact": {
-            "$ref": "#/components/schemas/CompactOrAlias"
-          },
-          "prefix": {
-            "type": "string"
-          },
-          "suffix": {
-            "type": "string"
-          },
-          "timeInterval": {
-            "$ref": "#/components/schemas/TimeFrames"
-          }
-        },
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "additionalProperties": true
       },
       "AdditionalMetric": {
         "properties": {
@@ -8510,11 +10899,6 @@
         "type": "object",
         "description": "Construct a type with a set of properties K of type T"
       },
-      "Record_string.string_": {
-        "properties": {},
-        "type": "object",
-        "description": "Construct a type with a set of properties K of type T"
-      },
       "PieChartValueLabel": {
         "type": "string",
         "enum": [
@@ -8939,6 +11323,9 @@
           "slug": {
             "type": "string"
           },
+          "tableName": {
+            "type": "string"
+          },
           "updatedAt": {
             "type": "string",
             "format": "date-time"
@@ -8950,9 +11337,6 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "tableName": {
-            "type": "string"
           },
           "metricQuery": {
             "$ref": "#/components/schemas/MetricQuery"
@@ -9006,9 +11390,9 @@
           "dashboardUuid",
           "dashboardName",
           "slug",
+          "tableName",
           "updatedAt",
           "pinnedListOrder",
-          "tableName",
           "metricQuery",
           "chartConfig",
           "tableConfig",
@@ -9209,6 +11593,13 @@
         ],
         "type": "object"
       },
+      "ExploreType": {
+        "enum": [
+          "virtual",
+          "default"
+        ],
+        "type": "string"
+      },
       "Pick_Explore.SummaryExploreFields_": {
         "properties": {
           "name": {
@@ -9219,6 +11610,9 @@
           },
           "groupLabel": {
             "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ExploreType"
           },
           "tags": {
             "items": {
@@ -9263,6 +11657,9 @@
           },
           "groupLabel": {
             "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ExploreType"
           },
           "tags": {
             "items": {
@@ -9331,22 +11728,6 @@
         },
         "type": "array"
       },
-      "ApiSuccessEmpty": {
-        "properties": {
-          "results": {},
-          "status": {
-            "type": "string",
-            "enum": [
-              "ok"
-            ],
-            "nullable": false
-          }
-        },
-        "required": [
-          "status"
-        ],
-        "type": "object"
-      },
       "SupportedDbtAdapter": {
         "enum": [
           "bigquery",
@@ -9372,6 +11753,9 @@
       },
       "TableBase": {
         "properties": {
+          "defaultTimeDimension": {
+            "$ref": "#/components/schemas/DefaultTimeDimension"
+          },
           "groupDetails": {
             "$ref": "#/components/schemas/Record_string.GroupType_"
           },
@@ -9427,69 +11811,6 @@
         ],
         "type": "object"
       },
-      "SourcePosition": {
-        "properties": {
-          "character": {
-            "type": "number",
-            "format": "double"
-          },
-          "line": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "required": [
-          "character",
-          "line"
-        ],
-        "type": "object"
-      },
-      "Source": {
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "highlight": {
-            "properties": {
-              "end": {
-                "$ref": "#/components/schemas/SourcePosition"
-              },
-              "start": {
-                "$ref": "#/components/schemas/SourcePosition"
-              }
-            },
-            "required": [
-              "end",
-              "start"
-            ],
-            "type": "object"
-          },
-          "range": {
-            "properties": {
-              "end": {
-                "$ref": "#/components/schemas/SourcePosition"
-              },
-              "start": {
-                "$ref": "#/components/schemas/SourcePosition"
-              }
-            },
-            "required": [
-              "end",
-              "start"
-            ],
-            "type": "object"
-          },
-          "path": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "content",
-          "range",
-          "path"
-        ],
-        "type": "object"
-      },
       "Record_string.LineageNodeDependency-Array_": {
         "properties": {},
         "type": "object",
@@ -9539,6 +11860,9 @@
       },
       "Explore": {
         "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ExploreType"
+          },
           "sqlPath": {
             "type": "string"
           },
@@ -9861,6 +12185,21 @@
             "type": "string",
             "description": "The UUID of the organization that the group belongs to"
           },
+          "updatedByUserUuid": {
+            "type": "string",
+            "nullable": true,
+            "description": "The UUID of the user that last updated the group"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The time that the group was last updated"
+          },
+          "createdByUserUuid": {
+            "type": "string",
+            "nullable": true,
+            "description": "The UUID of the user that created the group"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -9877,6 +12216,9 @@
         },
         "required": [
           "organizationUuid",
+          "updatedByUserUuid",
+          "updatedAt",
+          "createdByUserUuid",
           "createdAt",
           "name",
           "uuid"
@@ -10094,6 +12436,144 @@
         "properties": {
           "results": {
             "$ref": "#/components/schemas/ProjectGroupAccess"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "MetricExplorerComparison.NONE": {
+        "enum": [
+          "none"
+        ],
+        "type": "string"
+      },
+      "MetricExplorerComparison.PREVIOUS_PERIOD": {
+        "enum": [
+          "previous_period"
+        ],
+        "type": "string"
+      },
+      "MetricExplorerComparison.DIFFERENT_METRIC": {
+        "enum": [
+          "different_metric"
+        ],
+        "type": "string"
+      },
+      "MetricExplorerComparisonType": {
+        "anyOf": [
+          {
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/MetricExplorerComparison.NONE"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/MetricExplorerComparison.PREVIOUS_PERIOD"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "metricName": {
+                "type": "string"
+              },
+              "metricTable": {
+                "type": "string"
+              },
+              "type": {
+                "$ref": "#/components/schemas/MetricExplorerComparison.DIFFERENT_METRIC"
+              }
+            },
+            "required": [
+              "metricName",
+              "metricTable",
+              "type"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "TimeDimensionConfig": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DefaultTimeDimension"
+          },
+          {
+            "properties": {
+              "table": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "table"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "Record_string.Field-or-TableCalculation-or-CustomDimension-or-Metric_": {
+        "properties": {},
+        "type": "object",
+        "description": "Construct a type with a set of properties K of type T"
+      },
+      "Record_string._value-ResultValue--__": {
+        "properties": {},
+        "type": "object",
+        "description": "Construct a type with a set of properties K of type T"
+      },
+      "MetricsExplorerQueryResults": {
+        "properties": {
+          "fields": {
+            "$ref": "#/components/schemas/Record_string.Field-or-TableCalculation-or-CustomDimension-or-Metric_"
+          },
+          "comparisonRows": {
+            "items": {
+              "$ref": "#/components/schemas/Record_string._value-ResultValue--__"
+            },
+            "type": "array"
+          },
+          "rows": {
+            "items": {
+              "$ref": "#/components/schemas/Record_string._value-ResultValue--__"
+            },
+            "type": "array"
+          },
+          "metric": {
+            "$ref": "#/components/schemas/MetricWithAssociatedTimeDimension"
+          }
+        },
+        "required": [
+          "fields",
+          "rows",
+          "metric"
+        ],
+        "type": "object"
+      },
+      "ApiMetricsExplorerQueryResults": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/MetricsExplorerQueryResults"
           },
           "status": {
             "type": "string",
@@ -10345,6 +12825,14 @@
           "warehouseType": {
             "$ref": "#/components/schemas/WarehouseTypes"
           },
+          "upstreamProjectUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdByUserUuid": {
+            "type": "string",
+            "nullable": true
+          },
           "type": {
             "$ref": "#/components/schemas/ProjectType"
           },
@@ -10360,6 +12848,8 @@
         "required": [
           "requireUserCredentials",
           "warehouseType",
+          "upstreamProjectUuid",
+          "createdByUserUuid",
           "type",
           "name",
           "projectUuid"
@@ -10390,23 +12880,6 @@
         "type": "object",
         "description": "List of projects in the current organization"
       },
-      "KnexPaginateArgs": {
-        "properties": {
-          "page": {
-            "type": "number",
-            "format": "double"
-          },
-          "pageSize": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "required": [
-          "page",
-          "pageSize"
-        ],
-        "type": "object"
-      },
       "OrganizationMemberRole": {
         "enum": [
           "member",
@@ -10420,13 +12893,17 @@
       },
       "OrganizationMemberProfile": {
         "properties": {
+          "isPending": {
+            "type": "boolean",
+            "description": "Whether the user doesn't have an authentication method (password or openId)"
+          },
           "isInviteExpired": {
             "type": "boolean",
             "description": "Whether the user's invite to the organization has expired"
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether the user has accepted their invite to the organization"
+            "description": "Whether the user can login"
           },
           "role": {
             "$ref": "#/components/schemas/OrganizationMemberRole",
@@ -10445,6 +12922,14 @@
           "firstName": {
             "type": "string"
           },
+          "userUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userCreatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
           "userUuid": {
             "type": "string",
             "description": "Unique identifier for the user",
@@ -10458,6 +12943,8 @@
           "email",
           "lastName",
           "firstName",
+          "userUpdatedAt",
+          "userCreatedAt",
           "userUuid"
         ],
         "type": "object",
@@ -10472,12 +12959,17 @@
               },
               {
                 "properties": {
+                  "totalResults": {
+                    "type": "number",
+                    "format": "double"
+                  },
                   "totalPageCount": {
                     "type": "number",
                     "format": "double"
                   }
                 },
                 "required": [
+                  "totalResults",
                   "totalPageCount"
                 ],
                 "type": "object"
@@ -10720,9 +13212,33 @@
         "type": "object",
         "description": "From T, pick a set of properties whose keys are in the union K"
       },
-      "ApiGroupListResponse": {
+      "KnexPaginatedData_Group-Array-or-GroupWithMembers-Array_": {
         "properties": {
-          "results": {
+          "pagination": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KnexPaginateArgs"
+              },
+              {
+                "properties": {
+                  "totalResults": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "totalPageCount": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "required": [
+                  "totalResults",
+                  "totalPageCount"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "data": {
             "anyOf": [
               {
                 "items": {
@@ -10737,6 +13253,17 @@
                 "type": "array"
               }
             ]
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "type": "object"
+      },
+      "ApiGroupListResponse": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/KnexPaginatedData_Group-Array-or-GroupWithMembers-Array_"
           },
           "status": {
             "type": "string",
@@ -10782,6 +13309,25 @@
             "type": "object"
           }
         ]
+      },
+      "ApiCreateGroupResponse": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/GroupWithMembers"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
       },
       "ResourceItemCategory": {
         "enum": [
@@ -12017,6 +14563,13 @@
       },
       "Project": {
         "properties": {
+          "createdByUserUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "schedulerTimezone": {
+            "type": "string"
+          },
           "semanticLayerConnection": {
             "$ref": "#/components/schemas/SemanticLayerConnection"
           },
@@ -12049,6 +14602,8 @@
           }
         },
         "required": [
+          "createdByUserUuid",
+          "schedulerTimezone",
           "dbtVersion",
           "dbtConnection",
           "type",
@@ -13036,6 +15591,1010 @@
         },
         "type": "object"
       },
+      "Partial_DbtSemanticLayerConnection_": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SemanticLayerType.DBT"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "description": "Make all properties in T optional"
+      },
+      "Partial_CubeSemanticLayerConnection_": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SemanticLayerType.CUBE"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "description": "Make all properties in T optional"
+      },
+      "SemanticLayerConnectionUpdate": {
+        "anyOf": [
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Partial_DbtSemanticLayerConnection_"
+              },
+              {
+                "properties": {
+                  "type": {
+                    "$ref": "#/components/schemas/SemanticLayerType.DBT"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Partial_CubeSemanticLayerConnection_"
+              },
+              {
+                "properties": {
+                  "type": {
+                    "$ref": "#/components/schemas/SemanticLayerType.CUBE"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              }
+            ]
+          }
+        ]
+      },
+      "DashboardBasicDetailsWithTileTypes": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DashboardBasicDetails"
+          },
+          {
+            "properties": {
+              "tileTypes": {
+                "items": {
+                  "$ref": "#/components/schemas/DashboardTileTypes"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "tileTypes"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "ApiGetDashboardsResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardBasicDetailsWithTileTypes"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "DuplicateDashboardParams": {
+        "properties": {
+          "dashboardDesc": {
+            "type": "string"
+          },
+          "dashboardName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dashboardDesc",
+          "dashboardName"
+        ],
+        "type": "object"
+      },
+      "Pick_UpdatedByUser.userUuid_": {
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userUuid"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "CreateDashboardTileBase": {
+        "properties": {
+          "tabUuid": {
+            "type": "string"
+          },
+          "w": {
+            "type": "number",
+            "format": "double"
+          },
+          "h": {
+            "type": "number",
+            "format": "double"
+          },
+          "y": {
+            "type": "number",
+            "format": "double"
+          },
+          "x": {
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "$ref": "#/components/schemas/DashboardTileTypes"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "w",
+          "h",
+          "y",
+          "x",
+          "type"
+        ],
+        "type": "object"
+      },
+      "CreateDashboardChartTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreateDashboardTileBase"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardChartTileProperties"
+          }
+        ]
+      },
+      "CreateDashboardMarkdownTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreateDashboardTileBase"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardMarkdownTileProperties"
+          }
+        ]
+      },
+      "CreateDashboardLoomTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreateDashboardTileBase"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardLoomTileProperties"
+          }
+        ]
+      },
+      "CreateDashboardSqlChartTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreateDashboardTileBase"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardSqlChartTileProperties"
+          }
+        ]
+      },
+      "CreateDashboardSemanticViewerChartTile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreateDashboardTileBase"
+          },
+          {
+            "$ref": "#/components/schemas/DashboardSemanticViewerChartTileProperties"
+          }
+        ]
+      },
+      "CreateDashboard": {
+        "properties": {
+          "tabs": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardTab"
+            },
+            "type": "array"
+          },
+          "spaceUuid": {
+            "type": "string"
+          },
+          "updatedByUser": {
+            "$ref": "#/components/schemas/Pick_UpdatedByUser.userUuid_"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/DashboardFilters"
+          },
+          "tiles": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/CreateDashboardChartTile"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateDashboardMarkdownTile"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateDashboardLoomTile"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateDashboardSqlChartTile"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateDashboardSemanticViewerChartTile"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "description": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tabs",
+          "tiles",
+          "name"
+        ],
+        "type": "object"
+      },
+      "Dashboard": {
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "access": {
+            "items": {
+              "$ref": "#/components/schemas/SpaceShare"
+            },
+            "type": "array",
+            "nullable": true
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "tabs": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardTab"
+            },
+            "type": "array"
+          },
+          "pinnedListOrder": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pinnedListUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstViewedAt": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true
+          },
+          "views": {
+            "type": "number",
+            "format": "double"
+          },
+          "spaceName": {
+            "type": "string"
+          },
+          "spaceUuid": {
+            "type": "string"
+          },
+          "updatedByUser": {
+            "$ref": "#/components/schemas/UpdatedByUser"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/DashboardFilters"
+          },
+          "tiles": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardTile"
+            },
+            "type": "array"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "dashboardVersionId": {
+            "type": "number",
+            "format": "double"
+          },
+          "projectUuid": {
+            "type": "string"
+          },
+          "organizationUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "access",
+          "isPrivate",
+          "tabs",
+          "pinnedListOrder",
+          "pinnedListUuid",
+          "firstViewedAt",
+          "views",
+          "spaceName",
+          "spaceUuid",
+          "filters",
+          "tiles",
+          "updatedAt",
+          "name",
+          "uuid",
+          "dashboardVersionId",
+          "projectUuid",
+          "organizationUuid"
+        ],
+        "type": "object"
+      },
+      "ApiCreateDashboardResponse": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/Dashboard"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_Dashboard.uuid-or-name-or-description-or-spaceUuid_": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "spaceUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "uuid",
+          "spaceUuid"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "ApiUpdateDashboardsResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/Dashboard"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "UpdateSchedulerSettings": {
+        "properties": {
+          "schedulerTimezone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "schedulerTimezone"
+        ],
+        "type": "object"
+      },
+      "Pick_LightdashUser.userUuid-or-firstName-or-lastName_": {
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userUuid",
+          "firstName",
+          "lastName"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "Tag": {
+        "properties": {
+          "createdBy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Pick_LightdashUser.userUuid-or-firstName-or-lastName_"
+              }
+            ],
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "color": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "projectUuid": {
+            "type": "string"
+          },
+          "tagUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "createdBy",
+          "createdAt",
+          "color",
+          "name",
+          "projectUuid",
+          "tagUuid"
+        ],
+        "type": "object"
+      },
+      "ApiGetTagsResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_Tag.name-or-color_": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "color"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "ApiCreateTagResponse": {
+        "properties": {
+          "results": {
+            "properties": {
+              "tagUuid": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tagUuid"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Partial_Pick_DbTag.name-or-color__": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "description": "Make all properties in T optional"
+      },
+      "Pick_SavedChart.name-or-description-or-tableName-or-metricQuery-or-chartConfig-or-tableConfig-or-slug-or-dashboardUuid-or-updatedAt_": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dashboardUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string"
+          },
+          "tableName": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "metricQuery": {
+            "$ref": "#/components/schemas/MetricQuery"
+          },
+          "chartConfig": {
+            "$ref": "#/components/schemas/ChartConfig"
+          },
+          "tableConfig": {
+            "properties": {
+              "columnOrder": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "columnOrder"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "name",
+          "dashboardUuid",
+          "slug",
+          "tableName",
+          "updatedAt",
+          "metricQuery",
+          "chartConfig",
+          "tableConfig"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "ChartAsCode": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Pick_SavedChart.name-or-description-or-tableName-or-metricQuery-or-chartConfig-or-tableConfig-or-slug-or-dashboardUuid-or-updatedAt_"
+          },
+          {
+            "properties": {
+              "downloadedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "spaceSlug": {
+                "type": "string"
+              },
+              "version": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "required": [
+              "spaceSlug",
+              "version"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "ApiChartAsCodeListResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/ChartAsCode"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_Dashboard.name-or-description-or-updatedAt-or-filters-or-tabs-or-slug_": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/DashboardFilters"
+          },
+          "tabs": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardTab"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "name",
+          "slug",
+          "updatedAt",
+          "filters",
+          "tabs"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "Pick_DashboardTile.Exclude_keyofDashboardTile.properties__": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DashboardTileTypes"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number",
+            "format": "double"
+          },
+          "y": {
+            "type": "number",
+            "format": "double"
+          },
+          "h": {
+            "type": "number",
+            "format": "double"
+          },
+          "w": {
+            "type": "number",
+            "format": "double"
+          },
+          "tabUuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "x",
+          "y",
+          "h",
+          "w"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "Pick_DashboardTile-at-properties.Exclude_keyofDashboardTile-at-properties.savedChartUuid-or-savedSqlUuid-or-savedSemanticViewerChartUuid__": {
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "DashboardTileWithoutUuids": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Pick_DashboardTile.Exclude_keyofDashboardTile.properties__"
+          },
+          {
+            "properties": {
+              "properties": {
+                "$ref": "#/components/schemas/Pick_DashboardTile-at-properties.Exclude_keyofDashboardTile-at-properties.savedChartUuid-or-savedSqlUuid-or-savedSemanticViewerChartUuid__"
+              }
+            },
+            "required": [
+              "properties"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "DashboardAsCode": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Pick_Dashboard.name-or-description-or-updatedAt-or-filters-or-tabs-or-slug_"
+          },
+          {
+            "properties": {
+              "downloadedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "spaceSlug": {
+                "type": "string"
+              },
+              "version": {
+                "type": "number",
+                "format": "double"
+              },
+              "tiles": {
+                "items": {
+                  "$ref": "#/components/schemas/DashboardTileWithoutUuids"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "spaceSlug",
+              "version",
+              "tiles"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "ApiDashboardAsCodeListResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardAsCode"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_ChartAsCode.Exclude_keyofChartAsCode.metricQuery-or-chartConfig__": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dashboardUuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string"
+          },
+          "tableName": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tableConfig": {
+            "properties": {
+              "columnOrder": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "columnOrder"
+            ],
+            "type": "object"
+          },
+          "version": {
+            "type": "number",
+            "format": "double"
+          },
+          "spaceSlug": {
+            "type": "string"
+          },
+          "downloadedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "dashboardUuid",
+          "slug",
+          "tableName",
+          "updatedAt",
+          "tableConfig",
+          "version",
+          "spaceSlug"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "ApiChartAsCodeUpsertResponse": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/PromotionChanges"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Pick_DashboardAsCode.Exclude_keyofDashboardAsCode.filters-or-tiles-or-description__": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tabs": {
+            "items": {
+              "$ref": "#/components/schemas/DashboardTab"
+            },
+            "type": "array"
+          },
+          "version": {
+            "type": "number",
+            "format": "double"
+          },
+          "spaceSlug": {
+            "type": "string"
+          },
+          "downloadedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "slug",
+          "updatedAt",
+          "tabs",
+          "version",
+          "spaceSlug"
+        ],
+        "type": "object",
+        "description": "From T, pick a set of properties whose keys are in the union K"
+      },
+      "ApiDashboardAsCodeUpsertResponse": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/PromotionChanges"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "results",
+          "status"
+        ],
+        "type": "object"
+      },
       "Record_string.Item-or-AdditionalMetric_": {
         "properties": {},
         "type": "object",
@@ -13094,26 +16653,6 @@
           "status"
         ],
         "type": "object"
-      },
-      "Pick_LightdashUser.userUuid-or-firstName-or-lastName_": {
-        "properties": {
-          "userUuid": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "userUuid",
-          "firstName",
-          "lastName"
-        ],
-        "type": "object",
-        "description": "From T, pick a set of properties whose keys are in the union K"
       },
       "Pick_ChartVersion.chartUuid-or-versionUuid-or-createdAt-or-createdBy_": {
         "properties": {
@@ -13434,12 +16973,14 @@
               "uploadGsheets",
               "downloadCsv",
               "uploadGsheetFromQuery",
+              "createProjectWithCompile",
               "compileProject",
               "testAndCompileProject",
               "validateProject",
               "sqlRunner",
               "sqlRunnerPivotQuery",
-              "semanticLayer"
+              "semanticLayer",
+              "indexCatalog"
             ]
           }
         },
@@ -13569,6 +17110,9 @@
       },
       "SchedulerBase": {
         "properties": {
+          "includeLinks": {
+            "type": "boolean"
+          },
           "notificationFrequency": {
             "$ref": "#/components/schemas/NotificationFrequency"
           },
@@ -13591,6 +17135,9 @@
           "savedChartUuid": {
             "type": "string",
             "nullable": true
+          },
+          "timezone": {
+            "type": "string"
           },
           "cron": {
             "type": "string"
@@ -13620,6 +17167,7 @@
           }
         },
         "required": [
+          "includeLinks",
           "enabled",
           "options",
           "dashboardUuid",
@@ -14495,8 +18043,21 @@
           "role": {
             "$ref": "#/components/schemas/OrganizationMemberRole"
           },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
           "isActive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the user can login"
+          },
+          "isPending": {
+            "type": "boolean",
+            "description": "Whether the user doesn't have an authentication method (password or openId)"
           }
         },
         "required": [
@@ -14506,6 +18067,8 @@
           "isTrackingAnonymized",
           "isMarketingOptedIn",
           "isSetupComplete",
+          "createdAt",
+          "updatedAt",
           "isActive"
         ],
         "type": "object",
@@ -14978,6 +18541,62 @@
           "status"
         ],
         "type": "object"
+      },
+      "PersonalAccessToken": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rotatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastUsedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "expiresAt",
+          "rotatedAt",
+          "lastUsedAt",
+          "createdAt",
+          "uuid"
+        ],
+        "type": "object"
+      },
+      "PersonalAccessTokenWithToken": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PersonalAccessToken"
+          },
+          {
+            "properties": {
+              "token": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "token"
+            ],
+            "type": "object"
+          }
+        ]
       },
       "ValidationSourceType": {
         "enum": [

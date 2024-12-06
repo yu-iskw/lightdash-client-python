@@ -1,20 +1,7 @@
 {
   "properties": {
     "results": {
-      "anyOf": [
-        {
-          "items": {
-            "$ref": "./Group.json"
-          },
-          "type": "array"
-        },
-        {
-          "items": {
-            "$ref": "./GroupWithMembers.json"
-          },
-          "type": "array"
-        }
-      ]
+      "$ref": "./KnexPaginatedData_Group-Array-or-GroupWithMembers-Array_.json"
     },
     "status": {
       "type": "string",

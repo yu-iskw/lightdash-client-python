@@ -1,0 +1,6 @@
+# Start of Selection
+line-length = 120
+indent-width = 4
+
+[format]
+quote-style = "double"

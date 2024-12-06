@@ -5,9 +5,27 @@
     },
     {
       "properties": {
+        "icon": {
+          "allOf": [
+            {
+              "$ref": "./CatalogItemIcon.json"
+            }
+          ],
+          "nullable": true
+        },
+        "chartUsage": {
+          "type": "number",
+          "format": "double"
+        },
         "joinedTables": {
           "items": {
             "$ref": "./CompiledExploreJoin.json"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "items": {
+            "$ref": "./Pick_Tag.name-or-color-or-tagUuid_.json"
           },
           "type": "array"
         },
@@ -28,10 +46,16 @@
             "$ref": "./InlineError.json"
           },
           "type": "array"
+        },
+        "catalogSearchUuid": {
+          "type": "string"
         }
       },
       "required": [
-        "type"
+        "icon",
+        "categories",
+        "type",
+        "catalogSearchUuid"
       ],
       "type": "object"
     }

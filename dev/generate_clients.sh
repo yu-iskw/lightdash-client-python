@@ -19,7 +19,7 @@
 
 # Constants
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
 
 # Arguments
 schema_json="${PROJECT_DIR}/dev/schemas/rebuilt-swagger.json"
@@ -50,9 +50,6 @@ while (($# > 0)); do
 done
 
 options=()
-if [[ "${skip_validate_spec:?}" == "1" ]]; then
-  options+=("--skip-validate-spec")
-fi
 
 # Generate the client in the temporary directory.
 temp_dir="$(mktemp -d -t openapi-python-client-XXXXXXXXXX)"
@@ -60,7 +57,8 @@ cd "${temp_dir:?}" || exit 1
 openapi-python-client generate \
   --path "${schema_json:?}" \
   --config "${config_yaml:?}" \
-  --meta "${meta:?}"
+  --meta "${meta:?}" \
+  "${options[@]}"
 
 ls -la "${temp_dir:?}/lightdash-client-python"
 

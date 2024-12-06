@@ -5,6 +5,9 @@
     },
     {
       "properties": {
+        "display": {
+          "$ref": "./VizTableDisplay.json"
+        },
         "columns": {
           "$ref": "./VizColumnsConfig.json"
         },

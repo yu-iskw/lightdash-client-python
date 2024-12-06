@@ -40,6 +40,9 @@
     },
     "indexColumn": {
       "$ref": "./PivotIndexColum.json"
+    },
+    "savedSqlUuid": {
+      "type": "string"
     }
   },
   "required": [

@@ -8,6 +8,24 @@
     },
     {
       "properties": {
+        "icon": {
+          "allOf": [
+            {
+              "$ref": "./CatalogItemIcon.json"
+            }
+          ],
+          "nullable": true
+        },
+        "chartUsage": {
+          "type": "number",
+          "format": "double"
+        },
+        "categories": {
+          "items": {
+            "$ref": "./Pick_Tag.name-or-color-or-tagUuid_.json"
+          },
+          "type": "array"
+        },
         "tags": {
           "items": {
             "type": "string"
@@ -25,11 +43,17 @@
         },
         "type": {
           "$ref": "./CatalogType.Field.json"
+        },
+        "catalogSearchUuid": {
+          "type": "string"
         }
       },
       "required": [
+        "icon",
+        "categories",
         "tableName",
-        "type"
+        "type",
+        "catalogSearchUuid"
       ],
       "type": "object"
     }

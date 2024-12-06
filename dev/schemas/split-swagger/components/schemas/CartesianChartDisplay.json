@@ -33,13 +33,20 @@
       "properties": {},
       "additionalProperties": {
         "properties": {
+          "whichYAxis": {
+            "type": "number",
+            "format": "double"
+          },
+          "valueLabelPosition": {
+            "$ref": "./ValueLabelPositionOptions.json"
+          },
           "type": {
             "anyOf": [
               {
-                "$ref": "./ChartKind.LINE.json"
+                "$ref": "./CartesianSeriesType.LINE.json"
               },
               {
-                "$ref": "./ChartKind.VERTICAL_BAR.json"
+                "$ref": "./CartesianSeriesType.BAR.json"
               }
             ]
           },

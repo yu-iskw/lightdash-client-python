@@ -1,5 +1,8 @@
 {
   "properties": {
+    "defaultTimeDimension": {
+      "$ref": "./DefaultTimeDimension.json"
+    },
     "groupDetails": {
       "$ref": "./Record_string.GroupType_.json"
     },

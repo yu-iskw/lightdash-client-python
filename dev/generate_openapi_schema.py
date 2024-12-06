@@ -21,7 +21,11 @@ import requests
 
 
 @click.command()
-@click.option("--reference", type=str, default="https://raw.githubusercontent.com/lightdash/lightdash/main/packages/backend/src/generated/swagger.json")
+@click.option(
+    "--reference",
+    type=str,
+    default="https://raw.githubusercontent.com/lightdash/lightdash/main/packages/backend/src/generated/swagger.json",
+)
 # @click.option("--output", type=str, required=True)
 def main(reference: str):
     print(f"Reference URL: {reference}")

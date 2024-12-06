@@ -9,7 +9,7 @@
           "$ref": "./CartesianChartDisplay.json"
         },
         "fieldConfig": {
-          "$ref": "./VizChartLayout.json"
+          "$ref": "./PivotChartLayout.json"
         },
         "type": {
           "$ref": "./ChartKind.LINE.json"

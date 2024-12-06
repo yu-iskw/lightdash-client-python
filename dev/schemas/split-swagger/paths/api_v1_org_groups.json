@@ -7,7 +7,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/ApiGroupResponse.json"
+              "$ref": "../components/schemas/ApiCreateGroupResponse.json"
             }
           }
         }
@@ -73,6 +73,24 @@
     "security": [],
     "parameters": [
       {
+        "in": "query",
+        "name": "page",
+        "required": false,
+        "schema": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      {
+        "in": "query",
+        "name": "pageSize",
+        "required": false,
+        "schema": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      {
         "description": "number of members to include",
         "in": "query",
         "name": "includeMembers",
@@ -80,6 +98,14 @@
         "schema": {
           "format": "double",
           "type": "number"
+        }
+      },
+      {
+        "in": "query",
+        "name": "searchQuery",
+        "required": false,
+        "schema": {
+          "type": "string"
         }
       }
     ]
