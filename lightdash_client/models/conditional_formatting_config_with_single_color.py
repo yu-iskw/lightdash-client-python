@@ -1,12 +1,12 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 if TYPE_CHECKING:
-    from ..models.conditional_formatting_with_conditional_operator import (
-        ConditionalFormattingWithConditionalOperator,
-    )
+    from ..models.conditional_formatting_with_conditional_operator import ConditionalFormattingWithConditionalOperator
     from ..models.field_target import FieldTarget
 
 
@@ -28,6 +28,9 @@ class ConditionalFormattingConfigWithSingleColor:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.conditional_formatting_with_conditional_operator import (
+            ConditionalFormattingWithConditionalOperator,
+        )
         from ..models.field_target import FieldTarget
 
         rules = []

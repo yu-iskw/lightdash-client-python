@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -8,7 +8,7 @@ from ...client import AuthenticatedClient, Client
 from ...models.get_user_warehouse_credentials_preference_response_200 import (
     GetUserWarehouseCredentialsPreferenceResponse200,
 )
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -16,7 +16,9 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": f"/api/v1/projects/{project_uuid}/user-credentials",
+        "url": "/api/v1/projects/{projectUuid}/user-credentials".format(
+            projectUuid=project_uuid,
+        ),
     }
 
     return _kwargs

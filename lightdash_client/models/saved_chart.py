@@ -1,5 +1,5 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -89,7 +89,13 @@ class SavedChart:
         from ..models.cartesian_chart_config import CartesianChartConfig
         from ..models.custom_vis_config import CustomVisConfig
         from ..models.funnel_chart_config import FunnelChartConfig
+        from ..models.metric_query import MetricQuery
         from ..models.pie_chart_config import PieChartConfig
+        from ..models.saved_chart_pivot_config import SavedChartPivotConfig
+        from ..models.saved_chart_table_config import SavedChartTableConfig
+        from ..models.space_share import SpaceShare
+        from ..models.table_chart_config import TableChartConfig
+        from ..models.updated_by_user import UpdatedByUser
 
         slug = self.slug
 

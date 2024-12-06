@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -14,6 +14,7 @@ class DashboardChartTilePropertiesProperties:
     """
     Attributes:
         saved_chart_uuid (Union[None, str]):
+        chart_slug (Union[Unset, str]):
         last_version_chart_kind (Union[ChartKind, None, Unset]):
         chart_name (Union[None, Unset, str]):
         belongs_to_dashboard (Union[Unset, bool]):
@@ -22,6 +23,7 @@ class DashboardChartTilePropertiesProperties:
     """
 
     saved_chart_uuid: Union[None, str]
+    chart_slug: Union[Unset, str] = UNSET
     last_version_chart_kind: Union[ChartKind, None, Unset] = UNSET
     chart_name: Union[None, Unset, str] = UNSET
     belongs_to_dashboard: Union[Unset, bool] = UNSET
@@ -32,6 +34,8 @@ class DashboardChartTilePropertiesProperties:
     def to_dict(self) -> Dict[str, Any]:
         saved_chart_uuid: Union[None, str]
         saved_chart_uuid = self.saved_chart_uuid
+
+        chart_slug = self.chart_slug
 
         last_version_chart_kind: Union[None, Unset, str]
         if isinstance(self.last_version_chart_kind, Unset):
@@ -60,6 +64,8 @@ class DashboardChartTilePropertiesProperties:
                 "savedChartUuid": saved_chart_uuid,
             }
         )
+        if chart_slug is not UNSET:
+            field_dict["chartSlug"] = chart_slug
         if last_version_chart_kind is not UNSET:
             field_dict["lastVersionChartKind"] = last_version_chart_kind
         if chart_name is not UNSET:
@@ -83,6 +89,8 @@ class DashboardChartTilePropertiesProperties:
             return cast(Union[None, str], data)
 
         saved_chart_uuid = _parse_saved_chart_uuid(d.pop("savedChartUuid"))
+
+        chart_slug = d.pop("chartSlug", UNSET)
 
         def _parse_last_version_chart_kind(data: object) -> Union[ChartKind, None, Unset]:
             if data is None:
@@ -118,6 +126,7 @@ class DashboardChartTilePropertiesProperties:
 
         dashboard_chart_tile_properties_properties = cls(
             saved_chart_uuid=saved_chart_uuid,
+            chart_slug=chart_slug,
             last_version_chart_kind=last_version_chart_kind,
             chart_name=chart_name,
             belongs_to_dashboard=belongs_to_dashboard,

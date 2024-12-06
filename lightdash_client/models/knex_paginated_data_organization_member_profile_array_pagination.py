@@ -1,7 +1,9 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="KnexPaginatedDataOrganizationMemberProfileArrayPagination")
 
@@ -12,11 +14,13 @@ class KnexPaginatedDataOrganizationMemberProfileArrayPagination:
     Attributes:
         page (float):
         page_size (float):
+        total_results (float):
         total_page_count (float):
     """
 
     page: float
     page_size: float
+    total_results: float
     total_page_count: float
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -24,6 +28,8 @@ class KnexPaginatedDataOrganizationMemberProfileArrayPagination:
         page = self.page
 
         page_size = self.page_size
+
+        total_results = self.total_results
 
         total_page_count = self.total_page_count
 
@@ -33,6 +39,7 @@ class KnexPaginatedDataOrganizationMemberProfileArrayPagination:
             {
                 "page": page,
                 "pageSize": page_size,
+                "totalResults": total_results,
                 "totalPageCount": total_page_count,
             }
         )
@@ -46,11 +53,14 @@ class KnexPaginatedDataOrganizationMemberProfileArrayPagination:
 
         page_size = d.pop("pageSize")
 
+        total_results = d.pop("totalResults")
+
         total_page_count = d.pop("totalPageCount")
 
         knex_paginated_data_organization_member_profile_array_pagination = cls(
             page=page,
             page_size=page_size,
+            total_results=total_results,
             total_page_count=total_page_count,
         )
 

@@ -1,7 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.pick_chart_version_chart_uuid_or_version_uuid_or_created_at_or_created_by import (
@@ -23,6 +25,10 @@ class ChartHistory:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.pick_chart_version_chart_uuid_or_version_uuid_or_created_at_or_created_by import (
+            PickChartVersionChartUuidOrVersionUuidOrCreatedAtOrCreatedBy,
+        )
+
         history = []
         for history_item_data in self.history:
             history_item = history_item_data.to_dict()

@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,9 +8,7 @@ from ..models.pie_chart_value_label import PieChartValueLabel
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.record_string_partial_pie_chart_value_options import (
-        RecordStringPartialPieChartValueOptions,
-    )
+    from ..models.record_string_partial_pie_chart_value_options import RecordStringPartialPieChartValueOptions
     from ..models.record_string_series_metadata import RecordStringSeriesMetadata
     from ..models.record_string_string import RecordStringString
 
@@ -54,6 +52,10 @@ class PieChart:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.record_string_partial_pie_chart_value_options import RecordStringPartialPieChartValueOptions
+        from ..models.record_string_series_metadata import RecordStringSeriesMetadata
+        from ..models.record_string_string import RecordStringString
+
         metadata: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.metadata, Unset):
             metadata = self.metadata.to_dict()
@@ -130,9 +132,7 @@ class PieChart:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.record_string_partial_pie_chart_value_options import (
-            RecordStringPartialPieChartValueOptions,
-        )
+        from ..models.record_string_partial_pie_chart_value_options import RecordStringPartialPieChartValueOptions
         from ..models.record_string_series_metadata import RecordStringSeriesMetadata
         from ..models.record_string_string import RecordStringString
 

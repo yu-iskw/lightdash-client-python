@@ -1,19 +1,15 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
-from ..models.api_notification_resource_type_dashboard_comments import (
-    ApiNotificationResourceTypeDashboardComments,
-)
+from ..models.api_notification_resource_type_dashboard_comments import ApiNotificationResourceTypeDashboardComments
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.notification_dashboard_tile_comment_metadata import (
-        NotificationDashboardTileCommentMetadata,
-    )
+    from ..models.notification_dashboard_tile_comment_metadata import NotificationDashboardTileCommentMetadata
 
 
 T = TypeVar("T", bound="NotificationDashboardComment")
@@ -44,6 +40,8 @@ class NotificationDashboardComment:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.notification_dashboard_tile_comment_metadata import NotificationDashboardTileCommentMetadata
+
         viewed = self.viewed
 
         created_at = self.created_at.isoformat()
@@ -85,9 +83,7 @@ class NotificationDashboardComment:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.notification_dashboard_tile_comment_metadata import (
-            NotificationDashboardTileCommentMetadata,
-        )
+        from ..models.notification_dashboard_tile_comment_metadata import NotificationDashboardTileCommentMetadata
 
         d = src_dict.copy()
         viewed = d.pop("viewed")

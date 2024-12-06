@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -15,6 +15,7 @@ def _get_kwargs(
     page_size: Union[Unset, float] = UNSET,
     page: Union[Unset, float] = UNSET,
     search_query: Union[Unset, str] = UNSET,
+    project_uuid: Union[Unset, str] = UNSET,
 ) -> Dict[str, Any]:
     params: Dict[str, Any] = {}
 
@@ -25,6 +26,8 @@ def _get_kwargs(
     params["page"] = page
 
     params["searchQuery"] = search_query
+
+    params["projectUuid"] = project_uuid
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -68,6 +71,7 @@ def sync_detailed(
     page_size: Union[Unset, float] = UNSET,
     page: Union[Unset, float] = UNSET,
     search_query: Union[Unset, str] = UNSET,
+    project_uuid: Union[Unset, str] = UNSET,
 ) -> Response[ApiOrganizationMemberProfiles]:
     """Gets all the members of the current user's organization
 
@@ -76,6 +80,7 @@ def sync_detailed(
         page_size (Union[Unset, float]):
         page (Union[Unset, float]):
         search_query (Union[Unset, str]):
+        project_uuid (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,6 +95,7 @@ def sync_detailed(
         page_size=page_size,
         page=page,
         search_query=search_query,
+        project_uuid=project_uuid,
     )
 
     response = client.get_httpx_client().request(
@@ -106,6 +112,7 @@ def sync(
     page_size: Union[Unset, float] = UNSET,
     page: Union[Unset, float] = UNSET,
     search_query: Union[Unset, str] = UNSET,
+    project_uuid: Union[Unset, str] = UNSET,
 ) -> Optional[ApiOrganizationMemberProfiles]:
     """Gets all the members of the current user's organization
 
@@ -114,6 +121,7 @@ def sync(
         page_size (Union[Unset, float]):
         page (Union[Unset, float]):
         search_query (Union[Unset, str]):
+        project_uuid (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -129,6 +137,7 @@ def sync(
         page_size=page_size,
         page=page,
         search_query=search_query,
+        project_uuid=project_uuid,
     ).parsed
 
 
@@ -139,6 +148,7 @@ async def asyncio_detailed(
     page_size: Union[Unset, float] = UNSET,
     page: Union[Unset, float] = UNSET,
     search_query: Union[Unset, str] = UNSET,
+    project_uuid: Union[Unset, str] = UNSET,
 ) -> Response[ApiOrganizationMemberProfiles]:
     """Gets all the members of the current user's organization
 
@@ -147,6 +157,7 @@ async def asyncio_detailed(
         page_size (Union[Unset, float]):
         page (Union[Unset, float]):
         search_query (Union[Unset, str]):
+        project_uuid (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -161,6 +172,7 @@ async def asyncio_detailed(
         page_size=page_size,
         page=page,
         search_query=search_query,
+        project_uuid=project_uuid,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -175,6 +187,7 @@ async def asyncio(
     page_size: Union[Unset, float] = UNSET,
     page: Union[Unset, float] = UNSET,
     search_query: Union[Unset, str] = UNSET,
+    project_uuid: Union[Unset, str] = UNSET,
 ) -> Optional[ApiOrganizationMemberProfiles]:
     """Gets all the members of the current user's organization
 
@@ -183,6 +196,7 @@ async def asyncio(
         page_size (Union[Unset, float]):
         page (Union[Unset, float]):
         search_query (Union[Unset, str]):
+        project_uuid (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -199,5 +213,6 @@ async def asyncio(
             page_size=page_size,
             page=page,
             search_query=search_query,
+            project_uuid=project_uuid,
         )
     ).parsed

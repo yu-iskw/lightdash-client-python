@@ -1,15 +1,13 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.update_warehouse_credentials_response_200 import (
-    UpdateWarehouseCredentialsResponse200,
-)
+from ...models.update_warehouse_credentials_response_200 import UpdateWarehouseCredentialsResponse200
 from ...models.upsert_user_warehouse_credentials import UpsertUserWarehouseCredentials
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -21,7 +19,9 @@ def _get_kwargs(
 
     _kwargs: Dict[str, Any] = {
         "method": "patch",
-        "url": f"/api/v1/user/warehouseCredentials/{uuid}",
+        "url": "/api/v1/user/warehouseCredentials/{uuid}".format(
+            uuid=uuid,
+        ),
     }
 
     _body = body.to_dict()

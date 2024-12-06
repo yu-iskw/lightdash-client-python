@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -14,12 +14,14 @@ class DashboardSemanticViewerChartTilePropertiesProperties:
     Attributes:
         chart_name (str):
         saved_semantic_viewer_chart_uuid (Union[None, str]):
+        chart_slug (Union[Unset, str]):
         hide_title (Union[Unset, bool]):
         title (Union[Unset, str]):
     """
 
     chart_name: str
     saved_semantic_viewer_chart_uuid: Union[None, str]
+    chart_slug: Union[Unset, str] = UNSET
     hide_title: Union[Unset, bool] = UNSET
     title: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -29,6 +31,8 @@ class DashboardSemanticViewerChartTilePropertiesProperties:
 
         saved_semantic_viewer_chart_uuid: Union[None, str]
         saved_semantic_viewer_chart_uuid = self.saved_semantic_viewer_chart_uuid
+
+        chart_slug = self.chart_slug
 
         hide_title = self.hide_title
 
@@ -42,6 +46,8 @@ class DashboardSemanticViewerChartTilePropertiesProperties:
                 "savedSemanticViewerChartUuid": saved_semantic_viewer_chart_uuid,
             }
         )
+        if chart_slug is not UNSET:
+            field_dict["chartSlug"] = chart_slug
         if hide_title is not UNSET:
             field_dict["hideTitle"] = hide_title
         if title is not UNSET:
@@ -63,6 +69,8 @@ class DashboardSemanticViewerChartTilePropertiesProperties:
             d.pop("savedSemanticViewerChartUuid")
         )
 
+        chart_slug = d.pop("chartSlug", UNSET)
+
         hide_title = d.pop("hideTitle", UNSET)
 
         title = d.pop("title", UNSET)
@@ -70,6 +78,7 @@ class DashboardSemanticViewerChartTilePropertiesProperties:
         dashboard_semantic_viewer_chart_tile_properties_properties = cls(
             chart_name=chart_name,
             saved_semantic_viewer_chart_uuid=saved_semantic_viewer_chart_uuid,
+            chart_slug=chart_slug,
             hide_title=hide_title,
             title=title,
         )

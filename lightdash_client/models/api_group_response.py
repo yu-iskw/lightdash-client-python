@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.api_group_response_status import ApiGroupResponseStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.group import Group
@@ -27,6 +28,7 @@ class ApiGroupResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.group import Group
+        from ..models.group_with_members import GroupWithMembers
 
         results: Dict[str, Any]
         if isinstance(self.results, Group):

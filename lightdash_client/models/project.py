@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -44,6 +44,8 @@ T = TypeVar("T", bound="Project")
 class Project:
     """
     Attributes:
+        created_by_user_uuid (Union[None, str]):
+        scheduler_timezone (str):
         dbt_version (SupportedDbtVersions):
         dbt_connection (Union['DbtAzureDevOpsProjectConfig', 'DbtBitBucketProjectConfig', 'DbtCloudIDEProjectConfig',
             'DbtGithubProjectConfig', 'DbtGitlabProjectConfig', 'DbtLocalProjectConfig', 'DbtNoneProjectConfig']):
@@ -63,6 +65,8 @@ class Project:
             'PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames', Unset]):
     """
 
+    created_by_user_uuid: Union[None, str]
+    scheduler_timezone: str
     dbt_version: SupportedDbtVersions
     dbt_connection: Union[
         "DbtAzureDevOpsProjectConfig",
@@ -92,14 +96,14 @@ class Project:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.dbt_azure_dev_ops_project_config import (
-            DbtAzureDevOpsProjectConfig,
-        )
+        from ..models.cube_semantic_layer_connection import CubeSemanticLayerConnection
+        from ..models.dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
         from ..models.dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
         from ..models.dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
         from ..models.dbt_github_project_config import DbtGithubProjectConfig
         from ..models.dbt_gitlab_project_config import DbtGitlabProjectConfig
         from ..models.dbt_local_project_config import DbtLocalProjectConfig
+        from ..models.dbt_none_project_config import DbtNoneProjectConfig
         from ..models.dbt_semantic_layer_connection import DbtSemanticLayerConnection
         from ..models.pick_create_bigquery_credentials_exclude_keyof_create_bigquery_credentials_sensitive_credentials_field_names import (
             PickCreateBigqueryCredentialsExcludeKeyofCreateBigqueryCredentialsSensitiveCredentialsFieldNames,
@@ -116,6 +120,14 @@ class Project:
         from ..models.pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names import (
             PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensitiveCredentialsFieldNames,
         )
+        from ..models.pick_create_trino_credentials_exclude_keyof_create_trino_credentials_sensitive_credentials_field_names import (
+            PickCreateTrinoCredentialsExcludeKeyofCreateTrinoCredentialsSensitiveCredentialsFieldNames,
+        )
+
+        created_by_user_uuid: Union[None, str]
+        created_by_user_uuid = self.created_by_user_uuid
+
+        scheduler_timezone = self.scheduler_timezone
 
         dbt_version = self.dbt_version.value
 
@@ -190,6 +202,8 @@ class Project:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "createdByUserUuid": created_by_user_uuid,
+                "schedulerTimezone": scheduler_timezone,
                 "dbtVersion": dbt_version,
                 "dbtConnection": dbt_connection,
                 "type": type,
@@ -212,9 +226,7 @@ class Project:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.cube_semantic_layer_connection import CubeSemanticLayerConnection
-        from ..models.dbt_azure_dev_ops_project_config import (
-            DbtAzureDevOpsProjectConfig,
-        )
+        from ..models.dbt_azure_dev_ops_project_config import DbtAzureDevOpsProjectConfig
         from ..models.dbt_bit_bucket_project_config import DbtBitBucketProjectConfig
         from ..models.dbt_cloud_ide_project_config import DbtCloudIDEProjectConfig
         from ..models.dbt_github_project_config import DbtGithubProjectConfig
@@ -242,6 +254,16 @@ class Project:
         )
 
         d = src_dict.copy()
+
+        def _parse_created_by_user_uuid(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        created_by_user_uuid = _parse_created_by_user_uuid(d.pop("createdByUserUuid"))
+
+        scheduler_timezone = d.pop("schedulerTimezone")
+
         dbt_version = SupportedDbtVersions(d.pop("dbtVersion"))
 
         def _parse_dbt_connection(
@@ -420,6 +442,8 @@ class Project:
         warehouse_connection = _parse_warehouse_connection(d.pop("warehouseConnection", UNSET))
 
         project = cls(
+            created_by_user_uuid=created_by_user_uuid,
+            scheduler_timezone=scheduler_timezone,
             dbt_version=dbt_version,
             dbt_connection=dbt_connection,
             type=type,

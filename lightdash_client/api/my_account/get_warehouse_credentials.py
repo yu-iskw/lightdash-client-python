@@ -1,14 +1,12 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.get_warehouse_credentials_response_200 import (
-    GetWarehouseCredentialsResponse200,
-)
-from ...types import Response
+from ...models.get_warehouse_credentials_response_200 import GetWarehouseCredentialsResponse200
+from ...types import UNSET, Response
 
 
 def _get_kwargs() -> Dict[str, Any]:

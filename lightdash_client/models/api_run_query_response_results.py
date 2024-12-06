@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,9 +8,7 @@ from ..types import UNSET, Unset
 if TYPE_CHECKING:
     from ..models.cache_metadata import CacheMetadata
     from ..models.metric_query_response import MetricQueryResponse
-    from ..models.record_string_item_or_additional_metric import (
-        RecordStringItemOrAdditionalMetric,
-    )
+    from ..models.record_string_item_or_additional_metric import RecordStringItemOrAdditionalMetric
 
 
 T = TypeVar("T", bound="ApiRunQueryResponseResults")
@@ -33,6 +31,10 @@ class ApiRunQueryResponseResults:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.cache_metadata import CacheMetadata
+        from ..models.metric_query_response import MetricQueryResponse
+        from ..models.record_string_item_or_additional_metric import RecordStringItemOrAdditionalMetric
+
         rows = self.rows
 
         cache_metadata = self.cache_metadata.to_dict()
@@ -61,9 +63,7 @@ class ApiRunQueryResponseResults:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.cache_metadata import CacheMetadata
         from ..models.metric_query_response import MetricQueryResponse
-        from ..models.record_string_item_or_additional_metric import (
-            RecordStringItemOrAdditionalMetric,
-        )
+        from ..models.record_string_item_or_additional_metric import RecordStringItemOrAdditionalMetric
 
         d = src_dict.copy()
         rows = cast(List[Any], d.pop("rows"))

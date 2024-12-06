@@ -1,13 +1,13 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.api_group_response import ApiGroupResponse
+from ...models.api_create_group_response import ApiCreateGroupResponse
 from ...models.create_group import CreateGroup
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -32,9 +32,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[ApiGroupResponse]:
+) -> Optional[ApiCreateGroupResponse]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiGroupResponse.from_dict(response.json())
+        response_200 = ApiCreateGroupResponse.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[ApiGroupResponse]:
+) -> Response[ApiCreateGroupResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -58,7 +58,7 @@ def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
     body: CreateGroup,
-) -> Response[ApiGroupResponse]:
+) -> Response[ApiCreateGroupResponse]:
     """Creates a new group in the current user's organization
 
     Args:
@@ -69,7 +69,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiGroupResponse]
+        Response[ApiCreateGroupResponse]
     """
 
     kwargs = _get_kwargs(
@@ -87,7 +87,7 @@ def sync(
     *,
     client: Union[AuthenticatedClient, Client],
     body: CreateGroup,
-) -> Optional[ApiGroupResponse]:
+) -> Optional[ApiCreateGroupResponse]:
     """Creates a new group in the current user's organization
 
     Args:
@@ -98,7 +98,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiGroupResponse
+        ApiCreateGroupResponse
     """
 
     return sync_detailed(
@@ -111,7 +111,7 @@ async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
     body: CreateGroup,
-) -> Response[ApiGroupResponse]:
+) -> Response[ApiCreateGroupResponse]:
     """Creates a new group in the current user's organization
 
     Args:
@@ -122,7 +122,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ApiGroupResponse]
+        Response[ApiCreateGroupResponse]
     """
 
     kwargs = _get_kwargs(
@@ -138,7 +138,7 @@ async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
     body: CreateGroup,
-) -> Optional[ApiGroupResponse]:
+) -> Optional[ApiCreateGroupResponse]:
     """Creates a new group in the current user's organization
 
     Args:
@@ -149,7 +149,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ApiGroupResponse
+        ApiCreateGroupResponse
     """
 
     return (

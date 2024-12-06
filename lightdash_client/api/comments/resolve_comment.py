@@ -1,12 +1,12 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_resolve_comment import ApiResolveComment
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -15,7 +15,10 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     _kwargs: Dict[str, Any] = {
         "method": "patch",
-        "url": f"/api/v1/comments/dashboards/{dashboard_uuid}/{comment_id}",
+        "url": "/api/v1/comments/dashboards/{dashboardUuid}/{commentId}".format(
+            dashboardUuid=dashboard_uuid,
+            commentId=comment_id,
+        ),
     }
 
     return _kwargs

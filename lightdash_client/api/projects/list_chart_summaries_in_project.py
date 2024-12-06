@@ -1,20 +1,31 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_chart_summary_list_response import ApiChartSummaryListResponse
-from ...types import Response
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
     project_uuid: str,
+    *,
+    exclude_charts_saved_in_dashboard: Union[Unset, bool] = UNSET,
 ) -> Dict[str, Any]:
+    params: Dict[str, Any] = {}
+
+    params["excludeChartsSavedInDashboard"] = exclude_charts_saved_in_dashboard
+
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+
     _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": f"/api/v1/projects/{project_uuid}/chart-summaries",
+        "url": "/api/v1/projects/{projectUuid}/chart-summaries".format(
+            projectUuid=project_uuid,
+        ),
+        "params": params,
     }
 
     return _kwargs
@@ -48,11 +59,13 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    exclude_charts_saved_in_dashboard: Union[Unset, bool] = UNSET,
 ) -> Response[ApiChartSummaryListResponse]:
     """List all charts summaries in a project
 
     Args:
         project_uuid (str):
+        exclude_charts_saved_in_dashboard (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -64,6 +77,7 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        exclude_charts_saved_in_dashboard=exclude_charts_saved_in_dashboard,
     )
 
     response = client.get_httpx_client().request(
@@ -77,11 +91,13 @@ def sync(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    exclude_charts_saved_in_dashboard: Union[Unset, bool] = UNSET,
 ) -> Optional[ApiChartSummaryListResponse]:
     """List all charts summaries in a project
 
     Args:
         project_uuid (str):
+        exclude_charts_saved_in_dashboard (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -94,6 +110,7 @@ def sync(
     return sync_detailed(
         project_uuid=project_uuid,
         client=client,
+        exclude_charts_saved_in_dashboard=exclude_charts_saved_in_dashboard,
     ).parsed
 
 
@@ -101,11 +118,13 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    exclude_charts_saved_in_dashboard: Union[Unset, bool] = UNSET,
 ) -> Response[ApiChartSummaryListResponse]:
     """List all charts summaries in a project
 
     Args:
         project_uuid (str):
+        exclude_charts_saved_in_dashboard (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,6 +136,7 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        exclude_charts_saved_in_dashboard=exclude_charts_saved_in_dashboard,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -128,11 +148,13 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    exclude_charts_saved_in_dashboard: Union[Unset, bool] = UNSET,
 ) -> Optional[ApiChartSummaryListResponse]:
     """List all charts summaries in a project
 
     Args:
         project_uuid (str):
+        exclude_charts_saved_in_dashboard (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -146,5 +168,6 @@ async def asyncio(
         await asyncio_detailed(
             project_uuid=project_uuid,
             client=client,
+            exclude_charts_saved_in_dashboard=exclude_charts_saved_in_dashboard,
         )
     ).parsed

@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -8,9 +8,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.dashboard_field_target import DashboardFieldTarget
-    from ..models.record_string_dashboard_tile_target import (
-        RecordStringDashboardTileTarget,
-    )
+    from ..models.record_string_dashboard_tile_target import RecordStringDashboardTileTarget
 
 
 T = TypeVar("T", bound="DashboardFilterRule")
@@ -44,6 +42,9 @@ class DashboardFilterRule:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.dashboard_field_target import DashboardFieldTarget
+        from ..models.record_string_dashboard_tile_target import RecordStringDashboardTileTarget
+
         operator = self.operator.value
 
         id = self.id
@@ -93,9 +94,7 @@ class DashboardFilterRule:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.dashboard_field_target import DashboardFieldTarget
-        from ..models.record_string_dashboard_tile_target import (
-            RecordStringDashboardTileTarget,
-        )
+        from ..models.record_string_dashboard_tile_target import RecordStringDashboardTileTarget
 
         d = src_dict.copy()
         operator = ConditionalOperator(d.pop("operator"))

@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.get_catalog_response_200_status import GetCatalogResponse200Status
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.catalog_field import CatalogField
@@ -27,6 +28,7 @@ class GetCatalogResponse200:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.catalog_field import CatalogField
+        from ..models.catalog_table import CatalogTable
 
         results = []
         for componentsschemas_api_catalog_results_item_data in self.results:

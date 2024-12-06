@@ -1,14 +1,13 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.api_test_scheduler_response_status import ApiTestSchedulerResponseStatus
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_test_scheduler_response_results import (
-        ApiTestSchedulerResponseResults,
-    )
+    from ..models.api_test_scheduler_response_results import ApiTestSchedulerResponseResults
 
 
 T = TypeVar("T", bound="ApiTestSchedulerResponse")
@@ -27,6 +26,8 @@ class ApiTestSchedulerResponse:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.api_test_scheduler_response_results import ApiTestSchedulerResponseResults
+
         results = self.results.to_dict()
 
         status = self.status.value
@@ -44,9 +45,7 @@ class ApiTestSchedulerResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_test_scheduler_response_results import (
-            ApiTestSchedulerResponseResults,
-        )
+        from ..models.api_test_scheduler_response_results import ApiTestSchedulerResponseResults
 
         d = src_dict.copy()
         results = ApiTestSchedulerResponseResults.from_dict(d.pop("results"))

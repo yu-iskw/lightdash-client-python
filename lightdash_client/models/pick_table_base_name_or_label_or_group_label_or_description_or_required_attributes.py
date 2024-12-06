@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,9 +6,7 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.record_string_string_or_string_array import (
-        RecordStringStringOrStringArray,
-    )
+    from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
 
 T = TypeVar("T", bound="PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes")
@@ -35,6 +33,8 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
+
         name = self.name
 
         label = self.label
@@ -66,9 +66,7 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.record_string_string_or_string_array import (
-            RecordStringStringOrStringArray,
-        )
+        from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         d = src_dict.copy()
         name = d.pop("name")

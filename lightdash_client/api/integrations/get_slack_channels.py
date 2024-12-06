@@ -1,18 +1,28 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_slack_channels_response import ApiSlackChannelsResponse
-from ...types import Response
+from ...types import UNSET, Response, Unset
 
 
-def _get_kwargs() -> Dict[str, Any]:
+def _get_kwargs(
+    *,
+    search: Union[Unset, str] = UNSET,
+) -> Dict[str, Any]:
+    params: Dict[str, Any] = {}
+
+    params["search"] = search
+
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+
     _kwargs: Dict[str, Any] = {
         "method": "get",
         "url": "/api/v1/slack/channels",
+        "params": params,
     }
 
     return _kwargs
@@ -45,8 +55,12 @@ def _build_response(
 def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
+    search: Union[Unset, str] = UNSET,
 ) -> Response[ApiSlackChannelsResponse]:
     """Get slack channels
+
+    Args:
+        search (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -56,7 +70,9 @@ def sync_detailed(
         Response[ApiSlackChannelsResponse]
     """
 
-    kwargs = _get_kwargs()
+    kwargs = _get_kwargs(
+        search=search,
+    )
 
     response = client.get_httpx_client().request(
         **kwargs,
@@ -68,8 +84,12 @@ def sync_detailed(
 def sync(
     *,
     client: Union[AuthenticatedClient, Client],
+    search: Union[Unset, str] = UNSET,
 ) -> Optional[ApiSlackChannelsResponse]:
     """Get slack channels
+
+    Args:
+        search (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -81,14 +101,19 @@ def sync(
 
     return sync_detailed(
         client=client,
+        search=search,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
+    search: Union[Unset, str] = UNSET,
 ) -> Response[ApiSlackChannelsResponse]:
     """Get slack channels
+
+    Args:
+        search (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -98,7 +123,9 @@ async def asyncio_detailed(
         Response[ApiSlackChannelsResponse]
     """
 
-    kwargs = _get_kwargs()
+    kwargs = _get_kwargs(
+        search=search,
+    )
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -108,8 +135,12 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
+    search: Union[Unset, str] = UNSET,
 ) -> Optional[ApiSlackChannelsResponse]:
     """Get slack channels
+
+    Args:
+        search (Union[Unset, str]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -122,5 +153,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
+            search=search,
         )
     ).parsed

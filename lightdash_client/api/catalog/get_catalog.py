@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -38,7 +38,9 @@ def _get_kwargs(
 
     _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": f"/api/v1/projects/{project_uuid}/dataCatalog",
+        "url": "/api/v1/projects/{projectUuid}/dataCatalog".format(
+            projectUuid=project_uuid,
+        ),
         "params": params,
     }
 

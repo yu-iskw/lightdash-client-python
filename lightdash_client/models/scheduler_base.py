@@ -1,5 +1,5 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -23,6 +23,7 @@ T = TypeVar("T", bound="SchedulerBase")
 class SchedulerBase:
     """
     Attributes:
+        include_links (bool):
         enabled (bool):
         options (Union['SchedulerCsvOptions', 'SchedulerGsheetsOptions', 'SchedulerImageOptions']):
         dashboard_uuid (Union[None, str]):
@@ -36,9 +37,11 @@ class SchedulerBase:
         scheduler_uuid (str):
         notification_frequency (Union[Unset, NotificationFrequency]):
         thresholds (Union[Unset, List['ThresholdOptions']]):
+        timezone (Union[Unset, str]):
         message (Union[Unset, str]):
     """
 
+    include_links: bool
     enabled: bool
     options: Union["SchedulerCsvOptions", "SchedulerGsheetsOptions", "SchedulerImageOptions"]
     dashboard_uuid: Union[None, str]
@@ -52,12 +55,17 @@ class SchedulerBase:
     scheduler_uuid: str
     notification_frequency: Union[Unset, NotificationFrequency] = UNSET
     thresholds: Union[Unset, List["ThresholdOptions"]] = UNSET
+    timezone: Union[Unset, str] = UNSET
     message: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.scheduler_csv_options import SchedulerCsvOptions
+        from ..models.scheduler_gsheets_options import SchedulerGsheetsOptions
         from ..models.scheduler_image_options import SchedulerImageOptions
+        from ..models.threshold_options import ThresholdOptions
+
+        include_links = self.include_links
 
         enabled = self.enabled
 
@@ -100,12 +108,15 @@ class SchedulerBase:
                 thresholds_item = thresholds_item_data.to_dict()
                 thresholds.append(thresholds_item)
 
+        timezone = self.timezone
+
         message = self.message
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "includeLinks": include_links,
                 "enabled": enabled,
                 "options": options,
                 "dashboardUuid": dashboard_uuid,
@@ -123,6 +134,8 @@ class SchedulerBase:
             field_dict["notificationFrequency"] = notification_frequency
         if thresholds is not UNSET:
             field_dict["thresholds"] = thresholds
+        if timezone is not UNSET:
+            field_dict["timezone"] = timezone
         if message is not UNSET:
             field_dict["message"] = message
 
@@ -136,6 +149,8 @@ class SchedulerBase:
         from ..models.threshold_options import ThresholdOptions
 
         d = src_dict.copy()
+        include_links = d.pop("includeLinks")
+
         enabled = d.pop("enabled")
 
         def _parse_options(
@@ -207,9 +222,12 @@ class SchedulerBase:
 
             thresholds.append(thresholds_item)
 
+        timezone = d.pop("timezone", UNSET)
+
         message = d.pop("message", UNSET)
 
         scheduler_base = cls(
+            include_links=include_links,
             enabled=enabled,
             options=options,
             dashboard_uuid=dashboard_uuid,
@@ -223,6 +241,7 @@ class SchedulerBase:
             scheduler_uuid=scheduler_uuid,
             notification_frequency=notification_frequency,
             thresholds=thresholds,
+            timezone=timezone,
             message=message,
         )
 

@@ -3,8 +3,10 @@ from enum import Enum
 
 class SchedulerLogTask(str, Enum):
     COMPILEPROJECT = "compileProject"
+    CREATEPROJECTWITHCOMPILE = "createProjectWithCompile"
     DOWNLOADCSV = "downloadCsv"
     HANDLESCHEDULEDDELIVERY = "handleScheduledDelivery"
+    INDEXCATALOG = "indexCatalog"
     SEMANTICLAYER = "semanticLayer"
     SENDEMAILNOTIFICATION = "sendEmailNotification"
     SENDSLACKNOTIFICATION = "sendSlackNotification"

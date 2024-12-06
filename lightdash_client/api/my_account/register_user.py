@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -8,7 +8,7 @@ from ...client import AuthenticatedClient, Client
 from ...models.activate_user_with_invite_code import ActivateUserWithInviteCode
 from ...models.api_register_user_response import ApiRegisterUserResponse
 from ...models.create_user_args import CreateUserArgs
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(

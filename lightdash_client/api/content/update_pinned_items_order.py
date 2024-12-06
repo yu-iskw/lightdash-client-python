@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Union, cast
 
 import httpx
 
@@ -7,7 +7,7 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_pinned_items import ApiPinnedItems
 from ...models.update_pinned_item_order import UpdatePinnedItemOrder
-from ...types import Response
+from ...types import UNSET, Response
 
 
 def _get_kwargs(
@@ -20,7 +20,10 @@ def _get_kwargs(
 
     _kwargs: Dict[str, Any] = {
         "method": "patch",
-        "url": f"/api/v1/projects/{project_uuid}/pinned-lists/{pinned_list_uuid}/items/order",
+        "url": "/api/v1/projects/{projectUuid}/pinned-lists/{pinnedListUuid}/items/order".format(
+            projectUuid=project_uuid,
+            pinnedListUuid=pinned_list_uuid,
+        ),
     }
 
     _body = []

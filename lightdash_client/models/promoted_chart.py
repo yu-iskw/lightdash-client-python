@@ -1,5 +1,5 @@
 import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -41,9 +41,9 @@ class PromotedChart:
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
         slug (str):
+        table_name (str):
         updated_at (datetime.datetime):
         pinned_list_order (Union[None, float]):
-        table_name (str):
         metric_query (MetricQuery):
         chart_config (Union['BigNumberConfig', 'CartesianChartConfig', 'CustomVisConfig', 'FunnelChartConfig',
             'PieChartConfig', 'TableChartConfig']):
@@ -66,9 +66,9 @@ class PromotedChart:
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
     slug: str
+    table_name: str
     updated_at: datetime.datetime
     pinned_list_order: Union[None, float]
-    table_name: str
     metric_query: "MetricQuery"
     chart_config: Union[
         "BigNumberConfig",
@@ -92,7 +92,16 @@ class PromotedChart:
         from ..models.cartesian_chart_config import CartesianChartConfig
         from ..models.custom_vis_config import CustomVisConfig
         from ..models.funnel_chart_config import FunnelChartConfig
+        from ..models.metric_query import MetricQuery
+        from ..models.pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access_pivot_config import (
+            PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessPivotConfig,
+        )
+        from ..models.pick_saved_chart_exclude_keyof_saved_chart_is_private_or_access_table_config import (
+            PickSavedChartExcludeKeyofSavedChartIsPrivateOrAccessTableConfig,
+        )
         from ..models.pie_chart_config import PieChartConfig
+        from ..models.table_chart_config import TableChartConfig
+        from ..models.updated_by_user import UpdatedByUser
 
         name = self.name
 
@@ -117,12 +126,12 @@ class PromotedChart:
 
         slug = self.slug
 
+        table_name = self.table_name
+
         updated_at = self.updated_at.isoformat()
 
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
-
-        table_name = self.table_name
 
         metric_query = self.metric_query.to_dict()
 
@@ -172,9 +181,9 @@ class PromotedChart:
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
                 "slug": slug,
+                "tableName": table_name,
                 "updatedAt": updated_at,
                 "pinnedListOrder": pinned_list_order,
-                "tableName": table_name,
                 "metricQuery": metric_query,
                 "chartConfig": chart_config,
                 "tableConfig": table_config,
@@ -245,6 +254,8 @@ class PromotedChart:
 
         slug = d.pop("slug")
 
+        table_name = d.pop("tableName")
+
         updated_at = isoparse(d.pop("updatedAt"))
 
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
@@ -253,8 +264,6 @@ class PromotedChart:
             return cast(Union[None, float], data)
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
-
-        table_name = d.pop("tableName")
 
         metric_query = MetricQuery.from_dict(d.pop("metricQuery"))
 
@@ -351,9 +360,9 @@ class PromotedChart:
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
             slug=slug,
+            table_name=table_name,
             updated_at=updated_at,
             pinned_list_order=pinned_list_order,
-            table_name=table_name,
             metric_query=metric_query,
             chart_config=chart_config,
             table_config=table_config,

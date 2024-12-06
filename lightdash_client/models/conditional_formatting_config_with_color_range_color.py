@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,6 +6,7 @@ from attrs import field as _attrs_field
 from ..models.conditional_formatting_config_with_color_range_color_steps import (
     ConditionalFormattingConfigWithColorRangeColorSteps,
 )
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ConditionalFormattingConfigWithColorRangeColor")
 

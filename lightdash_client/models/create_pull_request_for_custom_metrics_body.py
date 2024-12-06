@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,6 +6,7 @@ from attrs import field as _attrs_field
 from ..models.create_pull_request_for_custom_metrics_body_quote_char import (
     CreatePullRequestForCustomMetricsBodyQuoteChar,
 )
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="CreatePullRequestForCustomMetricsBody")
 
