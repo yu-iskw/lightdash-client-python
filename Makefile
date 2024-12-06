@@ -1,3 +1,20 @@
+# Copyright 2024 yu-iskw
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# The latest version in the main branch
+LIGHTDASH_VERSION ?= main
+
 # Set up an environment
 .PHONEY: setup
 setup: setup-python setup-pre-commit
@@ -38,20 +55,17 @@ test-publish:
 
 generate-client:
 	rm -fr "lightdash_client/api/" "lightdash_client/models/"
-	bash dev/generate_clients.sh --skip-validate-spec 1
+	bash dev/generate_clients.sh
 
 prepare-schema: download-swagger-json dereference-swagger-json
 
-download-swagger-json: check-lightdash-version
-	bash dev/download_swagger_json.sh --version "$(VERSION)"
+update-client: download-swagger-json dereference-swagger-json generate-client lint
 
-dereference-swagger-json: build-swagger-cli-image
+download-swagger-json:
+	bash dev/download_swagger_json.sh --version "$(LIGHTDASH_VERSION)"
+
+dereference-swagger-json: build-swagger-cli-image/
 	bash dev/dereference_swagger_json.sh
 
 build-swagger-cli-image:
 	docker build -t "swagger-cli:latest" -f "docker/swagger-cli/Dockerfile" .
-
-check-lightdash-version:
-ifndef VERSION
-	$(error VERSION is undefined)
-endif
