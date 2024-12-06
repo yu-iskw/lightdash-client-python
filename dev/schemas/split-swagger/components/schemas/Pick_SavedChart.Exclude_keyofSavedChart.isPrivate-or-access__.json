@@ -36,6 +36,9 @@
     "slug": {
       "type": "string"
     },
+    "tableName": {
+      "type": "string"
+    },
     "updatedAt": {
       "type": "string",
       "format": "date-time"
@@ -47,9 +50,6 @@
       "type": "number",
       "format": "double",
       "nullable": true
-    },
-    "tableName": {
-      "type": "string"
     },
     "metricQuery": {
       "$ref": "./MetricQuery.json"
@@ -103,9 +103,9 @@
     "dashboardUuid",
     "dashboardName",
     "slug",
+    "tableName",
     "updatedAt",
     "pinnedListOrder",
-    "tableName",
     "metricQuery",
     "chartConfig",
     "tableConfig",

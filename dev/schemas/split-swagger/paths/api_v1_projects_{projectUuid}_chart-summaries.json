@@ -37,6 +37,15 @@
         "schema": {
           "type": "string"
         }
+      },
+      {
+        "description": "Whether to exclude charts that are saved in dashboards",
+        "in": "query",
+        "name": "excludeChartsSavedInDashboard",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
       }
     ]
   }

@@ -16,7 +16,7 @@
   },
   "info": {
     "title": "Lightdash API",
-    "version": "0.1286.0",
+    "version": "0.1398.0",
     "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
@@ -40,6 +40,33 @@
     },
     "/api/v1/projects/{projectUuid}/dataCatalog/{table}/analytics/{field}": {
       "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_analytics_{field}.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/{tableName}/{metricName}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_{tableName}_{metricName}.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics-with-time-dimensions": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics-with-time-dimensions.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_categories.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories/{tagUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_categories_{tagUuid}.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/icon": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_icon.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree_edges.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges/{sourceCatalogSearchUuid}/{targetCatalogSearchUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree_edges_{sourceCatalogSearchUuid}_{targetCatalogSearchUuid}.json"
     },
     "/api/v1/comments/dashboards/{dashboardUuid}/{dashboardTileUuid}": {
       "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}_{dashboardTileUuid}.json"
@@ -109,6 +136,9 @@
     },
     "/api/v1/groups/{groupUuid}/projects/{projectUuid}": {
       "$ref": "paths/api_v1_groups_{groupUuid}_projects_{projectUuid}.json"
+    },
+    "/api/v1/projects/{projectUuid}/metricsExplorer/{explore}/{metric}/runMetricExplorerQuery": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_metricsExplorer_{explore}_{metric}_runMetricExplorerQuery.json"
     },
     "/api/v1/notifications": {
       "$ref": "paths/api_v1_notifications.json"
@@ -191,6 +221,33 @@
     "/api/v1/projects/{projectUuid}/semantic-layer-connection": {
       "$ref": "paths/api_v1_projects_{projectUuid}_semantic-layer-connection.json"
     },
+    "/api/v1/projects/{projectUuid}/dashboards": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dashboards.json"
+    },
+    "/api/v1/projects/{projectUuid}/createPreview": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_createPreview.json"
+    },
+    "/api/v1/projects/{projectUuid}/schedulerSettings": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_schedulerSettings.json"
+    },
+    "/api/v1/projects/{projectUuid}/tags": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_tags.json"
+    },
+    "/api/v1/projects/{projectUuid}/tags/{tagUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_tags_{tagUuid}.json"
+    },
+    "/api/v1/projects/{projectUuid}/charts/code": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_charts_code.json"
+    },
+    "/api/v1/projects/{projectUuid}/dashboards/code": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dashboards_code.json"
+    },
+    "/api/v1/projects/{projectUuid}/charts/{slug}/code": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_charts_{slug}_code.json"
+    },
+    "/api/v1/projects/{projectUuid}/dashboards/{slug}/code": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dashboards_{slug}_code.json"
+    },
     "/api/v1/projects/{projectUuid}/explores/{exploreId}/runUnderlyingDataQuery": {
       "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_runUnderlyingDataQuery.json"
     },
@@ -223,6 +280,9 @@
     },
     "/api/v1/saved/{chartUuid}/promoteDiff": {
       "$ref": "paths/api_v1_saved_{chartUuid}_promoteDiff.json"
+    },
+    "/api/v1/saved/{chartUuid}/downloadCsv": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_downloadCsv.json"
     },
     "/api/v1/schedulers/{projectUuid}/logs": {
       "$ref": "paths/api_v1_schedulers_{projectUuid}_logs.json"
@@ -304,6 +364,9 @@
     },
     "/api/v1/user/login-options": {
       "$ref": "paths/api_v1_user_login-options.json"
+    },
+    "/api/v1/user/me/personal-access-tokens/{personalAccessTokenUuid}/rotate": {
+      "$ref": "paths/api_v1_user_me_personal-access-tokens_{personalAccessTokenUuid}_rotate.json"
     },
     "/api/v1/projects/{projectUuid}/validate": {
       "$ref": "paths/api_v1_projects_{projectUuid}_validate.json"

@@ -4,7 +4,7 @@ setup: setup-python setup-pre-commit
 
 .PHONE: setup-python
 setup-python:
-	pip install -U pip==23.1.0
+	pip install -U pip==24.3.1
 	bash ./dev/setup.sh
 
 .PHONE: setup-pre-commit

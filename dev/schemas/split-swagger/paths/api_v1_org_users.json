@@ -63,6 +63,15 @@
         "schema": {
           "type": "string"
         }
+      },
+      {
+        "description": "filter users who can view this project",
+        "in": "query",
+        "name": "projectUuid",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
       }
     ]
   }

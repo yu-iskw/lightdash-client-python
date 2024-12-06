@@ -34,8 +34,21 @@
     "role": {
       "$ref": "./OrganizationMemberRole.json"
     },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
     "isActive": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "Whether the user can login"
+    },
+    "isPending": {
+      "type": "boolean",
+      "description": "Whether the user doesn't have an authentication method (password or openId)"
     }
   },
   "required": [
@@ -45,6 +58,8 @@
     "isTrackingAnonymized",
     "isMarketingOptedIn",
     "isSetupComplete",
+    "createdAt",
+    "updatedAt",
     "isActive"
   ],
   "type": "object",

@@ -7,12 +7,17 @@
         },
         {
           "properties": {
+            "totalResults": {
+              "type": "number",
+              "format": "double"
+            },
             "totalPageCount": {
               "type": "number",
               "format": "double"
             }
           },
           "required": [
+            "totalResults",
             "totalPageCount"
           ],
           "type": "object"

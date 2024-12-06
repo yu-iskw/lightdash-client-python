@@ -1,5 +1,8 @@
 {
   "properties": {
+    "includeLinks": {
+      "type": "boolean"
+    },
     "notificationFrequency": {
       "$ref": "./NotificationFrequency.json"
     },
@@ -22,6 +25,9 @@
     "savedChartUuid": {
       "type": "string",
       "nullable": true
+    },
+    "timezone": {
+      "type": "string"
     },
     "cron": {
       "type": "string"
@@ -51,6 +57,7 @@
     }
   },
   "required": [
+    "includeLinks",
     "enabled",
     "options",
     "dashboardUuid",
