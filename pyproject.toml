@@ -10,7 +10,7 @@ exclude = [
     ".github/",
     ".gitignore",
     ".pre-commit-config.yaml",
-    ".style.yapf",
+    "ruff.toml",
     ".pylintrc",
     ".pypirc",
     "Makefile",
@@ -24,7 +24,7 @@ name = "lightdash-client-python"
 authors = [{name = "yu-iskw"}]
 readme = "README.md"
 license = {file = "LICENSE"}
-requires-python = ">=3.8.0,<4"
+requires-python = ">=3.9,<3.13"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Information Technology",
@@ -36,10 +36,10 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Typing :: Typed",
 ]
 dynamic = ["version", "description"]
@@ -54,18 +54,17 @@ Home = "https://github.com/yu-iskw/lightdash-client-python"
 
 [project.optional-dependencies]
 test = [
-    "pytest >=6.2.4,<7.0.0",
-    "pylint >=2.12.0",
-    "mypy >=0.910,<1.0",
-    "flake8 >=3.8.3,<4.0.0",
-    "black >=20.0",
-    "isort >=5.0.6,<6.0.0",
-    "yapf >=0.29.0",
+    "pytest >=8.0,<9.0",
 ]
 dev = [
-    "flit ==3.7.1",
+    "pylint >=2.12.0",
+    "flake8 >=3.8.3,<4.0.0",
+    "mypy >=0.910,<1.0",
+    "black >=20.0",
+    "isort >=5.0.6,<6.0.0",
+    "flit ==3.10.1",
     "build ==0.7.0",
-    "yapf >=0.29.0",
+    "ruff >=0.8,<1.0",
     "pyyaml >=5.3",
     "pdoc3 >=0.9.2",
     "pre-commit >=2.15.0",
