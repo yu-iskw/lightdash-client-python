@@ -15,6 +15,9 @@
       },
       "type": "array"
     },
+    "comparisonMetric": {
+      "$ref": "./MetricWithAssociatedTimeDimension.json"
+    },
     "metric": {
       "$ref": "./MetricWithAssociatedTimeDimension.json"
     }
