@@ -1,0 +1,86 @@
+{
+  "properties": {
+    "schemas": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    },
+    "meta": {
+      "allOf": [
+        {
+          "properties": {
+            "version": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "created": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "resourceType": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "location": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "created": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "resourceType": {
+              "type": "string",
+              "enum": [
+                "Group"
+              ],
+              "nullable": false
+            }
+          },
+          "required": [
+            "location",
+            "lastModified",
+            "created",
+            "resourceType"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "members": {
+      "items": {
+        "$ref": "./ScimGroupMember.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemas",
+    "id",
+    "displayName",
+    "members",
+    "meta"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

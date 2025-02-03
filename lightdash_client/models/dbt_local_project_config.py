@@ -20,6 +20,7 @@ class DbtLocalProjectConfig:
         type (DbtProjectTypeDBT):
         target (Union[Unset, str]):
         environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
+        selector (Union[Unset, str]):
         profiles_dir (Union[Unset, str]):
         project_dir (Union[Unset, str]):
     """
@@ -27,6 +28,7 @@ class DbtLocalProjectConfig:
     type: DbtProjectTypeDBT
     target: Union[Unset, str] = UNSET
     environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    selector: Union[Unset, str] = UNSET
     profiles_dir: Union[Unset, str] = UNSET
     project_dir: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -45,6 +47,8 @@ class DbtLocalProjectConfig:
                 environment_item = environment_item_data.to_dict()
                 environment.append(environment_item)
 
+        selector = self.selector
+
         profiles_dir = self.profiles_dir
 
         project_dir = self.project_dir
@@ -60,6 +64,8 @@ class DbtLocalProjectConfig:
             field_dict["target"] = target
         if environment is not UNSET:
             field_dict["environment"] = environment
+        if selector is not UNSET:
+            field_dict["selector"] = selector
         if profiles_dir is not UNSET:
             field_dict["profiles_dir"] = profiles_dir
         if project_dir is not UNSET:
@@ -83,6 +89,8 @@ class DbtLocalProjectConfig:
 
             environment.append(environment_item)
 
+        selector = d.pop("selector", UNSET)
+
         profiles_dir = d.pop("profiles_dir", UNSET)
 
         project_dir = d.pop("project_dir", UNSET)
@@ -91,6 +99,7 @@ class DbtLocalProjectConfig:
             type=type,
             target=target,
             environment=environment,
+            selector=selector,
             profiles_dir=profiles_dir,
             project_dir=project_dir,
         )

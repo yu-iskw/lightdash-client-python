@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "schemas": {
+      "items": {
+        "$ref": "./ScimSchemaType.GROUP.json"
+      },
+      "type": "array"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "members": {
+      "items": {
+        "$ref": "./ScimGroupMember.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemas",
+    "displayName",
+    "members"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

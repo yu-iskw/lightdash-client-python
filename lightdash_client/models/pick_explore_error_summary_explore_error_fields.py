@@ -20,18 +20,18 @@ class PickExploreErrorSummaryExploreErrorFields:
     Attributes:
         name (str):
         label (str):
-        tags (List[str]):
         errors (List['InlineError']):
-        group_label (Union[Unset, str]):
         type (Union[Unset, ExploreType]):
+        tags (Union[Unset, List[str]]):
+        group_label (Union[Unset, str]):
     """
 
     name: str
     label: str
-    tags: List[str]
     errors: List["InlineError"]
-    group_label: Union[Unset, str] = UNSET
     type: Union[Unset, ExploreType] = UNSET
+    tags: Union[Unset, List[str]] = UNSET
+    group_label: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -41,18 +41,20 @@ class PickExploreErrorSummaryExploreErrorFields:
 
         label = self.label
 
-        tags = self.tags
-
         errors = []
         for errors_item_data in self.errors:
             errors_item = errors_item_data.to_dict()
             errors.append(errors_item)
 
-        group_label = self.group_label
-
         type: Union[Unset, str] = UNSET
         if not isinstance(self.type, Unset):
             type = self.type.value
+
+        tags: Union[Unset, List[str]] = UNSET
+        if not isinstance(self.tags, Unset):
+            tags = self.tags
+
+        group_label = self.group_label
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -60,14 +62,15 @@ class PickExploreErrorSummaryExploreErrorFields:
             {
                 "name": name,
                 "label": label,
-                "tags": tags,
                 "errors": errors,
             }
         )
-        if group_label is not UNSET:
-            field_dict["groupLabel"] = group_label
         if type is not UNSET:
             field_dict["type"] = type
+        if tags is not UNSET:
+            field_dict["tags"] = tags
+        if group_label is not UNSET:
+            field_dict["groupLabel"] = group_label
 
         return field_dict
 
@@ -80,16 +83,12 @@ class PickExploreErrorSummaryExploreErrorFields:
 
         label = d.pop("label")
 
-        tags = cast(List[str], d.pop("tags"))
-
         errors = []
         _errors = d.pop("errors")
         for errors_item_data in _errors:
             errors_item = InlineError.from_dict(errors_item_data)
 
             errors.append(errors_item)
-
-        group_label = d.pop("groupLabel", UNSET)
 
         _type = d.pop("type", UNSET)
         type: Union[Unset, ExploreType]
@@ -98,13 +97,17 @@ class PickExploreErrorSummaryExploreErrorFields:
         else:
             type = ExploreType(_type)
 
+        tags = cast(List[str], d.pop("tags", UNSET))
+
+        group_label = d.pop("groupLabel", UNSET)
+
         pick_explore_error_summary_explore_error_fields = cls(
             name=name,
             label=label,
-            tags=tags,
             errors=errors,
-            group_label=group_label,
             type=type,
+            tags=tags,
+            group_label=group_label,
         )
 
         pick_explore_error_summary_explore_error_fields.additional_properties = d

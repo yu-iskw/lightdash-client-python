@@ -53,7 +53,9 @@
                 "type": "array"
               },
               "explores": {
-                "items": {},
+                "items": {
+                  "$ref": "../components/schemas/AnyType.json"
+                },
                 "type": "array"
               }
             },

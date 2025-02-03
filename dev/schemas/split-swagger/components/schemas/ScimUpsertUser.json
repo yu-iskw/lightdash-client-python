@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Omit_ScimUser.id_.json"
+    },
+    {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

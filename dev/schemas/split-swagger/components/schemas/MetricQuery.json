@@ -14,6 +14,9 @@
     "timezone": {
       "type": "string"
     },
+    "metricOverrides": {
+      "$ref": "./MetricOverrides.json"
+    },
     "customDimensions": {
       "items": {
         "$ref": "./CustomDimension.json"

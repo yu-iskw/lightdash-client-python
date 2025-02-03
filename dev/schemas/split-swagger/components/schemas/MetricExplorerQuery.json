@@ -1,0 +1,62 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "segmentDimension": {
+          "type": "string",
+          "nullable": true
+        },
+        "comparison": {
+          "$ref": "./MetricExplorerComparison.NONE.json"
+        }
+      },
+      "required": [
+        "segmentDimension",
+        "comparison"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "comparison": {
+          "$ref": "./MetricExplorerComparison.PREVIOUS_PERIOD.json"
+        }
+      },
+      "required": [
+        "comparison"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "metric": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "table": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "table",
+            "label"
+          ],
+          "type": "object"
+        },
+        "comparison": {
+          "$ref": "./MetricExplorerComparison.DIFFERENT_METRIC.json"
+        }
+      },
+      "required": [
+        "metric",
+        "comparison"
+      ],
+      "type": "object"
+    }
+  ]
+}

@@ -17,13 +17,13 @@ class SpaceSummary:
     """
     Attributes:
         name (str):
-        uuid (str):
         project_uuid (str):
+        uuid (str):
         organization_uuid (str):
-        pinned_list_uuid (Union[None, str]):
-        slug (str):
         is_private (bool):
+        pinned_list_uuid (Union[None, str]):
         pinned_list_order (Union[None, float]):
+        slug (str):
         dashboard_count (float):
         chart_count (float):
         access (List[str]):
@@ -31,13 +31,13 @@ class SpaceSummary:
     """
 
     name: str
-    uuid: str
     project_uuid: str
+    uuid: str
     organization_uuid: str
-    pinned_list_uuid: Union[None, str]
-    slug: str
     is_private: bool
+    pinned_list_uuid: Union[None, str]
     pinned_list_order: Union[None, float]
+    slug: str
     dashboard_count: float
     chart_count: float
     access: List[str]
@@ -49,21 +49,21 @@ class SpaceSummary:
 
         name = self.name
 
-        uuid = self.uuid
-
         project_uuid = self.project_uuid
 
+        uuid = self.uuid
+
         organization_uuid = self.organization_uuid
+
+        is_private = self.is_private
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
-        slug = self.slug
-
-        is_private = self.is_private
-
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
+
+        slug = self.slug
 
         dashboard_count = self.dashboard_count
 
@@ -80,13 +80,13 @@ class SpaceSummary:
         field_dict.update(
             {
                 "name": name,
-                "uuid": uuid,
                 "projectUuid": project_uuid,
+                "uuid": uuid,
                 "organizationUuid": organization_uuid,
-                "pinnedListUuid": pinned_list_uuid,
-                "slug": slug,
                 "isPrivate": is_private,
+                "pinnedListUuid": pinned_list_uuid,
                 "pinnedListOrder": pinned_list_order,
+                "slug": slug,
                 "dashboardCount": dashboard_count,
                 "chartCount": chart_count,
                 "access": access,
@@ -104,11 +104,13 @@ class SpaceSummary:
         d = src_dict.copy()
         name = d.pop("name")
 
-        uuid = d.pop("uuid")
-
         project_uuid = d.pop("projectUuid")
 
+        uuid = d.pop("uuid")
+
         organization_uuid = d.pop("organizationUuid")
+
+        is_private = d.pop("isPrivate")
 
         def _parse_pinned_list_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -117,16 +119,14 @@ class SpaceSummary:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
-        slug = d.pop("slug")
-
-        is_private = d.pop("isPrivate")
-
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
             if data is None:
                 return data
             return cast(Union[None, float], data)
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
+
+        slug = d.pop("slug")
 
         dashboard_count = d.pop("dashboardCount")
 
@@ -143,13 +143,13 @@ class SpaceSummary:
 
         space_summary = cls(
             name=name,
-            uuid=uuid,
             project_uuid=project_uuid,
+            uuid=uuid,
             organization_uuid=organization_uuid,
-            pinned_list_uuid=pinned_list_uuid,
-            slug=slug,
             is_private=is_private,
+            pinned_list_uuid=pinned_list_uuid,
             pinned_list_order=pinned_list_order,
+            slug=slug,
             dashboard_count=dashboard_count,
             chart_count=chart_count,
             access=access,

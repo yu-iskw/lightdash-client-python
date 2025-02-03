@@ -1,0 +1,4 @@
+{
+  "$ref": "./Pick_DashboardTile.Exclude_keyofDashboardTile.properties-or-uuid__.json",
+  "description": "Construct a type with the properties of T except for those in type K."
+}

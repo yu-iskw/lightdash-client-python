@@ -24,8 +24,16 @@ class UpsertDashboardAsCodeBody:
         tabs (List['DashboardTab']):
         version (float):
         space_slug (str):
-        tiles (Any):
-        filters (Any):
+        tiles (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
+        filters (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
         downloaded_at (Union[Unset, datetime.datetime]):
         description (Union[None, Unset, str]):
     """

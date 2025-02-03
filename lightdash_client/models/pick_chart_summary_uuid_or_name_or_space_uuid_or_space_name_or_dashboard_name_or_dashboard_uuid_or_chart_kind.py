@@ -16,8 +16,8 @@ class PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboard
     Attributes:
         name (str):
         uuid (str):
-        space_name (str):
         space_uuid (str):
+        space_name (str):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
         chart_kind (Union[Unset, ChartKind]):
@@ -25,8 +25,8 @@ class PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboard
 
     name: str
     uuid: str
-    space_name: str
     space_uuid: str
+    space_name: str
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
     chart_kind: Union[Unset, ChartKind] = UNSET
@@ -37,9 +37,9 @@ class PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboard
 
         uuid = self.uuid
 
-        space_name = self.space_name
-
         space_uuid = self.space_uuid
+
+        space_name = self.space_name
 
         dashboard_uuid: Union[None, str]
         dashboard_uuid = self.dashboard_uuid
@@ -57,8 +57,8 @@ class PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboard
             {
                 "name": name,
                 "uuid": uuid,
-                "spaceName": space_name,
                 "spaceUuid": space_uuid,
+                "spaceName": space_name,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
             }
@@ -75,9 +75,9 @@ class PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboard
 
         uuid = d.pop("uuid")
 
-        space_name = d.pop("spaceName")
-
         space_uuid = d.pop("spaceUuid")
+
+        space_name = d.pop("spaceName")
 
         def _parse_dashboard_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -103,8 +103,8 @@ class PickChartSummaryUuidOrNameOrSpaceUuidOrSpaceNameOrDashboardNameOrDashboard
         pick_chart_summary_uuid_or_name_or_space_uuid_or_space_name_or_dashboard_name_or_dashboard_uuid_or_chart_kind = cls(
             name=name,
             uuid=uuid,
-            space_name=space_name,
             space_uuid=space_uuid,
+            space_name=space_name,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
             chart_kind=chart_kind,

@@ -25,6 +25,7 @@ class DbtBitBucketProjectConfig:
         project_sub_path (str):
         target (Union[Unset, str]):
         environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
+        selector (Union[Unset, str]):
         host_domain (Union[Unset, str]):
     """
 
@@ -36,6 +37,7 @@ class DbtBitBucketProjectConfig:
     project_sub_path: str
     target: Union[Unset, str] = UNSET
     environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    selector: Union[Unset, str] = UNSET
     host_domain: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -63,6 +65,8 @@ class DbtBitBucketProjectConfig:
                 environment_item = environment_item_data.to_dict()
                 environment.append(environment_item)
 
+        selector = self.selector
+
         host_domain = self.host_domain
 
         field_dict: Dict[str, Any] = {}
@@ -81,6 +85,8 @@ class DbtBitBucketProjectConfig:
             field_dict["target"] = target
         if environment is not UNSET:
             field_dict["environment"] = environment
+        if selector is not UNSET:
+            field_dict["selector"] = selector
         if host_domain is not UNSET:
             field_dict["host_domain"] = host_domain
 
@@ -112,6 +118,8 @@ class DbtBitBucketProjectConfig:
 
             environment.append(environment_item)
 
+        selector = d.pop("selector", UNSET)
+
         host_domain = d.pop("host_domain", UNSET)
 
         dbt_bit_bucket_project_config = cls(
@@ -123,6 +131,7 @@ class DbtBitBucketProjectConfig:
             project_sub_path=project_sub_path,
             target=target,
             environment=environment,
+            selector=selector,
             host_domain=host_domain,
         )
 

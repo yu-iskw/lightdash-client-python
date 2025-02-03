@@ -34,8 +34,7 @@
       "additionalProperties": {
         "properties": {
           "whichYAxis": {
-            "type": "number",
-            "format": "double"
+            "$ref": "./AxisSide.json"
           },
           "valueLabelPosition": {
             "$ref": "./ValueLabelPositionOptions.json"

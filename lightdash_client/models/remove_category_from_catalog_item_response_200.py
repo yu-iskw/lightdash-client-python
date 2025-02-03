@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,40 +12,41 @@ T = TypeVar("T", bound="RemoveCategoryFromCatalogItemResponse200")
 class RemoveCategoryFromCatalogItemResponse200:
     """
     Attributes:
-        results (Any):
         status (str):
+        results (Union[Unset, Any]):
     """
 
-    results: Any
     status: str
+    results: Union[Unset, Any] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        results = self.results
-
         status = self.status
+
+        results = self.results
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "results": results,
                 "status": status,
             }
         )
+        if results is not UNSET:
+            field_dict["results"] = results
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        results = d.pop("results")
-
         status = d.pop("status")
 
+        results = d.pop("results", UNSET)
+
         remove_category_from_catalog_item_response_200 = cls(
-            results=results,
             status=status,
+            results=results,
         )
 
         remove_category_from_catalog_item_response_200.additional_properties = d

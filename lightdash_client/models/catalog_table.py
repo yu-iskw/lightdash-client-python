@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     from ..models.custom_icon import CustomIcon
     from ..models.emoji_icon import EmojiIcon
     from ..models.inline_error import InlineError
-    from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+    from ..models.pick_tag_name_or_color_or_tag_uuid_or_yaml_reference import PickTagNameOrColorOrTagUuidOrYamlReference
     from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
 
@@ -25,13 +25,13 @@ class CatalogTable:
         name (str):
         label (str):
         icon (Union['CustomIcon', 'EmojiIcon', None]):
-        categories (List['PickTagNameOrColorOrTagUuid']):
+        categories (List['PickTagNameOrColorOrTagUuidOrYamlReference']):
         type (CatalogTypeTable):
         catalog_search_uuid (str):
         description (Union[Unset, str]):
+        group_label (Union[Unset, str]):
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
-        group_label (Union[Unset, str]):
         chart_usage (Union[Unset, float]):
         joined_tables (Union[Unset, List['CompiledExploreJoin']]):
         tags (Union[Unset, List[str]]):
@@ -41,12 +41,12 @@ class CatalogTable:
     name: str
     label: str
     icon: Union["CustomIcon", "EmojiIcon", None]
-    categories: List["PickTagNameOrColorOrTagUuid"]
+    categories: List["PickTagNameOrColorOrTagUuidOrYamlReference"]
     type: CatalogTypeTable
     catalog_search_uuid: str
     description: Union[Unset, str] = UNSET
-    required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     group_label: Union[Unset, str] = UNSET
+    required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     chart_usage: Union[Unset, float] = UNSET
     joined_tables: Union[Unset, List["CompiledExploreJoin"]] = UNSET
     tags: Union[Unset, List[str]] = UNSET
@@ -58,7 +58,9 @@ class CatalogTable:
         from ..models.custom_icon import CustomIcon
         from ..models.emoji_icon import EmojiIcon
         from ..models.inline_error import InlineError
-        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.pick_tag_name_or_color_or_tag_uuid_or_yaml_reference import (
+            PickTagNameOrColorOrTagUuidOrYamlReference,
+        )
         from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         name = self.name
@@ -84,11 +86,11 @@ class CatalogTable:
 
         description = self.description
 
+        group_label = self.group_label
+
         required_attributes: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.required_attributes, Unset):
             required_attributes = self.required_attributes.to_dict()
-
-        group_label = self.group_label
 
         chart_usage = self.chart_usage
 
@@ -124,10 +126,10 @@ class CatalogTable:
         )
         if description is not UNSET:
             field_dict["description"] = description
-        if required_attributes is not UNSET:
-            field_dict["requiredAttributes"] = required_attributes
         if group_label is not UNSET:
             field_dict["groupLabel"] = group_label
+        if required_attributes is not UNSET:
+            field_dict["requiredAttributes"] = required_attributes
         if chart_usage is not UNSET:
             field_dict["chartUsage"] = chart_usage
         if joined_tables is not UNSET:
@@ -145,7 +147,9 @@ class CatalogTable:
         from ..models.custom_icon import CustomIcon
         from ..models.emoji_icon import EmojiIcon
         from ..models.inline_error import InlineError
-        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.pick_tag_name_or_color_or_tag_uuid_or_yaml_reference import (
+            PickTagNameOrColorOrTagUuidOrYamlReference,
+        )
         from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         d = src_dict.copy()
@@ -179,7 +183,7 @@ class CatalogTable:
         categories = []
         _categories = d.pop("categories")
         for categories_item_data in _categories:
-            categories_item = PickTagNameOrColorOrTagUuid.from_dict(categories_item_data)
+            categories_item = PickTagNameOrColorOrTagUuidOrYamlReference.from_dict(categories_item_data)
 
             categories.append(categories_item)
 
@@ -189,14 +193,14 @@ class CatalogTable:
 
         description = d.pop("description", UNSET)
 
+        group_label = d.pop("groupLabel", UNSET)
+
         _required_attributes = d.pop("requiredAttributes", UNSET)
         required_attributes: Union[Unset, RecordStringStringOrStringArray]
         if isinstance(_required_attributes, Unset):
             required_attributes = UNSET
         else:
             required_attributes = RecordStringStringOrStringArray.from_dict(_required_attributes)
-
-        group_label = d.pop("groupLabel", UNSET)
 
         chart_usage = d.pop("chartUsage", UNSET)
 
@@ -224,8 +228,8 @@ class CatalogTable:
             type=type,
             catalog_search_uuid=catalog_search_uuid,
             description=description,
-            required_attributes=required_attributes,
             group_label=group_label,
+            required_attributes=required_attributes,
             chart_usage=chart_usage,
             joined_tables=joined_tables,
             tags=tags,

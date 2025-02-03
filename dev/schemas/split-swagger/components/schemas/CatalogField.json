@@ -22,7 +22,7 @@
         },
         "categories": {
           "items": {
-            "$ref": "./Pick_Tag.name-or-color-or-tagUuid_.json"
+            "$ref": "./Pick_Tag.name-or-color-or-tagUuid-or-yamlReference_.json"
           },
           "type": "array"
         },

@@ -36,6 +36,22 @@
         "schema": {
           "type": "string"
         }
+      },
+      {
+        "in": "query",
+        "name": "excludeArchived",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      {
+        "in": "query",
+        "name": "forceRefresh",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
       }
     ]
   }

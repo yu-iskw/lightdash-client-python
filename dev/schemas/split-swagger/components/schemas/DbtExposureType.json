@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "dashboard",
+    "notebook",
+    "analysis",
+    "ml",
+    "application"
+  ],
+  "type": "string"
+}

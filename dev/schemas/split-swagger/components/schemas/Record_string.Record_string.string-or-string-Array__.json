@@ -1,5 +1,8 @@
 {
   "properties": {},
+  "additionalProperties": {
+    "$ref": "./Record_string.string-or-string-Array_.json"
+  },
   "type": "object",
   "description": "Construct a type with a set of properties K of type T"
 }

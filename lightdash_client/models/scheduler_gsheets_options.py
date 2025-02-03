@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, Tuple, Type, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -16,12 +16,14 @@ class SchedulerGsheetsOptions:
         gdrive_organization_name (str):
         gdrive_name (str):
         gdrive_id (str):
+        tab_name (Union[Unset, str]):
     """
 
     url: str
     gdrive_organization_name: str
     gdrive_name: str
     gdrive_id: str
+    tab_name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -33,6 +35,8 @@ class SchedulerGsheetsOptions:
 
         gdrive_id = self.gdrive_id
 
+        tab_name = self.tab_name
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -43,6 +47,8 @@ class SchedulerGsheetsOptions:
                 "gdriveId": gdrive_id,
             }
         )
+        if tab_name is not UNSET:
+            field_dict["tabName"] = tab_name
 
         return field_dict
 
@@ -57,11 +63,14 @@ class SchedulerGsheetsOptions:
 
         gdrive_id = d.pop("gdriveId")
 
+        tab_name = d.pop("tabName", UNSET)
+
         scheduler_gsheets_options = cls(
             url=url,
             gdrive_organization_name=gdrive_organization_name,
             gdrive_name=gdrive_name,
             gdrive_id=gdrive_id,
+            tab_name=tab_name,
         )
 
         scheduler_gsheets_options.additional_properties = d

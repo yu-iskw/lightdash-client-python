@@ -52,12 +52,20 @@
           "schema": {
             "allOf": [
               {
-                "$ref": "../components/schemas/Omit_ChartAsCode.metricQuery-or-chartConfig_.json"
+                "$ref": "../components/schemas/Omit_ChartAsCode.metricQuery-or-chartConfig-or-description_.json"
               },
               {
                 "properties": {
-                  "metricQuery": {},
-                  "chartConfig": {}
+                  "description": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "metricQuery": {
+                    "$ref": "../components/schemas/AnyType.json"
+                  },
+                  "chartConfig": {
+                    "$ref": "../components/schemas/AnyType.json"
+                  }
                 },
                 "required": [
                   "metricQuery",

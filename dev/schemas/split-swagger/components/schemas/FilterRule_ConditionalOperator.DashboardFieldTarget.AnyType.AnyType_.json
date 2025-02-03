@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "values": {
+      "items": {
+        "$ref": "./AnyType.json"
+      },
+      "type": "array"
+    },
+    "operator": {
+      "$ref": "./ConditionalOperator.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "target": {
+      "$ref": "./DashboardFieldTarget.json"
+    },
+    "settings": {
+      "$ref": "./AnyType.json"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "operator",
+    "id",
+    "target"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

@@ -6,10 +6,10 @@
     "uuid": {
       "type": "string"
     },
-    "spaceName": {
+    "spaceUuid": {
       "type": "string"
     },
-    "spaceUuid": {
+    "spaceName": {
       "type": "string"
     },
     "dashboardUuid": {
@@ -27,8 +27,8 @@
   "required": [
     "name",
     "uuid",
-    "spaceName",
     "spaceUuid",
+    "spaceName",
     "dashboardUuid",
     "dashboardName"
   ],

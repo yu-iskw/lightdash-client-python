@@ -1,0 +1,120 @@
+{
+  "properties": {
+    "fieldType": {
+      "$ref": "./FieldType.DIMENSION.json"
+    },
+    "type": {
+      "anyOf": [
+        {
+          "$ref": "./DimensionType.STRING.json"
+        },
+        {
+          "$ref": "./DimensionType.NUMBER.json"
+        },
+        {
+          "$ref": "./DimensionType.DATE.json"
+        },
+        {
+          "$ref": "./DimensionType.TIMESTAMP.json"
+        },
+        {
+          "$ref": "./DimensionType.BOOLEAN.json"
+        }
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "table": {
+      "type": "string"
+    },
+    "tableLabel": {
+      "type": "string"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "source": {
+      "$ref": "./Source.json"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "compact": {
+      "$ref": "./CompactOrAlias.json"
+    },
+    "round": {
+      "type": "number",
+      "format": "double"
+    },
+    "format": {
+      "$ref": "./Format.json"
+    },
+    "groupLabel": {
+      "type": "string",
+      "deprecated": true
+    },
+    "groups": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "urls": {
+      "items": {
+        "$ref": "./FieldUrl.json"
+      },
+      "type": "array"
+    },
+    "index": {
+      "type": "number",
+      "format": "double"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "group": {
+      "type": "string",
+      "deprecated": true
+    },
+    "requiredAttributes": {
+      "$ref": "./Record_string.string-or-string-Array_.json"
+    },
+    "timeInterval": {
+      "$ref": "./TimeFrames.json"
+    },
+    "timeIntervalBaseDimensionName": {
+      "type": "string"
+    },
+    "isAdditionalDimension": {
+      "type": "boolean"
+    },
+    "colors": {
+      "$ref": "./Record_string.string_.json"
+    },
+    "isIntervalBase": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "fieldType",
+    "type",
+    "name",
+    "label",
+    "table",
+    "tableLabel",
+    "sql",
+    "hidden"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

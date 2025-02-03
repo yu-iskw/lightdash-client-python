@@ -1,0 +1,83 @@
+{
+  "properties": {
+    "schemas": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    },
+    "meta": {
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "lastModified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resourceType": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "name": {
+      "properties": {
+        "familyName": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "familyName",
+        "givenName"
+      ],
+      "type": "object"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "emails": {
+      "items": {
+        "properties": {
+          "primary": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "primary",
+          "value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemas",
+    "id",
+    "userName",
+    "name",
+    "active"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

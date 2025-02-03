@@ -6,7 +6,9 @@
           "$ref": "./Record_string.Item-or-AdditionalMetric_.json"
         },
         "rows": {
-          "items": {},
+          "items": {
+            "$ref": "./AnyType.json"
+          },
           "type": "array"
         },
         "cacheMetadata": {

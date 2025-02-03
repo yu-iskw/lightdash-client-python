@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "schemas": {
+      "items": {
+        "$ref": "./ScimPatchSchema.json"
+      },
+      "type": "array"
+    },
+    "Operations": {
+      "items": {
+        "$ref": "./ScimPatchOperation.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemas",
+    "Operations"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

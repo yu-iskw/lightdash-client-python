@@ -1,5 +1,8 @@
 {
   "properties": {
+    "tabName": {
+      "type": "string"
+    },
     "url": {
       "type": "string"
     },

@@ -1,0 +1,46 @@
+{
+  "allOf": [
+    {
+      "$ref": "./AiConversationMessageIncomplete.json"
+    },
+    {
+      "properties": {
+        "humanScore": {
+          "type": "number",
+          "format": "double"
+        },
+        "metricQuery": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "filtersOutput": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "vizConfigOutput": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "respondedAt": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "response": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "respondedAt",
+        "response"
+      ],
+      "type": "object"
+    }
+  ]
+}

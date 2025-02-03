@@ -10,7 +10,7 @@ from ..types import UNSET, Unset
 if TYPE_CHECKING:
     from ..models.custom_icon import CustomIcon
     from ..models.emoji_icon import EmojiIcon
-    from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+    from ..models.pick_tag_name_or_color_or_tag_uuid_or_yaml_reference import PickTagNameOrColorOrTagUuidOrYamlReference
     from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
 
@@ -26,7 +26,7 @@ class CatalogField:
         field_type (FieldType):
         table_label (str):
         icon (Union['CustomIcon', 'EmojiIcon', None]):
-        categories (List['PickTagNameOrColorOrTagUuid']):
+        categories (List['PickTagNameOrColorOrTagUuidOrYamlReference']):
         table_name (str):
         type (CatalogTypeField):
         catalog_search_uuid (str):
@@ -44,7 +44,7 @@ class CatalogField:
     field_type: FieldType
     table_label: str
     icon: Union["CustomIcon", "EmojiIcon", None]
-    categories: List["PickTagNameOrColorOrTagUuid"]
+    categories: List["PickTagNameOrColorOrTagUuidOrYamlReference"]
     table_name: str
     type: CatalogTypeField
     catalog_search_uuid: str
@@ -59,7 +59,9 @@ class CatalogField:
     def to_dict(self) -> Dict[str, Any]:
         from ..models.custom_icon import CustomIcon
         from ..models.emoji_icon import EmojiIcon
-        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.pick_tag_name_or_color_or_tag_uuid_or_yaml_reference import (
+            PickTagNameOrColorOrTagUuidOrYamlReference,
+        )
         from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         name = self.name
@@ -139,7 +141,9 @@ class CatalogField:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.custom_icon import CustomIcon
         from ..models.emoji_icon import EmojiIcon
-        from ..models.pick_tag_name_or_color_or_tag_uuid import PickTagNameOrColorOrTagUuid
+        from ..models.pick_tag_name_or_color_or_tag_uuid_or_yaml_reference import (
+            PickTagNameOrColorOrTagUuidOrYamlReference,
+        )
         from ..models.record_string_string_or_string_array import RecordStringStringOrStringArray
 
         d = src_dict.copy()
@@ -177,7 +181,7 @@ class CatalogField:
         categories = []
         _categories = d.pop("categories")
         for categories_item_data in _categories:
-            categories_item = PickTagNameOrColorOrTagUuid.from_dict(categories_item_data)
+            categories_item = PickTagNameOrColorOrTagUuidOrYamlReference.from_dict(categories_item_data)
 
             categories.append(categories_item)
 

@@ -16,15 +16,15 @@ class ChartSummary:
     """
     Attributes:
         name (str):
-        uuid (str):
-        space_name (str):
-        space_uuid (str):
         project_uuid (str):
+        uuid (str):
+        space_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        slug (str):
+        space_name (str):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
-        slug (str):
         description (Union[Unset, str]):
         source (Union[Unset, ChartSourceType]):
         chart_kind (Union[Unset, ChartKind]):
@@ -32,15 +32,15 @@ class ChartSummary:
     """
 
     name: str
-    uuid: str
-    space_name: str
-    space_uuid: str
     project_uuid: str
+    uuid: str
+    space_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    slug: str
+    space_name: str
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
-    slug: str
     description: Union[Unset, str] = UNSET
     source: Union[Unset, ChartSourceType] = UNSET
     chart_kind: Union[Unset, ChartKind] = UNSET
@@ -50,26 +50,26 @@ class ChartSummary:
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
 
+        project_uuid = self.project_uuid
+
         uuid = self.uuid
 
-        space_name = self.space_name
-
         space_uuid = self.space_uuid
-
-        project_uuid = self.project_uuid
 
         organization_uuid = self.organization_uuid
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
+        slug = self.slug
+
+        space_name = self.space_name
+
         dashboard_uuid: Union[None, str]
         dashboard_uuid = self.dashboard_uuid
 
         dashboard_name: Union[None, str]
         dashboard_name = self.dashboard_name
-
-        slug = self.slug
 
         description = self.description
 
@@ -90,15 +90,15 @@ class ChartSummary:
         field_dict.update(
             {
                 "name": name,
-                "uuid": uuid,
-                "spaceName": space_name,
-                "spaceUuid": space_uuid,
                 "projectUuid": project_uuid,
+                "uuid": uuid,
+                "spaceUuid": space_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "slug": slug,
+                "spaceName": space_name,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
-                "slug": slug,
             }
         )
         if description is not UNSET:
@@ -117,13 +117,11 @@ class ChartSummary:
         d = src_dict.copy()
         name = d.pop("name")
 
+        project_uuid = d.pop("projectUuid")
+
         uuid = d.pop("uuid")
 
-        space_name = d.pop("spaceName")
-
         space_uuid = d.pop("spaceUuid")
-
-        project_uuid = d.pop("projectUuid")
 
         organization_uuid = d.pop("organizationUuid")
 
@@ -133,6 +131,10 @@ class ChartSummary:
             return cast(Union[None, str], data)
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
+
+        slug = d.pop("slug")
+
+        space_name = d.pop("spaceName")
 
         def _parse_dashboard_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -147,8 +149,6 @@ class ChartSummary:
             return cast(Union[None, str], data)
 
         dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
-
-        slug = d.pop("slug")
 
         description = d.pop("description", UNSET)
 
@@ -175,15 +175,15 @@ class ChartSummary:
 
         chart_summary = cls(
             name=name,
-            uuid=uuid,
-            space_name=space_name,
-            space_uuid=space_uuid,
             project_uuid=project_uuid,
+            uuid=uuid,
+            space_uuid=space_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            slug=slug,
+            space_name=space_name,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
-            slug=slug,
             description=description,
             source=source,
             chart_kind=chart_kind,

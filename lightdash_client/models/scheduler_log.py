@@ -11,7 +11,7 @@ from ..models.scheduler_log_task import SchedulerLogTask
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.record_string_any import RecordStringAny
+    from ..models.record_string_any_type import RecordStringAnyType
 
 
 T = TypeVar("T", bound="SchedulerLog")
@@ -26,7 +26,7 @@ class SchedulerLog:
         scheduled_time (datetime.datetime):
         job_id (str):
         task (SchedulerLogTask):
-        details (Union[Unset, RecordStringAny]): Construct a type with a set of properties K of type T
+        details (Union[Unset, RecordStringAnyType]): Construct a type with a set of properties K of type T
         target_type (Union[Unset, SchedulerLogTargetType]):
         target (Union[Unset, str]):
         job_group (Union[Unset, str]):
@@ -38,7 +38,7 @@ class SchedulerLog:
     scheduled_time: datetime.datetime
     job_id: str
     task: SchedulerLogTask
-    details: Union[Unset, "RecordStringAny"] = UNSET
+    details: Union[Unset, "RecordStringAnyType"] = UNSET
     target_type: Union[Unset, SchedulerLogTargetType] = UNSET
     target: Union[Unset, str] = UNSET
     job_group: Union[Unset, str] = UNSET
@@ -46,7 +46,7 @@ class SchedulerLog:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.record_string_any import RecordStringAny
+        from ..models.record_string_any_type import RecordStringAnyType
 
         status = self.status.value
 
@@ -98,7 +98,7 @@ class SchedulerLog:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.record_string_any import RecordStringAny
+        from ..models.record_string_any_type import RecordStringAnyType
 
         d = src_dict.copy()
         status = SchedulerJobStatus(d.pop("status"))
@@ -112,11 +112,11 @@ class SchedulerLog:
         task = SchedulerLogTask(d.pop("task"))
 
         _details = d.pop("details", UNSET)
-        details: Union[Unset, RecordStringAny]
+        details: Union[Unset, RecordStringAnyType]
         if isinstance(_details, Unset):
             details = UNSET
         else:
-            details = RecordStringAny.from_dict(_details)
+            details = RecordStringAnyType.from_dict(_details)
 
         _target_type = d.pop("targetType", UNSET)
         target_type: Union[Unset, SchedulerLogTargetType]

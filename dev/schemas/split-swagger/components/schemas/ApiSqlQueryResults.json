@@ -7,7 +7,7 @@
       "type": "array"
     },
     "fields": {
-      "$ref": "./Record_string._type-DimensionType--__.json"
+      "$ref": "./Record_string._type-DimensionType__.json"
     }
   },
   "required": [

@@ -13,8 +13,8 @@ if TYPE_CHECKING:
     from ..models.custom_vis_config import CustomVisConfig
     from ..models.funnel_chart_config import FunnelChartConfig
     from ..models.metric_query import MetricQuery
-    from ..models.pick_saved_chart_name_or_description_or_table_name_or_metric_query_or_chart_config_or_table_config_or_slug_or_dashboard_uuid_or_updated_at_table_config import (
-        PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrDashboardUuidOrUpdatedAtTableConfig,
+    from ..models.pick_saved_chart_name_or_description_or_table_name_or_metric_query_or_chart_config_or_table_config_or_slug_or_updated_at_table_config import (
+        PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrUpdatedAtTableConfig,
     )
     from ..models.pie_chart_config import PieChartConfig
     from ..models.table_chart_config import TableChartConfig
@@ -28,26 +28,25 @@ class ChartAsCode:
     """
     Attributes:
         name (str):
-        dashboard_uuid (Union[None, str]):
         slug (str):
-        table_name (str):
         updated_at (datetime.datetime):
+        table_name (str):
         metric_query (MetricQuery):
         chart_config (Union['BigNumberConfig', 'CartesianChartConfig', 'CustomVisConfig', 'FunnelChartConfig',
             'PieChartConfig', 'TableChartConfig']):
-        table_config (PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrDashboard
-            UuidOrUpdatedAtTableConfig):
+        table_config
+            (PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrUpdatedAtTableConfig):
         space_slug (str):
         version (float):
         description (Union[Unset, str]):
         downloaded_at (Union[Unset, datetime.datetime]):
+        dashboard_slug (Union[Unset, str]):
     """
 
     name: str
-    dashboard_uuid: Union[None, str]
     slug: str
-    table_name: str
     updated_at: datetime.datetime
+    table_name: str
     metric_query: "MetricQuery"
     chart_config: Union[
         "BigNumberConfig",
@@ -57,11 +56,14 @@ class ChartAsCode:
         "PieChartConfig",
         "TableChartConfig",
     ]
-    table_config: "PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrDashboardUuidOrUpdatedAtTableConfig"
+    table_config: (
+        "PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrUpdatedAtTableConfig"
+    )
     space_slug: str
     version: float
     description: Union[Unset, str] = UNSET
     downloaded_at: Union[Unset, datetime.datetime] = UNSET
+    dashboard_slug: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,22 +72,19 @@ class ChartAsCode:
         from ..models.custom_vis_config import CustomVisConfig
         from ..models.funnel_chart_config import FunnelChartConfig
         from ..models.metric_query import MetricQuery
-        from ..models.pick_saved_chart_name_or_description_or_table_name_or_metric_query_or_chart_config_or_table_config_or_slug_or_dashboard_uuid_or_updated_at_table_config import (
-            PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrDashboardUuidOrUpdatedAtTableConfig,
+        from ..models.pick_saved_chart_name_or_description_or_table_name_or_metric_query_or_chart_config_or_table_config_or_slug_or_updated_at_table_config import (
+            PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrUpdatedAtTableConfig,
         )
         from ..models.pie_chart_config import PieChartConfig
         from ..models.table_chart_config import TableChartConfig
 
         name = self.name
 
-        dashboard_uuid: Union[None, str]
-        dashboard_uuid = self.dashboard_uuid
-
         slug = self.slug
 
-        table_name = self.table_name
-
         updated_at = self.updated_at.isoformat()
+
+        table_name = self.table_name
 
         metric_query = self.metric_query.to_dict()
 
@@ -115,15 +114,16 @@ class ChartAsCode:
         if not isinstance(self.downloaded_at, Unset):
             downloaded_at = self.downloaded_at.isoformat()
 
+        dashboard_slug = self.dashboard_slug
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "name": name,
-                "dashboardUuid": dashboard_uuid,
                 "slug": slug,
-                "tableName": table_name,
                 "updatedAt": updated_at,
+                "tableName": table_name,
                 "metricQuery": metric_query,
                 "chartConfig": chart_config,
                 "tableConfig": table_config,
@@ -135,6 +135,8 @@ class ChartAsCode:
             field_dict["description"] = description
         if downloaded_at is not UNSET:
             field_dict["downloadedAt"] = downloaded_at
+        if dashboard_slug is not UNSET:
+            field_dict["dashboardSlug"] = dashboard_slug
 
         return field_dict
 
@@ -145,8 +147,8 @@ class ChartAsCode:
         from ..models.custom_vis_config import CustomVisConfig
         from ..models.funnel_chart_config import FunnelChartConfig
         from ..models.metric_query import MetricQuery
-        from ..models.pick_saved_chart_name_or_description_or_table_name_or_metric_query_or_chart_config_or_table_config_or_slug_or_dashboard_uuid_or_updated_at_table_config import (
-            PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrDashboardUuidOrUpdatedAtTableConfig,
+        from ..models.pick_saved_chart_name_or_description_or_table_name_or_metric_query_or_chart_config_or_table_config_or_slug_or_updated_at_table_config import (
+            PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrUpdatedAtTableConfig,
         )
         from ..models.pie_chart_config import PieChartConfig
         from ..models.table_chart_config import TableChartConfig
@@ -154,18 +156,11 @@ class ChartAsCode:
         d = src_dict.copy()
         name = d.pop("name")
 
-        def _parse_dashboard_uuid(data: object) -> Union[None, str]:
-            if data is None:
-                return data
-            return cast(Union[None, str], data)
-
-        dashboard_uuid = _parse_dashboard_uuid(d.pop("dashboardUuid"))
-
         slug = d.pop("slug")
 
-        table_name = d.pop("tableName")
-
         updated_at = isoparse(d.pop("updatedAt"))
+
+        table_name = d.pop("tableName")
 
         metric_query = MetricQuery.from_dict(d.pop("metricQuery"))
 
@@ -227,7 +222,7 @@ class ChartAsCode:
 
         chart_config = _parse_chart_config(d.pop("chartConfig"))
 
-        table_config = PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrDashboardUuidOrUpdatedAtTableConfig.from_dict(
+        table_config = PickSavedChartNameOrDescriptionOrTableNameOrMetricQueryOrChartConfigOrTableConfigOrSlugOrUpdatedAtTableConfig.from_dict(
             d.pop("tableConfig")
         )
 
@@ -244,12 +239,13 @@ class ChartAsCode:
         else:
             downloaded_at = isoparse(_downloaded_at)
 
+        dashboard_slug = d.pop("dashboardSlug", UNSET)
+
         chart_as_code = cls(
             name=name,
-            dashboard_uuid=dashboard_uuid,
             slug=slug,
-            table_name=table_name,
             updated_at=updated_at,
+            table_name=table_name,
             metric_query=metric_query,
             chart_config=chart_config,
             table_config=table_config,
@@ -257,6 +253,7 @@ class ChartAsCode:
             version=version,
             description=description,
             downloaded_at=downloaded_at,
+            dashboard_slug=dashboard_slug,
         )
 
         chart_as_code.additional_properties = d

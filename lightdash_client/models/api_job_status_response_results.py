@@ -7,7 +7,7 @@ from ..models.scheduler_job_status import SchedulerJobStatus
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.record_string_any import RecordStringAny
+    from ..models.record_string_any_type import RecordStringAnyType
 
 
 T = TypeVar("T", bound="ApiJobStatusResponseResults")
@@ -17,19 +17,19 @@ T = TypeVar("T", bound="ApiJobStatusResponseResults")
 class ApiJobStatusResponseResults:
     """
     Attributes:
-        details (Union['RecordStringAny', None]):
+        details (Union['RecordStringAnyType', None]):
         status (SchedulerJobStatus):
     """
 
-    details: Union["RecordStringAny", None]
+    details: Union["RecordStringAnyType", None]
     status: SchedulerJobStatus
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.record_string_any import RecordStringAny
+        from ..models.record_string_any_type import RecordStringAnyType
 
         details: Union[Dict[str, Any], None]
-        if isinstance(self.details, RecordStringAny):
+        if isinstance(self.details, RecordStringAnyType):
             details = self.details.to_dict()
         else:
             details = self.details
@@ -49,22 +49,22 @@ class ApiJobStatusResponseResults:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.record_string_any import RecordStringAny
+        from ..models.record_string_any_type import RecordStringAnyType
 
         d = src_dict.copy()
 
-        def _parse_details(data: object) -> Union["RecordStringAny", None]:
+        def _parse_details(data: object) -> Union["RecordStringAnyType", None]:
             if data is None:
                 return data
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                details_type_1 = RecordStringAny.from_dict(data)
+                details_type_1 = RecordStringAnyType.from_dict(data)
 
                 return details_type_1
             except:  # noqa: E722
                 pass
-            return cast(Union["RecordStringAny", None], data)
+            return cast(Union["RecordStringAnyType", None], data)
 
         details = _parse_details(d.pop("details"))
 

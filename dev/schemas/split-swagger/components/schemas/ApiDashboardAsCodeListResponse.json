@@ -1,10 +1,35 @@
 {
   "properties": {
     "results": {
-      "items": {
-        "$ref": "./DashboardAsCode.json"
+      "properties": {
+        "offset": {
+          "type": "number",
+          "format": "double"
+        },
+        "total": {
+          "type": "number",
+          "format": "double"
+        },
+        "missingIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dashboards": {
+          "items": {
+            "$ref": "./DashboardAsCode.json"
+          },
+          "type": "array"
+        }
       },
-      "type": "array"
+      "required": [
+        "offset",
+        "total",
+        "missingIds",
+        "dashboards"
+      ],
+      "type": "object"
     },
     "status": {
       "type": "string",

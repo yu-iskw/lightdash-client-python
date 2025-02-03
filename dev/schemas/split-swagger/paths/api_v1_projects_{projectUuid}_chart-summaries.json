@@ -27,6 +27,7 @@
     "tags": [
       "Projects"
     ],
+    "deprecated": true,
     "security": [],
     "parameters": [
       {

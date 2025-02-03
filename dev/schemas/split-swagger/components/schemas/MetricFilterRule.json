@@ -1,7 +1,9 @@
 {
   "properties": {
     "values": {
-      "items": {},
+      "items": {
+        "$ref": "./AnyType.json"
+      },
       "type": "array"
     },
     "operator": {
@@ -21,7 +23,9 @@
       ],
       "type": "object"
     },
-    "settings": {},
+    "settings": {
+      "$ref": "./AnyType.json"
+    },
     "disabled": {
       "type": "boolean"
     },

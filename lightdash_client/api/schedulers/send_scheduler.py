@@ -61,7 +61,11 @@ def sync_detailed(
     """Send a scheduler now before saving it
 
     Args:
-        body (Any): the create scheduler data
+        body (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,7 +94,11 @@ def sync(
     """Send a scheduler now before saving it
 
     Args:
-        body (Any): the create scheduler data
+        body (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -114,7 +122,11 @@ async def asyncio_detailed(
     """Send a scheduler now before saving it
 
     Args:
-        body (Any): the create scheduler data
+        body (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +153,11 @@ async def asyncio(
     """Send a scheduler now before saving it
 
     Args:
-        body (Any): the create scheduler data
+        body (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

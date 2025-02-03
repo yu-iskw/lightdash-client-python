@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "allFilterableFields": {
+      "items": {
+        "$ref": "./FilterableDimension.json"
+      },
+      "type": "array"
+    },
+    "savedQueryFilters": {
+      "$ref": "./Record_string.number-Array_.json"
+    }
+  },
+  "required": [
+    "allFilterableFields",
+    "savedQueryFilters"
+  ],
+  "type": "object"
+}

@@ -13,7 +13,11 @@ class CalculateTotalFromSavedChartBody:
     """
     Attributes:
         invalidate_cache (Union[Unset, bool]):
-        dashboard_filters (Union[Unset, Any]):
+        dashboard_filters (Union[Unset, Any]): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
     """
 
     invalidate_cache: Union[Unset, bool] = UNSET

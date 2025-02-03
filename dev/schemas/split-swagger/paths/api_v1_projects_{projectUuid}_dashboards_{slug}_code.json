@@ -60,8 +60,12 @@
                     "type": "string",
                     "nullable": true
                   },
-                  "tiles": {},
-                  "filters": {}
+                  "tiles": {
+                    "$ref": "../components/schemas/AnyType.json"
+                  },
+                  "filters": {
+                    "$ref": "../components/schemas/AnyType.json"
+                  }
                 },
                 "required": [
                   "tiles",

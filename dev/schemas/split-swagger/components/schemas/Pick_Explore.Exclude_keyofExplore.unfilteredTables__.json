@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./ExploreType.json"
+    },
+    "label": {
+      "type": "string"
+    },
+    "spotlight": {
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "show",
+            "hide"
+          ]
+        }
+      },
+      "required": [
+        "visibility"
+      ],
+      "type": "object"
+    },
+    "warehouse": {
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "groupLabel": {
+      "type": "string"
+    },
+    "baseTable": {
+      "type": "string"
+    },
+    "joinedTables": {
+      "items": {
+        "$ref": "./CompiledExploreJoin.json"
+      },
+      "type": "array"
+    },
+    "tables": {
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "./CompiledTable.json"
+      },
+      "type": "object"
+    },
+    "targetDatabase": {
+      "$ref": "./SupportedDbtAdapter.json"
+    },
+    "ymlPath": {
+      "type": "string"
+    },
+    "sqlPath": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "label",
+    "tags",
+    "baseTable",
+    "joinedTables",
+    "tables",
+    "targetDatabase"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

@@ -1,0 +1,58 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Omit_DashboardTile.properties-or-uuid_.json"
+    },
+    {
+      "properties": {
+        "properties": {
+          "anyOf": [
+            {
+              "$ref": "./Pick_DashboardChartTileProperties-at-properties.title-or-hideTitle-or-chartSlug_.json"
+            },
+            {
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "content",
+                "title"
+              ],
+              "type": "object"
+            },
+            {
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "hideTitle": {
+                  "type": "boolean"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "title"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    }
+  ]
+}

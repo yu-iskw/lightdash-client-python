@@ -1,5 +1,9 @@
 {
   "properties": {},
+  "additionalProperties": {
+    "type": "number",
+    "format": "double"
+  },
   "type": "object",
   "description": "Construct a type with a set of properties K of type T"
 }

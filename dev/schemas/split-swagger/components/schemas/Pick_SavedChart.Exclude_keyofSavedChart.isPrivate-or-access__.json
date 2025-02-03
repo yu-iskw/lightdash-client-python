@@ -6,16 +6,13 @@
     "description": {
       "type": "string"
     },
+    "projectUuid": {
+      "type": "string"
+    },
     "uuid": {
       "type": "string"
     },
-    "spaceName": {
-      "type": "string"
-    },
     "spaceUuid": {
-      "type": "string"
-    },
-    "projectUuid": {
       "type": "string"
     },
     "organizationUuid": {
@@ -25,6 +22,17 @@
       "type": "string",
       "nullable": true
     },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "slug": {
+      "type": "string"
+    },
+    "spaceName": {
+      "type": "string"
+    },
     "dashboardUuid": {
       "type": "string",
       "nullable": true
@@ -33,12 +41,6 @@
       "type": "string",
       "nullable": true
     },
-    "slug": {
-      "type": "string"
-    },
-    "tableName": {
-      "type": "string"
-    },
     "updatedAt": {
       "type": "string",
       "format": "date-time"
@@ -46,10 +48,8 @@
     "updatedByUser": {
       "$ref": "./UpdatedByUser.json"
     },
-    "pinnedListOrder": {
-      "type": "number",
-      "format": "double",
-      "nullable": true
+    "tableName": {
+      "type": "string"
     },
     "metricQuery": {
       "$ref": "./MetricQuery.json"
@@ -94,18 +94,18 @@
   },
   "required": [
     "name",
-    "uuid",
-    "spaceName",
-    "spaceUuid",
     "projectUuid",
+    "uuid",
+    "spaceUuid",
     "organizationUuid",
     "pinnedListUuid",
+    "pinnedListOrder",
+    "slug",
+    "spaceName",
     "dashboardUuid",
     "dashboardName",
-    "slug",
-    "tableName",
     "updatedAt",
-    "pinnedListOrder",
+    "tableName",
     "metricQuery",
     "chartConfig",
     "tableConfig",

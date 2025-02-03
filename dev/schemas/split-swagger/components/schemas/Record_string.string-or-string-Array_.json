@@ -1,5 +1,18 @@
 {
   "properties": {},
+  "additionalProperties": {
+    "anyOf": [
+      {
+        "type": "string"
+      },
+      {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    ]
+  },
   "type": "object",
   "description": "Construct a type with a set of properties K of type T"
 }

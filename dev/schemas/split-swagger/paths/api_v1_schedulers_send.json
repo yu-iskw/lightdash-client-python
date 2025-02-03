@@ -35,6 +35,7 @@
       "content": {
         "application/json": {
           "schema": {
+            "$ref": "../components/schemas/AnyType.json",
             "description": "the create scheduler data"
           }
         }

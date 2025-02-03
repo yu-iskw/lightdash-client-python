@@ -1,45 +1,4 @@
 {
-  "get": {
-    "operationId": "ListSpacesInProject",
-    "responses": {
-      "200": {
-        "description": "Success",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "../components/schemas/ApiSpaceSummaryListResponse.json"
-            }
-          }
-        }
-      },
-      "default": {
-        "description": "Error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "../components/schemas/ApiErrorPayload.json"
-            }
-          }
-        }
-      }
-    },
-    "description": "List all spaces in a project",
-    "tags": [
-      "Projects"
-    ],
-    "security": [],
-    "parameters": [
-      {
-        "description": "The uuid of the project to get spaces for",
-        "in": "path",
-        "name": "projectUuid",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      }
-    ]
-  },
   "post": {
     "operationId": "CreateSpaceInProject",
     "responses": {
@@ -91,5 +50,46 @@
         }
       }
     }
+  },
+  "get": {
+    "operationId": "ListSpacesInProject",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSpaceSummaryListResponse.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "List all spaces in a project",
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "description": "The uuid of the project to get spaces for",
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
   }
 }

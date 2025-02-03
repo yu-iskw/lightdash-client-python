@@ -8,7 +8,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.mark_line import MarkLine
-    from ..models.series_area_style import SeriesAreaStyle
+    from ..models.record_string_unknown import RecordStringUnknown
     from ..models.series_encode import SeriesEncode
     from ..models.series_label import SeriesLabel
     from ..models.series_stack_label import SeriesStackLabel
@@ -26,7 +26,7 @@ class Series:
         mark_line (Union[Unset, MarkLine]):
         smooth (Union[Unset, bool]):
         show_symbol (Union[Unset, bool]):
-        area_style (Union[Unset, SeriesAreaStyle]):
+        area_style (Union[Unset, RecordStringUnknown]): Construct a type with a set of properties K of type T
         hidden (Union[Unset, bool]):
         label (Union[Unset, SeriesLabel]):
         y_axis_index (Union[Unset, float]):
@@ -41,7 +41,7 @@ class Series:
     mark_line: Union[Unset, "MarkLine"] = UNSET
     smooth: Union[Unset, bool] = UNSET
     show_symbol: Union[Unset, bool] = UNSET
-    area_style: Union[Unset, "SeriesAreaStyle"] = UNSET
+    area_style: Union[Unset, "RecordStringUnknown"] = UNSET
     hidden: Union[Unset, bool] = UNSET
     label: Union[Unset, "SeriesLabel"] = UNSET
     y_axis_index: Union[Unset, float] = UNSET
@@ -53,7 +53,7 @@ class Series:
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.mark_line import MarkLine
-        from ..models.series_area_style import SeriesAreaStyle
+        from ..models.record_string_unknown import RecordStringUnknown
         from ..models.series_encode import SeriesEncode
         from ..models.series_label import SeriesLabel
         from ..models.series_stack_label import SeriesStackLabel
@@ -128,7 +128,7 @@ class Series:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.mark_line import MarkLine
-        from ..models.series_area_style import SeriesAreaStyle
+        from ..models.record_string_unknown import RecordStringUnknown
         from ..models.series_encode import SeriesEncode
         from ..models.series_label import SeriesLabel
         from ..models.series_stack_label import SeriesStackLabel
@@ -150,11 +150,11 @@ class Series:
         show_symbol = d.pop("showSymbol", UNSET)
 
         _area_style = d.pop("areaStyle", UNSET)
-        area_style: Union[Unset, SeriesAreaStyle]
+        area_style: Union[Unset, RecordStringUnknown]
         if isinstance(_area_style, Unset):
             area_style = UNSET
         else:
-            area_style = SeriesAreaStyle.from_dict(_area_style)
+            area_style = RecordStringUnknown.from_dict(_area_style)
 
         hidden = d.pop("hidden", UNSET)
 

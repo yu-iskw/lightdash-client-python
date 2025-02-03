@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "user": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "type": "object"
+    },
+    "firstMessage": {
+      "type": "string"
+    },
+    "createdFrom": {
+      "type": "string"
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    },
+    "threadUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "user",
+    "firstMessage",
+    "createdFrom",
+    "createdAt",
+    "threadUuid"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,41 @@
+{
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "HTTP status code as a string, indicating the status of the response.\nFor example: \"400\" for bad requests, \"404\" for not found, \"500\" for server errors."
+    },
+    "detail": {
+      "type": "string",
+      "description": "Human-readable description of the error, providing details about why the error occurred."
+    },
+    "schemas": {
+      "items": {
+        "$ref": "./ScimSchemaType.ERROR.json"
+      },
+      "type": "array",
+      "description": "Array of schema URIs that describe the structure of the SCIM error response.\nTypically includes \"urn:ietf:params:scim:api:messages:2.0:Error\"."
+    },
+    "scimType": {
+      "type": "string",
+      "enum": [
+        "invalidFilter",
+        "tooMany",
+        "uniqueness",
+        "mutability",
+        "invalidSyntax",
+        "invalidPath",
+        "noTarget",
+        "invalidValue",
+        "invalidVers",
+        "sensitive"
+      ],
+      "description": "NOTE: this is taken from the SCIM spec here: https://datatracker.ietf.org/doc/html/rfc7644#section-3.7.3\nA SCIM-specific error type that provides additional context for the error.\n- 'invalidFilter': The specified filter syntax was invalid or the attribute and comparison combination is not supported.\n  Applicable for GET (Section 3.4.2), POST (Search - Section 3.4.3), PATCH (Path Filter - Section 3.5.2).\n- 'tooMany': The filter yields too many results for the server to process.\n  Applicable for GET (Section 3.4.2), POST (Search - Section 3.4.3).\n- 'uniqueness': One or more attribute values are already in use or reserved.\n  Applicable for POST (Create - Section 3.3), PUT (Section 3.5.1), PATCH (Section 3.5.2).\n- 'mutability': The modification is incompatible with the target attribute's mutability.\n  Applicable for PUT (Section 3.5.1), PATCH (Section 3.5.2).\n- 'invalidSyntax': The request body structure was invalid or did not conform to the schema.\n  Applicable for POST (Search - Section 3.4.3, Create - Section 3.3, Bulk - Section 3.7), PUT (Section 3.5.1).\n- 'invalidPath': The \"path\" attribute was invalid or malformed.\n  Applicable for PATCH (Section 3.5.2).\n- 'noTarget': The specified \"path\" did not yield an attribute that could be operated on.\n  Applicable for PATCH (Section 3.5.2).\n- 'invalidValue': A required value was missing, or the value specified was not compatible with the operation.\n  Applicable for GET (Section 3.4.2), POST (Create - Section 3.3, Query - Section 3.4.3), PUT (Section 3.5.1), PATCH (Section 3.5.2).\n- 'invalidVers': The specified SCIM protocol version is not supported.\n  Applicable for GET (Section 3.4.2), POST (ALL), PUT (Section 3.5.1), PATCH (Section 3.5.2), DELETE (Section 3.6).\n- 'sensitive': The request cannot be completed due to sensitive information passed in the URI.\n  Applicable for GET (Section 3.4.2)."
+    }
+  },
+  "required": [
+    "status",
+    "detail",
+    "schemas"
+  ],
+  "type": "object"
+}

@@ -7,7 +7,9 @@ from ..models.get_explore_response_200_status import GetExploreResponse200Status
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.explore import Explore
+    from ..models.pick_explore_exclude_keyof_explore_unfiltered_tables import (
+        PickExploreExcludeKeyofExploreUnfilteredTables,
+    )
 
 
 T = TypeVar("T", bound="GetExploreResponse200")
@@ -17,16 +19,19 @@ T = TypeVar("T", bound="GetExploreResponse200")
 class GetExploreResponse200:
     """
     Attributes:
-        results (Explore):
+        results (PickExploreExcludeKeyofExploreUnfilteredTables): From T, pick a set of properties whose keys are in the
+            union K
         status (GetExploreResponse200Status):
     """
 
-    results: "Explore"
+    results: "PickExploreExcludeKeyofExploreUnfilteredTables"
     status: GetExploreResponse200Status
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.explore import Explore
+        from ..models.pick_explore_exclude_keyof_explore_unfiltered_tables import (
+            PickExploreExcludeKeyofExploreUnfilteredTables,
+        )
 
         results = self.results.to_dict()
 
@@ -45,10 +50,12 @@ class GetExploreResponse200:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.explore import Explore
+        from ..models.pick_explore_exclude_keyof_explore_unfiltered_tables import (
+            PickExploreExcludeKeyofExploreUnfilteredTables,
+        )
 
         d = src_dict.copy()
-        results = Explore.from_dict(d.pop("results"))
+        results = PickExploreExcludeKeyofExploreUnfilteredTables.from_dict(d.pop("results"))
 
         status = GetExploreResponse200Status(d.pop("status"))
 

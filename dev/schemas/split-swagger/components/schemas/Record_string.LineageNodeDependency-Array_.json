@@ -1,5 +1,11 @@
 {
   "properties": {},
+  "additionalProperties": {
+    "items": {
+      "$ref": "./LineageNodeDependency.json"
+    },
+    "type": "array"
+  },
   "type": "object",
   "description": "Construct a type with a set of properties K of type T"
 }

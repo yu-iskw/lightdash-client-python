@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "fieldType": {
+      "$ref": "./FieldType.json"
+    },
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "table": {
+      "type": "string"
+    },
+    "tableLabel": {
+      "type": "string"
+    },
+    "sql": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "source": {
+      "$ref": "./Source.json"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "compact": {
+      "$ref": "./CompactOrAlias.json"
+    },
+    "round": {
+      "type": "number",
+      "format": "double"
+    },
+    "format": {
+      "$ref": "./Format.json"
+    },
+    "groupLabel": {
+      "type": "string",
+      "deprecated": true
+    },
+    "groups": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "urls": {
+      "items": {
+        "$ref": "./FieldUrl.json"
+      },
+      "type": "array"
+    },
+    "index": {
+      "type": "number",
+      "format": "double"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "fieldType",
+    "type",
+    "name",
+    "label",
+    "table",
+    "tableLabel",
+    "sql",
+    "hidden"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

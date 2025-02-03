@@ -3,6 +3,9 @@
     "name": {
       "type": "string"
     },
+    "description": {
+      "type": "string"
+    },
     "label": {
       "type": "string"
     },
@@ -10,9 +13,6 @@
       "$ref": "./FieldType.json"
     },
     "tableLabel": {
-      "type": "string"
-    },
-    "description": {
       "type": "string"
     }
   },

@@ -6,9 +6,10 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.metric_explorer_comparison_type_type_0 import MetricExplorerComparisonTypeType0
-    from ..models.metric_explorer_comparison_type_type_1 import MetricExplorerComparisonTypeType1
-    from ..models.metric_explorer_comparison_type_type_2 import MetricExplorerComparisonTypeType2
+    from ..models.filter_rule import FilterRule
+    from ..models.metric_explorer_query_type_0 import MetricExplorerQueryType0
+    from ..models.metric_explorer_query_type_1 import MetricExplorerQueryType1
+    from ..models.metric_explorer_query_type_2 import MetricExplorerQueryType2
     from ..models.time_dimension_config import TimeDimensionConfig
 
 
@@ -19,30 +20,34 @@ T = TypeVar("T", bound="RunMetricExplorerQueryBody")
 class RunMetricExplorerQueryBody:
     """
     Attributes:
-        comparison (Union['MetricExplorerComparisonTypeType0', 'MetricExplorerComparisonTypeType1',
-            'MetricExplorerComparisonTypeType2']):
+        query (Union['MetricExplorerQueryType0', 'MetricExplorerQueryType1', 'MetricExplorerQueryType2']):
+        filter_ (Union[Unset, FilterRule]):
         time_dimension_override (Union[Unset, TimeDimensionConfig]):
     """
 
-    comparison: Union[
-        "MetricExplorerComparisonTypeType0", "MetricExplorerComparisonTypeType1", "MetricExplorerComparisonTypeType2"
-    ]
+    query: Union["MetricExplorerQueryType0", "MetricExplorerQueryType1", "MetricExplorerQueryType2"]
+    filter_: Union[Unset, "FilterRule"] = UNSET
     time_dimension_override: Union[Unset, "TimeDimensionConfig"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.metric_explorer_comparison_type_type_0 import MetricExplorerComparisonTypeType0
-        from ..models.metric_explorer_comparison_type_type_1 import MetricExplorerComparisonTypeType1
-        from ..models.metric_explorer_comparison_type_type_2 import MetricExplorerComparisonTypeType2
+        from ..models.filter_rule import FilterRule
+        from ..models.metric_explorer_query_type_0 import MetricExplorerQueryType0
+        from ..models.metric_explorer_query_type_1 import MetricExplorerQueryType1
+        from ..models.metric_explorer_query_type_2 import MetricExplorerQueryType2
         from ..models.time_dimension_config import TimeDimensionConfig
 
-        comparison: Dict[str, Any]
-        if isinstance(self.comparison, MetricExplorerComparisonTypeType0):
-            comparison = self.comparison.to_dict()
-        elif isinstance(self.comparison, MetricExplorerComparisonTypeType1):
-            comparison = self.comparison.to_dict()
+        query: Dict[str, Any]
+        if isinstance(self.query, MetricExplorerQueryType0):
+            query = self.query.to_dict()
+        elif isinstance(self.query, MetricExplorerQueryType1):
+            query = self.query.to_dict()
         else:
-            comparison = self.comparison.to_dict()
+            query = self.query.to_dict()
+
+        filter_: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.filter_, Unset):
+            filter_ = self.filter_.to_dict()
 
         time_dimension_override: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.time_dimension_override, Unset):
@@ -52,9 +57,11 @@ class RunMetricExplorerQueryBody:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "comparison": comparison,
+                "query": query,
             }
         )
+        if filter_ is not UNSET:
+            field_dict["filter"] = filter_
         if time_dimension_override is not UNSET:
             field_dict["timeDimensionOverride"] = time_dimension_override
 
@@ -62,47 +69,47 @@ class RunMetricExplorerQueryBody:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.metric_explorer_comparison_type_type_0 import MetricExplorerComparisonTypeType0
-        from ..models.metric_explorer_comparison_type_type_1 import MetricExplorerComparisonTypeType1
-        from ..models.metric_explorer_comparison_type_type_2 import MetricExplorerComparisonTypeType2
+        from ..models.filter_rule import FilterRule
+        from ..models.metric_explorer_query_type_0 import MetricExplorerQueryType0
+        from ..models.metric_explorer_query_type_1 import MetricExplorerQueryType1
+        from ..models.metric_explorer_query_type_2 import MetricExplorerQueryType2
         from ..models.time_dimension_config import TimeDimensionConfig
 
         d = src_dict.copy()
 
-        def _parse_comparison(
+        def _parse_query(
             data: object,
-        ) -> Union[
-            "MetricExplorerComparisonTypeType0",
-            "MetricExplorerComparisonTypeType1",
-            "MetricExplorerComparisonTypeType2",
-        ]:
+        ) -> Union["MetricExplorerQueryType0", "MetricExplorerQueryType1", "MetricExplorerQueryType2"]:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                componentsschemas_metric_explorer_comparison_type_type_0 = MetricExplorerComparisonTypeType0.from_dict(
-                    data
-                )
+                componentsschemas_metric_explorer_query_type_0 = MetricExplorerQueryType0.from_dict(data)
 
-                return componentsschemas_metric_explorer_comparison_type_type_0
+                return componentsschemas_metric_explorer_query_type_0
             except:  # noqa: E722
                 pass
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                componentsschemas_metric_explorer_comparison_type_type_1 = MetricExplorerComparisonTypeType1.from_dict(
-                    data
-                )
+                componentsschemas_metric_explorer_query_type_1 = MetricExplorerQueryType1.from_dict(data)
 
-                return componentsschemas_metric_explorer_comparison_type_type_1
+                return componentsschemas_metric_explorer_query_type_1
             except:  # noqa: E722
                 pass
             if not isinstance(data, dict):
                 raise TypeError()
-            componentsschemas_metric_explorer_comparison_type_type_2 = MetricExplorerComparisonTypeType2.from_dict(data)
+            componentsschemas_metric_explorer_query_type_2 = MetricExplorerQueryType2.from_dict(data)
 
-            return componentsschemas_metric_explorer_comparison_type_type_2
+            return componentsschemas_metric_explorer_query_type_2
 
-        comparison = _parse_comparison(d.pop("comparison"))
+        query = _parse_query(d.pop("query"))
+
+        _filter_ = d.pop("filter", UNSET)
+        filter_: Union[Unset, FilterRule]
+        if isinstance(_filter_, Unset):
+            filter_ = UNSET
+        else:
+            filter_ = FilterRule.from_dict(_filter_)
 
         _time_dimension_override = d.pop("timeDimensionOverride", UNSET)
         time_dimension_override: Union[Unset, TimeDimensionConfig]
@@ -112,7 +119,8 @@ class RunMetricExplorerQueryBody:
             time_dimension_override = TimeDimensionConfig.from_dict(_time_dimension_override)
 
         run_metric_explorer_query_body = cls(
-            comparison=comparison,
+            query=query,
+            filter_=filter_,
             time_dimension_override=time_dimension_override,
         )
 

@@ -3,6 +3,10 @@
     "metadata": {
       "$ref": "./Record_string.SeriesMetadata_.json"
     },
+    "legendMaxItemLength": {
+      "type": "number",
+      "format": "double"
+    },
     "legendPosition": {
       "$ref": "./PieChartLegendPosition.json"
     },

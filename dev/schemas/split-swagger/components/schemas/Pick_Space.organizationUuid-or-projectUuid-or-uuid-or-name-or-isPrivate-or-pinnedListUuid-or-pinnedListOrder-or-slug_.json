@@ -3,40 +3,40 @@
     "name": {
       "type": "string"
     },
-    "uuid": {
+    "projectUuid": {
       "type": "string"
     },
-    "projectUuid": {
+    "uuid": {
       "type": "string"
     },
     "organizationUuid": {
       "type": "string"
     },
+    "isPrivate": {
+      "type": "boolean"
+    },
     "pinnedListUuid": {
       "type": "string",
       "nullable": true
-    },
-    "slug": {
-      "type": "string"
-    },
-    "isPrivate": {
-      "type": "boolean"
     },
     "pinnedListOrder": {
       "type": "number",
       "format": "double",
       "nullable": true
+    },
+    "slug": {
+      "type": "string"
     }
   },
   "required": [
     "name",
-    "uuid",
     "projectUuid",
+    "uuid",
     "organizationUuid",
-    "pinnedListUuid",
-    "slug",
     "isPrivate",
-    "pinnedListOrder"
+    "pinnedListUuid",
+    "pinnedListOrder",
+    "slug"
   ],
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"

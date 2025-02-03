@@ -33,6 +33,7 @@ class PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiv
         ssh_tunnel_public_key (Union[Unset, str]):
         keepalives_idle (Union[Unset, float]):
         sslmode (Union[Unset, str]):
+        timeout_seconds (Union[Unset, float]):
         search_path (Union[Unset, str]):
     """
 
@@ -52,6 +53,7 @@ class PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiv
     ssh_tunnel_public_key: Union[Unset, str] = UNSET
     keepalives_idle: Union[Unset, float] = UNSET
     sslmode: Union[Unset, str] = UNSET
+    timeout_seconds: Union[Unset, float] = UNSET
     search_path: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -94,6 +96,8 @@ class PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiv
 
         sslmode = self.sslmode
 
+        timeout_seconds = self.timeout_seconds
+
         search_path = self.search_path
 
         field_dict: Dict[str, Any] = {}
@@ -129,6 +133,8 @@ class PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiv
             field_dict["keepalivesIdle"] = keepalives_idle
         if sslmode is not UNSET:
             field_dict["sslmode"] = sslmode
+        if timeout_seconds is not UNSET:
+            field_dict["timeoutSeconds"] = timeout_seconds
         if search_path is not UNSET:
             field_dict["searchPath"] = search_path
 
@@ -184,6 +190,8 @@ class PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiv
 
         sslmode = d.pop("sslmode", UNSET)
 
+        timeout_seconds = d.pop("timeoutSeconds", UNSET)
+
         search_path = d.pop("searchPath", UNSET)
 
         pick_create_postgres_credentials_exclude_keyof_create_postgres_credentials_sensitive_credentials_field_names = (
@@ -204,6 +212,7 @@ class PickCreatePostgresCredentialsExcludeKeyofCreatePostgresCredentialsSensitiv
                 ssh_tunnel_public_key=ssh_tunnel_public_key,
                 keepalives_idle=keepalives_idle,
                 sslmode=sslmode,
+                timeout_seconds=timeout_seconds,
                 search_path=search_path,
             )
         )

@@ -1,0 +1,7 @@
+{
+  "type": "string",
+  "enum": [
+    "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+  ],
+  "nullable": false
+}

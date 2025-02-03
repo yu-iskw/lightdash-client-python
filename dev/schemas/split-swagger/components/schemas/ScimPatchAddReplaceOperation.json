@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "op": {
+      "type": "string",
+      "enum": [
+        "add",
+        "Add",
+        "replace",
+        "Replace"
+      ]
+    },
+    "path": {
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "op"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

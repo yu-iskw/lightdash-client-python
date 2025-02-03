@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "op": {
+      "type": "string",
+      "enum": [
+        "remove",
+        "Remove"
+      ]
+    },
+    "path": {
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "op",
+    "path"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

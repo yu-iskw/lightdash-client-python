@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "dashboardUuids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "dashboardUuids"
+  ],
+  "type": "object"
+}

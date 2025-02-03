@@ -1,5 +1,8 @@
 {
   "properties": {
+    "config": {
+      "$ref": "./DashboardConfig.json"
+    },
     "tabs": {
       "items": {
         "$ref": "./DashboardTab.json"

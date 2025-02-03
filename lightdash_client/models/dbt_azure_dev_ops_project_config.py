@@ -26,6 +26,7 @@ class DbtAzureDevOpsProjectConfig:
         project_sub_path (str):
         target (Union[Unset, str]):
         environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
+        selector (Union[Unset, str]):
     """
 
     type: DbtProjectTypeAZUREDEVOPS
@@ -37,6 +38,7 @@ class DbtAzureDevOpsProjectConfig:
     project_sub_path: str
     target: Union[Unset, str] = UNSET
     environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    selector: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -65,6 +67,8 @@ class DbtAzureDevOpsProjectConfig:
                 environment_item = environment_item_data.to_dict()
                 environment.append(environment_item)
 
+        selector = self.selector
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -82,6 +86,8 @@ class DbtAzureDevOpsProjectConfig:
             field_dict["target"] = target
         if environment is not UNSET:
             field_dict["environment"] = environment
+        if selector is not UNSET:
+            field_dict["selector"] = selector
 
         return field_dict
 
@@ -113,6 +119,8 @@ class DbtAzureDevOpsProjectConfig:
 
             environment.append(environment_item)
 
+        selector = d.pop("selector", UNSET)
+
         dbt_azure_dev_ops_project_config = cls(
             type=type,
             personal_access_token=personal_access_token,
@@ -123,6 +131,7 @@ class DbtAzureDevOpsProjectConfig:
             project_sub_path=project_sub_path,
             target=target,
             environment=environment,
+            selector=selector,
         )
 
         dbt_azure_dev_ops_project_config.additional_properties = d

@@ -3,17 +3,17 @@
     "name": {
       "type": "string"
     },
+    "description": {
+      "type": "string"
+    },
     "label": {
       "type": "string"
     },
-    "description": {
+    "groupLabel": {
       "type": "string"
     },
     "requiredAttributes": {
       "$ref": "./Record_string.string-or-string-Array_.json"
-    },
-    "groupLabel": {
-      "type": "string"
     }
   },
   "required": [

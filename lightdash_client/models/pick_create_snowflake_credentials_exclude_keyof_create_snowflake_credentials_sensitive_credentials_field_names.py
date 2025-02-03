@@ -18,9 +18,9 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
 
     Attributes:
         type (WarehouseTypesSNOWFLAKE):
-        warehouse (str):
         account (str):
         database (str):
+        warehouse (str):
         schema (str):
         role (Union[Unset, str]):
         require_user_credentials (Union[Unset, bool]):
@@ -34,9 +34,9 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
     """
 
     type: WarehouseTypesSNOWFLAKE
-    warehouse: str
     account: str
     database: str
+    warehouse: str
     schema: str
     role: Union[Unset, str] = UNSET
     require_user_credentials: Union[Unset, bool] = UNSET
@@ -52,11 +52,11 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
     def to_dict(self) -> Dict[str, Any]:
         type = self.type.value
 
-        warehouse = self.warehouse
-
         account = self.account
 
         database = self.database
+
+        warehouse = self.warehouse
 
         schema = self.schema
 
@@ -89,9 +89,9 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
         field_dict.update(
             {
                 "type": type,
-                "warehouse": warehouse,
                 "account": account,
                 "database": database,
+                "warehouse": warehouse,
                 "schema": schema,
             }
         )
@@ -121,11 +121,11 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
         d = src_dict.copy()
         type = WarehouseTypesSNOWFLAKE(d.pop("type"))
 
-        warehouse = d.pop("warehouse")
-
         account = d.pop("account")
 
         database = d.pop("database")
+
+        warehouse = d.pop("warehouse")
 
         schema = d.pop("schema")
 
@@ -164,9 +164,9 @@ class PickCreateSnowflakeCredentialsExcludeKeyofCreateSnowflakeCredentialsSensit
 
         pick_create_snowflake_credentials_exclude_keyof_create_snowflake_credentials_sensitive_credentials_field_names = cls(
             type=type,
-            warehouse=warehouse,
             account=account,
             database=database,
+            warehouse=warehouse,
             schema=schema,
             role=role,
             require_user_credentials=require_user_credentials,

@@ -33,6 +33,7 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
         keepalives_idle (Union[Unset, float]):
         sslmode (Union[Unset, str]):
         ra_3_node (Union[Unset, bool]):
+        timeout_seconds (Union[Unset, float]):
     """
 
     type: WarehouseTypesREDSHIFT
@@ -51,6 +52,7 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
     keepalives_idle: Union[Unset, float] = UNSET
     sslmode: Union[Unset, str] = UNSET
     ra_3_node: Union[Unset, bool] = UNSET
+    timeout_seconds: Union[Unset, float] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -92,6 +94,8 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
 
         ra_3_node = self.ra_3_node
 
+        timeout_seconds = self.timeout_seconds
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -125,6 +129,8 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
             field_dict["sslmode"] = sslmode
         if ra_3_node is not UNSET:
             field_dict["ra3Node"] = ra_3_node
+        if timeout_seconds is not UNSET:
+            field_dict["timeoutSeconds"] = timeout_seconds
 
         return field_dict
 
@@ -178,6 +184,8 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
 
         ra_3_node = d.pop("ra3Node", UNSET)
 
+        timeout_seconds = d.pop("timeoutSeconds", UNSET)
+
         pick_create_redshift_credentials_exclude_keyof_create_redshift_credentials_sensitive_credentials_field_names = (
             cls(
                 type=type,
@@ -196,6 +204,7 @@ class PickCreateRedshiftCredentialsExcludeKeyofCreateRedshiftCredentialsSensitiv
                 keepalives_idle=keepalives_idle,
                 sslmode=sslmode,
                 ra_3_node=ra_3_node,
+                timeout_seconds=timeout_seconds,
             )
         )
 

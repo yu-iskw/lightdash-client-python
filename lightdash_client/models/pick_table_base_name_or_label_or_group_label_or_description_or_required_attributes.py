@@ -20,16 +20,16 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
         name (str):
         label (str):
         description (Union[Unset, str]):
+        group_label (Union[Unset, str]):
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
-        group_label (Union[Unset, str]):
     """
 
     name: str
     label: str
     description: Union[Unset, str] = UNSET
-    required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     group_label: Union[Unset, str] = UNSET
+    required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -41,11 +41,11 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
 
         description = self.description
 
+        group_label = self.group_label
+
         required_attributes: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.required_attributes, Unset):
             required_attributes = self.required_attributes.to_dict()
-
-        group_label = self.group_label
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -57,10 +57,10 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
         )
         if description is not UNSET:
             field_dict["description"] = description
-        if required_attributes is not UNSET:
-            field_dict["requiredAttributes"] = required_attributes
         if group_label is not UNSET:
             field_dict["groupLabel"] = group_label
+        if required_attributes is not UNSET:
+            field_dict["requiredAttributes"] = required_attributes
 
         return field_dict
 
@@ -75,6 +75,8 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
 
         description = d.pop("description", UNSET)
 
+        group_label = d.pop("groupLabel", UNSET)
+
         _required_attributes = d.pop("requiredAttributes", UNSET)
         required_attributes: Union[Unset, RecordStringStringOrStringArray]
         if isinstance(_required_attributes, Unset):
@@ -82,14 +84,12 @@ class PickTableBaseNameOrLabelOrGroupLabelOrDescriptionOrRequiredAttributes:
         else:
             required_attributes = RecordStringStringOrStringArray.from_dict(_required_attributes)
 
-        group_label = d.pop("groupLabel", UNSET)
-
         pick_table_base_name_or_label_or_group_label_or_description_or_required_attributes = cls(
             name=name,
             label=label,
             description=description,
-            required_attributes=required_attributes,
             group_label=group_label,
+            required_attributes=required_attributes,
         )
 
         pick_table_base_name_or_label_or_group_label_or_description_or_required_attributes.additional_properties = d

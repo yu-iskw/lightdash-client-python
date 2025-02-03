@@ -8,6 +8,15 @@
     },
     "environment_id": {
       "type": "string"
+    },
+    "discovery_api_endpoint": {
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     }
   },
   "required": [

@@ -1,0 +1,69 @@
+{
+  "put": {
+    "operationId": "replaceYamlTags",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiSuccessEmpty.json"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Projects"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "projectUuid",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "../components/schemas/Pick_Tag.name-or-color_.json"
+                },
+                {
+                  "properties": {
+                    "yamlReference": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "yamlReference"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

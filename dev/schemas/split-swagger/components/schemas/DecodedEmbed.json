@@ -1,0 +1,19 @@
+{
+  "allOf": [
+    {
+      "$ref": "./Omit_Embed.encodedSecret_.json"
+    },
+    {
+      "properties": {
+        "secret": {
+          "type": "string"
+        },
+        "encodedSecret": {}
+      },
+      "required": [
+        "secret"
+      ],
+      "type": "object"
+    }
+  ]
+}

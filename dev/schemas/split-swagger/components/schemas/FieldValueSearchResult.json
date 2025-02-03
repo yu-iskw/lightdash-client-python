@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "refreshedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "cached": {
+      "type": "boolean"
+    },
+    "results": {
+      "items": {},
+      "type": "array"
+    },
+    "search": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "refreshedAt",
+    "cached",
+    "results",
+    "search"
+  ],
+  "type": "object"
+}

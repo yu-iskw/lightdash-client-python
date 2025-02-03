@@ -1,0 +1,53 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "fields": {
+          "$ref": "./Record_string.Item-or-AdditionalMetric_.json"
+        },
+        "rows": {
+          "items": {
+            "$ref": "./AnyType.json"
+          },
+          "type": "array"
+        },
+        "cacheMetadata": {
+          "$ref": "./CacheMetadata.json"
+        },
+        "metricQuery": {
+          "$ref": "./MetricQueryResponse.json"
+        },
+        "appliedDashboardFilters": {
+          "$ref": "./DashboardFilters.json"
+        },
+        "explore": {
+          "$ref": "./Explore.json"
+        },
+        "chart": {
+          "$ref": "./SavedChart.json"
+        }
+      },
+      "required": [
+        "fields",
+        "rows",
+        "cacheMetadata",
+        "metricQuery",
+        "explore",
+        "chart"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

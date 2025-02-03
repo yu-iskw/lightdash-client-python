@@ -6,7 +6,7 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.custom_vis_spec import CustomVisSpec
+    from ..models.record_string_unknown import RecordStringUnknown
 
 
 T = TypeVar("T", bound="CustomVis")
@@ -16,14 +16,14 @@ T = TypeVar("T", bound="CustomVis")
 class CustomVis:
     """
     Attributes:
-        spec (Union[Unset, CustomVisSpec]):
+        spec (Union[Unset, RecordStringUnknown]): Construct a type with a set of properties K of type T
     """
 
-    spec: Union[Unset, "CustomVisSpec"] = UNSET
+    spec: Union[Unset, "RecordStringUnknown"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.custom_vis_spec import CustomVisSpec
+        from ..models.record_string_unknown import RecordStringUnknown
 
         spec: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.spec, Unset):
@@ -39,15 +39,15 @@ class CustomVis:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.custom_vis_spec import CustomVisSpec
+        from ..models.record_string_unknown import RecordStringUnknown
 
         d = src_dict.copy()
         _spec = d.pop("spec", UNSET)
-        spec: Union[Unset, CustomVisSpec]
+        spec: Union[Unset, RecordStringUnknown]
         if isinstance(_spec, Unset):
             spec = UNSET
         else:
-            spec = CustomVisSpec.from_dict(_spec)
+            spec = RecordStringUnknown.from_dict(_spec)
 
         custom_vis = cls(
             spec=spec,

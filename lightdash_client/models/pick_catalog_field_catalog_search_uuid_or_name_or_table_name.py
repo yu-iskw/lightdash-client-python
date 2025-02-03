@@ -14,29 +14,29 @@ class PickCatalogFieldCatalogSearchUuidOrNameOrTableName:
 
     Attributes:
         name (str):
-        catalog_search_uuid (str):
         table_name (str):
+        catalog_search_uuid (str):
     """
 
     name: str
-    catalog_search_uuid: str
     table_name: str
+    catalog_search_uuid: str
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
 
-        catalog_search_uuid = self.catalog_search_uuid
-
         table_name = self.table_name
+
+        catalog_search_uuid = self.catalog_search_uuid
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "name": name,
-                "catalogSearchUuid": catalog_search_uuid,
                 "tableName": table_name,
+                "catalogSearchUuid": catalog_search_uuid,
             }
         )
 
@@ -47,14 +47,14 @@ class PickCatalogFieldCatalogSearchUuidOrNameOrTableName:
         d = src_dict.copy()
         name = d.pop("name")
 
-        catalog_search_uuid = d.pop("catalogSearchUuid")
-
         table_name = d.pop("tableName")
+
+        catalog_search_uuid = d.pop("catalogSearchUuid")
 
         pick_catalog_field_catalog_search_uuid_or_name_or_table_name = cls(
             name=name,
-            catalog_search_uuid=catalog_search_uuid,
             table_name=table_name,
+            catalog_search_uuid=catalog_search_uuid,
         )
 
         pick_catalog_field_catalog_search_uuid_or_name_or_table_name.additional_properties = d

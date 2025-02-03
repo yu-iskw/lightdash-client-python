@@ -1,15 +1,5 @@
 {
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "granularity": {
-      "$ref": "./SemanticLayerTimeGranularity.json"
-    }
-  },
-  "required": [
-    "name"
-  ],
+  "properties": {},
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"
 }

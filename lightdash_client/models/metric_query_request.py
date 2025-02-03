@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from ..models.additional_metric import AdditionalMetric
     from ..models.custom_bin_dimension import CustomBinDimension
     from ..models.custom_sql_dimension import CustomSqlDimension
+    from ..models.metric_overrides import MetricOverrides
     from ..models.metric_query_request_filters import MetricQueryRequestFilters
     from ..models.metric_query_request_metadata import MetricQueryRequestMetadata
     from ..models.sort_field import SortField
@@ -30,6 +31,7 @@ class MetricQueryRequest:
         metrics (List[str]):
         dimensions (List[str]):
         explore_name (str):
+        metric_overrides (Union[Unset, MetricOverrides]):
         timezone (Union[Unset, str]):
         metadata (Union[Unset, MetricQueryRequestMetadata]):
         granularity (Union[Unset, DateGranularity]):
@@ -45,6 +47,7 @@ class MetricQueryRequest:
     metrics: List[str]
     dimensions: List[str]
     explore_name: str
+    metric_overrides: Union[Unset, "MetricOverrides"] = UNSET
     timezone: Union[Unset, str] = UNSET
     metadata: Union[Unset, "MetricQueryRequestMetadata"] = UNSET
     granularity: Union[Unset, DateGranularity] = UNSET
@@ -57,6 +60,7 @@ class MetricQueryRequest:
         from ..models.additional_metric import AdditionalMetric
         from ..models.custom_bin_dimension import CustomBinDimension
         from ..models.custom_sql_dimension import CustomSqlDimension
+        from ..models.metric_overrides import MetricOverrides
         from ..models.metric_query_request_filters import MetricQueryRequestFilters
         from ..models.metric_query_request_metadata import MetricQueryRequestMetadata
         from ..models.sort_field import SortField
@@ -81,6 +85,10 @@ class MetricQueryRequest:
         dimensions = self.dimensions
 
         explore_name = self.explore_name
+
+        metric_overrides: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.metric_overrides, Unset):
+            metric_overrides = self.metric_overrides.to_dict()
 
         timezone = self.timezone
 
@@ -126,6 +134,8 @@ class MetricQueryRequest:
                 "exploreName": explore_name,
             }
         )
+        if metric_overrides is not UNSET:
+            field_dict["metricOverrides"] = metric_overrides
         if timezone is not UNSET:
             field_dict["timezone"] = timezone
         if metadata is not UNSET:
@@ -146,6 +156,7 @@ class MetricQueryRequest:
         from ..models.additional_metric import AdditionalMetric
         from ..models.custom_bin_dimension import CustomBinDimension
         from ..models.custom_sql_dimension import CustomSqlDimension
+        from ..models.metric_overrides import MetricOverrides
         from ..models.metric_query_request_filters import MetricQueryRequestFilters
         from ..models.metric_query_request_metadata import MetricQueryRequestMetadata
         from ..models.sort_field import SortField
@@ -175,6 +186,13 @@ class MetricQueryRequest:
         dimensions = cast(List[str], d.pop("dimensions"))
 
         explore_name = d.pop("exploreName")
+
+        _metric_overrides = d.pop("metricOverrides", UNSET)
+        metric_overrides: Union[Unset, MetricOverrides]
+        if isinstance(_metric_overrides, Unset):
+            metric_overrides = UNSET
+        else:
+            metric_overrides = MetricOverrides.from_dict(_metric_overrides)
 
         timezone = d.pop("timezone", UNSET)
 
@@ -232,6 +250,7 @@ class MetricQueryRequest:
             metrics=metrics,
             dimensions=dimensions,
             explore_name=explore_name,
+            metric_overrides=metric_overrides,
             timezone=timezone,
             metadata=metadata,
             granularity=granularity,

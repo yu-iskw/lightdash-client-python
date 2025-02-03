@@ -61,7 +61,9 @@
               "invalidateCache": {
                 "type": "boolean"
               },
-              "dashboardFilters": {}
+              "dashboardFilters": {
+                "$ref": "../components/schemas/AnyType.json"
+              }
             },
             "required": [
               "dashboardUuid",

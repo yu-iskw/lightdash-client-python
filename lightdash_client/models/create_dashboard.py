@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from ..models.create_dashboard_markdown_tile import CreateDashboardMarkdownTile
     from ..models.create_dashboard_semantic_viewer_chart_tile import CreateDashboardSemanticViewerChartTile
     from ..models.create_dashboard_sql_chart_tile import CreateDashboardSqlChartTile
+    from ..models.dashboard_config import DashboardConfig
     from ..models.dashboard_filters import DashboardFilters
     from ..models.dashboard_tab import DashboardTab
     from ..models.pick_updated_by_user_user_uuid import PickUpdatedByUserUserUuid
@@ -27,6 +28,7 @@ class CreateDashboard:
         tiles (List[Union['CreateDashboardChartTile', 'CreateDashboardLoomTile', 'CreateDashboardMarkdownTile',
             'CreateDashboardSemanticViewerChartTile', 'CreateDashboardSqlChartTile']]):
         name (str):
+        config (Union[Unset, DashboardConfig]):
         space_uuid (Union[Unset, str]):
         updated_by_user (Union[Unset, PickUpdatedByUserUserUuid]): From T, pick a set of properties whose keys are in
             the union K
@@ -45,6 +47,7 @@ class CreateDashboard:
         ]
     ]
     name: str
+    config: Union[Unset, "DashboardConfig"] = UNSET
     space_uuid: Union[Unset, str] = UNSET
     updated_by_user: Union[Unset, "PickUpdatedByUserUserUuid"] = UNSET
     filters: Union[Unset, "DashboardFilters"] = UNSET
@@ -57,6 +60,7 @@ class CreateDashboard:
         from ..models.create_dashboard_markdown_tile import CreateDashboardMarkdownTile
         from ..models.create_dashboard_semantic_viewer_chart_tile import CreateDashboardSemanticViewerChartTile
         from ..models.create_dashboard_sql_chart_tile import CreateDashboardSqlChartTile
+        from ..models.dashboard_config import DashboardConfig
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_tab import DashboardTab
         from ..models.pick_updated_by_user_user_uuid import PickUpdatedByUserUserUuid
@@ -84,6 +88,10 @@ class CreateDashboard:
 
         name = self.name
 
+        config: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.config, Unset):
+            config = self.config.to_dict()
+
         space_uuid = self.space_uuid
 
         updated_by_user: Union[Unset, Dict[str, Any]] = UNSET
@@ -105,6 +113,8 @@ class CreateDashboard:
                 "name": name,
             }
         )
+        if config is not UNSET:
+            field_dict["config"] = config
         if space_uuid is not UNSET:
             field_dict["spaceUuid"] = space_uuid
         if updated_by_user is not UNSET:
@@ -123,6 +133,7 @@ class CreateDashboard:
         from ..models.create_dashboard_markdown_tile import CreateDashboardMarkdownTile
         from ..models.create_dashboard_semantic_viewer_chart_tile import CreateDashboardSemanticViewerChartTile
         from ..models.create_dashboard_sql_chart_tile import CreateDashboardSqlChartTile
+        from ..models.dashboard_config import DashboardConfig
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_tab import DashboardTab
         from ..models.pick_updated_by_user_user_uuid import PickUpdatedByUserUserUuid
@@ -192,6 +203,13 @@ class CreateDashboard:
 
         name = d.pop("name")
 
+        _config = d.pop("config", UNSET)
+        config: Union[Unset, DashboardConfig]
+        if isinstance(_config, Unset):
+            config = UNSET
+        else:
+            config = DashboardConfig.from_dict(_config)
+
         space_uuid = d.pop("spaceUuid", UNSET)
 
         _updated_by_user = d.pop("updatedByUser", UNSET)
@@ -214,6 +232,7 @@ class CreateDashboard:
             tabs=tabs,
             tiles=tiles,
             name=name,
+            config=config,
             space_uuid=space_uuid,
             updated_by_user=updated_by_user,
             filters=filters,

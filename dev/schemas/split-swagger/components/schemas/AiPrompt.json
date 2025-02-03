@@ -1,0 +1,64 @@
+{
+  "properties": {
+    "metricQuery": {
+      "additionalProperties": true,
+      "type": "object",
+      "nullable": true
+    },
+    "humanScore": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "vizConfigOutput": {
+      "additionalProperties": true,
+      "type": "object",
+      "nullable": true
+    },
+    "filtersOutput": {
+      "additionalProperties": true,
+      "type": "object",
+      "nullable": true
+    },
+    "response": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "createdByUserUuid": {
+      "type": "string"
+    },
+    "threadUuid": {
+      "type": "string"
+    },
+    "promptUuid": {
+      "type": "string"
+    },
+    "projectUuid": {
+      "type": "string"
+    },
+    "organizationUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "metricQuery",
+    "humanScore",
+    "vizConfigOutput",
+    "filtersOutput",
+    "response",
+    "createdAt",
+    "prompt",
+    "createdByUserUuid",
+    "threadUuid",
+    "promptUuid",
+    "projectUuid",
+    "organizationUuid"
+  ],
+  "type": "object"
+}

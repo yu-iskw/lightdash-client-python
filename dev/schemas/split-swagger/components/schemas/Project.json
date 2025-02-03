@@ -11,7 +11,7 @@
       "$ref": "./SemanticLayerConnection.json"
     },
     "dbtVersion": {
-      "$ref": "./SupportedDbtVersions.json"
+      "$ref": "./DbtVersionOption.json"
     },
     "upstreamProjectUuid": {
       "type": "string"

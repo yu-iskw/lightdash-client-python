@@ -8,8 +8,8 @@ from dateutil.parser import isoparse
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.pick_chart_as_code_exclude_keyof_chart_as_code_metric_query_or_chart_config_table_config import (
-        PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigTableConfig,
+    from ..models.pick_chart_as_code_exclude_keyof_chart_as_code_metric_query_or_chart_config_or_description_table_config import (
+        PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigOrDescriptionTableConfig,
     )
 
 
@@ -21,48 +21,53 @@ class UpsertChartAsCodeBody:
     """
     Attributes:
         name (str):
-        dashboard_uuid (Union[None, str]):
         slug (str):
-        table_name (str):
         updated_at (datetime.datetime):
-        table_config (PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigTableConfig):
+        table_name (str):
+        table_config (PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigOrDescriptionTableConfig):
         version (float):
         space_slug (str):
-        metric_query (Any):
-        chart_config (Any):
-        description (Union[Unset, str]):
+        metric_query (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
+        chart_config (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
+        dashboard_slug (Union[Unset, str]):
         downloaded_at (Union[Unset, datetime.datetime]):
+        description (Union[None, Unset, str]):
     """
 
     name: str
-    dashboard_uuid: Union[None, str]
     slug: str
-    table_name: str
     updated_at: datetime.datetime
-    table_config: "PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigTableConfig"
+    table_name: str
+    table_config: "PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigOrDescriptionTableConfig"
     version: float
     space_slug: str
     metric_query: Any
     chart_config: Any
-    description: Union[Unset, str] = UNSET
+    dashboard_slug: Union[Unset, str] = UNSET
     downloaded_at: Union[Unset, datetime.datetime] = UNSET
+    description: Union[None, Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.pick_chart_as_code_exclude_keyof_chart_as_code_metric_query_or_chart_config_table_config import (
-            PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigTableConfig,
+        from ..models.pick_chart_as_code_exclude_keyof_chart_as_code_metric_query_or_chart_config_or_description_table_config import (
+            PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigOrDescriptionTableConfig,
         )
 
         name = self.name
 
-        dashboard_uuid: Union[None, str]
-        dashboard_uuid = self.dashboard_uuid
-
         slug = self.slug
 
-        table_name = self.table_name
-
         updated_at = self.updated_at.isoformat()
+
+        table_name = self.table_name
 
         table_config = self.table_config.to_dict()
 
@@ -74,21 +79,26 @@ class UpsertChartAsCodeBody:
 
         chart_config = self.chart_config
 
-        description = self.description
+        dashboard_slug = self.dashboard_slug
 
         downloaded_at: Union[Unset, str] = UNSET
         if not isinstance(self.downloaded_at, Unset):
             downloaded_at = self.downloaded_at.isoformat()
+
+        description: Union[None, Unset, str]
+        if isinstance(self.description, Unset):
+            description = UNSET
+        else:
+            description = self.description
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "name": name,
-                "dashboardUuid": dashboard_uuid,
                 "slug": slug,
-                "tableName": table_name,
                 "updatedAt": updated_at,
+                "tableName": table_name,
                 "tableConfig": table_config,
                 "version": version,
                 "spaceSlug": space_slug,
@@ -96,36 +106,31 @@ class UpsertChartAsCodeBody:
                 "chartConfig": chart_config,
             }
         )
-        if description is not UNSET:
-            field_dict["description"] = description
+        if dashboard_slug is not UNSET:
+            field_dict["dashboardSlug"] = dashboard_slug
         if downloaded_at is not UNSET:
             field_dict["downloadedAt"] = downloaded_at
+        if description is not UNSET:
+            field_dict["description"] = description
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.pick_chart_as_code_exclude_keyof_chart_as_code_metric_query_or_chart_config_table_config import (
-            PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigTableConfig,
+        from ..models.pick_chart_as_code_exclude_keyof_chart_as_code_metric_query_or_chart_config_or_description_table_config import (
+            PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigOrDescriptionTableConfig,
         )
 
         d = src_dict.copy()
         name = d.pop("name")
 
-        def _parse_dashboard_uuid(data: object) -> Union[None, str]:
-            if data is None:
-                return data
-            return cast(Union[None, str], data)
-
-        dashboard_uuid = _parse_dashboard_uuid(d.pop("dashboardUuid"))
-
         slug = d.pop("slug")
-
-        table_name = d.pop("tableName")
 
         updated_at = isoparse(d.pop("updatedAt"))
 
-        table_config = PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigTableConfig.from_dict(
+        table_name = d.pop("tableName")
+
+        table_config = PickChartAsCodeExcludeKeyofChartAsCodeMetricQueryOrChartConfigOrDescriptionTableConfig.from_dict(
             d.pop("tableConfig")
         )
 
@@ -137,7 +142,7 @@ class UpsertChartAsCodeBody:
 
         chart_config = d.pop("chartConfig")
 
-        description = d.pop("description", UNSET)
+        dashboard_slug = d.pop("dashboardSlug", UNSET)
 
         _downloaded_at = d.pop("downloadedAt", UNSET)
         downloaded_at: Union[Unset, datetime.datetime]
@@ -146,19 +151,28 @@ class UpsertChartAsCodeBody:
         else:
             downloaded_at = isoparse(_downloaded_at)
 
+        def _parse_description(data: object) -> Union[None, Unset, str]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, str], data)
+
+        description = _parse_description(d.pop("description", UNSET))
+
         upsert_chart_as_code_body = cls(
             name=name,
-            dashboard_uuid=dashboard_uuid,
             slug=slug,
-            table_name=table_name,
             updated_at=updated_at,
+            table_name=table_name,
             table_config=table_config,
             version=version,
             space_slug=space_slug,
             metric_query=metric_query,
             chart_config=chart_config,
-            description=description,
+            dashboard_slug=dashboard_slug,
             downloaded_at=downloaded_at,
+            description=description,
         )
 
         upsert_chart_as_code_body.additional_properties = d

@@ -14,27 +14,27 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
 
     Attributes:
         name (str):
-        uuid (str):
         project_uuid (str):
+        uuid (str):
         organization_uuid (str):
-        pinned_list_uuid (Union[None, str]):
-        slug (str):
         is_private (bool):
-        access (List[str]):
+        pinned_list_uuid (Union[None, str]):
         pinned_list_order (Union[None, float]):
+        slug (str):
+        access (List[str]):
         chart_count (float):
         dashboard_count (float):
     """
 
     name: str
-    uuid: str
     project_uuid: str
+    uuid: str
     organization_uuid: str
-    pinned_list_uuid: Union[None, str]
-    slug: str
     is_private: bool
-    access: List[str]
+    pinned_list_uuid: Union[None, str]
     pinned_list_order: Union[None, float]
+    slug: str
+    access: List[str]
     chart_count: float
     dashboard_count: float
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -42,23 +42,23 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
 
-        uuid = self.uuid
-
         project_uuid = self.project_uuid
 
+        uuid = self.uuid
+
         organization_uuid = self.organization_uuid
+
+        is_private = self.is_private
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
-        slug = self.slug
-
-        is_private = self.is_private
-
-        access = self.access
-
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
+
+        slug = self.slug
+
+        access = self.access
 
         chart_count = self.chart_count
 
@@ -69,14 +69,14 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
         field_dict.update(
             {
                 "name": name,
-                "uuid": uuid,
                 "projectUuid": project_uuid,
+                "uuid": uuid,
                 "organizationUuid": organization_uuid,
-                "pinnedListUuid": pinned_list_uuid,
-                "slug": slug,
                 "isPrivate": is_private,
-                "access": access,
+                "pinnedListUuid": pinned_list_uuid,
                 "pinnedListOrder": pinned_list_order,
+                "slug": slug,
+                "access": access,
                 "chartCount": chart_count,
                 "dashboardCount": dashboard_count,
             }
@@ -89,11 +89,13 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
         d = src_dict.copy()
         name = d.pop("name")
 
-        uuid = d.pop("uuid")
-
         project_uuid = d.pop("projectUuid")
 
+        uuid = d.pop("uuid")
+
         organization_uuid = d.pop("organizationUuid")
+
+        is_private = d.pop("isPrivate")
 
         def _parse_pinned_list_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -102,12 +104,6 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
-        slug = d.pop("slug")
-
-        is_private = d.pop("isPrivate")
-
-        access = cast(List[str], d.pop("access"))
-
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
             if data is None:
                 return data
@@ -115,20 +111,24 @@ class PickSpaceSummaryExcludeKeyofSpaceSummaryUserAccess:
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
+        slug = d.pop("slug")
+
+        access = cast(List[str], d.pop("access"))
+
         chart_count = d.pop("chartCount")
 
         dashboard_count = d.pop("dashboardCount")
 
         pick_space_summary_exclude_keyof_space_summary_user_access = cls(
             name=name,
-            uuid=uuid,
             project_uuid=project_uuid,
+            uuid=uuid,
             organization_uuid=organization_uuid,
-            pinned_list_uuid=pinned_list_uuid,
-            slug=slug,
             is_private=is_private,
-            access=access,
+            pinned_list_uuid=pinned_list_uuid,
             pinned_list_order=pinned_list_order,
+            slug=slug,
+            access=access,
             chart_count=chart_count,
             dashboard_count=dashboard_count,
         )

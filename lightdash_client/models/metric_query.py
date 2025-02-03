@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from ..models.custom_bin_dimension import CustomBinDimension
     from ..models.custom_sql_dimension import CustomSqlDimension
     from ..models.filters import Filters
+    from ..models.metric_overrides import MetricOverrides
     from ..models.metric_query_metadata import MetricQueryMetadata
     from ..models.sort_field import SortField
     from ..models.table_calculation import TableCalculation
@@ -31,6 +32,7 @@ class MetricQuery:
         explore_name (str):
         metadata (Union[Unset, MetricQueryMetadata]):
         timezone (Union[Unset, str]):
+        metric_overrides (Union[Unset, MetricOverrides]):
         custom_dimensions (Union[Unset, List[Union['CustomBinDimension', 'CustomSqlDimension']]]):
         additional_metrics (Union[Unset, List['AdditionalMetric']]):
     """
@@ -44,6 +46,7 @@ class MetricQuery:
     explore_name: str
     metadata: Union[Unset, "MetricQueryMetadata"] = UNSET
     timezone: Union[Unset, str] = UNSET
+    metric_overrides: Union[Unset, "MetricOverrides"] = UNSET
     custom_dimensions: Union[Unset, List[Union["CustomBinDimension", "CustomSqlDimension"]]] = UNSET
     additional_metrics: Union[Unset, List["AdditionalMetric"]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -53,6 +56,7 @@ class MetricQuery:
         from ..models.custom_bin_dimension import CustomBinDimension
         from ..models.custom_sql_dimension import CustomSqlDimension
         from ..models.filters import Filters
+        from ..models.metric_overrides import MetricOverrides
         from ..models.metric_query_metadata import MetricQueryMetadata
         from ..models.sort_field import SortField
         from ..models.table_calculation import TableCalculation
@@ -82,6 +86,10 @@ class MetricQuery:
             metadata = self.metadata.to_dict()
 
         timezone = self.timezone
+
+        metric_overrides: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.metric_overrides, Unset):
+            metric_overrides = self.metric_overrides.to_dict()
 
         custom_dimensions: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.custom_dimensions, Unset):
@@ -119,6 +127,8 @@ class MetricQuery:
             field_dict["metadata"] = metadata
         if timezone is not UNSET:
             field_dict["timezone"] = timezone
+        if metric_overrides is not UNSET:
+            field_dict["metricOverrides"] = metric_overrides
         if custom_dimensions is not UNSET:
             field_dict["customDimensions"] = custom_dimensions
         if additional_metrics is not UNSET:
@@ -132,6 +142,7 @@ class MetricQuery:
         from ..models.custom_bin_dimension import CustomBinDimension
         from ..models.custom_sql_dimension import CustomSqlDimension
         from ..models.filters import Filters
+        from ..models.metric_overrides import MetricOverrides
         from ..models.metric_query_metadata import MetricQueryMetadata
         from ..models.sort_field import SortField
         from ..models.table_calculation import TableCalculation
@@ -169,6 +180,13 @@ class MetricQuery:
             metadata = MetricQueryMetadata.from_dict(_metadata)
 
         timezone = d.pop("timezone", UNSET)
+
+        _metric_overrides = d.pop("metricOverrides", UNSET)
+        metric_overrides: Union[Unset, MetricOverrides]
+        if isinstance(_metric_overrides, Unset):
+            metric_overrides = UNSET
+        else:
+            metric_overrides = MetricOverrides.from_dict(_metric_overrides)
 
         custom_dimensions = []
         _custom_dimensions = d.pop("customDimensions", UNSET)
@@ -210,6 +228,7 @@ class MetricQuery:
             explore_name=explore_name,
             metadata=metadata,
             timezone=timezone,
+            metric_overrides=metric_overrides,
             custom_dimensions=custom_dimensions,
             additional_metrics=additional_metrics,
         )

@@ -1,30 +1,43 @@
 {
   "properties": {
+    "hasFilteredSeries": {
+      "type": "boolean"
+    },
+    "results": {
+      "items": {
+        "$ref": "./MetricExploreDataPointWithDateValue.json"
+      },
+      "type": "array"
+    },
     "fields": {
       "$ref": "./ItemsMap.json"
     },
-    "comparisonRows": {
-      "items": {
-        "$ref": "./ResultRow.json"
-      },
-      "type": "array"
+    "segmentDimension": {
+      "allOf": [
+        {
+          "$ref": "./Dimension.json"
+        }
+      ],
+      "nullable": true
     },
-    "rows": {
-      "items": {
-        "$ref": "./ResultRow.json"
-      },
-      "type": "array"
-    },
-    "comparisonMetric": {
-      "$ref": "./MetricWithAssociatedTimeDimension.json"
+    "compareMetric": {
+      "allOf": [
+        {
+          "$ref": "./MetricWithAssociatedTimeDimension.json"
+        }
+      ],
+      "nullable": true
     },
     "metric": {
       "$ref": "./MetricWithAssociatedTimeDimension.json"
     }
   },
   "required": [
+    "hasFilteredSeries",
+    "results",
     "fields",
-    "rows",
+    "segmentDimension",
+    "compareMetric",
     "metric"
   ],
   "type": "object"

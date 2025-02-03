@@ -1,0 +1,12 @@
+{
+  "properties": {},
+  "additionalProperties": {
+    "items": {
+      "type": "number",
+      "format": "double"
+    },
+    "type": "array"
+  },
+  "type": "object",
+  "description": "Construct a type with a set of properties K of type T"
+}

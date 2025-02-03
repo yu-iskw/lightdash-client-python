@@ -10,8 +10,7 @@
       "type": "boolean"
     },
     "areaStyle": {
-      "properties": {},
-      "type": "object"
+      "$ref": "./Record_string.unknown_.json"
     },
     "hidden": {
       "type": "boolean"
