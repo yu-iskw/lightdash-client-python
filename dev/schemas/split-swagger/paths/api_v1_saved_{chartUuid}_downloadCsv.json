@@ -79,7 +79,9 @@
               "tileUuid": {
                 "type": "string"
               },
-              "dashboardFilters": {}
+              "dashboardFilters": {
+                "$ref": "../components/schemas/AnyType.json"
+              }
             },
             "required": [
               "onlyRaw",

@@ -1,20 +1,20 @@
 {
   "properties": {
-    "validationId": {
-      "type": "number",
-      "format": "double"
-    },
     "createdAt": {
       "type": "string",
       "format": "date-time"
+    },
+    "validationId": {
+      "type": "number",
+      "format": "double"
     },
     "error": {
       "type": "string"
     }
   },
   "required": [
-    "validationId",
     "createdAt",
+    "validationId",
     "error"
   ],
   "type": "object",

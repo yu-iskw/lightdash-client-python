@@ -6,16 +6,13 @@
     "description": {
       "type": "string"
     },
+    "projectUuid": {
+      "type": "string"
+    },
     "uuid": {
       "type": "string"
     },
-    "spaceName": {
-      "type": "string"
-    },
     "spaceUuid": {
-      "type": "string"
-    },
-    "projectUuid": {
       "type": "string"
     },
     "organizationUuid": {
@@ -25,6 +22,12 @@
       "type": "string",
       "nullable": true
     },
+    "slug": {
+      "type": "string"
+    },
+    "spaceName": {
+      "type": "string"
+    },
     "dashboardUuid": {
       "type": "string",
       "nullable": true
@@ -32,22 +35,19 @@
     "dashboardName": {
       "type": "string",
       "nullable": true
-    },
-    "slug": {
-      "type": "string"
     }
   },
   "required": [
     "name",
-    "uuid",
-    "spaceName",
-    "spaceUuid",
     "projectUuid",
+    "uuid",
+    "spaceUuid",
     "organizationUuid",
     "pinnedListUuid",
+    "slug",
+    "spaceName",
     "dashboardUuid",
-    "dashboardName",
-    "slug"
+    "dashboardName"
   ],
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"

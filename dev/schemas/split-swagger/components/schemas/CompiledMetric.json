@@ -97,6 +97,27 @@
     "defaultTimeDimension": {
       "$ref": "./DefaultTimeDimension.json"
     },
+    "spotlight": {
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "show",
+            "hide"
+          ]
+        }
+      },
+      "required": [
+        "visibility"
+      ],
+      "type": "object"
+    },
     "compiledSql": {
       "type": "string"
     },

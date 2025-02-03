@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "rotatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "lastUsedAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "organizationUuid": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "rotatedAt",
+    "lastUsedAt",
+    "description",
+    "expiresAt",
+    "createdAt",
+    "organizationUuid",
+    "uuid"
+  ],
+  "type": "object"
+}

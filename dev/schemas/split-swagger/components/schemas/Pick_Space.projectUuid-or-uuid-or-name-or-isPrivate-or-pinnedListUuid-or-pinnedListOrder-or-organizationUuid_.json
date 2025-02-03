@@ -3,21 +3,21 @@
     "name": {
       "type": "string"
     },
-    "uuid": {
+    "projectUuid": {
       "type": "string"
     },
-    "projectUuid": {
+    "uuid": {
       "type": "string"
     },
     "organizationUuid": {
       "type": "string"
     },
+    "isPrivate": {
+      "type": "boolean"
+    },
     "pinnedListUuid": {
       "type": "string",
       "nullable": true
-    },
-    "isPrivate": {
-      "type": "boolean"
     },
     "pinnedListOrder": {
       "type": "number",
@@ -27,11 +27,11 @@
   },
   "required": [
     "name",
-    "uuid",
     "projectUuid",
+    "uuid",
     "organizationUuid",
-    "pinnedListUuid",
     "isPrivate",
+    "pinnedListUuid",
     "pinnedListOrder"
   ],
   "type": "object",

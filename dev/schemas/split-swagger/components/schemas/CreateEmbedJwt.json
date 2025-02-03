@@ -1,0 +1,87 @@
+{
+  "properties": {
+    "expiresIn": {
+      "type": "string"
+    },
+    "user": {
+      "properties": {
+        "externalId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "userAttributes": {
+      "properties": {},
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "content": {
+      "properties": {
+        "canExportPagePdf": {
+          "type": "boolean"
+        },
+        "canDateZoom": {
+          "type": "boolean"
+        },
+        "canExportImages": {
+          "type": "boolean"
+        },
+        "canExportCsv": {
+          "type": "boolean"
+        },
+        "dashboardFiltersInteractivity": {
+          "properties": {
+            "allowedFilters": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "enabled": {
+              "anyOf": [
+                {
+                  "$ref": "./FilterInteractivityValues.json"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
+          },
+          "required": [
+            "enabled"
+          ],
+          "type": "object"
+        },
+        "isPreview": {
+          "type": "boolean"
+        },
+        "dashboardUuid": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "dashboard"
+          ],
+          "nullable": false
+        }
+      },
+      "required": [
+        "dashboardUuid",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "content"
+  ],
+  "type": "object"
+}

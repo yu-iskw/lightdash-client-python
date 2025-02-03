@@ -1,0 +1,19 @@
+{
+  "allOf": [
+    {
+      "$ref": "./MetricExploreDataPoint.json"
+    },
+    {
+      "properties": {
+        "dateValue": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "dateValue"
+      ],
+      "type": "object"
+    }
+  ]
+}

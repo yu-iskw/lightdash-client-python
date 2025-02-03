@@ -1,0 +1,16 @@
+{
+  "properties": {},
+  "additionalProperties": {
+    "properties": {
+      "type": {
+        "$ref": "./DimensionType.json"
+      }
+    },
+    "required": [
+      "type"
+    ],
+    "type": "object"
+  },
+  "type": "object",
+  "description": "Construct a type with a set of properties K of type T"
+}

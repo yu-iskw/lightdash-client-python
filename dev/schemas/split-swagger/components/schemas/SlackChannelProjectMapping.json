@@ -1,5 +1,12 @@
 {
   "properties": {
+    "availableTags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "nullable": true
+    },
     "slackChannelId": {
       "type": "string"
     },
@@ -8,6 +15,7 @@
     }
   },
   "required": [
+    "availableTags",
     "slackChannelId",
     "projectUuid"
   ],

@@ -1,7 +1,7 @@
 {
   "properties": {
     "details": {
-      "$ref": "./Record_string.any_.json"
+      "$ref": "./Record_string.AnyType_.json"
     },
     "targetType": {
       "type": "string",

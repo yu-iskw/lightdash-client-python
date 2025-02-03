@@ -1,0 +1,18 @@
+{
+  "items": {
+    "properties": {
+      "isVisible": {
+        "type": "boolean"
+      },
+      "column": {
+        "$ref": "./SpotlightTableColumns.json"
+      }
+    },
+    "required": [
+      "isVisible",
+      "column"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

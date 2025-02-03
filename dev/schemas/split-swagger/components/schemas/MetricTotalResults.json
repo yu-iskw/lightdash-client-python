@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "metric": {
+      "$ref": "./MetricWithAssociatedTimeDimension.json"
+    },
+    "comparisonValue": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "value": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  },
+  "required": [
+    "metric",
+    "comparisonValue",
+    "value"
+  ],
+  "type": "object"
+}

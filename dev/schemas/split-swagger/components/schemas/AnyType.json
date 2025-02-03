@@ -1,0 +1,3 @@
+{
+  "description": "This AnyType is an alias for any\nThe goal is to make it easier to identify any type in the codebase\nwithout having to eslint-disable all the time\nThese are only used on legacy `any` types, don't use it for new types.\nThis is added on a separate file to avoid circular dependencies."
+}

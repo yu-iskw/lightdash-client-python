@@ -3,20 +3,20 @@
     "name": {
       "type": "string"
     },
-    "label": {
-      "type": "string"
-    },
-    "groupLabel": {
-      "type": "string"
-    },
     "type": {
       "$ref": "./ExploreType.json"
+    },
+    "label": {
+      "type": "string"
     },
     "tags": {
       "items": {
         "type": "string"
       },
       "type": "array"
+    },
+    "groupLabel": {
+      "type": "string"
     }
   },
   "required": [

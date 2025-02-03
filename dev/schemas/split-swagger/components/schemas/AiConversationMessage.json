@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./AiConversationMessageIncomplete.json"
+    },
+    {
+      "$ref": "./AiConversationComplete.json"
+    }
+  ]
+}

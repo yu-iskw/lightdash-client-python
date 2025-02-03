@@ -1,5 +1,21 @@
 {
   "properties": {},
+  "additionalProperties": {
+    "anyOf": [
+      {
+        "$ref": "./Field.json"
+      },
+      {
+        "$ref": "./TableCalculation.json"
+      },
+      {
+        "$ref": "./CustomDimension.json"
+      },
+      {
+        "$ref": "./Metric.json"
+      }
+    ]
+  },
   "type": "object",
   "description": "Construct a type with a set of properties K of type T"
 }

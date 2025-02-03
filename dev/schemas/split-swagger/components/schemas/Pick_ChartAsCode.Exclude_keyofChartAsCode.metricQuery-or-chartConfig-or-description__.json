@@ -1,0 +1,56 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tableName": {
+      "type": "string"
+    },
+    "tableConfig": {
+      "properties": {
+        "columnOrder": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "columnOrder"
+      ],
+      "type": "object"
+    },
+    "dashboardSlug": {
+      "type": "string"
+    },
+    "version": {
+      "type": "number",
+      "format": "double"
+    },
+    "spaceSlug": {
+      "type": "string"
+    },
+    "downloadedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "name",
+    "slug",
+    "updatedAt",
+    "tableName",
+    "tableConfig",
+    "version",
+    "spaceSlug"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

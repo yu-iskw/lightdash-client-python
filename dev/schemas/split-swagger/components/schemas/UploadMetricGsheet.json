@@ -1,5 +1,8 @@
 {
   "properties": {
+    "pivotConfig": {
+      "$ref": "./PivotConfig.json"
+    },
     "hiddenFields": {
       "items": {
         "type": "string"

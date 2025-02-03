@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./DashboardTileTypes.json"
+    },
+    "x": {
+      "type": "number",
+      "format": "double"
+    },
+    "y": {
+      "type": "number",
+      "format": "double"
+    },
+    "h": {
+      "type": "number",
+      "format": "double"
+    },
+    "w": {
+      "type": "number",
+      "format": "double"
+    },
+    "tabUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "x",
+    "y",
+    "h",
+    "w"
+  ],
+  "type": "object",
+  "description": "From T, pick a set of properties whose keys are in the union K"
+}

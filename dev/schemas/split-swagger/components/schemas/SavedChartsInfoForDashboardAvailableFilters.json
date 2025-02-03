@@ -1,0 +1,18 @@
+{
+  "items": {
+    "properties": {
+      "savedChartUuid": {
+        "type": "string"
+      },
+      "tileUuid": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "savedChartUuid",
+      "tileUuid"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

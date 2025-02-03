@@ -1,16 +1,16 @@
 {
   "properties": {
-    "table": {
-      "type": "string"
-    },
-    "sqlOn": {
-      "type": "string"
-    },
     "type": {
       "$ref": "./DbtModelJoinType.json"
     },
     "hidden": {
       "type": "boolean"
+    },
+    "table": {
+      "type": "string"
+    },
+    "sqlOn": {
+      "type": "string"
     },
     "always": {
       "type": "boolean"

@@ -1,7 +1,7 @@
 {
   "allOf": [
     {
-      "$ref": "./FilterRule_ConditionalOperator.T.V.any_.json"
+      "$ref": "./FilterRule_ConditionalOperator.DashboardFieldTarget.AnyType.AnyType_.json"
     },
     {
       "properties": {

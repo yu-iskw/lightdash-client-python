@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "label",
+    "tableLabel",
+    "description",
+    "categories",
+    "chartUsage"
+  ],
+  "type": "string"
+}

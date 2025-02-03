@@ -1,0 +1,55 @@
+{
+  "properties": {
+    "compareMetric": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "nullable": true
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "nullable": true
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "type": "object"
+    },
+    "metric": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "nullable": true
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "nullable": true
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "type": "object"
+    },
+    "segment": {
+      "type": "string",
+      "nullable": true
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "compareMetric",
+    "metric",
+    "segment",
+    "date"
+  ],
+  "type": "object"
+}

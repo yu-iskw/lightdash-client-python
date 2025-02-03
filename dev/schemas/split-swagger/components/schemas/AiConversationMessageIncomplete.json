@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "user": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "type": "object"
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "promptUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "user",
+    "createdAt",
+    "message",
+    "promptUuid"
+  ],
+  "type": "object"
+}

@@ -1,18 +1,15 @@
 {
   "properties": {
-    "spaceUuid": {
-      "type": "string"
-    },
     "projectUuid": {
       "type": "string"
-    },
-    "validationId": {
-      "type": "number",
-      "format": "double"
     },
     "createdAt": {
       "type": "string",
       "format": "date-time"
+    },
+    "validationId": {
+      "type": "number",
+      "format": "double"
     },
     "error": {
       "type": "string"
@@ -20,14 +17,17 @@
     "errorType": {
       "$ref": "./ValidationErrorType.json"
     },
+    "spaceUuid": {
+      "type": "string"
+    },
     "source": {
       "$ref": "./ValidationSourceType.json"
     }
   },
   "required": [
     "projectUuid",
-    "validationId",
     "createdAt",
+    "validationId",
     "error",
     "errorType"
   ],

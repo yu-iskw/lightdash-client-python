@@ -42,7 +42,9 @@
       "content": {
         "application/json": {
           "schema": {
-            "items": {},
+            "items": {
+              "$ref": "../components/schemas/AnyType.json"
+            },
             "type": "array"
           }
         }

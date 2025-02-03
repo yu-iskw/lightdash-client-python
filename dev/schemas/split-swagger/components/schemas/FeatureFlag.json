@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "enabled",
+    "id"
+  ],
+  "type": "object"
+}

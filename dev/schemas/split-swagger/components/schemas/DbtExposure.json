@@ -1,0 +1,53 @@
+{
+  "properties": {
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "dependsOn": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "$ref": "./DbtExposureType.json"
+    },
+    "owner": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "name"
+      ],
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dependsOn",
+    "type",
+    "owner",
+    "name"
+  ],
+  "type": "object"
+}

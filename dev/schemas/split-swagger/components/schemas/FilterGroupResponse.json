@@ -3,7 +3,9 @@
     {
       "properties": {
         "or": {
-          "items": {},
+          "items": {
+            "$ref": "./AnyType.json"
+          },
           "type": "array"
         },
         "id": {
@@ -19,7 +21,9 @@
     {
       "properties": {
         "and": {
-          "items": {},
+          "items": {
+            "$ref": "./AnyType.json"
+          },
           "type": "array"
         },
         "id": {

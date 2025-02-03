@@ -6,16 +6,13 @@
     "description": {
       "type": "string"
     },
+    "projectUuid": {
+      "type": "string"
+    },
     "uuid": {
       "type": "string"
     },
-    "spaceName": {
-      "type": "string"
-    },
     "spaceUuid": {
-      "type": "string"
-    },
-    "projectUuid": {
       "type": "string"
     },
     "organizationUuid": {
@@ -25,25 +22,20 @@
       "type": "string",
       "nullable": true
     },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
     "slug": {
       "type": "string"
     },
-    "dashboardVersionId": {
-      "type": "number",
-      "format": "double"
+    "spaceName": {
+      "type": "string"
     },
     "updatedAt": {
       "type": "string",
       "format": "date-time"
-    },
-    "tiles": {
-      "items": {
-        "$ref": "./DashboardTile.json"
-      },
-      "type": "array"
-    },
-    "filters": {
-      "$ref": "./DashboardFilters.json"
     },
     "updatedByUser": {
       "$ref": "./UpdatedByUser.json"
@@ -55,43 +47,54 @@
     "firstViewedAt": {
       "anyOf": [
         {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       ],
       "nullable": true
     },
-    "pinnedListOrder": {
+    "dashboardVersionId": {
       "type": "number",
-      "format": "double",
-      "nullable": true
+      "format": "double"
+    },
+    "tiles": {
+      "items": {
+        "$ref": "./DashboardTile.json"
+      },
+      "type": "array"
+    },
+    "filters": {
+      "$ref": "./DashboardFilters.json"
     },
     "tabs": {
       "items": {
         "$ref": "./DashboardTab.json"
       },
       "type": "array"
+    },
+    "config": {
+      "$ref": "./DashboardConfig.json"
     }
   },
   "required": [
     "name",
-    "uuid",
-    "spaceName",
-    "spaceUuid",
     "projectUuid",
+    "uuid",
+    "spaceUuid",
     "organizationUuid",
     "pinnedListUuid",
+    "pinnedListOrder",
     "slug",
-    "dashboardVersionId",
+    "spaceName",
     "updatedAt",
-    "tiles",
-    "filters",
     "views",
     "firstViewedAt",
-    "pinnedListOrder",
+    "dashboardVersionId",
+    "tiles",
+    "filters",
     "tabs"
   ],
   "type": "object",

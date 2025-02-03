@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "audiences": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tone": {
+      "$ref": "./DashboardSummaryTone.json"
+    },
+    "context": {
+      "type": "string",
+      "nullable": true
+    },
+    "dashboardVersionId": {
+      "type": "number",
+      "format": "double"
+    },
+    "dashboardUuid": {
+      "type": "string"
+    },
+    "dashboardSummaryUuid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "createdAt",
+    "summary",
+    "audiences",
+    "tone",
+    "dashboardVersionId",
+    "dashboardUuid",
+    "dashboardSummaryUuid"
+  ],
+  "type": "object"
+}

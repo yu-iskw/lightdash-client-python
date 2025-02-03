@@ -16,11 +16,13 @@
       "type": "string",
       "nullable": true
     },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
     "slug": {
       "type": "string"
-    },
-    "chartKind": {
-      "$ref": "./ChartKind.json"
     },
     "updatedAt": {
       "type": "string",
@@ -36,18 +38,13 @@
     "firstViewedAt": {
       "anyOf": [
         {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       ],
-      "nullable": true
-    },
-    "pinnedListOrder": {
-      "type": "number",
-      "format": "double",
       "nullable": true
     },
     "validationErrors": {
@@ -58,6 +55,9 @@
     },
     "chartType": {
       "$ref": "./ChartType.json"
+    },
+    "chartKind": {
+      "$ref": "./ChartKind.json"
     }
   },
   "required": [
@@ -65,11 +65,11 @@
     "uuid",
     "spaceUuid",
     "pinnedListUuid",
+    "pinnedListOrder",
     "slug",
     "updatedAt",
     "views",
-    "firstViewedAt",
-    "pinnedListOrder"
+    "firstViewedAt"
   ],
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"

@@ -1,0 +1,6 @@
+{
+  "enum": [
+    "latest"
+  ],
+  "type": "string"
+}

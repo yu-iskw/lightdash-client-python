@@ -1,0 +1,59 @@
+{
+  "get": {
+    "operationId": "Get feature flag",
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "results": {
+                  "$ref": "../components/schemas/FeatureFlag.json"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ],
+                  "nullable": false
+                }
+              },
+              "required": [
+                "results",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "default": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ApiErrorPayload.json"
+            }
+          }
+        }
+      }
+    },
+    "description": "Get feature flag",
+    "tags": [
+      "v2",
+      "Feature Flag"
+    ],
+    "security": [],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "featureFlagId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

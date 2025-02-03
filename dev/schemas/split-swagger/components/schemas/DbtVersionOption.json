@@ -1,0 +1,10 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./SupportedDbtVersions.json"
+    },
+    {
+      "$ref": "./DbtVersionOptionLatest.json"
+    }
+  ]
+}

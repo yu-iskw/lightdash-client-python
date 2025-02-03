@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "isDateZoomDisabled": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "isDateZoomDisabled"
+  ],
+  "type": "object"
+}

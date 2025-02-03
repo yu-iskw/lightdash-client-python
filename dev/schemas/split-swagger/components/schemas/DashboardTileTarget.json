@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "$ref": "./DashboardFieldTarget.json"
+    },
+    {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    }
+  ]
+}

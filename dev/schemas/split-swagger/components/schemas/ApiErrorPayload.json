@@ -3,6 +3,7 @@
     "error": {
       "properties": {
         "data": {
+          "$ref": "./AnyType.json",
           "description": "Optional data containing details of the error"
         },
         "message": {

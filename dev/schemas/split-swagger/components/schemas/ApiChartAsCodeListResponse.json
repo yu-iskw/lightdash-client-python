@@ -1,10 +1,35 @@
 {
   "properties": {
     "results": {
-      "items": {
-        "$ref": "./ChartAsCode.json"
+      "properties": {
+        "offset": {
+          "type": "number",
+          "format": "double"
+        },
+        "total": {
+          "type": "number",
+          "format": "double"
+        },
+        "missingIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "charts": {
+          "items": {
+            "$ref": "./ChartAsCode.json"
+          },
+          "type": "array"
+        }
       },
-      "type": "array"
+      "required": [
+        "offset",
+        "total",
+        "missingIds",
+        "charts"
+      ],
+      "type": "object"
     },
     "status": {
       "type": "string",

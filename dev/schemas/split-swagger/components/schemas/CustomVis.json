@@ -1,8 +1,7 @@
 {
   "properties": {
     "spec": {
-      "additionalProperties": true,
-      "type": "object"
+      "$ref": "./Record_string.unknown_.json"
     }
   },
   "type": "object"

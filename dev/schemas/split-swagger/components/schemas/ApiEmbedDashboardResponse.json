@@ -1,0 +1,58 @@
+{
+  "properties": {
+    "results": {
+      "allOf": [
+        {
+          "$ref": "./Dashboard.json"
+        },
+        {
+          "properties": {
+            "canExportImages": {
+              "type": "boolean"
+            },
+            "canExportCsv": {
+              "type": "boolean"
+            },
+            "dashboardFiltersInteractivity": {
+              "properties": {
+                "allowedFilters": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "enabled": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "$ref": "./FilterInteractivityValues.json"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

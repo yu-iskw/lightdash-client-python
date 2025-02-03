@@ -3,35 +3,35 @@
     "name": {
       "type": "string"
     },
-    "uuid": {
+    "projectUuid": {
       "type": "string"
     },
-    "projectUuid": {
+    "uuid": {
       "type": "string"
     },
     "organizationUuid": {
       "type": "string"
     },
+    "isPrivate": {
+      "type": "boolean"
+    },
     "pinnedListUuid": {
       "type": "string",
       "nullable": true
     },
+    "pinnedListOrder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
     "slug": {
       "type": "string"
-    },
-    "isPrivate": {
-      "type": "boolean"
     },
     "access": {
       "items": {
         "type": "string"
       },
       "type": "array"
-    },
-    "pinnedListOrder": {
-      "type": "number",
-      "format": "double",
-      "nullable": true
     },
     "chartCount": {
       "type": "number",
@@ -44,14 +44,14 @@
   },
   "required": [
     "name",
-    "uuid",
     "projectUuid",
+    "uuid",
     "organizationUuid",
-    "pinnedListUuid",
-    "slug",
     "isPrivate",
-    "access",
+    "pinnedListUuid",
     "pinnedListOrder",
+    "slug",
+    "access",
     "chartCount",
     "dashboardCount"
   ],

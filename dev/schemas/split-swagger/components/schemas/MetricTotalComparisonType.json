@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "none",
+    "previous_period"
+  ],
+  "type": "string"
+}

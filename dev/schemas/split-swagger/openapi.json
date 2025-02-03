@@ -1,4 +1,5 @@
 {
+  "openapi": "3.0.0",
   "components": {
     "securitySchemes": {
       "session_cookie": {
@@ -16,8 +17,8 @@
   },
   "info": {
     "title": "Lightdash API",
-    "version": "0.1403.1",
-    "description": "Open API documentation for all public Lightdash API endpoints.  # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
+    "version": "0.1471.0",
+    "description": "Open API documentation for all public Lightdash API endpoints. # Authentication Before you get started, you might need to create a Personal Access Token to authenticate via the API. You can create a token by following this guide: https://docs.lightdash.com/references/personal_tokens\n",
     "license": {
       "name": "MIT"
     },
@@ -27,154 +28,138 @@
       "url": "https://docs.lightdash.com/help-and-contact/contact/contact_info/"
     }
   },
-  "openapi": "3.0.0",
   "paths": {
-    "/api/v1/projects/{projectUuid}/dataCatalog": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog.json"
+    "/api/v1/projects/{projectUuid}/validate": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_validate.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/{table}/metadata": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_metadata.json"
+    "/api/v1/projects/{projectUuid}/validate/{validationId}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_validate_{validationId}.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/{table}/analytics": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_analytics.json"
+    "/api/v1/user": {
+      "$ref": "paths/api_v1_user.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/{table}/analytics/{field}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_analytics_{field}.json"
+    "/api/v1/user/me/email/otp": {
+      "$ref": "paths/api_v1_user_me_email_otp.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/metrics": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics.json"
+    "/api/v1/user/me/email/status": {
+      "$ref": "paths/api_v1_user_me_email_status.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/{tableName}/{metricName}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_{tableName}_{metricName}.json"
+    "/api/v1/user/me/allowedOrganizations": {
+      "$ref": "paths/api_v1_user_me_allowedOrganizations.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/metrics-with-time-dimensions": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics-with-time-dimensions.json"
+    "/api/v1/user/me/joinOrganization/{organizationUuid}": {
+      "$ref": "paths/api_v1_user_me_joinOrganization_{organizationUuid}.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_categories.json"
+    "/api/v1/user/me": {
+      "$ref": "paths/api_v1_user_me.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories/{tagUuid}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_categories_{tagUuid}.json"
+    "/api/v1/user/warehouseCredentials": {
+      "$ref": "paths/api_v1_user_warehouseCredentials.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/icon": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_icon.json"
+    "/api/v1/user/warehouseCredentials/{uuid}": {
+      "$ref": "paths/api_v1_user_warehouseCredentials_{uuid}.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree.json"
+    "/api/v1/user/login-options": {
+      "$ref": "paths/api_v1_user_login-options.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree_edges.json"
+    "/api/v1/user/me/personal-access-tokens/{personalAccessTokenUuid}/rotate": {
+      "$ref": "paths/api_v1_user_me_personal-access-tokens_{personalAccessTokenUuid}_rotate.json"
     },
-    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges/{sourceCatalogSearchUuid}/{targetCatalogSearchUuid}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree_edges_{sourceCatalogSearchUuid}_{targetCatalogSearchUuid}.json"
+    "/api/v1/org/attributes": {
+      "$ref": "paths/api_v1_org_attributes.json"
     },
-    "/api/v1/comments/dashboards/{dashboardUuid}/{dashboardTileUuid}": {
-      "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}_{dashboardTileUuid}.json"
+    "/api/v1/org/attributes/{userAttributeUuid}": {
+      "$ref": "paths/api_v1_org_attributes_{userAttributeUuid}.json"
     },
-    "/api/v1/comments/dashboards/{dashboardUuid}": {
-      "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}.json"
+    "/api/v1/ssh/key-pairs": {
+      "$ref": "paths/api_v1_ssh_key-pairs.json"
     },
-    "/api/v1/comments/dashboards/{dashboardUuid}/{commentId}": {
-      "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}_{commentId}.json"
+    "/api/v1/projects/{projectUuid}/spotlight/table/config": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spotlight_table_config.json"
     },
-    "/api/v1/csv/{jobId}": {
-      "$ref": "paths/api_v1_csv_{jobId}.json"
+    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}.json"
     },
-    "/api/v1/dashboards/{dashboardUuid}/promote": {
-      "$ref": "paths/api_v1_dashboards_{dashboardUuid}_promote.json"
+    "/api/v1/projects/{projectUuid}/spaces": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spaces.json"
     },
-    "/api/v1/dashboards/{dashboardUuid}/promoteDiff": {
-      "$ref": "paths/api_v1_dashboards_{dashboardUuid}_promoteDiff.json"
+    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_share.json"
     },
-    "/api/v1/projects/{projectUuid}/explores": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_explores.json"
+    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share/{userUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_share_{userUuid}.json"
     },
-    "/api/v1/projects/{projectUuid}/explores/{exploreId}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}.json"
+    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/group/share": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_group_share.json"
     },
-    "/api/v1/projects/{projectUuid}/explores/{exploreId}/compileQuery": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_compileQuery.json"
+    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/group/share/{groupUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_group_share_{groupUuid}.json"
     },
-    "/api/v1/projects/{projectUuid}/explores/{exploreId}/downloadCsv": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_downloadCsv.json"
+    "/api/v1/slack/channels": {
+      "$ref": "paths/api_v1_slack_channels.json"
     },
-    "/api/v1/github/install": {
-      "$ref": "paths/api_v1_github_install.json"
+    "/api/v1/slack/custom-settings": {
+      "$ref": "paths/api_v1_slack_custom-settings.json"
     },
-    "/api/v1/github/oauth/callback": {
-      "$ref": "paths/api_v1_github_oauth_callback.json"
+    "/api/v1/share/{nanoId}": {
+      "$ref": "paths/api_v1_share_{nanoId}.json"
     },
-    "/api/v1/github/uninstall": {
-      "$ref": "paths/api_v1_github_uninstall.json"
+    "/api/v1/share": {
+      "$ref": "paths/api_v1_share.json"
     },
-    "/api/v1/github/repos/list": {
-      "$ref": "paths/api_v1_github_repos_list.json"
+    "/api/v1/schedulers/{projectUuid}/logs": {
+      "$ref": "paths/api_v1_schedulers_{projectUuid}_logs.json"
     },
-    "/api/v1/projects/{projectUuid}/git-integration": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_git-integration.json"
+    "/api/v1/schedulers/{schedulerUuid}": {
+      "$ref": "paths/api_v1_schedulers_{schedulerUuid}.json"
     },
-    "/api/v1/projects/{projectUuid}/git-integration/pull-requests/chart/{chartUuid}/fields": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_git-integration_pull-requests_chart_{chartUuid}_fields.json"
+    "/api/v1/schedulers/{schedulerUuid}/enabled": {
+      "$ref": "paths/api_v1_schedulers_{schedulerUuid}_enabled.json"
     },
-    "/api/v1/projects/{projectUuid}/git-integration/pull-requests/custom-metrics": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_git-integration_pull-requests_custom-metrics.json"
+    "/api/v1/schedulers/{schedulerUuid}/jobs": {
+      "$ref": "paths/api_v1_schedulers_{schedulerUuid}_jobs.json"
     },
-    "/api/v1/gdrive/get-access-token": {
-      "$ref": "paths/api_v1_gdrive_get-access-token.json"
+    "/api/v1/schedulers/job/{jobId}/status": {
+      "$ref": "paths/api_v1_schedulers_job_{jobId}_status.json"
     },
-    "/api/v1/gdrive/upload-gsheet": {
-      "$ref": "paths/api_v1_gdrive_upload-gsheet.json"
+    "/api/v1/schedulers/send": {
+      "$ref": "paths/api_v1_schedulers_send.json"
     },
-    "/api/v1/groups/{groupUuid}": {
-      "$ref": "paths/api_v1_groups_{groupUuid}.json"
+    "/api/v1/projects/{projectUuid}/explores/{exploreId}/runUnderlyingDataQuery": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_runUnderlyingDataQuery.json"
     },
-    "/api/v1/groups/{groupUuid}/members/{userUuid}": {
-      "$ref": "paths/api_v1_groups_{groupUuid}_members_{userUuid}.json"
+    "/api/v1/projects/{projectUuid}/explores/{exploreId}/runQuery": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_runQuery.json"
     },
-    "/api/v1/groups/{groupUuid}/members": {
-      "$ref": "paths/api_v1_groups_{groupUuid}_members.json"
+    "/api/v1/saved/{chartUuid}/results": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_results.json"
     },
-    "/api/v1/groups/{groupUuid}/projects/{projectUuid}": {
-      "$ref": "paths/api_v1_groups_{groupUuid}_projects_{projectUuid}.json"
+    "/api/v1/saved/{chartUuid}/chart-and-results": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_chart-and-results.json"
     },
-    "/api/v1/projects/{projectUuid}/metricsExplorer/{explore}/{metric}/runMetricExplorerQuery": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_metricsExplorer_{explore}_{metric}_runMetricExplorerQuery.json"
+    "/api/v1/saved/{chartUuid}/history": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_history.json"
     },
-    "/api/v1/notifications": {
-      "$ref": "paths/api_v1_notifications.json"
+    "/api/v1/saved/{chartUuid}/version/{versionUuid}": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_version_{versionUuid}.json"
     },
-    "/api/v1/notifications/{notificationId}": {
-      "$ref": "paths/api_v1_notifications_{notificationId}.json"
+    "/api/v1/saved/{chartUuid}/version/{versionUuid}/results": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_version_{versionUuid}_results.json"
     },
-    "/api/v1/org": {
-      "$ref": "paths/api_v1_org.json"
+    "/api/v1/saved/{chartUuid}/rollback/{versionUuid}": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_rollback_{versionUuid}.json"
     },
-    "/api/v1/org/{organizationUuid}": {
-      "$ref": "paths/api_v1_org_{organizationUuid}.json"
+    "/api/v1/saved/{chartUuid}/calculate-total": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_calculate-total.json"
     },
-    "/api/v1/org/projects": {
-      "$ref": "paths/api_v1_org_projects.json"
+    "/api/v1/saved/{chartUuid}/promote": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_promote.json"
     },
-    "/api/v1/org/users": {
-      "$ref": "paths/api_v1_org_users.json"
+    "/api/v1/saved/{chartUuid}/promoteDiff": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_promoteDiff.json"
     },
-    "/api/v1/org/users/{userUuid}": {
-      "$ref": "paths/api_v1_org_users_{userUuid}.json"
-    },
-    "/api/v1/org/user/{userUuid}": {
-      "$ref": "paths/api_v1_org_user_{userUuid}.json"
-    },
-    "/api/v1/org/allowedEmailDomains": {
-      "$ref": "paths/api_v1_org_allowedEmailDomains.json"
-    },
-    "/api/v1/org/groups": {
-      "$ref": "paths/api_v1_org_groups.json"
-    },
-    "/api/v1/projects/{projectUuid}/pinned-lists/{pinnedListUuid}/items": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_pinned-lists_{pinnedListUuid}_items.json"
-    },
-    "/api/v1/projects/{projectUuid}/pinned-lists/{pinnedListUuid}/items/order": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_pinned-lists_{pinnedListUuid}_items_order.json"
+    "/api/v1/saved/{chartUuid}/downloadCsv": {
+      "$ref": "paths/api_v1_saved_{chartUuid}_downloadCsv.json"
     },
     "/api/v1/projects/{projectUuid}": {
       "$ref": "paths/api_v1_projects_{projectUuid}.json"
@@ -184,9 +169,6 @@
     },
     "/api/v1/projects/{projectUuid}/chart-summaries": {
       "$ref": "paths/api_v1_projects_{projectUuid}_chart-summaries.json"
-    },
-    "/api/v1/projects/{projectUuid}/spaces": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_spaces.json"
     },
     "/api/v1/projects/{projectUuid}/access": {
       "$ref": "paths/api_v1_projects_{projectUuid}_access.json"
@@ -236,6 +218,9 @@
     "/api/v1/projects/{projectUuid}/tags/{tagUuid}": {
       "$ref": "paths/api_v1_projects_{projectUuid}_tags_{tagUuid}.json"
     },
+    "/api/v1/projects/{projectUuid}/tags/yaml": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_tags_yaml.json"
+    },
     "/api/v1/projects/{projectUuid}/charts/code": {
       "$ref": "paths/api_v1_projects_{projectUuid}_charts_code.json"
     },
@@ -248,131 +233,164 @@
     "/api/v1/projects/{projectUuid}/dashboards/{slug}/code": {
       "$ref": "paths/api_v1_projects_{projectUuid}_dashboards_{slug}_code.json"
     },
-    "/api/v1/projects/{projectUuid}/explores/{exploreId}/runUnderlyingDataQuery": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_runUnderlyingDataQuery.json"
+    "/api/v1/projects/{projectUuid}/pinned-lists/{pinnedListUuid}/items": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_pinned-lists_{pinnedListUuid}_items.json"
     },
-    "/api/v1/projects/{projectUuid}/explores/{exploreId}/runQuery": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_runQuery.json"
+    "/api/v1/projects/{projectUuid}/pinned-lists/{pinnedListUuid}/items/order": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_pinned-lists_{pinnedListUuid}_items_order.json"
     },
-    "/api/v1/saved/{chartUuid}/results": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_results.json"
+    "/api/v1/org": {
+      "$ref": "paths/api_v1_org.json"
     },
-    "/api/v1/saved/{chartUuid}/chart-and-results": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_chart-and-results.json"
+    "/api/v1/org/{organizationUuid}": {
+      "$ref": "paths/api_v1_org_{organizationUuid}.json"
     },
-    "/api/v1/saved/{chartUuid}/history": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_history.json"
+    "/api/v1/org/projects": {
+      "$ref": "paths/api_v1_org_projects.json"
     },
-    "/api/v1/saved/{chartUuid}/version/{versionUuid}": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_version_{versionUuid}.json"
+    "/api/v1/org/users": {
+      "$ref": "paths/api_v1_org_users.json"
     },
-    "/api/v1/saved/{chartUuid}/version/{versionUuid}/results": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_version_{versionUuid}_results.json"
+    "/api/v1/org/users/{userUuid}": {
+      "$ref": "paths/api_v1_org_users_{userUuid}.json"
     },
-    "/api/v1/saved/{chartUuid}/rollback/{versionUuid}": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_rollback_{versionUuid}.json"
+    "/api/v1/org/user/{userUuid}": {
+      "$ref": "paths/api_v1_org_user_{userUuid}.json"
     },
-    "/api/v1/saved/{chartUuid}/calculate-total": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_calculate-total.json"
+    "/api/v1/org/allowedEmailDomains": {
+      "$ref": "paths/api_v1_org_allowedEmailDomains.json"
     },
-    "/api/v1/saved/{chartUuid}/promote": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_promote.json"
+    "/api/v1/org/groups": {
+      "$ref": "paths/api_v1_org_groups.json"
     },
-    "/api/v1/saved/{chartUuid}/promoteDiff": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_promoteDiff.json"
+    "/api/v1/notifications": {
+      "$ref": "paths/api_v1_notifications.json"
     },
-    "/api/v1/saved/{chartUuid}/downloadCsv": {
-      "$ref": "paths/api_v1_saved_{chartUuid}_downloadCsv.json"
+    "/api/v1/notifications/{notificationId}": {
+      "$ref": "paths/api_v1_notifications_{notificationId}.json"
     },
-    "/api/v1/schedulers/{projectUuid}/logs": {
-      "$ref": "paths/api_v1_schedulers_{projectUuid}_logs.json"
+    "/api/v1/projects/{projectUuid}/metricsExplorer/{explore}/{metric}/runMetricExplorerQuery": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_metricsExplorer_{explore}_{metric}_runMetricExplorerQuery.json"
     },
-    "/api/v1/schedulers/{schedulerUuid}": {
-      "$ref": "paths/api_v1_schedulers_{schedulerUuid}.json"
+    "/api/v1/projects/{projectUuid}/metricsExplorer/{explore}/{metric}/runMetricTotal": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_metricsExplorer_{explore}_{metric}_runMetricTotal.json"
     },
-    "/api/v1/schedulers/{schedulerUuid}/enabled": {
-      "$ref": "paths/api_v1_schedulers_{schedulerUuid}_enabled.json"
+    "/api/v1/groups/{groupUuid}": {
+      "$ref": "paths/api_v1_groups_{groupUuid}.json"
     },
-    "/api/v1/schedulers/{schedulerUuid}/jobs": {
-      "$ref": "paths/api_v1_schedulers_{schedulerUuid}_jobs.json"
+    "/api/v1/groups/{groupUuid}/members/{userUuid}": {
+      "$ref": "paths/api_v1_groups_{groupUuid}_members_{userUuid}.json"
     },
-    "/api/v1/schedulers/job/{jobId}/status": {
-      "$ref": "paths/api_v1_schedulers_job_{jobId}_status.json"
+    "/api/v1/groups/{groupUuid}/members": {
+      "$ref": "paths/api_v1_groups_{groupUuid}_members.json"
     },
-    "/api/v1/schedulers/send": {
-      "$ref": "paths/api_v1_schedulers_send.json"
+    "/api/v1/groups/{groupUuid}/projects/{projectUuid}": {
+      "$ref": "paths/api_v1_groups_{groupUuid}_projects_{projectUuid}.json"
     },
-    "/api/v1/share/{nanoId}": {
-      "$ref": "paths/api_v1_share_{nanoId}.json"
+    "/api/v1/gdrive/get-access-token": {
+      "$ref": "paths/api_v1_gdrive_get-access-token.json"
     },
-    "/api/v1/share": {
-      "$ref": "paths/api_v1_share.json"
+    "/api/v1/gdrive/upload-gsheet": {
+      "$ref": "paths/api_v1_gdrive_upload-gsheet.json"
     },
-    "/api/v1/slack/channels": {
-      "$ref": "paths/api_v1_slack_channels.json"
+    "/api/v1/github/install": {
+      "$ref": "paths/api_v1_github_install.json"
     },
-    "/api/v1/slack/custom-settings": {
-      "$ref": "paths/api_v1_slack_custom-settings.json"
+    "/api/v1/github/oauth/callback": {
+      "$ref": "paths/api_v1_github_oauth_callback.json"
     },
-    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}.json"
+    "/api/v1/github/uninstall": {
+      "$ref": "paths/api_v1_github_uninstall.json"
     },
-    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_share.json"
+    "/api/v1/github/repos/list": {
+      "$ref": "paths/api_v1_github_repos_list.json"
     },
-    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/share/{userUuid}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_share_{userUuid}.json"
+    "/api/v1/projects/{projectUuid}/git-integration": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_git-integration.json"
     },
-    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/group/share": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_group_share.json"
+    "/api/v1/projects/{projectUuid}/git-integration/pull-requests/chart/{chartUuid}/fields": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_git-integration_pull-requests_chart_{chartUuid}_fields.json"
     },
-    "/api/v1/projects/{projectUuid}/spaces/{spaceUuid}/group/share/{groupUuid}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_spaces_{spaceUuid}_group_share_{groupUuid}.json"
+    "/api/v1/projects/{projectUuid}/git-integration/pull-requests/custom-metrics": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_git-integration_pull-requests_custom-metrics.json"
     },
-    "/api/v1/ssh/key-pairs": {
-      "$ref": "paths/api_v1_ssh_key-pairs.json"
+    "/api/v1/projects/{projectUuid}/explores": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_explores.json"
     },
-    "/api/v1/org/attributes": {
-      "$ref": "paths/api_v1_org_attributes.json"
+    "/api/v1/projects/{projectUuid}/explores/{exploreId}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}.json"
     },
-    "/api/v1/org/attributes/{userAttributeUuid}": {
-      "$ref": "paths/api_v1_org_attributes_{userAttributeUuid}.json"
+    "/api/v1/projects/{projectUuid}/explores/{exploreId}/compileQuery": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_compileQuery.json"
     },
-    "/api/v1/user": {
-      "$ref": "paths/api_v1_user.json"
+    "/api/v1/projects/{projectUuid}/explores/{exploreId}/downloadCsv": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_explores_{exploreId}_downloadCsv.json"
     },
-    "/api/v1/user/me/email/otp": {
-      "$ref": "paths/api_v1_user_me_email_otp.json"
+    "/api/v1/dashboards/{dashboardUuid}/promote": {
+      "$ref": "paths/api_v1_dashboards_{dashboardUuid}_promote.json"
     },
-    "/api/v1/user/me/email/status": {
-      "$ref": "paths/api_v1_user_me_email_status.json"
+    "/api/v1/dashboards/{dashboardUuid}/promoteDiff": {
+      "$ref": "paths/api_v1_dashboards_{dashboardUuid}_promoteDiff.json"
     },
-    "/api/v1/user/me/allowedOrganizations": {
-      "$ref": "paths/api_v1_user_me_allowedOrganizations.json"
+    "/api/v1/csv/{jobId}": {
+      "$ref": "paths/api_v1_csv_{jobId}.json"
     },
-    "/api/v1/user/me/joinOrganization/{organizationUuid}": {
-      "$ref": "paths/api_v1_user_me_joinOrganization_{organizationUuid}.json"
+    "/api/v1/comments/dashboards/{dashboardUuid}/{dashboardTileUuid}": {
+      "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}_{dashboardTileUuid}.json"
     },
-    "/api/v1/user/me": {
-      "$ref": "paths/api_v1_user_me.json"
+    "/api/v1/comments/dashboards/{dashboardUuid}": {
+      "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}.json"
     },
-    "/api/v1/user/warehouseCredentials": {
-      "$ref": "paths/api_v1_user_warehouseCredentials.json"
+    "/api/v1/comments/dashboards/{dashboardUuid}/{commentId}": {
+      "$ref": "paths/api_v1_comments_dashboards_{dashboardUuid}_{commentId}.json"
     },
-    "/api/v1/user/warehouseCredentials/{uuid}": {
-      "$ref": "paths/api_v1_user_warehouseCredentials_{uuid}.json"
+    "/api/v1/projects/{projectUuid}/dataCatalog": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog.json"
     },
-    "/api/v1/user/login-options": {
-      "$ref": "paths/api_v1_user_login-options.json"
+    "/api/v1/projects/{projectUuid}/dataCatalog/{table}/metadata": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_metadata.json"
     },
-    "/api/v1/user/me/personal-access-tokens/{personalAccessTokenUuid}/rotate": {
-      "$ref": "paths/api_v1_user_me_personal-access-tokens_{personalAccessTokenUuid}_rotate.json"
+    "/api/v1/projects/{projectUuid}/dataCatalog/{table}/analytics": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_analytics.json"
     },
-    "/api/v1/projects/{projectUuid}/validate": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_validate.json"
+    "/api/v1/projects/{projectUuid}/dataCatalog/{table}/analytics/{field}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{table}_analytics_{field}.json"
     },
-    "/api/v1/projects/{projectUuid}/validate/{validationId}": {
-      "$ref": "paths/api_v1_projects_{projectUuid}_validate_{validationId}.json"
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/{tableName}/{metricName}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_{tableName}_{metricName}.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics-with-time-dimensions": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics-with-time-dimensions.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{tableName}/segment-dimensions": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{tableName}_segment-dimensions.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_categories.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/categories/{tagUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_categories_{tagUuid}.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/{catalogSearchUuid}/icon": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_{catalogSearchUuid}_icon.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree_edges.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/tree/edges/{sourceCatalogSearchUuid}/{targetCatalogSearchUuid}": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_tree_edges_{sourceCatalogSearchUuid}_{targetCatalogSearchUuid}.json"
+    },
+    "/api/v1/projects/{projectUuid}/dataCatalog/metrics/has": {
+      "$ref": "paths/api_v1_projects_{projectUuid}_dataCatalog_metrics_has.json"
+    },
+    "/api/v2/feature-flag/{featureFlagId}": {
+      "$ref": "paths/api_v2_feature-flag_{featureFlagId}.json"
     }
   },
   "servers": [

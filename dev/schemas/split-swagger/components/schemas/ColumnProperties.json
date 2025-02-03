@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "frozen": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

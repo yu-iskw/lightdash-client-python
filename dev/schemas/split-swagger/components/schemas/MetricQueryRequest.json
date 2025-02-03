@@ -1,5 +1,8 @@
 {
   "properties": {
+    "metricOverrides": {
+      "$ref": "./MetricOverrides.json"
+    },
     "timezone": {
       "type": "string"
     },
@@ -51,9 +54,15 @@
     },
     "filters": {
       "properties": {
-        "tableCalculations": {},
-        "metrics": {},
-        "dimensions": {}
+        "tableCalculations": {
+          "$ref": "./AnyType.json"
+        },
+        "metrics": {
+          "$ref": "./AnyType.json"
+        },
+        "dimensions": {
+          "$ref": "./AnyType.json"
+        }
       },
       "type": "object"
     },

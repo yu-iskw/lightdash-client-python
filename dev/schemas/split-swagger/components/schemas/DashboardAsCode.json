@@ -18,7 +18,7 @@
         },
         "tiles": {
           "items": {
-            "$ref": "./DashboardTileWithoutUuids.json"
+            "$ref": "./DashboardTileAsCode.json"
           },
           "type": "array"
         }

@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "schemas": {
+      "items": {
+        "$ref": "./ScimSchemaType.LIST_RESPONSE.json"
+      },
+      "type": "array"
+    },
+    "totalResults": {
+      "type": "number",
+      "format": "double"
+    },
+    "itemsPerPage": {
+      "type": "number",
+      "format": "double"
+    },
+    "startIndex": {
+      "type": "number",
+      "format": "double"
+    },
+    "Resources": {
+      "items": {
+        "$ref": "./ScimUser.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemas",
+    "totalResults",
+    "itemsPerPage",
+    "startIndex",
+    "Resources"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}

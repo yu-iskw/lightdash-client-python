@@ -12,6 +12,9 @@
       },
       "type": "array"
     },
+    "selector": {
+      "type": "string"
+    },
     "hideRefreshButton": {
       "type": "boolean"
     }

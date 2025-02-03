@@ -1,7 +1,7 @@
 {
   "allOf": [
     {
-      "$ref": "./Pick_SavedChart.name-or-description-or-tableName-or-metricQuery-or-chartConfig-or-tableConfig-or-slug-or-dashboardUuid-or-updatedAt_.json"
+      "$ref": "./Pick_SavedChart.name-or-description-or-tableName-or-metricQuery-or-chartConfig-or-tableConfig-or-slug-or-updatedAt_.json"
     },
     {
       "properties": {
@@ -15,6 +15,9 @@
         "version": {
           "type": "number",
           "format": "double"
+        },
+        "dashboardSlug": {
+          "type": "string"
         }
       },
       "required": [

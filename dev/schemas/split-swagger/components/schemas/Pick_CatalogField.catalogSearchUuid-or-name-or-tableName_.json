@@ -3,17 +3,17 @@
     "name": {
       "type": "string"
     },
-    "catalogSearchUuid": {
+    "tableName": {
       "type": "string"
     },
-    "tableName": {
+    "catalogSearchUuid": {
       "type": "string"
     }
   },
   "required": [
     "name",
-    "catalogSearchUuid",
-    "tableName"
+    "tableName",
+    "catalogSearchUuid"
   ],
   "type": "object",
   "description": "From T, pick a set of properties whose keys are in the union K"

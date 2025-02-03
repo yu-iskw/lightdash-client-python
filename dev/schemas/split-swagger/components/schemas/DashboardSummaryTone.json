@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "friendly",
+    "formal",
+    "direct",
+    "enthusiastic"
+  ],
+  "type": "string"
+}

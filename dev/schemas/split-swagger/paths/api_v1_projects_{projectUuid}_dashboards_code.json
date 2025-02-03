@@ -35,6 +35,26 @@
         "schema": {
           "type": "string"
         }
+      },
+      {
+        "in": "query",
+        "name": "ids",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "double",
+          "type": "number"
+        }
       }
     ]
   }

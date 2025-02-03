@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "valueLabel": {
+      "type": "string",
+      "enum": [
+        "hidden",
+        "inside",
+        "outside"
+      ]
+    },
+    "showValue": {
+      "type": "boolean"
+    },
+    "showPercentage": {
+      "type": "boolean"
+    }
+  },
+  "type": "object",
+  "description": "Make all properties in T optional"
+}

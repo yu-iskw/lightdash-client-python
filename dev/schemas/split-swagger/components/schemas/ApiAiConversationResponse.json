@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "results": {
+      "properties": {
+        "rows": {
+          "items": {
+            "$ref": "./Record_string.AnyType_.json"
+          },
+          "type": "array"
+        },
+        "prompt": {
+          "$ref": "./AiWebAppPrompt.json"
+        }
+      },
+      "required": [
+        "prompt"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "results",
+    "status"
+  ],
+  "type": "object"
+}

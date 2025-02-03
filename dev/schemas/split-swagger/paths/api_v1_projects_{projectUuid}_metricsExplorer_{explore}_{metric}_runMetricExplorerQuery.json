@@ -76,20 +76,23 @@
       }
     ],
     "requestBody": {
-      "required": false,
+      "required": true,
       "content": {
         "application/json": {
           "schema": {
             "properties": {
-              "comparison": {
-                "$ref": "../components/schemas/MetricExplorerComparisonType.json"
+              "filter": {
+                "$ref": "../components/schemas/FilterRule.json"
+              },
+              "query": {
+                "$ref": "../components/schemas/MetricExplorerQuery.json"
               },
               "timeDimensionOverride": {
                 "$ref": "../components/schemas/TimeDimensionConfig.json"
               }
             },
             "required": [
-              "comparison"
+              "query"
             ],
             "type": "object"
           }
