@@ -17,15 +17,15 @@ class PickExploreSummaryExploreFields:
         name (str):
         label (str):
         tags (List[str]):
-        group_label (Union[Unset, str]):
         type (Union[Unset, ExploreType]):
+        group_label (Union[Unset, str]):
     """
 
     name: str
     label: str
     tags: List[str]
-    group_label: Union[Unset, str] = UNSET
     type: Union[Unset, ExploreType] = UNSET
+    group_label: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -35,11 +35,11 @@ class PickExploreSummaryExploreFields:
 
         tags = self.tags
 
-        group_label = self.group_label
-
         type: Union[Unset, str] = UNSET
         if not isinstance(self.type, Unset):
             type = self.type.value
+
+        group_label = self.group_label
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -50,10 +50,10 @@ class PickExploreSummaryExploreFields:
                 "tags": tags,
             }
         )
-        if group_label is not UNSET:
-            field_dict["groupLabel"] = group_label
         if type is not UNSET:
             field_dict["type"] = type
+        if group_label is not UNSET:
+            field_dict["groupLabel"] = group_label
 
         return field_dict
 
@@ -66,8 +66,6 @@ class PickExploreSummaryExploreFields:
 
         tags = cast(List[str], d.pop("tags"))
 
-        group_label = d.pop("groupLabel", UNSET)
-
         _type = d.pop("type", UNSET)
         type: Union[Unset, ExploreType]
         if isinstance(_type, Unset):
@@ -75,12 +73,14 @@ class PickExploreSummaryExploreFields:
         else:
             type = ExploreType(_type)
 
+        group_label = d.pop("groupLabel", UNSET)
+
         pick_explore_summary_explore_fields = cls(
             name=name,
             label=label,
             tags=tags,
-            group_label=group_label,
             type=type,
+            group_label=group_label,
         )
 
         pick_explore_summary_explore_fields.additional_properties = d

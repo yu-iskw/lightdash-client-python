@@ -12,10 +12,16 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     search: Union[Unset, str] = UNSET,
+    exclude_archived: Union[Unset, bool] = UNSET,
+    force_refresh: Union[Unset, bool] = UNSET,
 ) -> Dict[str, Any]:
     params: Dict[str, Any] = {}
 
     params["search"] = search
+
+    params["excludeArchived"] = exclude_archived
+
+    params["forceRefresh"] = force_refresh
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -56,11 +62,15 @@ def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
     search: Union[Unset, str] = UNSET,
+    exclude_archived: Union[Unset, bool] = UNSET,
+    force_refresh: Union[Unset, bool] = UNSET,
 ) -> Response[ApiSlackChannelsResponse]:
     """Get slack channels
 
     Args:
         search (Union[Unset, str]):
+        exclude_archived (Union[Unset, bool]):
+        force_refresh (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -72,6 +82,8 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         search=search,
+        exclude_archived=exclude_archived,
+        force_refresh=force_refresh,
     )
 
     response = client.get_httpx_client().request(
@@ -85,11 +97,15 @@ def sync(
     *,
     client: Union[AuthenticatedClient, Client],
     search: Union[Unset, str] = UNSET,
+    exclude_archived: Union[Unset, bool] = UNSET,
+    force_refresh: Union[Unset, bool] = UNSET,
 ) -> Optional[ApiSlackChannelsResponse]:
     """Get slack channels
 
     Args:
         search (Union[Unset, str]):
+        exclude_archived (Union[Unset, bool]):
+        force_refresh (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -102,6 +118,8 @@ def sync(
     return sync_detailed(
         client=client,
         search=search,
+        exclude_archived=exclude_archived,
+        force_refresh=force_refresh,
     ).parsed
 
 
@@ -109,11 +127,15 @@ async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
     search: Union[Unset, str] = UNSET,
+    exclude_archived: Union[Unset, bool] = UNSET,
+    force_refresh: Union[Unset, bool] = UNSET,
 ) -> Response[ApiSlackChannelsResponse]:
     """Get slack channels
 
     Args:
         search (Union[Unset, str]):
+        exclude_archived (Union[Unset, bool]):
+        force_refresh (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -125,6 +147,8 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         search=search,
+        exclude_archived=exclude_archived,
+        force_refresh=force_refresh,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -136,11 +160,15 @@ async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
     search: Union[Unset, str] = UNSET,
+    exclude_archived: Union[Unset, bool] = UNSET,
+    force_refresh: Union[Unset, bool] = UNSET,
 ) -> Optional[ApiSlackChannelsResponse]:
     """Get slack channels
 
     Args:
         search (Union[Unset, str]):
+        exclude_archived (Union[Unset, bool]):
+        force_refresh (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -154,5 +182,7 @@ async def asyncio(
         await asyncio_detailed(
             client=client,
             search=search,
+            exclude_archived=exclude_archived,
+            force_refresh=force_refresh,
         )
     ).parsed

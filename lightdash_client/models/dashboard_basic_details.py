@@ -22,30 +22,30 @@ class DashboardBasicDetails:
     """
     Attributes:
         name (str):
+        project_uuid (str):
         uuid (str):
         space_uuid (str):
-        project_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        pinned_list_order (Union[None, float]):
         updated_at (datetime.datetime):
         views (float):
         first_viewed_at (Union[None, datetime.datetime, str]):
-        pinned_list_order (Union[None, float]):
         description (Union[Unset, str]):
         updated_by_user (Union[Unset, UpdatedByUser]):
         validation_errors (Union[Unset, List['PickValidationResponseErrorOrCreatedAtOrValidationId']]):
     """
 
     name: str
+    project_uuid: str
     uuid: str
     space_uuid: str
-    project_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    pinned_list_order: Union[None, float]
     updated_at: datetime.datetime
     views: float
     first_viewed_at: Union[None, datetime.datetime, str]
-    pinned_list_order: Union[None, float]
     description: Union[Unset, str] = UNSET
     updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
     validation_errors: Union[Unset, List["PickValidationResponseErrorOrCreatedAtOrValidationId"]] = UNSET
@@ -59,16 +59,19 @@ class DashboardBasicDetails:
 
         name = self.name
 
+        project_uuid = self.project_uuid
+
         uuid = self.uuid
 
         space_uuid = self.space_uuid
-
-        project_uuid = self.project_uuid
 
         organization_uuid = self.organization_uuid
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
+
+        pinned_list_order: Union[None, float]
+        pinned_list_order = self.pinned_list_order
 
         updated_at = self.updated_at.isoformat()
 
@@ -79,9 +82,6 @@ class DashboardBasicDetails:
             first_viewed_at = self.first_viewed_at.isoformat()
         else:
             first_viewed_at = self.first_viewed_at
-
-        pinned_list_order: Union[None, float]
-        pinned_list_order = self.pinned_list_order
 
         description = self.description
 
@@ -101,15 +101,15 @@ class DashboardBasicDetails:
         field_dict.update(
             {
                 "name": name,
+                "projectUuid": project_uuid,
                 "uuid": uuid,
                 "spaceUuid": space_uuid,
-                "projectUuid": project_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "pinnedListOrder": pinned_list_order,
                 "updatedAt": updated_at,
                 "views": views,
                 "firstViewedAt": first_viewed_at,
-                "pinnedListOrder": pinned_list_order,
             }
         )
         if description is not UNSET:
@@ -131,11 +131,11 @@ class DashboardBasicDetails:
         d = src_dict.copy()
         name = d.pop("name")
 
+        project_uuid = d.pop("projectUuid")
+
         uuid = d.pop("uuid")
 
         space_uuid = d.pop("spaceUuid")
-
-        project_uuid = d.pop("projectUuid")
 
         organization_uuid = d.pop("organizationUuid")
 
@@ -145,6 +145,13 @@ class DashboardBasicDetails:
             return cast(Union[None, str], data)
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
+
+        def _parse_pinned_list_order(data: object) -> Union[None, float]:
+            if data is None:
+                return data
+            return cast(Union[None, float], data)
+
+        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
         updated_at = isoparse(d.pop("updatedAt"))
 
@@ -156,21 +163,14 @@ class DashboardBasicDetails:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                first_viewed_at_type_0 = isoparse(data)
+                first_viewed_at_type_1 = isoparse(data)
 
-                return first_viewed_at_type_0
+                return first_viewed_at_type_1
             except:  # noqa: E722
                 pass
             return cast(Union[None, datetime.datetime, str], data)
 
         first_viewed_at = _parse_first_viewed_at(d.pop("firstViewedAt"))
-
-        def _parse_pinned_list_order(data: object) -> Union[None, float]:
-            if data is None:
-                return data
-            return cast(Union[None, float], data)
-
-        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
         description = d.pop("description", UNSET)
 
@@ -192,15 +192,15 @@ class DashboardBasicDetails:
 
         dashboard_basic_details = cls(
             name=name,
+            project_uuid=project_uuid,
             uuid=uuid,
             space_uuid=space_uuid,
-            project_uuid=project_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            pinned_list_order=pinned_list_order,
             updated_at=updated_at,
             views=views,
             first_viewed_at=first_viewed_at,
-            pinned_list_order=pinned_list_order,
             description=description,
             updated_by_user=updated_by_user,
             validation_errors=validation_errors,

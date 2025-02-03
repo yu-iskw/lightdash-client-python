@@ -19,7 +19,11 @@ class PostDashboardTileBody:
     Attributes:
         dashboard_uuid (str):
         dashboard_sorts (List['SortField']):
-        dashboard_filters (Any):
+        dashboard_filters (Any): This AnyType is an alias for any
+            The goal is to make it easier to identify any type in the codebase
+            without having to eslint-disable all the time
+            These are only used on legacy `any` types, don't use it for new types.
+            This is added on a separate file to avoid circular dependencies.
         auto_refresh (Union[Unset, bool]):
         granularity (Union[Unset, DateGranularity]):
         invalidate_cache (Union[Unset, bool]):

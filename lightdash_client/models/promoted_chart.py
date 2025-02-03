@@ -32,18 +32,18 @@ class PromotedChart:
     """
     Attributes:
         name (str):
-        uuid (str):
-        space_name (str):
-        space_uuid (str):
         project_uuid (str):
+        uuid (str):
+        space_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        pinned_list_order (Union[None, float]):
+        slug (str):
+        space_name (str):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
-        slug (str):
-        table_name (str):
         updated_at (datetime.datetime):
-        pinned_list_order (Union[None, float]):
+        table_name (str):
         metric_query (MetricQuery):
         chart_config (Union['BigNumberConfig', 'CartesianChartConfig', 'CustomVisConfig', 'FunnelChartConfig',
             'PieChartConfig', 'TableChartConfig']):
@@ -57,18 +57,18 @@ class PromotedChart:
     """
 
     name: str
-    uuid: str
-    space_name: str
-    space_uuid: str
     project_uuid: str
+    uuid: str
+    space_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    pinned_list_order: Union[None, float]
+    slug: str
+    space_name: str
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
-    slug: str
-    table_name: str
     updated_at: datetime.datetime
-    pinned_list_order: Union[None, float]
+    table_name: str
     metric_query: "MetricQuery"
     chart_config: Union[
         "BigNumberConfig",
@@ -105,18 +105,23 @@ class PromotedChart:
 
         name = self.name
 
+        project_uuid = self.project_uuid
+
         uuid = self.uuid
 
-        space_name = self.space_name
-
         space_uuid = self.space_uuid
-
-        project_uuid = self.project_uuid
 
         organization_uuid = self.organization_uuid
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
+
+        pinned_list_order: Union[None, float]
+        pinned_list_order = self.pinned_list_order
+
+        slug = self.slug
+
+        space_name = self.space_name
 
         dashboard_uuid: Union[None, str]
         dashboard_uuid = self.dashboard_uuid
@@ -124,14 +129,9 @@ class PromotedChart:
         dashboard_name: Union[None, str]
         dashboard_name = self.dashboard_name
 
-        slug = self.slug
-
-        table_name = self.table_name
-
         updated_at = self.updated_at.isoformat()
 
-        pinned_list_order: Union[None, float]
-        pinned_list_order = self.pinned_list_order
+        table_name = self.table_name
 
         metric_query = self.metric_query.to_dict()
 
@@ -172,18 +172,18 @@ class PromotedChart:
         field_dict.update(
             {
                 "name": name,
-                "uuid": uuid,
-                "spaceName": space_name,
-                "spaceUuid": space_uuid,
                 "projectUuid": project_uuid,
+                "uuid": uuid,
+                "spaceUuid": space_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "pinnedListOrder": pinned_list_order,
+                "slug": slug,
+                "spaceName": space_name,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
-                "slug": slug,
-                "tableName": table_name,
                 "updatedAt": updated_at,
-                "pinnedListOrder": pinned_list_order,
+                "tableName": table_name,
                 "metricQuery": metric_query,
                 "chartConfig": chart_config,
                 "tableConfig": table_config,
@@ -221,13 +221,11 @@ class PromotedChart:
         d = src_dict.copy()
         name = d.pop("name")
 
+        project_uuid = d.pop("projectUuid")
+
         uuid = d.pop("uuid")
 
-        space_name = d.pop("spaceName")
-
         space_uuid = d.pop("spaceUuid")
-
-        project_uuid = d.pop("projectUuid")
 
         organization_uuid = d.pop("organizationUuid")
 
@@ -237,6 +235,17 @@ class PromotedChart:
             return cast(Union[None, str], data)
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
+
+        def _parse_pinned_list_order(data: object) -> Union[None, float]:
+            if data is None:
+                return data
+            return cast(Union[None, float], data)
+
+        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
+
+        slug = d.pop("slug")
+
+        space_name = d.pop("spaceName")
 
         def _parse_dashboard_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -252,18 +261,9 @@ class PromotedChart:
 
         dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
 
-        slug = d.pop("slug")
-
-        table_name = d.pop("tableName")
-
         updated_at = isoparse(d.pop("updatedAt"))
 
-        def _parse_pinned_list_order(data: object) -> Union[None, float]:
-            if data is None:
-                return data
-            return cast(Union[None, float], data)
-
-        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
+        table_name = d.pop("tableName")
 
         metric_query = MetricQuery.from_dict(d.pop("metricQuery"))
 
@@ -351,18 +351,18 @@ class PromotedChart:
 
         promoted_chart = cls(
             name=name,
-            uuid=uuid,
-            space_name=space_name,
-            space_uuid=space_uuid,
             project_uuid=project_uuid,
+            uuid=uuid,
+            space_uuid=space_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            pinned_list_order=pinned_list_order,
+            slug=slug,
+            space_name=space_name,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
-            slug=slug,
-            table_name=table_name,
             updated_at=updated_at,
-            pinned_list_order=pinned_list_order,
+            table_name=table_name,
             metric_query=metric_query,
             chart_config=chart_config,
             table_config=table_config,

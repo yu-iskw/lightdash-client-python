@@ -15,20 +15,20 @@ class PickValidationResponseErrorOrCreatedAtOrValidationId:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        validation_id (float):
         created_at (datetime.datetime):
+        validation_id (float):
         error (str):
     """
 
-    validation_id: float
     created_at: datetime.datetime
+    validation_id: float
     error: str
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        validation_id = self.validation_id
-
         created_at = self.created_at.isoformat()
+
+        validation_id = self.validation_id
 
         error = self.error
 
@@ -36,8 +36,8 @@ class PickValidationResponseErrorOrCreatedAtOrValidationId:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "validationId": validation_id,
                 "createdAt": created_at,
+                "validationId": validation_id,
                 "error": error,
             }
         )
@@ -47,15 +47,15 @@ class PickValidationResponseErrorOrCreatedAtOrValidationId:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        validation_id = d.pop("validationId")
-
         created_at = isoparse(d.pop("createdAt"))
+
+        validation_id = d.pop("validationId")
 
         error = d.pop("error")
 
         pick_validation_response_error_or_created_at_or_validation_id = cls(
-            validation_id=validation_id,
             created_at=created_at,
+            validation_id=validation_id,
             error=error,
         )
 

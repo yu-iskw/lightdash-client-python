@@ -9,6 +9,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.dashboard_chart_tile import DashboardChartTile
+    from ..models.dashboard_config import DashboardConfig
     from ..models.dashboard_filters import DashboardFilters
     from ..models.dashboard_loom_tile import DashboardLoomTile
     from ..models.dashboard_markdown_tile import DashboardMarkdownTile
@@ -45,6 +46,7 @@ class Dashboard:
         dashboard_version_id (float):
         project_uuid (str):
         organization_uuid (str):
+        config (Union[Unset, DashboardConfig]):
         updated_by_user (Union[Unset, UpdatedByUser]):
         description (Union[Unset, str]):
     """
@@ -75,12 +77,14 @@ class Dashboard:
     dashboard_version_id: float
     project_uuid: str
     organization_uuid: str
+    config: Union[Unset, "DashboardConfig"] = UNSET
     updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
     description: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         from ..models.dashboard_chart_tile import DashboardChartTile
+        from ..models.dashboard_config import DashboardConfig
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
@@ -158,6 +162,10 @@ class Dashboard:
 
         organization_uuid = self.organization_uuid
 
+        config: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.config, Unset):
+            config = self.config.to_dict()
+
         updated_by_user: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.updated_by_user, Unset):
             updated_by_user = self.updated_by_user.to_dict()
@@ -188,6 +196,8 @@ class Dashboard:
                 "organizationUuid": organization_uuid,
             }
         )
+        if config is not UNSET:
+            field_dict["config"] = config
         if updated_by_user is not UNSET:
             field_dict["updatedByUser"] = updated_by_user
         if description is not UNSET:
@@ -198,6 +208,7 @@ class Dashboard:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.dashboard_chart_tile import DashboardChartTile
+        from ..models.dashboard_config import DashboardConfig
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_loom_tile import DashboardLoomTile
         from ..models.dashboard_markdown_tile import DashboardMarkdownTile
@@ -348,6 +359,13 @@ class Dashboard:
 
         organization_uuid = d.pop("organizationUuid")
 
+        _config = d.pop("config", UNSET)
+        config: Union[Unset, DashboardConfig]
+        if isinstance(_config, Unset):
+            config = UNSET
+        else:
+            config = DashboardConfig.from_dict(_config)
+
         _updated_by_user = d.pop("updatedByUser", UNSET)
         updated_by_user: Union[Unset, UpdatedByUser]
         if isinstance(_updated_by_user, Unset):
@@ -376,6 +394,7 @@ class Dashboard:
             dashboard_version_id=dashboard_version_id,
             project_uuid=project_uuid,
             organization_uuid=organization_uuid,
+            config=config,
             updated_by_user=updated_by_user,
             description=description,
         )

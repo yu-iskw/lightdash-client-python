@@ -6,17 +6,33 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_dashboard_as_code_list_response import ApiDashboardAsCodeListResponse
-from ...types import UNSET, Response
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
     project_uuid: str,
+    *,
+    ids: Union[Unset, List[str]] = UNSET,
+    offset: Union[Unset, float] = UNSET,
 ) -> Dict[str, Any]:
+    params: Dict[str, Any] = {}
+
+    json_ids: Union[Unset, List[str]] = UNSET
+    if not isinstance(ids, Unset):
+        json_ids = ids
+
+    params["ids"] = json_ids
+
+    params["offset"] = offset
+
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+
     _kwargs: Dict[str, Any] = {
         "method": "get",
         "url": "/api/v1/projects/{projectUuid}/dashboards/code".format(
             projectUuid=project_uuid,
         ),
+        "params": params,
     }
 
     return _kwargs
@@ -50,10 +66,14 @@ def sync_detailed(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    ids: Union[Unset, List[str]] = UNSET,
+    offset: Union[Unset, float] = UNSET,
 ) -> Response[ApiDashboardAsCodeListResponse]:
     """
     Args:
         project_uuid (str):
+        ids (Union[Unset, List[str]]):
+        offset (Union[Unset, float]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -65,6 +85,8 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        ids=ids,
+        offset=offset,
     )
 
     response = client.get_httpx_client().request(
@@ -78,10 +100,14 @@ def sync(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    ids: Union[Unset, List[str]] = UNSET,
+    offset: Union[Unset, float] = UNSET,
 ) -> Optional[ApiDashboardAsCodeListResponse]:
     """
     Args:
         project_uuid (str):
+        ids (Union[Unset, List[str]]):
+        offset (Union[Unset, float]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -94,6 +120,8 @@ def sync(
     return sync_detailed(
         project_uuid=project_uuid,
         client=client,
+        ids=ids,
+        offset=offset,
     ).parsed
 
 
@@ -101,10 +129,14 @@ async def asyncio_detailed(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    ids: Union[Unset, List[str]] = UNSET,
+    offset: Union[Unset, float] = UNSET,
 ) -> Response[ApiDashboardAsCodeListResponse]:
     """
     Args:
         project_uuid (str):
+        ids (Union[Unset, List[str]]):
+        offset (Union[Unset, float]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,6 +148,8 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         project_uuid=project_uuid,
+        ids=ids,
+        offset=offset,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -127,10 +161,14 @@ async def asyncio(
     project_uuid: str,
     *,
     client: Union[AuthenticatedClient, Client],
+    ids: Union[Unset, List[str]] = UNSET,
+    offset: Union[Unset, float] = UNSET,
 ) -> Optional[ApiDashboardAsCodeListResponse]:
     """
     Args:
         project_uuid (str):
+        ids (Union[Unset, List[str]]):
+        offset (Union[Unset, float]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -144,5 +182,7 @@ async def asyncio(
         await asyncio_detailed(
             project_uuid=project_uuid,
             client=client,
+            ids=ids,
+            offset=offset,
         )
     ).parsed

@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, TextIO, T
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.dbt_version_option_latest import DbtVersionOptionLatest
 from ..models.project_type import ProjectType
 from ..models.supported_dbt_versions import SupportedDbtVersions
 from ..types import UNSET, Unset
@@ -46,7 +47,7 @@ class Project:
     Attributes:
         created_by_user_uuid (Union[None, str]):
         scheduler_timezone (str):
-        dbt_version (SupportedDbtVersions):
+        dbt_version (Union[DbtVersionOptionLatest, SupportedDbtVersions]):
         dbt_connection (Union['DbtAzureDevOpsProjectConfig', 'DbtBitBucketProjectConfig', 'DbtCloudIDEProjectConfig',
             'DbtGithubProjectConfig', 'DbtGitlabProjectConfig', 'DbtLocalProjectConfig', 'DbtNoneProjectConfig']):
         type (ProjectType):
@@ -67,7 +68,7 @@ class Project:
 
     created_by_user_uuid: Union[None, str]
     scheduler_timezone: str
-    dbt_version: SupportedDbtVersions
+    dbt_version: Union[DbtVersionOptionLatest, SupportedDbtVersions]
     dbt_connection: Union[
         "DbtAzureDevOpsProjectConfig",
         "DbtBitBucketProjectConfig",
@@ -129,7 +130,11 @@ class Project:
 
         scheduler_timezone = self.scheduler_timezone
 
-        dbt_version = self.dbt_version.value
+        dbt_version: str
+        if isinstance(self.dbt_version, SupportedDbtVersions):
+            dbt_version = self.dbt_version.value
+        else:
+            dbt_version = self.dbt_version.value
 
         dbt_connection: Dict[str, Any]
         if isinstance(self.dbt_connection, DbtLocalProjectConfig):
@@ -264,7 +269,22 @@ class Project:
 
         scheduler_timezone = d.pop("schedulerTimezone")
 
-        dbt_version = SupportedDbtVersions(d.pop("dbtVersion"))
+        def _parse_dbt_version(data: object) -> Union[DbtVersionOptionLatest, SupportedDbtVersions]:
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                componentsschemas_dbt_version_option_type_0 = SupportedDbtVersions(data)
+
+                return componentsschemas_dbt_version_option_type_0
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, str):
+                raise TypeError()
+            componentsschemas_dbt_version_option_type_1 = DbtVersionOptionLatest(data)
+
+            return componentsschemas_dbt_version_option_type_1
+
+        dbt_version = _parse_dbt_version(d.pop("dbtVersion"))
 
         def _parse_dbt_connection(
             data: object,

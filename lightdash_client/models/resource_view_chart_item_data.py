@@ -28,16 +28,16 @@ class ResourceViewChartItemData:
         uuid (str):
         space_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        pinned_list_order (Union[None, float]):
         slug (str):
         updated_at (datetime.datetime):
         views (float):
         first_viewed_at (Union[None, datetime.datetime, str]):
-        pinned_list_order (Union[None, float]):
         description (Union[Unset, str]):
-        chart_kind (Union[Unset, ChartKind]):
         updated_by_user (Union[Unset, UpdatedByUser]):
         validation_errors (Union[Unset, List['PickValidationResponseErrorOrCreatedAtOrValidationId']]):
         chart_type (Union[Unset, ChartType]):
+        chart_kind (Union[Unset, ChartKind]):
         source (Union[Unset, ChartSourceType]):
     """
 
@@ -45,16 +45,16 @@ class ResourceViewChartItemData:
     uuid: str
     space_uuid: str
     pinned_list_uuid: Union[None, str]
+    pinned_list_order: Union[None, float]
     slug: str
     updated_at: datetime.datetime
     views: float
     first_viewed_at: Union[None, datetime.datetime, str]
-    pinned_list_order: Union[None, float]
     description: Union[Unset, str] = UNSET
-    chart_kind: Union[Unset, ChartKind] = UNSET
     updated_by_user: Union[Unset, "UpdatedByUser"] = UNSET
     validation_errors: Union[Unset, List["PickValidationResponseErrorOrCreatedAtOrValidationId"]] = UNSET
     chart_type: Union[Unset, ChartType] = UNSET
+    chart_kind: Union[Unset, ChartKind] = UNSET
     source: Union[Unset, ChartSourceType] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -73,6 +73,9 @@ class ResourceViewChartItemData:
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
+        pinned_list_order: Union[None, float]
+        pinned_list_order = self.pinned_list_order
+
         slug = self.slug
 
         updated_at = self.updated_at.isoformat()
@@ -85,14 +88,7 @@ class ResourceViewChartItemData:
         else:
             first_viewed_at = self.first_viewed_at
 
-        pinned_list_order: Union[None, float]
-        pinned_list_order = self.pinned_list_order
-
         description = self.description
-
-        chart_kind: Union[Unset, str] = UNSET
-        if not isinstance(self.chart_kind, Unset):
-            chart_kind = self.chart_kind.value
 
         updated_by_user: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.updated_by_user, Unset):
@@ -109,6 +105,10 @@ class ResourceViewChartItemData:
         if not isinstance(self.chart_type, Unset):
             chart_type = self.chart_type.value
 
+        chart_kind: Union[Unset, str] = UNSET
+        if not isinstance(self.chart_kind, Unset):
+            chart_kind = self.chart_kind.value
+
         source: Union[Unset, str] = UNSET
         if not isinstance(self.source, Unset):
             source = self.source.value
@@ -121,23 +121,23 @@ class ResourceViewChartItemData:
                 "uuid": uuid,
                 "spaceUuid": space_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "pinnedListOrder": pinned_list_order,
                 "slug": slug,
                 "updatedAt": updated_at,
                 "views": views,
                 "firstViewedAt": first_viewed_at,
-                "pinnedListOrder": pinned_list_order,
             }
         )
         if description is not UNSET:
             field_dict["description"] = description
-        if chart_kind is not UNSET:
-            field_dict["chartKind"] = chart_kind
         if updated_by_user is not UNSET:
             field_dict["updatedByUser"] = updated_by_user
         if validation_errors is not UNSET:
             field_dict["validationErrors"] = validation_errors
         if chart_type is not UNSET:
             field_dict["chartType"] = chart_type
+        if chart_kind is not UNSET:
+            field_dict["chartKind"] = chart_kind
         if source is not UNSET:
             field_dict["source"] = source
 
@@ -164,6 +164,13 @@ class ResourceViewChartItemData:
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
+        def _parse_pinned_list_order(data: object) -> Union[None, float]:
+            if data is None:
+                return data
+            return cast(Union[None, float], data)
+
+        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
+
         slug = d.pop("slug")
 
         updated_at = isoparse(d.pop("updatedAt"))
@@ -176,30 +183,16 @@ class ResourceViewChartItemData:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                first_viewed_at_type_0 = isoparse(data)
+                first_viewed_at_type_1 = isoparse(data)
 
-                return first_viewed_at_type_0
+                return first_viewed_at_type_1
             except:  # noqa: E722
                 pass
             return cast(Union[None, datetime.datetime, str], data)
 
         first_viewed_at = _parse_first_viewed_at(d.pop("firstViewedAt"))
 
-        def _parse_pinned_list_order(data: object) -> Union[None, float]:
-            if data is None:
-                return data
-            return cast(Union[None, float], data)
-
-        pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
-
         description = d.pop("description", UNSET)
-
-        _chart_kind = d.pop("chartKind", UNSET)
-        chart_kind: Union[Unset, ChartKind]
-        if isinstance(_chart_kind, Unset):
-            chart_kind = UNSET
-        else:
-            chart_kind = ChartKind(_chart_kind)
 
         _updated_by_user = d.pop("updatedByUser", UNSET)
         updated_by_user: Union[Unset, UpdatedByUser]
@@ -224,6 +217,13 @@ class ResourceViewChartItemData:
         else:
             chart_type = ChartType(_chart_type)
 
+        _chart_kind = d.pop("chartKind", UNSET)
+        chart_kind: Union[Unset, ChartKind]
+        if isinstance(_chart_kind, Unset):
+            chart_kind = UNSET
+        else:
+            chart_kind = ChartKind(_chart_kind)
+
         _source = d.pop("source", UNSET)
         source: Union[Unset, ChartSourceType]
         if isinstance(_source, Unset):
@@ -236,16 +236,16 @@ class ResourceViewChartItemData:
             uuid=uuid,
             space_uuid=space_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            pinned_list_order=pinned_list_order,
             slug=slug,
             updated_at=updated_at,
             views=views,
             first_viewed_at=first_viewed_at,
-            pinned_list_order=pinned_list_order,
             description=description,
-            chart_kind=chart_kind,
             updated_by_user=updated_by_user,
             validation_errors=validation_errors,
             chart_type=chart_type,
+            chart_kind=chart_kind,
             source=source,
         )
 

@@ -21,6 +21,7 @@ class PieChart:
     """
     Attributes:
         metadata (Union[Unset, RecordStringSeriesMetadata]): Construct a type with a set of properties K of type T
+        legend_max_item_length (Union[Unset, float]):
         legend_position (Union[Unset, PieChartLegendPosition]):
         show_legend (Union[Unset, bool]):
         group_sort_overrides (Union[Unset, List[str]]):
@@ -37,6 +38,7 @@ class PieChart:
     """
 
     metadata: Union[Unset, "RecordStringSeriesMetadata"] = UNSET
+    legend_max_item_length: Union[Unset, float] = UNSET
     legend_position: Union[Unset, PieChartLegendPosition] = UNSET
     show_legend: Union[Unset, bool] = UNSET
     group_sort_overrides: Union[Unset, List[str]] = UNSET
@@ -59,6 +61,8 @@ class PieChart:
         metadata: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.metadata, Unset):
             metadata = self.metadata.to_dict()
+
+        legend_max_item_length = self.legend_max_item_length
 
         legend_position: Union[Unset, str] = UNSET
         if not isinstance(self.legend_position, Unset):
@@ -103,6 +107,8 @@ class PieChart:
         field_dict.update({})
         if metadata is not UNSET:
             field_dict["metadata"] = metadata
+        if legend_max_item_length is not UNSET:
+            field_dict["legendMaxItemLength"] = legend_max_item_length
         if legend_position is not UNSET:
             field_dict["legendPosition"] = legend_position
         if show_legend is not UNSET:
@@ -143,6 +149,8 @@ class PieChart:
             metadata = UNSET
         else:
             metadata = RecordStringSeriesMetadata.from_dict(_metadata)
+
+        legend_max_item_length = d.pop("legendMaxItemLength", UNSET)
 
         _legend_position = d.pop("legendPosition", UNSET)
         legend_position: Union[Unset, PieChartLegendPosition]
@@ -197,6 +205,7 @@ class PieChart:
 
         pie_chart = cls(
             metadata=metadata,
+            legend_max_item_length=legend_max_item_length,
             legend_position=legend_position,
             show_legend=show_legend,
             group_sort_overrides=group_sort_overrides,

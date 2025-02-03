@@ -17,8 +17,8 @@ class ValidationErrorTableResponse:
     """
     Attributes:
         project_uuid (str):
-        validation_id (float):
         created_at (datetime.datetime):
+        validation_id (float):
         error (str):
         error_type (ValidationErrorType):
         space_uuid (Union[Unset, str]):
@@ -27,8 +27,8 @@ class ValidationErrorTableResponse:
     """
 
     project_uuid: str
-    validation_id: float
     created_at: datetime.datetime
+    validation_id: float
     error: str
     error_type: ValidationErrorType
     space_uuid: Union[Unset, str] = UNSET
@@ -39,9 +39,9 @@ class ValidationErrorTableResponse:
     def to_dict(self) -> Dict[str, Any]:
         project_uuid = self.project_uuid
 
-        validation_id = self.validation_id
-
         created_at = self.created_at.isoformat()
+
+        validation_id = self.validation_id
 
         error = self.error
 
@@ -60,8 +60,8 @@ class ValidationErrorTableResponse:
         field_dict.update(
             {
                 "projectUuid": project_uuid,
-                "validationId": validation_id,
                 "createdAt": created_at,
+                "validationId": validation_id,
                 "error": error,
                 "errorType": error_type,
             }
@@ -80,9 +80,9 @@ class ValidationErrorTableResponse:
         d = src_dict.copy()
         project_uuid = d.pop("projectUuid")
 
-        validation_id = d.pop("validationId")
-
         created_at = isoparse(d.pop("createdAt"))
+
+        validation_id = d.pop("validationId")
 
         error = d.pop("error")
 
@@ -101,8 +101,8 @@ class ValidationErrorTableResponse:
 
         validation_error_table_response = cls(
             project_uuid=project_uuid,
-            validation_id=validation_id,
             created_at=created_at,
+            validation_id=validation_id,
             error=error,
             error_type=error_type,
             space_uuid=space_uuid,

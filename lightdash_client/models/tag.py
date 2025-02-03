@@ -21,6 +21,7 @@ class Tag:
     """
     Attributes:
         created_by (Union['PickLightdashUserUserUuidOrFirstNameOrLastName', None]):
+        yaml_reference (Union[None, str]):
         created_at (datetime.datetime):
         color (str):
         name (str):
@@ -29,6 +30,7 @@ class Tag:
     """
 
     created_by: Union["PickLightdashUserUserUuidOrFirstNameOrLastName", None]
+    yaml_reference: Union[None, str]
     created_at: datetime.datetime
     color: str
     name: str
@@ -47,6 +49,9 @@ class Tag:
         else:
             created_by = self.created_by
 
+        yaml_reference: Union[None, str]
+        yaml_reference = self.yaml_reference
+
         created_at = self.created_at.isoformat()
 
         color = self.color
@@ -62,6 +67,7 @@ class Tag:
         field_dict.update(
             {
                 "createdBy": created_by,
+                "yamlReference": yaml_reference,
                 "createdAt": created_at,
                 "color": color,
                 "name": name,
@@ -95,6 +101,13 @@ class Tag:
 
         created_by = _parse_created_by(d.pop("createdBy"))
 
+        def _parse_yaml_reference(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        yaml_reference = _parse_yaml_reference(d.pop("yamlReference"))
+
         created_at = isoparse(d.pop("createdAt"))
 
         color = d.pop("color")
@@ -107,6 +120,7 @@ class Tag:
 
         tag = cls(
             created_by=created_by,
+            yaml_reference=yaml_reference,
             created_at=created_at,
             color=color,
             name=name,

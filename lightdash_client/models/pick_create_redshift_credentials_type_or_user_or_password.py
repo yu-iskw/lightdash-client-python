@@ -14,20 +14,20 @@ class PickCreateRedshiftCredentialsTypeOrUserOrPassword:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        type (WarehouseTypesREDSHIFT):
         user (str):
+        type (WarehouseTypesREDSHIFT):
         password (str):
     """
 
-    type: WarehouseTypesREDSHIFT
     user: str
+    type: WarehouseTypesREDSHIFT
     password: str
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        type = self.type.value
-
         user = self.user
+
+        type = self.type.value
 
         password = self.password
 
@@ -35,8 +35,8 @@ class PickCreateRedshiftCredentialsTypeOrUserOrPassword:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "type": type,
                 "user": user,
+                "type": type,
                 "password": password,
             }
         )
@@ -46,15 +46,15 @@ class PickCreateRedshiftCredentialsTypeOrUserOrPassword:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        type = WarehouseTypesREDSHIFT(d.pop("type"))
-
         user = d.pop("user")
+
+        type = WarehouseTypesREDSHIFT(d.pop("type"))
 
         password = d.pop("password")
 
         pick_create_redshift_credentials_type_or_user_or_password = cls(
-            type=type,
             user=user,
+            type=type,
             password=password,
         )
 

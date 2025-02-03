@@ -10,7 +10,7 @@ from ..types import UNSET, Unset
 if TYPE_CHECKING:
     from ..models.dashboard_filters import DashboardFilters
     from ..models.dashboard_tab import DashboardTab
-    from ..models.dashboard_tile_without_uuids import DashboardTileWithoutUuids
+    from ..models.dashboard_tile_as_code import DashboardTileAsCode
 
 
 T = TypeVar("T", bound="DashboardAsCode")
@@ -27,7 +27,7 @@ class DashboardAsCode:
         tabs (List['DashboardTab']):
         space_slug (str):
         version (float):
-        tiles (List['DashboardTileWithoutUuids']):
+        tiles (List['DashboardTileAsCode']):
         description (Union[Unset, str]):
         downloaded_at (Union[Unset, datetime.datetime]):
     """
@@ -39,7 +39,7 @@ class DashboardAsCode:
     tabs: List["DashboardTab"]
     space_slug: str
     version: float
-    tiles: List["DashboardTileWithoutUuids"]
+    tiles: List["DashboardTileAsCode"]
     description: Union[Unset, str] = UNSET
     downloaded_at: Union[Unset, datetime.datetime] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -47,7 +47,7 @@ class DashboardAsCode:
     def to_dict(self) -> Dict[str, Any]:
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_tab import DashboardTab
-        from ..models.dashboard_tile_without_uuids import DashboardTileWithoutUuids
+        from ..models.dashboard_tile_as_code import DashboardTileAsCode
 
         name = self.name
 
@@ -102,7 +102,7 @@ class DashboardAsCode:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.dashboard_filters import DashboardFilters
         from ..models.dashboard_tab import DashboardTab
-        from ..models.dashboard_tile_without_uuids import DashboardTileWithoutUuids
+        from ..models.dashboard_tile_as_code import DashboardTileAsCode
 
         d = src_dict.copy()
         name = d.pop("name")
@@ -127,7 +127,7 @@ class DashboardAsCode:
         tiles = []
         _tiles = d.pop("tiles")
         for tiles_item_data in _tiles:
-            tiles_item = DashboardTileWithoutUuids.from_dict(tiles_item_data)
+            tiles_item = DashboardTileAsCode.from_dict(tiles_item_data)
 
             tiles.append(tiles_item)
 

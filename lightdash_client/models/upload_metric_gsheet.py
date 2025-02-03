@@ -8,6 +8,7 @@ from ..types import UNSET, Unset
 if TYPE_CHECKING:
     from ..models.custom_label import CustomLabel
     from ..models.metric_query_response import MetricQueryResponse
+    from ..models.pivot_config import PivotConfig
 
 
 T = TypeVar("T", bound="UploadMetricGsheet")
@@ -22,6 +23,7 @@ class UploadMetricGsheet:
         metric_query (MetricQueryResponse):
         explore_id (str):
         project_uuid (str):
+        pivot_config (Union[Unset, PivotConfig]):
         hidden_fields (Union[Unset, List[str]]):
         custom_labels (Union[Unset, CustomLabel]):
     """
@@ -31,6 +33,7 @@ class UploadMetricGsheet:
     metric_query: "MetricQueryResponse"
     explore_id: str
     project_uuid: str
+    pivot_config: Union[Unset, "PivotConfig"] = UNSET
     hidden_fields: Union[Unset, List[str]] = UNSET
     custom_labels: Union[Unset, "CustomLabel"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -38,6 +41,7 @@ class UploadMetricGsheet:
     def to_dict(self) -> Dict[str, Any]:
         from ..models.custom_label import CustomLabel
         from ..models.metric_query_response import MetricQueryResponse
+        from ..models.pivot_config import PivotConfig
 
         column_order = self.column_order
 
@@ -48,6 +52,10 @@ class UploadMetricGsheet:
         explore_id = self.explore_id
 
         project_uuid = self.project_uuid
+
+        pivot_config: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.pivot_config, Unset):
+            pivot_config = self.pivot_config.to_dict()
 
         hidden_fields: Union[Unset, List[str]] = UNSET
         if not isinstance(self.hidden_fields, Unset):
@@ -68,6 +76,8 @@ class UploadMetricGsheet:
                 "projectUuid": project_uuid,
             }
         )
+        if pivot_config is not UNSET:
+            field_dict["pivotConfig"] = pivot_config
         if hidden_fields is not UNSET:
             field_dict["hiddenFields"] = hidden_fields
         if custom_labels is not UNSET:
@@ -79,6 +89,7 @@ class UploadMetricGsheet:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.custom_label import CustomLabel
         from ..models.metric_query_response import MetricQueryResponse
+        from ..models.pivot_config import PivotConfig
 
         d = src_dict.copy()
         column_order = cast(List[str], d.pop("columnOrder"))
@@ -90,6 +101,13 @@ class UploadMetricGsheet:
         explore_id = d.pop("exploreId")
 
         project_uuid = d.pop("projectUuid")
+
+        _pivot_config = d.pop("pivotConfig", UNSET)
+        pivot_config: Union[Unset, PivotConfig]
+        if isinstance(_pivot_config, Unset):
+            pivot_config = UNSET
+        else:
+            pivot_config = PivotConfig.from_dict(_pivot_config)
 
         hidden_fields = cast(List[str], d.pop("hiddenFields", UNSET))
 
@@ -106,6 +124,7 @@ class UploadMetricGsheet:
             metric_query=metric_query,
             explore_id=explore_id,
             project_uuid=project_uuid,
+            pivot_config=pivot_config,
             hidden_fields=hidden_fields,
             custom_labels=custom_labels,
         )

@@ -11,6 +11,7 @@ from ..models.metric_type import MetricType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.compiled_metric_spotlight import CompiledMetricSpotlight
     from ..models.custom_format import CustomFormat
     from ..models.default_time_dimension import DefaultTimeDimension
     from ..models.field_url import FieldUrl
@@ -55,6 +56,7 @@ class CompiledMetric:
         required_attributes (Union[Unset, RecordStringStringOrStringArray]): Construct a type with a set of properties K
             of type T
         default_time_dimension (Union[Unset, DefaultTimeDimension]):
+        spotlight (Union[Unset, CompiledMetricSpotlight]):
         tables_references (Union[Unset, List[str]]):
         tables_required_attributes (Union[Unset, RecordStringRecordStringStringOrStringArray]): Construct a type with a
             set of properties K of type T
@@ -87,11 +89,13 @@ class CompiledMetric:
     dimension_reference: Union[Unset, str] = UNSET
     required_attributes: Union[Unset, "RecordStringStringOrStringArray"] = UNSET
     default_time_dimension: Union[Unset, "DefaultTimeDimension"] = UNSET
+    spotlight: Union[Unset, "CompiledMetricSpotlight"] = UNSET
     tables_references: Union[Unset, List[str]] = UNSET
     tables_required_attributes: Union[Unset, "RecordStringRecordStringStringOrStringArray"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.compiled_metric_spotlight import CompiledMetricSpotlight
         from ..models.custom_format import CustomFormat
         from ..models.default_time_dimension import DefaultTimeDimension
         from ..models.field_url import FieldUrl
@@ -188,6 +192,10 @@ class CompiledMetric:
         if not isinstance(self.default_time_dimension, Unset):
             default_time_dimension = self.default_time_dimension.to_dict()
 
+        spotlight: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.spotlight, Unset):
+            spotlight = self.spotlight.to_dict()
+
         tables_references: Union[Unset, List[str]] = UNSET
         if not isinstance(self.tables_references, Unset):
             tables_references = self.tables_references
@@ -246,6 +254,8 @@ class CompiledMetric:
             field_dict["requiredAttributes"] = required_attributes
         if default_time_dimension is not UNSET:
             field_dict["defaultTimeDimension"] = default_time_dimension
+        if spotlight is not UNSET:
+            field_dict["spotlight"] = spotlight
         if tables_references is not UNSET:
             field_dict["tablesReferences"] = tables_references
         if tables_required_attributes is not UNSET:
@@ -255,6 +265,7 @@ class CompiledMetric:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.compiled_metric_spotlight import CompiledMetricSpotlight
         from ..models.custom_format import CustomFormat
         from ..models.default_time_dimension import DefaultTimeDimension
         from ..models.field_url import FieldUrl
@@ -372,6 +383,13 @@ class CompiledMetric:
         else:
             default_time_dimension = DefaultTimeDimension.from_dict(_default_time_dimension)
 
+        _spotlight = d.pop("spotlight", UNSET)
+        spotlight: Union[Unset, CompiledMetricSpotlight]
+        if isinstance(_spotlight, Unset):
+            spotlight = UNSET
+        else:
+            spotlight = CompiledMetricSpotlight.from_dict(_spotlight)
+
         tables_references = cast(List[str], d.pop("tablesReferences", UNSET))
 
         _tables_required_attributes = d.pop("tablesRequiredAttributes", UNSET)
@@ -411,6 +429,7 @@ class CompiledMetric:
             dimension_reference=dimension_reference,
             required_attributes=required_attributes,
             default_time_dimension=default_time_dimension,
+            spotlight=spotlight,
             tables_references=tables_references,
             tables_required_attributes=tables_required_attributes,
         )

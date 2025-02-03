@@ -7,7 +7,7 @@ from ..models.api_chart_as_code_list_response_status import ApiChartAsCodeListRe
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.chart_as_code import ChartAsCode
+    from ..models.api_chart_as_code_list_response_results import ApiChartAsCodeListResponseResults
 
 
 T = TypeVar("T", bound="ApiChartAsCodeListResponse")
@@ -17,21 +17,18 @@ T = TypeVar("T", bound="ApiChartAsCodeListResponse")
 class ApiChartAsCodeListResponse:
     """
     Attributes:
-        results (List['ChartAsCode']):
+        results (ApiChartAsCodeListResponseResults):
         status (ApiChartAsCodeListResponseStatus):
     """
 
-    results: List["ChartAsCode"]
+    results: "ApiChartAsCodeListResponseResults"
     status: ApiChartAsCodeListResponseStatus
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.chart_as_code import ChartAsCode
+        from ..models.api_chart_as_code_list_response_results import ApiChartAsCodeListResponseResults
 
-        results = []
-        for results_item_data in self.results:
-            results_item = results_item_data.to_dict()
-            results.append(results_item)
+        results = self.results.to_dict()
 
         status = self.status.value
 
@@ -48,15 +45,10 @@ class ApiChartAsCodeListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.chart_as_code import ChartAsCode
+        from ..models.api_chart_as_code_list_response_results import ApiChartAsCodeListResponseResults
 
         d = src_dict.copy()
-        results = []
-        _results = d.pop("results")
-        for results_item_data in _results:
-            results_item = ChartAsCode.from_dict(results_item_data)
-
-            results.append(results_item)
+        results = ApiChartAsCodeListResponseResults.from_dict(d.pop("results"))
 
         status = ApiChartAsCodeListResponseStatus(d.pop("status"))
 

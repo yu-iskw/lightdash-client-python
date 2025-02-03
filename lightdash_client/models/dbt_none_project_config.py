@@ -20,12 +20,14 @@ class DbtNoneProjectConfig:
         type (DbtProjectTypeNONE):
         target (Union[Unset, str]):
         environment (Union[Unset, List['DbtProjectEnvironmentVariable']]):
+        selector (Union[Unset, str]):
         hide_refresh_button (Union[Unset, bool]):
     """
 
     type: DbtProjectTypeNONE
     target: Union[Unset, str] = UNSET
     environment: Union[Unset, List["DbtProjectEnvironmentVariable"]] = UNSET
+    selector: Union[Unset, str] = UNSET
     hide_refresh_button: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -43,6 +45,8 @@ class DbtNoneProjectConfig:
                 environment_item = environment_item_data.to_dict()
                 environment.append(environment_item)
 
+        selector = self.selector
+
         hide_refresh_button = self.hide_refresh_button
 
         field_dict: Dict[str, Any] = {}
@@ -56,6 +60,8 @@ class DbtNoneProjectConfig:
             field_dict["target"] = target
         if environment is not UNSET:
             field_dict["environment"] = environment
+        if selector is not UNSET:
+            field_dict["selector"] = selector
         if hide_refresh_button is not UNSET:
             field_dict["hideRefreshButton"] = hide_refresh_button
 
@@ -77,12 +83,15 @@ class DbtNoneProjectConfig:
 
             environment.append(environment_item)
 
+        selector = d.pop("selector", UNSET)
+
         hide_refresh_button = d.pop("hideRefreshButton", UNSET)
 
         dbt_none_project_config = cls(
             type=type,
             target=target,
             environment=environment,
+            selector=selector,
             hide_refresh_button=hide_refresh_button,
         )
 

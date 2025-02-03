@@ -17,54 +17,54 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
 
     Attributes:
         name (str):
-        uuid (str):
-        space_name (str):
-        space_uuid (str):
         project_uuid (str):
+        uuid (str):
+        space_uuid (str):
         organization_uuid (str):
         pinned_list_uuid (Union[None, str]):
+        slug (str):
+        space_name (str):
         dashboard_uuid (Union[None, str]):
         dashboard_name (Union[None, str]):
-        slug (str):
         description (Union[Unset, str]):
     """
 
     name: str
-    uuid: str
-    space_name: str
-    space_uuid: str
     project_uuid: str
+    uuid: str
+    space_uuid: str
     organization_uuid: str
     pinned_list_uuid: Union[None, str]
+    slug: str
+    space_name: str
     dashboard_uuid: Union[None, str]
     dashboard_name: Union[None, str]
-    slug: str
     description: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
 
+        project_uuid = self.project_uuid
+
         uuid = self.uuid
 
-        space_name = self.space_name
-
         space_uuid = self.space_uuid
-
-        project_uuid = self.project_uuid
 
         organization_uuid = self.organization_uuid
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
+        slug = self.slug
+
+        space_name = self.space_name
+
         dashboard_uuid: Union[None, str]
         dashboard_uuid = self.dashboard_uuid
 
         dashboard_name: Union[None, str]
         dashboard_name = self.dashboard_name
-
-        slug = self.slug
 
         description = self.description
 
@@ -73,15 +73,15 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
         field_dict.update(
             {
                 "name": name,
-                "uuid": uuid,
-                "spaceName": space_name,
-                "spaceUuid": space_uuid,
                 "projectUuid": project_uuid,
+                "uuid": uuid,
+                "spaceUuid": space_uuid,
                 "organizationUuid": organization_uuid,
                 "pinnedListUuid": pinned_list_uuid,
+                "slug": slug,
+                "spaceName": space_name,
                 "dashboardUuid": dashboard_uuid,
                 "dashboardName": dashboard_name,
-                "slug": slug,
             }
         )
         if description is not UNSET:
@@ -94,13 +94,11 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
         d = src_dict.copy()
         name = d.pop("name")
 
+        project_uuid = d.pop("projectUuid")
+
         uuid = d.pop("uuid")
 
-        space_name = d.pop("spaceName")
-
         space_uuid = d.pop("spaceUuid")
-
-        project_uuid = d.pop("projectUuid")
 
         organization_uuid = d.pop("organizationUuid")
 
@@ -110,6 +108,10 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
             return cast(Union[None, str], data)
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
+
+        slug = d.pop("slug")
+
+        space_name = d.pop("spaceName")
 
         def _parse_dashboard_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -125,21 +127,19 @@ class PickSavedChartUuidOrNameOrDescriptionOrSpaceNameOrSpaceUuidOrProjectUuidOr
 
         dashboard_name = _parse_dashboard_name(d.pop("dashboardName"))
 
-        slug = d.pop("slug")
-
         description = d.pop("description", UNSET)
 
         pick_saved_chart_uuid_or_name_or_description_or_space_name_or_space_uuid_or_project_uuid_or_organization_uuid_or_pinned_list_uuid_or_dashboard_uuid_or_dashboard_name_or_slug = cls(
             name=name,
-            uuid=uuid,
-            space_name=space_name,
-            space_uuid=space_uuid,
             project_uuid=project_uuid,
+            uuid=uuid,
+            space_uuid=space_uuid,
             organization_uuid=organization_uuid,
             pinned_list_uuid=pinned_list_uuid,
+            slug=slug,
+            space_name=space_name,
             dashboard_uuid=dashboard_uuid,
             dashboard_name=dashboard_name,
-            slug=slug,
             description=description,
         )
 

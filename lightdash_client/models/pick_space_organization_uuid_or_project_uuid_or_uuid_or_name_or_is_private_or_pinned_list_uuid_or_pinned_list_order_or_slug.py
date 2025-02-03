@@ -16,56 +16,56 @@ class PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListU
 
     Attributes:
         name (str):
-        uuid (str):
         project_uuid (str):
+        uuid (str):
         organization_uuid (str):
-        pinned_list_uuid (Union[None, str]):
-        slug (str):
         is_private (bool):
+        pinned_list_uuid (Union[None, str]):
         pinned_list_order (Union[None, float]):
+        slug (str):
     """
 
     name: str
-    uuid: str
     project_uuid: str
+    uuid: str
     organization_uuid: str
-    pinned_list_uuid: Union[None, str]
-    slug: str
     is_private: bool
+    pinned_list_uuid: Union[None, str]
     pinned_list_order: Union[None, float]
+    slug: str
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
 
-        uuid = self.uuid
-
         project_uuid = self.project_uuid
 
+        uuid = self.uuid
+
         organization_uuid = self.organization_uuid
+
+        is_private = self.is_private
 
         pinned_list_uuid: Union[None, str]
         pinned_list_uuid = self.pinned_list_uuid
 
-        slug = self.slug
-
-        is_private = self.is_private
-
         pinned_list_order: Union[None, float]
         pinned_list_order = self.pinned_list_order
+
+        slug = self.slug
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "name": name,
-                "uuid": uuid,
                 "projectUuid": project_uuid,
+                "uuid": uuid,
                 "organizationUuid": organization_uuid,
-                "pinnedListUuid": pinned_list_uuid,
-                "slug": slug,
                 "isPrivate": is_private,
+                "pinnedListUuid": pinned_list_uuid,
                 "pinnedListOrder": pinned_list_order,
+                "slug": slug,
             }
         )
 
@@ -76,11 +76,13 @@ class PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListU
         d = src_dict.copy()
         name = d.pop("name")
 
-        uuid = d.pop("uuid")
-
         project_uuid = d.pop("projectUuid")
 
+        uuid = d.pop("uuid")
+
         organization_uuid = d.pop("organizationUuid")
+
+        is_private = d.pop("isPrivate")
 
         def _parse_pinned_list_uuid(data: object) -> Union[None, str]:
             if data is None:
@@ -89,10 +91,6 @@ class PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListU
 
         pinned_list_uuid = _parse_pinned_list_uuid(d.pop("pinnedListUuid"))
 
-        slug = d.pop("slug")
-
-        is_private = d.pop("isPrivate")
-
         def _parse_pinned_list_order(data: object) -> Union[None, float]:
             if data is None:
                 return data
@@ -100,15 +98,17 @@ class PickSpaceOrganizationUuidOrProjectUuidOrUuidOrNameOrIsPrivateOrPinnedListU
 
         pinned_list_order = _parse_pinned_list_order(d.pop("pinnedListOrder"))
 
+        slug = d.pop("slug")
+
         pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_slug = cls(
             name=name,
-            uuid=uuid,
             project_uuid=project_uuid,
+            uuid=uuid,
             organization_uuid=organization_uuid,
-            pinned_list_uuid=pinned_list_uuid,
-            slug=slug,
             is_private=is_private,
+            pinned_list_uuid=pinned_list_uuid,
             pinned_list_order=pinned_list_order,
+            slug=slug,
         )
 
         pick_space_organization_uuid_or_project_uuid_or_uuid_or_name_or_is_private_or_pinned_list_uuid_or_pinned_list_order_or_slug.additional_properties = d

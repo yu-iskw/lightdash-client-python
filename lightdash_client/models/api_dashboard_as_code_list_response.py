@@ -7,7 +7,7 @@ from ..models.api_dashboard_as_code_list_response_status import ApiDashboardAsCo
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.dashboard_as_code import DashboardAsCode
+    from ..models.api_dashboard_as_code_list_response_results import ApiDashboardAsCodeListResponseResults
 
 
 T = TypeVar("T", bound="ApiDashboardAsCodeListResponse")
@@ -17,21 +17,18 @@ T = TypeVar("T", bound="ApiDashboardAsCodeListResponse")
 class ApiDashboardAsCodeListResponse:
     """
     Attributes:
-        results (List['DashboardAsCode']):
+        results (ApiDashboardAsCodeListResponseResults):
         status (ApiDashboardAsCodeListResponseStatus):
     """
 
-    results: List["DashboardAsCode"]
+    results: "ApiDashboardAsCodeListResponseResults"
     status: ApiDashboardAsCodeListResponseStatus
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.dashboard_as_code import DashboardAsCode
+        from ..models.api_dashboard_as_code_list_response_results import ApiDashboardAsCodeListResponseResults
 
-        results = []
-        for results_item_data in self.results:
-            results_item = results_item_data.to_dict()
-            results.append(results_item)
+        results = self.results.to_dict()
 
         status = self.status.value
 
@@ -48,15 +45,10 @@ class ApiDashboardAsCodeListResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.dashboard_as_code import DashboardAsCode
+        from ..models.api_dashboard_as_code_list_response_results import ApiDashboardAsCodeListResponseResults
 
         d = src_dict.copy()
-        results = []
-        _results = d.pop("results")
-        for results_item_data in _results:
-            results_item = DashboardAsCode.from_dict(results_item_data)
-
-            results.append(results_item)
+        results = ApiDashboardAsCodeListResponseResults.from_dict(d.pop("results"))
 
         status = ApiDashboardAsCodeListResponseStatus(d.pop("status"))
 
