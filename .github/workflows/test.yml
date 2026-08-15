@@ -25,16 +25,8 @@ jobs:
         uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
         with:
           enable-cache: true
-      - name: Install supported Python versions
-        run: uv python install 3.9 3.10 3.11 3.12
-      - name: Run tests across Python versions in parallel
-        run: |
-          set -euo pipefail
-          nox_spec='nox[uv]==2026.7.11'
-          uvx --from "${nox_spec}" nox --list >/dev/null
-          printf '%s\0' 3.9 3.10 3.11 3.12 \
-            | xargs -0 -P "$(nproc)" -I{} \
-                uvx --from "${nox_spec}" nox --session "tests-{}"
+      - name: Run compatibility tests
+        run: uv run --with "nox[uv]==2026.7.11" bash dev/test_all.sh
       - name: Test installation on primary Python
         run: |
           uv venv --python 3.12
