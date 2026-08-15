@@ -5,13 +5,19 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.draft == false }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ${{ fromJSON(github.event_name == 'pull_request' && '["3.12"]' || '["3.9","3.10","3.11","3.12"]') }}
       fail-fast: false
 
     defaults:
@@ -32,9 +38,6 @@ jobs:
       - name: Install Flit
         if: steps.cache.outputs.cache-hit != 'true'
         run: bash dev/setup.sh
-#      - name: Lint
-#        run: |
-#          pre-commit run --all-files
       - name: Run tests
         run: bash dev/test_python.sh
       - name: Test installation
