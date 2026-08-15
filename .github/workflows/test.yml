@@ -14,33 +14,29 @@ concurrency:
 jobs:
   test:
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.draft == false }}
+    name: Test supported Python versions
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ${{ fromJSON(github.event_name == 'pull_request' && '["3.12"]' || '["3.9","3.10","3.11","3.12"]') }}
-      fail-fast: false
-
     defaults:
       run:
         shell: bash
-
     steps:
       - uses: actions/checkout@v5
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - name: Set up uv
+        uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
         with:
-          python-version: ${{ matrix.python-version }}
-      - uses: actions/cache@v5
-        id: cache
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test
-      - name: Install Flit
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: bash dev/setup.sh
-      - name: Run tests
-        run: bash dev/test_python.sh
-      - name: Test installation
+          enable-cache: true
+      - name: Install supported Python versions
+        run: uv python install 3.9 3.10 3.11 3.12
+      - name: Run tests across Python versions in parallel
         run: |
-          pip install -e .
-          python -c 'import lightdash_client; print(lightdash_client.__version__)'
+          set -euo pipefail
+          nox_spec='nox[uv]==2026.7.11'
+          uvx --from "${nox_spec}" nox --list >/dev/null
+          printf '%s\0' 3.9 3.10 3.11 3.12 \
+            | xargs -0 -P "$(nproc)" -I{} \
+                uvx --from "${nox_spec}" nox --session "tests-{}"
+      - name: Test installation on primary Python
+        run: |
+          uv venv --python 3.12
+          uv pip install -e .
+          uv run python -c 'import lightdash_client; print(lightdash_client.__version__)'
