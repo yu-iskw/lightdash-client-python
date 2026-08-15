@@ -5,39 +5,29 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
+    name: Test supported Python versions
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-      fail-fast: false
-
     defaults:
       run:
         shell: bash
-
     steps:
       - uses: actions/checkout@v5
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - name: Set up uv
+        uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
         with:
-          python-version: ${{ matrix.python-version }}
-      - uses: actions/cache@v5
-        id: cache
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test
-      - name: Install Flit
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: bash dev/setup.sh
-#      - name: Lint
-#        run: |
-#          pre-commit run --all-files
-      - name: Run tests
-        run: bash dev/test_python.sh
-      - name: Test installation
+          enable-cache: true
+      - name: Run compatibility tests
+        run: uv run --with "nox[uv]==2026.7.11" bash dev/test_all.sh
+      - name: Test installation on primary Python
         run: |
-          pip install -e .
-          python -c 'import lightdash_client; print(lightdash_client.__version__)'
+          uv venv --python 3.12
+          uv pip install -e .
+          uv run python -c 'import lightdash_client; print(lightdash_client.__version__)'
